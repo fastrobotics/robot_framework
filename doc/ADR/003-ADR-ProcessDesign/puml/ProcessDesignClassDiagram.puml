@@ -1,3 +1,33 @@
 @startuml
 title Process Design Class Diagram
+namespace fast::fr::BlahSystem::BlahSubsystem {
+abstract IBlahNameProcess
+note right of IBlahNameProcess
+An interface class for a Process.
+  - Should contain NO implementation.
+end note
+abstract BaseBlahNameProcess
+IBlahNameProcess <|-- BaseBlahNameProcess
+note right of BaseBlahNameProcess
+An abstract class for a Process.
+  - Should contain all COMMON implementation
+end note
+class BasicBlahNameProcess
+BaseBlahNameProcess <|-- BasicBlahNameProcess
+note bottom of BasicBlahNameProcess
+A trivial concrete implementation of the Process
+end note
+class DummyBlahNameProcess
+BaseBlahNameProcess <|-- DummyBlahNameProcess
+note bottom of DummyBlahNameProcess
+A concrete implementation of the Process
+  - Provides dummy data useful for testing and validation
+end note
+class OtherBlahNameProcess
+BaseBlahNameProcess <|-- OtherBlahNameProcess
+note bottom of OtherBlahNameProcess
+Other concrete implementation's of the Process.
+  - May be may of these.
+end note
+}
 @enduml

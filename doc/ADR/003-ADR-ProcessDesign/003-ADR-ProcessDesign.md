@@ -21,6 +21,9 @@ Processes should follow a `Facade` Design Pattern.
 
 ## Interface Design
 
+Processes should be designed according to the following:
+![](puml/ProcessDesignClassDiagram.png)
+
 # Alternatives Investigated
 
 # Implications
