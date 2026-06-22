@@ -22,6 +22,7 @@ BaseBlahNameProcess <|-- DummyBlahNameProcess
 note bottom of DummyBlahNameProcess
 A concrete implementation of the Process
   - Provides dummy data useful for testing and validation
+  - Minimal dependency on other systems/subsystems/processes (NOT ZERO)
 end note
 class OtherBlahNameProcess
 BaseBlahNameProcess <|-- OtherBlahNameProcess
