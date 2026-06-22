@@ -1,0 +1,5 @@
+{
+  "plantuml.jar": "/home/davidgitz/other_packages/plantuml.jar",
+  "plantuml.render": "PlantUMLServer",
+  "plantuml.server": "https://www.plantuml.com/plantuml"
+}
