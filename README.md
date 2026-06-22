@@ -2,9 +2,12 @@
 
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
 - [Architecture Decision Records](#architecture-decision-records)
+- [Architecture](#architecture)
 - [Setup](#setup)
 
 # [Architecture Decision Records](doc/ADR.md)
+
+# [Architecture](doc/Architecture.md)
 
 # Setup
 

@@ -9,4 +9,4 @@
 | READY  | [Process Design](ADR/003-ADR-ProcessDesign/003-ADR-ProcessDesign.md)                                           |
 | READY  | [Middleware Agnostic](ADR/004-ADR-MiddlewareAgnostic/004-ADR-MiddlewareAgnostic.md)                            |
 | READY  | [Dependency Management](ADR/005-ADR-DependencyManagement/005-ADR-DependencyManagement.md)                      |
-| DRAFT  | [Architecture Characteristics](ADR/006-ADR-ArchitectureCharacteristics/006-ADR-ArchitectureCharacteristics.md) |
+| READY  | [Architecture Characteristics](ADR/006-ADR-ArchitectureCharacteristics/006-ADR-ArchitectureCharacteristics.md) |

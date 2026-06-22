@@ -1,0 +1,9 @@
+@startuml
+class Default
+class Investigating #Yellow
+class Developing #Orange
+class TrivialComplete #Pink
+class MinimalComplete #LimeGreen
+class FullyComplete #Cyan
+class Skipped #Red
+@enduml
