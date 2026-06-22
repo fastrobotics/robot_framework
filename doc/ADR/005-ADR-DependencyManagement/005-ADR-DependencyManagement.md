@@ -1,15 +1,17 @@
-[Architecture Decision Records](../ADR.md)
+[Architecture Decision Records](../../ADR.md)
 
-- [ADR: ](#adr-)
+- [ADR: Dependency Management](#adr-dependency-management)
 - [Description](#description)
 - [Alternatives Investigated](#alternatives-investigated)
 - [Implications](#implications)
 - [Follow-up](#follow-up)
 - [Deviations](#deviations)
 
-# ADR: <Name>
+# ADR: Dependency Management
 
 # Description
+
+The following details the dependencies allowed at all levels in this Robot Framework:
 
 # Alternatives Investigated
 

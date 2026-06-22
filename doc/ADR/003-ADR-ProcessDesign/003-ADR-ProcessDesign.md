@@ -40,3 +40,5 @@ If this practice is not standardized, the benefits detailed above won't be avail
 # Follow-up
 
 # Deviations
+
+Not following this practice may be unavoidable in some exceptions. These are detailed below:
