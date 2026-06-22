@@ -13,6 +13,8 @@
 
 The following details the dependencies allowed at all levels in this Robot Framework:
 
+![](dia/DependencyManagement.svg)
+
 # Alternatives Investigated
 
 # Implications
