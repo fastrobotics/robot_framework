@@ -1,0 +1,39 @@
+@startuml
+title System-Pose Package Diagram
+
+namespace fast::rf {
+  namespace messages {
+    class PoseMsg <<(M,#FFFF00) >>
+  }
+  namespace PoseSystem {
+    together {
+      namespace InertialSensorSubsystem {
+        interface IInertialSensorSubsystem
+
+      }
+      namespace GlobalSensorSubsystem {
+        interface IGlobalSensorSubsystem
+      }
+      namespace GlobalPoseSubsystem {
+        interface IGlobalPoseSubsystem
+      }
+      namespace LocalPoseSubsystem {
+        interface ILocalPoseSubsystem
+      }
+    }
+    interface IPoseSystem {
+    }
+    abstract BasePoseSystem {
+    }
+    IPoseSystem <|-- BasePoseSystem
+    class BasicPoseSystem {
+
+    }
+    BasePoseSystem <|-- BasicPoseSystem
+    class DummyPoseSystem {
+
+    }
+    BasePoseSystem <|-- DummyPoseSystem
+  }
+}
+@enduml

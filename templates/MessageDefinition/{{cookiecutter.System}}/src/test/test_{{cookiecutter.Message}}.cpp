@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 #include <stdio.h>
-using namespace fast::fr::messages;
+using namespace fast::rf::messages;
 TEST(Msg{Message}, DefaultZeroConstructor) {
   {{cookiecutter.Message}}Msg SUT;
   ASSERT_TRUE(false);

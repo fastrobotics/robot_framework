@@ -1,7 +1,7 @@
 @startuml
 title System-Awareness Package Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace messages {
     class AwarenessMsg <<(M,#FFFF00) >>
     class PoseMsg <<(M,#FFFF00) >>

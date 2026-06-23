@@ -1,7 +1,7 @@
 @startuml
 title Awareness Msg Class Diagram
 
-namespace fast::fr::messages {
+namespace fast::rf::messages {
   namespace Pose {
     class PoseMsg <<(M,#FFFF00) >>
   }

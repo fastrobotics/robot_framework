@@ -1,7 +1,7 @@
 @startuml
 title Pose Message Package Diagram
 
-namespace fast::fr::messages {
+namespace fast::rf::messages {
   namespace Pose {
     struct PointMsg <<(M,#FFFF00) >> {
       +double x

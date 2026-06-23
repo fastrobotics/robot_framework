@@ -18,17 +18,17 @@ Note that at the System level, only some number of interfaces are called out. Th
 
 # Systems
 
-| Status | System                                                   |
-| ------ | -------------------------------------------------------- |
-| DRAFT  | [Awareness](../../Systems/Awareness/System-Awareness.md) |
-| NEW    | Comms                                                    |
-| NEW    | Data Storage                                             |
-| NEW    | Goal Planning                                            |
-| NEW    | Implement Control                                        |
-| NEW    | Mode Control                                             |
-| NEW    | Navigation                                               |
-| NEW    | Perception                                               |
-| DRAFT  | [Pose](../../Systems/Pose/doc/System-Pose.md)            |
-| NEW    | Safety                                                   |
-| NEW    | Terrain                                                  |
-| NEW    | User Interface                                           |
+| Status | System                                                       |
+| ------ | ------------------------------------------------------------ |
+| DRAFT  | [Awareness](../../Systems/Awareness/doc/System-Awareness.md) |
+| NEW    | Comms                                                        |
+| NEW    | Data Storage                                                 |
+| NEW    | Goal Planning                                                |
+| NEW    | Implement Control                                            |
+| NEW    | Mode Control                                                 |
+| NEW    | Navigation                                                   |
+| NEW    | Perception                                                   |
+| DRAFT  | [Pose](../../Systems/Pose/doc/System-Pose.md)                |
+| NEW    | Safety                                                       |
+| NEW    | Terrain                                                      |
+| NEW    | User Interface                                               |

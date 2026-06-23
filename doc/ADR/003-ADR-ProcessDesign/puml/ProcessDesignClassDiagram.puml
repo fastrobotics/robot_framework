@@ -1,6 +1,6 @@
 @startuml
 title Process Design Class Diagram
-namespace fast::fr::BlahSystem::BlahSubsystem {
+namespace fast::rf::BlahSystem::BlahSubsystem {
 abstract IBlahNameProcess
 note right of IBlahNameProcess
 An interface class for a Process.

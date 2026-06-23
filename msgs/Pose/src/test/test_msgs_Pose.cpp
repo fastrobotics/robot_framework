@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 #include <stdio.h>
-using namespace fast::fr::messages::Pose;
+using namespace fast::rf::messages::Pose;
 TEST(MsgPoint, DefaultZeroConstructor) {
   PointMsg SUT;
   ASSERT_FLOAT_EQ(SUT.x, 0.0);

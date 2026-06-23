@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-namespace fast::fr::messages::Pose {
+namespace fast::rf::messages::Pose {
 struct PointMsg {
   double x;
   double y;
@@ -13,4 +13,4 @@ struct PoseMsg {
 
   PoseMsg() {}
 };
-} // namespace fast::fr::messages::Pose
+} // namespace fast::rf::messages::Pose
