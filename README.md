@@ -4,6 +4,8 @@
 - [Architecture Decision Records](#architecture-decision-records)
 - [Architecture](#architecture)
 - [Setup](#setup)
+- [Build](#build)
+- [Run Unit Tests (after running Build)](#run-unit-tests-after-running-build)
 
 # [Architecture Decision Records](doc/ADR/ADR.md)
 
@@ -28,4 +30,23 @@ pushd ~/Downloads
 wget https://github.com/plantuml/plantuml/releases/download/v1.2026.6/plantuml-1.2026.6.jar
 sudo mv plantuml-*.jar /usr/bin/plantuml.jar
 popd
+```
+
+# Build
+
+Run the following:
+
+```bash
+cd <repo>
+mkdir build && cd build
+cmake ..;cmake --build .;cmake --install .
+```
+
+# Run Unit Tests (after running [Build](#build))
+
+Run the following:
+
+```bash
+cd <repo>
+ctest
 ```
