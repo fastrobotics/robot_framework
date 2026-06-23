@@ -5,9 +5,9 @@
 - [Architecture](#architecture)
 - [Setup](#setup)
 
-# [Architecture Decision Records](doc/ADR.md)
+# [Architecture Decision Records](doc/ADR/ADR.md)
 
-# [Architecture](doc/Architecture.md)
+# [Architecture](doc/Architecture/Architecture.md)
 
 # Setup
 

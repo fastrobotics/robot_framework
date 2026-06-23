@@ -1,0 +1,38 @@
+@startuml
+title System-Awareness Class Diagram
+
+namespace fast::fr::AwarenessSystem {
+  together {
+    namespace ObjectFusionSubsystem {
+
+    }
+    namespace GlobalAwarenessSubsystem {
+
+    }
+    namespace LocalAwarenessSubsystem {
+
+    }
+    namespace ObjectPredictionSubsystem {
+
+    }
+  }
+  interface IAwarenessSystem {
+    +{abstract} Object[] get_Objects()
+  }
+  abstract BaseAwarenessSystem {
+    +Object[] get_Objects()
+    -Object[] objects_
+  }
+  IAwarenessSystem <|-- BaseAwarenessSystem
+  class BasicAwarenessSystem {
+
+  }
+  BaseAwarenessSystem <|-- BasicAwarenessSystem
+  class DummyAwarenessSystem {
+    -void generate_dummy_objects()
+
+  }
+  BaseAwarenessSystem <|-- DummyAwarenessSystem
+  
+}
+@enduml
