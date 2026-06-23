@@ -1,0 +1,20 @@
+@startuml
+title Awareness Msg Class Diagram
+
+namespace fast::fr::messages {
+  namespace Pose {
+    class PoseMsg <<(M,#FFFF00) >>
+  }
+  namespace Awareness {
+  
+    class ObjectMsg <<(M,#FFFF00) >> {
+
+    }
+    ObjectMsg --> PoseMsg: <<use>>
+    class ObjectsMsg <<(M,#FFFF00) >> {
+
+    }
+    ObjectsMsg --> ObjectMsg: <<use>>
+    
+  }
+}

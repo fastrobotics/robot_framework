@@ -42,14 +42,18 @@ The Awareness System's role in the Robot Framework is to make the robot "Aware" 
 
 The following inputs are required in order for this system to properly function.
 
-| Input | Description | Requirement |
-| ----- | ----------- | ----------- |
+| Input   | DataType | Description                                    | Requirement     |
+| ------- | -------- | ---------------------------------------------- | --------------- |
+| EgoPose | Pose     | Represents the full 6D POSE of the Ego machine | 1. Global Frame |
 
 # Outputs
 
 The following outputs are provided by this system.
-| Output | Description | Usage |
-| --- | --- | --- |
+
+| Output        | DataType  | Description                                       | Usage                                                       |
+| ------------- | --------- | ------------------------------------------------- | ----------------------------------------------------------- |
+| GlobalObjects | Awareness | All Objects that the Awareness system knows about | Useful for navigation planning, especially past the horizon |
+| LocalObjects  | Awareness | Objects in the near vicinity of the system        | Useful for navigation planning around nearby objects        |
 
 # How It Works
 

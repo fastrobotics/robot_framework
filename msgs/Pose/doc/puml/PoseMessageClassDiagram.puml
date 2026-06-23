@@ -1,0 +1,16 @@
+@startuml
+title Pose Message Package Diagram
+
+namespace fast::fr::messages {
+  namespace Pose {
+    struct PointMsg <<(M,#FFFF00) >> {
+      +double x
+      +double y
+      +double z 
+    }
+    struct PoseMsg <<(M,#FFFF00) >> {
+      +PointMsg point
+    }
+    PoseMsg --> PointMsg: <<use>>
+  }
+}

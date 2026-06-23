@@ -1,6 +1,6 @@
 #pragma once
 namespace fast::fr::messages::Awareness {
-struct Object {
-  Object() {}
+struct ObjectMsg {
+  ObjectMsg() {}
 };
 } // namespace fast::fr::messages::Awareness

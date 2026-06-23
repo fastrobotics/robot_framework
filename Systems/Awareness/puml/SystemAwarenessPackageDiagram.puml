@@ -1,39 +1,44 @@
 @startuml
 title System-Awareness Package Diagram
 
-namespace fast::fr::AwarenessSystem {
-  together {
-    namespace ObjectFusionSubsystem {
-      interface IObjectFusionSubsystem
+namespace fast::fr {
+  namespace messages {
+    class AwarenessMsg <<(M,#FFFF00) >>
+    class PoseMsg <<(M,#FFFF00) >>
+  }
+  namespace AwarenessSystem {
+    together {
+      namespace ObjectFusionSubsystem {
+        interface IObjectFusionSubsystem
+
+      }
+      namespace GlobalAwarenessSubsystem {
+        interface IGlobalAwarenessSubsystem
+      }
+      namespace LocalAwarenessSubsystem {
+        interface ILocalAwarenessSubsystem
+      }
+      namespace ObjectPredictionSubsystem {
+        interface IObjectPredictionSubsystem
+      }
+    }
+    interface IAwarenessSystem {
+      +{abstract} Object[] get_Objects()
+    }
+    abstract BaseAwarenessSystem {
+      +Object[] get_Objects()
+      -Object[] objects_
+    }
+    IAwarenessSystem <|-- BaseAwarenessSystem
+    class BasicAwarenessSystem {
 
     }
-    namespace GlobalAwarenessSubsystem {
-      interface IGlobalAwarenessSubsystem
-    }
-    namespace LocalAwarenessSubsystem {
-      interface ILocalAwarenessSubsystem
-    }
-    namespace ObjectPredictionSubsystem {
-      interface IObjectPredictionSubsystem
-    }
-  }
-  interface IAwarenessSystem {
-    +{abstract} Object[] get_Objects()
-  }
-  abstract BaseAwarenessSystem {
-    +Object[] get_Objects()
-    -Object[] objects_
-  }
-  IAwarenessSystem <|-- BaseAwarenessSystem
-  class BasicAwarenessSystem {
+    BaseAwarenessSystem <|-- BasicAwarenessSystem
+    class DummyAwarenessSystem {
+      -void generate_dummy_objects()
 
+    }
+    BaseAwarenessSystem <|-- DummyAwarenessSystem
   }
-  BaseAwarenessSystem <|-- BasicAwarenessSystem
-  class DummyAwarenessSystem {
-    -void generate_dummy_objects()
-
-  }
-  BaseAwarenessSystem <|-- DummyAwarenessSystem
-  
 }
 @enduml
