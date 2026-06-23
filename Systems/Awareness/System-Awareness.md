@@ -36,6 +36,8 @@ The Awareness System's role in the Robot Framework is to make the robot "Aware" 
 
 # System Architecture
 
+![](dia/AwarenessSystemArchitecture.svg)
+
 # Inputs
 
 The following inputs are required in order for this system to properly function.
