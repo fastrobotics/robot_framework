@@ -3,6 +3,7 @@
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
 - [Architecture Decision Records](#architecture-decision-records)
 - [Architecture](#architecture)
+- [Messages](#messages)
 - [Setup](#setup)
 - [Build](#build)
 - [Run Unit Tests (after running Build)](#run-unit-tests-after-running-build)
@@ -11,6 +12,8 @@
 # [Architecture Decision Records](doc/ADR/ADR.md)
 
 # [Architecture](doc/Architecture/Architecture.md)
+
+# [Messages](msgs/doc/Messages.md)
 
 # Setup
 
