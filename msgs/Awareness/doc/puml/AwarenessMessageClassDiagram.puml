@@ -18,3 +18,4 @@ namespace fast::rf::messages {
     
   }
 }
+@enduml
