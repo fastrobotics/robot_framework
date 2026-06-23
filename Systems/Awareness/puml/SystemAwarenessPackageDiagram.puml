@@ -1,5 +1,5 @@
 @startuml
-title System-Awareness Class Diagram
+title System-Awareness Package Diagram
 
 namespace fast::fr::AwarenessSystem {
   together {
