@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="52cm" height="55cm" viewBox="-61 -101 1022 1082" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs/>
+<svg width="46cm" height="50cm" viewBox="-1 -71 902 992" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Background">
-    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-60" y="-100" width="1020" height="1080" rx="0" ry="0"/>
     <rect style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="280" y="0" width="620" height="460" rx="0" ry="0"/>
     <g>
       <rect style="fill: #00ff00; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="140" y="0" width="120" height="920" rx="0" ry="0"/>
