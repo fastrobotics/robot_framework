@@ -8,9 +8,28 @@ namespace fast::rf::messages {
       +double y
       +double z 
     }
-    struct PoseMsg <<(M,#FFFF00) >> {
+    struct PointWithCovarianceMsg <<(M,#FFFF00) >> {
       +PointMsg point
+      +double[36] covariance
     }
-    PoseMsg --> PointMsg: <<use>>
+    PointWithCovarianceMsg -up-> PointMsg: <<use>>
+    struct OrientationMsg <<(M,#FFFF00) >> {
+      +double roll
+      +double pitch
+      +double yaw
+    }
+    struct OrientationWithCovarianceMsg <<(M,#FFFF00) >> {
+      +OrientationMsg point
+      +double[36] covariance
+    }
+    OrientationWithCovarianceMsg -up-> OrientationMsg: <<use>>
+    
+
+    struct PoseMsg <<(M,#FFFF00) >> {
+      +PointWithCovarianceMsg point
+      +OrientationWithCovarianceMsg orientation
+    }
+    PoseMsg -up-> PointWithCovarianceMsg: <<use>>
+    PoseMsg -up-> OrientationWithCovarianceMsg: <<use>>
   }
 }
