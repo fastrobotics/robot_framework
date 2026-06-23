@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="80cm" height="51cm" viewBox="-361 -11 1582 1012" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="85cm" height="61cm" viewBox="-401 -41 1682 1202" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs/>
   <g id="Background">
+    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-400" y="-40" width="1680" height="1200" rx="0" ry="0"/>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-360" y="600" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-360" y="600" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-280" y="665.7">
         <tspan x="-280" y="665.7">Pose</tspan>
       </text>
@@ -13,61 +15,61 @@
       <tspan x="460" y="55.2778">System Level</tspan>
     </text>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-100" y="880" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-100" y="880" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20" y="945.7">
         <tspan x="-20" y="945.7">Mode Control</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="600" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="600" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="420" y="665.7">
         <tspan x="420" y="665.7">Safety</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="680" y="820" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="680" y="820" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="760" y="885.7">
         <tspan x="760" y="885.7">Navigation</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-360" y="260" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-360" y="260" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-280" y="325.7">
         <tspan x="-280" y="325.7">Perception</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="260" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="260" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="420" y="325.7">
         <tspan x="420" y="325.7">Awareness</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="80" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="340" y="80" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="420" y="145.7">
         <tspan x="420" y="145.7">Comms</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1060" y="880" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="1060" y="880" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1140" y="945.7">
         <tspan x="1140" y="945.7">Implement Control</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-340" y="880" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-340" y="880" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="945.7">
         <tspan x="-260" y="945.7">User Interface</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="640" y="320" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="640" y="320" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="720" y="385.7">
         <tspan x="720" y="385.7">Terrain</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="120" y="80" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="120" y="80" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="145.7">
         <tspan x="200" y="145.7">Data Storage</tspan>
       </text>
@@ -109,7 +111,7 @@
       <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="-102.236,940 -112.236,945 -109.736,940 -112.236,935 "/>
     </g>
     <g>
-      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="640" y="480" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="640" y="480" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="720" y="545.7">
         <tspan x="720" y="545.7">Goal Planning</tspan>
       </text>
