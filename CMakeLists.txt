@@ -19,3 +19,4 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_subdirectory(msgs)
+add_subdirectory(Systems)

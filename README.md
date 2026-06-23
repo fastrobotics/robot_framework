@@ -6,6 +6,7 @@
 - [Setup](#setup)
 - [Build](#build)
 - [Run Unit Tests (after running Build)](#run-unit-tests-after-running-build)
+- [Templates](#templates)
 
 # [Architecture Decision Records](doc/ADR/ADR.md)
 
@@ -30,7 +31,7 @@ pushd ~/Downloads
 wget https://github.com/plantuml/plantuml/releases/download/v1.2026.6/plantuml-1.2026.6.jar
 sudo mv plantuml-*.jar /usr/bin/plantuml.jar
 popd
-sudo snap install astral-uv --classic
+sudo apt install python3-cookiecutter
 ```
 
 # Build
@@ -50,4 +51,18 @@ Run the following:
 ```bash
 cd <repo>
 ctest
+```
+
+# Templates
+
+This project makes extensive use of cookiecutter templates.
+| Template | Folder | Use Case |
+| --- | --- | --- |
+| MessageDefinition | `templates/MessageDefinition/` | Used to create a middleware-agnostic Message Definition. |
+| System | `templates/System/` | Used to create a new System. |
+
+To use these templates, run:
+
+```bash
+cookiecutter <Template Folder containing cookiecutter.json> -o <Output Directory>
 ```
