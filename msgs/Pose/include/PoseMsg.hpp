@@ -11,6 +11,8 @@
 #pragma once
 #include <string>
 #include <vector>
+
+#include <StandardMsg.hpp>
 /**
  * @brief Pose Message Namespace
  *
@@ -42,9 +44,13 @@ struct OrientationMsg {
  *
  */
 struct OrientationWithCovarianceMsg {
+  /**
+   * @brief
+   *
+   */
   OrientationMsg orientation;
-  std::vector<double> covariance;
-  OrientationWithCovarianceMsg() { covariance.resize(36); }
+  fast::rf::messages::Standard::Covariance6DMsg covariance;
+  OrientationWithCovarianceMsg() {}
 };
 /**
  * @brief
@@ -63,8 +69,8 @@ struct PointMsg {
  */
 struct PointWithCovarianceMsg {
   PointMsg point;
-  std::vector<double> covariance;
-  PointWithCovarianceMsg() { covariance.resize(36); }
+  fast::rf::messages::Standard::Covariance6DMsg covariance;
+  PointWithCovarianceMsg() {}
 };
 /**
  * @brief

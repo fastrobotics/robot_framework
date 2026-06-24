@@ -1,0 +1,10 @@
+@startuml
+title Standard Message Package Diagram
+
+namespace fast::rf::messages {
+  namespace Standard  {
+    struct Covariance6DMsg <<(M,#FFFF00) >> #Orange {
+      +double[36] covariance
+    }
+}
+@enduml

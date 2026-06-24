@@ -2,6 +2,10 @@
 title Pose Message Package Diagram
 
 namespace fast::rf::messages {
+  namespace Standard {
+    class Covariance6DMsg <<(M,#FFFF00) >>
+  }
+
   namespace Pose  {
     struct PointMsg <<(M,#FFFF00) >> #Orange {
       +double x
@@ -10,9 +14,10 @@ namespace fast::rf::messages {
     }
     struct PointWithCovarianceMsg <<(M,#FFFF00) >>  #Orange {
       +PointMsg point
-      +double[36] covariance
+      +Covariance6DMsg covariance
     }
     PointWithCovarianceMsg -up-> PointMsg: <<use>>
+    PointWithCovarianceMsg -up-> Covariance6DMsg: <<use>>
     struct OrientationMsg <<(M,#FFFF00) >> #Orange {
       +double roll
       +double pitch
@@ -20,10 +25,10 @@ namespace fast::rf::messages {
     }
     struct OrientationWithCovarianceMsg <<(M,#FFFF00) >> #Orange {
       +OrientationMsg orientation
-      +double[36] covariance
+      +Covariance6DMsg covariance
     }
     OrientationWithCovarianceMsg -up-> OrientationMsg: <<use>>
-    
+    OrientationWithCovarianceMsg -up-> Covariance6DMsg: <<use>>
 
     struct PoseMsg <<(M,#FFFF00) >> #Orange {
       +PointWithCovarianceMsg point

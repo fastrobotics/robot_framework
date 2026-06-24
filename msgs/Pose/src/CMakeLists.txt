@@ -5,6 +5,7 @@ add_executable(
 target_link_libraries(
   test_msgs_Pose
   GTest::gtest_main
+  standard_msg
 )
 
 include(GoogleTest)

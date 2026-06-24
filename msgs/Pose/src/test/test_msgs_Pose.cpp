@@ -12,7 +12,7 @@ TEST(MsgPoint, DefaultZeroConstructor) {
 }
 TEST(MsgPointWithCovariance, DefaultZeroConstructor) {
   PointWithCovarianceMsg SUT;
-  ASSERT_EQ(SUT.covariance.size(), 36);
+  ASSERT_EQ(SUT.covariance.covariance.size(), 36);
 }
 TEST(MsgOrientation, DefaultZeroConstructor) {
   OrientationMsg SUT;
@@ -22,7 +22,7 @@ TEST(MsgOrientation, DefaultZeroConstructor) {
 }
 TEST(MsgOrientatioWithCovariance, DefaultZeroConstructor) {
   OrientationWithCovarianceMsg SUT;
-  ASSERT_EQ(SUT.covariance.size(), 36);
+  ASSERT_EQ(SUT.covariance.covariance.size(), 36);
 }
 TEST(MsgPose, DefaultZeroConstructor) {
   PoseMsg SUT;
