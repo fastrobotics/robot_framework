@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-#include <PoseMsg.hpp>
+#include <GeometryMsg.hpp>
 
 namespace fast::rf::PoseSystem {
 class IPoseSystem {
@@ -28,14 +28,14 @@ public:
   /**
    * @brief Get the global pose object
    *
-   * @return fast::rf::messages::Pose::PoseMsg
+   * @return fast::rf::messages::Geometry::OdomMsg
    */
-  virtual fast::rf::messages::Pose::PoseMsg get_global_pose() = 0;
+  virtual fast::rf::messages::Geometry::OdomMsg get_global_pose() = 0;
   /**
    * @brief Get the local pose object
    *
-   * @return fast::rf::messages::Pose::PoseMsg
+   * @return fast::rf::messages::Geometry::OdomMsg
    */
-  virtual fast::rf::messages::Pose::PoseMsg get_local_pose() = 0;
+  virtual fast::rf::messages::Geometry::OdomMsg get_local_pose() = 0;
 };
 } // namespace fast::rf::PoseSystem

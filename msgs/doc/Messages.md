@@ -10,6 +10,4 @@ The following is a listing of all messages created for this framework.
 
 ![](../Awareness/doc/puml/AwarenessMessageClassDiagram.png)
 
-# Pose
-
-![](../Pose/doc/puml/PoseMessageClassDiagram.png)
+# Geometry

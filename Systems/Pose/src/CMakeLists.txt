@@ -1,7 +1,7 @@
 include(GoogleTest)
 
 add_library(base_pose_system STATIC BasePoseSystem.cpp)
-target_link_libraries(base_pose_system pose_msg)
+target_link_libraries(base_pose_system geometry_msg)
 add_library(dummy_pose_system STATIC DummyPoseSystem/DummyPoseSystem.cpp)
 target_link_libraries(dummy_pose_system base_pose_system)
 
@@ -12,7 +12,7 @@ add_executable(
 target_link_libraries(
   test_system_Pose
   GTest::gtest_main
-  pose_msg
+  geometry_msg
   pose_system_interface
   base_pose_system
 )
@@ -27,7 +27,7 @@ add_executable(
 target_link_libraries(
   test_DummyPoseSystem
   GTest::gtest_main
-  pose_msg
+  geometry_msg
   
   dummy_pose_system
 )

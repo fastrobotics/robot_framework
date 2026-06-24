@@ -2,8 +2,8 @@
 title System-Pose Package Diagram
 
 namespace fast::rf {
-  namespace messages {
-    class PoseMsg <<(M,#FFFF00) >>
+  namespace messages::Geometry {
+    class OdomMsg <<(M,#FFFF00) >>
   }
   namespace PoseSystem {
     together {
@@ -23,16 +23,16 @@ namespace fast::rf {
     }
     interface IPoseSystem #Orange {
       +{abstract} bool update(double current_time_sec, double delta_time_sec)
-      +{abstract} PoseMsg get_global_pose()
-      +{abstract} PoseMsg get_local_pose()
+      +{abstract} OdomMsg get_global_pose()
+      +{abstract} OdomMsg get_local_pose()
     }
     abstract BasePoseSystem #Orange {
-      +PoseMsg get_global_pose()
-      +PoseMsg get_local_pose()
+      +OdomMsg get_global_pose()
+      +OdomMsg get_local_pose()
       #bool base_update(doublecurrent_time_sec, double delta_time_sec)
       #double current_time_sec_
-      #PoseMsg global_pose_
-      #PoseMsg local_pose_
+      #OdomMsg global_pose_
+      #OdomMsg local_pose_
     }
     IPoseSystem <|-- BasePoseSystem
     class BasicPoseSystem {

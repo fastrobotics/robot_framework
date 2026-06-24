@@ -5,7 +5,7 @@ add_executable(
 target_link_libraries(
   test_system_{{cookiecutter.System}}
   GTest::gtest_main
-  pose_msg
+  geometry_msg
 )
 
 include(GoogleTest)

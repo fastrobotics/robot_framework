@@ -1,5 +1,5 @@
 
-#include <PoseMsg.hpp>
+#include <GeometryMsg.hpp>
 
 #include <IPoseSystem.hpp>
 
@@ -11,7 +11,7 @@
 #include <stdio.h>
 using namespace fast::rf::messages;
 // Test message types typically owned by System
-TEST(MsgPose, DefaultZeroConstructor) { Pose::PoseMsg SUT; }
+TEST(MsgPose, DefaultZeroConstructor) { Geometry::OdomMsg SUT; }
 
 using namespace fast::rf::PoseSystem;
 // System Interface Tests
@@ -20,19 +20,19 @@ public:
   bool update(double current_time_sec, double delta_time_sec) override {
     return false;
   }
-  fast::rf::messages::Pose::PoseMsg get_global_pose() {
-    fast::rf::messages::Pose::PoseMsg global_pose;
+  fast::rf::messages::Geometry::OdomMsg get_global_pose() {
+    fast::rf::messages::Geometry::OdomMsg global_pose;
     return global_pose;
   }
-  fast::rf::messages::Pose::PoseMsg get_local_pose() {
-    fast::rf::messages::Pose::PoseMsg local_pose;
+  fast::rf::messages::Geometry::OdomMsg get_local_pose() {
+    fast::rf::messages::Geometry::OdomMsg local_pose;
     return local_pose;
   }
 };
 TEST(PoseSystemInterface, BasicAssertionsInterface) {
   TestConcreteSystemInterface SUT;
   ASSERT_FALSE(SUT.update(0.0, 0.0));
-  ASSERT_FLOAT_EQ(SUT.get_global_pose().point.point.x, 0.0);
+  ASSERT_FLOAT_EQ(SUT.get_global_pose().pose.pose.position.x, 0.0);
 }
 
 // System Base Class Tests
