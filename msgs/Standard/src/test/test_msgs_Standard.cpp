@@ -6,5 +6,6 @@
 using namespace fast::rf::messages::Standard;
 TEST(MsgCovariance6D, DefaultZeroConstructor) {
   Covariance6DMsg SUT;
-  ASSERT_EQ(SUT.covariance.size(), 36);
+  ASSERT_EQ(SUT.covariance.size(),
+            Covariance6DMsg::DIMENSION * Covariance6DMsg::DIMENSION);
 }

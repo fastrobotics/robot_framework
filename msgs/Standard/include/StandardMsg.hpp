@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <cstdint>
 #include <vector>
 /**
  * @brief Standard Message Namespace
@@ -25,7 +26,8 @@ struct Covariance6DMsg {
     @details blah
    *
    */
+  static inline constexpr uint16_t DIMENSION = 6;
   std::vector<double> covariance;
-  Covariance6DMsg() { covariance.resize(36); }
+  Covariance6DMsg() { covariance.resize(DIMENSION * DIMENSION); }
 };
 } // namespace fast::rf::messages::Standard

@@ -3,6 +3,7 @@
 
 #include <gtest/gtest.h>
 #include <stdio.h>
+using namespace fast::rf::messages::Standard;
 using namespace fast::rf::messages::Pose;
 TEST(MsgPoint, DefaultZeroConstructor) {
   PointMsg SUT;
@@ -12,7 +13,8 @@ TEST(MsgPoint, DefaultZeroConstructor) {
 }
 TEST(MsgPointWithCovariance, DefaultZeroConstructor) {
   PointWithCovarianceMsg SUT;
-  ASSERT_EQ(SUT.covariance.covariance.size(), 36);
+  ASSERT_EQ(SUT.covariance.covariance.size(),
+            Covariance6DMsg::DIMENSION * Covariance6DMsg::DIMENSION);
 }
 TEST(MsgOrientation, DefaultZeroConstructor) {
   OrientationMsg SUT;
@@ -22,7 +24,8 @@ TEST(MsgOrientation, DefaultZeroConstructor) {
 }
 TEST(MsgOrientatioWithCovariance, DefaultZeroConstructor) {
   OrientationWithCovarianceMsg SUT;
-  ASSERT_EQ(SUT.covariance.covariance.size(), 36);
+  ASSERT_EQ(SUT.covariance.covariance.size(),
+            Covariance6DMsg::DIMENSION * Covariance6DMsg::DIMENSION);
 }
 TEST(MsgPose, DefaultZeroConstructor) {
   PoseMsg SUT;
