@@ -21,8 +21,20 @@ namespace fast::rf::messages::Pose {
  *
  */
 struct OrientationMsg {
+  /**
+   * @brief Roll Angle in radians
+   *
+   */
   double roll;
+  /**
+   * @brief Pitch Angle in radians
+   *
+   */
   double pitch;
+  /**
+   * @brief Yaw Angle in radians
+   *
+   */
   double yaw;
 };
 /**
