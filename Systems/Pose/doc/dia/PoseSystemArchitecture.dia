@@ -28,7 +28,7 @@
           <dia:boolean val="false"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="0.42816385626792908"/>
+          <dia:real val="0.42816391587257385"/>
         </dia:attribute>
         <dia:attribute name="fitto">
           <dia:boolean val="true"/>
@@ -454,12 +454,12 @@
         <dia:point val="31,-3"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="31,-3.685;34.3775,-2.81"/>
+        <dia:rectangle val="31,-3.70688;36.0169,-2.76625"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#GlobalPose#</dia:string>
+            <dia:string>#GlobalOdometry#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -515,12 +515,12 @@
         <dia:point val="31,10"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="31,9.315;33.9975,10.19"/>
+        <dia:rectangle val="31,9.29312;35.6369,10.2337"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#LocalPose#</dia:string>
+            <dia:string>#LocalOdometry#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -682,7 +682,7 @@
         <dia:point val="3,13"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3,12.2931;7.85938,13.2337"/>
+        <dia:rectangle val="3,12.315;7.8375,13.19"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
