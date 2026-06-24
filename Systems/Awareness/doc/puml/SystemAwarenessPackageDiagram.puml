@@ -4,7 +4,7 @@ title System-Awareness Package Diagram
 namespace fast::rf {
   namespace messages {
     class AwarenessMsg <<(M,#FFFF00) >>
-    class PoseMsg <<(M,#FFFF00) >>
+    class OdomMsg <<(M,#FFFF00) >>
   }
   namespace AwarenessSystem {
     together {

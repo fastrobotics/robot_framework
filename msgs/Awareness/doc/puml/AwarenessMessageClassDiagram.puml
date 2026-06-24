@@ -2,15 +2,15 @@
 title Awareness Msg Class Diagram
 
 namespace fast::rf::messages {
-  namespace Pose {
-    class PoseMsg <<(M,#FFFF00) >>
+  namespace Geometry {
+    class OdomMsg <<(M,#FFFF00) >>
   }
   namespace Awareness {
   
     class ObjectMsg <<(M,#FFFF00) >> {
 
     }
-    ObjectMsg --> PoseMsg: <<use>>
+    ObjectMsg --> OdomMsg: <<use>>
     class ObjectsMsg <<(M,#FFFF00) >> {
 
     }
