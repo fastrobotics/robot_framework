@@ -35,21 +35,20 @@ TEST(PoseWithCovarianceMsg, DefaultZeroConstructor) {
   ASSERT_LT(SUT.covariance.covariance[PoseWithCovarianceMsg::COV_PITCH], 0.0);
   ASSERT_LT(SUT.covariance.covariance[PoseWithCovarianceMsg::COV_YAW], 0.0);
 }
-TEST(TwisthWithCovarianceMsg, DefaultZeroConstructor) {
-  TwisthWithCovarianceMsg SUT;
-  ASSERT_LT(SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_LINEAR_X],
+TEST(TwistWithCovarianceMsg, DefaultZeroConstructor) {
+  TwistWithCovarianceMsg SUT;
+  ASSERT_LT(SUT.covariance.covariance[TwistWithCovarianceMsg::COV_LINEAR_X],
             0.0);
-  ASSERT_LT(SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_LINEAR_Y],
+  ASSERT_LT(SUT.covariance.covariance[TwistWithCovarianceMsg::COV_LINEAR_Y],
             0.0);
-  ASSERT_LT(SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_LINEAR_Z],
+  ASSERT_LT(SUT.covariance.covariance[TwistWithCovarianceMsg::COV_LINEAR_Z],
+            0.0);
+  ASSERT_LT(SUT.covariance.covariance[TwistWithCovarianceMsg::COV_ANGULAR_ROLL],
             0.0);
   ASSERT_LT(
-      SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_ANGULAR_ROLL],
+      SUT.covariance.covariance[TwistWithCovarianceMsg::COV_ANGULAR_PITCH],
       0.0);
-  ASSERT_LT(
-      SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_ANGULAR_PITCH],
-      0.0);
-  ASSERT_LT(SUT.covariance.covariance[TwisthWithCovarianceMsg::COV_ANGULAR_YAW],
+  ASSERT_LT(SUT.covariance.covariance[TwistWithCovarianceMsg::COV_ANGULAR_YAW],
             0.0);
 }
 TEST(OdomMsg, DefaultZeroConstructor) {

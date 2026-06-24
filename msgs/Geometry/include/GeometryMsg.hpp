@@ -85,7 +85,7 @@ struct PoseWithCovarianceMsg {
  * @brief Data Structure for encoding Velocity and Covariance
  *
  */
-struct TwisthWithCovarianceMsg {
+struct TwistWithCovarianceMsg {
   static inline constexpr uint16_t COV_LINEAR_X =
       Covariance6DMsg::X1; //<! Covariance representing X Linear Velocity.
   static inline constexpr uint16_t COV_LINEAR_Y =
@@ -100,7 +100,7 @@ struct TwisthWithCovarianceMsg {
       Covariance6DMsg::X6;    //<! Covariance representing Yaw Angular Velocity.
   TwistMsg twist;             //!< 6D Velocity
   Covariance6DMsg covariance; //!< Error estimate of velocity
-  TwisthWithCovarianceMsg() {};
+  TwistWithCovarianceMsg() {};
 };
 
 /**
@@ -108,9 +108,9 @@ struct TwisthWithCovarianceMsg {
  *
  */
 struct OdomMsg {
-  double time_stamp;             //!< Timestamp of reported odometry
-  PoseWithCovarianceMsg pose;    //!< Pose and Error Estimate
-  TwisthWithCovarianceMsg twist; //!< Velocity and Error Estimate
+  double time_stamp;            //!< Timestamp of reported odometry
+  PoseWithCovarianceMsg pose;   //!< Pose and Error Estimate
+  TwistWithCovarianceMsg twist; //!< Velocity and Error Estimate
   OdomMsg() {};
 };
 } // namespace fast::rf::messages::Geometry
