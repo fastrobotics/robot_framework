@@ -65,19 +65,22 @@ struct TwistMsg {
  */
 struct PoseWithCovarianceMsg {
   static inline constexpr uint16_t COV_X =
-      Covariance6DMsg::X1; //!< Covariance representing X Position.
+      Covariance6DMsg::X1; //!< Covariance Index representing X Position.
   static inline constexpr uint16_t COV_Y =
-      Covariance6DMsg::X2; //!< Covariance representing Y Position.
+      Covariance6DMsg::X2; //!< Covariance Index representing Y Position.
   static inline constexpr uint16_t COV_Z =
-      Covariance6DMsg::X3; //!< Covariance representing Z Position.
+      Covariance6DMsg::X3; //!< Covariance Index representing Z Position.
   static inline constexpr uint16_t COV_ROLL =
-      Covariance6DMsg::X4; //!< Covariance representing Roll Orientation.
+      Covariance6DMsg::X4; //!< Covariance Index representing Roll Orientation.
   static inline constexpr uint16_t COV_PITCH =
-      Covariance6DMsg::X5; //!< Covariance representing Pitch Orientationn.
+      Covariance6DMsg::X5; //!< Covariance Index representing Pitch
+                           //!< Orientationn.
   static inline constexpr uint16_t COV_YAW =
-      Covariance6DMsg::X6;    //!< Covariance representing Yaw Orientation.
-  PoseMsg pose;               //!< 6D Pose
-  Covariance6DMsg covariance; //!< Error estimate of Pose
+      Covariance6DMsg::X6; //!< Covariance Index representing Yaw Orientation.
+  PoseMsg pose;            //!< 6D Pose
+  Covariance6DMsg covariance; //!< Error estimate of Pose. Diagonal
+                              //!< elements representing the following: >0: Real
+                              //!< values; =0: Unsupported; <0: Unknown
   PoseWithCovarianceMsg() {};
 };
 
@@ -87,19 +90,23 @@ struct PoseWithCovarianceMsg {
  */
 struct TwistWithCovarianceMsg {
   static inline constexpr uint16_t COV_LINEAR_X =
-      Covariance6DMsg::X1; //!< Covariance representing X Linear Velocity.
+      Covariance6DMsg::X1; //!< Covariance Index representing X Linear Velocity.
   static inline constexpr uint16_t COV_LINEAR_Y =
-      Covariance6DMsg::X2; //!< Covariance representing Y Linear Velocity.
+      Covariance6DMsg::X2; //!< Covariance Index representing Y Linear Velocity.
   static inline constexpr uint16_t COV_LINEAR_Z =
-      Covariance6DMsg::X3; //!< Covariance representing Z Linear Velocity.
+      Covariance6DMsg::X3; //!< Covariance Index representing Z Linear Velocity.
   static inline constexpr uint16_t COV_ANGULAR_ROLL =
-      Covariance6DMsg::X4; //!< Covariance representing Roll Angular Velocity.
+      Covariance6DMsg::X4; //!< Covariance Index representing Roll Angular
+                           //!< Velocity.
   static inline constexpr uint16_t COV_ANGULAR_PITCH =
-      Covariance6DMsg::X5; //!< Covariance representing Pitch Angular Velocity.
+      Covariance6DMsg::X5; //!< Covariance Index representing Pitch Angular
+                           //!< Velocity.
   static inline constexpr uint16_t COV_ANGULAR_YAW =
       Covariance6DMsg::X6;    //!< Covariance representing Yaw Angular Velocity.
   TwistMsg twist;             //!< 6D Velocity
-  Covariance6DMsg covariance; //!< Error estimate of velocity
+  Covariance6DMsg covariance; //!< Error estimate of velocity.  Diagonal
+                              //!< elements representing the following: >0: Real
+                              //!< values; =0: Unsupported; <0: Unknown
   TwistWithCovarianceMsg() {};
 };
 
