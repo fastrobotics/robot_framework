@@ -9,11 +9,17 @@
 - [Run Unit Tests (after running Build)](#run-unit-tests-after-running-build)
 - [Templates](#templates)
 
-# [Architecture Decision Records](doc/ADR/ADR.md)
+# Architecture Decision Records
 
-# [Architecture](doc/Architecture/Architecture.md)
+[ADR's](doc/ADR/ADR.md)
 
-# [Messages](msgs/doc/Messages.md)
+# Architecture
+
+[Architecture](doc/Architecture/Architecture.md)
+
+# Messages
+
+[Messages](msgs/doc/Messages.md)
 
 # Setup
 
@@ -35,6 +41,7 @@ wget https://github.com/plantuml/plantuml/releases/download/v1.2026.6/plantuml-1
 sudo mv plantuml-*.jar /usr/bin/plantuml.jar
 popd
 sudo apt install python3-cookiecutter
+sudo npm install -g markdown-link-check
 ```
 
 # Build

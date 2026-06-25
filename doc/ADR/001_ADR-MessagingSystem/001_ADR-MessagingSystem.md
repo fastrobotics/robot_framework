@@ -1,4 +1,4 @@
-[Architecture Decision Records](../../ADR.md)
+[Architecture Decision Records](../ADR.md)
 
 - [ADR: Messaging System](#adr-messaging-system)
 - [Description](#description)

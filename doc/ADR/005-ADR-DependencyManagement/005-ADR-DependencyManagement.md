@@ -1,4 +1,4 @@
-[Architecture Decision Records](../../ADR.md)
+[Architecture Decision Records](../ADR.md)
 
 - [ADR: Dependency Management](#adr-dependency-management)
 - [Description](#description)

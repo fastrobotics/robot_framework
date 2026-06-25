@@ -1,4 +1,4 @@
-[Architecture Decision Records](../../ADR.md)
+[Architecture Decision Records](../ADR.md)
 
 - [ADR: Architecture Characteristics (AC)](#adr-architecture-characteristics-ac)
 - [Description](#description)

@@ -1,6 +1,6 @@
 [Architecture](../doc/Architecture/Architecture.md)
 
-- [System: ](#system-)
+- [System: Name](#system-name)
 - [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
@@ -12,7 +12,7 @@
 - [Subsystem Architecture](#subsystem-architecture)
 - [Validation](#validation)
 
-# System: <Name>
+# System: Name
 
 # Document History
 

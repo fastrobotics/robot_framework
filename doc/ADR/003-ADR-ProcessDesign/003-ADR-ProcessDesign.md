@@ -1,4 +1,4 @@
-[Architecture Decision Records](../../ADR.md)
+[Architecture Decision Records](../ADR.md)
 
 - [ADR: Process Design](#adr-process-design)
 - [Description](#description)

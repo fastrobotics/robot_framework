@@ -1,6 +1,6 @@
 [README](../../../README.md)
 
-[Architecture](../../doc/Architecture/Architecture.md)
+[Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: Pose](#system-pose)
 - [Document History](#document-history)

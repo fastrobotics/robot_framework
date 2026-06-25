@@ -1,13 +1,13 @@
-[Architecture Decision Records](../ADR.md)
+[Architecture Decision Records](ADR.md)
 
-- [ADR: ](#adr-)
+- [ADR: Name](#adr-name)
 - [Description](#description)
 - [Alternatives Investigated](#alternatives-investigated)
 - [Implications](#implications)
 - [Follow-up](#follow-up)
 - [Deviations](#deviations)
 
-# ADR: <Name>
+# ADR: Name
 
 # Description
 

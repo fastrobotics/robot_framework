@@ -1,4 +1,4 @@
-[Architecture Decision Records](../../ADR.md)
+[Architecture Decision Records](../ADR.md)
 
 - [ADR: Naming Conventions](#adr-naming-conventions)
 - [Description](#description)
