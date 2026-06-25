@@ -6,8 +6,8 @@
       <tspan x="340" y="-220">Global Pose Subystem Architecture</tspan>
     </text>
     <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="-80" y1="180" x2="110.264" y2="180"/>
-      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="117.764,180 107.764,185 110.264,180 107.764,175 "/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="-80" y1="180" x2="150.264" y2="180"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="157.764,180 147.764,185 150.264,180 147.764,175 "/>
     </g>
     <g>
       <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="760" y="-160" width="80" height="680" rx="0" ry="0"/>
@@ -16,8 +16,8 @@
       </text>
     </g>
     <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="280" y1="180" x2="750.823" y2="13.2504"/>
-      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="757.892,10.7465 750.135,18.7981 750.823,13.2504 746.797,9.37184 "/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="320" y1="180" x2="750.918" y2="13.5089"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="757.914,10.8059 750.388,19.0739 750.918,13.5089 746.784,9.74588 "/>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="400" y="60">
       <tspan x="400" y="60">GlobalOdometry</tspan>
@@ -28,14 +28,14 @@
         <tspan x="-120" y="185.7">Inputs</tspan>
       </text>
     </g>
-    <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-40" y="160">
-      <tspan x="-40" y="160">GlobalSensorData(1-N)</tspan>
-    </text>
     <g>
-      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="120" y="120" width="160" height="120" rx="0" ry="0"/>
-      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="185.7">
-        <tspan x="200" y="185.7">GlobalProcess</tspan>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="160" y="120" width="160" height="120" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="240" y="185.7">
+        <tspan x="240" y="185.7">GlobalProcess</tspan>
       </text>
     </g>
+    <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-60" y="160">
+      <tspan x="-60" y="160">GlobalPositionSensorData (1-N)</tspan>
+    </text>
   </g>
 </svg>
