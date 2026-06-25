@@ -6,36 +6,36 @@
       <tspan x="340" y="-220">Pose System Architecture</tspan>
     </text>
     <g>
-      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="60" y="20" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="54.05" y="20" width="171.9" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="140" y="85.7">
-        <tspan x="140" y="85.7">Inertial Sensors</tspan>
+        <tspan x="140" y="85.7">InertialSensorSubsystem</tspan>
       </text>
     </g>
     <g>
-      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="60" y="-120" width="160" height="120" rx="0" ry="0"/>
+      <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="56.275" y="-120" width="167.45" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="140" y="-54.3">
-        <tspan x="140" y="-54.3">Global Sensors</tspan>
+        <tspan x="140" y="-54.3">GlobalSensorSubsystem</tspan>
       </text>
     </g>
     <g>
       <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="380" y="-100" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="460" y="-34.3">
-        <tspan x="460" y="-34.3">Global Pose</tspan>
+        <tspan x="460" y="-34.3">GlobalPoseSubsystem</tspan>
       </text>
     </g>
     <g>
       <rect style="fill: #deddda; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="380" y="100" width="160" height="120" rx="0" ry="0"/>
       <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="460" y="165.7">
-        <tspan x="460" y="165.7">Local  Pose</tspan>
+        <tspan x="460" y="165.7">Local PoseSubsystem</tspan>
       </text>
     </g>
     <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="220" y1="80" x2="370.707" y2="127.096"/>
-      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="377.866,129.333 366.83,131.123 370.707,127.096 369.812,121.578 "/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="225.95" y1="80" x2="370.739" y2="126.994"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="377.873,129.31 366.818,130.978 370.739,126.994 369.905,121.467 "/>
     </g>
     <g>
-      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="220" y1="-90" x2="370.339" y2="-71.2076"/>
-      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="377.781,-70.2774 367.238,-66.5563 370.339,-71.2076 368.479,-76.4791 "/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="223.724" y1="-90" x2="370.343" y2="-71.2359"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="377.782,-70.2839 367.228,-66.5937 370.343,-71.2359 368.498,-76.5128 "/>
     </g>
     <g>
       <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="760" y="-160" width="80" height="680" rx="0" ry="0"/>
@@ -83,6 +83,9 @@
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="480" y="60">
       <tspan x="480" y="60">LocalPose</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="240" y="-120">
+      <tspan x="240" y="-120">GlobalSensorData(1-N)</tspan>
     </text>
   </g>
 </svg>
