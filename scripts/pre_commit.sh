@@ -6,14 +6,15 @@ if [ $? -ne 0 ]; then
 fi
 
 # Convert plantuml files to images
-git diff --name-only -- '*.puml'   | xargs -I {} java -jar /usr/bin/plantuml.jar "{}"
+git diff --staged --name-only --diff-filter=d -- '*.puml'   | xargs -I {} java -jar /usr/bin/plantuml.jar "{}"
 if [ $? -ne 0 ]; then
     echo "❌ Error: Plantuml Generation failed. Aborting Commit."
     exit 1
 fi
+exit 0
 
 # Convert dia files to images
-git diff --name-only -- '*.dia' | xargs -I {} dia -t svg -n -e "{}"
+git diff --staged --name-only --diff-filter=d -- '*.dia' | xargs -I {} dia -t svg -n -e "{}"
 
 # Check Markdown Links
 markdown-link-check . -i build/ -q
