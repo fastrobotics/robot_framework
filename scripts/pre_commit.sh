@@ -11,7 +11,6 @@ if [ $? -ne 0 ]; then
     echo "❌ Error: Plantuml Generation failed. Aborting Commit."
     exit 1
 fi
-exit 0
 
 echo "Converting dia files to images"
 git diff --staged --name-only --diff-filter=d -- '*.dia' | xargs -I {} dia -t svg -n -e "{}"
