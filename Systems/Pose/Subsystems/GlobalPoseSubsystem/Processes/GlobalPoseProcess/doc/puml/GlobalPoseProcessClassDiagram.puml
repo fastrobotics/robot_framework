@@ -1,0 +1,26 @@
+@startuml
+title Global Pose Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+    
+  }
+  namespace GlobalPoseSubsystem {
+      interface IGlobalPoseProcess {
+
+      }
+      abstract BaseGlobalPoseProcess {
+
+      }
+      BaseGlobalPoseProcess -up-|> IGlobalPoseProcess
+      class BasicGlobalPoseProcess {
+
+      }
+      BasicGlobalPoseProcess -up-|> BaseGlobalPoseProcess
+      class DummyGlobalPoseProcess {
+
+      }
+      DummyGlobalPoseProcess -up-|> BaseGlobalPoseProcess
+  }
+}
+@enduml

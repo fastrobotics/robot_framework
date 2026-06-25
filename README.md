@@ -61,7 +61,7 @@ ctest
 This project makes extensive use of cookiecutter templates.
 | Template | Folder | Use Case |
 | --- | --- | --- |
-| MessageDefinition | `templates/MessageDefinition/` | Used to create a middleware-agnostic Message Definition. |
+| MessagePackageDefinition | `templates/MessagePackageDefinition/` | Used to create a middleware-agnostic Message Package Definition. |
 | System | `templates/System/` | Used to create a new System. |
 
 To use these templates, run:

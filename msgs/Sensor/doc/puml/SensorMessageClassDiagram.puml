@@ -1,0 +1,14 @@
+@startuml
+title Sensor Message Package Diagram
+
+namespace fast::rf::messages {
+
+  namespace Sensor  {
+    class GlobalSensorData <<(M,#FFFF00)>>  {
+      +double time_stamp
+      +double longitude_deg
+      +double latitude_deg
+      +double altitude_m
+    };
+}
+@enduml

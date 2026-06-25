@@ -48,14 +48,14 @@
       <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="757.899,9.23584 746.792,10.5174 750.85,6.67277 750.209,1.11944 "/>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="620" y="-60">
-      <tspan x="620" y="-60">GlobalPose</tspan>
+      <tspan x="620" y="-60">GlobalOdometry</tspan>
     </text>
     <g>
       <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="540" y1="190" x2="750.274" y2="180.442"/>
       <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="757.766,180.102 748.004,185.55 750.274,180.442 747.55,175.561 "/>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="620" y="200">
-      <tspan x="620" y="200">LocalPose</tspan>
+      <tspan x="620" y="200">LocalOdometry</tspan>
     </text>
     <g>
       <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="-160" y="-160" width="80" height="680" rx="0" ry="0"/>

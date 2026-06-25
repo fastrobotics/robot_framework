@@ -36,7 +36,7 @@ The Awareness System's role in the Robot Framework is to compute the Pose of a r
 
 # System Architecture
 
-![](dia/AwarenessSystemArchitecture.svg)
+![](dia/PoseSystemArchitecture.svg)
 
 # Inputs
 
@@ -63,10 +63,10 @@ The following outputs are provided by this system.
 The following Subsystems are provided in this System:
 | State | Subsystem | Purpose |
 | --- | --- | --- |
-| NEW | [Inertial Sensors](Subsystems/InertialSensorSubsystem/InertialSensorSubsystem.md) | |
-| NEW | [Global Sensors](Subsystems/GlobalSensorSubsystem/GlobalSensorSubsystem.md) | |
-| NEW | [Global Pose](Subsystems/GlobalPoseSubsystem/GlobalPoseSubsystem.md) | |
-| NEW | [Local Pose](Subsystems/LocalPoseSubsystem/LocalPoseSubsystem.md) | |
+| NEW | [Inertial Sensors](../Subsystems/InertialSensorSubsystem/doc/Subsystem-InertialSensor.md) | |
+| NEW | [Global Sensors](../Subsystems/GlobalSensorSubsystem/doc/Subsystem-GlobalSensor.md) | |
+| NEW | [Global Pose](../Subsystems/GlobalPoseSubsystem/doc/Subsystem-GlobalPose.md) | |
+| NEW | [Local Pose](../Subsystems/LocalPoseSubsystem/doc/Subsystem-LocalPose.md) | |
 
 ## Package Diagram
 
