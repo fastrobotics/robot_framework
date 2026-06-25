@@ -14,6 +14,10 @@
  *
  */
 namespace fast::rf::messages::Awareness {
+/**
+ * @brief Data Structure to encode Object Data
+ *
+ */
 struct ObjectMsg {
   ObjectMsg() {}
 };

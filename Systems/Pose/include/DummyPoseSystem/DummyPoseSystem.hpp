@@ -13,6 +13,10 @@
 #include <BasePoseSystem.hpp>
 
 namespace fast::rf::PoseSystem {
+/**
+ * @brief Dummy Pose System
+ *
+ */
 class DummyPoseSystem : public BasePoseSystem {
 public:
   /**

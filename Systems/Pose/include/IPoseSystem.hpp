@@ -12,6 +12,10 @@
 #include <GeometryMsg.hpp>
 
 namespace fast::rf::PoseSystem {
+/**
+ * @brief Interface for the Pose System
+ *
+ */
 class IPoseSystem {
 public:
   IPoseSystem() = default;

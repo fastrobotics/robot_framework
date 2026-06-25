@@ -1,0 +1,9 @@
+/**
+ * @namespace fast
+ * @brief FAST Robotics Namespace
+ */
+
+ /**
+ * @namespace fast::rf
+ * @brief Robotics Framework
+ */

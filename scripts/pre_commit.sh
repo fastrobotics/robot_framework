@@ -1,8 +1,8 @@
 # Generate Code Documentation
 doxygen
 if [ $? -ne 0 ]; then
-    echo "❌ Error: Doxygen documentation Checking failed. Should FIX THIS!"
-    #exit 1
+    echo "❌ Error: Doxygen documentation Checking failed. Aborting commit."
+    exit 1
 fi
 
 # Convert plantuml files to images

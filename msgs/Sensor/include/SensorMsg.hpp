@@ -15,8 +15,10 @@ struct GlobalPositionSensorData {
   double longitude_deg; //!< Longitude in Degrees.  Range is [-90.0, 90.0]
   double altitude_m;    //!< Altitude above sea level
   uint16_t satellites;  //!< Number of satellites used for data
-  static inline constexpr double MAX_ANGLE = 90.0;
-  static inline constexpr double MIN_ANGLE = -90.0;
+  static inline constexpr double MAX_ANGLE =
+      90.0; //!< Max Angle in degrees representing Geographic Coordinates
+  static inline constexpr double MIN_ANGLE =
+      -90.0; //!< Min Angle in degrees representing Geographic Coordinates
 
   GlobalPositionSensorData() {};
   /**

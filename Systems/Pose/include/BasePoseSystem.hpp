@@ -13,6 +13,10 @@
 #include <IPoseSystem.hpp>
 
 namespace fast::rf::PoseSystem {
+/**
+ * @brief Base Class for the Pose System
+ *
+ */
 class BasePoseSystem : public IPoseSystem {
 public:
   /**
@@ -43,8 +47,8 @@ protected:
    */
   bool base_update(double current_time_sec, double delta_time_sec);
 
-  double current_time_sec_{-1.0};
-  fast::rf::messages::Geometry::OdomMsg global_pose_;
-  fast::rf::messages::Geometry::OdomMsg local_pose_;
+  double current_time_sec_{-1.0}; //!< Current Time of System
+  fast::rf::messages::Geometry::OdomMsg global_pose_; //!< Computed Global Pose
+  fast::rf::messages::Geometry::OdomMsg local_pose_;  //!< Computed Local Pose
 };
 } // namespace fast::rf::PoseSystem

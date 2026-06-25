@@ -21,9 +21,9 @@ namespace fast::rf::messages::Standard {
  *
  */
 struct Vector3DMsg {
-  double x;
-  double y;
-  double z;
+  double x; //!< X Axis
+  double y; //!< Y Axis
+  double z; //!< Z Axis
 };
 /**
   * @brief 6D Covariance
@@ -39,14 +39,15 @@ struct Vector3DMsg {
   *
   */
 struct Covariance6DMsg {
-  static inline constexpr uint16_t DIMENSION = 6;
-  static inline constexpr uint16_t X1 = 0;
-  static inline constexpr uint16_t X2 = 7;
-  static inline constexpr uint16_t X3 = 14;
-  static inline constexpr uint16_t X4 = 21;
-  static inline constexpr uint16_t X5 = 28;
-  static inline constexpr uint16_t X6 = 35;
-  std::vector<double> covariance;
+  static inline constexpr uint16_t DIMENSION =
+      6;                                    //!< Dimensionality of Covariance.
+  static inline constexpr uint16_t X1 = 0;  //!< Diagonal Element Index
+  static inline constexpr uint16_t X2 = 7;  //!< Diagonal Element Index
+  static inline constexpr uint16_t X3 = 14; //!< Diagonal Element Index
+  static inline constexpr uint16_t X4 = 21; //!< Diagonal Element Index
+  static inline constexpr uint16_t X5 = 28; //!< Diagonal Element Index
+  static inline constexpr uint16_t X6 = 35; //!< Diagonal Element Index
+  std::vector<double> covariance;           //!< Covariance data
   Covariance6DMsg() {
     covariance.resize(DIMENSION * DIMENSION);
     covariance[X1] = -1.0;
