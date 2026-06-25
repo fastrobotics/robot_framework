@@ -13,3 +13,7 @@ The following is a listing of all messages created for this framework.
 # Geometry
 
 ![](../Geometry/doc/puml/GeometryMessageClassDiagram.png)
+
+# Sensors
+
+![](../Sensor/doc/puml/SensorMessageClassDiagram.png)
