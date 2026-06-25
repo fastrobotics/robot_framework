@@ -1,4 +1,4 @@
-@startuml2
+@startuml
 title Global Pose Process Class Diagram
 
 namespace fast::fr {
@@ -10,29 +10,31 @@ namespace fast::fr {
       class OdomMsg <<(M,#FFFF00)>>
     }
   }
-  namespace GlobalPoseSubsystem {
-      interface IGlobalPoseProcess {
-        +{abstract} bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
-        +{abstract} OdomMsg get_GlobalPose()
-        +{abstract} bool update(double current_time_sec, double delta_time_sec)
-      }
-      abstract BaseGlobalPoseProcess {
-        +OdomMsg get_GlobalPose()
-        +bool base_update(double current_time_sec, double delta_time_sec)
-        #OdomMsg globalPose
+  namespace PoseSystem {
+    namespace GlobalPoseSubsystem {
+        interface IGlobalPoseProcess #Orange {
+          +{abstract} bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +{abstract} OdomMsg get_GlobalPose()
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseGlobalPoseProcess #Orange {
+          +OdomMsg get_GlobalPose()
+          +bool base_update(double current_time_sec, double delta_time_sec)
+          #OdomMsg globalPose
 
-      }
-      BaseGlobalPoseProcess -up-|> IGlobalPoseProcess
-      class BasicGlobalPoseProcess {
-        +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
-        +bool update(double current_time_sec, double delta_time_sec)
-      }
-      BasicGlobalPoseProcess -up-|> BaseGlobalPoseProcess
-      class DummyGlobalPoseProcess {
-        +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
-        +bool update(double current_time_sec, double delta_time_sec)
-      }
-      DummyGlobalPoseProcess -up-|> BaseGlobalPoseProcess
+        }
+        BaseGlobalPoseProcess -up-|> IGlobalPoseProcess
+        class BasicGlobalPoseProcess #Orange {
+          +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicGlobalPoseProcess -up-|> BaseGlobalPoseProcess
+        class DummyGlobalPoseProcess {
+          +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyGlobalPoseProcess -up-|> BaseGlobalPoseProcess
+    }
   }
 }
 @enduml

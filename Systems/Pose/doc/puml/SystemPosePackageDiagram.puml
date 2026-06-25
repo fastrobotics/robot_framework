@@ -2,7 +2,7 @@
 title System-Pose Package Diagram
 
 namespace fast::rf {
-  namespace messages::Geometry {
+  namespace messages::GeometryMsgs {
     class OdomMsg <<(M,#FFFF00) >>
   }
   namespace PoseSystem {

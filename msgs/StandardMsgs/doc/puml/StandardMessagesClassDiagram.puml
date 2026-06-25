@@ -1,0 +1,15 @@
+@startuml
+title Standard Messages Package Diagram
+
+namespace fast::rf::messages {
+  namespace StandardMsgs  {
+    struct Vector3DMsg <<(M,#FFFF00) >> #Orange {
+      +double x
+      +double y
+      +double z
+    }
+    struct Covariance6DMsg <<(M,#FFFF00) >> #Orange {
+      +double[36] covariance
+    }
+}
+@enduml

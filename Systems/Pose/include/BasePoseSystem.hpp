@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-#include <GeometryMsg.hpp>
+#include <GeometryMsgs.hpp>
 #include <IPoseSystem.hpp>
 
 namespace fast::rf::PoseSystem {
@@ -22,17 +22,17 @@ public:
   /**
    * @brief Get the global pose object
    *
-   * @return fast::rf::messages::Geometry::OdomMsg
+   * @return fast::rf::messages::GeometryMsgs::OdomMsg
    */
-  fast::rf::messages::Geometry::OdomMsg get_global_pose() override {
+  fast::rf::messages::GeometryMsgs::OdomMsg get_global_pose() override {
     return global_pose_;
   }
   /**
    * @brief Get the local pose object
    *
-   * @return fast::rf::messages::Geometry::OdomMsg
+   * @return fast::rf::messages::GeometryMsgs::OdomMsg
    */
-  fast::rf::messages::Geometry::OdomMsg get_local_pose() override {
+  fast::rf::messages::GeometryMsgs::OdomMsg get_local_pose() override {
     return local_pose_;
   }
 
@@ -48,7 +48,9 @@ protected:
   bool base_update(double current_time_sec, double delta_time_sec);
 
   double current_time_sec_{-1.0}; //!< Current Time of System
-  fast::rf::messages::Geometry::OdomMsg global_pose_; //!< Computed Global Pose
-  fast::rf::messages::Geometry::OdomMsg local_pose_;  //!< Computed Local Pose
+  fast::rf::messages::GeometryMsgs::OdomMsg
+      global_pose_; //!< Computed Global Pose
+  fast::rf::messages::GeometryMsgs::OdomMsg
+      local_pose_; //!< Computed Local Pose
 };
 } // namespace fast::rf::PoseSystem

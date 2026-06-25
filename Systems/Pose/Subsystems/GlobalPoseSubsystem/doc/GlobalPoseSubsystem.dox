@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::PoseSystem::GlobalPoseSubsystem
+ * @brief The Global Pose Subsystem for the Robot Framework
+ */

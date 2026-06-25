@@ -1,3 +1,3 @@
-add_subdirectory(Standard)
-add_subdirectory(Geometry)
-add_subdirectory(Sensor)
+add_subdirectory(StandardMsgs)
+add_subdirectory(GeometryMsgs)
+add_subdirectory(SensorMsgs)

@@ -8,12 +8,12 @@ The following is a listing of all messages created for this framework.
 
 # Awareness
 
-![](../Awareness/doc/puml/AwarenessMessageClassDiagram.png)
+![](../AwarenessMsgs/doc/puml/AwarenessMessagesClassDiagram.png)
 
 # Geometry
 
-![](../Geometry/doc/puml/GeometryMessageClassDiagram.png)
+![](../GeometryMsgs/doc/puml/GeometryMessagesClassDiagram.png)
 
 # Sensors
 
-![](../Sensor/doc/puml/SensorMessageClassDiagram.png)
+![](../SensorMsgs/doc/puml/SensorMessagesClassDiagram.png)

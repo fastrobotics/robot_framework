@@ -1,5 +1,5 @@
 
-#include <GeometryMsg.hpp>
+#include <GeometryMsgs.hpp>
 
 #include <DummyPoseSystem/DummyPoseSystem.hpp>
 

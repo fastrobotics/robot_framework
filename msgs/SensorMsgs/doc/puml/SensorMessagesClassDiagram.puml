@@ -1,0 +1,16 @@
+@startuml
+title Sensor Message Package Diagram
+
+namespace fast::rf::messages {
+
+  namespace SensorMsgs  {
+    class GlobalPositionSensorData <<(M,#FFFF00)>> #Orange {
+      +double time_stamp
+      +double latitude_deg
+      +double longitude_deg
+      +double altitude_m
+      +uint16_t satellites
+      +bool ok()
+    }
+}
+@enduml

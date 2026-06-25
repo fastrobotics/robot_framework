@@ -1,5 +1,5 @@
 
-#include <GeometryMsg.hpp>
+#include <GeometryMsgs.hpp>
 
 #include <IPoseSystem.hpp>
 
@@ -11,7 +11,7 @@
 #include <stdio.h>
 using namespace fast::rf::messages;
 // Test message types typically owned by System
-TEST(MsgPose, DefaultZeroConstructor) { Geometry::OdomMsg SUT; }
+TEST(MsgPose, DefaultZeroConstructor) { GeometryMsgs::OdomMsg SUT; }
 
 using namespace fast::rf::PoseSystem;
 // System Interface Tests
@@ -20,12 +20,12 @@ public:
   bool update(double current_time_sec, double delta_time_sec) override {
     return false;
   }
-  fast::rf::messages::Geometry::OdomMsg get_global_pose() {
-    fast::rf::messages::Geometry::OdomMsg global_pose;
+  fast::rf::messages::GeometryMsgs::OdomMsg get_global_pose() {
+    fast::rf::messages::GeometryMsgs::OdomMsg global_pose;
     return global_pose;
   }
-  fast::rf::messages::Geometry::OdomMsg get_local_pose() {
-    fast::rf::messages::Geometry::OdomMsg local_pose;
+  fast::rf::messages::GeometryMsgs::OdomMsg get_local_pose() {
+    fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
     return local_pose;
   }
 };

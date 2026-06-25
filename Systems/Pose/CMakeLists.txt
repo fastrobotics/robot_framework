@@ -5,3 +5,4 @@ target_include_directories(pose_system_interface INTERFACE
 )
 
 add_subdirectory(src)
+add_subdirectory(Subsystems)
