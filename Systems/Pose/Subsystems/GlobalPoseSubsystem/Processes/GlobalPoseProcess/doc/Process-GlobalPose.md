@@ -10,7 +10,7 @@
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
-  - [Package Diagram](#package-diagram)
+  - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -54,7 +54,11 @@ The following outputs are provided by this system.
 
 ## Detailed Documentation
 
-## Package Diagram
+![](../../../../../../../Legend.png)
+
+## Class Diagram
+
+![](puml/GlobalPoseProcessClassDiagram.png)
 
 # Usage Instructions
 
