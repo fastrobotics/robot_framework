@@ -5,7 +5,7 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [System Architecture](#system-architecture)
+- [Subsystem Architecture](#subsystem-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -32,9 +32,9 @@ The Global Pose Subsystem's role in the Robot Framework is to take available Glo
 
 ## General Requirements
 
-# System Architecture
+# Subsystem Architecture
 
-![](dia/)
+![](dia/GlobalPoseSubsystemArchitecture.svg)
 
 # Inputs
 
