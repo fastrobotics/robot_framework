@@ -34,7 +34,7 @@ The Global Pose Subsystem's role in the Robot Framework is to take available Glo
 
 # System Architecture
 
-![](dia/
+![](dia/)
 
 # Inputs
 
