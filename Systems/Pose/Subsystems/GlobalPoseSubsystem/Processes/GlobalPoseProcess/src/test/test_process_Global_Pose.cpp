@@ -28,7 +28,6 @@ TEST(TestGlobalPoseProcessInterface, InterfaceTests) {
   TestGlobalPoseProcessInterface SUT;
   SensorMsgs::GlobalPositionSensorMsg gps1;
   ASSERT_FALSE(SUT.new_GlobalPositionSensorMsg(0, gps1));
-  ASSERT_TRUE(false);
   ASSERT_FALSE(SUT.update(0.0, 0.0));
   GeometryMsgs::OdomMsg global_pose = SUT.get_GlobalPose();
   ASSERT_LT(global_pose.time_stamp, 0.0); // Invalid Pose
