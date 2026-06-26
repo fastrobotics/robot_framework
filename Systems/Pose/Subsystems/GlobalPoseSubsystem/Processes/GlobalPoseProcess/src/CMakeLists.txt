@@ -1,3 +1,4 @@
+add_subdirectory(BasicGlobalPoseProcess)
 include(GoogleTest)
 
 add_library(base_global_pose_process STATIC BaseGlobalPoseProcess.cpp)
@@ -10,6 +11,7 @@ add_executable(
 target_link_libraries(
   test_process_Global_Pose
   GTest::gtest_main
+  base_global_pose_process
   geometry_msgs
   sensor_msgs
 )

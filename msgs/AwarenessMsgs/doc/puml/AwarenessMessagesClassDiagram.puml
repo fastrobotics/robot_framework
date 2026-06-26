@@ -2,7 +2,7 @@
 title Awareness Msgs Class Diagram
 
 namespace fast::rf::messages {
-  namespace Geometry {
+  namespace GeometryMsgs {
     class OdomMsg <<(M,#FFFF00) >>
   }
   namespace AwarenessMsgs {

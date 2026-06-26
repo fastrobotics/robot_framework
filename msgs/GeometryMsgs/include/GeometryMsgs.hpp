@@ -118,6 +118,9 @@ struct OdomMsg {
   double time_stamp;            //!< Timestamp of reported odometry
   PoseWithCovarianceMsg pose;   //!< Pose and Error Estimate
   TwistWithCovarianceMsg twist; //!< Velocity and Error Estimate
-  OdomMsg() {};
+  OdomMsg()
+      : time_stamp(-1.0) {
+
+        };
 };
 } // namespace fast::rf::messages::GeometryMsgs
