@@ -51,6 +51,12 @@ The following outputs are provided by this system.
 
 # How It Works
 
+Ideas:
+
+- Environment Map (Passable/Unpassable)
+- Map Builder
+- Geo Map Fuser
+
 ## Detailed Documentation
 
 ## Software Content
