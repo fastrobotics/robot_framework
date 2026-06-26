@@ -29,7 +29,7 @@
       </text>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-40" y="-100">
-      <tspan x="-40" y="-100">GlobalPositionSensorData (1)</tspan>
+      <tspan x="-40" y="-100">GlobalPositionSensorMsg (1)</tspan>
     </text>
     <g>
       <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="200" y="-180" width="259.4" height="80" rx="0" ry="0"/>
@@ -54,7 +54,7 @@
       <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="197.765,-20.0798 187.593,-15.4399 190.27,-20.3475 187.95,-25.4335 "/>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="20" y="-40">
-      <tspan x="20" y="-40">GlobalPositionSensorData (2)</tspan>
+      <tspan x="20" y="-40">GlobalPositionSensorMsg (2)</tspan>
     </text>
     <g>
       <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="200" y="60" width="259.4" height="80" rx="0" ry="0"/>
@@ -67,7 +67,7 @@
       <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="197.972,99.0584 186.796,99.3823 191.169,95.9 191.007,90.3122 "/>
     </g>
     <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-40" y="80">
-      <tspan x="-40" y="80">GlobalPositionSensorData (N)</tspan>
+      <tspan x="-40" y="80">GlobalPositionSensorMsg (N)</tspan>
     </text>
     <g>
       <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="459.4" y1="-140" x2="631.891" y2="-25.3882"/>

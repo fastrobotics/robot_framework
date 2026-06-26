@@ -29,8 +29,8 @@ public:
    * @return false If the data was not processed ok
    */
   virtual bool
-  new_GlobalPositionSensorData(uint8_t index,
-                               SensorMsgs::GlobalPositionSensorData data) = 0;
+  new_GlobalPositionSensorMsg(uint8_t index,
+                              SensorMsgs::GlobalPositionSensorMsg data) = 0;
   /**
    * @brief Get the GlobalPose object
    *

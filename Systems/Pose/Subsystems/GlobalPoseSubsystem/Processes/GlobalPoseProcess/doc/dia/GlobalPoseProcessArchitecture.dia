@@ -317,7 +317,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#GlobalPositionSensorData (1)#</dia:string>
+            <dia:string>#GlobalPositionSensorMsg (1)#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -513,7 +513,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#GlobalPositionSensorData (2)#</dia:string>
+            <dia:string>#GlobalPositionSensorMsg (2)#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -619,7 +619,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#GlobalPositionSensorData (N)#</dia:string>
+            <dia:string>#GlobalPositionSensorMsg (N)#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>

@@ -39,9 +39,9 @@ This process's objective is to take, given multiple streams of GPS data, a combi
 
 The following inputs are required in order for this system to properly function.
 
-| Input                           | DataType                 | Description                             | Requirement                 |
-| ------------------------------- | ------------------------ | --------------------------------------- | --------------------------- |
-| GPS Sensor Data (Instances 1-N) | GlobalPositionSensorData | Position data in Geographic Coordinates | Interface spec is followed. |
+| Input                           | DataType                | Description                             | Requirement                 |
+| ------------------------------- | ----------------------- | --------------------------------------- | --------------------------- |
+| GPS Sensor Data (Instances 1-N) | GlobalPositionSensorMsg | Position data in Geographic Coordinates | Interface spec is followed. |
 
 # Outputs
 

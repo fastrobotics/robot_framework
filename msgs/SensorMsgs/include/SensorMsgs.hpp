@@ -1,5 +1,8 @@
 #pragma once
+#include <StandardMsgs.hpp>
 #include <cstdint>
+
+using namespace fast::rf::messages::StandardMsgs;
 /**
  * @brief Messages for Sensors
  *
@@ -9,18 +12,24 @@ namespace fast::rf::messages::SensorMsgs {
  * @brief Data Structure for encoding GPS Data
  *
  */
-struct GlobalPositionSensorData {
-  double time_stamp;    //!< Timestamp of data
-  double latitude_deg;  //!< Latitude in Degrees.  Range is [-90.0,90.0]
-  double longitude_deg; //!< Longitude in Degrees.  Range is [-90.0, 90.0]
-  double altitude_m;    //!< Altitude above sea level
-  uint16_t satellites;  //!< Number of satellites used for data
+struct GlobalPositionSensorMsg {
+  double time_stamp;          //!< Timestamp of data
+  double latitude_deg;        //!< Latitude in Degrees.  Range is [-90.0,90.0]
+  double longitude_deg;       //!< Longitude in Degrees.  Range is [-90.0, 90.0]
+  double altitude_m;          //!< Altitude above sea level
+  uint16_t satellites;        //!< Number of satellites used for data
+  Covariance3DMsg covariance; //!< Covariance of Global Position Data
   static inline constexpr double MAX_ANGLE =
       90.0; //!< Max Angle in degrees representing Geographic Coordinates
   static inline constexpr double MIN_ANGLE =
       -90.0; //!< Min Angle in degrees representing Geographic Coordinates
-
-  GlobalPositionSensorData() {};
+  static inline constexpr uint16_t COV_X =
+      Covariance3DMsg::X1; //!< Covariance Index representing X Position.
+  static inline constexpr uint16_t COV_Y =
+      Covariance3DMsg::X2; //!< Covariance Index representing Y Position.
+  static inline constexpr uint16_t COV_Z =
+      Covariance3DMsg::X3; //!< Covariance Index representing Z Position.
+  GlobalPositionSensorMsg() {};
   /**
    * @brief Checks data to see if valid
    *

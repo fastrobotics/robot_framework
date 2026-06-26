@@ -6,6 +6,7 @@
   - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
+  - [Limitations](#limitations)
 - [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
@@ -38,15 +39,23 @@ This specific Process Implementation provides an extremely simple way of computi
 
 ## General Requirements
 
+## Limitations
+
+The following are a listing of all limitations in this module:
+
+1. Minimal conversion supplied: Only converts Latitude and Longitude to UTM coordinates.
+2. Due to UTM conversion process, will be severe jumps in converted position at zone boundaries, which are not currently detected.
+3. No orientation computation provided.
+
 # Process Architecture
 
 # Inputs
 
 The following inputs are required in order for this system to properly function.
 
-| Input                           | DataType                 | Description                             | Requirement                 |
-| ------------------------------- | ------------------------ | --------------------------------------- | --------------------------- |
-| GPS Sensor Data (Instances 1-N) | GlobalPositionSensorData | Position data in Geographic Coordinates | Interface spec is followed. |
+| Input                           | DataType                | Description                             | Requirement                 |
+| ------------------------------- | ----------------------- | --------------------------------------- | --------------------------- |
+| GPS Sensor Data (Instances 1-N) | GlobalPositionSensorMsg | Position data in Geographic Coordinates | Interface spec is followed. |
 
 # Outputs
 

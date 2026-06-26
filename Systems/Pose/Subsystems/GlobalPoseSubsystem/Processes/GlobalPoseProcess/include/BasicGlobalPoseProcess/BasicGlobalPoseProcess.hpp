@@ -27,8 +27,8 @@ public:
    * @return true If the data was processed ok
    * @return false If the data did not process ok
    */
-  bool new_GlobalPositionSensorData(
-      uint8_t index, SensorMsgs::GlobalPositionSensorData data) override;
+  bool new_GlobalPositionSensorMsg(
+      uint8_t index, SensorMsgs::GlobalPositionSensorMsg data) override;
 
 private:
 };

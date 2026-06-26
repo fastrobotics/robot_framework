@@ -14,8 +14,8 @@ public:
   bool update(double current_time_sec, double delta_time_sec) override {
     return false;
   }
-  bool new_GlobalPositionSensorData(
-      uint8_t index, SensorMsgs::GlobalPositionSensorData data) override {
+  bool new_GlobalPositionSensorMsg(
+      uint8_t index, SensorMsgs::GlobalPositionSensorMsg data) override {
     return false;
   }
   GeometryMsgs::OdomMsg get_GlobalPose() override {
@@ -25,8 +25,8 @@ public:
 };
 TEST(TestGlobalPoseProcessInterface, InterfaceTests) {
   TestGlobalPoseProcessInterface SUT;
-  SensorMsgs::GlobalPositionSensorData gps1;
-  ASSERT_FALSE(SUT.new_GlobalPositionSensorData(0, gps1));
+  SensorMsgs::GlobalPositionSensorMsg gps1;
+  ASSERT_FALSE(SUT.new_GlobalPositionSensorMsg(0, gps1));
   ASSERT_FALSE(SUT.update(0.0, 0.0));
   GeometryMsgs::OdomMsg global_pose = SUT.get_GlobalPose();
   ASSERT_LT(global_pose.time_stamp, 0.0); // Invalid Pose
@@ -36,8 +36,8 @@ public:
   bool update(double current_time_sec, double delta_time_sec) override {
     return base_update(current_time_sec, delta_time_sec);
   }
-  bool new_GlobalPositionSensorData(
-      uint8_t index, SensorMsgs::GlobalPositionSensorData data) override {
+  bool new_GlobalPositionSensorMsg(
+      uint8_t index, SensorMsgs::GlobalPositionSensorMsg data) override {
     if (current_time_sec_ < 0) {
       return false;
     }
@@ -47,11 +47,11 @@ public:
 };
 TEST(BaseGlobalPoseProcess, BasicAssertions) {
   TestBaseGlobalPoseProcess SUT;
-  SensorMsgs::GlobalPositionSensorData gps1;
+  SensorMsgs::GlobalPositionSensorMsg gps1;
   gps1.time_stamp = 0.3;
-  ASSERT_FALSE(SUT.new_GlobalPositionSensorData(0, gps1));
+  ASSERT_FALSE(SUT.new_GlobalPositionSensorMsg(0, gps1));
   ASSERT_TRUE(SUT.update(0.0, 0.0));
-  ASSERT_TRUE(SUT.new_GlobalPositionSensorData(0, gps1));
+  ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
   GeometryMsgs::OdomMsg global_pose = SUT.get_GlobalPose();
   ASSERT_GT(global_pose.time_stamp, 0.0); // Valid Pose
 }

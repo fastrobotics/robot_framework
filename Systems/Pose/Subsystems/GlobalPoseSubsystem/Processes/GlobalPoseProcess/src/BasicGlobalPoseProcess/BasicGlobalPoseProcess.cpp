@@ -10,16 +10,32 @@ bool BasicGlobalPoseProcess::update(double current_time_sec,
   }
   return true;
 }
-bool BasicGlobalPoseProcess::new_GlobalPositionSensorData(
-    uint8_t index, SensorMsgs::GlobalPositionSensorData data) {
+bool BasicGlobalPoseProcess::new_GlobalPositionSensorMsg(
+    uint8_t index, SensorMsgs::GlobalPositionSensorMsg gps_data) {
   int zone;
   bool northp;
   double x, y;
-  GeographicLib::UTMUPS::Forward(data.latitude_deg, data.longitude_deg, zone,
-                                 northp, x, y);
+  GeographicLib::UTMUPS::Forward(gps_data.latitude_deg, gps_data.longitude_deg,
+                                 zone, northp, x, y);
   std::string zonestr = GeographicLib::UTMUPS::EncodeZone(zone, northp);
+  global_pose.time_stamp = gps_data.time_stamp;
   global_pose.pose.pose.position.x = x;
   global_pose.pose.pose.position.y = y;
+  global_pose.pose.pose.position.z = gps_data.altitude_m;
+  global_pose.pose.covariance
+      .covariance[GeometryMsgs::PoseWithCovarianceMsg::COV_X] =
+      gps_data.covariance
+          .covariance[SensorMsgs::GlobalPositionSensorMsg::COV_X];
+
+  global_pose.pose.covariance
+      .covariance[GeometryMsgs::PoseWithCovarianceMsg::COV_Y] =
+      gps_data.covariance
+          .covariance[SensorMsgs::GlobalPositionSensorMsg::COV_Y];
+
+  global_pose.pose.covariance
+      .covariance[GeometryMsgs::PoseWithCovarianceMsg::COV_Z] =
+      gps_data.covariance
+          .covariance[SensorMsgs::GlobalPositionSensorMsg::COV_Z];
   return false;
 }
 } // namespace fast::rf::PoseSystem::GlobalPoseSubsystem

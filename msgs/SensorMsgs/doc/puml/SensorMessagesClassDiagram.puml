@@ -2,15 +2,20 @@
 title Sensor Message Package Diagram
 
 namespace fast::rf::messages {
-
+  namespace StandardMsgs {
+    class Covariance3DMsg <<(M,#FFFF00) >>
+  }
   namespace SensorMsgs  {
-    class GlobalPositionSensorData <<(M,#FFFF00)>> #Orange {
+    GlobalPositionCovarianceMsg --> Covariance3DMsg: <<use>>
+    class GlobalPositionSensorMsg <<(M,#FFFF00)>> #Orange {
       +double time_stamp
       +double latitude_deg
       +double longitude_deg
       +double altitude_m
       +uint16_t satellites
+      +Covariance3DMsg covariance
       +bool ok()
     }
+    GlobalPositionSensorMsg --> Covariance3DMsg: <<use>>
 }
 @enduml

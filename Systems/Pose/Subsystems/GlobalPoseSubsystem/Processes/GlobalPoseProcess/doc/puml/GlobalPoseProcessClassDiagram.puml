@@ -4,7 +4,7 @@ title Global Pose Process Class Diagram
 namespace fast::fr {
   namespace messages {
     namespace SensorMsgs {
-      class GlobalPositionSensorData <<(M,#FFFF00)>>
+      class GlobalPositionSensorMsg <<(M,#FFFF00)>>
     }
     namespace GeometryMsgs {
       class OdomMsg <<(M,#FFFF00)>>
@@ -13,7 +13,7 @@ namespace fast::fr {
   namespace PoseSystem {
     namespace GlobalPoseSubsystem {
         interface IGlobalPoseProcess #Orange {
-          +{abstract} bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +{abstract} bool new_GlobalPositionSensorMsg(uint8_t index, GlobalPositionSensorMsg data)
           +{abstract} OdomMsg get_GlobalPose()
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
         }
@@ -25,12 +25,12 @@ namespace fast::fr {
         }
         BaseGlobalPoseProcess -up-|> IGlobalPoseProcess
         class BasicGlobalPoseProcess #Orange {
-          +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +bool new_GlobalPositionSensorMsg(uint8_t index, GlobalPositionSensorMsg data)
           +bool update(double current_time_sec, double delta_time_sec)
         }
         BasicGlobalPoseProcess -up-|> BaseGlobalPoseProcess
         class DummyGlobalPoseProcess {
-          +bool new_GlobalPositionSensorData(uint8_t index, GlobalPositionSensorData data)
+          +bool new_GlobalPositionSensorMsg(uint8_t index, GlobalPositionSensorMsg data)
           +bool update(double current_time_sec, double delta_time_sec)
         }
         DummyGlobalPoseProcess -up-|> BaseGlobalPoseProcess
