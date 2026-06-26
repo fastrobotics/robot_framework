@@ -1,0 +1,21 @@
+@startuml
+title System-Safety Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace SafetySystem {
+    interface ISafetySystem {
+    }
+    abstract BaseSafetySystem {
+    }
+    ISafetySystem <|-- BaseSafetySystem
+    class BasicSafetySystem {
+
+    }
+    BaseSafetySystem <|-- BasicSafetySystem
+    class DummySafetySystem  {
+    }
+    BaseSafetySystem <|-- DummySafetySystem
+  }
+}
+@enduml
