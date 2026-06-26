@@ -1,0 +1,21 @@
+@startuml
+title System-ImplementControl Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace ImplementControlSystem {
+    interface IImplementControlSystem {
+    }
+    abstract BaseImplementControlSystem {
+    }
+    IImplementControlSystem <|-- BaseImplementControlSystem
+    class BasicImplementControlSystem {
+
+    }
+    BaseImplementControlSystem <|-- BasicImplementControlSystem
+    class DummyImplementControlSystem  {
+    }
+    BaseImplementControlSystem <|-- DummyImplementControlSystem
+  }
+}
+@enduml

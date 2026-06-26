@@ -1,0 +1,21 @@
+@startuml
+title System-Comms Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace CommsSystem {
+    interface ICommsSystem {
+    }
+    abstract BaseCommsSystem {
+    }
+    ICommsSystem <|-- BaseCommsSystem
+    class BasicCommsSystem {
+
+    }
+    BaseCommsSystem <|-- BasicCommsSystem
+    class DummyCommsSystem  {
+    }
+    BaseCommsSystem <|-- DummyCommsSystem
+  }
+}
+@enduml

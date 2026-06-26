@@ -1,0 +1,21 @@
+@startuml
+title System-Perception Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace PerceptionSystem {
+    interface IPerceptionSystem {
+    }
+    abstract BasePerceptionSystem {
+    }
+    IPerceptionSystem <|-- BasePerceptionSystem
+    class BasicPerceptionSystem {
+
+    }
+    BasePerceptionSystem <|-- BasicPerceptionSystem
+    class DummyPerceptionSystem  {
+    }
+    BasePerceptionSystem <|-- DummyPerceptionSystem
+  }
+}
+@enduml

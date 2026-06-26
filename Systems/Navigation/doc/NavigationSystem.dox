@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::NavigationSystem
+ * @brief The Navigation System for the Robot Framework
+ */

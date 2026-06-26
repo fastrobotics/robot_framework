@@ -1,0 +1,21 @@
+@startuml
+title System-Navigation Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace NavigationSystem {
+    interface INavigationSystem {
+    }
+    abstract BaseNavigationSystem {
+    }
+    INavigationSystem <|-- BaseNavigationSystem
+    class BasicNavigationSystem {
+
+    }
+    BaseNavigationSystem <|-- BasicNavigationSystem
+    class DummyNavigationSystem  {
+    }
+    BaseNavigationSystem <|-- DummyNavigationSystem
+  }
+}
+@enduml

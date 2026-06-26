@@ -1,0 +1,21 @@
+@startuml
+title System-DataStorage Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace DataStorageSystem {
+    interface IDataStorageSystem {
+    }
+    abstract BaseDataStorageSystem {
+    }
+    IDataStorageSystem <|-- BaseDataStorageSystem
+    class BasicDataStorageSystem {
+
+    }
+    BaseDataStorageSystem <|-- BasicDataStorageSystem
+    class DummyDataStorageSystem  {
+    }
+    BaseDataStorageSystem <|-- DummyDataStorageSystem
+  }
+}
+@enduml

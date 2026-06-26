@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::CommsSystem
+ * @brief The Comms System for the Robot Framework
+ */

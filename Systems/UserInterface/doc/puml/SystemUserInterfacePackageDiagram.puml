@@ -1,0 +1,21 @@
+@startuml
+title System-UserInterface Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace UserInterfaceSystem {
+    interface IUserInterfaceSystem {
+    }
+    abstract BaseUserInterfaceSystem {
+    }
+    IUserInterfaceSystem <|-- BaseUserInterfaceSystem
+    class BasicUserInterfaceSystem {
+
+    }
+    BaseUserInterfaceSystem <|-- BasicUserInterfaceSystem
+    class DummyUserInterfaceSystem  {
+    }
+    BaseUserInterfaceSystem <|-- DummyUserInterfaceSystem
+  }
+}
+@enduml
