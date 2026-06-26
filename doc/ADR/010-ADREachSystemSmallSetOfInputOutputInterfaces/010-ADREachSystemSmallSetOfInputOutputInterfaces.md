@@ -1,13 +1,13 @@
-[Architecture Decision Records](ADR.md)
+[Architecture Decision Records](../ADR.md)
 
-- [ADR: Name](#adr-name)
+- [ADR: Each System has small set of Input/Output Interfaces](#adr-each-system-has-small-set-of-inputoutput-interfaces)
 - [Description](#description)
 - [Alternatives Investigated](#alternatives-investigated)
 - [Implications](#implications)
 - [Follow-up](#follow-up)
 - [Deviations](#deviations)
 
-# ADR: Name
+# ADR: Each System has small set of Input/Output Interfaces
 
 # Description
 
