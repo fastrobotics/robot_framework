@@ -21,3 +21,7 @@ jobs:
 
       - name: Build Repo
         run: cmake --build build --target install -j20
+
+      - name: Run Unit Tests
+        run: ctest
+        working-directory: build
