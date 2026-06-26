@@ -2,7 +2,7 @@
 
 [Architecture](../../../doc/Architecture/Architecture.md)
 
-- [System: {{cookiecutter.System}}](#system-cookiecuttersystem)
+- [System: Terrain](#system-terrain)
 - [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
@@ -18,7 +18,7 @@
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
-# System: {{cookiecutter.System}}
+# System: Terrain
 
 # Document History
 
@@ -29,7 +29,7 @@
 
 ## Purpose
 
-The {{cookiecutter.System}} System's role in the Robot Framework is to ???.
+The Terrain System's role in the Robot Framework is to ???.
 
 ## General Requirements
 
@@ -63,7 +63,7 @@ The following Subsystems are provided in this System:
 
 ## Package Diagram
 
-![](puml/System{{cookiecutter.System}}PackageDiagram.png)
+![](puml/SystemTerrainPackageDiagram.png)
 
 # Usage Instructions
 
