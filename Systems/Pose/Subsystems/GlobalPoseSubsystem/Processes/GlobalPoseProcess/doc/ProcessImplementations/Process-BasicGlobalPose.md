@@ -28,10 +28,11 @@
 
 ## ToDo
 
-| Item                       |
-| -------------------------- |
-| Add specific Class Diagram |
-| Add Sequence Diagram       |
+| Item                                                                                        |
+| ------------------------------------------------------------------------------------------- |
+| Add specific Class Diagram                                                                  |
+| Add Sequence Diagram                                                                        |
+| Move Geo Conversion to separate library, other Concrete Processes will need to do the same. |
 
 ## Purpose
 
