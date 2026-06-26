@@ -46,6 +46,7 @@ namespace fast::rf::messages {
     TwistWithCovarianceMsg --> Covariance6DMsg: <<use>>
 
     struct OdomMsg <<(M,#FFFF00)>> #Orange {
+      +string pretty()
       +PoseWithCovarianceMsg pose
       +TwistWithCovarianceMsg twist
     }
