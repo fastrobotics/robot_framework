@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 
-project(learning)
-set(CMAKE_INSTALL_PREFIX "install")
+project(robot_framework)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # Include the FetchContent module
 include(FetchContent)

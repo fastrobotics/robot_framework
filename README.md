@@ -50,8 +50,8 @@ Run the following:
 
 ```bash
 cd <repo>
-mkdir build && cd build
-cmake ..;cmake --build .;cmake --install .
+cmake -S . -B build
+cmake --build build --target install -j20
 ```
 
 # Run Unit Tests (after running [Build](#build))
@@ -60,6 +60,7 @@ Run the following:
 
 ```bash
 cd <repo>
+cd build
 ctest
 ```
 
