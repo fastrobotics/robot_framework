@@ -60,6 +60,10 @@ The following outputs are provided by this system.
 
 # Processes
 
+| Status | Process                                                                         |
+| ------ | ------------------------------------------------------------------------------- |
+| DRAFT  | [Global Pose Process](../Processes/GlobalPoseProcess/doc/Process-GlobalPose.md) |
+
 ## Package Diagram
 
 # Usage Instructions
