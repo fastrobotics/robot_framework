@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::DataStorageSystem
+ * @brief The DataStorage System for the Robot Framework
+ */

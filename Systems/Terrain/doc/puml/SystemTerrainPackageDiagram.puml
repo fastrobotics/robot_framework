@@ -1,0 +1,21 @@
+@startuml
+title System-Terrain Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace TerrainSystem {
+    interface ITerrainSystem {
+    }
+    abstract BaseTerrainSystem {
+    }
+    ITerrainSystem <|-- BaseTerrainSystem
+    class BasicTerrainSystem {
+
+    }
+    BaseTerrainSystem <|-- BasicTerrainSystem
+    class DummyTerrainSystem  {
+    }
+    BaseTerrainSystem <|-- DummyTerrainSystem
+  }
+}
+@enduml

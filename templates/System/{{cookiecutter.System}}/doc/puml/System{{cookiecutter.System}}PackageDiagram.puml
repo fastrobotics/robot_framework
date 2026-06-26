@@ -1,0 +1,21 @@
+@startuml
+title System-{{cookiecutter.System}} Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace {{cookiecutter.System}}System {
+    interface I{{cookiecutter.System}}System {
+    }
+    abstract Base{{cookiecutter.System}}System {
+    }
+    I{{cookiecutter.System}}System <|-- Base{{cookiecutter.System}}System
+    class Basic{{cookiecutter.System}}System {
+
+    }
+    Base{{cookiecutter.System}}System <|-- Basic{{cookiecutter.System}}System
+    class Dummy{{cookiecutter.System}}System  {
+    }
+    Base{{cookiecutter.System}}System <|-- Dummy{{cookiecutter.System}}System
+  }
+}
+@enduml

@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::TerrainSystem
+ * @brief The Terrain System for the Robot Framework
+ */

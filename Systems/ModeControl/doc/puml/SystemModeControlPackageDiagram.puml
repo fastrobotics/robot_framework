@@ -1,0 +1,21 @@
+@startuml
+title System-ModeControl Package Diagram
+
+namespace fast::rf {
+  namespace messages {}
+  namespace ModeControlSystem {
+    interface IModeControlSystem {
+    }
+    abstract BaseModeControlSystem {
+    }
+    IModeControlSystem <|-- BaseModeControlSystem
+    class BasicModeControlSystem {
+
+    }
+    BaseModeControlSystem <|-- BasicModeControlSystem
+    class DummyModeControlSystem  {
+    }
+    BaseModeControlSystem <|-- DummyModeControlSystem
+  }
+}
+@enduml

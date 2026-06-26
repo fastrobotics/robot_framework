@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::{{cookiecutter.System}}System
+ * @brief The {{cookiecutter.System}} System for the Robot Framework
+ */

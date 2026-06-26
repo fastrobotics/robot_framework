@@ -1,0 +1,21 @@
+@startuml
+title System-GoalPlanning Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace GoalPlanningSystem {
+    interface IGoalPlanningSystem {
+    }
+    abstract BaseGoalPlanningSystem {
+    }
+    IGoalPlanningSystem <|-- BaseGoalPlanningSystem
+    class BasicGoalPlanningSystem {
+
+    }
+    BaseGoalPlanningSystem <|-- BasicGoalPlanningSystem
+    class DummyGoalPlanningSystem  {
+    }
+    BaseGoalPlanningSystem <|-- DummyGoalPlanningSystem
+  }
+}
+@enduml

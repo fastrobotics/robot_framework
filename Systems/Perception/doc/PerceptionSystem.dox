@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::PerceptionSystem
+ * @brief The Perception System for the Robot Framework
+ */

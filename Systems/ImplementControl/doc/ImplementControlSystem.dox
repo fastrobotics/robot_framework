@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::ImplementControlSystem
+ * @brief The ImplementControl System for the Robot Framework
+ */

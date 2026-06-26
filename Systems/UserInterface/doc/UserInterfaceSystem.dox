@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::UserInterfaceSystem
+ * @brief The UserInterface System for the Robot Framework
+ */
