@@ -12,6 +12,12 @@ public:
   IGlobalPoseProcess() = default;
   virtual ~IGlobalPoseProcess() = default;
   /**
+   * @brief Get the supported gps channel count object
+   *
+   * @return uint8_t Number of Channels Supported
+   */
+  virtual uint8_t get_supported_gps_channel_count() = 0;
+  /**
    * @brief Generic Update function
    *
    * @param current_time_sec Current time stamp

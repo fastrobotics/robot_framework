@@ -9,7 +9,7 @@ namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
  */
 class BasicGlobalPoseProcess : public BaseGlobalPoseProcess {
 public:
-  BasicGlobalPoseProcess() {}
+  BasicGlobalPoseProcess() : BaseGlobalPoseProcess(1) {}
   /**
    * @brief Update with recent timing data
    *

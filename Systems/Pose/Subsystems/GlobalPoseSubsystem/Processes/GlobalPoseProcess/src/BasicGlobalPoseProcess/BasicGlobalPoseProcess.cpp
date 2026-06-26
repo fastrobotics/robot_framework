@@ -12,6 +12,12 @@ bool BasicGlobalPoseProcess::update(double current_time_sec,
 }
 bool BasicGlobalPoseProcess::new_GlobalPositionSensorMsg(
     uint8_t index, SensorMsgs::GlobalPositionSensorMsg gps_data) {
+  if (index >= supported_gps_channels) {
+    return false;
+  }
+  if (gps_data.time_stamp <= 0.0) {
+    return false;
+  }
   int zone;
   bool northp;
   double x, y;
@@ -36,6 +42,6 @@ bool BasicGlobalPoseProcess::new_GlobalPositionSensorMsg(
       .covariance[GeometryMsgs::PoseWithCovarianceMsg::COV_Z] =
       gps_data.covariance
           .covariance[SensorMsgs::GlobalPositionSensorMsg::COV_Z];
-  return false;
+  return true;
 }
 } // namespace fast::rf::PoseSystem::GlobalPoseSubsystem

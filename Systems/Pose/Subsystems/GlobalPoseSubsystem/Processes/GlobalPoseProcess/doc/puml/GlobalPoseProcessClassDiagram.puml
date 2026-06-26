@@ -13,11 +13,13 @@ namespace fast::fr {
   namespace PoseSystem {
     namespace GlobalPoseSubsystem {
         interface IGlobalPoseProcess #Orange {
+          +{abstract} uint8_t get_supported_gps_channel_count()
           +{abstract} bool new_GlobalPositionSensorMsg(uint8_t index, GlobalPositionSensorMsg data)
           +{abstract} OdomMsg get_GlobalPose()
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
         }
         abstract BaseGlobalPoseProcess #Orange {
+          +uint8_t get_supported_gps_channel_count()
           +OdomMsg get_GlobalPose()
           +bool base_update(double current_time_sec, double delta_time_sec)
           #OdomMsg globalPose

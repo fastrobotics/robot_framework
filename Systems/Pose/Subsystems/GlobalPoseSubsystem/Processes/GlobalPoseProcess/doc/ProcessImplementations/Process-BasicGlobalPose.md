@@ -28,10 +28,10 @@
 
 ## ToDo
 
-| Item                                                    |
-| ------------------------------------------------------- |
-| Limit number of supported channels to 1                 |
-| Fill in all attributes to satisfy interface definition. |
+| Item                       |
+| -------------------------- |
+| Add specific Class Diagram |
+| Add Sequence Diagram       |
 
 ## Purpose
 
@@ -53,9 +53,9 @@ The following are a listing of all limitations in this module:
 
 The following inputs are required in order for this system to properly function.
 
-| Input                           | DataType                | Description                             | Requirement                 |
-| ------------------------------- | ----------------------- | --------------------------------------- | --------------------------- |
-| GPS Sensor Data (Instances 1-N) | GlobalPositionSensorMsg | Position data in Geographic Coordinates | Interface spec is followed. |
+| Input                                 | DataType                | Description                             | Requirement                 |
+| ------------------------------------- | ----------------------- | --------------------------------------- | --------------------------- |
+| GPS Sensor Data (**1 Instance Only**) | GlobalPositionSensorMsg | Position data in Geographic Coordinates | Interface spec is followed. |
 
 # Outputs
 

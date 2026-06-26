@@ -33,6 +33,7 @@ TEST(TestGlobalPoseProcessInterface, InterfaceTests) {
 }
 class TestBaseGlobalPoseProcess : public BaseGlobalPoseProcess {
 public:
+  TestBaseGlobalPoseProcess() : BaseGlobalPoseProcess(0) {}
   bool update(double current_time_sec, double delta_time_sec) override {
     return base_update(current_time_sec, delta_time_sec);
   }

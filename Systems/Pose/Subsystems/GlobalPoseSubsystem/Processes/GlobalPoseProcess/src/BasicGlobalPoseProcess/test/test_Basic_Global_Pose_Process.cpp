@@ -11,11 +11,9 @@ TEST(BasicGlobalPoseProcess, BasicTests) {
   BasicGlobalPoseProcess SUT;
   SensorMsgs::GlobalPositionSensorMsg gps1;
   gps1.time_stamp = 0.3;
-  ASSERT_FALSE(SUT.new_GlobalPositionSensorMsg(0, gps1));
+  ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
   ASSERT_TRUE(SUT.update(0.0, 0.0));
-  // ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
-  GeometryMsgs::OdomMsg global_pose = SUT.get_GlobalPose();
-  // ASSERT_GT(global_pose.time_stamp, 0.0); // Valid Pose
+  ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
 }
 TEST(BasicGlobalPoseProcess, BasicConversionTests) {
   BasicGlobalPoseProcess SUT;
@@ -25,7 +23,7 @@ TEST(BasicGlobalPoseProcess, BasicConversionTests) {
   gps1.covariance.covariance[SensorMsgs::GlobalPositionSensorMsg::COV_X] = 1.0;
   gps1.covariance.covariance[SensorMsgs::GlobalPositionSensorMsg::COV_Y] = 2.0;
   gps1.covariance.covariance[SensorMsgs::GlobalPositionSensorMsg::COV_Z] = 3.0;
-  ASSERT_FALSE(SUT.new_GlobalPositionSensorMsg(0, gps1));
+  ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
   GeometryMsgs::OdomMsg global_pose = SUT.get_GlobalPose();
   ASSERT_FLOAT_EQ(global_pose.pose.pose.position.x, 583959.372324);
   ASSERT_FLOAT_EQ(global_pose.pose.pose.position.y, 4507350.998243);
