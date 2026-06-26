@@ -15,3 +15,6 @@ jobs:
 
       - name: Install Dependencies
         run: ./scripts/setup_robot.sh
+
+      - name: Build Content
+        run: cmake -S . -B build
