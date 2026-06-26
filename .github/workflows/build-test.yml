@@ -16,5 +16,8 @@ jobs:
       - name: Install Dependencies
         run: ./scripts/setup_robot.sh
 
-      - name: Build Content
+      - name: Prepare to Build
         run: cmake -S . -B build
+
+      - name: Build Repo
+        run: cmake --build build --target install -j20
