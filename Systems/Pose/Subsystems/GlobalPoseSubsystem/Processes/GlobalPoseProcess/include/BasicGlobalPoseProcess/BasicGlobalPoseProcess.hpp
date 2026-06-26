@@ -1,6 +1,7 @@
 #pragma once
 
 #include <BaseGlobalPoseProcess.hpp>
+
 namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
 /**
  * @brief Minimal implementation for a Global Pose Process
@@ -8,6 +9,7 @@ namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
  */
 class BasicGlobalPoseProcess : public BaseGlobalPoseProcess {
 public:
+  BasicGlobalPoseProcess() {}
   /**
    * @brief Update with recent timing data
    *
@@ -27,5 +29,7 @@ public:
    */
   bool new_GlobalPositionSensorData(
       uint8_t index, SensorMsgs::GlobalPositionSensorData data) override;
+
+private:
 };
 } // namespace fast::rf::PoseSystem::GlobalPoseSubsystem

@@ -12,10 +12,22 @@ FetchContent_Declare(
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
 
-# Make GoogleTest available to the build
 FetchContent_MakeAvailable(googletest)
 
-# Enable CTest framework support
+#set(BUILD_DOCUMENTATION OFF CACHE INTERNAL "")
+#set(BUILD_TOOLS OFF CACHE INTERNAL "")
+
+#FetchContent_Declare(
+#    GeographicLib
+#    GIT_REPOSITORY https://github.com/geographiclib/geographiclib
+#    GIT_TAG        v2.5 # Replace with the latest stable version tag
+#)
+#FetchContent_MakeAvailable(GeographicLib)
+
+#find_package (GeographicLib REQUIRED)
+#include_directories (${GeographicLib_INCLUDE_DIRS}) 
+
+
 enable_testing()
 
 add_subdirectory(msgs)

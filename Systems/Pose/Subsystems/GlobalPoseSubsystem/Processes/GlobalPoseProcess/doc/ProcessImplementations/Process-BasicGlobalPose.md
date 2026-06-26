@@ -1,8 +1,9 @@
-[Global Pose Subsystem](../../../doc/Subsystem-GlobalPose.md)
+[Global Pose Process](../Process-GlobalPose.md)
 
-- [Process: Global Pose](#process-global-pose)
+- [Process Implementation: Basic Global Pose](#process-implementation-basic-global-pose)
 - [Document History](#document-history)
 - [Overview](#overview)
+  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Process Architecture](#process-architecture)
@@ -11,29 +12,33 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
-  - [Global Pose Process Implementations](#global-pose-process-implementations)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
-# Process: Global Pose
+# Process Implementation: Basic Global Pose
 
 # Document History
 
 | Version Number | Date         | Author     | Change           |
 | :------------: | ------------ | ---------- | ---------------- |
-|       0        | 25-June-2026 | David Gitz | Drafted Document |
+|       0        | 26-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 
+## ToDo
+
+| Item                                                    |
+| ------------------------------------------------------- |
+| Limit number of supported channels to 1                 |
+| Fill in all attributes to satisfy interface definition. |
+
 ## Purpose
 
-This process's objective is to take, given multiple streams of GPS data, a combined GlobalPose.
+This specific Process Implementation provides an extremely simple way of computing a Global Pose given GPS Data.
 
 ## General Requirements
 
 # Process Architecture
-
-![](dia/GlobalPoseProcessArchitecture.svg)
 
 # Inputs
 
@@ -55,18 +60,9 @@ The following outputs are provided by this system.
 
 ## Detailed Documentation
 
-![](../../../../../../../Legend.png)
+![](../../../../../../../../Legend.png)
 
 ## Class Diagram
-
-![](puml/GlobalPoseProcessClassDiagram.png)
-
-## Global Pose Process Implementations
-
-| Status | Implementation                                                              | Details                             |
-| ------ | --------------------------------------------------------------------------- | ----------------------------------- |
-| NEW    | DummyGlobalPoseProcess                                                      | Used for generating fake data       |
-| DRAFT  | [BasicGlobalPoseProcess](ProcessImplementations/Process-BasicGlobalPose.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

@@ -122,5 +122,17 @@ struct OdomMsg {
       : time_stamp(-1.0) {
 
         };
+  /**
+   * @brief Human readable function to print data
+   *
+   * @return std::string
+   */
+  std::string pretty() {
+    std::string str = "";
+    str = "T: " + std::to_string(time_stamp) +
+          " X: " + std::to_string(pose.pose.position.x) +
+          " Y: " + std::to_string(pose.pose.position.y);
+    return str;
+  }
 };
 } // namespace fast::rf::messages::GeometryMsgs
