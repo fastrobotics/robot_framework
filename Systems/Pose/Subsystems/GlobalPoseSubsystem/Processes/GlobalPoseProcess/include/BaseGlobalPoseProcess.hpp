@@ -22,7 +22,7 @@ public:
    * @return uint8_t The number of supported gps channels
    */
   uint8_t get_supported_gps_channel_count() { return supported_gps_channels; }
-  / GeometryMsgs::OdomMsg get_GlobalPose() override {
+  GeometryMsgs::OdomMsg get_GlobalPose() override {
     return global_pose;
   } //!< Get Global Pose
   bool base_update(double current_time_sec,
