@@ -18,6 +18,7 @@ TEST(BasicGlobalPoseProcess, BasicTests) {
 TEST(BasicGlobalPoseProcess, BasicConversionTests) {
   BasicGlobalPoseProcess SUT;
   SensorMsgs::GlobalPositionSensorMsg gps1;
+  gps1.time_stamp = 1.0;
   gps1.latitude_deg = 40.7128;
   gps1.longitude_deg = -74.0060;
   gps1.covariance.covariance[SensorMsgs::GlobalPositionSensorMsg::COV_X] = 1.0;
