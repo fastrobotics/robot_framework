@@ -1,0 +1,24 @@
+@startuml
+title NavigationExecutor Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace NavigationExecutorSubsystem {
+      interface INavigationExecutorSubsystem {
+
+      }
+      abstract BaseNavigationExecutorSubsystem {
+
+      }
+      BaseNavigationExecutorSubsystem -up-|> INavigationExecutorSubsystem
+      class BasicNavigationExecutorSubsystem {
+      }
+      BasicNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
+      class DummyNavigationExecutorSubsystem {
+      }
+      DummyNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
+    }
+  }
+}
+@enduml

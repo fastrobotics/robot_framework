@@ -1,11 +1,12 @@
 [Pose System](../../../doc/System-Navigation.md)
 
-- [Subsystem: LocalPlanner](#subsystem-localplanner)
+- [Subsystem: NavigationExecutor](#subsystem-navigationexecutor)
 - [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Subsystem Architecture](#subsystem-architecture)
+  - [Class Diagram](#class-diagram)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -16,7 +17,7 @@
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
-# Subsystem: LocalPlanner
+# Subsystem: NavigationExecutor
 
 # Document History
 
@@ -28,7 +29,7 @@
 
 ## Purpose
 
-The LocalPlanner Subsystem's role in the Robot Framework is to ???
+The NavigationExecutor Subsystem's role in the Robot Framework is to ???
 
 ## General Requirements
 
@@ -36,7 +37,11 @@ The LocalPlanner Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/LocalPlannerSubsystemArchitecture.png)
+![](dia/NavigationExecutorSubsystemArchitecture.png)
+
+## Class Diagram
+
+![](puml/NavigationExecutorSubsystemClassDiagram.png)
 
 # Inputs
 

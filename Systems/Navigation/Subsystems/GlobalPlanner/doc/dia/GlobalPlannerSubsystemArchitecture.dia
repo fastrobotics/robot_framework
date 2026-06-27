@@ -28,7 +28,7 @@
           <dia:boolean val="false"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="4"/>
+          <dia:real val="2"/>
         </dia:attribute>
         <dia:attribute name="fitto">
           <dia:boolean val="false"/>
@@ -679,7 +679,7 @@
         <dia:point val="5,-1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="4.97813,-1.70688;11.02,-0.76625"/>
+        <dia:rectangle val="5,-1.685;11.02,-0.81"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">

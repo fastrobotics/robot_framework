@@ -6,6 +6,7 @@
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Subsystem Architecture](#subsystem-architecture)
+  - [Class Diagram](#class-diagram)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -33,6 +34,14 @@ The {{cookiecutter.Subsystem}} Subsystem's role in the Robot Framework is to ???
 ## General Requirements
 
 # Subsystem Architecture
+
+![](../../../../../Legend.png)
+
+![](dia/{{cookiecutter.Subsystem}}SubsystemArchitecture.png)
+
+## Class Diagram
+
+![](puml/{{cookiecutter.Subsystem}}SubsystemClassDiagram.png)
 
 # Inputs
 
