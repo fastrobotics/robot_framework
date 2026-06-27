@@ -15,7 +15,8 @@ fi
 echo "Ok!"
 
 echo "Converting dia files to images..."
-git diff --staged --name-only --diff-filter=d -- '*.dia' | xargs -I {} dia --filter=png "{}"
+# All Files: find . -type f -name "*.dia" | xargs -I {} bash -c 'dia --export="${1%.dia}.png" "$1"' _ {}
+git diff --staged --name-only --diff-filter=d -- '*.dia' |  xargs -I {} bash -c 'dia --export="${1%.dia}.png" "$1"' _ {}
 echo "Ok!"
 
 echo "Checking Markdown Links..."
