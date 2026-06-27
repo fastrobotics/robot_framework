@@ -14,14 +14,14 @@ namespace fast::rf::messages {
       +bool ok()
 
     }
-    enum GlobalPathPlanningStatusEnum
+    enum GlobalPathPlanningStatusEnum #Orange
     {
       UNKNOWN=0,
       STARTING=1,
       PLANNING=2,
       COMPLETED=3,
       FAILED=4,
-      END_OF_LIST=,
+      END_OF_LIST=5
 
     }
     GlobalPathRequest --> OdomMsg: <<use>>
