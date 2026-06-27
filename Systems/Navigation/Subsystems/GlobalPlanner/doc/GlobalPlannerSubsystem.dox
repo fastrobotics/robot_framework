@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+ * @brief The GlobalPlanner Subsystem for the Robot Framework
+ */

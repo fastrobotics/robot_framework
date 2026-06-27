@@ -1,0 +1,31 @@
+@startuml
+title GlobalPlanner Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+      interface IGlobalPlannerSubsystem {
+        +{abstract} GlobalPathResponse plan_GlobalPath(GlobalPathRequest req)
+        +{abstract} GlobalPathResponse get_GlobalPathResponse()
+
+      }
+      abstract BaseGlobalPlannerSubsystem {
+        +GlobalPathResponse get_GlobalPathResponse()
+        #GlobalPathResponse global_path_response
+
+      }
+      BaseGlobalPlannerSubsystem -up-|> IGlobalPlannerSubsystem
+      class BasicGlobalPlannerSubsystem {
+
+      }
+      BasicGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
+      class DummyGlobalPlannerSubsystem {
+
+      }
+      DummyGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
+    }
+  }
+}
+@enduml

@@ -48,4 +48,4 @@ This ADR should be revisited in the future based on the following: None
 
 # Deviations
 
-1. Currently the `GeometryMsgs` namespace does not follow this convention (all messages are defined in 1 GeometryMsgs.hpp file). This will be resolved in future work.
+1. Currently the `GeometryMsgs`, `SensorMsgs`,and `StandardMsgs` namespaces do not follow this convention (all messages are defined in 1 GeometryMsgs.hpp file). This will be resolved in AB#1682.

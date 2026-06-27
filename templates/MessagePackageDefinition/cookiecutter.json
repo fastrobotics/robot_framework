@@ -1,5 +1,5 @@
 {
-  "Package": "Package",
-  "package": "package"
-  
+  "Package": "Name-Msgs",
+  "package": "name_msgs",
+  "Message": "Name-Message"
 }
