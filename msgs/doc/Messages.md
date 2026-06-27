@@ -17,3 +17,7 @@ The following is a listing of all messages created for this framework.
 # Sensors
 
 ![](../SensorMsgs/doc/puml/SensorMessagesClassDiagram.png)
+
+# Navigation
+
+![](../NavMsgs/doc/puml/NavMessagesClassDiagram.png)

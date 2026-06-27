@@ -5,6 +5,7 @@ add_executable(
 target_link_libraries(
   test_msgs_NavMsgs_GlobalPathRequestMsg
   GTest::gtest_main
+  geometry_msgs
 )
 
 include(GoogleTest)

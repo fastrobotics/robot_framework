@@ -6,10 +6,12 @@ namespace fast::rf::messages {
     class OdomMsg <<(M,#FFFF00)>>
   }
   namespace NavMsgs  {
-    class GlobalPathRequest <<(M,#FFFF00)>> {
+    class GlobalPathRequest <<(M,#FFFF00)>> #Orange {
       +uint64_t path_uuid
       +OdomMsg start
+      +OdomMsg[] pass_thru_points
       +OdomMsg end
+      +bool ok()
 
     }
     enum GlobalPathPlanningStatusEnum
