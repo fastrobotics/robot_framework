@@ -6,7 +6,7 @@ namespace fast::rf::messages {
     class OdomMsg <<(M,#FFFF00)>>
   }
   namespace NavMsgs  {
-    class GlobalPathRequest <<(M,#FFFF00)>> #Orange {
+    class GlobalPathRequest <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +OdomMsg start
       +OdomMsg[] pass_thru_points
@@ -14,7 +14,7 @@ namespace fast::rf::messages {
       +bool ok()
 
     }
-    enum GlobalPathPlanningStatusEnum #Orange
+    enum GlobalPathPlanningStatusEnum #LimeGreen
     {
       UNKNOWN=0,
       STARTING=1,
@@ -25,14 +25,14 @@ namespace fast::rf::messages {
 
     }
     GlobalPathRequest --> OdomMsg: <<use>>
-    class GlobalPathResponse <<(M,#FFFF00)>> #Orange {
+    class GlobalPathResponse <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +GlobalPathPlanningStatusEnum state
       +OdomMsg[] path_points
     }
     GlobalPathResponse --> OdomMsg: <<use>>
     GlobalPathResponse --> GlobalPathPlanningStatusEnum: <<use>>
-    class GlobalPathPlanningStatus <<(M,#FFFF00)>> {
+    class GlobalPathPlanningStatus <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +GlobalPathPlanningStatusEnum state
     }
