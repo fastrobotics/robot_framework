@@ -15,7 +15,7 @@ fi
 echo "Ok!"
 
 echo "Converting dia files to images..."
-git diff --staged --name-only --diff-filter=d -- '*.dia' | xargs -I {} dia -t svg -n -e "{}"
+git diff --staged --name-only --diff-filter=d -- '*.dia' | xargs -I {} dia --filter=png "{}"
 echo "Ok!"
 
 echo "Checking Markdown Links..."
