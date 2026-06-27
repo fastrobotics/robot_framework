@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1CommsSystem_1_1ICommsSystem.html" title="Interface for the Comms System." alt="" coords="5,5,176,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1CommsSystem_1_1BaseCommsSystem.html" title="Base Class for the Comms System." alt="" coords="224,5,395,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="190,23,224,23,224,28,190,28"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1CommsSystem_1_1DummyCommsSystem.html" title="Dummy Comms System." alt="" coords="443,5,624,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="409,23,442,23,442,28,409,28"/>
+</map>

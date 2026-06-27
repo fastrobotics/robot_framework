@@ -1,0 +1,7 @@
+<map id="fast::rf::messages::GeometryMsgs::PoseMsg" name="fast::rf::messages::GeometryMsgs::PoseMsg">
+<area shape="rect" id="Node000001" title="Data Structure for encoding Pose (Position and Orientation)" alt="" coords="367,37,561,77"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html" title="Data Structure for encoding Points." alt="" coords="25,5,223,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,33,367,46,366,51,236,39"/>
+<area shape="rect" id="Node000003" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html" title="Data Structure for encoding Orientation." alt="" coords="5,69,243,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,74,366,64,366,69,256,80"/>
+</map>

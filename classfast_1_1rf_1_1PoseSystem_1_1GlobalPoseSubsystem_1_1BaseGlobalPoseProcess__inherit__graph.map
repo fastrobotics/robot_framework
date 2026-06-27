@@ -1,0 +1,7 @@
+<map id="fast::rf::PoseSystem::GlobalPoseSubsystem::BaseGlobalPoseProcess" name="fast::rf::PoseSystem::GlobalPoseSubsystem::BaseGlobalPoseProcess">
+<area shape="rect" id="Node000001" title="Base Global Pose Process." alt="" coords="7,108,192,163"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BasicGlobalPoseProcess.html" title="Minimal implementation for a Global Pose Process." alt="" coords="5,211,193,265"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,176,102,211,97,211,97,176"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html" title="Interface for the Global Pose Process." alt="" coords="12,5,187,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,74,102,108,97,108,97,74"/>
+</map>

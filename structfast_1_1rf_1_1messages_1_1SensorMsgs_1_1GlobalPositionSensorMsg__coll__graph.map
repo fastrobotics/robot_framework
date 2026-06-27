@@ -1,0 +1,5 @@
+<map id="fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg" name="fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg">
+<area shape="rect" id="Node000001" title="Data Structure for encoding GPS Data." alt="" coords="24,108,235,163"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html" title="3D Covariance" alt="" coords="5,5,253,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,59,132,108,127,108,127,59"/>
+</map>

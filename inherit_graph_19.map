@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html" title="Interface for the Global Pose Process." alt="" coords="5,5,180,60"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BaseGlobalPoseProcess.html" title="Base Global Pose Process." alt="" coords="228,5,413,60"/>
+<area shape="poly" id="edge15_Node000000_Node000001" title=" " alt="" coords="194,30,228,30,228,35,194,35"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BasicGlobalPoseProcess.html" title="Minimal implementation for a Global Pose Process." alt="" coords="461,5,649,60"/>
+<area shape="poly" id="edge16_Node000001_Node000002" title=" " alt="" coords="427,30,461,30,461,35,427,35"/>
+</map>

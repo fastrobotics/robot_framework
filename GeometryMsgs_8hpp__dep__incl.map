@@ -1,0 +1,16 @@
+<map id="msgs/GeometryMsgs/include/GeometryMsgs.hpp" name="msgs/GeometryMsgs/include/GeometryMsgs.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,464,45"/>
+<area shape="rect" id="Node000002" href="$IGlobalPoseProcess_8hpp_source.html" title=" " alt="" coords="75,93,315,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="317,55,251,95,249,91,314,50"/>
+<area shape="rect" id="Node000005" href="$BasePoseSystem_8hpp.html" title=" " alt="" coords="395,225,562,265"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="361,59,368,109,375,136,386,161,415,196,449,223,446,227,411,200,382,164,370,138,362,110,356,59"/>
+<area shape="rect" id="Node000007" href="$IPoseSystem_8hpp.html" title=" " alt="" coords="397,108,561,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="394,52,458,106,454,110,390,56"/>
+<area shape="rect" id="Node000003" href="$BaseGlobalPoseProcess_8hpp_source.html" title=" " alt="" coords="61,211,301,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="192,177,188,211,183,210,187,176"/>
+<area shape="rect" id="Node000004" href="$BasicGlobalPoseProcess_8hpp_source.html" title=" " alt="" coords="5,328,301,412"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="173,294,165,329,160,327,168,292"/>
+<area shape="rect" id="Node000006" href="$DummyPoseSystem_8hpp.html" title=" " alt="" coords="325,350,648,390"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="483,279,488,350,483,350,478,280"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="481,162,481,225,476,225,476,162"/>
+</map>

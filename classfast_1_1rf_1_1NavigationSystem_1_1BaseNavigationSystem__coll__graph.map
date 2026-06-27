@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::BaseNavigationSystem" name="fast::rf::NavigationSystem::BaseNavigationSystem">
+<area shape="rect" id="Node000001" title="Base Class for the Navigation System." alt="" coords="5,93,197,133"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1INavigationSystem.html" title="Interface for the Navigation System." alt="" coords="5,5,197,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,59,104,93,99,93,99,59"/>
+</map>

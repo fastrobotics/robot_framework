@@ -1,0 +1,5 @@
+<map id="fast::rf::messages::GeometryMsgs::TwistMsg" name="fast::rf::messages::GeometryMsgs::TwistMsg">
+<area shape="rect" id="Node000001" title="Data Structure for encoding Velocity (linear and angular)" alt="" coords="15,123,212,163"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html" title="3D Vector" alt="" coords="5,5,221,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,59,116,122,111,122,111,59"/>
+</map>

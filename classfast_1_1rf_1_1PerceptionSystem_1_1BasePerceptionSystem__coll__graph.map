@@ -1,0 +1,5 @@
+<map id="fast::rf::PerceptionSystem::BasePerceptionSystem" name="fast::rf::PerceptionSystem::BasePerceptionSystem">
+<area shape="rect" id="Node000001" title="Base Class for the Perception System." alt="" coords="5,93,196,133"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1IPerceptionSystem.html" title="Interface for the Perception System." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,59,103,93,98,93,98,59"/>
+</map>

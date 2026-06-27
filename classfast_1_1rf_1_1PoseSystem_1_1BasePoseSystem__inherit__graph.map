@@ -1,0 +1,7 @@
+<map id="fast::rf::PoseSystem::BasePoseSystem" name="fast::rf::PoseSystem::BasePoseSystem">
+<area shape="rect" id="Node000001" title="Base Class for the Pose System." alt="" coords="11,93,163,133"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html" title="Dummy Pose System." alt="" coords="5,181,168,221"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,147,89,181,84,181,84,147"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html" title="Interface for the Pose System." alt="" coords="11,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,59,89,93,84,93,84,59"/>
+</map>

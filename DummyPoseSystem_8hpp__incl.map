@@ -1,0 +1,19 @@
+<map id="Systems/Pose/include/DummyPoseSystem/DummyPoseSystem.hpp" name="Systems/Pose/include/DummyPoseSystem/DummyPoseSystem.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,328,45"/>
+<area shape="rect" id="Node000002" href="$BasePoseSystem_8hpp.html" title=" " alt="" coords="85,93,248,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,46,169,79,164,79,164,46"/>
+<area shape="rect" id="Node000003" href="$GeometryMsgs_8hpp.html" title=" " alt="" coords="92,240,241,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="162,120,151,142,143,167,144,198,155,227,150,228,139,199,137,166,146,140,157,118"/>
+<area shape="rect" id="Node000008" href="$IPoseSystem_8hpp.html" title=" " alt="" coords="153,167,287,192"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="178,117,205,154,201,157,173,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="71,313,129,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="158,267,122,305,118,301,154,264"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="146,387,209,412"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="170,266,178,373,173,373,165,266"/>
+<area shape="rect" id="Node000006" href="$StandardMsgs_8hpp.html" title=" " alt="" coords="205,313,347,339"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="186,263,248,303,245,308,183,268"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="262,341,206,381,203,376,259,337"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="243,387,309,412"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="279,339,279,373,273,373,273,339"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="213,194,186,231,181,228,209,191"/>
+</map>

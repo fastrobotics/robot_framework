@@ -1,0 +1,7 @@
+<map id="fast::rf::UserInterfaceSystem::IUserInterfaceSystem" name="fast::rf::UserInterfaceSystem::IUserInterfaceSystem">
+<area shape="rect" id="Node000001" title="Interface for the UserInterface System." alt="" coords="10,5,219,45"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html" title="Base Class for the UserInterface System." alt="" coords="10,93,219,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,59,117,93,112,93,112,59"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html" title="Dummy UserInterface System." alt="" coords="5,181,224,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,147,117,181,112,181,112,147"/>
+</map>

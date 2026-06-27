@@ -1,0 +1,7 @@
+<map id="fast::rf::ModeControlSystem::DummyModeControlSystem" name="fast::rf::ModeControlSystem::DummyModeControlSystem">
+<area shape="rect" id="Node000001" title="Dummy ModeControl System." alt="" coords="5,181,220,221"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1ModeControlSystem_1_1BaseModeControlSystem.html" title="Base Class for the ModeControl System." alt="" coords="11,93,215,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,147,115,181,110,181,110,147"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1ModeControlSystem_1_1IModeControlSystem.html" title="Interface for the ModeControl System." alt="" coords="11,5,215,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,59,115,93,110,93,110,59"/>
+</map>
