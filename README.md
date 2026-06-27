@@ -2,6 +2,7 @@
 
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
 - [Architecture Decision Records](#architecture-decision-records)
+- [Code Documentation](#code-documentation)
 - [Architecture](#architecture)
 - [Messages](#messages)
 - [Setup](#setup)
@@ -12,6 +13,10 @@
 # Architecture Decision Records
 
 [ADR's](doc/ADR/ADR.md)
+
+# Code Documentation
+
+[Code Documentation](https://fastrobotics.github.io/robot_framework/index.html)
 
 # Architecture
 
