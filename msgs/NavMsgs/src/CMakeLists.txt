@@ -47,3 +47,17 @@ target_link_libraries(
 )
 
 gtest_discover_tests(test_msgs_NavMsgs_GlobalPathResponseMsg)
+
+# Test: NavMsgs::GlobalPathCommandMsg
+add_executable(
+  test_msgs_NavMsgs_GlobalPathCommandMsg
+  test/test_msgs_NavMsgs_GlobalPathCommandMsg.cpp
+)
+target_link_libraries(
+  test_msgs_NavMsgs_GlobalPathCommandMsg
+  GTest::gtest_main
+  geometry_msgs
+)
+
+include(GoogleTest)
+gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandMsg)

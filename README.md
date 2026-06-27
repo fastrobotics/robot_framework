@@ -59,12 +59,14 @@ ctest
 # Templates
 
 This project makes extensive use of cookiecutter templates.
-| Template | Folder | Use Case |
-| --- | --- | --- |
-| ArchitectureDecisionRecord | `templates/ArchitectureDecisionRecord/` | Used to create standard ADR. |
-| MessagePackageDefinition | `templates/MessagePackageDefinition/` | Used to create a middleware-agnostic Message Package Definition. |
-| System | `templates/System/` | Used to create a new System. |
-| Subsystem | `templates/Subsystem/` Used to create a new Subsystem. |
+
+| Template                   | Folder                                                 | Use Case                                                         |
+| -------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------- |
+| ArchitectureDecisionRecord | `templates/ArchitectureDecisionRecord/`                | Used to create standard ADR.                                     |
+| MessagePackageDefinition   | `templates/MessagePackageDefinition/`                  | Used to create a middleware-agnostic Message Package Definition. |
+| System                     | `templates/System/`                                    | Used to create a new System.                                     |
+| Subsystem                  | `templates/Subsystem/` Used to create a new Subsystem. |
+| MessageDefinition          | `templates/MessageDefinition/`                         | Used to create a new Message.                                    |
 
 To use these templates, run:
 
