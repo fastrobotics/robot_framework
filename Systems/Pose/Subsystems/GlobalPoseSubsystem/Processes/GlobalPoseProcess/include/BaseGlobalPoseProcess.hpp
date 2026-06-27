@@ -1,3 +1,13 @@
+/**
+ * @file BaseGlobalPoseProcess.hpp
+ * @author yDavid Gitz (davidgitz@gmail.com)
+ * @brief
+ * @version 0.1
+ * @date 2026-06-27
+ *
+ * @copyright Copyright (c) 2026
+ *
+ */
 #pragma once
 #include <IGlobalPoseProcess.hpp>
 namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
