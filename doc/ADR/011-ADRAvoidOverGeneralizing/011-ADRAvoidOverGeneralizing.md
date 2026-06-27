@@ -11,9 +11,15 @@
 
 # Description
 
+Over-generalizing causes over-complexity and can be hard to maintain. For example, a process that generalizes all hardware input/output as abstract interfaces can be challenging.
+
 # Alternatives Investigated
 
+None
+
 # Implications
+
+The main implications of not over-generalizing is to have more focused SW modules. For example, instead of a general SW module that is driven entirely by configuration that can handle arbitrary input/output, have more specific modules that handle specific input/output data.
 
 # Follow-up
 
