@@ -28,16 +28,10 @@
           <dia:boolean val="false"/>
         </dia:attribute>
         <dia:attribute name="scaling">
-          <dia:real val="0.42816388607025146"/>
+          <dia:real val="2"/>
         </dia:attribute>
         <dia:attribute name="fitto">
-          <dia:boolean val="true"/>
-        </dia:attribute>
-        <dia:attribute name="fitwidth">
-          <dia:int val="1"/>
-        </dia:attribute>
-        <dia:attribute name="fitheight">
-          <dia:int val="1"/>
+          <dia:boolean val="false"/>
         </dia:attribute>
       </dia:composite>
     </dia:attribute>

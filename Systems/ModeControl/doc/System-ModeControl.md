@@ -35,7 +35,7 @@ The ModeControl System's role in the Robot Framework is to ???.
 
 # System Architecture
 
-![](dia/ModeControlSystemArchitecture.svg)
+![](dia/ModeControlSystemArchitecture.png)
 
 # Inputs
 
