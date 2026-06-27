@@ -13,7 +13,7 @@
 | READY  | [Frame Translation at Middle-Ware](007-ADRFrameTranslationMiddleware/007-ADRFrameTranslationMiddleware.md)                                          |
 | READY  | [Message Definition](008-ADRMessageDefinition/008-ADRMessageDefinition.md)                                                                          |
 | READY  | [Full System Validation](009-ADRFullSystemValidation/009-ADRFullSystemValidation.md)                                                                |
-| NEW    | [Small set of I/O Interfaces for each System](010-ADREachSystemSmallSetOfInputOutputInterfaces/010-ADREachSystemSmallSetOfInputOutputInterfaces.md) |
+| READY  | [Small set of I/O Interfaces for each System](010-ADREachSystemSmallSetOfInputOutputInterfaces/010-ADREachSystemSmallSetOfInputOutputInterfaces.md) |
 | NEW    | [Avoid Overgeneralizing](011-ADRAvoidOverGeneralizing/011-ADRAvoidOverGeneralizing.md)                                                              |
 | NEW    | [Unit Tests can use real Data](012-ADRDataSourceUnitTests/012-ADRDataSourceUnitTests.md)                                                            |
 | NEW    | [Provide Analysis Capabilities](013-ADRProvideAnalysisCapabilities/013-ADRProvideAnalysisCapabilities.md)                                           |
