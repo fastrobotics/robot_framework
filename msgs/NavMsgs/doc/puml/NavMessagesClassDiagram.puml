@@ -4,6 +4,7 @@ title Nav Messages Package Diagram
 namespace fast::rf::messages {
   namespace GeometryMsgs {
     class OdomMsg <<(M,#FFFF00)>>
+    class TwistWithCovarianceMsg <<(M,#FFFF00)>>
   }
   namespace NavMsgs  {
     class GlobalPathRequest <<(M,#FFFF00)>> #LimeGreen {
@@ -37,6 +38,34 @@ namespace fast::rf::messages {
       +GlobalPathPlanningStatusEnum state
     }
     GlobalPathPlanningStatus --> GlobalPathPlanningStatusEnum: <<use>>
+  
+    class GlobalPathCommandMsg <<(M,#FFFF00)>> {
+      +uint64_t path_uuid
+      +OdomMsg start
+      +OdomMsg[] path_points // Each point (including start/end) indicates how close it must be to be reached
+      +OdomMsg end
+    }
+    GlobalPathCommandMsg --> OdomMsg: <<use>>
+    enum GlobalPathCommandStatusEnum
+    {
+      UNKNOWN=0,
+      STARTING=1,
+      EXECUTING=2,
+      COMPLETED=3,
+      FAILED=4,
+      END_OF_LIST=5
+
+    }
+    class GlobalPathCommandStateMsg <<(M,#FFFF00)>> {
+      +uint64_t path_uuid
+      +GlobalPathCommandStatusEnum state
+    }
+    GlobalPathCommandStateMsg --> GlobalPathCommandStatusEnum: <<use>>
+    class TrajectoryCommandMsg <<(M,#FFFF00)>> {
+      +TwistWithCovarianceMsg[] cmd_twists
+    }
+    TrajectoryCommandMsg --> TwistWithCovarianceMsg: <<use>>
+  
   }
 }
 @enduml

@@ -11,10 +11,10 @@ namespace fast::rf::messages {
 
     }
     ObjectMsg --> OdomMsg: <<use>>
-    class ObjectsMsg <<(M,#FFFF00) >> {
+    class ObjectListMsg <<(M,#FFFF00) >> {
 
     }
-    ObjectsMsg --> ObjectMsg: <<use>>
+    ObjectListMsg --> ObjectMsg: <<use>>
     
   }
 }
