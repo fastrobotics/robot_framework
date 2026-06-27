@@ -40,14 +40,13 @@ namespace fast::rf::messages {
     }
     GlobalPathPlanningStatus --> GlobalPathPlanningStatusEnum: <<use>>
   
-    class GlobalPathCommandMsg <<(M,#FFFF00)>> #Orange {
+    class GlobalPathCommandMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +OdomMsg start
       +OdomMsg[] path_points
     }
     GlobalPathCommandMsg --> OdomMsg: <<use>>
-    enum GlobalPathCommandStatusEnum
-    {
+    enum GlobalPathCommandStatusEnum #LimeGreen {
       UNKNOWN=0,
       STARTING=1,
       EXECUTING=2,

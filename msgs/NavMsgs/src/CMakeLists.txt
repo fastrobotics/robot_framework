@@ -11,7 +11,7 @@ target_link_libraries(
 
 gtest_discover_tests(test_msgs_NavMsgs_GlobalPathRequestMsg)
 
-# Test: NavMsgs::_GlobalPathPlanningStatusEnum
+# Test: NavMsgs::GlobalPathPlanningStatusEnum
 add_executable(
   test_msgs_NavMsgs_GlobalPathPlanningStatusEnum
   test/test_msgs_NavMsgs_GlobalPathPlanningStatusEnum.cpp
@@ -58,6 +58,17 @@ target_link_libraries(
   GTest::gtest_main
   geometry_msgs
 )
-
-include(GoogleTest)
 gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandMsg)
+
+
+# Test: NavMsgs::GlobalPathPlanningStatusEnum
+add_executable(
+  test_msgs_NavMsgs_GlobalPathCommandStatusEnum
+  test/test_msgs_NavMsgs_GlobalPathCommandStatusEnum.cpp
+)
+target_link_libraries(
+  test_msgs_NavMsgs_GlobalPathCommandStatusEnum
+  GTest::gtest_main
+)
+
+gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandStatusEnum)
