@@ -51,11 +51,6 @@ The following outputs are provided by this system.
 
 # How It Works
 
-Ideas:
-
-- Global Planning
-- Local Planning
-
 ## Detailed Documentation
 
 ## Software Content

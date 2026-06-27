@@ -6,6 +6,7 @@
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Subsystem Architecture](#subsystem-architecture)
+  - [Class Diagram](#class-diagram)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -38,6 +39,12 @@ The GlobalPlanner Subsystem's role in the Robot Framework is to plan navigable p
 
 # Subsystem Architecture
 
+![](../../../../../Legend.png)
+
+## Class Diagram
+
+![](puml/GlobalPlannerSubsystemClassDiagram.png)
+
 # Inputs
 
 The following inputs are required in order for this system to properly function.
@@ -53,6 +60,11 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
+
+Ideas:
+
+- Path Storage
+- Route Planner
 
 ## Detailed Documentation
 
