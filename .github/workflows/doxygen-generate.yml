@@ -26,5 +26,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           config_file: Doxyfile
-          folder: docs/html # Matches the HTML_OUTPUT in your Doxyfile
+          folder: html # Matches the HTML_OUTPUT in your Doxyfile
           branch: gh-pages
