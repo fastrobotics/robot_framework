@@ -1,0 +1,28 @@
+name: Generate and Host Doxygen
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install graphviz
+
+      - name: Build and Deploy Doxygen
+        uses: DenverCoder1/doxygen-github-pages-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config_file: Doxyfile
+          folder: html # Matches the HTML_OUTPUT in your Doxyfile
+          branch: gh-pages
