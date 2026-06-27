@@ -3,6 +3,4 @@
 
 #include <gtest/gtest.h>
 using namespace fast::rf::TerrainSystem;
-TEST(DummyTerrainSyste, BasicAssertions) {
-  DummyTerrainSystem SUT;
-}
+TEST(DummyTerrainSystem, BasicAssertions) { DummyTerrainSystem SUT; }

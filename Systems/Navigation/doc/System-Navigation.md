@@ -61,8 +61,8 @@ The following Subsystems are provided in this System:
 
 | State | Subsystem                                                                    | Purpose                                                                                                              |
 | ----- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| NEW   | [Global Planner](../Subsystems/GlobalPlanner/doc/Subsystem-GlobalPlanner.md) | Acts as a "Server" that can plan a path in the global frame.                                                         |
-| NEW   | Local Planner                                                                | Given a path, will generate Drive Commands continuously.                                                             |
+| DRAFT | [Global Planner](../Subsystems/GlobalPlanner/doc/Subsystem-GlobalPlanner.md) | Acts as a "Server" that can plan a path in the global frame.                                                         |
+| DRAFT | [Local Planner](../Subsystems/LocalPlanner/doc/Subsystem-LocalPlanner.md)    | Given a path, will generate Drive Commands continuously.                                                             |
 | NEW   | Navigation Executor                                                          | Given Drive Commands, will generae Base Machine commands suitable for some Base Machine component to move the robot. |
 
 ## Package Diagram

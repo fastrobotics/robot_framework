@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::NavigationSystem::LocalPlannerSubsystem
+ * @brief The LocalPlanner Subsystem for the Robot Framework
+ */

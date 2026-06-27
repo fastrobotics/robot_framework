@@ -1,1 +1,2 @@
 add_subdirectory(GlobalPlanner)
+add_subdirectory(LocalPlanner)
