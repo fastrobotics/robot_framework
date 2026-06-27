@@ -43,8 +43,7 @@ namespace fast::rf::messages {
     class GlobalPathCommandMsg <<(M,#FFFF00)>> #Orange {
       +uint64_t path_uuid
       +OdomMsg start
-      +OdomMsg[] path_points // Each point (including start/end) indicates how close it must be to be reached
-      +OdomMsg end
+      +OdomMsg[] path_points
     }
     GlobalPathCommandMsg --> OdomMsg: <<use>>
     enum GlobalPathCommandStatusEnum
