@@ -939,7 +939,7 @@ WARN_NO_PARAMDOC       = NO
 # will automatically be disabled.
 # The default value is: NO.
 
-WARN_IF_UNDOC_ENUM_VAL = NO
+WARN_IF_UNDOC_ENUM_VAL = YES
 
 # If WARN_LAYOUT_FILE option is set to YES, Doxygen will warn about issues found
 # while parsing the user defined layout file, such as missing or wrong elements.
@@ -1811,7 +1811,7 @@ ENUM_VALUES_PER_LINE   = 4
 # enumeration values besides the enumeration mnemonics.
 # The default value is: NO.
 
-SHOW_ENUM_VALUES       = NO
+SHOW_ENUM_VALUES       = YES
 
 # If the treeview is enabled (see GENERATE_TREEVIEW) then this tag can be used
 # to set the initial width (in pixels) of the frame in which the tree is shown.

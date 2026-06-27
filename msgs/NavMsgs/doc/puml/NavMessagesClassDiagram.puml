@@ -25,7 +25,7 @@ namespace fast::rf::messages {
 
     }
     GlobalPathRequest --> OdomMsg: <<use>>
-    class GlobalPathResponse <<(M,#FFFF00)>> {
+    class GlobalPathResponse <<(M,#FFFF00)>> #Orange {
       +uint64_t path_uuid
       +GlobalPathPlanningStatusEnum state
       +OdomMsg[] path_points
