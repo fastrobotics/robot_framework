@@ -60,7 +60,7 @@ namespace fast::rf::messages {
       +GlobalPathCommandStatusEnum state
     }
     GlobalPathCommandStateMsg --> GlobalPathCommandStatusEnum: <<use>>
-    class TrajectoryCommandMsg <<(M,#FFFF00)>> {
+    class TrajectoryCommandMsg <<(M,#FFFF00)>> #LimeGreen {
       +TwistWithCovarianceMsg[] cmd_twists
     }
     TrajectoryCommandMsg --> TwistWithCovarianceMsg: <<use>>

@@ -84,3 +84,16 @@ target_link_libraries(
 )
 
 gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandStateMsg)
+
+# Test: NavMsgs::TrajectoryCommandMsg
+add_executable(
+  test_msgs_NavMsgs_TrajectoryCommandMsg
+  test/test_msgs_NavMsgs_TrajectoryCommandMsg.cpp
+)
+target_link_libraries(
+  test_msgs_NavMsgs_TrajectoryCommandMsg
+  GTest::gtest_main
+  geometry_msgs
+)
+
+gtest_discover_tests(test_msgs_NavMsgs_TrajectoryCommandMsg)
