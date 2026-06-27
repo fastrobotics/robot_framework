@@ -13,7 +13,7 @@
 
 The following details the dependencies allowed at all levels in this Robot Framework:
 
-![](dia/DependencyManagement.svg)
+![](dia/DependencyManagement.png)
 
 Here as can be seen that all "Vertical" boxes can be shared according to their overlap region. For example,
 

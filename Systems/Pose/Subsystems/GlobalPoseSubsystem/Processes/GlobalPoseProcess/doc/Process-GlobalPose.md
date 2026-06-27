@@ -33,7 +33,7 @@ This process's objective is to take, given multiple streams of GPS data, a combi
 
 # Process Architecture
 
-![](dia/GlobalPoseProcessArchitecture.svg)
+![](dia/GlobalPoseProcessArchitecture.png)
 
 # Inputs
 

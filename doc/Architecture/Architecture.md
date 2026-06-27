@@ -14,7 +14,7 @@ Note that at the System level, only some number of interfaces are called out. Th
 
 ![](../../Legend.png)
 
-![](dia/GeneralApplicationArchitecture.svg)
+![](dia/GeneralApplicationArchitecture.png)
 
 # Systems
 
