@@ -55,7 +55,7 @@ namespace fast::rf::messages {
       END_OF_LIST=5
 
     }
-    class GlobalPathCommandStateMsg <<(M,#FFFF00)>> {
+    class GlobalPathCommandStateMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +GlobalPathCommandStatusEnum state
     }

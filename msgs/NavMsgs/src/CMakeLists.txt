@@ -72,3 +72,15 @@ target_link_libraries(
 )
 
 gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandStatusEnum)
+
+# Test: NavMsgs::GlobalPathCommandStateMsg
+add_executable(
+  test_msgs_NavMsgs_GlobalPathCommandStateMsg
+  test/test_msgs_NavMsgs_GlobalPathCommandStateMsg.cpp
+)
+target_link_libraries(
+  test_msgs_NavMsgs_GlobalPathCommandStateMsg
+  GTest::gtest_main
+)
+
+gtest_discover_tests(test_msgs_NavMsgs_GlobalPathCommandStateMsg)
