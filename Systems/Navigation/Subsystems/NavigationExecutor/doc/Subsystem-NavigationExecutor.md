@@ -65,8 +65,11 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process |
-| ------ | ------- |
+| Status | Process               |
+| ------ | --------------------- |
+| NEW    | Trajectory Selector   |
+| NEW    | Trajectory Controller |
+| NEW    | Drive Executor        |
 
 ## Package Diagram
 
