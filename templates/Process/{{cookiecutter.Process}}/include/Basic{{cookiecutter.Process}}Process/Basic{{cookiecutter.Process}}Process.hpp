@@ -14,7 +14,7 @@
 
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
 /**
- * @brief Minimal implementation for a {{cookiecutter.Process}} Process
+ * @brief Minimal Implementation for a {{cookiecutter.Process}} Process
  *
  */
 class Basic{{cookiecutter.Process}}Process : public Base{{cookiecutter.Process}}Process {

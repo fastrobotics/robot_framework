@@ -32,6 +32,9 @@ namespace fast::rf {
       }
       DummyGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
     }
+    package GlobalPathStorageProcess {
+      
+    }
   }
 }
 @enduml

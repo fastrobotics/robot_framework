@@ -1,0 +1,28 @@
+@startuml
+title GlobalPathStorage Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+        interface IGlobalPathStorageProcess  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseGlobalPathStorageProcess {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        BaseGlobalPathStorageProcess -up-|> IGlobalPathStorageProcess
+        class BasicGlobalPathStorageProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicGlobalPathStorageProcess -up-|> BaseGlobalPathStorageProcess
+        class DummyGlobalPathStorageProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyGlobalPathStorageProcess -up-|> BaseGlobalPathStorageProcess
+    }
+  }
+}
+@enduml

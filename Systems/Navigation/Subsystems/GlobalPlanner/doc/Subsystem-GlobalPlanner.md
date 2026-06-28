@@ -74,8 +74,12 @@ Ideas:
 
 # Processes
 
-| Status | Process |
-| ------ | ------- |
+| Status | Process                                                                                         |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| NEW    | [Global Planner Manager](../Processes/GlobalPlannerManager/doc/Process-GlobalPlannerManager.md) |
+| NEW    | [Global Path Storage](../Processes/GlobalPathStorage/doc/Process-GlobalPathStorage.md)          |
+| NEW    | [Free Space Planner](../Processes/FreeSpacePlanner/doc/Process-FreeSpacePlanner.md)             |
+| NEW    | [Route Planner](../Processes/GlobalPathRoutePlanner/doc/Process-GlobalPathRoutePlanner.md)      |
 
 ## Package Diagram
 

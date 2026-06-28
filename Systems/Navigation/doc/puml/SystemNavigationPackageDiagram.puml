@@ -16,6 +16,15 @@ namespace fast::rf {
     class DummyNavigationSystem  {
     }
     BaseNavigationSystem <|-- DummyNavigationSystem
+    package GlobalPlannerSubsystem {
+
+    }
+    package LocalPlannerSubsystem {
+
+    }
+    package NavigationExecutor {
+      
+    }
   }
 }
 @enduml

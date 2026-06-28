@@ -1,1 +1,1 @@
-# Add entries here
+add_subdirectory(GlobalPathStorage)

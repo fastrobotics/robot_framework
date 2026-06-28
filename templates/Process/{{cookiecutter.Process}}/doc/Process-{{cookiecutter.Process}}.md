@@ -11,7 +11,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
-  - [{{cookiecutter.Process}} Process Implementations](#cookiecutterprocess-process-implementations)
+  - [{{cookiecutter.Process}} Process Implementation](#cookiecutterprocess-process-Implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -58,12 +58,12 @@ The following outputs are provided by this system.
 
 ![](puml/{{cookiecutter.Process}}ProcessClassDiagram.png)
 
-## {{cookiecutter.Process}} Process Implementations
+## {{cookiecutter.Process}} Process Implementation
 
-| Status | Implementation                                                                                          | Details                             |
-| ------ | ------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| NEW    | Dummy{{cookiecutter.Process}}Process                                                                    | Used for generating fake data       |
-| NEW    | [Basic{{cookiecutter.Process}}Process](ProcessImplementations/Process-Basic{{cookiecutter.Process}}.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                                         | Details                             |
+| ------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| NEW    | Dummy{{cookiecutter.Process}}Process                                                                   | Used for generating fake data       |
+| NEW    | [Basic{{cookiecutter.Process}}Process](ProcessImplementation/Process-Basic{{cookiecutter.Process}}.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

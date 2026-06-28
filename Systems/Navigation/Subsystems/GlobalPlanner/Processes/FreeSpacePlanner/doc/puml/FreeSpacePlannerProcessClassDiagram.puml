@@ -1,0 +1,28 @@
+@startuml
+title FreeSpacePlanner Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+        interface IFreeSpacePlannerProcess  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseFreeSpacePlannerProcess {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        BaseFreeSpacePlannerProcess -up-|> IFreeSpacePlannerProcess
+        class BasicFreeSpacePlannerProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicFreeSpacePlannerProcess -up-|> BaseFreeSpacePlannerProcess
+        class DummyFreeSpacePlannerProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyFreeSpacePlannerProcess -up-|> BaseFreeSpacePlannerProcess
+    }
+  }
+}
+@enduml
