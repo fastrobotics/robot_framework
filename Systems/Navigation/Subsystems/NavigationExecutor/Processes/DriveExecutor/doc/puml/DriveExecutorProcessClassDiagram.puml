@@ -1,0 +1,28 @@
+@startuml
+title DriveExecutor Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace NavigationExecutorSubsystem {
+        interface IDriveExecutorProcess  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseDriveExecutorProcess {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        BaseDriveExecutorProcess -up-|> IDriveExecutorProcess
+        class BasicDriveExecutorProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+        class DummyDriveExecutorProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+    }
+  }
+}
+@enduml

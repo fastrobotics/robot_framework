@@ -65,11 +65,11 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process               |
-| ------ | --------------------- |
-| NEW    | Trajectory Selector   |
-| NEW    | Trajectory Controller |
-| NEW    | Drive Executor        |
+| Status | Process                                                                                        |
+| ------ | ---------------------------------------------------------------------------------------------- |
+| NEW    | [Trajectory Selector](../Processes/TrajectorySelector/doc/Process-TrajectorySelector.md)       |
+| NEW    | [Trajectory Controller](../Processes/TrajectoryController/doc/Process-TrajectoryController.md) |
+| NEW    | [Drive Executor](../Processes/DriveExecutor/doc/Process-DriveExecutor.md)                      |
 
 ## Package Diagram
 

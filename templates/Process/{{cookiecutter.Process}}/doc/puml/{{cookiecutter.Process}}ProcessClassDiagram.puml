@@ -1,0 +1,28 @@
+@startuml
+title {{cookiecutter.Process}} Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace {{cookiecutter.System}}System {
+    namespace {{cookiecutter.Subsystem}}Subsystem {
+        interface I{{cookiecutter.Process}}Process  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract Base{{cookiecutter.Process}}Process {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        Base{{cookiecutter.Process}}Process -up-|> I{{cookiecutter.Process}}Process
+        class Basic{{cookiecutter.Process}}Process {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        Basic{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
+        class Dummy{{cookiecutter.Process}}Process {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        Dummy{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
+    }
+  }
+}
+@enduml
