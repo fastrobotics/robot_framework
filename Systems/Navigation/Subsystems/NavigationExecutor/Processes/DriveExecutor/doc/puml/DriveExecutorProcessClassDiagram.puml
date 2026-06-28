@@ -3,10 +3,17 @@ title DriveExecutor Process Class Diagram
 
 namespace fast::fr {
   namespace messages {
+    namespace GeometryMsgs {
+      class TwistWithCovarianceMsg <<(M,#FFFF00)>>
+    }
   }
   namespace NavigationSystem {
     namespace NavigationExecutorSubsystem {
+        interface IDriveExecutorOutput {
+
+        }
         interface IDriveExecutorProcess  {
+          +{abstract} IDriveExecutorOutput new_cmd(TwistWithCovarianceMsg cmd)
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
         }
         abstract BaseDriveExecutorProcess {
@@ -22,6 +29,10 @@ namespace fast::fr {
           +bool update(double current_time_sec, double delta_time_sec)
         }
         DummyDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+        class TankDriveExecutorProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        TankDriveExecutorProcess -up-|> BaseDriveExecutorProcess
     }
   }
 }

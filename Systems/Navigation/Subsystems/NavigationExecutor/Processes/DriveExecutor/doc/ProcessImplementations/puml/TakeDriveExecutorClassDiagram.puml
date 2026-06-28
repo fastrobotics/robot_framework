@@ -1,0 +1,25 @@
+@startuml
+title Tank Drive Executor Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+    namespace GeometryMsgs {
+      class TwistWithCovarianceMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace NavigationSystem {
+    namespace NavigationExecutorSubsystem {
+      class BaseDriveExecutorProcess
+      class IDriveExecutorOutput
+      class TankDriveExecutorOutput {
+
+      }
+      TankDriveExecutorOutput -up-|> IDriveExecutorOutput
+      class TankDriveExecutor {
+        +IDriveExecutorOutput new_cmd(TwistWithCovarianceMsg cmd)
+      }
+      TankDriveExecutor -up-|> BaseDriveExecutorProcess
+      TankDriveExecutor --> TankDriveExecutorOutput: <<use>>
+    }
+  }
+}

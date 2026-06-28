@@ -9,6 +9,9 @@
  *
  */
 #pragma once
+#include <GeometryMsgs.hpp>
+#include <IDriveExecutorOutput.hpp>
+using namespace fast::rf::messages;
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 /**
  * @brief Interface for the DriveExecutor Process
@@ -27,6 +30,15 @@ public:
    * @return false If the process did not update ok
    */
   virtual bool update(double current_time_sec, double delta_time_sec) = 0;
-  
+
+  /**
+   * @brief Generic Function for Drive Executor to process
+   *
+   * @param cmd Command to process
+   * @return IDriveExecutorOutput* Abstract type
+   */
+
+  virtual IDriveExecutorOutput *
+  new_cmd(GeometryMsgs::TwistWithCovarianceMsg cmd) = 0;
 };
 } // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
