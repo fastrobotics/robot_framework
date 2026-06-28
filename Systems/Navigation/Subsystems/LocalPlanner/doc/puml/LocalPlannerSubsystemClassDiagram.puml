@@ -1,0 +1,50 @@
+@startuml
+title LocalPlanner Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+    namespace GeometryMsgs {
+      class OdomMsg <<(M,#FFFF00)>>
+    }
+    namespace NavMsgs {
+      class GlobalPathCommandMsg <<(M,#FFFF00)>>
+      class GlobalPathCommandStateMsg <<(M,#FFFF00)>>
+      class TrajectoryCommandMsg <<(M,#FFFF00)>>
+    }
+    namespace AwarenessMsgs {
+      class ObjectListMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace NavigationSystem {
+    namespace LocalPlannerSubsystem {
+      interface ILocalPlannerSubsystem {
+        +{abstract} GlobalPathCommandStateMsg new_GlobalPathCommand(GlobalPathCommandMsg cmd)
+        +{abstract} GlobalPathCommandStateMsg get_GlobalPathCommandState()
+        +{abstract} TrajectoryCommandMsg get_TrajectoryCommand()
+        +{abstract} bool new_local_pose(OdomMsg pose)
+        +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        +{abstract} bool new_ObjectAwareness(ObjectListMsg object_awareness)
+      }
+      abstract BaseLocalPlannerSubsystem {
+        +get_GlobalPathCommandStateMsg get_GlobalPathCommandState()
+        +TrajectoryCommandMsg get_TrajectoryCommand()
+        +bool base_update(double current_time_sec, double delta_time_sec)
+        #GlobalPathCommandStateMsg path_command_state
+        #TrajectoryCommandMsg trajectory_command
+
+      }
+      BaseLocalPlannerSubsystem -up-|> ILocalPlannerSubsystem
+      class BasicLocalPlannerSubsystem {
+        +bool new_local_pose(OdomMsg pose)
+        +bool update(double current_time_sec, double delta_time_sec)
+        +bool new_ObjectAwareness(ObjectListMsg object_awareness)
+      }
+      BasicLocalPlannerSubsystem -up-|> BaseLocalPlannerSubsystem
+      class DummyLocalPlannerSubsystem {
+        +bool new_local_pose(OdomMsg pose)
+        +bool update(double current_time_sec, double delta_time_sec)
+      }
+      DummyLocalPlannerSubsystem -up-|> BaseLocalPlannerSubsystem
+    }
+  }
+}
+@enduml

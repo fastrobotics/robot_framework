@@ -1,0 +1,24 @@
+@startuml
+title {{cookiecutter.Subsystem}} Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace {{cookiecutter.System}}System {
+    namespace {{cookiecutter.Subsystem}}Subsystem {
+      interface I{{cookiecutter.Subsystem}}Subsystem {
+
+      }
+      abstract Base{{cookiecutter.Subsystem}}Subsystem {
+
+      }
+      Base{{cookiecutter.Subsystem}}Subsystem -up-|> I{{cookiecutter.Subsystem}}Subsystem
+      class Basic{{cookiecutter.Subsystem}}Subsystem {
+      }
+      Basic{{cookiecutter.Subsystem}}Subsystem -up-|> Base{{cookiecutter.Subsystem}}Subsystem
+      class Dummy{{cookiecutter.Subsystem}}Subsystem {
+      }
+      Dummy{{cookiecutter.Subsystem}}Subsystem -up-|> Base{{cookiecutter.Subsystem}}Subsystem
+    }
+  }
+}
+@enduml

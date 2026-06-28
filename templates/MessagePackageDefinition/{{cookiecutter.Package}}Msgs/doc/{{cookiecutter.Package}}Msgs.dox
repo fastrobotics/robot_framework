@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::messages::{{cookiecutter.Package}}Msgs
+ * @brief The {{cookiecutter.Package}} Messages for the Robot Framework
+ */

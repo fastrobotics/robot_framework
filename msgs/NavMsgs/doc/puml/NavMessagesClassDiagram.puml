@@ -1,0 +1,70 @@
+@startuml
+title Nav Messages Package Diagram
+
+namespace fast::rf::messages {
+  namespace GeometryMsgs {
+    class OdomMsg <<(M,#FFFF00)>>
+    class TwistWithCovarianceMsg <<(M,#FFFF00)>>
+  }
+  namespace NavMsgs  {
+    class GlobalPathRequest <<(M,#FFFF00)>> #LimeGreen {
+      +uint64_t path_uuid
+      +OdomMsg start
+      +OdomMsg[] pass_thru_points
+      +OdomMsg end
+      +bool ok()
+
+    }
+    enum GlobalPathPlanningStatusEnum #LimeGreen
+    {
+      UNKNOWN=0,
+      STARTING=1,
+      PLANNING=2,
+      COMPLETED=3,
+      FAILED=4,
+      END_OF_LIST=5
+
+    }
+    GlobalPathRequest --> OdomMsg: <<use>>
+    class GlobalPathResponse <<(M,#FFFF00)>> #LimeGreen {
+      +uint64_t path_uuid
+      +GlobalPathPlanningStatusEnum state
+      +OdomMsg[] path_points
+      +bool ok()
+    }
+    GlobalPathResponse --> OdomMsg: <<use>>
+    GlobalPathResponse --> GlobalPathPlanningStatusEnum: <<use>>
+    class GlobalPathPlanningStatus <<(M,#FFFF00)>> #LimeGreen {
+      +uint64_t path_uuid
+      +GlobalPathPlanningStatusEnum state
+    }
+    GlobalPathPlanningStatus --> GlobalPathPlanningStatusEnum: <<use>>
+  
+    class GlobalPathCommandMsg <<(M,#FFFF00)>> #LimeGreen {
+      +uint64_t path_uuid
+      +OdomMsg start
+      +OdomMsg[] path_points
+    }
+    GlobalPathCommandMsg --> OdomMsg: <<use>>
+    enum GlobalPathCommandStatusEnum #LimeGreen {
+      UNKNOWN=0,
+      STARTING=1,
+      EXECUTING=2,
+      COMPLETED=3,
+      FAILED=4,
+      END_OF_LIST=5
+
+    }
+    class GlobalPathCommandStateMsg <<(M,#FFFF00)>> #LimeGreen {
+      +uint64_t path_uuid
+      +GlobalPathCommandStatusEnum state
+    }
+    GlobalPathCommandStateMsg --> GlobalPathCommandStatusEnum: <<use>>
+    class TrajectoryCommandMsg <<(M,#FFFF00)>> #LimeGreen {
+      +TwistWithCovarianceMsg[] cmd_twists
+    }
+    TrajectoryCommandMsg --> TwistWithCovarianceMsg: <<use>>
+  
+  }
+}
+@enduml

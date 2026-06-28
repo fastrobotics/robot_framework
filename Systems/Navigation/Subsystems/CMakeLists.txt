@@ -1,1 +1,3 @@
-# Add entries here
+add_subdirectory(GlobalPlanner)
+add_subdirectory(LocalPlanner)
+add_subdirectory(NavigationExecutor)

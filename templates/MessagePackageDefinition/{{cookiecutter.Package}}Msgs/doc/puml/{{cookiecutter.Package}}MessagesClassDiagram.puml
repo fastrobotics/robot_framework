@@ -1,0 +1,11 @@
+@startuml
+title {{cookiecutter.Package}} Messages Package Diagram
+
+namespace fast::rf::messages {
+  namespace {{cookiecutter.Package}}Msgs  {
+    class {{cookiecutter.Message}} <<(M,#FFFF00)>> {
+
+    }
+  }
+}
+@enduml

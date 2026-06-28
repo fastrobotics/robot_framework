@@ -1,0 +1,49 @@
+@startuml
+title GlobalPlanner Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+    namespace NavMsgs {
+      class GlobalPathPlanningStateMsg <<(M,#FFFF00)>>
+      class GlobalPathRequestMsg <<(M,#FFFF00)>>
+      class GlobalPathResponseMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+      interface IGlobalPlannerSubsystem {
+        +{abstract} GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
+        +{abstract} GlobalPathPlanningStateMsg get_GlobalPathPlanningState()
+        +{abstract} GlobalPathResponseMsg get_GlobalPathResponse()
+
+      }
+      abstract BaseGlobalPlannerSubsystem {
+        +GlobalPathResponseMsg get_GlobalPathResponse()
+        +GlobalPathPlanningStateMsg get_GlobalPathPlanningState()
+        #GlobalPathResponseMsg global_path_response
+
+      }
+      BaseGlobalPlannerSubsystem -up-|> IGlobalPlannerSubsystem
+      class BasicGlobalPlannerSubsystem {
+        +GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
+      }
+      BasicGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
+      class DummyGlobalPlannerSubsystem {
+        +GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
+      }
+      DummyGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
+    }
+    package GlobalPlannerManagerProcess {
+
+    }
+    package GlobalPathStorageProcess {
+      
+    }
+    package FreeSpacePlannerProcess {
+
+    }
+    package GlobalPathRoutePlannerProcess {
+      
+    }
+  }
+}
+@enduml

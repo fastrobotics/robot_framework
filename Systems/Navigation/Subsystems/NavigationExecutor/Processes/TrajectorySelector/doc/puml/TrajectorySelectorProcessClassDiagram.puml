@@ -1,0 +1,28 @@
+@startuml
+title TrajectorySelector Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace NavigationExecutorSubsystem {
+        interface ITrajectorySelectorProcess  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseTrajectorySelectorProcess {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        BaseTrajectorySelectorProcess -up-|> ITrajectorySelectorProcess
+        class BasicTrajectorySelectorProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicTrajectorySelectorProcess -up-|> BaseTrajectorySelectorProcess
+        class DummyTrajectorySelectorProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyTrajectorySelectorProcess -up-|> BaseTrajectorySelectorProcess
+    }
+  }
+}
+@enduml

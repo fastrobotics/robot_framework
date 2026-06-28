@@ -1,0 +1,11 @@
+@startuml
+title Fast::RF Messages Package Diagram
+namespace fast::rf {
+  package AwarenessMsgs {}
+  package GeometryMsgs {}
+  package SensorMsgs {}
+  package StandardMsgs {}
+  package NavMsgs {}
+
+}
+@enduml

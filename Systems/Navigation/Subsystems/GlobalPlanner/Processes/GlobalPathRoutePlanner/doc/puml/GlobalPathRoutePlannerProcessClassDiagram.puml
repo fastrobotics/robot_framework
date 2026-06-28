@@ -1,0 +1,28 @@
+@startuml
+title GlobalPathRoutePlanner Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+        interface IGlobalPathRoutePlannerProcess  {
+          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+        }
+        abstract BaseGlobalPathRoutePlannerProcess {
+          +bool base_update(double current_time_sec, double delta_time_sec)
+
+        }
+        BaseGlobalPathRoutePlannerProcess -up-|> IGlobalPathRoutePlannerProcess
+        class BasicGlobalPathRoutePlannerProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        BasicGlobalPathRoutePlannerProcess -up-|> BaseGlobalPathRoutePlannerProcess
+        class DummyGlobalPathRoutePlannerProcess {
+          +bool update(double current_time_sec, double delta_time_sec)
+        }
+        DummyGlobalPathRoutePlannerProcess -up-|> BaseGlobalPathRoutePlannerProcess
+    }
+  }
+}
+@enduml
