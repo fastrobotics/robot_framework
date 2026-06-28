@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1SafetySystem_1_1ISafetySystem.html" title="Interface for the Safety System." alt="" coords="5,5,168,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1SafetySystem_1_1BaseSafetySystem.html" title="Base Class for the Safety System." alt="" coords="216,5,379,45"/>
+<area shape="poly" id="edge33_Node000000_Node000001" title=" " alt="" coords="182,23,216,23,216,28,182,28"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1SafetySystem_1_1DummySafetySystem.html" title="Dummy Safety System." alt="" coords="427,5,600,45"/>
+<area shape="poly" id="edge34_Node000001_Node000002" title=" " alt="" coords="392,23,427,23,427,28,392,28"/>
+</map>

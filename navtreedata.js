@@ -26,7 +26,12 @@ var NAVTREE =
 [
   [ "robot_framework", "index.html", [
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -47,7 +52,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BaseCommsSystem_8hpp.html",
-"index.html"
+"classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html",
+"namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1a696b031073e74bf2cb98e5ef201d4aa3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

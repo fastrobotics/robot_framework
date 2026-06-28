@@ -35,6 +35,14 @@ var annotated_dup =
             [ "TwistMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg" ],
             [ "TwistWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg" ]
           ] ],
+          [ "NavMsgs", "namespacefast_1_1rf_1_1messages_1_1NavMsgs.html", [
+            [ "GlobalPathCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg" ],
+            [ "GlobalPathCommandStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandStateMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandStateMsg" ],
+            [ "GlobalPathPlanningStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathPlanningStateMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathPlanningStateMsg" ],
+            [ "GlobalPathRequest", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest" ],
+            [ "GlobalPathResponse", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathResponse.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathResponse" ],
+            [ "TrajectoryCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg" ]
+          ] ],
           [ "SensorMsgs", "namespacefast_1_1rf_1_1messages_1_1SensorMsgs.html", [
             [ "GlobalPositionSensorMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg" ]
           ] ],
@@ -50,6 +58,31 @@ var annotated_dup =
           [ "IModeControlSystem", "classfast_1_1rf_1_1ModeControlSystem_1_1IModeControlSystem.html", null ]
         ] ],
         [ "NavigationSystem", "namespacefast_1_1rf_1_1NavigationSystem.html", [
+          [ "GlobalPlannerSubsystem", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html", [
+            [ "BaseFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseFreeSpacePlannerProcess" ],
+            [ "BaseGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathRoutePlannerProcess" ],
+            [ "BaseGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathStorageProcess" ],
+            [ "BaseGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess" ],
+            [ "BasicFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicFreeSpacePlannerProcess" ],
+            [ "BasicGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathRoutePlannerProcess" ],
+            [ "BasicGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathStorageProcess" ],
+            [ "BasicGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPlannerManagerProcess" ],
+            [ "IFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess" ],
+            [ "IGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess" ],
+            [ "IGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess" ],
+            [ "IGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess" ]
+          ] ],
+          [ "NavigationExecutorSubsystem", "namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html", [
+            [ "BaseDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" ],
+            [ "BaseTrajectoryControllerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectoryControllerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectoryControllerProcess" ],
+            [ "BaseTrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectorySelectorProcess" ],
+            [ "BasicDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess" ],
+            [ "BasicTrajectoryControllerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectoryControllerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectoryControllerProcess" ],
+            [ "BasicTrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectorySelectorProcess" ],
+            [ "IDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess" ],
+            [ "ITrajectoryControllerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess" ],
+            [ "ITrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess" ]
+          ] ],
           [ "BaseNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1BaseNavigationSystem.html", null ],
           [ "DummyNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html", null ],
           [ "INavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1INavigationSystem.html", null ]

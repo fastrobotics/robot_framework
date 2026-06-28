@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['orientation_0',['orientation',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a4a2999348c2bdcfbc4c45472bee4d3c6',1,'fast::rf::messages::GeometryMsgs::PoseMsg']]]
+  ['max_5fangle_0',['MAX_ANGLE',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7fb17bf8cbafd545cac11bda9b1e8d5e',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]],
+  ['min_5fangle_1',['MIN_ANGLE',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7709dbd0d543dcc595c741950c119e2b',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]]
 ];

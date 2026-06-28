@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['new_5fglobalpositionsensormsg_0',['new_globalpositionsensormsg',['../classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BasicGlobalPoseProcess.html#a4e3d81c52abf347a40e244fb7fc81da5',1,'fast::rf::PoseSystem::GlobalPoseSubsystem::BasicGlobalPoseProcess::new_GlobalPositionSensorMsg()'],['../classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#af6f064dc356252c9de7db996b8dc4f7f',1,'fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPoseProcess::new_GlobalPositionSensorMsg()']]]
+  ['max_5fangle_0',['MAX_ANGLE',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7fb17bf8cbafd545cac11bda9b1e8d5e',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]],
+  ['min_5fangle_1',['MIN_ANGLE',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7709dbd0d543dcc595c741950c119e2b',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]]
 ];

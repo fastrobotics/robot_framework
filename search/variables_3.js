@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['global_5fpose_0',['global_pose',['../classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BaseGlobalPoseProcess.html#ad4d5764b245dd921b116b3c5501742ee',1,'fast::rf::PoseSystem::GlobalPoseSubsystem::BaseGlobalPoseProcess']]],
-  ['global_5fpose_5f_1',['global_pose_',['../classfast_1_1rf_1_1PoseSystem_1_1BasePoseSystem.html#a286a9d61bf133802d5f9e6d5a6833a34',1,'fast::rf::PoseSystem::BasePoseSystem']]]
+  ['end_0',['end',['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a4d5f8700b2e1f0f1a08f9fda636177df',1,'fast::rf::messages::NavMsgs::GlobalPathCommandMsg::end'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#a372c8844550bad19b2c6cb412957d8ad',1,'fast::rf::messages::NavMsgs::GlobalPathRequest::end']]]
 ];

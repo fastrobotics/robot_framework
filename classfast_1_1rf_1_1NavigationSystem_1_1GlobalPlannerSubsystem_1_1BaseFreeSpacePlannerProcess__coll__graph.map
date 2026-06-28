@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseFreeSpacePlannerProcess" name="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseFreeSpacePlannerProcess">
+<area shape="rect" id="Node000001" title="Base FreeSpacePlanner Process." alt="" coords="5,108,233,163"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html" title="Interface for the FreeSpacePlanner Process." alt="" coords="19,5,219,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,74,122,108,117,108,117,74"/>
+</map>

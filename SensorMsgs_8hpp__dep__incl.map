@@ -1,0 +1,9 @@
+<map id="msgs/SensorMsgs/include/SensorMsgs.hpp" name="msgs/SensorMsgs/include/SensorMsgs.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="58,5,249,45"/>
+<area shape="rect" id="Node000002" href="$IGlobalPoseProcess_8hpp.html" title=" " alt="" coords="33,93,273,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,59,156,93,151,93,151,59"/>
+<area shape="rect" id="Node000003" href="$BaseGlobalPoseProcess_8hpp.html" title=" " alt="" coords="33,211,273,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="156,177,156,210,151,210,151,177"/>
+<area shape="rect" id="Node000004" href="$BasicGlobalPoseProcess_8hpp.html" title=" " alt="" coords="5,328,301,412"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="156,293,156,328,151,328,151,293"/>
+</map>

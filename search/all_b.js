@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['pitch_0',['pitch',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html#a091085e1b1e78fae2bba182306a7ee95',1,'fast::rf::messages::GeometryMsgs::OrientationMsg']]],
-  ['pointmsg_1',['PointMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['pose_2',['pose',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg.html#ab4cd29f59dea34a04326a35efe522790',1,'fast::rf::messages::GeometryMsgs::PoseWithCovarianceMsg::pose'],['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html#a54a68b5b5890b917145ec1970f4cd0f4',1,'fast::rf::messages::GeometryMsgs::OdomMsg::pose']]],
-  ['posemsg_3',['PoseMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['posewithcovariancemsg_4',['PoseWithCovarianceMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['position_5',['position',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a6d188fbe1eae8864ad60bda603399812',1,'fast::rf::messages::GeometryMsgs::PoseMsg']]],
-  ['pretty_6',['pretty',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html#aa918b0980d32ba7c33a38e81b611ae47',1,'fast::rf::messages::GeometryMsgs::OdomMsg']]]
+  ['objectmsg_0',['ObjectMsg',['../structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html',1,'fast::rf::messages::AwarenessMsgs']]],
+  ['objectmsg_2ehpp_1',['ObjectMsg.hpp',['../ObjectMsg_8hpp.html',1,'']]],
+  ['odommsg_2',['OdomMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
+  ['ok_3',['ok',['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a38d2a69dff233e7adf734aa9dded985c',1,'fast::rf::messages::NavMsgs::GlobalPathCommandMsg::ok()'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#afc84a7b74240e66adbb48fb1c5f06f3e',1,'fast::rf::messages::NavMsgs::GlobalPathRequest::ok()'],['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#af0e3677406ea6fa1b70d120903ae7984',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::ok()']]],
+  ['orientation_4',['orientation',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a4a2999348c2bdcfbc4c45472bee4d3c6',1,'fast::rf::messages::GeometryMsgs::PoseMsg']]],
+  ['orientationmsg_5',['OrientationMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html',1,'fast::rf::messages::GeometryMsgs']]]
 ];

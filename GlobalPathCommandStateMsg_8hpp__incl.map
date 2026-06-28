@@ -1,0 +1,9 @@
+<map id="msgs/NavMsgs/include/GlobalPathCommandStateMsg.hpp" name="msgs/NavMsgs/include/GlobalPathCommandStateMsg.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="107,5,359,45"/>
+<area shape="rect" id="Node000002" href="$GlobalPathCommandStatusEnum_8hpp.html" title=" " alt="" coords="5,93,271,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,48,165,86,161,82,208,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="295,93,362,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="258,43,306,82,302,87,254,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,167,167,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,119,141,153,135,153,135,119"/>
+</map>

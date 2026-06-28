@@ -1,0 +1,16 @@
+<map id="msgs/NavMsgs/include/GlobalPathCommandMsg.hpp" name="msgs/NavMsgs/include/GlobalPathCommandMsg.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,234,45"/>
+<area shape="rect" id="Node000002" href="$GeometryMsgs_8hpp.html" title=" " alt="" coords="50,93,199,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,127,79,122,79,122,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,240,156,265"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="92,48,64,68,40,95,23,120,11,143,9,165,19,191,31,206,46,218,80,236,78,241,43,223,27,210,14,193,4,166,6,141,18,118,35,92,60,64,89,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="255,240,322,265"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="173,43,211,63,252,90,290,124,320,166,324,182,322,199,308,230,303,228,317,198,319,183,315,168,286,127,249,94,208,67,170,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,167,87,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,121,80,158,76,155,111,117"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="127,119,127,226,122,226,122,119"/>
+<area shape="rect" id="Node000005" href="$StandardMsgs_8hpp.html" title=" " alt="" coords="162,167,305,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="143,116,206,157,203,161,140,121"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="217,194,155,235,152,230,215,190"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="245,191,273,228,269,231,240,194"/>
+</map>

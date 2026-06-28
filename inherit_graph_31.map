@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1PerceptionSystem_1_1IPerceptionSystem.html" title="Interface for the Perception System." alt="" coords="5,5,196,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1PerceptionSystem_1_1BasePerceptionSystem.html" title="Base Class for the Perception System." alt="" coords="244,5,435,45"/>
+<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="210,23,244,23,244,28,210,28"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DummyPerceptionSystem.html" title="Dummy Perception System." alt="" coords="483,5,683,45"/>
+<area shape="poly" id="edge28_Node000001_Node000002" title=" " alt="" coords="448,23,483,23,483,28,448,28"/>
+</map>
