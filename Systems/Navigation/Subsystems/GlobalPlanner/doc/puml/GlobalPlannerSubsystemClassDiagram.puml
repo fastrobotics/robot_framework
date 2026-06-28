@@ -32,7 +32,16 @@ namespace fast::rf {
       }
       DummyGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
     }
+    package GlobalPlannerManagerProcess {
+
+    }
     package GlobalPathStorageProcess {
+      
+    }
+    package FreeSpacePlannerProcess {
+
+    }
+    package GlobalPathRoutePlannerProcess {
       
     }
   }
