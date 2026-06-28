@@ -1,4 +1,4 @@
-[Pose System](../../../doc/System-Navigation.md)
+[Navigation System](../../../doc/System-Navigation.md)
 
 - [Subsystem: NavigationExecutor](#subsystem-navigationexecutor)
 - [Document History](#document-history)

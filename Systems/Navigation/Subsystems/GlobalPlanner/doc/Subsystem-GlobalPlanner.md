@@ -1,4 +1,4 @@
-[Pose System](../../../doc/System-Navigation.md)
+[Navigation System](../../../doc/System-Navigation.md)
 
 - [Subsystem: Global Planner](#subsystem-global-planner)
 - [Document History](#document-history)

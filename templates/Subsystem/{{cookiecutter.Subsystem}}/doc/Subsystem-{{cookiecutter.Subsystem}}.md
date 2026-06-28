@@ -1,4 +1,4 @@
-[Pose System](../../../doc/System-{{cookiecutter.System}}.md)
+[{{cookiecutter.System}} System](../../../doc/System-{{cookiecutter.System}}.md)
 
 - [Subsystem: {{cookiecutter.Subsystem}}](#subsystem-cookiecuttersubsystem)
 - [Document History](#document-history)
