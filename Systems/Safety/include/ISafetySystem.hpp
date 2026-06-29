@@ -15,8 +15,8 @@ namespace fast::rf::SafetySystem {
  *
  */
 class ISafetySystem {
-public:
-  ISafetySystem() = default;
-  virtual ~ISafetySystem() = default;
+   public:
+    ISafetySystem() = default;
+    virtual ~ISafetySystem() = default;
 };
-} // namespace fast::rf::SafetySystem
+}  // namespace fast::rf::SafetySystem

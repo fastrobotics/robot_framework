@@ -17,6 +17,6 @@ namespace fast::rf::SafetySystem {
  *
  */
 class DummySafetySystem : public BaseSafetySystem {
-public:
+   public:
 };
-} // namespace fast::rf::SafetySystem
+}  // namespace fast::rf::SafetySystem

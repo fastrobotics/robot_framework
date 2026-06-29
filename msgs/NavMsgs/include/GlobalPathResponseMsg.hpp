@@ -9,8 +9,8 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
 #include <GlobalPathPlanningStatusEnum.hpp>
+#include <OdomMsg.hpp>
 #include <vector>
 using namespace fast::rf::messages;
 namespace fast::rf::messages::NavMsgs {
@@ -19,13 +19,11 @@ namespace fast::rf::messages::NavMsgs {
  *
  */
 struct GlobalPathResponse {
-public:
-  uint64_t path_uuid; //!< Globally Unique Path ID, should match the Request ID
-  GlobalPathPlanningStatusEnum state; //!< The state of the planning request
-  std::vector<GeometryMsgs::OdomMsg>
-      path_points; //!< Path Points.  Should only be used if state was
-                   //!< Completed.
-  GlobalPathResponse()
-      : path_uuid(0), state(GlobalPathPlanningStatusEnum::UNKNOWN) {}
+   public:
+    uint64_t path_uuid;                              //!< Globally Unique Path ID, should match the Request ID
+    GlobalPathPlanningStatusEnum state;              //!< The state of the planning request
+    std::vector<GeometryMsgs::OdomMsg> path_points;  //!< Path Points.  Should only be used if state was
+                                                     //!< Completed.
+    GlobalPathResponse() : path_uuid(0), state(GlobalPathPlanningStatusEnum::UNKNOWN) {}
 };
-} // namespace fast::rf::messages::NavMsgs
+}  // namespace fast::rf::messages::NavMsgs

@@ -16,7 +16,6 @@ namespace fast::rf::CommsSystem {
  *
  */
 class BaseCommsSystem : public ICommsSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::CommsSystem
+}  // namespace fast::rf::CommsSystem

@@ -16,7 +16,6 @@ namespace fast::rf::ModeControlSystem {
  *
  */
 class BaseModeControlSystem : public IModeControlSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::ModeControlSystem
+}  // namespace fast::rf::ModeControlSystem

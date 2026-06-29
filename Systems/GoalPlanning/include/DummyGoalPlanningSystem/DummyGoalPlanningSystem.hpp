@@ -17,6 +17,6 @@ namespace fast::rf::GoalPlanningSystem {
  *
  */
 class DummyGoalPlanningSystem : public BaseGoalPlanningSystem {
-public:
+   public:
 };
-} // namespace fast::rf::GoalPlanningSystem
+}  // namespace fast::rf::GoalPlanningSystem

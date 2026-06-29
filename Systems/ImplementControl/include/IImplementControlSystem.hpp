@@ -15,8 +15,8 @@ namespace fast::rf::ImplementControlSystem {
  *
  */
 class IImplementControlSystem {
-public:
-  IImplementControlSystem() = default;
-  virtual ~IImplementControlSystem() = default;
+   public:
+    IImplementControlSystem() = default;
+    virtual ~IImplementControlSystem() = default;
 };
-} // namespace fast::rf::ImplementControlSystem
+}  // namespace fast::rf::ImplementControlSystem

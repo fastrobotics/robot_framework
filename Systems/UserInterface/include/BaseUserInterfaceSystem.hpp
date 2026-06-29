@@ -16,7 +16,6 @@ namespace fast::rf::UserInterfaceSystem {
  *
  */
 class BaseUserInterfaceSystem : public IUserInterfaceSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::UserInterfaceSystem
+}  // namespace fast::rf::UserInterfaceSystem

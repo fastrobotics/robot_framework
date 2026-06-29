@@ -1,3 +1,6 @@
+echo "Auto-Formatting Code..."
+git diff --staged --name-only -- '*.cpp' '*.hpp' | xargs clang-format -i -style=file
+
 echo "Generating Doxygen Documentation..."
 doxygen
 if [ $? -ne 0 ]; then

@@ -15,8 +15,8 @@ namespace fast::rf::ModeControlSystem {
  *
  */
 class IModeControlSystem {
-public:
-  IModeControlSystem() = default;
-  virtual ~IModeControlSystem() = default;
+   public:
+    IModeControlSystem() = default;
+    virtual ~IModeControlSystem() = default;
 };
-} // namespace fast::rf::ModeControlSystem
+}  // namespace fast::rf::ModeControlSystem

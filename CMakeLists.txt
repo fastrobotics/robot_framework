@@ -56,6 +56,7 @@ FetchContent_MakeAvailable(googletest)
 
 
 enable_testing()
+include(GoogleTest)
 
 add_subdirectory(msgs)
 add_subdirectory(Systems)

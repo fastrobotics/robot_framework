@@ -16,7 +16,6 @@ namespace fast::rf::GoalPlanningSystem {
  *
  */
 class BaseGoalPlanningSystem : public IGoalPlanningSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::GoalPlanningSystem
+}  // namespace fast::rf::GoalPlanningSystem

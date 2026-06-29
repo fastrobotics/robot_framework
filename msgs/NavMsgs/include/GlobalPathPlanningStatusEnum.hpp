@@ -16,12 +16,12 @@ namespace fast::rf::messages::NavMsgs {
  *
  */
 enum class GlobalPathPlanningStatusEnum {
-  UNKNOWN = 0,   //!< Unknown
-  STARTING = 1,  //!< Path Planning is Starting
-  PLANNING = 2,  //!< Path Planning is running, may be in this state for a while
-  COMPLETED = 3, //!< Path Planning has finished successfully
-  FAILED = 4,    //!< Path Planning has failed
-  END_OF_LIST = 5 //!< Not valid state, used for range checks of this enum
+    UNKNOWN = 0,     //!< Unknown
+    STARTING = 1,    //!< Path Planning is Starting
+    PLANNING = 2,    //!< Path Planning is running, may be in this state for a while
+    COMPLETED = 3,   //!< Path Planning has finished successfully
+    FAILED = 4,      //!< Path Planning has failed
+    END_OF_LIST = 5  //!< Not valid state, used for range checks of this enum
 
 };
 /**
@@ -31,20 +31,20 @@ enum class GlobalPathPlanningStatusEnum {
  * @return std::string
  */
 std::string convert(GlobalPathPlanningStatusEnum v) {
-  switch (v) {
-    case GlobalPathPlanningStatusEnum::UNKNOWN:
-      return "Unknown";
-    case GlobalPathPlanningStatusEnum::STARTING:
-      return "Starting";
-    case GlobalPathPlanningStatusEnum::PLANNING:
-      return "Planning";
-    case GlobalPathPlanningStatusEnum::COMPLETED:
-      return "Completed";
-    case GlobalPathPlanningStatusEnum::FAILED:
-      return "Failed";
-    default:
-      return convert(GlobalPathPlanningStatusEnum::UNKNOWN);
-  }
-  return "";
+    switch (v) {
+        case GlobalPathPlanningStatusEnum::UNKNOWN:
+            return "Unknown";
+        case GlobalPathPlanningStatusEnum::STARTING:
+            return "Starting";
+        case GlobalPathPlanningStatusEnum::PLANNING:
+            return "Planning";
+        case GlobalPathPlanningStatusEnum::COMPLETED:
+            return "Completed";
+        case GlobalPathPlanningStatusEnum::FAILED:
+            return "Failed";
+        default:
+            return convert(GlobalPathPlanningStatusEnum::UNKNOWN);
+    }
+    return "";
 }
-} // namespace fast::rf::messages::NavMsgs
+}  // namespace fast::rf::messages::NavMsgs

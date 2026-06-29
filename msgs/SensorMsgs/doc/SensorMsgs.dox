@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::messages::SensorMsgs
+ * @brief Sensor Messages
+ */

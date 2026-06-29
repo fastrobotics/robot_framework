@@ -9,8 +9,7 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
-
+#include <TwistWithCovarianceMsg.hpp>
 #include <vector>
 using namespace fast::rf::messages;
 namespace fast::rf::messages::NavMsgs {
@@ -19,8 +18,7 @@ namespace fast::rf::messages::NavMsgs {
  *
  */
 struct TrajectoryCommandMsg {
-  std::vector<GeometryMsgs::TwistWithCovarianceMsg>
-      cmd_twists; //!< List of Command Twists with tolerance
-  TrajectoryCommandMsg() {}
+    std::vector<GeometryMsgs::TwistWithCovarianceMsg> cmd_twists;  //!< List of Command Twists with tolerance
+    TrajectoryCommandMsg() {}
 };
-} // namespace fast::rf::messages::NavMsgs
+}  // namespace fast::rf::messages::NavMsgs

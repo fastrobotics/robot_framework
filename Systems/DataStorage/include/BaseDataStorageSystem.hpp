@@ -16,7 +16,6 @@ namespace fast::rf::DataStorageSystem {
  *
  */
 class BaseDataStorageSystem : public IDataStorageSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::DataStorageSystem
+}  // namespace fast::rf::DataStorageSystem
