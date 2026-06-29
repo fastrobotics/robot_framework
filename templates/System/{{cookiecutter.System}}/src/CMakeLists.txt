@@ -1,9 +1,10 @@
-include(GoogleTest)
 
 add_library(base_{{cookiecutter.System}}_system STATIC Base{{cookiecutter.System}}System.cpp)
 target_link_libraries(base_{{cookiecutter.System}}_system geometry_msgs)
 add_library(dummy_{{cookiecutter.System}}_system STATIC Dummy{{cookiecutter.System}}System/Dummy{{cookiecutter.System}}System.cpp)
 target_link_libraries(dummy_{{cookiecutter.System}}_system base_{{cookiecutter.System}}_system)
+
+if(BUILD_TESTING)
 
 add_executable(
   test_system_{{cookiecutter.System}}
@@ -34,3 +35,5 @@ target_link_libraries(
 
 
 gtest_discover_tests(test_Dummy{{cookiecutter.System}}System)
+
+endif()

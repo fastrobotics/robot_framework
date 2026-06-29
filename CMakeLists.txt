@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+option(BUILD_TESTING "Build the test suite" ON)
 set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 option(ENABLE_COVERAGE "Enable code coverage instrumentation" ON)
@@ -33,16 +34,18 @@ endif()
 # Include the FetchContent module
 include(FetchContent)
 
-# Declare GoogleTest dependency
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
 
-FetchContent_MakeAvailable(googletest)
+if(BUILD_TESTING)
+    # Declare GoogleTest dependency
+    FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+    )
 
-enable_testing()
-include(GoogleTest)
+    FetchContent_MakeAvailable(googletest)
+    enable_testing()
+    include(GoogleTest)
+endif()
 
 add_subdirectory(msgs)
 add_subdirectory(Systems)
