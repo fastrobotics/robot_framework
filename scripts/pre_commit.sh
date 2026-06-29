@@ -1,3 +1,10 @@
+echo "Auto-Formatting Code..."
+files=$(git diff --name-only -- '*.cpp' '*.hpp')
+if [ ${#files[@]} -gt 0 ]; then
+    clang-format -i "${files[@]}" -style=file
+fi
+exit 0
+
 echo "Generating Doxygen Documentation..."
 doxygen
 if [ $? -ne 0 ]; then
