@@ -8,6 +8,7 @@
 - [Setup](#setup)
 - [Build](#build)
 - [Run Unit Tests (after running Build)](#run-unit-tests-after-running-build)
+- [Generate Code Coverage (after running Run Unit Tests)](#generate-code-coverage-after-running-run-unit-tests)
 - [Templates](#templates)
 
 # Architecture Decision Records
@@ -59,6 +60,14 @@ Run the following:
 cd <repo>
 cd build
 ctest
+```
+
+# Generate Code Coverage (after running [Run Unit Tests](#run-unit-tests-after-running-build))
+
+```bash
+cd <repo>m
+cd build
+gcovr --exclude '_deps/.*' --exclude '.*test.*'  -r .. . --html-details -o ../coverage/coverage.html
 ```
 
 # Templates

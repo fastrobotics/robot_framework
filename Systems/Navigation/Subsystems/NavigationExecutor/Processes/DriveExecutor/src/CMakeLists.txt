@@ -19,5 +19,5 @@ target_link_libraries(
 
 gtest_discover_tests(test_process_DriveExecutor)
 
-#add_subdirectory(BasicDriveExecutorProcess)
+add_subdirectory(BasicDriveExecutorProcess)
 add_subdirectory(TankDriveExecutorProcess)

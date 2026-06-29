@@ -8,11 +8,12 @@
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
 - [Process Architecture](#process-architecture)
+  - [Class Diagram](#class-diagram)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
-  - [Class Diagram](#class-diagram)
+  - [Class Diagram](#class-diagram-1)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -44,6 +45,10 @@ This specific Process Implementation provides the ability to convert the generic
 The following are a listing of all limitations in this module:
 
 # Process Architecture
+![](../../../../../../../../Legend.png)
+
+## Class Diagram
+![](puml)
 
 # Inputs
 

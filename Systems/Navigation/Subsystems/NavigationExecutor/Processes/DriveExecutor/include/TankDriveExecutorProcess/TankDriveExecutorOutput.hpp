@@ -10,15 +10,17 @@
  */
 #pragma once
 
-#include <IDriveExecutorOutput.hpp>
 #include <stdint.h>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-struct TankDriveExecutorOutput : public IDriveExecutorOutput {
-  TankDriveExecutorOutput() : IDriveExecutorOutput() {}
-  uint16_t left_drive{0};
-  uint16_t right_drive{0};
+#include <IDriveExecutorOutput.hpp>
 
-private:
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+
+struct TankDriveExecutorOutput : public IDriveExecutorOutput {
+    TankDriveExecutorOutput() : IDriveExecutorOutput() {}
+    double left_drive{0};   //!< Left Drive Output
+    double right_drive{0};  //!< Right Drive Output
+
+   private:
 };
-} // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

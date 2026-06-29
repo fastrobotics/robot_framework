@@ -4,19 +4,20 @@ title DriveExecutor Process Class Diagram
 namespace fast::fr {
   namespace messages {
     namespace GeometryMsgs {
-      class TwistWithCovarianceMsg <<(M,#FFFF00)>>
+      class TwistMsg <<(M,#FFFF00)>>
     }
   }
   namespace NavigationSystem {
     namespace NavigationExecutorSubsystem {
-        interface IDriveExecutorOutput {
+        interface IDriveExecutorOutput #LimeGreen {
 
         }
-        interface IDriveExecutorProcess  {
-          +{abstract} IDriveExecutorOutput new_cmd(TwistWithCovarianceMsg cmd)
+        interface IDriveExecutorProcess #LimeGreen {
+          +{abstract} IDriveExecutorOutput new_cmd(TwistMsg cmd)
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
         }
-        abstract BaseDriveExecutorProcess {
+        IDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+        abstract BaseDriveExecutorProcess #LimeGreen {
           +bool base_update(double current_time_sec, double delta_time_sec)
 
         }
@@ -25,14 +26,15 @@ namespace fast::fr {
           +bool update(double current_time_sec, double delta_time_sec)
         }
         BasicDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+        BasicDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
         class DummyDriveExecutorProcess {
           +bool update(double current_time_sec, double delta_time_sec)
         }
         DummyDriveExecutorProcess -up-|> BaseDriveExecutorProcess
-        class TankDriveExecutorProcess {
-          +bool update(double current_time_sec, double delta_time_sec)
-        }
-        TankDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+        DummyDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+        class TankDriveExecutorProcessor #LimeGreen
+        TankDriveExecutorProcessor -up-|> BaseDriveExecutorProcess
+        TankDriveExecutorProcessor --> IDriveExecutorOutput: <<use>>
     }
   }
 }
