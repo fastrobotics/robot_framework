@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('structfast_1_1rf_1_1messages_1_1Geomet
 <p>Data Structure for encoding Velocity and Covariance.  
  <a href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="GeometryMsgs_8hpp_source.html">GeometryMsgs.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="TwistWithCovarianceMsg_8hpp_source.html">TwistWithCovarianceMsg.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg:</div>
 <div class="dyncontent">
@@ -136,9 +136,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8fe53943946416aa2eca9f094d55d0fb" id="r_a8fe53943946416aa2eca9f094d55d0fb"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#a8fe53943946416aa2eca9f094d55d0fb">COV_LINEAR_Z</a></td></tr>
 <tr class="memdesc:a8fe53943946416aa2eca9f094d55d0fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing Z Linear Velocity.  <br /></td></tr>
 <tr class="separator:a8fe53943946416aa2eca9f094d55d0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bec709c1a88f4737ea6ac87d5144ec4" id="r_a1bec709c1a88f4737ea6ac87d5144ec4"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#a1bec709c1a88f4737ea6ac87d5144ec4">COV_ANGULAR_ROLL</a></td></tr>
+<tr class="memitem:a1bec709c1a88f4737ea6ac87d5144ec4" id="r_a1bec709c1a88f4737ea6ac87d5144ec4"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#a1bec709c1a88f4737ea6ac87d5144ec4">COV_ANGULAR_ROLL</a> = Covariance6DMsg::X4</td></tr>
 <tr class="separator:a1bec709c1a88f4737ea6ac87d5144ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff4fea553110baf776828158cde87dbc" id="r_aff4fea553110baf776828158cde87dbc"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#aff4fea553110baf776828158cde87dbc">COV_ANGULAR_PITCH</a></td></tr>
+<tr class="memitem:aff4fea553110baf776828158cde87dbc" id="r_aff4fea553110baf776828158cde87dbc"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#aff4fea553110baf776828158cde87dbc">COV_ANGULAR_PITCH</a> = Covariance6DMsg::X5</td></tr>
 <tr class="separator:aff4fea553110baf776828158cde87dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390c7517f93764ee652bd85f9d079763" id="r_a390c7517f93764ee652bd85f9d079763"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html#a390c7517f93764ee652bd85f9d079763">COV_ANGULAR_YAW</a></td></tr>
 <tr class="memdesc:a390c7517f93764ee652bd85f9d079763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance representing Yaw Angular Velocity.  <br /></td></tr>
@@ -157,7 +157,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg::COV_ANGULAR_PITCH</td>
+          <td class="memname">constexpr uint16_t fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg::COV_ANGULAR_PITCH = Covariance6DMsg::X5</td>
         </tr>
       </table>
   </td>
@@ -166,9 +166,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X5</div>
-</div><!-- fragment --><p>Covariance Index representing Pitch Angular Velocity. </p>
+<p>Covariance Index representing Pitch Angular Velocity. </p>
 
 </div>
 </div>
@@ -182,7 +180,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg::COV_ANGULAR_ROLL</td>
+          <td class="memname">constexpr uint16_t fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg::COV_ANGULAR_ROLL = Covariance6DMsg::X4</td>
         </tr>
       </table>
   </td>
@@ -191,9 +189,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X4</div>
-</div><!-- fragment --><p>Covariance Index representing Roll Angular Velocity. </p>
+<p>Covariance Index representing Roll Angular Velocity. </p>
 
 </div>
 </div>
@@ -217,7 +213,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X6</div>
+<div class="line">        Covariance6DMsg::X6</div>
 </div><!-- fragment -->
 <p>Covariance representing Yaw Angular Velocity. </p>
 
@@ -243,7 +239,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X1</div>
+<div class="line">        Covariance6DMsg::X1</div>
 </div><!-- fragment -->
 <p>Covariance Index representing X Linear Velocity. </p>
 
@@ -269,7 +265,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X2</div>
+<div class="line">        Covariance6DMsg::X2</div>
 </div><!-- fragment -->
 <p>Covariance Index representing Y Linear Velocity. </p>
 
@@ -295,7 +291,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance6DMsg::X3</div>
+<div class="line">        Covariance6DMsg::X3</div>
 </div><!-- fragment -->
 <p>Covariance Index representing Z Linear Velocity. </p>
 
@@ -317,7 +313,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>msgs/GeometryMsgs/include/<a class="el" href="GeometryMsgs_8hpp_source.html">GeometryMsgs.hpp</a></li>
+<li>msgs/GeometryMsgs/include/<a class="el" href="TwistWithCovarianceMsg_8hpp_source.html">TwistWithCovarianceMsg.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

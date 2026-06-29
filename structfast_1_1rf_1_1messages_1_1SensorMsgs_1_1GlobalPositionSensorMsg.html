@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('structfast_1_1rf_1_1messages_1_1Sensor
 <p>Data Structure for encoding GPS Data.  
  <a href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="SensorMsgs_8hpp_source.html">SensorMsgs.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="GlobalPositionSensorMsg_8hpp_source.html">GlobalPositionSensorMsg.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg:</div>
 <div class="dyncontent">
@@ -148,20 +148,25 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>satellites</b></t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a7fb17bf8cbafd545cac11bda9b1e8d5e" id="r_a7fb17bf8cbafd545cac11bda9b1e8d5e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7fb17bf8cbafd545cac11bda9b1e8d5e">MAX_ANGLE</a></td></tr>
-<tr class="memdesc:a7fb17bf8cbafd545cac11bda9b1e8d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max Angle in degrees representing Geographic Coordinates.  <br /></td></tr>
+<tr class="memitem:a7fb17bf8cbafd545cac11bda9b1e8d5e" id="r_a7fb17bf8cbafd545cac11bda9b1e8d5e"><td class="memItemLeft" align="right" valign="top"><a id="a7fb17bf8cbafd545cac11bda9b1e8d5e" name="a7fb17bf8cbafd545cac11bda9b1e8d5e"></a>
+static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_ANGLE</b> = 90.0</td></tr>
+<tr class="memdesc:a7fb17bf8cbafd545cac11bda9b1e8d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max Angle in degrees representing Geographic Coordinates. <br /></td></tr>
 <tr class="separator:a7fb17bf8cbafd545cac11bda9b1e8d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7709dbd0d543dcc595c741950c119e2b" id="r_a7709dbd0d543dcc595c741950c119e2b"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a7709dbd0d543dcc595c741950c119e2b">MIN_ANGLE</a></td></tr>
-<tr class="memdesc:a7709dbd0d543dcc595c741950c119e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min Angle in degrees representing Geographic Coordinates.  <br /></td></tr>
+<tr class="memitem:a7709dbd0d543dcc595c741950c119e2b" id="r_a7709dbd0d543dcc595c741950c119e2b"><td class="memItemLeft" align="right" valign="top"><a id="a7709dbd0d543dcc595c741950c119e2b" name="a7709dbd0d543dcc595c741950c119e2b"></a>
+static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_ANGLE</b> = -90.0</td></tr>
+<tr class="memdesc:a7709dbd0d543dcc595c741950c119e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min Angle in degrees representing Geographic Coordinates. <br /></td></tr>
 <tr class="separator:a7709dbd0d543dcc595c741950c119e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f7a090c552cb9703229576c3ef872ec" id="r_a1f7a090c552cb9703229576c3ef872ec"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a1f7a090c552cb9703229576c3ef872ec">COV_X</a></td></tr>
-<tr class="memdesc:a1f7a090c552cb9703229576c3ef872ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing X Position.  <br /></td></tr>
+<tr class="memitem:a1f7a090c552cb9703229576c3ef872ec" id="r_a1f7a090c552cb9703229576c3ef872ec"><td class="memItemLeft" align="right" valign="top"><a id="a1f7a090c552cb9703229576c3ef872ec" name="a1f7a090c552cb9703229576c3ef872ec"></a>
+static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>COV_X</b> = Covariance3DMsg::X1</td></tr>
+<tr class="memdesc:a1f7a090c552cb9703229576c3ef872ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing X Position. <br /></td></tr>
 <tr class="separator:a1f7a090c552cb9703229576c3ef872ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66fae142a3f2bf4a7c6a8d69349c828e" id="r_a66fae142a3f2bf4a7c6a8d69349c828e"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a66fae142a3f2bf4a7c6a8d69349c828e">COV_Y</a></td></tr>
-<tr class="memdesc:a66fae142a3f2bf4a7c6a8d69349c828e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing Y Position.  <br /></td></tr>
+<tr class="memitem:a66fae142a3f2bf4a7c6a8d69349c828e" id="r_a66fae142a3f2bf4a7c6a8d69349c828e"><td class="memItemLeft" align="right" valign="top"><a id="a66fae142a3f2bf4a7c6a8d69349c828e" name="a66fae142a3f2bf4a7c6a8d69349c828e"></a>
+static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>COV_Y</b> = Covariance3DMsg::X2</td></tr>
+<tr class="memdesc:a66fae142a3f2bf4a7c6a8d69349c828e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing Y Position. <br /></td></tr>
 <tr class="separator:a66fae142a3f2bf4a7c6a8d69349c828e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1085182e397b1c1d2e1b43623bbcc43e" id="r_a1085182e397b1c1d2e1b43623bbcc43e"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a1085182e397b1c1d2e1b43623bbcc43e">COV_Z</a></td></tr>
-<tr class="memdesc:a1085182e397b1c1d2e1b43623bbcc43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing Z Position.  <br /></td></tr>
+<tr class="memitem:a1085182e397b1c1d2e1b43623bbcc43e" id="r_a1085182e397b1c1d2e1b43623bbcc43e"><td class="memItemLeft" align="right" valign="top"><a id="a1085182e397b1c1d2e1b43623bbcc43e" name="a1085182e397b1c1d2e1b43623bbcc43e"></a>
+static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>COV_Z</b> = Covariance3DMsg::X3</td></tr>
+<tr class="memdesc:a1085182e397b1c1d2e1b43623bbcc43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Covariance Index representing Z Position. <br /></td></tr>
 <tr class="separator:a1085182e397b1c1d2e1b43623bbcc43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -197,139 +202,8 @@ false Data is not valid </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1f7a090c552cb9703229576c3ef872ec" name="a1f7a090c552cb9703229576c3ef872ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f7a090c552cb9703229576c3ef872ec">&#9670;&#160;</a></span>COV_X</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::COV_X</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance3DMsg::X1</div>
-</div><!-- fragment -->
-<p>Covariance Index representing X Position. </p>
-
-</div>
-</div>
-<a id="a66fae142a3f2bf4a7c6a8d69349c828e" name="a66fae142a3f2bf4a7c6a8d69349c828e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66fae142a3f2bf4a7c6a8d69349c828e">&#9670;&#160;</a></span>COV_Y</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::COV_Y</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance3DMsg::X2</div>
-</div><!-- fragment -->
-<p>Covariance Index representing Y Position. </p>
-
-</div>
-</div>
-<a id="a1085182e397b1c1d2e1b43623bbcc43e" name="a1085182e397b1c1d2e1b43623bbcc43e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1085182e397b1c1d2e1b43623bbcc43e">&#9670;&#160;</a></span>COV_Z</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::COV_Z</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      Covariance3DMsg::X3</div>
-</div><!-- fragment -->
-<p>Covariance Index representing Z Position. </p>
-
-</div>
-</div>
-<a id="a7fb17bf8cbafd545cac11bda9b1e8d5e" name="a7fb17bf8cbafd545cac11bda9b1e8d5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fb17bf8cbafd545cac11bda9b1e8d5e">&#9670;&#160;</a></span>MAX_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::MAX_ANGLE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      90.0</div>
-</div><!-- fragment -->
-<p>Max Angle in degrees representing Geographic Coordinates. </p>
-
-</div>
-</div>
-<a id="a7709dbd0d543dcc595c741950c119e2b" name="a7709dbd0d543dcc595c741950c119e2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7709dbd0d543dcc595c741950c119e2b">&#9670;&#160;</a></span>MIN_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::MIN_ANGLE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      -90.0</div>
-</div><!-- fragment -->
-<p>Min Angle in degrees representing Geographic Coordinates. </p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>msgs/SensorMsgs/include/<a class="el" href="SensorMsgs_8hpp_source.html">SensorMsgs.hpp</a></li>
+<li>msgs/SensorMsgs/include/<a class="el" href="GlobalPositionSensorMsg_8hpp_source.html">GlobalPositionSensorMsg.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

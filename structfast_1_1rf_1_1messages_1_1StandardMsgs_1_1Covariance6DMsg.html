@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('structfast_1_1rf_1_1messages_1_1Standa
 <p>6D Covariance  
  <a href="structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="StandardMsgs_8hpp_source.html">StandardMsgs.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Covariance6DMsg_8hpp_source.html">Covariance6DMsg.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -111,8 +111,9 @@ std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9d31a4a9a86f15cf9d4b6cfd04a06fba" id="r_a9d31a4a9a86f15cf9d4b6cfd04a06fba"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg.html#a9d31a4a9a86f15cf9d4b6cfd04a06fba">DIMENSION</a></td></tr>
-<tr class="memdesc:a9d31a4a9a86f15cf9d4b6cfd04a06fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensionality of Covariance.  <br /></td></tr>
+<tr class="memitem:a9d31a4a9a86f15cf9d4b6cfd04a06fba" id="r_a9d31a4a9a86f15cf9d4b6cfd04a06fba"><td class="memItemLeft" align="right" valign="top"><a id="a9d31a4a9a86f15cf9d4b6cfd04a06fba" name="a9d31a4a9a86f15cf9d4b6cfd04a06fba"></a>
+static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>DIMENSION</b> = 6</td></tr>
+<tr class="memdesc:a9d31a4a9a86f15cf9d4b6cfd04a06fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensionality of Covariance. <br /></td></tr>
 <tr class="separator:a9d31a4a9a86f15cf9d4b6cfd04a06fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e339d43aecb68e15787adab61c0f93" id="r_ad1e339d43aecb68e15787adab61c0f93"><td class="memItemLeft" align="right" valign="top"><a id="ad1e339d43aecb68e15787adab61c0f93" name="ad1e339d43aecb68e15787adab61c0f93"></a>
 static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>X1</b> = 0</td></tr>
@@ -143,35 +144,8 @@ static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>
 <div class="textblock"><p>6D Covariance </p>
 <p>Row-major representation of the 6x6 covariance matrix The orientation parameters use a fixed-axis representation. In order, the parameters are: (X1,X2,X3,X4,X5,X6)</p>
 <p>Diagonal elemnts are treated as follows: &gt;0: Valid Covariance 0: Undefined/Not Supported &lt;0: Unknown Covariance. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9d31a4a9a86f15cf9d4b6cfd04a06fba" name="a9d31a4a9a86f15cf9d4b6cfd04a06fba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d31a4a9a86f15cf9d4b6cfd04a06fba">&#9670;&#160;</a></span>DIMENSION</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t fast::rf::messages::StandardMsgs::Covariance6DMsg::DIMENSION</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">      6</div>
-</div><!-- fragment -->
-<p>Dimensionality of Covariance. </p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>msgs/StandardMsgs/include/<a class="el" href="StandardMsgs_8hpp_source.html">StandardMsgs.hpp</a></li>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>msgs/StandardMsgs/include/<a class="el" href="Covariance6DMsg_8hpp_source.html">Covariance6DMsg.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

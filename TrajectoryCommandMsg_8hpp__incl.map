@@ -1,15 +1,23 @@
 <map id="msgs/NavMsgs/include/TrajectoryCommandMsg.hpp" name="msgs/NavMsgs/include/TrajectoryCommandMsg.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,217,45"/>
-<area shape="rect" id="Node000002" href="$GeometryMsgs_8hpp.html" title=" " alt="" coords="95,93,245,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,44,155,80,151,84,123,47"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="75,240,137,265"/>
-<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="103,47,86,94,83,130,86,166,100,226,95,228,80,166,77,130,81,93,98,45"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="143,167,202,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,119,174,153,169,153,168,119"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="163,120,134,168,114,227,109,225,129,166,159,118"/>
-<area shape="rect" id="Node000005" href="$StandardMsgs_8hpp.html" title=" " alt="" coords="227,167,369,192"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="192,116,266,157,264,162,189,121"/>
-<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="268,195,151,237,149,232,266,190"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="265,240,331,265"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="301,192,301,226,295,226,295,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="345,5,557,45"/>
+<area shape="rect" id="Node000002" href="$TwistWithCovarianceMsg_8hpp.html" title=" " alt="" coords="241,93,455,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,48,376,87,372,83,424,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="422,313,485,339"/>
+<area shape="poly" id="edge13_Node000001_Node000005" title=" " alt="" coords="459,45,469,93,480,179,480,217,475,266,465,301,460,300,469,265,475,217,475,180,464,94,454,46"/>
+<area shape="rect" id="Node000003" href="$Covariance6DMsg_8hpp.html" title=" " alt="" coords="5,240,173,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,121,123,236,120,231,326,117"/>
+<area shape="poly" id="edge12_Node000002_Node000005" title=" " alt="" coords="366,117,392,138,418,165,442,200,455,239,459,270,458,299,453,299,453,271,449,241,437,202,414,168,389,142,363,121"/>
+<area shape="rect" id="Node000006" href="$TwistMsg_8hpp.html" title=" " alt="" coords="293,167,403,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="351,119,351,153,345,153,345,119"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="197,240,256,265"/>
+<area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="334,121,308,142,282,168,259,199,241,229,237,226,255,196,278,165,305,138,331,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="185,313,252,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="111,263,186,304,184,309,109,268"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="148,263,409,313,408,319,147,268"/>
+<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="372,190,402,210,430,238,445,269,453,299,448,301,440,271,426,242,399,214,369,194"/>
+<area shape="rect" id="Node000007" href="$Vector3DMsg_8hpp.html" title=" " alt="" coords="280,240,416,265"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="351,192,351,226,345,226,345,192"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="330,194,259,235,257,231,327,190"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="328,268,253,309,251,304,326,263"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="366,263,426,303,424,308,363,268"/>
 </map>

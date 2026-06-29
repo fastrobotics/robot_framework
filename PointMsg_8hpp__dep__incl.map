@@ -1,0 +1,28 @@
+<map id="msgs/GeometryMsgs/include/PointMsg.hpp" name="msgs/GeometryMsgs/include/PointMsg.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="481,5,692,45"/>
+<area shape="rect" id="Node000002" href="$PoseMsg_8hpp.html" title=" " alt="" coords="481,93,692,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="589,59,589,93,584,93,584,59"/>
+<area shape="rect" id="Node000003" href="$PoseWithCovarianceMsg_8hpp.html" title=" " alt="" coords="479,181,694,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="589,147,589,181,584,181,584,147"/>
+<area shape="rect" id="Node000004" href="$OdomMsg_8hpp.html" title=" " alt="" coords="481,269,692,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="589,235,589,269,584,269,584,235"/>
+<area shape="rect" id="Node000005" href="$IGlobalPoseProcess_8hpp.html" title=" " alt="" coords="75,357,315,427"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="501,315,316,363,314,357,500,310"/>
+<area shape="rect" id="Node000008" href="$BasePoseSystem_8hpp.html" title=" " alt="" coords="395,489,562,529"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="469,306,423,326,403,341,386,359,377,376,375,391,379,407,386,425,398,444,412,461,446,487,443,491,409,465,393,447,382,428,373,408,370,391,372,374,382,356,399,337,420,322,467,301"/>
+<area shape="rect" id="Node000010" href="$IPoseSystem_8hpp.html" title=" " alt="" coords="397,372,561,412"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="558,321,501,374,497,370,554,317"/>
+<area shape="rect" id="Node000011" href="$GlobalPathCommandMsg_8hpp.html" title=" " alt="" coords="585,372,804,412"/>
+<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="619,317,676,370,673,374,615,321"/>
+<area shape="rect" id="Node000012" href="$GlobalPathRequestMsg_8hpp.html" title=" " alt="" coords="829,372,1033,412"/>
+<area shape="poly" id="edge12_Node000004_Node000012" title=" " alt="" coords="665,311,867,369,865,374,663,316"/>
+<area shape="rect" id="Node000013" href="$GlobalPathResponseMsg_8hpp.html" title=" " alt="" coords="1057,372,1271,412"/>
+<area shape="poly" id="edge13_Node000004_Node000013" title=" " alt="" coords="706,301,868,323,1046,355,1103,369,1102,374,1045,360,867,328,705,306"/>
+<area shape="rect" id="Node000006" href="$BaseGlobalPoseProcess_8hpp.html" title=" " alt="" coords="61,475,301,544"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="192,441,188,475,183,474,187,440"/>
+<area shape="rect" id="Node000007" href="$BasicGlobalPoseProcess_8hpp.html" title=" " alt="" coords="5,592,301,676"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="173,558,165,593,160,591,168,556"/>
+<area shape="rect" id="Node000009" href="$DummyPoseSystem_8hpp.html" title=" " alt="" coords="325,614,648,654"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="483,543,488,614,483,614,478,544"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="481,426,481,489,476,489,476,426"/>
+</map>
