@@ -11,11 +11,13 @@
 #pragma once
 
 #include <IDriveExecutorOutput.hpp>
+#include <stdint.h>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-class TankDriveExecutorOutput : public IDriveExecutorOutput {
-public:
+struct TankDriveExecutorOutput : public IDriveExecutorOutput {
   TankDriveExecutorOutput() : IDriveExecutorOutput() {}
+  uint16_t left_drive{0};
+  uint16_t right_drive{0};
 
 private:
 };

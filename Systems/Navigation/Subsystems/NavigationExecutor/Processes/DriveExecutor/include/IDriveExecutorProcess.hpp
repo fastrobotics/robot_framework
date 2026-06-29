@@ -38,7 +38,6 @@ public:
    * @return IDriveExecutorOutput* Abstract type
    */
 
-  virtual IDriveExecutorOutput *
-  new_cmd(GeometryMsgs::TwistWithCovarianceMsg cmd) = 0;
+  virtual IDriveExecutorOutput *new_cmd(GeometryMsgs::TwistMsg cmd) = 0;
 };
 } // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

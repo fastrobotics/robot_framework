@@ -38,8 +38,9 @@ This process's objective is to take a Twist Command and convert to the specific 
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input              | DataType | Description                                                               | Requirement |
+| ------------------ | -------- | ------------------------------------------------------------------------- | ----------- |
+| Trajectory Command | TwistMsg | Data should be scaled to include max/min values +/- 100.0 in all members. |
 
 # Outputs
 

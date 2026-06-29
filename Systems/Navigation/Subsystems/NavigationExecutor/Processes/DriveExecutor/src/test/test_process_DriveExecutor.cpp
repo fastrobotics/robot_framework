@@ -17,8 +17,7 @@ public:
 };
 class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
 public:
-  IDriveExecutorOutput *
-  new_cmd(GeometryMsgs::TwistWithCovarianceMsg cmd) override {
+  IDriveExecutorOutput *new_cmd(GeometryMsgs::TwistMsg cmd) override {
     return output;
   }
   bool update(double current_time_sec, double delta_time_sec) override {
@@ -31,10 +30,9 @@ private:
 TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
   TestDriveExecutorProcessInterface SUT;
   ASSERT_FALSE(SUT.update(0.0, 0.0));
-  GeometryMsgs::TwistWithCovarianceMsg cmd;
+  GeometryMsgs::TwistMsg cmd;
   auto general_output = SUT.new_cmd(cmd);
   ASSERT_NE(general_output, nullptr);
-  // ASSERT_EQ(output->a, 1);
 
   TestDriveExecutorOutput *output =
       dynamic_cast<TestDriveExecutorOutput *>(general_output);
@@ -44,8 +42,7 @@ TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
 class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
 public:
   TestBaseDriveExecutorProcess() : BaseDriveExecutorProcess() {}
-  IDriveExecutorOutput *
-  new_cmd(GeometryMsgs::TwistWithCovarianceMsg cmd) override {
+  IDriveExecutorOutput *new_cmd(GeometryMsgs::TwistMsg cmd) override {
     return nullptr;
   }
   bool update(double current_time_sec, double delta_time_sec) override {

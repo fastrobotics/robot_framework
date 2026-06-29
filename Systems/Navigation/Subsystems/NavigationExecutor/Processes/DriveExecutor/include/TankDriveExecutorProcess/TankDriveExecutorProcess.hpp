@@ -16,13 +16,30 @@
 #include <TankDriveExecutorProcess/TankDriveExecutorOutput.hpp>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+
+
+struct TankDriveData {
+  double left_channel{0.0};
+  double right_channel{0.0};
+};
+struct TankDriveChannelConfig {
+  double min_value{-100.0};
+  double max_value{100.0};
+  double neutral_value{0.0};
+  TankDriveChannelConfig()
+      : min_value(-100.0), neutral_value(0.0), max_value(100.0) {}
+  TankDriveChannelConfig(double min, double neutral, double max)
+      : min_value(min), neutral_value(neutral), max_value(max) {}
+};
+
 /**
  * @brief Minimal implementation for a DriveExecutor Process
- *
- */
+*/
 class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
 public:
-  TankDriveExecutorProcess() : BaseDriveExecutorProcess() {}
+  TankDriveExecutorProcess()
+      : left_channel_config(), right_channel_config(),
+        BaseDriveExecutorProcess() {}
   /**
    * @brief Update with recent timing data
    *
@@ -33,9 +50,21 @@ public:
    */
   bool update(double current_time_sec, double delta_time_sec) override;
 
-   virtual IDriveExecutorOutput *
-  new_cmd(GeometryMsgs::TwistWithCovarianceMsg cmd) override;
+  virtual IDriveExecutorOutput *new_cmd(GeometryMsgs::TwistMsg cmd) override;
+
+  TankDriveData convert(GeometryMsgs::TwistMsg twist);
+
+  void set_config(TankDriveChannelConfig left_channel,
+                  TankDriveChannelConfig right_channel) {
+    left_channel_config = left_channel;
+    right_channel_config = right_channel;
+  }
+
+  double clip(double value, double min_value, double max_value);
 
 private:
+  TankDriveChannelConfig left_channel_config;
+  TankDriveChannelConfig right_channel_config;
+  TankDriveExecutorOutput *output;
 };
 } // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

@@ -14,8 +14,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
  * @brief Interface for the DriveExecutor Process
  *
  */
-class IDriveExecutorOutput {
-public:
+struct IDriveExecutorOutput {
   IDriveExecutorOutput() = default;
   virtual ~IDriveExecutorOutput() = default;
 };
