@@ -15,8 +15,8 @@ namespace fast::rf::NavigationSystem {
  *
  */
 class INavigationSystem {
-public:
-  INavigationSystem() = default;
-  virtual ~INavigationSystem() = default;
+   public:
+    INavigationSystem() = default;
+    virtual ~INavigationSystem() = default;
 };
-} // namespace fast::rf::NavigationSystem
+}  // namespace fast::rf::NavigationSystem

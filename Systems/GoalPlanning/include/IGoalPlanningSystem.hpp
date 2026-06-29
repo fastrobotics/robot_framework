@@ -15,8 +15,8 @@ namespace fast::rf::GoalPlanningSystem {
  *
  */
 class IGoalPlanningSystem {
-public:
-  IGoalPlanningSystem() = default;
-  virtual ~IGoalPlanningSystem() = default;
+   public:
+    IGoalPlanningSystem() = default;
+    virtual ~IGoalPlanningSystem() = default;
 };
-} // namespace fast::rf::GoalPlanningSystem
+}  // namespace fast::rf::GoalPlanningSystem

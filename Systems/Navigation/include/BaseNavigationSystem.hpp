@@ -16,7 +16,6 @@ namespace fast::rf::NavigationSystem {
  *
  */
 class BaseNavigationSystem : public INavigationSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::NavigationSystem
+}  // namespace fast::rf::NavigationSystem

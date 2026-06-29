@@ -15,7 +15,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
  *
  */
 struct IDriveExecutorOutput {
-  IDriveExecutorOutput() = default;
-  virtual ~IDriveExecutorOutput() = default;
+    IDriveExecutorOutput() = default;
+    virtual ~IDriveExecutorOutput() = default;
 };
-} // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

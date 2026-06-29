@@ -9,10 +9,9 @@
  *
  */
 #pragma once
+#include <Vector3DMsg.hpp>
 #include <string>
 #include <vector>
-
-#include <Vector3DMsg.hpp>
 using namespace fast::rf::messages::StandardMsgs;
 /**
  * @brief Geometry Messages Namespace
@@ -20,15 +19,13 @@ using namespace fast::rf::messages::StandardMsgs;
  */
 namespace fast::rf::messages::GeometryMsgs {
 
-
-
 /**
  * @brief Data Structure for encoding Velocity (linear and angular)
  *
  */
 struct TwistMsg {
-  Vector3DMsg linear;  //!< Linear Velocity
-  Vector3DMsg angular; //!< Angular velocity
-  TwistMsg() {};
+    Vector3DMsg linear;   //!< Linear Velocity
+    Vector3DMsg angular;  //!< Angular velocity
+    TwistMsg() {};
 };
-}
+}  // namespace fast::rf::messages::GeometryMsgs

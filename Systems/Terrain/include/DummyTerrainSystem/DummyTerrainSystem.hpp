@@ -17,6 +17,6 @@ namespace fast::rf::TerrainSystem {
  *
  */
 class DummyTerrainSystem : public BaseTerrainSystem {
-public:
+   public:
 };
-} // namespace fast::rf::TerrainSystem
+}  // namespace fast::rf::TerrainSystem

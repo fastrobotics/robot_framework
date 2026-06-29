@@ -9,22 +9,19 @@
  *
  */
 #pragma once
+#include <OrientationMsg.hpp>
+#include <PointMsg.hpp>
 #include <string>
 #include <vector>
-
-#include <PointMsg.hpp>
-#include <OrientationMsg.hpp>
 namespace fast::rf::messages::GeometryMsgs {
-
-
 
 /**
  * @brief Data Structure for encoding Pose (Position and Orientation)
  *
  */
 struct PoseMsg {
-  PointMsg position;          //!< Position
-  OrientationMsg orientation; //!< Euler Orientation
-  PoseMsg() {};
+    PointMsg position;           //!< Position
+    OrientationMsg orientation;  //!< Euler Orientation
+    PoseMsg() {};
 };
-}
+}  // namespace fast::rf::messages::GeometryMsgs

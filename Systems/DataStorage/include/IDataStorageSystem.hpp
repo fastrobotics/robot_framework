@@ -15,8 +15,8 @@ namespace fast::rf::DataStorageSystem {
  *
  */
 class IDataStorageSystem {
-public:
-  IDataStorageSystem() = default;
-  virtual ~IDataStorageSystem() = default;
+   public:
+    IDataStorageSystem() = default;
+    virtual ~IDataStorageSystem() = default;
 };
-} // namespace fast::rf::DataStorageSystem
+}  // namespace fast::rf::DataStorageSystem

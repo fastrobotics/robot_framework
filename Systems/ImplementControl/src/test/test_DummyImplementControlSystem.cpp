@@ -1,8 +1,6 @@
 
-#include <DummyImplementControlSystem/DummyImplementControlSystem.hpp>
-
 #include <gtest/gtest.h>
+
+#include <DummyImplementControlSystem/DummyImplementControlSystem.hpp>
 using namespace fast::rf::ImplementControlSystem;
-TEST(DummyImplementControlSyste, BasicAssertions) {
-  DummyImplementControlSystem SUT;
-}
+TEST(DummyImplementControlSyste, BasicAssertions) { DummyImplementControlSystem SUT; }

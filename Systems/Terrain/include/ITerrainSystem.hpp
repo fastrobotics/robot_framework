@@ -15,8 +15,8 @@ namespace fast::rf::TerrainSystem {
  *
  */
 class ITerrainSystem {
-public:
-  ITerrainSystem() = default;
-  virtual ~ITerrainSystem() = default;
+   public:
+    ITerrainSystem() = default;
+    virtual ~ITerrainSystem() = default;
 };
-} // namespace fast::rf::TerrainSystem
+}  // namespace fast::rf::TerrainSystem

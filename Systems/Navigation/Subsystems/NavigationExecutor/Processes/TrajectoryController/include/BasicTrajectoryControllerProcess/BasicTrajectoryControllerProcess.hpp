@@ -18,18 +18,18 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
  *
  */
 class BasicTrajectoryControllerProcess : public BaseTrajectoryControllerProcess {
-public:
-  BasicTrajectoryControllerProcess() : BaseTrajectoryControllerProcess() {}
-  /**
-   * @brief Update with recent timing data
-   *
-   * @param current_time_sec
-   * @param delta_time_sec
-   * @return true If update executed ok
-   * @return false If update executed with some error
-   */
-  bool update(double current_time_sec, double delta_time_sec) override;
+   public:
+    BasicTrajectoryControllerProcess() : BaseTrajectoryControllerProcess() {}
+    /**
+     * @brief Update with recent timing data
+     *
+     * @param current_time_sec
+     * @param delta_time_sec
+     * @return true If update executed ok
+     * @return false If update executed with some error
+     */
+    bool update(double current_time_sec, double delta_time_sec) override;
 
-private:
+   private:
 };
-} // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

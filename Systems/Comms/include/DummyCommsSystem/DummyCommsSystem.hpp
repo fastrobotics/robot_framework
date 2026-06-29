@@ -17,6 +17,6 @@ namespace fast::rf::CommsSystem {
  *
  */
 class DummyCommsSystem : public BaseCommsSystem {
-public:
+   public:
 };
-} // namespace fast::rf::CommsSystem
+}  // namespace fast::rf::CommsSystem

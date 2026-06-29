@@ -1,10 +1,8 @@
 #include <BaseDriveExecutorProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-bool BaseDriveExecutorProcess::base_update(double current_time_sec,
-                                        double delta_time_sec) {
+bool BaseDriveExecutorProcess::base_update(double current_time_sec, double delta_time_sec) {
+    current_time_sec_ = current_time_sec;
 
-  current_time_sec_ = current_time_sec;
-
-  return true;
+    return true;
 }
-} // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

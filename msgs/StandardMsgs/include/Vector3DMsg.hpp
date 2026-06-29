@@ -19,9 +19,9 @@ namespace fast::rf::messages::StandardMsgs {
  *
  */
 struct Vector3DMsg {
-  double x; //!< X Axis
-  double y; //!< Y Axis
-  double z; //!< Z Axis
-  Vector3DMsg() : x(0.0), y(0.0), z(0.0) {}
+    double x;  //!< X Axis
+    double y;  //!< Y Axis
+    double z;  //!< Z Axis
+    Vector3DMsg() : x(0.0), y(0.0), z(0.0) {}
 };
-}
+}  // namespace fast::rf::messages::StandardMsgs

@@ -15,8 +15,8 @@ namespace fast::rf::PerceptionSystem {
  *
  */
 class IPerceptionSystem {
-public:
-  IPerceptionSystem() = default;
-  virtual ~IPerceptionSystem() = default;
+   public:
+    IPerceptionSystem() = default;
+    virtual ~IPerceptionSystem() = default;
 };
-} // namespace fast::rf::PerceptionSystem
+}  // namespace fast::rf::PerceptionSystem

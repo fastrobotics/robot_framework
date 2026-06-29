@@ -15,8 +15,8 @@ namespace fast::rf::UserInterfaceSystem {
  *
  */
 class IUserInterfaceSystem {
-public:
-  IUserInterfaceSystem() = default;
-  virtual ~IUserInterfaceSystem() = default;
+   public:
+    IUserInterfaceSystem() = default;
+    virtual ~IUserInterfaceSystem() = default;
 };
-} // namespace fast::rf::UserInterfaceSystem
+}  // namespace fast::rf::UserInterfaceSystem

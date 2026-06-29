@@ -13,15 +13,14 @@
 #include <vector>
 namespace fast::rf::messages::GeometryMsgs {
 
-
 /**
  * @brief Data Structure for encoding Orientation
  *
  */
 struct OrientationMsg {
-  double roll;  //!< Roll value in radians
-  double pitch; //!< Pitch value in radians
-  double yaw;   //!< Yaw value in Radians
-  OrientationMsg() {};
+    double roll;   //!< Roll value in radians
+    double pitch;  //!< Pitch value in radians
+    double yaw;    //!< Yaw value in Radians
+    OrientationMsg() {};
 };
-}
+}  // namespace fast::rf::messages::GeometryMsgs

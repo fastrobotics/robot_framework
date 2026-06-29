@@ -19,6 +19,6 @@ namespace fast::rf::messages::AwarenessMsgs {
  *
  */
 struct ObjectMsg {
-  ObjectMsg() {}
+    ObjectMsg() {}
 };
-} // namespace fast::rf::messages::AwarenessMsgs
+}  // namespace fast::rf::messages::AwarenessMsgs

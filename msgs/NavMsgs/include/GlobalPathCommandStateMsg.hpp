@@ -18,9 +18,8 @@ namespace fast::rf::messages::NavMsgs {
  *
  */
 struct GlobalPathCommandStateMsg {
-  uint64_t path_uuid;                //!< Globally unique Path ID
-  GlobalPathCommandStatusEnum state; //!< State of the Path
-  GlobalPathCommandStateMsg()
-      : path_uuid(0), state(GlobalPathCommandStatusEnum::UNKNOWN) {}
+    uint64_t path_uuid;                 //!< Globally unique Path ID
+    GlobalPathCommandStatusEnum state;  //!< State of the Path
+    GlobalPathCommandStateMsg() : path_uuid(0), state(GlobalPathCommandStatusEnum::UNKNOWN) {}
 };
-} // namespace fast::rf::messages::NavMsgs
+}  // namespace fast::rf::messages::NavMsgs

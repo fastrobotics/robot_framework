@@ -15,8 +15,8 @@ namespace fast::rf::CommsSystem {
  *
  */
 class ICommsSystem {
-public:
-  ICommsSystem() = default;
-  virtual ~ICommsSystem() = default;
+   public:
+    ICommsSystem() = default;
+    virtual ~ICommsSystem() = default;
 };
-} // namespace fast::rf::CommsSystem
+}  // namespace fast::rf::CommsSystem

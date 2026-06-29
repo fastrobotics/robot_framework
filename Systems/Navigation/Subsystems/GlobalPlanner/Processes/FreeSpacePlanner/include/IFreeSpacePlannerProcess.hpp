@@ -15,18 +15,17 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
  *
  */
 class IFreeSpacePlannerProcess {
-public:
-  IFreeSpacePlannerProcess() = default;
-  virtual ~IFreeSpacePlannerProcess() = default;
-  /**
-   * @brief Generic Update function
-   *
-   * @param current_time_sec Current time stamp
-   * @param delta_time_sec Difference in time between previous iterations
-   * @return true If the process updated ok
-   * @return false If the process did not update ok
-   */
-  virtual bool update(double current_time_sec, double delta_time_sec) = 0;
-  
+   public:
+    IFreeSpacePlannerProcess() = default;
+    virtual ~IFreeSpacePlannerProcess() = default;
+    /**
+     * @brief Generic Update function
+     *
+     * @param current_time_sec Current time stamp
+     * @param delta_time_sec Difference in time between previous iterations
+     * @return true If the process updated ok
+     * @return false If the process did not update ok
+     */
+    virtual bool update(double current_time_sec, double delta_time_sec) = 0;
 };
-} // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem

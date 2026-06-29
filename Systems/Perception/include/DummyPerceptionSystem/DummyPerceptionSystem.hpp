@@ -17,6 +17,6 @@ namespace fast::rf::PerceptionSystem {
  *
  */
 class DummyPerceptionSystem : public BasePerceptionSystem {
-public:
+   public:
 };
-} // namespace fast::rf::PerceptionSystem
+}  // namespace fast::rf::PerceptionSystem

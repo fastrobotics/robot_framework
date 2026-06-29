@@ -20,10 +20,9 @@ namespace fast::rf::messages::NavMsgs {
  *
  */
 struct GlobalPathPlanningStateMsg {
-public:
-  uint64_t path_uuid; //!< Globally Unique Path ID, should match the Request ID
-  GlobalPathPlanningStatusEnum state; //!< The state of the planning request
-  GlobalPathPlanningStateMsg()
-      : path_uuid(0), state(GlobalPathPlanningStatusEnum::UNKNOWN) {}
+   public:
+    uint64_t path_uuid;                  //!< Globally Unique Path ID, should match the Request ID
+    GlobalPathPlanningStatusEnum state;  //!< The state of the planning request
+    GlobalPathPlanningStateMsg() : path_uuid(0), state(GlobalPathPlanningStatusEnum::UNKNOWN) {}
 };
-} // namespace fast::rf::messages::NavMsgs
+}  // namespace fast::rf::messages::NavMsgs

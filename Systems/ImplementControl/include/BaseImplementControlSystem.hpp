@@ -16,7 +16,6 @@ namespace fast::rf::ImplementControlSystem {
  *
  */
 class BaseImplementControlSystem : public IImplementControlSystem {
-public:
-
+   public:
 };
-} // namespace fast::rf::ImplementControlSystem
+}  // namespace fast::rf::ImplementControlSystem
