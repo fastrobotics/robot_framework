@@ -15,8 +15,6 @@
 #include <vector>
 namespace fast::rf::messages::GeometryMsgs {
 
-
-  
 /**
  * @brief Data structure for encoding Odometry
  *

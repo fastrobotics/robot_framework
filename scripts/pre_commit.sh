@@ -1,6 +1,5 @@
 echo "Auto-Formatting Code..."
-git diff --name-only -- '*.cpp' '*.hpp' | xargs clang-format -i -style=file
-exit 0
+git diff --staged --name-only -- '*.cpp' '*.hpp' | xargs clang-format -i -style=file
 
 echo "Generating Doxygen Documentation..."
 doxygen

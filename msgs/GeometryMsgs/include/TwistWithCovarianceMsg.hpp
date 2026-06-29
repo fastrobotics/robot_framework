@@ -15,10 +15,6 @@
 #include <string>
 #include <vector>
 using namespace fast::rf::messages::StandardMsgs;
-/**
- * @brief Geometry Messages Namespace
- *
- */
 namespace fast::rf::messages::GeometryMsgs {
 
 /**

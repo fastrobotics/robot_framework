@@ -1,5 +1,5 @@
 /**
- * @file OriengationMsg.hpp
+ * @file OrientationMsg.hpp
  * @author David Gitz (davidgitz@gmail.com)
  * @brief
  * @version 0.1

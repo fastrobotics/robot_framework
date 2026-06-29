@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::messages::GeometryMsgs
+ * @brief Geometry Messages
+ */
