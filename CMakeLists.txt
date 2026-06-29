@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -40,20 +40,6 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(googletest)
-
-#set(BUILD_DOCUMENTATION OFF CACHE INTERNAL "")
-#set(BUILD_TOOLS OFF CACHE INTERNAL "")
-
-#FetchContent_Declare(
-#    GeographicLib
-#    GIT_REPOSITORY https://github.com/geographiclib/geographiclib
-#    GIT_TAG        v2.5 # Replace with the latest stable version tag
-#)
-#FetchContent_MakeAvailable(GeographicLib)
-
-#find_package (GeographicLib REQUIRED)
-#include_directories (${GeographicLib_INCLUDE_DIRS}) 
-
 
 enable_testing()
 include(GoogleTest)
