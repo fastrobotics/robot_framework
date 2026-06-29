@@ -1,0 +1,47 @@
+@startuml
+title Tank Drive Executor Process Class Diagram
+
+namespace fast::fr {
+  namespace messages {
+    namespace GeometryMsgs {
+      class TwistWithCovarianceMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace NavigationSystem {
+    namespace NavigationExecutorSubsystem {
+      class BaseDriveExecutorProcess
+      class IDriveExecutorOutput
+      struct TankDriveData #LimeGreen {
+          +double left_channel
+          +double right_channel
+      }
+      struct TankDriveChannelConfig #LimeGreen {
+          +double min_value
+          +double neutral_value
+          +double max_value
+      }
+      struct TankDriveExecutorOutput #LimeGreen {
+          +double left_drive
+          +double right_drive
+      }
+      TankDriveExecutorOutput -up-|> IDriveExecutorOutput
+      class TankDriveExecutorProcess #LimeGreen {
+          +IDriveExecutorOutput new_cmd(TwistMsg cmd)
+          +bool update(double current_time_sec, double delta_time_sec)
+          +TankDriveData convert(GeometryMsgs::TwistMsg twist)
+          +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel) {
+      }
+      TankDriveExecutorProcess -up-|> BaseDriveExecutorProcess
+      TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+      TankDriveExecutorProcess --> TankDriveData: <<use>>
+      TankDriveExecutorProcess --> TankDriveChannelConfig: <<use>>
+
+      
+    }
+  }
+}
+
+
+        
+        
+        

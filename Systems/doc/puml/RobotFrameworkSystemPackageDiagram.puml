@@ -1,0 +1,105 @@
+@startuml
+title Robot Framework Package Diagram
+top to bottom direction
+namespace fast::rf {
+  namespace messages {
+    package AwarenessMsgs  {
+    }
+    package GeometryMsgs {
+
+    }
+    package NavMsgs {
+
+    }
+    package SensorMsgs {
+
+    }
+    package StandardMsgs {
+
+    }
+    GeometryMsgs --> StandardMsgs: <<use>>
+    NavMsgs --> GeometryMsgs: <<use>>
+    AwarenessMsgs --> GeometryMsgs: <<use>>
+  }
+  namespace AwarenessSystem {
+    namespace ObjectFusionSubsystem {
+
+    }
+    namespace GlobalAwarenessSubsystem {
+
+    }
+    namespace LocalAwarenessSubsystem {
+
+    }
+    namespace ObjectPredictionSubsystem {
+
+    }
+
+  }
+  namespace CommsSystem {
+
+  }
+  namespace DataStorageSystem {
+
+  }
+  namespace GoalPlanningSystem {
+
+  }
+  namespace ImplementControlSystem {
+
+  }
+  namespace ModeControlSystem {
+
+  }
+  namespace NavigationSystem {
+    namespace GlobalPlannerSubsystem {
+
+    }
+    namespace LocalPlannerSubsystem {
+
+    }
+    namespace NavigationExecutorSubsystem {
+      class IDriveExecutorProcess #LimeGreen
+      class IDriveExecutorOutput #LimeGreen
+      class TankDriveExecutorOutput #LimeGreen
+      class TankDriveExecutor #LimeGreen {} 
+      TankDriveExecutorOutput --|> IDriveExecutorOutput
+      TankDriveExecutorProcess --|> IDriveExecutorProcess
+      TankDriveExecutorProcess --> TankDriveExecutorOutput: <<use>>
+      TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+    }
+
+  }
+  NavigationSystem --> NavMsgs: <<use>>
+  NavigationSystem --> GeometryMsgs: <<use>>
+  namespace PerceptionSystem {
+
+  }
+  namespace PoseSystem {
+    namespace InertialSensorSubsystem {
+
+    }
+    namespace GlobalSensorSubsystem {
+
+    }
+    namespace GlobalPoseSubsystem {
+
+    }
+    namespace LocalPoseSubsystem {
+
+    }
+
+  }
+  PoseSystem --> GeometryMsgs: <<use>>
+  namespace SafetySystem {
+
+  }
+  namespace TerrainSystem {
+
+  }
+  namespace UserInterfaceSystem {
+
+  }
+}
+
+@enduml

@@ -1,8 +1,8 @@
-add_subdirectory(BasicDriveExecutorProcess)
+
 include(GoogleTest)
 
 add_library(base_DriveExecutorProcess STATIC BaseDriveExecutorProcess.cpp)
-#target_link_libraries(base_DriveExecutorProcess geometry_msgs sensor_msgs)
+target_link_libraries(base_DriveExecutorProcess geometry_msgs)
 
 add_executable(
   test_process_DriveExecutor
@@ -18,3 +18,6 @@ target_link_libraries(
 
 
 gtest_discover_tests(test_process_DriveExecutor)
+
+add_subdirectory(BasicDriveExecutorProcess)
+add_subdirectory(TankDriveExecutorProcess)

@@ -30,6 +30,14 @@ public:
    */
   bool update(double current_time_sec, double delta_time_sec) override;
 
+  /**
+   * @brief Process a new Twist Command
+   *
+   * @param cmd
+   * @return IDriveExecutorOutput*
+   */
+  IDriveExecutorOutput *new_cmd(GeometryMsgs::TwistMsg cmd) override;
+
 private:
 };
 } // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

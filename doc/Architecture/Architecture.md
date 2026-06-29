@@ -3,6 +3,7 @@
 - [Architecture](#architecture)
 - [Overview](#overview)
 - [Systems](#systems)
+- [Package Diagram](#package-diagram)
 
 # Architecture
 
@@ -26,9 +27,15 @@ Note that at the System level, only some number of interfaces are called out. Th
 | NEW    | [Goal Planning](../../Systems/GoalPlanning/doc/System-GoalPlanning.md)             |
 | NEW    | [Implement Control](../../Systems/ImplementControl/doc/System-ImplementControl.md) |
 | NEW    | [Mode Control](../../Systems/ModeControl/doc/System-ModeControl.md)                |
-| NEW    | [Navigation](../../Systems/Navigation/doc/System-Navigation.md)                    |
+| DRAFT  | [Navigation](../../Systems/Navigation/doc/System-Navigation.md)                    |
 | NEW    | [Perception](../../Systems/Perception/doc/System-Perception.md)                    |
 | DRAFT  | [Pose](../../Systems/Pose/doc/System-Pose.md)                                      |
 | NEW    | [Safety](../../Systems/Safety/doc/System-Safety.md)                                |
 | NEW    | [Terrain](../../Systems/Terrain/doc/System-Terrain.md)                             |
 | NEW    | [User Interface](../../Systems/UserInterface/doc/System-UserInterface.md)          |
+
+# Package Diagram
+
+![](../../Legend.png)
+
+![](../../Systems/doc/puml/RobotFrameworkSystemPackageDiagram.png)
