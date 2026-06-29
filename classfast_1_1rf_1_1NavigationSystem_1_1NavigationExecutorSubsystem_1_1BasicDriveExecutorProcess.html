@@ -130,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a029eb6c9c73f05ef64ee717a42ec40d6" id="r_a029eb6c9c73f05ef64ee717a42ec40d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#a029eb6c9c73f05ef64ee717a42ec40d6">update</a> (double current_time_sec, double delta_time_sec) override</td></tr>
 <tr class="memdesc:a029eb6c9c73f05ef64ee717a42ec40d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update with recent timing data.  <br /></td></tr>
 <tr class="separator:a029eb6c9c73f05ef64ee717a42ec40d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7bc1550935dd9ad40bd1b28b8b112d" id="r_a9b7bc1550935dd9ad40bd1b28b8b112d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#a9b7bc1550935dd9ad40bd1b28b8b112d">new_cmd</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a> cmd) override</td></tr>
+<tr class="memdesc:a9b7bc1550935dd9ad40bd1b28b8b112d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a new Twist Command.  <br /></td></tr>
+<tr class="separator:a9b7bc1550935dd9ad40bd1b28b8b112d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseDriveExecutorProcess</a></td></tr>
 <tr class="memitem:ac5a67711058044b82f60f8d527d6224b inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" id="r_ac5a67711058044b82f60f8d527d6224b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseDriveExecutorProcess</b> ()</td></tr>
@@ -150,6 +153,43 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>current_time_sec_</
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Minimal implementation for a DriveExecutor Process. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9b7bc1550935dd9ad40bd1b28b8b112d" name="a9b7bc1550935dd9ad40bd1b28b8b112d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7bc1550935dd9ad40bd1b28b8b112d">&#9670;&#160;</a></span>new_cmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> * fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess::new_cmd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a>&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Process a new Twist Command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IDriveExecutorOutput* </dd></dl>
+
+<p>Implements <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a3e68f22f756da34598a44d8c611a09e0">fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess</a>.</p>
+
+</div>
+</div>
 <a id="a029eb6c9c73f05ef64ee717a42ec40d6" name="a029eb6c9c73f05ef64ee717a42ec40d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a029eb6c9c73f05ef64ee717a42ec40d6">&#9670;&#160;</a></span>update()</h2>
 

@@ -105,11 +105,13 @@ Inheritance diagram for fast::rf::NavigationSystem::NavigationExecutorSubsystem:
 <div class="dyncontent">
 <div class="center"><img src="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess__inherit__graph.png" border="0" usemap="#afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess_inherit__map" alt="Inheritance graph"/></div>
 <map name="afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess_inherit__map" id="afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess_inherit__map">
-<area shape="rect" title="Interface for the DriveExecutor Process." alt="" coords="5,5,235,60"/>
-<area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html" title="Base DriveExecutor Process." alt="" coords="283,5,512,60"/>
-<area shape="poly" title=" " alt="" coords="249,30,282,30,282,35,249,35"/>
+<area shape="rect" title="Interface for the DriveExecutor Process." alt="" coords="5,45,235,100"/>
+<area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html" title="Base DriveExecutor Process." alt="" coords="283,45,512,100"/>
+<area shape="poly" title=" " alt="" coords="249,70,282,70,282,75,249,75"/>
 <area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html" title="Minimal implementation for a DriveExecutor Process." alt="" coords="560,5,789,60"/>
-<area shape="poly" title=" " alt="" coords="526,30,560,30,560,35,526,35"/>
+<area shape="poly" title=" " alt="" coords="525,52,559,47,560,52,526,57"/>
+<area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html" title="Process for Tank Drive Executor." alt="" coords="560,84,789,139"/>
+<area shape="poly" title=" " alt="" coords="526,88,560,93,559,98,525,93"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -118,10 +120,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ae16a81a3d78a494288600b0f5c012a" id="r_a6ae16a81a3d78a494288600b0f5c012a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a6ae16a81a3d78a494288600b0f5c012a">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
 <tr class="memdesc:a6ae16a81a3d78a494288600b0f5c012a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
 <tr class="separator:a6ae16a81a3d78a494288600b0f5c012a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e68f22f756da34598a44d8c611a09e0" id="r_a3e68f22f756da34598a44d8c611a09e0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a3e68f22f756da34598a44d8c611a09e0">new_cmd</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a> cmd)=0</td></tr>
+<tr class="memdesc:a3e68f22f756da34598a44d8c611a09e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Function for Drive Executor to process.  <br /></td></tr>
+<tr class="separator:a3e68f22f756da34598a44d8c611a09e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the DriveExecutor Process. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3e68f22f756da34598a44d8c611a09e0" name="a3e68f22f756da34598a44d8c611a09e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e68f22f756da34598a44d8c611a09e0">&#9670;&#160;</a></span>new_cmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> * fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess::new_cmd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a>&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generic Function for Drive Executor to process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Command to process </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IDriveExecutorOutput* Abstract type </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#a9b7bc1550935dd9ad40bd1b28b8b112d">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess</a>, and <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a9b467610050100a32a1788f8721bc478">fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess</a>.</p>
+
+</div>
+</div>
 <a id="a6ae16a81a3d78a494288600b0f5c012a" name="a6ae16a81a3d78a494288600b0f5c012a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ae16a81a3d78a494288600b0f5c012a">&#9670;&#160;</a></span>update()</h2>
 
@@ -168,7 +210,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 false If the process did not update ok </dd></dl>
 
-<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#a029eb6c9c73f05ef64ee717a42ec40d6">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess</a>.</p>
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#a029eb6c9c73f05ef64ee717a42ec40d6">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess</a>, and <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a4e1622209de32b39aa0cc8a7f5af3114">fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess</a>.</p>
 
 </div>
 </div>

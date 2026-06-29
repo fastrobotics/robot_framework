@@ -18,9 +18,13 @@ var hierarchy =
         [ "fast::rf::DataStorageSystem::DummyDataStorageSystem", "classfast_1_1rf_1_1DataStorageSystem_1_1DummyDataStorageSystem.html", null ]
       ] ]
     ] ],
+    [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html", [
+      [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput.html", null ]
+    ] ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html", [
       [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html", [
-        [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html", null ]
+        [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html", null ],
+        [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html", null ]
       ] ]
     ] ],
     [ "fast::rf::NavigationSystem::GlobalPlannerSubsystem::IFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html", [
@@ -109,6 +113,8 @@ var hierarchy =
     [ "fast::rf::messages::GeometryMsgs::PointMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PoseMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PoseWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg.html", null ],
+    [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveChannelConfig", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig.html", null ],
+    [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveData", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html", null ],
     [ "fast::rf::messages::NavMsgs::TrajectoryCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html", null ],

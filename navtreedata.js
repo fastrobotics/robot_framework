@@ -52,8 +52,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "BaseCommsSystem_8hpp.html",
-"classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html",
-"namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1a696b031073e74bf2cb98e5ef201d4aa3"
+"classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html#a45caa67123dba7e7f8b00baa99ff6b1c",
+"namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

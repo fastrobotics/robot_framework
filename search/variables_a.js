@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['satellites_0',['satellites',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a148854469c57a7a656192e85259da863',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]],
-  ['start_1',['start',['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#adc83fc4020d7cb40a71e9f8c49e82b20',1,'fast::rf::messages::NavMsgs::GlobalPathCommandMsg::start'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#ad70499afa121563a937005d12fcd8af1',1,'fast::rf::messages::NavMsgs::GlobalPathRequest::start']]],
-  ['state_2',['state',['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandStateMsg.html#a66e89e10cb645199b3c6386806ff9eab',1,'fast::rf::messages::NavMsgs::GlobalPathCommandStateMsg::state'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathPlanningStateMsg.html#a1760190b8a48d2a8915c07e582e74cc0',1,'fast::rf::messages::NavMsgs::GlobalPathPlanningStateMsg::state'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathResponse.html#ac32b3e75d19b244e870f84a85199a0be',1,'fast::rf::messages::NavMsgs::GlobalPathResponse::state']]],
-  ['supported_5fgps_5fchannels_3',['supported_gps_channels',['../classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BaseGlobalPoseProcess.html#a4ca33c3bb84cf0185c262db4a1f3a67a',1,'fast::rf::PoseSystem::GlobalPoseSubsystem::BaseGlobalPoseProcess']]]
+  ['right_5fchannel_0',['right_channel',['../structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html#a9121dbc22866561ed784e04f0f8eab48',1,'fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveData']]],
+  ['right_5fdrive_1',['right_drive',['../structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput.html#a95d6467e7df16a1215afae0a484245fb',1,'fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorOutput']]],
+  ['roll_2',['roll',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html#aecf6014c51561f56b115dbb128d61e9f',1,'fast::rf::messages::GeometryMsgs::OrientationMsg']]]
 ];

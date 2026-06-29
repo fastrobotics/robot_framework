@@ -79,9 +79,14 @@ var annotated_dup =
             [ "BasicDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess" ],
             [ "BasicTrajectoryControllerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectoryControllerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectoryControllerProcess" ],
             [ "BasicTrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectorySelectorProcess" ],
+            [ "IDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html", null ],
             [ "IDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess" ],
             [ "ITrajectoryControllerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess" ],
-            [ "ITrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess" ]
+            [ "ITrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess" ],
+            [ "TankDriveChannelConfig", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig" ],
+            [ "TankDriveData", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData" ],
+            [ "TankDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput" ],
+            [ "TankDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess" ]
           ] ],
           [ "BaseNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1BaseNavigationSystem.html", null ],
           [ "DummyNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html", null ],
