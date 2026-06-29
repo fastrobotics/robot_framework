@@ -16,12 +16,20 @@
 #include <TankDriveExecutorProcess/TankDriveExecutorOutput.hpp>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-
+/**
+ * @brief Data Structure encoding Tank Drive Data
+ *
+ */
 
 struct TankDriveData {
   double left_channel{0.0};
   double right_channel{0.0};
 };
+
+/**
+ * @brief Data Structure encoding Tank Drive Channel Config
+ *
+ */
 struct TankDriveChannelConfig {
   double min_value{-100.0};
   double max_value{100.0};
@@ -34,7 +42,7 @@ struct TankDriveChannelConfig {
 
 /**
  * @brief Minimal implementation for a DriveExecutor Process
-*/
+ */
 class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
 public:
   TankDriveExecutorProcess()
