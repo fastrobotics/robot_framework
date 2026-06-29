@@ -65,7 +65,7 @@ ctest
 # Generate Code Coverage (after running [Run Unit Tests](#run-unit-tests-after-running-build))
 
 ```bash
-cd <repo>
+cd <repo>m
 cd build
 gcovr --exclude '_deps/.*' --exclude '.*test.*'  -r .. . --html-details -o ../coverage/coverage.html
 ```
