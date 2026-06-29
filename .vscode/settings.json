@@ -4,10 +4,5 @@
   "plantuml.server": "https://www.plantuml.com/plantuml",
   "files.watcherExclude": {
     "build/**": true
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "vscode.markdown-language-features",
-    "editor.formatOnSave": false
-  },
-  "editor.formatOnSave": true
+  }
 }

@@ -15,6 +15,10 @@
 #include <IDriveExecutorOutput.hpp>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+/**
+ * @brief TankDriveExecutorOutput
+ *
+ */
 
 struct TankDriveExecutorOutput : public IDriveExecutorOutput {
     TankDriveExecutorOutput() : IDriveExecutorOutput() {}

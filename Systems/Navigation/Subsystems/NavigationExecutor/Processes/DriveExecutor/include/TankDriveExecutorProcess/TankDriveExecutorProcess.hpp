@@ -29,13 +29,17 @@ struct TankDriveData {
  * @brief Data Structure encoding Tank Drive Channel Config
  *
  */
+
+ 
 struct TankDriveChannelConfig {
-    double min_value{-100.0};   //!< Min value of the channel
+    double min_value{-100.0};   //!< Min value Pof the channel
     double max_value{100.0};    //!< Max value of the channel
     double neutral_value{0.0};  //!< Neutral value of the channel
     TankDriveChannelConfig() : min_value(-100.0), neutral_value(0.0), max_value(100.0) {}
+
+    
     TankDriveChannelConfig(double min, double neutral, double max)
-        : min_value(min), neutral_value(neutral), max_value(max) {}
+        : min_value(min), neutral_value(neutral), max_value(max) {} //!< Function to initialize
 };
 
 /**
