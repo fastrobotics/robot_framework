@@ -1,6 +1,10 @@
 
 add_library(base_DriveExecutorProcess STATIC BaseDriveExecutorProcess.cpp)
 target_link_libraries(base_DriveExecutorProcess geometry_msgs)
+target_include_directories(base_DriveExecutorProcess PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
 add_subdirectory(BasicDriveExecutorProcess)
 add_subdirectory(TankDriveExecutorProcess)
 
