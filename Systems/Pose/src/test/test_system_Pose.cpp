@@ -4,8 +4,8 @@
 
 #include <BasePoseSystem.hpp>
 #include <DummyPoseSystem/DummyPoseSystem.hpp>
-#include <OdomMsg.hpp>
 #include <IPoseSystem.hpp>
+#include <OdomMsg.hpp>
 using namespace fast::rf::messages;
 // Test message types typically owned by System
 TEST(MsgPose, DefaultZeroConstructor) { GeometryMsgs::OdomMsg SUT; }

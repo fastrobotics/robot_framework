@@ -9,8 +9,8 @@
  *
  */
 #pragma once
-#include <OdomMsg.hpp>
 #include <IPoseSystem.hpp>
+#include <OdomMsg.hpp>
 
 namespace fast::rf::PoseSystem {
 /**
