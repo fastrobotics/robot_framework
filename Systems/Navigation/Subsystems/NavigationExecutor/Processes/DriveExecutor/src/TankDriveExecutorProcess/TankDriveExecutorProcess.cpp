@@ -6,7 +6,7 @@ bool TankDriveExecutorProcess::update(double current_time_sec, double delta_time
     if (status == false) {
         return false;
     }
-    return true;
+    return false;
 }
 
 IDriveExecutorOutput* TankDriveExecutorProcess::new_cmd(GeometryMsgs::TwistMsg cmd) {
