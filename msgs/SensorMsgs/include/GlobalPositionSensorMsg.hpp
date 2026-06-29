@@ -1,5 +1,5 @@
 /**
- * @file SensorMsgs.hpp
+ * @file GlobalPositionSensorMsg.hpp
  * @author David Gitz (davidgitz@gmail.com)
  * @brief
  * @version 0.1
@@ -9,14 +9,10 @@
  *
  */
 #pragma once
-#include <StandardMsgs.hpp>
+#include <Covariance3DMsg.hpp>
 #include <cstdint>
 
 using namespace fast::rf::messages::StandardMsgs;
-/**
- * @brief Messages for Sensors
- *
- */
 namespace fast::rf::messages::SensorMsgs {
 /**
  * @brief Data Structure for encoding GPS Data

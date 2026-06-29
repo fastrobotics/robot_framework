@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
+#include <TwistWithCovarianceMsg.hpp>
 #include <vector>
 using namespace fast::rf::messages;
 namespace fast::rf::messages::NavMsgs {

@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
+#include <OdomMsg.hpp>
 #include <cstdint>
 #include <vector>
 using namespace fast::rf::messages;

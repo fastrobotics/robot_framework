@@ -1,12 +1,11 @@
 add_executable(
-  test_msgs_Sensor
-  test/test_msgs_Sensor.cpp
+  test_SensorMsgs_GlobalPositionSensorMsg
+  test/test_SensorMsgs_GlobalPositionSensorMsg.cpp
 )
 target_link_libraries(
-  test_msgs_Sensor
+  test_SensorMsgs_GlobalPositionSensorMsg
   GTest::gtest_main
   standard_msgs
 )
 
-include(GoogleTest)
-gtest_discover_tests(test_msgs_Sensor)
+gtest_discover_tests(test_SensorMsgs_GlobalPositionSensorMsg)

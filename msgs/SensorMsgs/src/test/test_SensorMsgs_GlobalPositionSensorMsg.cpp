@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-#include "SensorMsgs.hpp"
+#include <GlobalPositionSensorMsg.hpp>
 using namespace fast::rf::messages::SensorMsgs;
 TEST(GlobalPositionSensorMsg, BasicAssertions) {
     {
