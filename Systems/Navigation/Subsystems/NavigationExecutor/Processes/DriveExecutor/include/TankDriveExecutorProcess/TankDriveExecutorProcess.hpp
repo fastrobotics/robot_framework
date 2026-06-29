@@ -31,9 +31,9 @@ struct TankDriveData {
  *
  */
 struct TankDriveChannelConfig {
-  double min_value{-100.0};
-  double max_value{100.0};
-  double neutral_value{0.0};
+  double min_value{-100.0}; //!< Min value of the channel
+  double max_value{100.0}; //!< Max value of the channel
+  double neutral_value{0.0}; //!< Neutral value of the channel
   TankDriveChannelConfig()
       : min_value(-100.0), neutral_value(0.0), max_value(100.0) {}
   TankDriveChannelConfig(double min, double neutral, double max)
