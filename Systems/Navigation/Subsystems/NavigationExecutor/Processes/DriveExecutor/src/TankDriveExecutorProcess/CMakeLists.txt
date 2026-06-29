@@ -1,7 +1,8 @@
 
 
 add_library(TankDriveExecutorProcess STATIC TankDriveExecutorProcess.cpp)
-target_link_libraries(TankDriveExecutorProcess base_DriveExecutorProcess)
+target_link_libraries(TankDriveExecutorProcess PUBLIC base_DriveExecutorProcess)
+target_include_directories(TankDriveExecutorProcess PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 
 if(BUILD_TESTING)
 
