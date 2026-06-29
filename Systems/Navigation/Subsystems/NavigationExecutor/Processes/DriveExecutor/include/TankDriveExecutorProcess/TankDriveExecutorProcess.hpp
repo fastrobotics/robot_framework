@@ -30,21 +30,23 @@ struct TankDriveData {
  *
  */
 
- 
 struct TankDriveChannelConfig {
     double min_value{-100.0};   //!< Min value Pof the channel
     double max_value{100.0};    //!< Max value of the channel
     double neutral_value{0.0};  //!< Neutral value of the channel
     TankDriveChannelConfig() : min_value(-100.0), neutral_value(0.0), max_value(100.0) {}
-
-    
-    TankDriveChannelConfig(double min, double neutral, double max)
-        : min_value(min), neutral_value(neutral), max_value(max) {} //!< Function to initialize
-};
-
 /**
- * @brief Minimal implementation for a DriveExecutor Process
- */
+* @brief Instantiate the Channel Config
+* @param min Minimum Value
+* @param neutral Neutral Value
+* @param max Max Value
+*/
+    TankDriveChannelConfig(double min, double neutral, double max)
+        : min_value(min), neutral_value(neutral), max_value(max) {}  //!< Function to initialize
+};
+/**
+* @brief Process for Tank Drive Executor
+*/
 class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
    public:
     TankDriveExecutorProcess() : left_channel_config(), right_channel_config(), BaseDriveExecutorProcess() {
@@ -62,12 +64,30 @@ class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
 
     IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override;
 
-    TankDriveData convert(GeometryMsgs::TwistMsg twist);
+    /**
+    * @brief Convert a Twist to a Tank Drive Output
+    * @param twist The twist data
+    * @return The Tank Drive Data
+    */
+    TankDriveData convert(GeometryMsgs::TwistMsg twist); //!< Convert a Twist to Tank Drive Outputs
 
+    /**
+    * @brief Initialize the Process with the correct Channel Config
+    * @param left_channel Left Channel Config
+    * @param right_channel Right Channel Config
+    */
     void set_config(TankDriveChannelConfig left_channel, TankDriveChannelConfig right_channel) {
         left_channel_config = left_channel;
         right_channel_config = right_channel;
     }
+    /**
+     * @brief Clip a value to be with boundaries
+     * 
+     * @param value The value to convert
+     * @param min_value Minimum Value
+     * @param max_value Maximum Value
+     * @return double Converted Value
+     */
 
     double clip(double value, double min_value, double max_value);
 
