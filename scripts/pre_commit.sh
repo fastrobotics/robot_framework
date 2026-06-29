@@ -1,7 +1,9 @@
 echo "Auto-Formatting Code..."
 files=$(git diff --name-only -- '*.cpp' '*.hpp')
 if [ ${#files[@]} -gt 0 ]; then
-    git diff --name-only -- '*.cpp' '*.hpp' | xargs clang-format -i -style=file
+    echo "Running..."
+    echo $files
+    #git diff --name-only -- '*.cpp' '*.hpp' | xargs clang-format -i -style=file
 fi
 exit 0
 
