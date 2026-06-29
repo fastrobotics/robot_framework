@@ -2,11 +2,10 @@
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 bool TankDriveExecutorProcess::update(double current_time_sec, double delta_time_sec) {
     bool status = BaseDriveExecutorProcess::base_update(current_time_sec, delta_time_sec);
-    printf("Tank Drive Update Loop");
     if (status == false) {
         return false;
     }
-    return false;
+    return true;
 }
 
 IDriveExecutorOutput* TankDriveExecutorProcess::new_cmd(GeometryMsgs::TwistMsg cmd) {
