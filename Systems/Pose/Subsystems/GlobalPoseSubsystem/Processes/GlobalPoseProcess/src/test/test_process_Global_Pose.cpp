@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include <BaseGlobalPoseProcess.hpp>
-#include <GeometryMsgs.hpp>
+#include <GlobalPositionSensorMsg.hpp>
 #include <IGlobalPoseProcess.hpp>
 
 using namespace fast::rf::PoseSystem::GlobalPoseSubsystem;

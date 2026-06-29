@@ -2,7 +2,6 @@
 #include <gtest/gtest.h>
 
 #include <DummyPoseSystem/DummyPoseSystem.hpp>
-#include <GeometryMsgs.hpp>
 using namespace fast::rf::PoseSystem;
 TEST(DummyPoseSyste, BasicAssertions) {
     DummyPoseSystem SUT;

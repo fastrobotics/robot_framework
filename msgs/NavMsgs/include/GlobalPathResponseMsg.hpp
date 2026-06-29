@@ -9,8 +9,8 @@
  *
  */
 #pragma once
-#include <OdomMsg.hpp>
 #include <GlobalPathPlanningStatusEnum.hpp>
+#include <OdomMsg.hpp>
 #include <vector>
 using namespace fast::rf::messages;
 namespace fast::rf::messages::NavMsgs {

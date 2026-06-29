@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
+#include <OdomMsg.hpp>
 #include <IPoseSystem.hpp>
 
 namespace fast::rf::PoseSystem {

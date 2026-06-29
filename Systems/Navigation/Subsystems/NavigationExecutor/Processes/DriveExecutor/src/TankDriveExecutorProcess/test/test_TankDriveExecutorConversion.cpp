@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-#include <GeometryMsgs.hpp>
+#include <TwistMsg.hpp>
 #include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
 using namespace fast::rf::messages;
 using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;

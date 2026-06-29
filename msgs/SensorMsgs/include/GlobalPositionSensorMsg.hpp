@@ -30,7 +30,7 @@ struct GlobalPositionSensorMsg {
     static inline constexpr uint16_t COV_X = Covariance3DMsg::X1;  //!< Covariance Index representing X Position.
     static inline constexpr uint16_t COV_Y = Covariance3DMsg::X2;  //!< Covariance Index representing Y Position.
     static inline constexpr uint16_t COV_Z = Covariance3DMsg::X3;  //!< Covariance Index representing Z Position.
-    GlobalPositionSensorMsg() {};
+    GlobalPositionSensorMsg(): latitude_deg(0.0), longitude_deg(0.0) {};
     /**
      * @brief Checks data to see if valid
      *

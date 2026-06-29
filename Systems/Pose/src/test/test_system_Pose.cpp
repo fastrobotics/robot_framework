@@ -4,7 +4,7 @@
 
 #include <BasePoseSystem.hpp>
 #include <DummyPoseSystem/DummyPoseSystem.hpp>
-#include <GeometryMsgs.hpp>
+#include <OdomMsg.hpp>
 #include <IPoseSystem.hpp>
 using namespace fast::rf::messages;
 // Test message types typically owned by System

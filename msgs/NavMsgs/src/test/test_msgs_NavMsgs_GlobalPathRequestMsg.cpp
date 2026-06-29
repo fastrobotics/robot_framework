@@ -9,4 +9,6 @@ TEST(GlobalPathRequest, DefaultZeroConstructor) {
     ASSERT_EQ(req.path_uuid, 0);
     ASSERT_EQ(req.pass_thru_points.size(), 0);
     ASSERT_FALSE(req.ok());  // Invalid Reqeust, no path id
+    req.path_uuid = 1;
+    ASSERT_TRUE(req.ok());
 }

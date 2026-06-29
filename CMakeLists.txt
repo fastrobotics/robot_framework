@@ -59,4 +59,4 @@ enable_testing()
 include(GoogleTest)
 
 add_subdirectory(msgs)
-#add_subdirectory(Systems)
+add_subdirectory(Systems)

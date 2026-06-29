@@ -9,8 +9,8 @@
  *
  */
 #pragma once
-#include <GeometryMsgs.hpp>
-#include <SensorMsgs.hpp>
+#include <GlobalPositionSensorMsg.hpp>
+#include <OdomMsg.hpp>
 using namespace fast::rf::messages;
 namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
 /**
