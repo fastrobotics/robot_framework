@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robot_framework</name>
+  <version>1.0.0</version>
+  <description>The robot framework</description>
+  <license>MIT</license>
+
+  <maintainer email="user@todo.todo">User</maintainer>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <export>
+    <!-- CRITICAL: Tells catkin NOT to look for catkin macros -->
+    <build_type>cmake</build_type>
+  </export>
+</package>

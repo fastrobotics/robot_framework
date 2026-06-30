@@ -1,15 +1,14 @@
+add_library(basic_GlobalPlannerManagerProcess STATIC
+            BasicGlobalPlannerManagerProcess.cpp)
+target_link_libraries(basic_GlobalPlannerManagerProcess
+                      base_GlobalPlannerManagerProcess)
 
-add_library(basic_GlobalPlannerManagerProcess STATIC BasicGlobalPlannerManagerProcess.cpp)
-target_link_libraries(basic_GlobalPlannerManagerProcess base_GlobalPlannerManagerProcess)
-add_executable(
-  test_basic_GlobalPlannerManagerProcess
-  test/test_BasicGlobalPlannerManagerProcess.cpp
-)
-target_link_libraries(
-  test_basic_GlobalPlannerManagerProcess
-  GTest::gtest_main
-  basic_GlobalPlannerManagerProcess
-)
+if(BUILD_TESTING)
 
+  add_executable(test_basic_GlobalPlannerManagerProcess
+                 test/test_BasicGlobalPlannerManagerProcess.cpp)
+  target_link_libraries(test_basic_GlobalPlannerManagerProcess
+                        GTest::gtest_main basic_GlobalPlannerManagerProcess)
 
-gtest_discover_tests(test_basic_GlobalPlannerManagerProcess)
+  gtest_discover_tests(test_basic_GlobalPlannerManagerProcess)
+endif()
