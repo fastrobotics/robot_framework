@@ -11,8 +11,6 @@ option(ENABLE_COVERAGE "Enable code coverage instrumentation" ON)
 
 
 
-
-
 if(ENABLE_COVERAGE)
   if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     message(STATUS "Enabling global code coverage for GCC/Clang")
