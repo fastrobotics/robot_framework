@@ -1,4 +1,4 @@
-#add_subdirectory(Awareness)
+# add_subdirectory(Awareness)
 add_subdirectory(Comms)
 add_subdirectory(DataStorage)
 add_subdirectory(GoalPlanning)
