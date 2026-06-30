@@ -15,3 +15,8 @@ repos:
         name: Plantuml Conversion
         entry: ./scripts/pre_commit/plantuml_conversion.sh
         language: script
+
+      - id: pre-commit-dia-conversion
+        name: Dia Conversion
+        entry: ./scripts/pre_commit/dia_conversion.sh
+        language: script
