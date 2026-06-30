@@ -10,3 +10,8 @@ repos:
         name: Generate Doxygen
         entry: ./scripts/pre_commit/generate_doxygen.sh
         language: script
+
+      - id: pre-commit-plantuml-conversion
+        name: Plantuml Conversion
+        entry: ./scripts/pre_commit/plantuml_conversion.sh
+        language: script
