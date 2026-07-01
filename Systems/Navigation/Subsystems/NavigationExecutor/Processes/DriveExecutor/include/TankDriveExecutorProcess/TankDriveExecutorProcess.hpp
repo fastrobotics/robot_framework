@@ -32,8 +32,9 @@ struct TankDriveData {
 
 struct TankDriveChannelConfig {
     double min_value{-100.0};   //!< Min value Pof the channel
-    double max_value{100.0};    //!< Max value of the channel
     double neutral_value{0.0};  //!< Neutral value of the channel
+    double max_value{100.0};    //!< Max value of the channel
+
     TankDriveChannelConfig() : min_value(-100.0), neutral_value(0.0), max_value(100.0) {}
     /**
      * @brief Instantiate the Channel Config
@@ -49,7 +50,7 @@ struct TankDriveChannelConfig {
  */
 class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
    public:
-    TankDriveExecutorProcess() : left_channel_config(), right_channel_config(), BaseDriveExecutorProcess() {
+    TankDriveExecutorProcess() : BaseDriveExecutorProcess(), left_channel_config(), right_channel_config() {
         output = new TankDriveExecutorOutput();
     }
     /**

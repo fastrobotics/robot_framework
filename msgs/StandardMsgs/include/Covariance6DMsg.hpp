@@ -27,14 +27,14 @@ namespace fast::rf::messages::StandardMsgs {
   *
   */
 struct Covariance6DMsg {
-    static inline constexpr uint16_t DIMENSION = 6;  //!< Dimensionality of Covariance.
-    static inline constexpr uint16_t X1 = 0;         //!< Diagonal Element Index
-    static inline constexpr uint16_t X2 = 7;         //!< Diagonal Element Index
-    static inline constexpr uint16_t X3 = 14;        //!< Diagonal Element Index
-    static inline constexpr uint16_t X4 = 21;        //!< Diagonal Element Index
-    static inline constexpr uint16_t X5 = 28;        //!< Diagonal Element Index
-    static inline constexpr uint16_t X6 = 35;        //!< Diagonal Element Index
-    std::vector<double> covariance;                  //!< Covariance data
+    static constexpr uint16_t DIMENSION = 6;  //!< Dimensionality of Covariance.
+    static constexpr uint16_t X1 = 0;         //!< Diagonal Element Index
+    static constexpr uint16_t X2 = 7;         //!< Diagonal Element Index
+    static constexpr uint16_t X3 = 14;        //!< Diagonal Element Index
+    static constexpr uint16_t X4 = 21;        //!< Diagonal Element Index
+    static constexpr uint16_t X5 = 28;        //!< Diagonal Element Index
+    static constexpr uint16_t X6 = 35;        //!< Diagonal Element Index
+    std::vector<double> covariance;           //!< Covariance data
     Covariance6DMsg() {
         covariance.resize(DIMENSION * DIMENSION);
         covariance[X1] = -1.0;

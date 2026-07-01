@@ -19,18 +19,18 @@ namespace fast::rf::messages::SensorMsgs {
  *
  */
 struct GlobalPositionSensorMsg {
-    double time_stamp;                                 //!< Timestamp of data
-    double latitude_deg;                               //!< Latitude in Degrees.  Range is [-90.0,90.0]
-    double longitude_deg;                              //!< Longitude in Degrees.  Range is [-90.0, 90.0]
-    double altitude_m;                                 //!< Altitude above sea level
-    uint16_t satellites;                               //!< Number of satellites used for data
-    Covariance3DMsg covariance;                        //!< Covariance of Global Position Data
-    static inline constexpr double MAX_ANGLE = 90.0;   //!< Max Angle in degrees representing Geographic Coordinates
-    static inline constexpr double MIN_ANGLE = -90.0;  //!< Min Angle in degrees representing Geographic Coordinates
-    static inline constexpr uint16_t COV_X = Covariance3DMsg::X1;  //!< Covariance Index representing X Position.
-    static inline constexpr uint16_t COV_Y = Covariance3DMsg::X2;  //!< Covariance Index representing Y Position.
-    static inline constexpr uint16_t COV_Z = Covariance3DMsg::X3;  //!< Covariance Index representing Z Position.
-    GlobalPositionSensorMsg() : latitude_deg(0.0), longitude_deg(0.0) {};
+    double time_stamp;                          //!< Timestamp of data
+    double latitude_deg;                        //!< Latitude in Degrees.  Range is [-90.0,90.0]
+    double longitude_deg;                       //!< Longitude in Degrees.  Range is [-90.0, 90.0]
+    double altitude_m;                          //!< Altitude above sea level
+    uint16_t satellites;                        //!< Number of satellites used for data
+    Covariance3DMsg covariance;                 //!< Covariance of Global Position Data
+    static constexpr double MAX_ANGLE = 90.0;   //!< Max Angle in degrees representing Geographic Coordinates
+    static constexpr double MIN_ANGLE = -90.0;  //!< Min Angle in degrees representing Geographic Coordinates
+    static constexpr uint16_t COV_X = Covariance3DMsg::X1;  //!< Covariance Index representing X Position.
+    static constexpr uint16_t COV_Y = Covariance3DMsg::X2;  //!< Covariance Index representing Y Position.
+    static constexpr uint16_t COV_Z = Covariance3DMsg::X3;  //!< Covariance Index representing Z Position.
+    GlobalPositionSensorMsg() : latitude_deg(0.0), longitude_deg(0.0){};
     /**
      * @brief Checks data to see if valid
      *

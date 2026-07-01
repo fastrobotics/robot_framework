@@ -14,7 +14,7 @@ using namespace fast::rf::PoseSystem;
 // System Interface Tests
 class TestConcreteSystemInterface : public IPoseSystem {
    public:
-    bool update(double current_time_sec, double delta_time_sec) override { return false; }
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
     fast::rf::messages::GeometryMsgs::OdomMsg get_global_pose() {
         fast::rf::messages::GeometryMsgs::OdomMsg global_pose;
         return global_pose;
@@ -33,7 +33,7 @@ TEST(PoseSystemInterface, BasicAssertionsInterface) {
 // System Base Class Tests
 class TestConcreteSystemBase : public BasePoseSystem {
    public:
-    bool update(double current_time_sec, double delta_time_sec) override {
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
 };

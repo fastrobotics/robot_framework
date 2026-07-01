@@ -10,7 +10,7 @@
 using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem;
 class Test{{cookiecutter.Process}}ProcessInterface : public I{{cookiecutter.Process}}Process {
 public:
-  bool update(double current_time_sec, double delta_time_sec) override {
+  bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
     return false;
   }
 };
@@ -22,7 +22,7 @@ class TestBase{{cookiecutter.Process}}Process : public Base{{cookiecutter.Proces
 public:
   TestBase{{cookiecutter.Process}}Process() : Base{{cookiecutter.Process}}Process() {}
 
-  bool update(double current_time_sec, double delta_time_sec) override {
+  bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
     return base_update(current_time_sec, delta_time_sec);
   }
 };

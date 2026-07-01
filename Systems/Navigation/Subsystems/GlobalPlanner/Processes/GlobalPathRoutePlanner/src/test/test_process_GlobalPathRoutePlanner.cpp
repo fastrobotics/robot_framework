@@ -9,7 +9,7 @@
 using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
 class TestGlobalPathRoutePlannerProcessInterface : public IGlobalPathRoutePlannerProcess {
    public:
-    bool update(double current_time_sec, double delta_time_sec) override { return false; }
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
 };
 TEST(TestGlobalPathRoutePlannerProcessInterface, InterfaceTests) {
     TestGlobalPathRoutePlannerProcessInterface SUT;
@@ -19,7 +19,7 @@ class TestBaseGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerP
    public:
     TestBaseGlobalPathRoutePlannerProcess() : BaseGlobalPathRoutePlannerProcess() {}
 
-    bool update(double current_time_sec, double delta_time_sec) override {
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
 };

@@ -9,7 +9,7 @@
 using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerProcess {
    public:
-    bool update(double current_time_sec, double delta_time_sec) override { return false; }
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
 };
 TEST(TestTrajectoryControllerProcessInterface, InterfaceTests) {
     TestTrajectoryControllerProcessInterface SUT;
@@ -19,7 +19,7 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
    public:
     TestBaseTrajectoryControllerProcess() : BaseTrajectoryControllerProcess() {}
 
-    bool update(double current_time_sec, double delta_time_sec) override {
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
 };
