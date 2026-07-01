@@ -2,7 +2,7 @@
 #include <GeographicLib/UTMUPS.hpp>
 #include <string>
 namespace fast::rf::PoseSystem::GlobalPoseSubsystem {
-bool BasicGlobalPoseProcess::update(double current_time_sec, double delta_time_sec) {
+bool BasicGlobalPoseProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
     bool status = base_update(current_time_sec, delta_time_sec);
     if (status == false) {
         return false;

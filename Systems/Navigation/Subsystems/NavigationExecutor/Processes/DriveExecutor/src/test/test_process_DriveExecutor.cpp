@@ -15,7 +15,7 @@ class TestDriveExecutorOutput : public IDriveExecutorOutput {
 class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
    public:
     IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override { return output; }
-    bool update(double current_time_sec, double delta_time_sec) override { return false; }
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
 
    private:
     TestDriveExecutorOutput* output = new TestDriveExecutorOutput();
@@ -35,7 +35,7 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
    public:
     TestBaseDriveExecutorProcess() : BaseDriveExecutorProcess() {}
     IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override { return nullptr; }
-    bool update(double current_time_sec, double delta_time_sec) override {
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
 };

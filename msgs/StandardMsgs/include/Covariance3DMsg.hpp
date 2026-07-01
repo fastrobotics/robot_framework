@@ -27,11 +27,11 @@ Diagonal elemnts are treated as follows:
 *
 */
 struct Covariance3DMsg {
-    static inline constexpr uint16_t DIMENSION = 3;  //!< Dimensionality of Covariance.
-    static inline constexpr uint16_t X1 = 0;         //!< Diagonal Element Index
-    static inline constexpr uint16_t X2 = 4;         //!< Diagonal Element Index
-    static inline constexpr uint16_t X3 = 8;         //!< Diagonal Element Index
-    std::vector<double> covariance;                  //!< Covariance data
+    static constexpr uint16_t DIMENSION = 3;  //!< Dimensionality of Covariance.
+    static constexpr uint16_t X1 = 0;         //!< Diagonal Element Index
+    static constexpr uint16_t X2 = 4;         //!< Diagonal Element Index
+    static constexpr uint16_t X3 = 8;         //!< Diagonal Element Index
+    std::vector<double> covariance;           //!< Covariance data
     Covariance3DMsg() {
         covariance.resize(DIMENSION * DIMENSION);
         covariance[X1] = -1.0;

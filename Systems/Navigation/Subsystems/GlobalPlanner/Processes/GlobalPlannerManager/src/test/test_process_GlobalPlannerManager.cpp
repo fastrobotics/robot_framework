@@ -9,7 +9,7 @@
 using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
 class TestGlobalPlannerManagerProcessInterface : public IGlobalPlannerManagerProcess {
    public:
-    bool update(double current_time_sec, double delta_time_sec) override { return false; }
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
 };
 TEST(TestGlobalPlannerManagerProcessInterface, InterfaceTests) {
     TestGlobalPlannerManagerProcessInterface SUT;
@@ -19,7 +19,7 @@ class TestBaseGlobalPlannerManagerProcess : public BaseGlobalPlannerManagerProce
    public:
     TestBaseGlobalPlannerManagerProcess() : BaseGlobalPlannerManagerProcess() {}
 
-    bool update(double current_time_sec, double delta_time_sec) override {
+    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
 };
