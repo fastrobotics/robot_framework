@@ -9,8 +9,6 @@ set(gtest_force_shared_crt
     CACHE BOOL "" FORCE)
 option(ENABLE_COVERAGE "Enable code coverage instrumentation" ON)
 
-
-
 if(ENABLE_COVERAGE)
   if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     message(STATUS "Enabling global code coverage for GCC/Clang")
@@ -34,7 +32,7 @@ if(ENABLE_COVERAGE)
     message(WARNING "Coverage flags not implemented for this compiler.")
   endif()
 endif()
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # Include the FetchContent module
 include(FetchContent)
 

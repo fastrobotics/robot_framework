@@ -5,6 +5,7 @@ namespace fast::rf {
   package GeometryMsgs {}
   package SensorMsgs {}
   package StandardMsgs {}
+  package InfrastructureMsgs {}
   package NavMsgs {}
 
 }

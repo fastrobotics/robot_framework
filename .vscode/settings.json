@@ -4,5 +4,13 @@
   "plantuml.server": "https://www.plantuml.com/plantuml",
   "files.watcherExclude": {
     "build/**": true
-  }
+  },
+   "editor.formatOnSave": true,
+    "C_Cpp.clang_format_style": "file",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
 }

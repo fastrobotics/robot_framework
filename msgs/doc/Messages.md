@@ -7,6 +7,7 @@
 - [Geometry](#geometry)
 - [Sensors](#sensors)
 - [Navigation](#navigation)
+- [Infrastructure](#infrastructure)
 
 # Messages
 
@@ -45,4 +46,12 @@ The following is a listing of all messages created for this framework.
 # Navigation
 
 [Package](../NavMsgs/)
+
 ![](../NavMsgs/doc/puml/NavMessagesClassDiagram.png)
+
+# Infrastructure
+
+[Package](../InfrastructureMsgs/)
+
+![](../InfrastructureMsgs/doc/puml/InfrastructureMessagesClassDiagram.png)
+
