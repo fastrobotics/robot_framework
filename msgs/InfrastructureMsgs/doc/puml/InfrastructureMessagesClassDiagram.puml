@@ -1,0 +1,11 @@
+@startuml
+title Infrastructure Messages Package Diagram
+
+namespace fast::rf::messages {
+  namespace InfrastructureMsgs  {
+    class Diagnostic <<(M,#FFFF00)>> {
+
+    }
+  }
+}
+@enduml
