@@ -3,7 +3,13 @@ title Infrastructure Messages Package Diagram
 
 namespace fast::rf::messages {
   namespace InfrastructureMsgs  {
-    class Diagnostic <<(M,#FFFF00)>> {
+    class Diagnostic <<(M,#FFFF00)>> #Orange {
+      +uint8_t systemID
+      +uint8_t subsystemID
+      +uint8_t processID
+      +uint8_t diagnosticType
+      +string description
+
 
     }
   }

@@ -16,9 +16,11 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
    public:
     IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override { return output; }
     bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
+    fast::rf::messages::InfrastructureMsgs::DiagnosticMsg get_diagnostic() { return diagnostic; }
 
    private:
     TestDriveExecutorOutput* output = new TestDriveExecutorOutput();
+    fast::rf::messages::InfrastructureMsgs::DiagnosticMsg diagnostic;
 };
 TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
     TestDriveExecutorProcessInterface SUT;
