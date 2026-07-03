@@ -204,7 +204,7 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_FREESPACE_PLANNER_ID = 3;      //!< Unique ID for Free Space Planner Process
             constexpr uint8_t PROCESS_GLOBALPATH_ROUTEPLANNER_ID =
                 4;  //!< Unique ID for Global Path Route Planner Process
-        }  // namespace GlobalPlannerSubsystem
+        }           // namespace GlobalPlannerSubsystem
         namespace LocalPlannerSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Local Planner Subsystem
         }
@@ -214,8 +214,8 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_TRAJECTORY_SELECTOR_ID = 2;  //!< Unique ID for the Trajectory Selector Process
             constexpr uint8_t PROCESS_TRAJECTORY_CONTROLLER_ID =
                 3;  //!< Unique ID for the Trajectory Controller Process
-        }  // namespace NavigationExecutorSubsystem
-    }  // namespace NavigationSystem
+        }           // namespace NavigationExecutorSubsystem
+    }               // namespace NavigationSystem
     namespace PerceptionSystem {
         constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
     }

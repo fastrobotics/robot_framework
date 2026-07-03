@@ -42,7 +42,7 @@ namespace fast::rf::messages::InfrastructureMsgs {
               diagnosticType(diagnosticType),
               level(fast::rf::Level::INFO),
               diagnosticMessage(fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING),
-              description("Initializing Diagnostic") {};
+              description("Initializing Diagnostic"){};
 
         std::string pretty() {
             std::string str = std::to_string(systemID) + "-" + std::to_string(subsystemID) + "-" +
