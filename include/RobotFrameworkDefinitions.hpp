@@ -10,8 +10,40 @@
  */
 #pragma once
 #include <cstdint>
+#include <string>
 
 namespace fast::rf {
+    enum class Level {
+        UNKNOWN = 0,
+        NOERROR = 1,
+        DEBUG = 2,
+        INFO = 3,
+        NOTICE = 4,
+        WARN = 5,
+        ERROR = 6,
+        FATAL = 7,
+        END_OF_LIST = 8
+    };
+    inline std::string pretty(Level level) {
+        switch (level) {
+            case Level::UNKNOWN:
+                return "UNKNOWN";
+            case Level::NOERROR:
+                return "NO ERROR";
+            case Level::DEBUG:
+                return "DEBUG";
+            case Level::INFO:
+                return "INFO";
+            case Level::WARN:
+                return "WARN";
+            case Level::ERROR:
+                return "ERROR";
+            case Level::FATAL:
+                return "FATAL";
+            default:
+                return pretty(Level::UNKNOWN);
+        }
+    }
     /**
      * @brief Diagnostic Definitions
      *
@@ -37,6 +69,39 @@ namespace fast::rf {
             SYSTEM_RESOURCE = 11,  //!< Diagnostic related to system resource usage
             END_OF_LIST = 12,      //!< Last item of list.  Used for range checks.
         };
+        inline std::string pretty(DiagnosticType type) {
+            switch (type) {
+                case DiagnosticType::UNKNOWN:
+                    return "UNKNOWN";
+                case DiagnosticType::UNKNOWN_TYPE:
+                    return "UNKNOWN TYPE";
+                case DiagnosticType::SOFTWARE:
+                    return "SOFTWARE";
+                case DiagnosticType::COMMUNICATIONS:
+                    return "COMMUNICATIONS";
+                case DiagnosticType::SENSORS:
+                    return "SENSORS";
+                case DiagnosticType::ACTUATORS:
+                    return "ACTUATORS";
+                case DiagnosticType::DATA_STORAGE:
+                    return "DATA STORAGE";
+                case DiagnosticType::REMOTE_CONTROL:
+                    return "REMOTE CONTROL";
+                case DiagnosticType::POSE:
+                    return "POSE";
+                case DiagnosticType::PLANNING:
+                    return "PLANNING";
+                case DiagnosticType::TIMING:
+                    return "TIMING";
+                case DiagnosticType::SYSTEM_RESOURCE:
+                    return "SYSTEM RESOURCE";
+                case DiagnosticType::END_OF_LIST:
+                    return pretty(DiagnosticType::UNKNOWN);
+                default:
+                    return pretty(DiagnosticType::UNKNOWN);
+            }
+            return pretty(DiagnosticType::UNKNOWN);
+        }
         enum class DiagnosticMessage {
             UNKNOWN = 0,               //!< Unitialized value
             NOERROR = 1,               //!< No error
@@ -52,6 +117,38 @@ namespace fast::rf {
             DIAGNOSTIC_FAILED = 11,    //!< Diagnostic Failed
             END_OF_LIST = 12,          //!< Last item of list.  Used for range checks.
         };
+        inline std::string pretty(DiagnosticMessage type) {
+            switch (type) {
+                case DiagnosticMessage::UNKNOWN:
+                    return "UNKNOWN";
+                case DiagnosticMessage::NOERROR:
+                    return "NO ERROR";
+                case DiagnosticMessage::NODATA:
+                    return "NO DATA";
+                case DiagnosticMessage::UNKNOWN_ERROR:
+                    return "UNKNOWN ERROR";
+                case DiagnosticMessage::INITIALIZING:
+                    return "INITIALIZING";
+                case DiagnosticMessage::INITIALIZING_ERROR:
+                    return "INITIALIZING ERROR";
+                case DiagnosticMessage::DROPPING_PACKETS:
+                    return "DROPPING PACKETS";
+                case DiagnosticMessage::MISSING_HEARTBEATS:
+                    return "MISSING HEARTBEATS";
+                case DiagnosticMessage::DEVICE_NOT_AVAILABLE:
+                    return "DEVICE NOT AVAILABLE";
+                case DiagnosticMessage::RESOURCE_LEAK:
+                    return "RESOURCE LEAK";
+                case DiagnosticMessage::HIGH_RESOURCE_USAGE:
+                    return "HIGH RESOURCE USAGE";
+                case DiagnosticMessage::DIAGNOSTIC_FAILED:
+                    return "DIAGNOSTIC FAILED";
+                case DiagnosticMessage::END_OF_LIST:
+                    return pretty(DiagnosticMessage::UNKNOWN);
+                default:
+                    return pretty(DiagnosticMessage::UNKNOWN);
+            }
+        }
     }  // namespace DiagnosticDefinition
     namespace AwarenessSystem {
         constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Awareness System

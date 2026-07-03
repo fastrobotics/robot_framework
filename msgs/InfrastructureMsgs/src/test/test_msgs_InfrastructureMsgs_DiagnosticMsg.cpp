@@ -5,6 +5,6 @@
 #include <DiagnosticMsg.hpp>
 using namespace fast::rf::messages::InfrastructureMsgs;
 TEST(DiagnosticMsg, DefaultZeroConstructor) {
-    DiagnosticMsg SUT;
+    DiagnosticMsg SUT(1, 2, 3, fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
     ASSERT_TRUE(true);
 }
