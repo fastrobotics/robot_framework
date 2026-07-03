@@ -13,6 +13,7 @@
 #include <IDriveExecutorOutput.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <TwistMsg.hpp>
+#include <vector>
 
 using namespace fast::rf::messages;
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
@@ -24,6 +25,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
        public:
         IDriveExecutorProcess() = default;
         virtual ~IDriveExecutorProcess() = default;
+
+        virtual bool init() = 0;
         /**
          * @brief Generic Update function
          *
@@ -48,6 +51,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
-        virtual fast::rf::messages::InfrastructureMsgs::DiagnosticMsg get_diagnostic() = 0;
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

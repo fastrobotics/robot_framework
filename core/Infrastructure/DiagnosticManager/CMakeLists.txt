@@ -1,0 +1,5 @@
+add_library(diagnosticManager STATIC DiagnosticManager.cpp)
+target_link_libraries(diagnosticManager infrastructure_msgs)
+if(BUILD_TESTING)
+  add_subdirectory(test)
+endif()

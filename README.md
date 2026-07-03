@@ -14,7 +14,7 @@
 # ToDo List
 - Add remainder of System ID tests
 - Flesh out Diagnostic attributes
-- Consider adding array of diagnostics for Process
+- Add generic process interface with common functions that must be implemented
 - Update templates
 # Architecture Decision Records
 

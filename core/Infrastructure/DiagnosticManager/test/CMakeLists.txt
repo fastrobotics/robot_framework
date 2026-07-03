@@ -1,0 +1,4 @@
+add_executable(test_diagnosticManager test_DiagnosticManager.cpp)
+target_link_libraries(test_diagnosticManager GTest::gtest_main infrastructure_msgs diagnosticManager)
+
+gtest_discover_tests(test_diagnosticManager)

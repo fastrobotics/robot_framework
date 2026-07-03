@@ -12,6 +12,47 @@
 #include <cstdint>
 
 namespace fast::rf {
+    /**
+     * @brief Diagnostic Definitions
+     *
+     */
+    namespace DiagnosticDefinition {
+        /**
+         * @brief DiagnosticType
+         * @details The type of Diagnostic
+         *
+         */
+        enum class DiagnosticType {
+            UNKNOWN = 0,           //!< Unitialized Value
+            UNKNOWN_TYPE = 1,      //!< A Type that is not defined yet.
+            SOFTWARE = 2,          //!< Diagnostic related to software, logic,etc.
+            COMMUNICATIONS = 3,    //!< Diagnostic related to communication
+            SENSORS = 4,           //!< Diagnostic related to sensors
+            ACTUATORS = 5,         //!< Diagnostic related to actuators
+            DATA_STORAGE = 6,      //!< Diagnostic related to data storage
+            REMOTE_CONTROL = 7,    //!< Diagnostic related to remote control
+            POSE = 8,              //!< Diagnostic related to pose
+            PLANNING = 9,          //!< Diagnostic related to planning
+            TIMING = 10,           //!< Diagnostic related to timing
+            SYSTEM_RESOURCE = 11,  //!< Diagnostic related to system resource usage
+            END_OF_LIST = 12,      //!< Last item of list.  Used for range checks.
+        };
+        enum class DiagnosticMessage {
+            UNKNOWN = 0,               //!< Unitialized value
+            NOERROR = 1,               //!< No error
+            NODATA = 2,                //!< No data
+            UNKNOWN_ERROR = 3,         //!< Unknown error occured or Error not defined.
+            INITIALIZING = 4,          //!< Initializing
+            INITIALIZING_ERROR = 5,    //!< Error occured during initialization
+            DROPPING_PACKETS = 6,      //!< Missing/Dropping messages
+            MISSING_HEARTBEATS = 7,    //!< Missing heartbeat messages
+            DEVICE_NOT_AVAILABLE = 8,  //!< Device is not currently available
+            RESOURCE_LEAK = 9,         //!< Resource leakage occurring
+            HIGH_RESOURCE_USAGE = 10,  //!< High resource usage
+            DIAGNOSTIC_FAILED = 11,    //!< Diagnostic Failed
+            END_OF_LIST = 12,          //!< Last item of list.  Used for range checks.
+        };
+    }  // namespace DiagnosticDefinition
     namespace AwarenessSystem {
         constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Awareness System
         namespace ObjectFusionSubsystem {
@@ -66,7 +107,7 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_FREESPACE_PLANNER_ID = 3;      //!< Unique ID for Free Space Planner Process
             constexpr uint8_t PROCESS_GLOBALPATH_ROUTEPLANNER_ID =
                 4;  //!< Unique ID for Global Path Route Planner Process
-        }           // namespace GlobalPlannerSubsystem
+        }  // namespace GlobalPlannerSubsystem
         namespace LocalPlannerSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Local Planner Subsystem
         }
@@ -76,8 +117,8 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_TRAJECTORY_SELECTOR_ID = 2;  //!< Unique ID for the Trajectory Selector Process
             constexpr uint8_t PROCESS_TRAJECTORY_CONTROLLER_ID =
                 3;  //!< Unique ID for the Trajectory Controller Process
-        }           // namespace NavigationExecutorSubsystem
-    }               // namespace NavigationSystem
+        }  // namespace NavigationExecutorSubsystem
+    }  // namespace NavigationSystem
     namespace PerceptionSystem {
         constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
     }

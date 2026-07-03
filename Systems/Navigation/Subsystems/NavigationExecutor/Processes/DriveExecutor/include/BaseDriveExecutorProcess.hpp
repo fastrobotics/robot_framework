@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <IDriveExecutorProcess.hpp>
+#include <vector>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     /**
      * @brief Base DriveExecutor Process
@@ -23,16 +24,10 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          *
          */
         BaseDriveExecutorProcess()
-            : diagnostic(fast::rf::NavigationSystem::SYSTEM_ID,
-                         fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                         fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID) {}
+            : root_diagnostic(fast::rf::NavigationSystem::SYSTEM_ID,
+                              fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                              fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID) {}
 
-        /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        fast::rf::messages::InfrastructureMsgs::DiagnosticMsg get_diagnostic() override { return diagnostic; }
         /**
          * @brief Update the base object
          *
@@ -44,8 +39,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         bool base_update(double current_time_sec,
                          double delta_time_sec);  //!< Base function to update
 
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() { return diagnostics; }
+
        protected:
-        double current_time_sec_{-1.0};                                    //!< Current system time
-        fast::rf::messages::InfrastructureMsgs::DiagnosticMsg diagnostic;  //!< Holds current diagnostic
+        bool initialize_diagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
+        double current_time_sec_{-1.0};                                         //!< Current system time
+        fast::rf::messages::InfrastructureMsgs::DiagnosticMsg root_diagnostic;  //!< Holds root diagnostic
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

@@ -10,7 +10,6 @@ if(BUILD_TESTING)
   add_executable(test_process_DriveExecutor test/test_process_DriveExecutor.cpp)
   target_link_libraries(
     test_process_DriveExecutor GTest::gtest_main base_DriveExecutorProcess
-    # geometry_msgs sensor_msgs
   )
 
   gtest_discover_tests(test_process_DriveExecutor)

@@ -33,6 +33,7 @@ if(ENABLE_COVERAGE)
   endif()
 endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/Infrastruture)
 # Include the FetchContent module
 include(FetchContent)
 
@@ -49,4 +50,5 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(msgs)
+add_subdirectory(core)
 add_subdirectory(Systems)
