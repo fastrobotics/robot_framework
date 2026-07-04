@@ -29,6 +29,7 @@ namespace fast::fr {
         BaseTrajectoryControllerProcess --> DiagnosticManager: <<use>>
         BaseTrajectoryControllerProcess -up-|> ITrajectoryControllerProcess
         class BasicTrajectoryControllerProcess {
+          +bool init()
           +bool update(double current_time_sec, double delta_time_sec)
         }
         BasicTrajectoryControllerProcess -up-|> BaseTrajectoryControllerProcess

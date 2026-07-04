@@ -27,9 +27,10 @@ namespace fast::fr {
       TankDriveExecutorOutput -up-|> IDriveExecutorOutput
       class TankDriveExecutorProcess #LimeGreen {
           +IDriveExecutorOutput new_cmd(TwistMsg cmd)
+          +bool init()
           +bool update(double current_time_sec, double delta_time_sec)
           +TankDriveData convert(GeometryMsgs::TwistMsg twist)
-          +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel) {
+          +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel)
       }
       TankDriveExecutorProcess -up-|> BaseDriveExecutorProcess
       TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
@@ -40,8 +41,5 @@ namespace fast::fr {
     }
   }
 }
-
-
-        
-        
+@enduml
         

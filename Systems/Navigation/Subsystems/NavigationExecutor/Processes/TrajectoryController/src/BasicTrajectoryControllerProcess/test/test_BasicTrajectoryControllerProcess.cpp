@@ -9,9 +9,10 @@ using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 
 TEST(BasicTrajectoryControllerProcess, BasicTests) {
     BasicTrajectoryControllerProcess SUT;
+    ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0, 0.0));
 }
 TEST(BasicTrajectoryControllerProcess, BasicConversionTests) {
     BasicTrajectoryControllerProcess SUT;
-    ASSERT_TRUE(true);
+    ASSERT_TRUE(SUT.init());
 }

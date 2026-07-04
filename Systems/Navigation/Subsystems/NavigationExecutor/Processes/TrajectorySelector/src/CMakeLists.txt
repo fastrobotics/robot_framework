@@ -2,18 +2,9 @@ add_subdirectory(BasicTrajectorySelectorProcess)
 
 add_library(base_TrajectorySelectorProcess STATIC
             BaseTrajectorySelectorProcess.cpp)
-# target_link_libraries(base_TrajectorySelectorProcess geometry_msgs
-# sensor_msgs)
+  target_link_libraries(base_TrajectorySelectorProcess diagnosticManager geometry_msgs infrastructure_msgs)
+
 
 if(BUILD_TESTING)
-
-  add_executable(test_process_TrajectorySelector
-                 test/test_process_TrajectorySelector.cpp)
-  target_link_libraries(
-    test_process_TrajectorySelector GTest::gtest_main
-    base_TrajectorySelectorProcess
-    # geometry_msgs sensor_msgs
-  )
-
-  gtest_discover_tests(test_process_TrajectorySelector)
+  add_subdirectory(test)
 endif()

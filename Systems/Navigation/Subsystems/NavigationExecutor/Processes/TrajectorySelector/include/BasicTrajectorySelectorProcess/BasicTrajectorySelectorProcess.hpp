@@ -13,23 +13,32 @@
 #include <BaseTrajectorySelectorProcess.hpp>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-/**
- * @brief Minimal implementation for a TrajectorySelector Process
- *
- */
-class BasicTrajectorySelectorProcess : public BaseTrajectorySelectorProcess {
-   public:
-    BasicTrajectorySelectorProcess() : BaseTrajectorySelectorProcess() {}
     /**
-     * @brief Update with recent timing data
+     * @brief Minimal implementation for a TrajectorySelector Process
      *
-     * @param current_time_sec
-     * @param delta_time_sec
-     * @return true If update executed ok
-     * @return false If update executed with some error
      */
-    bool update(double current_time_sec, double delta_time_sec) override;
+    class BasicTrajectorySelectorProcess : public BaseTrajectorySelectorProcess {
+       public:
+        BasicTrajectorySelectorProcess() : BaseTrajectorySelectorProcess() {}
 
-   private:
-};
+        /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
+        bool init() override;
+
+        /**
+         * @brief Update with recent timing data
+         *
+         * @param current_time_sec
+         * @param delta_time_sec
+         * @return true If update executed ok
+         * @return false If update executed with some error
+         */
+        bool update(double current_time_sec, double delta_time_sec) override;
+
+       private:
+    };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
