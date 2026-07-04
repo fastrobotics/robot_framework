@@ -26,6 +26,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         IDriveExecutorProcess() = default;
         virtual ~IDriveExecutorProcess() = default;
 
+        /**
+         * @brief Initialize the object
+         *
+         * @return true
+         * @return false
+         */
         virtual bool init() = 0;
         /**
          * @brief Generic Update function

@@ -27,12 +27,14 @@ namespace fast::rf::messages::InfrastructureMsgs {
             diagnosticMessage;  //!< Unique Identifier for the Diagnostic Message
 
         std::string description;  //!< Description of the Diagnostic
+
         /**
          * @brief Construct a new Diagnostic Msg object
          *
          * @param systemID
          * @param subsystemID
          * @param processID
+         * @param diagnosticType
          */
         DiagnosticMsg(uint8_t systemID, uint8_t subsystemID, uint8_t processID,
                       fast::rf::DiagnosticDefinition::DiagnosticType diagnosticType)
@@ -44,6 +46,11 @@ namespace fast::rf::messages::InfrastructureMsgs {
               diagnosticMessage(fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING),
               description("Initializing Diagnostic"){};
 
+        /**
+         * @brief Pretty print the message
+         *
+         * @return std::string
+         */
         std::string pretty() {
             std::string str = std::to_string(systemID) + "-" + std::to_string(subsystemID) + "-" +
                               std::to_string(processID) + " " + fast::rf::DiagnosticDefinition::pretty(diagnosticType) +

@@ -5,7 +5,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
-        return initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        return status;
     }
     bool TankDriveExecutorProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
         bool status = BaseDriveExecutorProcess::base_update(current_time_sec, delta_time_sec);

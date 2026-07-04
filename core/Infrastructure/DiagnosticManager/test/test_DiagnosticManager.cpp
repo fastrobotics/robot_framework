@@ -57,3 +57,26 @@ TEST(DiagnosticManager, Printing) {
     ASSERT_GT(str.size(), 0);
     printf("%s", str.c_str());
 }
+TEST(DiagnosticManager, UpdateDiagnostic) {
+    DiagnosticManager SUT(1, 2, 3);
+    std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS);
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::PLANNING);
+    ASSERT_TRUE(SUT.initialize_diagnostics(diagnostic_types));
+    ASSERT_TRUE(SUT.is_initialized());
+    ASSERT_EQ(SUT.get_diagnostics().size(), 3);
+    for (auto diagnostic : SUT.get_diagnostics()) {
+        ASSERT_EQ(diagnostic.level, fast::rf::Level::INFO);
+        ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+    }
+
+    for (auto diagnostic : SUT.get_diagnostics()) {
+        ASSERT_TRUE(SUT.update_diagnostic(diagnostic.diagnosticType, fast::rf::Level::NOERROR,
+                                          fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "All Good"));
+    }
+    for (auto diagnostic : SUT.get_diagnostics()) {
+        ASSERT_EQ(diagnostic.level, fast::rf::Level::NOERROR);
+        ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
+    }
+}

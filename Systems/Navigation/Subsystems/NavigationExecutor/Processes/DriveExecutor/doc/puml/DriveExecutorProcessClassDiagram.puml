@@ -13,6 +13,9 @@ namespace fast::fr {
       class TwistMsg <<(M,#FFFF00)>>
     }
   }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
   namespace NavigationSystem {
     namespace NavigationExecutorSubsystem {
         interface IDriveExecutorOutput #LimeGreen {
@@ -27,13 +30,13 @@ namespace fast::fr {
         IDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
         abstract BaseDriveExecutorProcess #Orange {
           +DiagnosticMsg[] get_diagnostics()
-          #bool initialize_diagnostics(DiagnosticType[] diagnostic_types)
           +bool base_update(double current_time_sec, double delta_time_sec)
-          -DiagnosticMsg root_diagnostic
-          -DiagnosticMsg[] diagnostics
+          #DiagnosticManager diagnosticManager
+          
 
         }
         BaseDriveExecutorProcess -up-|> IDriveExecutorProcess
+        BaseDriveExecutorProcess --> DiagnosticManager: <<use>>
         class BasicDriveExecutorProcess {
           +bool update(double current_time_sec, double delta_time_sec)
         }

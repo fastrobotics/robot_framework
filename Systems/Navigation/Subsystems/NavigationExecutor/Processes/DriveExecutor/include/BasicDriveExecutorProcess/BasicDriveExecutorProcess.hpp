@@ -21,6 +21,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
        public:
         BasicDriveExecutorProcess() : BaseDriveExecutorProcess() {}
 
+        /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
         bool init() override;
         /**
          * @brief Update with recent timing data

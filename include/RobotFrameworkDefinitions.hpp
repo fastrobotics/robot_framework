@@ -13,8 +13,12 @@
 #include <string>
 
 namespace fast::rf {
+    /**
+     * @brief Level Enum
+     *
+     */
     enum class Level {
-        UNKNOWN = 0,
+        UNKNOWN = 0,  //!< Unknown Level
         NOERROR = 1,
         DEBUG = 2,
         INFO = 3,
@@ -24,6 +28,12 @@ namespace fast::rf {
         FATAL = 7,
         END_OF_LIST = 8
     };
+    /**
+     * @brief Covert level to string
+     *
+     * @param level
+     * @return std::string
+     */
     inline std::string pretty(Level level) {
         switch (level) {
             case Level::UNKNOWN:
@@ -69,6 +79,12 @@ namespace fast::rf {
             SYSTEM_RESOURCE = 11,  //!< Diagnostic related to system resource usage
             END_OF_LIST = 12,      //!< Last item of list.  Used for range checks.
         };
+        /**
+         * @brief Convert DiagnosticType to human readable string
+         *
+         * @param type
+         * @return std::string
+         */
         inline std::string pretty(DiagnosticType type) {
             switch (type) {
                 case DiagnosticType::UNKNOWN:
@@ -102,6 +118,10 @@ namespace fast::rf {
             }
             return pretty(DiagnosticType::UNKNOWN);
         }
+        /**
+         * @brief Diagnostic Message enum Definition
+         *
+         */
         enum class DiagnosticMessage {
             UNKNOWN = 0,               //!< Unitialized value
             NOERROR = 1,               //!< No error
@@ -117,8 +137,14 @@ namespace fast::rf {
             DIAGNOSTIC_FAILED = 11,    //!< Diagnostic Failed
             END_OF_LIST = 12,          //!< Last item of list.  Used for range checks.
         };
-        inline std::string pretty(DiagnosticMessage type) {
-            switch (type) {
+        /**
+         * @brief Convert DiagnosticMessage to human readable string
+         *
+         * @param message
+         * @return std::string
+         */
+        inline std::string pretty(DiagnosticMessage message) {
+            switch (message) {
                 case DiagnosticMessage::UNKNOWN:
                     return "UNKNOWN";
                 case DiagnosticMessage::NOERROR:

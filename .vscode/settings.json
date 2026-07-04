@@ -1,11 +1,8 @@
 {
-  "plantuml.jar": "/home/davidgitz/other_packages/plantuml.jar",
-  "plantuml.render": "PlantUMLServer",
-  "plantuml.server": "https://www.plantuml.com/plantuml",
-  "files.watcherExclude": {
-    "build/**": true
-  },
-   "editor.formatOnSave": true,
+    "files.watcherExclude": {
+        "build/**": true
+    },
+    "editor.formatOnSave": true,
     "C_Cpp.clang_format_style": "file",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"

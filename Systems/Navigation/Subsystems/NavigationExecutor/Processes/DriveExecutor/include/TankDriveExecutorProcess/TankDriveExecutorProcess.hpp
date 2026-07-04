@@ -53,6 +53,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         TankDriveExecutorProcess() : BaseDriveExecutorProcess(), left_channel_config(), right_channel_config() {
             output = new TankDriveExecutorOutput();
         }
+        /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
         bool init() override;
         /**
          * @brief Update with recent timing data

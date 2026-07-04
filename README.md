@@ -3,6 +3,7 @@
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
 - [ToDo List](#todo-list)
 - [Architecture Decision Records](#architecture-decision-records)
+- [ToDo](#todo)
 - [Code Documentation](#code-documentation)
 - [Architecture](#architecture)
 - [Messages](#messages)
@@ -19,6 +20,10 @@
 # Architecture Decision Records
 
 [ADR's](doc/ADR/ADR.md)
+
+# ToDo
+- Change diagostics to map
+- Make process check if diagnostics are initialized before allowing to start
 
 # Code Documentation
 

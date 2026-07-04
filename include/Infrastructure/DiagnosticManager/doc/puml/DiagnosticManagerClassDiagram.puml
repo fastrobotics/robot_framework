@@ -1,8 +1,10 @@
 @startuml
 title Diagnostic Manager Class Diagram
 namespace fast::rf {
+    enum Level
     namespace DiagnosticDefinition {
         enum DiagnosticType
+        enum DiagnosticMessage
     }
     namespace messages {
         namespace InfrastructureMsgs {
@@ -10,8 +12,9 @@ namespace fast::rf {
         }
     }
     namespace core::Infrastructure {
-        class DiagnosticManager #Orange {
+        class DiagnosticManager #LimeGreen {
             +bool initialize_diagnostics(DiagnosticType[] diagnostic_types)
+            +bool update_diagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
             +bool is_initialized()
             +DiagnosticMsg[] get_diagnostics()
             -DiagnosticMsg[] diagnostics
@@ -21,6 +24,8 @@ namespace fast::rf {
         }
         DiagnosticManager --> DiagnosticMsg: <<use>>
         DiagnosticManager --> DiagnosticType: <<use>>
+        DiagnosticManager --> DiagnosticMessage: <<use>>
+        DiagnosticManager --> Level: <<use>>
     }
 }
 @enduml

@@ -18,12 +18,14 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
     bool init() { return true; }
 
     bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() { return diagnostics; }
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
+
+        return empty;
+    }
 
    private:
     TestDriveExecutorOutput* output = new TestDriveExecutorOutput();
-    fast::rf::messages::InfrastructureMsgs::DiagnosticMsg root_diagnostic;
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
 };
 TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
     TestDriveExecutorProcessInterface SUT;
@@ -44,7 +46,8 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        return initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        return status;
     }
     IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override { return nullptr; }
     bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
