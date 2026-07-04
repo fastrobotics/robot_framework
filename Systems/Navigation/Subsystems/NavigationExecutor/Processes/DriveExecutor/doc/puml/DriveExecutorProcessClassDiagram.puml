@@ -38,6 +38,7 @@ namespace fast::fr {
         BaseDriveExecutorProcess -up-|> IDriveExecutorProcess
         BaseDriveExecutorProcess --> DiagnosticManager: <<use>>
         class BasicDriveExecutorProcess {
+          +bool init()
           +bool update(double current_time_sec, double delta_time_sec)
         }
         BasicDriveExecutorProcess -up-|> BaseDriveExecutorProcess
