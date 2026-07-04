@@ -1,5 +1,7 @@
 <map id="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseGlobalPathStorageProcess" name="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseGlobalPathStorageProcess">
-<area shape="rect" id="Node000001" title="Base GlobalPathStorage Process." alt="" coords="5,108,237,163"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess.html" title="Interface for the GlobalPathStorage Process." alt="" coords="19,5,223,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,74,124,108,119,108,119,74"/>
+<area shape="rect" id="Node000001" title="Base GlobalPathStorage Process." alt="" coords="387,41,619,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess.html" title="Interface for the GlobalPathStorage Process." alt="" coords="5,5,209,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,41,387,55,386,61,223,46"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="9,85,205,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,92,386,77,387,82,219,97"/>
 </map>

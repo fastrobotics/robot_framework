@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['planning_0',['PLANNING',['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5abf71c229d973f999f1a0db6c0ddd294e',1,'fast::rf::messages::NavMsgs']]]
+  ['end_5fof_5flist_0',['end_of_list',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29ac2b0b4a580050a88a759ac7c20ce853c',1,'fast::rf::END_OF_LIST'],['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5ac2b0b4a580050a88a759ac7c20ce853c',1,'fast::rf::DiagnosticDefinition::END_OF_LIST'],['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baac2b0b4a580050a88a759ac7c20ce853c',1,'fast::rf::DiagnosticDefinition::END_OF_LIST'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1ac2b0b4a580050a88a759ac7c20ce853c',1,'fast::rf::messages::NavMsgs::END_OF_LIST'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5ac2b0b4a580050a88a759ac7c20ce853c',1,'fast::rf::messages::NavMsgs::END_OF_LIST']]],
+  ['error_1',['ERROR',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29abb1ca97ec761fc37101737ba0aa2e7c5',1,'fast::rf']]],
+  ['executing_2',['EXECUTING',['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1ac6e6064fdaf5aa9b04472acaffdcea5b',1,'fast::rf::messages::NavMsgs']]]
 ];

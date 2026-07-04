@@ -1,5 +1,7 @@
 <map id="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseFreeSpacePlannerProcess" name="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseFreeSpacePlannerProcess">
-<area shape="rect" id="Node000001" title="Base FreeSpacePlanner Process." alt="" coords="5,108,233,163"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html" title="Interface for the FreeSpacePlanner Process." alt="" coords="19,5,219,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,74,122,108,117,108,117,74"/>
+<area shape="rect" id="Node000001" title="Base FreeSpacePlanner Process." alt="" coords="383,41,611,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html" title="Interface for the FreeSpacePlanner Process." alt="" coords="5,5,205,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,40,383,56,382,61,219,46"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="7,85,203,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,92,382,76,383,82,218,97"/>
 </map>

@@ -1,0 +1,56 @@
+<map id="msgs/InfrastructureMsgs/include/DiagnosticMsg.hpp" name="msgs/InfrastructureMsgs/include/DiagnosticMsg.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1137,5,1339,45"/>
+<area shape="rect" id="Node000002" href="$IFreeSpacePlannerProcess_8hpp.html" title=" " alt="" coords="33,93,307,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1124,33,767,51,547,70,326,96,308,99,307,94,326,91,546,64,767,46,1123,27"/>
+<area shape="rect" id="Node000005" href="$IGlobalPathRoutePlannerProcess_8hpp.html" title=" " alt="" coords="339,93,655,163"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1124,40,911,63,666,96,655,98,654,93,666,91,910,58,1123,35"/>
+<area shape="rect" id="Node000008" href="$IGlobalPathStorageProcess_8hpp.html" title=" " alt="" coords="679,93,957,163"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1147,51,958,96,957,91,1146,46"/>
+<area shape="rect" id="Node000011" href="$IGlobalPlannerManagerProcess_8hpp.html" title=" " alt="" coords="1230,93,1537,163"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1278,51,1336,91,1333,95,1275,55"/>
+<area shape="rect" id="Node000014" href="$IDriveExecutorProcess_8hpp.html" title=" " alt="" coords="1561,93,1798,163"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1344,46,1549,91,1561,94,1560,99,1548,96,1342,51"/>
+<area shape="rect" id="Node000018" href="$ITrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="1823,93,2109,163"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1353,34,1566,57,1810,91,1823,93,1822,98,1810,96,1565,62,1352,39"/>
+<area shape="rect" id="Node000021" href="$ITrajectorySelectorProcess_8hpp.html" title=" " alt="" coords="2147,93,2423,163"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="1353,28,1697,48,1909,66,2121,91,2147,95,2146,100,2120,96,1908,71,1697,53,1352,33"/>
+<area shape="rect" id="Node000024" href="$DiagnosticManager_8hpp.html" title=" " alt="" coords="981,101,1207,155"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="1201,55,1133,103,1130,98,1198,51"/>
+<area shape="rect" id="Node000003" href="$BaseFreeSpacePlannerProcess_8hpp.html" title=" " alt="" coords="5,211,308,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="167,177,163,211,158,210,162,176"/>
+<area shape="rect" id="Node000004" href="$BasicFreeSpacePlannerProcess_8hpp.html" title=" " alt="" coords="17,328,296,412"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="159,293,159,328,154,328,154,293"/>
+<area shape="rect" id="Node000006" href="$BaseGlobalPathRoutePlannerProcess_8hpp.html" title=" " alt="" coords="333,211,677,280"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="503,176,505,210,500,211,497,177"/>
+<area shape="rect" id="Node000007" href="$BasicGlobalPathRoutePlannerProcess_8hpp.html" title=" " alt="" coords="345,328,664,412"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="507,293,507,328,502,328,502,293"/>
+<area shape="rect" id="Node000009" href="$BaseGlobalPathStorageProcess_8hpp.html" title=" " alt="" coords="701,211,1007,280"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="835,175,846,210,841,211,830,177"/>
+<area shape="rect" id="Node000010" href="$BasicGlobalPathStorageProcess_8hpp.html" title=" " alt="" coords="701,328,983,412"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="852,294,849,328,843,328,847,293"/>
+<area shape="rect" id="Node000012" href="$BaseGlobalPlannerManagerProcess_8hpp.html" title=" " alt="" coords="1032,211,1367,280"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1320,172,1255,213,1252,208,1317,168"/>
+<area shape="rect" id="Node000013" href="$BasicGlobalPlannerManagerProcess_8hpp.html" title=" " alt="" coords="1007,328,1317,412"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1188,294,1177,329,1172,327,1183,292"/>
+<area shape="rect" id="Node000015" href="$BaseDriveExecutorProcess_8hpp.html" title=" " alt="" coords="1469,211,1706,280"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1646,175,1616,212,1612,209,1642,172"/>
+<area shape="rect" id="Node000016" href="$BasicDriveExecutorProcess_8hpp.html" title=" " alt="" coords="1341,328,1673,412"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="1560,293,1536,329,1532,327,1556,290"/>
+<area shape="rect" id="Node000017" href="$TankDriveExecutorProcess_8hpp.html" title=" " alt="" coords="1698,328,2021,412"/>
+<area shape="poly" id="edge16_Node000015_Node000017" title=" " alt="" coords="1675,283,1770,326,1768,330,1673,288"/>
+<area shape="rect" id="Node000019" href="$BaseTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="1801,211,2115,280"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="1965,177,1963,211,1958,210,1960,176"/>
+<area shape="rect" id="Node000020" href="$BasicTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="2045,328,2335,412"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="2034,284,2114,326,2111,330,2032,289"/>
+<area shape="rect" id="Node000022" href="$BaseTrajectorySelectorProcess_8hpp.html" title=" " alt="" coords="2139,211,2443,280"/>
+<area shape="poly" id="edge21_Node000021_Node000022" title=" " alt="" coords="2290,176,2292,210,2287,211,2285,177"/>
+<area shape="rect" id="Node000023" href="$BasicTrajectorySelectorProcess_8hpp.html" title=" " alt="" coords="2360,328,2639,412"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="2361,284,2431,326,2429,330,2358,289"/>
+<area shape="poly" id="edge24_Node000024_Node000003" title=" " alt="" coords="991,161,969,165,871,180,788,188,645,193,503,196,419,202,321,213,308,215,308,210,320,208,419,197,502,191,645,187,787,182,870,174,968,160,990,156"/>
+<area shape="poly" id="edge25_Node000024_Node000006" title=" " alt="" coords="987,161,969,165,829,191,689,213,677,215,677,210,688,208,829,186,968,160,986,156"/>
+<area shape="poly" id="edge26_Node000024_Node000009" title=" " alt="" coords="1028,164,925,213,923,208,1026,159"/>
+<area shape="poly" id="edge27_Node000024_Node000012" title=" " alt="" coords="1129,164,1170,208,1166,212,1125,167"/>
+<area shape="poly" id="edge28_Node000024_Node000015" title=" " alt="" coords="1203,156,1219,160,1469,217,1468,222,1217,165,1202,161"/>
+<area shape="poly" id="edge29_Node000024_Node000019" title=" " alt="" coords="1198,156,1218,160,1358,181,1467,189,1577,195,1718,208,1801,219,1800,224,1718,213,1577,200,1467,194,1357,186,1218,165,1197,161"/>
+<area shape="poly" id="edge30_Node000024_Node000022" title=" " alt="" coords="1195,156,1218,160,1356,178,1472,187,1576,190,1672,189,1872,188,1990,194,2128,208,2139,210,2139,215,2127,213,1989,199,1872,193,1672,194,1575,195,1472,192,1355,184,1218,165,1194,161"/>
+</map>

@@ -2,6 +2,8 @@ var hierarchy =
 [
     [ "fast::rf::messages::StandardMsgs::Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", null ],
     [ "fast::rf::messages::StandardMsgs::Covariance6DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg.html", null ],
+    [ "fast::rf::core::infrastructure::DiagnosticManager", "classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html", null ],
+    [ "fast::rf::messages::InfrastructureMsgs::DiagnosticMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathCommandStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandStateMsg.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathPlanningStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathPlanningStateMsg.html", null ],

@@ -1,5 +1,7 @@
 <map id="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseGlobalPlannerManagerProcess" name="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseGlobalPlannerManagerProcess">
-<area shape="rect" id="Node000001" title="Base GlobalPlannerManager Process." alt="" coords="5,108,265,163"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html" title="Interface for the GlobalPlannerManager Process." alt="" coords="19,5,251,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,74,138,108,133,108,133,74"/>
+<area shape="rect" id="Node000001" title="Base GlobalPlannerManager Process." alt="" coords="415,41,675,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html" title="Interface for the GlobalPlannerManager Process." alt="" coords="5,5,237,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,41,415,55,414,60,251,46"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="23,85,219,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,93,414,77,415,82,233,98"/>
 </map>

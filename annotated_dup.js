@@ -7,6 +7,11 @@ var annotated_dup =
           [ "DummyCommsSystem", "classfast_1_1rf_1_1CommsSystem_1_1DummyCommsSystem.html", null ],
           [ "ICommsSystem", "classfast_1_1rf_1_1CommsSystem_1_1ICommsSystem.html", null ]
         ] ],
+        [ "core", null, [
+          [ "infrastructure", null, [
+            [ "DiagnosticManager", "classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html", "classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager" ]
+          ] ]
+        ] ],
         [ "DataStorageSystem", "namespacefast_1_1rf_1_1DataStorageSystem.html", [
           [ "BaseDataStorageSystem", "classfast_1_1rf_1_1DataStorageSystem_1_1BaseDataStorageSystem.html", null ],
           [ "DummyDataStorageSystem", "classfast_1_1rf_1_1DataStorageSystem_1_1DummyDataStorageSystem.html", null ],
@@ -34,6 +39,9 @@ var annotated_dup =
             [ "PoseWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg" ],
             [ "TwistMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg" ],
             [ "TwistWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg" ]
+          ] ],
+          [ "InfrastructureMsgs", "namespacefast_1_1rf_1_1messages_1_1InfrastructureMsgs.html", [
+            [ "DiagnosticMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg" ]
           ] ],
           [ "NavMsgs", "namespacefast_1_1rf_1_1messages_1_1NavMsgs.html", [
             [ "GlobalPathCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg" ],

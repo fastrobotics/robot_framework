@@ -13,5 +13,9 @@ var namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem =
     [ "TankDriveChannelConfig", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig" ],
     [ "TankDriveData", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData" ],
     [ "TankDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput.html", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput" ],
-    [ "TankDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess" ]
+    [ "TankDriveExecutorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess" ],
+    [ "PROCESS_DRIVE_EXECUTOR_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html#a5e65eacb97669100e54fc91c3857d3fd", null ],
+    [ "PROCESS_TRAJECTORY_CONTROLLER_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html#a40bd9e504a2d0a2caa5d0a842f5ae55d", null ],
+    [ "PROCESS_TRAJECTORY_SELECTOR_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html#a9094b451d0aa37399d088350d9c3477c", null ],
+    [ "SUBSYSTEM_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html#a1d7e89f109401d31da31589e04c68ab1", null ]
 ];

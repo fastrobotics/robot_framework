@@ -115,13 +115,81 @@ Inheritance diagram for fast::rf::NavigationSystem::NavigationExecutorSubsystem:
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af26dc801fb22dfd9bb8bd8d261985c02" id="r_af26dc801fb22dfd9bb8bd8d261985c02"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html#af26dc801fb22dfd9bb8bd8d261985c02">init</a> ()=0</td></tr>
+<tr class="memdesc:af26dc801fb22dfd9bb8bd8d261985c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the object.  <br /></td></tr>
+<tr class="separator:af26dc801fb22dfd9bb8bd8d261985c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae05fe880c1f6968615be76c9e6f987e" id="r_aae05fe880c1f6968615be76c9e6f987e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html#aae05fe880c1f6968615be76c9e6f987e">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
 <tr class="memdesc:aae05fe880c1f6968615be76c9e6f987e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
 <tr class="separator:aae05fe880c1f6968615be76c9e6f987e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2546bf3ff2d9093a04bbca76f0c92a58" id="r_a2546bf3ff2d9093a04bbca76f0c92a58"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html#a2546bf3ff2d9093a04bbca76f0c92a58">get_diagnostics</a> ()=0</td></tr>
+<tr class="memdesc:a2546bf3ff2d9093a04bbca76f0c92a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the diagnostic object.  <br /></td></tr>
+<tr class="separator:a2546bf3ff2d9093a04bbca76f0c92a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the TrajectoryController Process. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2546bf3ff2d9093a04bbca76f0c92a58" name="a2546bf3ff2d9093a04bbca76f0c92a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2546bf3ff2d9093a04bbca76f0c92a58">&#9670;&#160;</a></span>get_diagnostics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt; fast::rf::NavigationSystem::NavigationExecutorSubsystem::ITrajectoryControllerProcess::get_diagnostics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the diagnostic object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html" title="Diagnostic Message Definition.">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectoryControllerProcess.html#aa22c43d5f9f9db7cf2f2ab17adf8c1c4">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseTrajectoryControllerProcess</a>.</p>
+
+</div>
+</div>
+<a id="af26dc801fb22dfd9bb8bd8d261985c02" name="af26dc801fb22dfd9bb8bd8d261985c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26dc801fb22dfd9bb8bd8d261985c02">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool fast::rf::NavigationSystem::NavigationExecutorSubsystem::ITrajectoryControllerProcess::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize the object. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicTrajectoryControllerProcess.html#a432deb004513e22d30f6052bf3ed23a3">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicTrajectoryControllerProcess</a>.</p>
+
+</div>
+</div>
 <a id="aae05fe880c1f6968615be76c9e6f987e" name="aae05fe880c1f6968615be76c9e6f987e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae05fe880c1f6968615be76c9e6f987e">&#9670;&#160;</a></span>update()</h2>
 
@@ -181,7 +249,7 @@ false If the process did not update ok </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem.html">NavigationSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html">NavigationExecutorSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectoryControllerProcess.html">ITrajectoryControllerProcess</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 4 2026 16:21:45 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

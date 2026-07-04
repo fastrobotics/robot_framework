@@ -96,14 +96,40 @@ $(document).ready(function(){initNavTree('BaseGlobalPlannerManagerProcess_8hpp.h
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="IGlobalPlannerManagerProcess_8hpp_source.html">IGlobalPlannerManagerProcess.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="DiagnosticManager_8hpp_source.html">Infrastructure/DiagnosticManager/DiagnosticManager.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="RobotFrameworkDefinitions_8hpp_source.html">RobotFrameworkDefinitions.hpp</a>&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BaseGlobalPlannerManagerProcess.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="BaseGlobalPlannerManagerProcess_8hpp__incl.png" border="0" usemap="#aSystems_2Navigation_2Subsystems_2GlobalPlanner_2Processes_2GlobalPlannerManager_2include_2BaseGlobalPlannerManagerProcess_8hpp" alt=""/></div>
 <map name="aSystems_2Navigation_2Subsystems_2GlobalPlanner_2Processes_2GlobalPlannerManager_2include_2BaseGlobalPlannerManagerProcess_8hpp" id="aSystems_2Navigation_2Subsystems_2GlobalPlanner_2Processes_2GlobalPlannerManager_2include_2BaseGlobalPlannerManagerProcess_8hpp">
-<area shape="rect" title=" " alt="" coords="5,5,340,75"/>
-<area shape="rect" href="IGlobalPlannerManagerProcess_8hpp.html" title=" " alt="" coords="47,123,299,148"/>
-<area shape="poly" title=" " alt="" coords="175,75,175,109,170,109,170,75"/>
+<area shape="rect" title=" " alt="" coords="205,5,540,75"/>
+<area shape="rect" href="IGlobalPlannerManagerProcess_8hpp.html" title=" " alt="" coords="5,130,257,155"/>
+<area shape="poly" title=" " alt="" coords="293,77,173,127,171,122,291,72"/>
+<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="224,284,455,309"/>
+<area shape="poly" title=" " alt="" coords="519,72,551,89,576,109,587,134,587,148,582,164,567,188,549,208,505,242,456,267,408,283,407,278,454,262,502,238,545,205,563,184,577,162,582,147,582,135,571,112,549,93,517,77"/>
+<area shape="rect" title=" " alt="" coords="284,211,347,236"/>
+<area shape="poly" title=" " alt="" coords="347,76,333,99,322,123,315,161,315,197,310,197,310,161,317,122,328,96,343,73"/>
+<area shape="rect" href="DiagnosticManager_8hpp.html" title=" " alt="" coords="332,123,568,163"/>
+<area shape="poly" title=" " alt="" coords="401,74,429,110,425,113,397,77"/>
+<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="62,211,209,236"/>
+<area shape="poly" title=" " alt="" coords="135,155,137,197,131,197,129,156"/>
+<area shape="poly" title=" " alt="" coords="149,153,314,273,311,278,145,158"/>
+<area shape="poly" title=" " alt="" coords="159,153,277,203,275,208,157,158"/>
+<area shape="poly" title=" " alt="" coords="169,234,294,277,293,282,167,239"/>
+<area shape="rect" title=" " alt="" coords="306,357,373,383"/>
+<area shape="poly" title=" " alt="" coords="146,235,173,270,213,307,253,332,294,350,292,355,251,336,210,311,169,273,141,238"/>
+<area shape="rect" title=" " alt="" coords="165,357,223,383"/>
+<area shape="poly" title=" " alt="" coords="142,235,170,308,185,344,180,346,165,310,137,237"/>
+<area shape="poly" title=" " alt="" coords="342,310,342,344,337,344,337,310"/>
+<area shape="poly" title=" " alt="" coords="317,312,231,354,229,349,315,307"/>
+<area shape="poly" title=" " alt="" coords="375,165,195,210,194,205,374,160"/>
+<area shape="poly" title=" " alt="" coords="438,165,358,274,354,271,434,162"/>
+<area shape="poly" title=" " alt="" coords="465,162,478,184,487,210,493,239,493,264,485,287,468,311,450,328,430,342,387,360,385,355,427,337,447,324,464,308,480,284,487,263,488,240,482,211,473,186,461,164"/>
+<area shape="poly" title=" " alt="" coords="419,165,348,206,346,201,416,160"/>
+<area shape="rect" title=" " alt="" coords="422,211,473,236"/>
+<area shape="poly" title=" " alt="" coords="452,163,451,197,446,197,447,163"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -151,7 +177,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5ef85acd675d452a88be64b3c3117dbd.html">Systems</a></li><li class="navelem"><a class="el" href="dir_4219b17ee63ae976d1508cd89140665e.html">Navigation</a></li><li class="navelem"><a class="el" href="dir_adc63451986958771072c6e717938460.html">Subsystems</a></li><li class="navelem"><a class="el" href="dir_c730f8e0716e3271877e435fdade98f9.html">GlobalPlanner</a></li><li class="navelem"><a class="el" href="dir_b88dfd6ac53f4fa423223f0019881cab.html">Processes</a></li><li class="navelem"><a class="el" href="dir_bb816a30f89feb3b77c7f1ad6a63b958.html">GlobalPlannerManager</a></li><li class="navelem"><a class="el" href="dir_3af75541ae882f028fe81373aaae0efe.html">include</a></li><li class="navelem"><a class="el" href="BaseGlobalPlannerManagerProcess_8hpp.html">BaseGlobalPlannerManagerProcess.hpp</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 4 2026 16:21:45 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

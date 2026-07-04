@@ -1,7 +1,9 @@
 <map id="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BasicGlobalPlannerManagerProcess" name="fast::rf::NavigationSystem::GlobalPlannerSubsystem::BasicGlobalPlannerManagerProcess">
-<area shape="rect" id="Node000001" title="Minimal Implementation for a GlobalPlannerManager Process." alt="" coords="593,5,856,60"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess.html" title="Base GlobalPlannerManager Process." alt="" coords="285,5,545,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="559,30,593,30,593,35,559,35"/>
+<area shape="rect" id="Node000001" title="Minimal Implementation for a GlobalPlannerManager Process." alt="" coords="724,41,987,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess.html" title="Base GlobalPlannerManager Process." alt="" coords="415,41,675,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="689,66,724,66,724,71,689,71"/>
 <area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html" title="Interface for the GlobalPlannerManager Process." alt="" coords="5,5,237,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="251,30,285,30,285,35,251,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,41,415,55,414,60,251,46"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="23,85,219,125"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,93,414,77,415,82,233,98"/>
 </map>

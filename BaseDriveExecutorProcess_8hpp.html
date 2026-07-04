@@ -96,27 +96,50 @@ $(document).ready(function(){initNavTree('BaseDriveExecutorProcess_8hpp.html',''
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="IDriveExecutorProcess_8hpp_source.html">IDriveExecutorProcess.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="DiagnosticManager_8hpp_source.html">Infrastructure/DiagnosticManager/DiagnosticManager.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="RobotFrameworkDefinitions_8hpp_source.html">RobotFrameworkDefinitions.hpp</a>&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BaseDriveExecutorProcess.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="BaseDriveExecutorProcess_8hpp__incl.png" border="0" usemap="#aSystems_2Navigation_2Subsystems_2NavigationExecutor_2Processes_2DriveExecutor_2include_2BaseDriveExecutorProcess_8hpp" alt=""/></div>
 <map name="aSystems_2Navigation_2Subsystems_2NavigationExecutor_2Processes_2DriveExecutor_2include_2BaseDriveExecutorProcess_8hpp" id="aSystems_2Navigation_2Subsystems_2NavigationExecutor_2Processes_2DriveExecutor_2include_2BaseDriveExecutorProcess_8hpp">
-<area shape="rect" title=" " alt="" coords="68,5,305,75"/>
-<area shape="rect" href="IDriveExecutorProcess_8hpp.html" title=" " alt="" coords="89,123,284,148"/>
-<area shape="poly" title=" " alt="" coords="189,75,189,109,184,109,184,75"/>
-<area shape="rect" href="IDriveExecutorOutput_8hpp.html" title=" " alt="" coords="5,196,195,221"/>
-<area shape="poly" title=" " alt="" coords="174,150,126,189,123,185,171,146"/>
-<area shape="rect" href="TwistMsg_8hpp.html" title=" " alt="" coords="219,196,330,221"/>
-<area shape="poly" title=" " alt="" coords="202,146,251,185,248,189,199,150"/>
-<area shape="rect" href="Vector3DMsg_8hpp.html" title=" " alt="" coords="101,269,237,295"/>
-<area shape="poly" title=" " alt="" coords="259,224,199,264,196,259,256,219"/>
-<area shape="rect" title=" " alt="" coords="235,343,298,368"/>
-<area shape="poly" title=" " alt="" coords="277,222,271,329,265,329,271,222"/>
-<area shape="rect" title=" " alt="" coords="312,269,371,295"/>
-<area shape="poly" title=" " alt="" coords="288,220,323,257,319,261,284,223"/>
-<area shape="rect" title=" " alt="" coords="136,343,203,368"/>
-<area shape="poly" title=" " alt="" coords="172,295,172,329,167,329,167,295"/>
-<area shape="poly" title=" " alt="" coords="187,293,241,332,238,336,183,297"/>
+<area shape="rect" title=" " alt="" coords="317,5,554,75"/>
+<area shape="rect" href="IDriveExecutorProcess_8hpp.html" title=" " alt="" coords="266,130,461,155"/>
+<area shape="poly" title=" " alt="" coords="413,77,382,120,378,117,409,74"/>
+<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="466,284,696,309"/>
+<area shape="poly" title=" " alt="" coords="457,74,570,271,565,273,453,76"/>
+<area shape="rect" title=" " alt="" coords="135,357,198,383"/>
+<area shape="poly" title=" " alt="" coords="317,56,237,73,153,103,113,124,75,148,42,178,14,212,8,234,12,261,23,288,36,308,55,325,77,338,123,356,121,361,75,343,52,329,32,311,18,290,7,262,3,234,9,209,38,174,72,144,110,119,151,98,235,68,316,50"/>
+<area shape="rect" href="DiagnosticManager_8hpp.html" title=" " alt="" coords="543,123,779,163"/>
+<area shape="poly" title=" " alt="" coords="512,72,608,115,605,120,510,77"/>
+<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="592,211,738,236"/>
+<area shape="poly" title=" " alt="" coords="408,153,609,205,607,210,407,158"/>
+<area shape="poly" title=" " alt="" coords="380,153,487,234,551,275,548,279,483,238,376,158"/>
+<area shape="rect" href="IDriveExecutorOutput_8hpp.html" title=" " alt="" coords="40,211,229,236"/>
+<area shape="poly" title=" " alt="" coords="331,158,182,209,180,204,329,153"/>
+<area shape="rect" href="TwistMsg_8hpp.html" title=" " alt="" coords="304,211,415,236"/>
+<area shape="poly" title=" " alt="" coords="366,156,364,197,358,197,360,155"/>
+<area shape="poly" title=" " alt="" coords="266,153,196,160,125,172,66,189,44,200,30,212,20,231,21,250,29,269,45,288,87,322,132,349,129,353,84,326,41,291,25,272,15,251,15,230,26,209,41,196,64,184,124,167,195,155,266,147"/>
+<area shape="poly" title=" " alt="" coords="653,238,607,277,604,273,650,234"/>
+<area shape="rect" title=" " alt="" coords="693,357,760,383"/>
+<area shape="poly" title=" " alt="" coords="697,234,729,253,744,266,755,283,760,299,758,316,745,347,741,345,753,315,755,300,751,285,740,270,726,257,694,238"/>
+<area shape="rect" title=" " alt="" coords="552,357,610,383"/>
+<area shape="poly" title=" " alt="" coords="681,235,696,250,709,269,716,290,711,311,694,331,672,346,625,364,623,359,669,341,690,327,707,308,711,290,705,271,692,253,677,238"/>
+<area shape="poly" title=" " alt="" coords="606,307,692,349,689,354,603,312"/>
+<area shape="poly" title=" " alt="" coords="584,310,584,344,578,344,578,310"/>
+<area shape="poly" title=" " alt="" coords="341,238,319,253,300,271,290,290,290,299,295,308,311,320,335,331,400,347,473,358,538,364,538,369,473,363,399,352,333,336,308,325,291,311,285,300,285,289,296,268,316,249,338,234"/>
+<area shape="rect" href="Vector3DMsg_8hpp.html" title=" " alt="" coords="305,284,441,309"/>
+<area shape="poly" title=" " alt="" coords="365,236,371,270,366,271,359,237"/>
+<area shape="poly" title=" " alt="" coords="334,238,294,259,251,286,215,317,186,349,182,345,211,314,247,282,291,254,332,234"/>
+<area shape="poly" title=" " alt="" coords="430,307,680,357,679,362,429,312"/>
+<area shape="poly" title=" " alt="" coords="341,312,212,356,210,351,339,307"/>
+<area shape="poly" title=" " alt="" coords="665,163,666,197,661,197,659,163"/>
+<area shape="poly" title=" " alt="" coords="627,165,602,185,582,212,576,241,578,270,572,271,570,241,577,210,598,182,624,161"/>
+<area shape="poly" title=" " alt="" coords="760,160,797,180,814,193,827,209,836,229,836,249,830,269,819,288,789,323,756,351,753,347,785,320,815,285,825,267,831,248,830,230,823,212,810,197,794,184,758,165"/>
+<area shape="poly" title=" " alt="" coords="543,161,400,183,338,198,294,213,255,241,222,277,197,314,180,346,175,344,193,311,218,273,251,237,292,208,337,192,399,178,542,155"/>
+<area shape="rect" title=" " alt="" coords="762,211,813,236"/>
+<area shape="poly" title=" " alt="" coords="693,161,759,201,756,206,690,165"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -166,7 +189,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5ef85acd675d452a88be64b3c3117dbd.html">Systems</a></li><li class="navelem"><a class="el" href="dir_4219b17ee63ae976d1508cd89140665e.html">Navigation</a></li><li class="navelem"><a class="el" href="dir_adc63451986958771072c6e717938460.html">Subsystems</a></li><li class="navelem"><a class="el" href="dir_fb559ca1e7b3a6b2fb8d107af9021d94.html">NavigationExecutor</a></li><li class="navelem"><a class="el" href="dir_a9b151bd15e6d544dc41ba6a6ebeae7f.html">Processes</a></li><li class="navelem"><a class="el" href="dir_5b3e3d005887a2cf3f66fd9fc3a73084.html">DriveExecutor</a></li><li class="navelem"><a class="el" href="dir_29b7f202661e1edec1fba0636f9af316.html">include</a></li><li class="navelem"><a class="el" href="BaseDriveExecutorProcess_8hpp.html">BaseDriveExecutorProcess.hpp</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 4 2026 16:21:45 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

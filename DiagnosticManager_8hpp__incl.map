@@ -1,0 +1,19 @@
+<map id="include/Infrastructure/DiagnosticManager/DiagnosticManager.hpp" name="include/Infrastructure/DiagnosticManager/DiagnosticManager.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,5,328,60"/>
+<area shape="rect" id="Node000002" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="31,108,178,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,62,132,102,129,97,180,58"/>
+<area shape="rect" id="Node000003" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="133,181,364,207"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="223,60,246,167,241,168,218,61"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="11,255,78,280"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="104,54,57,76,38,91,21,109,13,125,9,142,11,178,21,212,34,241,29,244,16,214,6,179,4,141,8,123,17,107,34,87,55,71,101,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="253,108,303,133"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="237,58,263,95,259,98,232,62"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="328,108,391,133"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="261,58,330,99,327,103,258,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="129,131,214,173,212,177,127,136"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="101,135,79,182,56,243,51,241,74,180,96,133"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="161,255,219,280"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="107,133,111,167,124,205,141,227,161,245,158,249,137,231,120,208,106,169,102,134"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,209,91,253,90,248,215,204"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="241,209,210,246,206,243,237,205"/>
+</map>

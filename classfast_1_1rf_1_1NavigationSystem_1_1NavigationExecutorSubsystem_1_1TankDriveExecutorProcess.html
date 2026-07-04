@@ -117,21 +117,26 @@ Collaboration diagram for fast::rf::NavigationSystem::NavigationExecutorSubsyste
 <div class="dyncontent">
 <div class="center"><img src="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess__coll__graph.png" border="0" usemap="#afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess_coll__map" alt="Collaboration graph"/></div>
 <map name="afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess_coll__map" id="afast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess_coll__map">
-<area shape="rect" title="Process for Tank Drive Executor." alt="" coords="560,5,789,60"/>
-<area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html" title="Base DriveExecutor Process." alt="" coords="283,5,512,60"/>
-<area shape="poly" title=" " alt="" coords="526,30,560,30,560,35,526,35"/>
+<area shape="rect" title="Process for Tank Drive Executor." alt="" coords="691,41,920,96"/>
+<area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html" title="Base DriveExecutor Process." alt="" coords="412,41,641,96"/>
+<area shape="poly" title=" " alt="" coords="655,66,691,66,691,71,655,71"/>
 <area shape="rect" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html" title="Interface for the DriveExecutor Process." alt="" coords="5,5,235,60"/>
-<area shape="poly" title=" " alt="" coords="249,30,282,30,282,35,249,35"/>
+<area shape="poly" title=" " alt="" coords="249,41,412,56,412,61,248,47"/>
+<area shape="rect" href="classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="22,85,218,125"/>
+<area shape="poly" title=" " alt="" coords="231,92,412,76,412,81,232,97"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a274b0254bf470ba1735417619e011ebd" id="r_a274b0254bf470ba1735417619e011ebd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a274b0254bf470ba1735417619e011ebd">init</a> () override</td></tr>
+<tr class="memdesc:a274b0254bf470ba1735417619e011ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Object.  <br /></td></tr>
+<tr class="separator:a274b0254bf470ba1735417619e011ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e1622209de32b39aa0cc8a7f5af3114" id="r_a4e1622209de32b39aa0cc8a7f5af3114"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a4e1622209de32b39aa0cc8a7f5af3114">update</a> (double current_time_sec, double delta_time_sec) override</td></tr>
 <tr class="memdesc:a4e1622209de32b39aa0cc8a7f5af3114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update with recent timing data.  <br /></td></tr>
 <tr class="separator:a4e1622209de32b39aa0cc8a7f5af3114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b467610050100a32a1788f8721bc478" id="r_a9b467610050100a32a1788f8721bc478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a9b467610050100a32a1788f8721bc478">new_cmd</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a> cmd) override</td></tr>
-<tr class="memdesc:a9b467610050100a32a1788f8721bc478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Function for Drive Executor to process.  <br /></td></tr>
+<tr class="memdesc:a9b467610050100a32a1788f8721bc478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a new Twist Command.  <br /></td></tr>
 <tr class="separator:a9b467610050100a32a1788f8721bc478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d877f8bf64ffaaae858daf419a36679" id="r_a9d877f8bf64ffaaae858daf419a36679"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html">TankDriveData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#a9d877f8bf64ffaaae858daf419a36679">convert</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a> twist)</td></tr>
 <tr class="memdesc:a9d877f8bf64ffaaae858daf419a36679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a Twist to a Tank Drive Output.  <br /></td></tr>
@@ -145,11 +150,14 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseDriveExecutorProcess</a></td></tr>
 <tr class="memitem:ac5a67711058044b82f60f8d527d6224b inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" id="r_ac5a67711058044b82f60f8d527d6224b"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseDriveExecutorProcess</b> ()</td></tr>
-<tr class="memdesc:ac5a67711058044b82f60f8d527d6224b inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Base DriveExecutor Process object. <br /></td></tr>
+<tr class="memdesc:ac5a67711058044b82f60f8d527d6224b inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Base Drive Executor Process object. <br /></td></tr>
 <tr class="separator:ac5a67711058044b82f60f8d527d6224b inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a100e7b25eaa81180abb9725f69863cfd inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" id="r_a100e7b25eaa81180abb9725f69863cfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html#a100e7b25eaa81180abb9725f69863cfd">base_update</a> (double current_time_sec, double delta_time_sec)</td></tr>
 <tr class="memdesc:a100e7b25eaa81180abb9725f69863cfd inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the base object.  <br /></td></tr>
 <tr class="separator:a100e7b25eaa81180abb9725f69863cfd inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8544406eb3c2b4f55163c6db63bd2cef inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" id="r_a8544406eb3c2b4f55163c6db63bd2cef"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html#a8544406eb3c2b4f55163c6db63bd2cef">get_diagnostics</a> ()</td></tr>
+<tr class="memdesc:a8544406eb3c2b4f55163c6db63bd2cef inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the diagnostics object.  <br /></td></tr>
+<tr class="separator:a8544406eb3c2b4f55163c6db63bd2cef inherit pub_methods_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -158,6 +166,10 @@ Additional Inherited Members</h2></td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>current_time_sec_</b> {-1.0}</td></tr>
 <tr class="memdesc:a1cff2d1ae997a9d5e4334c5b2fa8fc1e inherit pro_attribs_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current system time. <br /></td></tr>
 <tr class="separator:a1cff2d1ae997a9d5e4334c5b2fa8fc1e inherit pro_attribs_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ca3ac58fe204c3dbe29205fd4921ee inherit pro_attribs_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess" id="r_ae8ca3ac58fe204c3dbe29205fd4921ee"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html">fast::rf::core::infrastructure::DiagnosticManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>diagnosticManager</b></td></tr>
+<tr class="memdesc:ae8ca3ac58fe204c3dbe29205fd4921ee inherit pro_attribs_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entity responsible for managing diagnostics. <br /></td></tr>
+<tr class="separator:ae8ca3ac58fe204c3dbe29205fd4921ee inherit pro_attribs_classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Process for Tank Drive Executor. </p>
@@ -234,6 +246,38 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>current_time_sec_</
 
 </div>
 </div>
+<a id="a274b0254bf470ba1735417619e011ebd" name="a274b0254bf470ba1735417619e011ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274b0254bf470ba1735417619e011ebd">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize the Object. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p>Implements <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a3f1f99381f7bf99cfe39b92957104d8d">fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess</a>.</p>
+
+</div>
+</div>
 <a id="a9b467610050100a32a1788f8721bc478" name="a9b467610050100a32a1788f8721bc478"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b467610050100a32a1788f8721bc478">&#9670;&#160;</a></span>new_cmd()</h2>
 
@@ -258,14 +302,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>current_time_sec_</
 </table>
 </div><div class="memdoc">
 
-<p>Generic Function for Drive Executor to process. </p>
+<p>Process a new Twist Command. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cmd</td><td>Command to process </td></tr>
+    <tr><td class="paramname">cmd</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>IDriveExecutorOutput* Abstract type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>IDriveExecutorOutput* </dd></dl>
 
 <p>Implements <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a3e68f22f756da34598a44d8c611a09e0">fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess</a>.</p>
 
@@ -376,7 +420,7 @@ false If update executed with some error </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem.html">NavigationSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html">NavigationExecutorSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html">TankDriveExecutorProcess</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 4 2026 16:21:45 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

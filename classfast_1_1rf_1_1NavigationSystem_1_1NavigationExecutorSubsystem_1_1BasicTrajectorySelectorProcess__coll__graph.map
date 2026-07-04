@@ -1,7 +1,9 @@
 <map id="fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicTrajectorySelectorProcess" name="fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicTrajectorySelectorProcess">
-<area shape="rect" id="Node000001" title="Minimal implementation for a TrajectorySelector Process." alt="" coords="560,5,792,60"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectorySelectorProcess.html" title="Base TrajectorySelector Process." alt="" coords="283,5,512,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="526,30,560,30,560,35,526,35"/>
+<area shape="rect" id="Node000001" title="Minimal implementation for a TrajectorySelector Process." alt="" coords="691,41,923,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseTrajectorySelectorProcess.html" title="Base TrajectorySelector Process." alt="" coords="412,41,641,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="655,66,691,66,691,71,655,71"/>
 <area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1ITrajectorySelectorProcess.html" title="Interface for the TrajectorySelector Process." alt="" coords="5,5,235,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,30,282,30,282,35,249,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,41,412,56,412,61,248,47"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="22,85,218,125"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="231,92,412,76,412,81,232,97"/>
 </map>

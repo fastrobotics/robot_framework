@@ -115,13 +115,81 @@ Inheritance diagram for fast::rf::NavigationSystem::GlobalPlannerSubsystem::IGlo
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab542692e6756fb760b2d552f47132b04" id="r_ab542692e6756fb760b2d552f47132b04"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html#ab542692e6756fb760b2d552f47132b04">init</a> ()=0</td></tr>
+<tr class="memdesc:ab542692e6756fb760b2d552f47132b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the object.  <br /></td></tr>
+<tr class="separator:ab542692e6756fb760b2d552f47132b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45caa67123dba7e7f8b00baa99ff6b1c" id="r_a45caa67123dba7e7f8b00baa99ff6b1c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html#a45caa67123dba7e7f8b00baa99ff6b1c">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
 <tr class="memdesc:a45caa67123dba7e7f8b00baa99ff6b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
 <tr class="separator:a45caa67123dba7e7f8b00baa99ff6b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafdb0b68ba1bf5efbc535d2b610ce0dd" id="r_aafdb0b68ba1bf5efbc535d2b610ce0dd"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html#aafdb0b68ba1bf5efbc535d2b610ce0dd">get_diagnostics</a> ()=0</td></tr>
+<tr class="memdesc:aafdb0b68ba1bf5efbc535d2b610ce0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the diagnostic object.  <br /></td></tr>
+<tr class="separator:aafdb0b68ba1bf5efbc535d2b610ce0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the GlobalPathRoutePlanner Process. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aafdb0b68ba1bf5efbc535d2b610ce0dd" name="aafdb0b68ba1bf5efbc535d2b610ce0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafdb0b68ba1bf5efbc535d2b610ce0dd">&#9670;&#160;</a></span>get_diagnostics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt; fast::rf::NavigationSystem::GlobalPlannerSubsystem::IGlobalPathRoutePlannerProcess::get_diagnostics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the diagnostic object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html" title="Diagnostic Message Definition.">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathRoutePlannerProcess.html#ad0b7733bf53b09a639178b15167ab2a2">fast::rf::NavigationSystem::GlobalPlannerSubsystem::BaseGlobalPathRoutePlannerProcess</a>.</p>
+
+</div>
+</div>
+<a id="ab542692e6756fb760b2d552f47132b04" name="ab542692e6756fb760b2d552f47132b04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab542692e6756fb760b2d552f47132b04">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool fast::rf::NavigationSystem::GlobalPlannerSubsystem::IGlobalPathRoutePlannerProcess::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize the object. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathRoutePlannerProcess.html#a499062c1b02acc3d1e12c584523f09b9">fast::rf::NavigationSystem::GlobalPlannerSubsystem::BasicGlobalPathRoutePlannerProcess</a>.</p>
+
+</div>
+</div>
 <a id="a45caa67123dba7e7f8b00baa99ff6b1c" name="a45caa67123dba7e7f8b00baa99ff6b1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45caa67123dba7e7f8b00baa99ff6b1c">&#9670;&#160;</a></span>update()</h2>
 
@@ -181,7 +249,7 @@ false If the process did not update ok </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem.html">NavigationSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html">GlobalPlannerSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html">IGlobalPathRoutePlannerProcess</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 4 2026 16:21:45 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
