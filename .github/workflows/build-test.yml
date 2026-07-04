@@ -51,6 +51,3 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-
-      - name: Install SonarQube Scanner and Build Wrapper
-        uses: SonarSource/sonarqube-scan-action/install-sonar-scanner@v5

@@ -1,0 +1,57 @@
+name: SonarQube C++ Analysis with Coverage
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build_and_scan:
+    name: Build, Test, and Scan
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper logs will be placed
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Shallow clones must be disabled for a relevance of analysis
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential gcovr
+
+      - name: Install SonarQube Scanner and Build Wrapper
+        uses: SonarSource/sonarqube-scan-action/install-sonar-scanner@v5
+
+      - name: Configure CMake with Coverage Flags
+        run: |
+          mkdir build
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_C_FLAGS="--coverage"
+
+      - name: Run Build inside SonarQube Build Wrapper
+        run: |
+          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build build --config Debug
+
+      - name: Run Tests to Generate Raw Gcov Data
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      - name: Process Coverage with Gcovr
+        run: |
+          mkdir -p build/coverage
+          gcovr --xml-txt -r . --filter src/ --output build/coverage/gcovr-report.xml
+
+      - name: Run SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.cfamily.compile-commands=${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json

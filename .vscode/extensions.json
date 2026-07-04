@@ -2,6 +2,7 @@
     "recommendations": [
         "yzhang.markdown-all-in-one",
         "cschlosser.doxdocgen",
-        "jebbs.plantuml"
+        "jebbs.plantuml",
+        "sonarsource.sonarlint-vscode"
     ]
 }
