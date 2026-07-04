@@ -9,6 +9,10 @@
  *
  */
 #pragma once
+#include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <RobotFrameworkDefinitions.hpp>
+#include <vector>
+
 #include <I{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
 /**
@@ -23,7 +27,9 @@ public:
    * @brief Construct a new Base {{cookiecutter.Process}} Process object
    *
    */
-  Base{{cookiecutter.Process}}Process() {}
+  Base{{cookiecutter.Process}}Process() : diagnosticManager(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID,
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID) {}
   /**
    * @brief Update the base object
    *
@@ -34,8 +40,19 @@ public:
    */
   bool base_update(double current_time_sec,
                    double delta_time_sec); //!< Base function to update
+                  
+  /**
+         * @brief Get the diagnostics object
+         *
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
+         */
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+            return diagnosticManager.get_diagnostics();
+        }
 
 protected:
   double current_time_sec_{-1.0};    //!< Current system time
+  fast::rf::core::infrastructure::DiagnosticManager
+            diagnosticManager;  //!< Entity responsible for managing diagnostics.
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

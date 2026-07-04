@@ -20,6 +20,16 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
 class Basic{{cookiecutter.Process}}Process : public Base{{cookiecutter.Process}}Process {
 public:
   Basic{{cookiecutter.Process}}Process() : Base{{cookiecutter.Process}}Process() {}
+
+   /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
+        bool init() override;
+
+        
   /**
    * @brief Update with recent timing data
    *
