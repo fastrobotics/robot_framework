@@ -9,6 +9,10 @@
  *
  */
 #pragma once
+#include <DiagnosticMsg.hpp>
+#include <RobotFrameworkDefinitions.hpp>
+#include <vector>
+
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
 /**
  * @brief Interface for the {{cookiecutter.Process}} Process
@@ -18,6 +22,15 @@ class I{{cookiecutter.Process}}Process {
 public:
   I{{cookiecutter.Process}}Process() = default;
   virtual ~I{{cookiecutter.Process}}Process() = default;
+
+  /**
+   * @brief Initialize the object
+   *
+   * @return true
+   * @return false
+   */
+  virtual bool init() = 0;
+
   /**
    * @brief Generic Update function
    *
@@ -27,6 +40,14 @@ public:
    * @return false If the process did not update ok
    */
   virtual bool update(double current_time_sec, double delta_time_sec) = 0;
+
+  /**
+         * @brief Get the diagnostic object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
+         */
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+        
   
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

@@ -10,6 +10,7 @@
 - [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
+- [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
@@ -55,6 +56,19 @@ The following outputs are provided by this system.
 
 | Output | DataType | Description | Usage |
 | ------ | -------- | ----------- | ----- |
+
+# Diagnostics
+The root diagnostic for these diagnostics is given by:
+- System: `NavigationSystem::SYSTEM_ID`
+- Subsystem: `NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID`
+- Process: `NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID`
+
+Additional Diagnostic Types are implemented specifically for this Process Implementation:
+| Diagnostic Type  |
+| ---------------- |
+| `SOFTWARE`       |
+| `REMOTE_CONTROL` |
+| `ACTUATORS`      |
 
 # How It Works
 

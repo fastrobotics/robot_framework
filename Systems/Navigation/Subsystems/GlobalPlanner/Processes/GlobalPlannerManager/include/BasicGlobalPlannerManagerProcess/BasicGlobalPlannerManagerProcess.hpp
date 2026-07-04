@@ -13,23 +13,32 @@
 #include <BaseGlobalPlannerManagerProcess.hpp>
 
 namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
-/**
- * @brief Minimal Implementation for a GlobalPlannerManager Process
- *
- */
-class BasicGlobalPlannerManagerProcess : public BaseGlobalPlannerManagerProcess {
-   public:
-    BasicGlobalPlannerManagerProcess() : BaseGlobalPlannerManagerProcess() {}
     /**
-     * @brief Update with recent timing data
+     * @brief Minimal Implementation for a GlobalPlannerManager Process
      *
-     * @param current_time_sec
-     * @param delta_time_sec
-     * @return true If update executed ok
-     * @return false If update executed with some error
      */
-    bool update(double current_time_sec, double delta_time_sec) override;
+    class BasicGlobalPlannerManagerProcess : public BaseGlobalPlannerManagerProcess {
+       public:
+        BasicGlobalPlannerManagerProcess() : BaseGlobalPlannerManagerProcess() {}
 
-   private:
-};
+        /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
+        bool init() override;
+
+        /**
+         * @brief Update with recent timing data
+         *
+         * @param current_time_sec
+         * @param delta_time_sec
+         * @return true If update executed ok
+         * @return false If update executed with some error
+         */
+        bool update(double current_time_sec, double delta_time_sec) override;
+
+       private:
+    };
 }  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem

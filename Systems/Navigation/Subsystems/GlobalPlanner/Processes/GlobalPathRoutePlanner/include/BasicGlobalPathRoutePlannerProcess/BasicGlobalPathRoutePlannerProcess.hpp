@@ -13,23 +13,32 @@
 #include <BaseGlobalPathRoutePlannerProcess.hpp>
 
 namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
-/**
- * @brief Minimal Implementation for a GlobalPathRoutePlanner Process
- *
- */
-class BasicGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerProcess {
-   public:
-    BasicGlobalPathRoutePlannerProcess() : BaseGlobalPathRoutePlannerProcess() {}
     /**
-     * @brief Update with recent timing data
+     * @brief Minimal Implementation for a GlobalPathRoutePlanner Process
      *
-     * @param current_time_sec
-     * @param delta_time_sec
-     * @return true If update executed ok
-     * @return false If update executed with some error
      */
-    bool update(double current_time_sec, double delta_time_sec) override;
+    class BasicGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerProcess {
+       public:
+        BasicGlobalPathRoutePlannerProcess() : BaseGlobalPathRoutePlannerProcess() {}
 
-   private:
-};
+        /**
+         * @brief Initialize the Object
+         *
+         * @return true
+         * @return false
+         */
+        bool init() override;
+
+        /**
+         * @brief Update with recent timing data
+         *
+         * @param current_time_sec
+         * @param delta_time_sec
+         * @return true If update executed ok
+         * @return false If update executed with some error
+         */
+        bool update(double current_time_sec, double delta_time_sec) override;
+
+       private:
+    };
 }  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem

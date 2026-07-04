@@ -6,6 +6,7 @@
 #include <BaseDataStorageSystem.hpp>
 #include <DummyDataStorageSystem/DummyDataStorageSystem.hpp>
 #include <IDataStorageSystem.hpp>
+#include <RobotFrameworkDefinitions.hpp>
 // Test message types typically owned by System
 TEST(MsgDataStorage, NewMessages) { ASSERT_TRUE(true); }
 
@@ -15,6 +16,7 @@ class TestConcreteSystemInterface : public IDataStorageSystem {
    public:
 };
 TEST(DataStorageSystemInterface, BasicAssertionsInterface) {
+    ASSERT_GT(fast::rf::DataStorageSystem::SYSTEM_ID, 0);
     TestConcreteSystemInterface SUT;
     ASSERT_TRUE(true);
 }

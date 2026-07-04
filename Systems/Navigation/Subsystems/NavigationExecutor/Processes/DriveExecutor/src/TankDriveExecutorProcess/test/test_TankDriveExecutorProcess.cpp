@@ -12,10 +12,12 @@ using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 
 TEST(TankDriveExecutorProcess, AssertionTests) {
     TankDriveExecutorProcess SUT;
+    ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0, 0.0));
 }
 TEST(TankDriveExecutorProcess, UserInterfaceTests) {
     TankDriveExecutorProcess SUT;
+    ASSERT_TRUE(SUT.init());
     TankDriveChannelConfig left_channel_config(1000.0, 1500.0, 2000.0);
     TankDriveChannelConfig right_channel_config(1000.0, 1500.0, 2000.0);
     SUT.set_config(left_channel_config, right_channel_config);

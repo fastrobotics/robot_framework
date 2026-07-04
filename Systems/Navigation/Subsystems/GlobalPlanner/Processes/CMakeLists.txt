@@ -1,1 +1,4 @@
+add_subdirectory(FreeSpacePlanner)
 add_subdirectory(GlobalPathStorage)
+add_subdirectory(GlobalPathRoutePlanner)
+add_subdirectory(GlobalPlannerManager)
