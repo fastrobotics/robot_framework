@@ -35,12 +35,11 @@ jobs:
         run: |
           pip install gcovr
           gcovr  --exclude 'build/' --exclude '.*test.*' --xml-pretty -o coverage.xml .
-        working-directory: build
       
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: build/coverage.xml
+          filename: coverage.xml
           badge: true
           format: markdown
           hide_branch_rate: false
