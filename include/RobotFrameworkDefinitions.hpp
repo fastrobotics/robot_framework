@@ -18,15 +18,15 @@ namespace fast::rf {
      *
      */
     enum class Level {
-        UNKNOWN = 0,  //!< Unknown Level
-        NOERROR = 1,  //!< No Error
-        DEBUG = 2,    //!< Debug.  Consider removing code that uses this, this is for development purposes.
-        INFO = 3,     //!< Information
-        NOTICE = 4,   //!< Notify user, but nothing to worry about
-        WARN = 5,     //!< Warn user, program is able to still execute
-        ERROR = 6,    //!< Something is wrong, program will terminate
-        FATAL = 7,    //!< Something is seriously wrong, entire application should terminate
-        END_OF_LIST = 8
+        UNKNOWN = 0,     //!< Unknown Level
+        NOERROR = 1,     //!< No Error
+        DEBUG = 2,       //!< Debug.  Consider removing code that uses this, this is for development purposes.
+        INFO = 3,        //!< Information
+        NOTICE = 4,      //!< Notify user, but nothing to worry about
+        WARN = 5,        //!< Warn user, program is able to still execute
+        ERROR = 6,       //!< Something is wrong, program will terminate
+        FATAL = 7,       //!< Something is seriously wrong, entire application should terminate
+        END_OF_LIST = 8  //!< No use typically, Last item of list.  Used for range checks.
     };
     /**
      * @brief Covert level to string
@@ -77,7 +77,7 @@ namespace fast::rf {
             PLANNING = 9,          //!< Diagnostic related to planning
             TIMING = 10,           //!< Diagnostic related to timing
             SYSTEM_RESOURCE = 11,  //!< Diagnostic related to system resource usage
-            END_OF_LIST = 12,      //!< Last item of list.  Used for range checks.
+            END_OF_LIST = 12,      //!< No use typically, Last item of list.  Used for range checks.
         };
         /**
          * @brief Convert DiagnosticType to human readable string
@@ -135,7 +135,7 @@ namespace fast::rf {
             RESOURCE_LEAK = 9,         //!< Resource leakage occurring
             HIGH_RESOURCE_USAGE = 10,  //!< High resource usage
             DIAGNOSTIC_FAILED = 11,    //!< Diagnostic Failed
-            END_OF_LIST = 12,          //!< Last item of list.  Used for range checks.
+            END_OF_LIST = 12,          //!< No use typically, Last item of list.  Used for range checks.
         };
         /**
          * @brief Convert DiagnosticMessage to human readable string

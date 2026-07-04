@@ -21,6 +21,35 @@ TEST(DiagnosticManager, BasicAssertions) {
         ASSERT_NE(diagnostic.description, "");
     }
 }
+TEST(DiagnosticManager, FullDataAssertions) {
+    DiagnosticManager SUT(1, 2, 3);
+    std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
+    for (uint8_t i = 1; i < (uint8_t)fast::rf::DiagnosticDefinition::DiagnosticType::END_OF_LIST; ++i) {
+        diagnostic_types.push_back((fast::rf::DiagnosticDefinition::DiagnosticType)i);
+    }
+
+    ASSERT_TRUE(SUT.initialize_diagnostics(diagnostic_types));
+    ASSERT_TRUE(SUT.is_initialized());
+    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    for (auto diagnostic : SUT.get_diagnostics()) {
+        ASSERT_EQ(diagnostic.systemID, 1);
+        ASSERT_EQ(diagnostic.subsystemID, 2);
+        ASSERT_EQ(diagnostic.processID, 3);
+        ASSERT_NE(diagnostic.diagnosticType, fast::rf::DiagnosticDefinition::DiagnosticType::UNKNOWN);
+        ASSERT_NE(diagnostic.diagnosticType, fast::rf::DiagnosticDefinition::DiagnosticType::END_OF_LIST);
+        ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+        ASSERT_EQ(diagnostic.level, fast::rf::Level::INFO);
+        ASSERT_NE(diagnostic.description, "");
+    }
+    printf("%s\n", SUT.pretty().c_str());
+
+    for (uint8_t i = 1; i < (uint8_t)fast::rf::DiagnosticDefinition::DiagnosticMessage::END_OF_LIST; ++i) {
+        ASSERT_TRUE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                          fast::rf::Level::DEBUG, (fast::rf::DiagnosticDefinition::DiagnosticMessage)i,
+                                          "Testing this..."));
+        printf("%s\n", SUT.pretty().c_str());
+    }
+}
 TEST(DiagnosticManager, ImproperConstruction) {
     {
         DiagnosticManager SUT(0, 1, 2);
