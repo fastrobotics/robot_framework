@@ -1,34 +1,19 @@
-name: SonarQube C++ Analysis with Coverage
-
+name: SonarQube
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
-
+    types: [opened, synchronize, reopened]
 jobs:
-  build_and_scan:
-    name: Build, Test, and Scan
+  build:
+    name: Analyze
     runs-on: ubuntu-latest
-
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper logs will be placed
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          fetch-depth: 0 # Shallow clones must be disabled for a relevance of analysis
-
-      - name: Install System Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake build-essential gcovr
-
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        with:
-          # Optional: projectBaseDir defaults to '.' if left out
-          projectBaseDir: .
+        uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
