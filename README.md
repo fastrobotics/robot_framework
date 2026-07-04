@@ -78,7 +78,13 @@ ctest
 ```bash
 cd <repo>m
 cd build
-gcovr --exclude '_deps/.*' --exclude '.*test.*'  -r .. . --html-details -o ../coverage/coverage.html
+gcovr \
+  --exclude '_deps/.*' \
+  --exclude '.*test.*' \
+  -r .. . \
+  --filter '.*(include|src)/.*\.(hpp|cpp)$' \
+  --html-details \
+  -o ../coverage/coverage.html
 ```
 
 # Templates

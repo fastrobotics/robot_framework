@@ -44,6 +44,8 @@ namespace fast::rf {
                 return "DEBUG";
             case Level::INFO:
                 return "INFO";
+            case Level::NOTICE:
+                return "NOTICE";
             case Level::WARN:
                 return "WARN";
             case Level::ERROR:

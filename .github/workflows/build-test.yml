@@ -34,7 +34,12 @@ jobs:
       - name: Generate Cobertura XML
         run: |
           pip install gcovr
-          gcovr  --exclude 'build/' --exclude '.*test.*' --xml-pretty -o coverage.xml .
+          gcovr \
+            --exclude '_deps/.*' \
+            --exclude '.*test.*' \
+            -r .. . \
+            --filter '.*(include|src)/.*\.(hpp|cpp)$' \
+            --xml --xml-pretty -o coverage.xml
       
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
