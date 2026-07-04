@@ -1,0 +1,3 @@
+add_executable(test_BasicDefinitions test_BasicDefinitions.cpp)
+target_link_libraries(test_BasicDefinitions GTest::gtest_main)
+gtest_discover_tests(test_BasicDefinitions)
