@@ -22,8 +22,9 @@
 [ADR's](doc/ADR/ADR.md)
 
 # ToDo
-- Change diagostics to map
 - Make process check if diagnostics are initialized before allowing to start
+- Update GlobalPathManager
+- Update Process Template
 
 # Code Documentation
 

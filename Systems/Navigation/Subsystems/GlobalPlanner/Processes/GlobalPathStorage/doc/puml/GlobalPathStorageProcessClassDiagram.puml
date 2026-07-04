@@ -2,19 +2,34 @@
 title GlobalPathStorage Process Class Diagram
 
 namespace fast::fr {
+   namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
   namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
   }
   namespace NavigationSystem {
     namespace GlobalPlannerSubsystem {
         interface IGlobalPathStorageProcess  {
+          +{abstract} bool init()
+          +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
         }
         abstract BaseGlobalPathStorageProcess {
+          +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
+          #DiagnosticManager diagnosticManager
 
         }
         BaseGlobalPathStorageProcess -up-|> IGlobalPathStorageProcess
+        BaseGlobalPathStorageProcess --> DiagnosticManager: <<use>>
         class BasicGlobalPathStorageProcess {
+          +bool init()
           +bool update(double current_time_sec, double delta_time_sec)
         }
         BasicGlobalPathStorageProcess -up-|> BaseGlobalPathStorageProcess
