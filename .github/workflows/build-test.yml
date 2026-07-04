@@ -39,7 +39,7 @@ jobs:
             --exclude '.*test.*' \
             -r .. . \
             --filter '.*(include|src)/.*\.(hpp|cpp)$' \
-            --xml-pretty -o coverage.xml .
+            --xml --xml-pretty -o coverage.xml
       
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
