@@ -18,7 +18,6 @@ namespace fast::rf {
      *
      */
     enum class Level {
-
         UNKNOWN = 0,  //!< Unknown Level
         NOERROR = 1,  //!< No Error
         DEBUG = 2,    //!< Debug.  Consider removing code that uses this, this is for development purposes.
