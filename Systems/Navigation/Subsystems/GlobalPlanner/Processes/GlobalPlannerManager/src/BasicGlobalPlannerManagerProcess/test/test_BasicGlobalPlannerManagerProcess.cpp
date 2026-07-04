@@ -14,5 +14,5 @@ TEST(BasicGlobalPlannerManagerProcess, BasicTests) {
 }
 TEST(BasicGlobalPlannerManagerProcess, BasicConversionTests) {
     BasicGlobalPlannerManagerProcess SUT;
-    ASSERT_TRUE(true);
+    ASSERT_TRUE(SUT.init());
 }
