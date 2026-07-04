@@ -19,13 +19,13 @@ namespace fast::rf {
      */
     enum class Level {
         UNKNOWN = 0,  //!< Unknown Level
-        NOERROR = 1,
-        DEBUG = 2,
-        INFO = 3,
-        NOTICE = 4,
-        WARN = 5,
-        ERROR = 6,
-        FATAL = 7,
+        NOERROR = 1,  //!< No Error
+        DEBUG = 2,    //!< Debug.  Consider removing code that uses this, this is for development purposes.
+        INFO = 3,     //!< Information
+        NOTICE = 4,   //!< Notify user, but nothing to worry about
+        WARN = 5,     //!< Warn user, program is able to still execute
+        ERROR = 6,    //!< Something is wrong, program will terminate
+        FATAL = 7,    //!< Something is seriously wrong, entire application should terminate
         END_OF_LIST = 8
     };
     /**
