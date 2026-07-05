@@ -47,6 +47,7 @@ Pre-Requisites:
 1. Clone this repo using:
 ```bash
 git clone --recurse-submodules https://github.com/fastrobotics/robot_framework.git
+git submodule update --remote
 ```
 2. Run the following:
 
