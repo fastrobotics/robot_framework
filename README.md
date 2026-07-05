@@ -44,7 +44,10 @@ Pre-Requisites:
 
 - Ubuntu system running 26.04 LTS
 
-1. Clone this repo.
+1. Clone this repo using:
+```bash
+git clone --recurse-submodules https://github.com/fastrobotics/robot_framework.git
+```
 2. Run the following:
 
 ```bash
