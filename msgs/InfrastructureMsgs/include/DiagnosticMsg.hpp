@@ -28,6 +28,7 @@ namespace fast::rf::messages::InfrastructureMsgs {
 
         std::string description;  //!< Description of the Diagnostic
 
+        DiagnosticMsg() {}
         /**
          * @brief Construct a new Diagnostic Msg object
          *

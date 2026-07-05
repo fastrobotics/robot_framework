@@ -1,17 +1,29 @@
 @startuml
 title Infrastructure Messages Package Diagram
+namespace fast::rf {
+  enum Level
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+    enum DiagnosticMessage
+  }
 
+}
 namespace fast::rf::messages {
   namespace InfrastructureMsgs  {
-    class Diagnostic <<(M,#FFFF00)>> #Orange {
+    class DiagnosticMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
       +uint8_t processID
-      +uint8_t diagnosticType
+      +DiagnosticType diagnosticType
+      +Level level
+      +DiagnosticMessage diagnosticMessage
       +string description
 
 
     }
+    DiagnosticMsg --> Level: <<use>>
+    DiagnosticMsg --> DiagnosticType: <<use>>
+    DiagnosticMsg --> DiagnosticMessage: <<use>>
   }
 }
 @enduml
