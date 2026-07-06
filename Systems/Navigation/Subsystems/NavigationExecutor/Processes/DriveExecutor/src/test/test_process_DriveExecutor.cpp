@@ -23,6 +23,7 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
 
         return empty;
     }
+    std::string pretty() override { return "Test"; }
 
    private:
     TestDriveExecutorOutput* output = new TestDriveExecutorOutput();
