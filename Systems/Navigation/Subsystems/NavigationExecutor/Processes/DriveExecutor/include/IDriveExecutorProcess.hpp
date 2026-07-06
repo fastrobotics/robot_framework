@@ -58,5 +58,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+
+        /**
+         * @brief Pretty print current status of object
+         *
+         * @return std::string
+         */
+        virtual std::string pretty() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

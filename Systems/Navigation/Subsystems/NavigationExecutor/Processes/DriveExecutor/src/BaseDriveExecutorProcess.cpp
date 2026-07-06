@@ -5,4 +5,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         return true;
     }
+    std::string BaseDriveExecutorProcess::pretty() {
+        std::string str = diagnosticManager.pretty();
+        return str;
+    }
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

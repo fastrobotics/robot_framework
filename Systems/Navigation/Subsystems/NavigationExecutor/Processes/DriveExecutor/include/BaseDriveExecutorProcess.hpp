@@ -51,6 +51,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
             return diagnosticManager.get_diagnostics();
         }
 
+        std::string pretty() override;
+
        protected:
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
