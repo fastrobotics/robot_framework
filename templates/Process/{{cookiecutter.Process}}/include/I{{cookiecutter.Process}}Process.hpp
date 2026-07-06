@@ -42,6 +42,13 @@ public:
   virtual bool update(double current_time_sec, double delta_time_sec) = 0;
 
   /**
+   * @brief Pretty print the Process
+   * 
+   * @return std::string 
+   */
+  virtual std::string pretty() = 0;
+
+  /**
          * @brief Get the diagnostic object
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
