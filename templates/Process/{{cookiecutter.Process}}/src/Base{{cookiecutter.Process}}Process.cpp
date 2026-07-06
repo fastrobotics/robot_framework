@@ -1,6 +1,6 @@
 #include <Base{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
-bool Base{{cookiecutter.Process}}Process::base_update(double current_time_sec,
+bool Base{{cookiecutter.Process}}Process::base_update([[maybe_unused]] double current_time_sec,
                                         [[maybe_unused]] double delta_time_sec) {
 
   current_time_sec_ = current_time_sec;

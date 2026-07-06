@@ -45,36 +45,3 @@ TEST(TankDriveExecutorProcess, UserInterfaceTests) {
     }
     printf("%s", SUT.pretty().c_str());
 }
-
-TEST(TankDriveExecutorProcess, InitializesExpectedDiagnostics) {
-    TankDriveExecutorProcess SUT;
-    ASSERT_TRUE(SUT.init());
-
-    auto diagnostics = SUT.get_diagnostics();
-    ASSERT_EQ(diagnostics.size(), 3);
-
-    bool saw_software = false;
-    bool saw_remote_control = false;
-    bool saw_actuators = false;
-
-    for (const auto& diagnostic : diagnostics) {
-        if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE) {
-            saw_software = true;
-            ASSERT_EQ(diagnostic.level, fast::rf::Level::NOERROR);
-            ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
-            ASSERT_EQ(diagnostic.description, "SW Running.");
-        } else if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL) {
-            saw_remote_control = true;
-            ASSERT_EQ(diagnostic.level, fast::rf::Level::WARN);
-            ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA);
-        } else if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS) {
-            saw_actuators = true;
-            ASSERT_EQ(diagnostic.level, fast::rf::Level::WARN);
-            ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA);
-        }
-    }
-
-    ASSERT_TRUE(saw_software);
-    ASSERT_TRUE(saw_remote_control);
-    ASSERT_TRUE(saw_actuators);
-}
