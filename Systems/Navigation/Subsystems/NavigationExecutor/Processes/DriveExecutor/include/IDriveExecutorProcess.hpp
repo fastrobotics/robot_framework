@@ -53,6 +53,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         virtual IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) = 0;
 
         /**
+         * @brief Get the most recent output
+         *
+         * @return IDriveExecutorOutput*
+         */
+        virtual IDriveExecutorOutput* get_output() = 0;
+        /**
          * @brief Get the diagnostic object
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg

@@ -46,6 +46,16 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override;
 
+        /**
+         * @brief Get the latest output
+         *
+         * @return IDriveExecutorOutput*
+         */
+        IDriveExecutorOutput* get_output() override {
+            IDriveExecutorOutput* output = nullptr;
+            return output;
+        }
+
        private:
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
