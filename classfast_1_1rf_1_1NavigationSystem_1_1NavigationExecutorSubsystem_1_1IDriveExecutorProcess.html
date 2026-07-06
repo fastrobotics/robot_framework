@@ -126,9 +126,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e68f22f756da34598a44d8c611a09e0" id="r_a3e68f22f756da34598a44d8c611a09e0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a3e68f22f756da34598a44d8c611a09e0">new_cmd</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">GeometryMsgs::TwistMsg</a> cmd)=0</td></tr>
 <tr class="memdesc:a3e68f22f756da34598a44d8c611a09e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Function for Drive Executor to process.  <br /></td></tr>
 <tr class="separator:a3e68f22f756da34598a44d8c611a09e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b881ce1f818467c118b9735241ae29" id="r_ae5b881ce1f818467c118b9735241ae29"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#ae5b881ce1f818467c118b9735241ae29">get_output</a> ()=0</td></tr>
+<tr class="memdesc:ae5b881ce1f818467c118b9735241ae29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the most recent output.  <br /></td></tr>
+<tr class="separator:ae5b881ce1f818467c118b9735241ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42eae4841b9401df11a248ae068a5f14" id="r_a42eae4841b9401df11a248ae068a5f14"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a42eae4841b9401df11a248ae068a5f14">get_diagnostics</a> ()=0</td></tr>
 <tr class="memdesc:a42eae4841b9401df11a248ae068a5f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the diagnostic object.  <br /></td></tr>
 <tr class="separator:a42eae4841b9401df11a248ae068a5f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365304084b91a4ed4c8a567582c0f1d8" id="r_a365304084b91a4ed4c8a567582c0f1d8"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html#a365304084b91a4ed4c8a567582c0f1d8">pretty</a> ()=0</td></tr>
+<tr class="memdesc:a365304084b91a4ed4c8a567582c0f1d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pretty print current status of object.  <br /></td></tr>
+<tr class="separator:a365304084b91a4ed4c8a567582c0f1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the DriveExecutor Process. </p>
@@ -160,6 +166,36 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html" title="Diagnostic Message Definition.">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html#a8544406eb3c2b4f55163c6db63bd2cef">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseDriveExecutorProcess</a>.</p>
+
+</div>
+</div>
+<a id="ae5b881ce1f818467c118b9735241ae29" name="ae5b881ce1f818467c118b9735241ae29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b881ce1f818467c118b9735241ae29">&#9670;&#160;</a></span>get_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorOutput.html">IDriveExecutorOutput</a> * fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess::get_output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the most recent output. </p>
+<dl class="section return"><dt>Returns</dt><dd>IDriveExecutorOutput* </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html#ade27cfb44db4752e72fc949b5b32c753">fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess</a>, and <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BasicDriveExecutorProcess.html#ac9d0129fad64c9d0931aa2f56479135a">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BasicDriveExecutorProcess</a>.</p>
 
 </div>
 </div>
@@ -232,6 +268,36 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="a365304084b91a4ed4c8a567582c0f1d8" name="a365304084b91a4ed4c8a567582c0f1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a365304084b91a4ed4c8a567582c0f1d8">&#9670;&#160;</a></span>pretty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorProcess::pretty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pretty print current status of object. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1BaseDriveExecutorProcess.html#a68734e494168b2e327e92aaa3b8281b0">fast::rf::NavigationSystem::NavigationExecutorSubsystem::BaseDriveExecutorProcess</a>.</p>
+
+</div>
+</div>
 <a id="a6ae16a81a3d78a494288600b0f5c012a" name="a6ae16a81a3d78a494288600b0f5c012a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ae16a81a3d78a494288600b0f5c012a">&#9670;&#160;</a></span>update()</h2>
 
@@ -291,7 +357,7 @@ false If the process did not update ok </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem.html">NavigationSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem.html">NavigationExecutorSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1IDriveExecutorProcess.html">IDriveExecutorProcess</a></li>
-    <li class="footer">Generated on Sun Jul 5 2026 18:09:21 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Jul 6 2026 21:16:23 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
