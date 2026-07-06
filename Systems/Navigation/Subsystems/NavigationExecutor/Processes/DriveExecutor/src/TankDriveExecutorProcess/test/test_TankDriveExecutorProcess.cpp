@@ -36,5 +36,12 @@ TEST(TankDriveExecutorProcess, UserInterfaceTests) {
         ASSERT_EQ(output->left_drive, 1500.0);
         ASSERT_EQ(output->right_drive, 1500.0);
     }
+    general_output = SUT.get_output();
+    {
+        TankDriveExecutorOutput* output = dynamic_cast<TankDriveExecutorOutput*>(general_output);
+        ASSERT_NE(output, nullptr);
+        ASSERT_EQ(output->left_drive, 1500.0);
+        ASSERT_EQ(output->right_drive, 1500.0);
+    }
     printf("%s", SUT.pretty().c_str());
 }

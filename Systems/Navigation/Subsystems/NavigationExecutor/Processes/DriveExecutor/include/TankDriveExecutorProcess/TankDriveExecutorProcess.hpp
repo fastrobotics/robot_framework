@@ -79,6 +79,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) override;
 
         /**
+         * @brief Get the latest output
+         *
+         * @return IDriveExecutorOutput*
+         */
+        IDriveExecutorOutput* get_output() { return output; }
+        /**
          * @brief Convert a Twist to a Tank Drive Output
          * @param twist The twist data
          * @return The Tank Drive Data
