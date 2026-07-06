@@ -23,8 +23,7 @@
 
 # ToDo
 - Make process check if diagnostics are initialized before allowing to start
-- Update GlobalPathManager
-- Update Process Template
+- Update Template with changes from PR
 
 # Code Documentation
 
