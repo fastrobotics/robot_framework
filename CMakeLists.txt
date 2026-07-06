@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
+add_definitions(-std=c++14 -Wall -Wextra -Wno-switch -Werror)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BUILD_TESTING "Build the test suite" ON)
 set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install)
