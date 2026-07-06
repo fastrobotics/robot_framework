@@ -8,7 +8,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
 
         diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
-                                            fast::rf::Level::INFO,
+                                            fast::rf::Level::NOERROR,
                                             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "SW Running.");
 
         diagnosticManager.update_diagnostic(
@@ -32,6 +32,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         TankDriveData data = convert(cmd);
         output->left_drive = data.left_channel;
         output->right_drive = data.right_channel;
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
         return output;
     }
     TankDriveData TankDriveExecutorProcess::convert(GeometryMsgs::TwistMsg twist) {
