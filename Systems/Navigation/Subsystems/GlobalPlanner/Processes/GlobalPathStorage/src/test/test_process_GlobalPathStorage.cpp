@@ -10,7 +10,9 @@ using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
 class TestGlobalPathStorageProcessInterface : public IGlobalPathStorageProcess {
    public:
     bool init() { return true; }
-    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
+    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+        return false;
+    }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 

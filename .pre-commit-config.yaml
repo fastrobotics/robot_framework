@@ -2,26 +2,26 @@ repos:
   - repo: local
     hooks:
       - id: pre-commit-code-format
-        name: Code Formatting
+        name: Code Formatting for Changed Files
         entry: ./scripts/pre_commit/format_code.sh
         language: script
       
       - id: pre-commit-generate-doxygen
-        name: Generate Doxygen
+        name: Generate Doxygen for All Files
         entry: ./scripts/pre_commit/generate_doxygen.sh
         language: script
 
       - id: pre-commit-plantuml-conversion
-        name: Plantuml Conversion
+        name: Plantuml Conversion for Changed Files
         entry: ./scripts/pre_commit/plantuml_conversion.sh
         language: script
 
       - id: pre-commit-dia-conversion
-        name: Dia Conversion
+        name: Dia Conversion for Changed Files
         entry: ./scripts/pre_commit/dia_conversion.sh
         language: script
 
       - id: pre-commit-markdown-check
-        name: Check Markdown
+        name: Check Markdown for All Files
         entry: ./scripts/pre_commit/check_markdown.sh
         language: script

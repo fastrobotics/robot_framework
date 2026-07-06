@@ -11,7 +11,7 @@ using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsyste
 class Test{{cookiecutter.Process}}ProcessInterface : public I{{cookiecutter.Process}}Process {
 public:
   bool init() { return true; }
-  bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+  bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
     return false;
   }
   std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
@@ -35,7 +35,7 @@ public:
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
   }
-  bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+  bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
     return base_update(current_time_sec, delta_time_sec);
   }
 };

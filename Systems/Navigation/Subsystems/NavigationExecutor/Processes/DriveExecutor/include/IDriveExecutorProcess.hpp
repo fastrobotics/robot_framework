@@ -53,10 +53,23 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         virtual IDriveExecutorOutput* new_cmd(GeometryMsgs::TwistMsg cmd) = 0;
 
         /**
+         * @brief Get the most recent output
+         *
+         * @return IDriveExecutorOutput*
+         */
+        virtual IDriveExecutorOutput* get_output() = 0;
+        /**
          * @brief Get the diagnostic object
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+
+        /**
+         * @brief Pretty print current status of object
+         *
+         * @return std::string
+         */
+        virtual std::string pretty() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

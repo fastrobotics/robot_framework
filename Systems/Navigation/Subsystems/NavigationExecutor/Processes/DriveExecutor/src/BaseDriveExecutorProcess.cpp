@@ -5,4 +5,11 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         return true;
     }
+    std::string BaseDriveExecutorProcess::pretty() {
+        std::string str = "\n---Drive Executor---\n";
+        str += "\tT: " + std::to_string(current_time_sec_) + "\n";
+
+        str += diagnosticManager.pretty();
+        return str;
+    }
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

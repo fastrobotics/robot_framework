@@ -10,8 +10,13 @@ using namespace fast::rf::PoseSystem::GlobalPoseSubsystem;
 class TestGlobalPoseProcessInterface : public IGlobalPoseProcess {
    public:
     uint8_t get_supported_gps_channel_count() { return 0; }
-    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override { return false; }
-    bool new_GlobalPositionSensorMsg(uint8_t index, SensorMsgs::GlobalPositionSensorMsg data) override { return false; }
+    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+        return false;
+    }
+    bool new_GlobalPositionSensorMsg([[maybe_unused]] uint8_t index,
+                                     [[maybe_unused]] SensorMsgs::GlobalPositionSensorMsg data) override {
+        return false;
+    }
     GeometryMsgs::OdomMsg get_GlobalPose() override {
         GeometryMsgs::OdomMsg global_pose;
         return global_pose;
@@ -29,10 +34,11 @@ class TestBaseGlobalPoseProcess : public BaseGlobalPoseProcess {
    public:
     TestBaseGlobalPoseProcess() : BaseGlobalPoseProcess(0) {}
 
-    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
-    bool new_GlobalPositionSensorMsg(uint8_t index, SensorMsgs::GlobalPositionSensorMsg data) override {
+    bool new_GlobalPositionSensorMsg([[maybe_unused]] uint8_t index,
+                                     SensorMsgs::GlobalPositionSensorMsg data) override {
         if (current_time_sec_ < 0) {
             return false;
         }

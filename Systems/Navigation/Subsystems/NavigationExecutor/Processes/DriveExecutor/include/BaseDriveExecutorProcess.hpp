@@ -50,6 +50,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
             return diagnosticManager.get_diagnostics();
         }
+        /**
+         * @brief Pretty print object
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
 
        protected:
         double current_time_sec_{-1.0};  //!< Current system time

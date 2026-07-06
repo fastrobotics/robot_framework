@@ -50,6 +50,13 @@ public:
             return diagnosticManager.get_diagnostics();
         }
 
+        /**
+         * @brief Pretty print the Process
+         * 
+         * @return std::string 
+         */
+    std::string pretty() override;
+
 protected:
   double current_time_sec_{-1.0};    //!< Current system time
   fast::rf::core::infrastructure::DiagnosticManager
