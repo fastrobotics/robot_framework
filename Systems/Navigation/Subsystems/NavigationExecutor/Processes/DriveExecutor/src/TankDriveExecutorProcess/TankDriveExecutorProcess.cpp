@@ -6,6 +6,18 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+
+        diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                            fast::rf::Level::INFO,
+                                            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "SW Running.");
+
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Waiting for R/C Command.");
+
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Waiting for R/C Command.");
         return status;
     }
     bool TankDriveExecutorProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
