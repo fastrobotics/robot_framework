@@ -50,9 +50,6 @@ namespace fast::fr {
         }
         DummyDriveExecutorProcess -up-|> BaseDriveExecutorProcess
         DummyDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
-        class TankDriveExecutorProcessor
-        TankDriveExecutorProcessor -up-|> BaseDriveExecutorProcess
-        TankDriveExecutorProcessor --> IDriveExecutorOutput: <<use>>
     }
   }
 }
