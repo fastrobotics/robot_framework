@@ -19,6 +19,28 @@ TEST(BasicTeleopControlProcess, BasicConversionTests) {
     BasicTeleopControlProcess SUT;
     ASSERT_TRUE(SUT.init());
 }
+TEST(BasicTeleopControlProcess, KeyTestMode) {
+    BasicTeleopControlProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.set_operation_mode(OperationMode::KEY_TEST));
+    auto twist = SUT.get_twist_output();
+    ASSERT_FLOAT_EQ(twist.linear.x, 0.0);
+    ASSERT_FLOAT_EQ(twist.angular.z, 0.0);
+
+    for (uint16_t key = 0; key <= (uint8_t)KeyPressed::END_OF_LIST; ++key) {
+        if ((key == 0) || (key == (uint8_t)KeyPressed::END_OF_LIST)) {  // Never Supported Keys
+            ASSERT_FALSE(SUT.key_pressed((KeyPressed)key));
+        } else if ((key == (uint8_t)KeyPressed::ESC)) {  // Not currently supported
+            ASSERT_FALSE(SUT.key_pressed((KeyPressed)key));
+        } else {
+            printf("key: %d\n", key);
+            ASSERT_TRUE(SUT.key_pressed((KeyPressed)key));
+            twist = SUT.get_twist_output();
+            ASSERT_FLOAT_EQ(twist.linear.x, 0.0);
+            ASSERT_FLOAT_EQ(twist.angular.z, 0.0);
+        }
+    }
+}
 TEST(BasicTeleopControlProcess, DefaultConfigKeyPress) {
     BasicTeleopControlProcess SUT;
     ASSERT_TRUE(SUT.init());

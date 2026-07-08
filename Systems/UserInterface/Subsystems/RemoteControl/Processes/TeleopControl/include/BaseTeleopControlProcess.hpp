@@ -63,11 +63,27 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          */
         std::string pretty() override;
 
+        /**
+         * @brief Set the operation mode object
+         *
+         * @param mode Any operation mode that is not UNKNOWN OR END_OF_LIST is supported.
+         * @return true
+         * @return false
+         */
+        bool set_operation_mode(OperationMode mode) {
+            if ((mode == OperationMode::UNKNOWN) || (mode == OperationMode::END_OF_LIST)) {
+                return false;
+            }
+            operation_mode = mode;
+            return true;
+        }
+
        protected:
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::GeometryMsgs::TwistMsg
-            desired_twist;  //!< Data member representing the most current desired twist
+            desired_twist;                                 //!< Data member representing the most current desired twist
+        OperationMode operation_mode{OperationMode::RUN};  //!< Operation Mode of the process
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

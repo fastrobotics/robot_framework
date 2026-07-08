@@ -19,6 +19,7 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
         return empty;
     }
     bool key_pressed([[maybe_unused]] KeyPressed key) { return false; }
+    bool set_operation_mode([[maybe_unused]] OperationMode mode) { return false; }
     fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() {
         fast::rf::messages::GeometryMsgs::TwistMsg twist;
         return twist;
@@ -56,6 +57,18 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
 TEST(BaseTeleopControlProcess, BasicAssertions) {
     TestBaseTeleopControlProcess SUT;
     ASSERT_TRUE(SUT.init());
+    for (uint8_t mode = 0;
+         mode <= (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST; ++mode) {
+        if ((mode == 0) ||
+            (mode == (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST)) {
+            ASSERT_FALSE(
+                SUT.set_operation_mode((fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode)mode));
+        } else {
+            ASSERT_TRUE(
+                SUT.set_operation_mode((fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode)mode));
+        }
+    }
+    ASSERT_TRUE(SUT.set_operation_mode(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::RUN));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0, 0.0));
     printf("%s\n", SUT.pretty().c_str());

@@ -16,6 +16,16 @@
 
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     /**
+     * @brief Set Operation Mode
+     *
+     */
+    enum class OperationMode {
+        UNKNOWN = 0,     //!< Unknown
+        KEY_TEST = 1,    //!< Test Keyboard Entry.  Will not drive output
+        RUN = 2,         //!< Normal Operation (Default).
+        END_OF_LIST = 3  //!< Not supported, used for range checks
+    };
+    /**
      * @brief Define Key Pressed Enum
      *
      */
@@ -85,5 +95,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          * @return fast::rf::messages::GeometryMsgs::TwistMsg
          */
         virtual fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() = 0;
+
+        /**
+         * @brief Set the operation mode object
+         *
+         * @param mode
+         * @return true
+         * @return false
+         */
+        virtual bool set_operation_mode(OperationMode mode) = 0;
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

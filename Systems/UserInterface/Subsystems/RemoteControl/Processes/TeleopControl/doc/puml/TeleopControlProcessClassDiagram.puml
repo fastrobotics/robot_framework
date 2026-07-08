@@ -25,7 +25,14 @@ namespace fast::fr {
         LEFT_ARROW = 3,
         RIGHT_ARROW = 4,
         SPACE_BAR = 5,
-        ESC = 6
+        ESC = 6,
+        END_OF_LIST = 7
+      }
+      enum OperationMode #Orange {
+        UNKNOWN = 0,
+        KEY_TEST = 1,
+        RUN = 2,
+        END_OF_LIST = 3
       }
       interface ITeleopControlProcess #Orange {
         +{abstract} bool init()
@@ -34,15 +41,19 @@ namespace fast::fr {
         +{abstract} string pretty()
         +{abstract} bool key_pressed(KeyPressed key)
         +{abstract} TwistMsg get_twist_output()
+        +{abstract} bool set_operation_mode(OperationMode mode)
       }
       ITeleopControlProcess --> KeyPressed: <<use>>
+      ITeleopControlProcess --> OperationMode: <<use>>
       abstract BaseTeleopControlProcess #Orange {
         +DiagnosticMsg[] get_diagnostics()
         +bool base_update(double current_time_sec, double delta_time_sec)
+        +bool set_operation_mode(OperationMode mode)
         +string pretty()
         #DiagnosticManager diagnosticManager
         +TwistMsg get_twist_output()
         -TwistMsg desired_twist
+        -OperationMode operation_mode = OperationMode::RUN
 
       }
       BaseTeleopControlProcess -up-|> ITeleopControlProcess
