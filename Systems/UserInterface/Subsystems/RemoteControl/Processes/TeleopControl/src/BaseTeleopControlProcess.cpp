@@ -9,7 +9,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     std::string BaseTeleopControlProcess::pretty() {
         std::string str = "\n---Teleop Control---\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
-
+        str += "\tDesired Twist: " + desired_twist.pretty() + "\n";
         str += diagnosticManager.pretty();
 
         return str;

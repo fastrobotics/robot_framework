@@ -35,6 +35,7 @@ namespace fast::rf::messages {
     struct TwistMsg <<(M,#FFFF00)>> #Orange {
       +Vector3DMsg linear
       +Vector3DMsg angular
+      +string pretty()
     }
     TwistMsg --> Vector3DMsg: <<use>>
 

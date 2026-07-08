@@ -22,10 +22,19 @@ namespace fast::fr {
         abstract BaseTeleopControlProcess
         BaseTeleopControlProcess -up-|> ITeleopControlProcess
         BaseTeleopControlProcess --> DiagnosticManager: <<use>>
-        class BasicTeleopControlProcess #Yellow {
+        class BasicTeleopControlProcess #Orange {
+          +{static} DEFAULT_STEP: double = 10.0
+          +{static} MAX_VALUE: double = 100.0
           +bool init()
+          +bool set_config( double forward_velocity_x_step_change, \n double angular_velocity_z_step_change, \n double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
           +bool update(double current_time_sec, double delta_time_sec)
           +bool key_pressed(KeyPressed key)
+          -double forward_velocity_x_step_change_
+          -double angular_velocity_z_step_change_
+          -double max_forward_x_velocity_
+          -double max_reverse_x_velocity_
+          -double max_angular_z_velocity_
+          -double min_angular_z_velocity_
         }
         BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
     }

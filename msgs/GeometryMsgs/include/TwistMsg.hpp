@@ -15,13 +15,23 @@
 using namespace fast::rf::messages::StandardMsgs;
 namespace fast::rf::messages::GeometryMsgs {
 
-/**
- * @brief Data Structure for encoding Velocity (linear and angular)
- *
- */
-struct TwistMsg {
-    Vector3DMsg linear;   //!< Linear Velocity
-    Vector3DMsg angular;  //!< Angular velocity
-    TwistMsg() {};
-};
+    /**
+     * @brief Data Structure for encoding Velocity (linear and angular)
+     *
+     */
+    struct TwistMsg {
+        Vector3DMsg linear;   //!< Linear Velocity
+        Vector3DMsg angular;  //!< Angular velocity
+        TwistMsg(){};
+
+        /**
+         * @brief Print a human readable version of the data
+         *
+         * @return std::string
+         */
+        std::string pretty() {
+            std::string str = "Lin: " + linear.pretty() + " Ang: " + angular.pretty();
+            return str;
+        }
+    };
 }  // namespace fast::rf::messages::GeometryMsgs

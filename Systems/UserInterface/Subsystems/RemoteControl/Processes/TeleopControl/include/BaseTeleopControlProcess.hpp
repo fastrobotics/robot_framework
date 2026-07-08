@@ -50,6 +50,13 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         }
 
         /**
+         * @brief Get the twist output object
+         *
+         * @return fast::rf::messages::GeometryMsgs::TwistMsg
+         */
+        fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() { return desired_twist; }
+
+        /**
          * @brief Pretty print the Process
          *
          * @return std::string
@@ -60,5 +67,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::GeometryMsgs::TwistMsg
+            desired_twist;  //!< Data member representing the most current desired twist
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

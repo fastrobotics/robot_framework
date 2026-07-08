@@ -1,6 +1,6 @@
 add_library(base_TeleopControlProcess STATIC BaseTeleopControlProcess.cpp)
 target_link_libraries(base_TeleopControlProcess diagnosticManager
-                      infrastructure_msgs)
+                      infrastructure_msgs geometry_msgs)
 add_subdirectory(BasicTeleopControlProcess)
 
 if(BUILD_TESTING)

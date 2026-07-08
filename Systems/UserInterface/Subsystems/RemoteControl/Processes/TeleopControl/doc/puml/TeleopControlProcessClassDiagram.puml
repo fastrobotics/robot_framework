@@ -18,7 +18,7 @@ namespace fast::fr {
   }
   namespace UserInterfaceSystem {
     namespace RemoteControlSubsystem {
-      enum KeyPressed #Yellow {
+      enum KeyPressed #Orange {
         UNKNOWN = 0,
         UP_ARROW = 1,
         DOWN_ARROW = 2,
@@ -27,7 +27,7 @@ namespace fast::fr {
         SPACE_BAR = 5,
         ESC = 6
       }
-      interface ITeleopControlProcess #Yellow {
+      interface ITeleopControlProcess #Orange {
         +{abstract} bool init()
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} bool update(double current_time_sec, double delta_time_sec)
@@ -36,7 +36,7 @@ namespace fast::fr {
         +{abstract} TwistMsg get_twist_output()
       }
       ITeleopControlProcess --> KeyPressed: <<use>>
-      abstract BaseTeleopControlProcess #Yellow {
+      abstract BaseTeleopControlProcess #Orange {
         +DiagnosticMsg[] get_diagnostics()
         +bool base_update(double current_time_sec, double delta_time_sec)
         +string pretty()
