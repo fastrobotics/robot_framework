@@ -32,7 +32,7 @@ Note that at the System level, only some number of interfaces are called out. Th
 | DRAFT  | [Pose](../../Systems/Pose/doc/System-Pose.md)                                      |
 | NEW    | [Safety](../../Systems/Safety/doc/System-Safety.md)                                |
 | NEW    | [Terrain](../../Systems/Terrain/doc/System-Terrain.md)                             |
-| NEW    | [User Interface](../../Systems/UserInterface/doc/System-UserInterface.md)          |
+| DRAFT  | [User Interface](../../Systems/UserInterface/doc/System-UserInterface.md)          |
 
 # Package Diagram
 

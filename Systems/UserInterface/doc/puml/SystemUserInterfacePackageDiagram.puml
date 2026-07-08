@@ -4,18 +4,17 @@ title System-UserInterface Package Diagram
 namespace fast::rf {
   namespace messages  {}
   namespace UserInterfaceSystem {
-    interface IUserInterfaceSystem {
-    }
-    abstract BaseUserInterfaceSystem {
-    }
-    IUserInterfaceSystem <|-- BaseUserInterfaceSystem
-    class BasicUserInterfaceSystem {
+    namespace Tools {
+      class DiagnosticViewer {
 
+      }
+      class SystemViewer {
+
+      }
     }
-    BaseUserInterfaceSystem <|-- BasicUserInterfaceSystem
-    class DummyUserInterfaceSystem  {
-    }
-    BaseUserInterfaceSystem <|-- DummyUserInterfaceSystem
-  }
+    package RemoteControlSubsystem #Yellow {
+
+    } 
+    
 }
 @enduml

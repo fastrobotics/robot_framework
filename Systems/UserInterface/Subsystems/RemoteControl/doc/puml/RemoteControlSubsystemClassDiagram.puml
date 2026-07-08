@@ -1,0 +1,27 @@
+@startuml
+title RemoteControl Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace UserInterfaceSystem {
+    namespace RemoteControlSubsystem {
+      interface IRemoteControlSubsystem {
+
+      }
+      abstract BaseRemoteControlSubsystem {
+
+      }
+      BaseRemoteControlSubsystem -up-|> IRemoteControlSubsystem
+      class BasicRemoteControlSubsystem {
+      }
+      BasicRemoteControlSubsystem -up-|> BaseRemoteControlSubsystem
+      class DummyRemoteControlSubsystem {
+      }
+      DummyRemoteControlSubsystem -up-|> BaseRemoteControlSubsystem
+      package TeleopControlProcess #Yellow {
+
+      }
+    }
+  }
+}
+@enduml
