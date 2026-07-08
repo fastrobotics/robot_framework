@@ -8,6 +8,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     }
     std::string BaseTeleopControlProcess::pretty() {
         std::string str = "\n---Teleop Control---\n";
+        if (operation_mode == OperationMode::RUN) {
+            str += "\nOp Mode: RUN\n";
+        } else if (operation_mode == OperationMode::KEY_TEST) {
+            str += "\nOp Mode: KEY TEST\n";
+
+        } else {
+            str += "\nOp Mode: UNKNOWN\n";
+        }
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tDesired Twist: " + desired_twist.pretty() + "\n";
         str += diagnosticManager.pretty();
