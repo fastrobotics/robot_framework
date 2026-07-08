@@ -26,5 +26,6 @@ var searchData=
   ['fast_3a_3arf_3a_3asafetysystem_23',['SafetySystem',['../namespacefast_1_1rf_1_1SafetySystem.html',1,'fast::rf']]],
   ['fast_3a_3arf_3a_3aterrainsystem_24',['TerrainSystem',['../namespacefast_1_1rf_1_1TerrainSystem.html',1,'fast::rf']]],
   ['fast_3a_3arf_3a_3auserinterfacesystem_25',['UserInterfaceSystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem.html',1,'fast::rf']]],
-  ['fatal_26',['FATAL',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a19da7170bea36556dde582519795f3fc',1,'fast::rf']]]
+  ['fast_3a_3arf_3a_3auserinterfacesystem_3a_3aremotecontrolsubsystem_26',['RemoteControlSubsystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html',1,'fast::rf::UserInterfaceSystem']]],
+  ['fatal_27',['FATAL',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a19da7170bea36556dde582519795f3fc',1,'fast::rf']]]
 ];

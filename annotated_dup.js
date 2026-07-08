@@ -126,6 +126,11 @@ var annotated_dup =
           [ "ITerrainSystem", "classfast_1_1rf_1_1TerrainSystem_1_1ITerrainSystem.html", null ]
         ] ],
         [ "UserInterfaceSystem", "namespacefast_1_1rf_1_1UserInterfaceSystem.html", [
+          [ "RemoteControlSubsystem", "namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html", [
+            [ "BaseTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess" ],
+            [ "BasicTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess" ],
+            [ "ITeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess" ]
+          ] ],
           [ "BaseUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html", null ],
           [ "DummyUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html", null ],
           [ "IUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1IUserInterfaceSystem.html", null ]

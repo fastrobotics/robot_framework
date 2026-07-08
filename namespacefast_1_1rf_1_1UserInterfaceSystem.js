@@ -1,5 +1,6 @@
 var namespacefast_1_1rf_1_1UserInterfaceSystem =
 [
+    [ "RemoteControlSubsystem", "namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html", "namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem" ],
     [ "BaseUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html", null ],
     [ "DummyUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html", null ],
     [ "IUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1IUserInterfaceSystem.html", null ],

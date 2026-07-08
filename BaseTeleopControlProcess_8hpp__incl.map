@@ -1,0 +1,28 @@
+<map id="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/BaseTeleopControlProcess.hpp" name="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/BaseTeleopControlProcess.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="176,5,452,75"/>
+<area shape="rect" id="Node000002" href="$ITeleopControlProcess_8hpp.html" title=" " alt="" coords="5,130,199,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,77,140,127,137,122,242,72"/>
+<area shape="rect" id="Node000004" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="180,284,411,309"/>
+<area shape="poly" id="edge16_Node000001_Node000004" title=" " alt="" coords="454,70,488,86,514,106,523,119,528,132,528,147,523,164,510,187,493,208,451,241,405,266,359,283,358,278,402,261,449,237,489,204,506,184,518,162,523,147,522,133,518,121,510,110,485,90,451,74"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="240,211,303,236"/>
+<area shape="poly" id="edge17_Node000001_Node000007" title=" " alt="" coords="288,76,274,99,263,123,260,161,266,197,261,197,255,162,258,122,269,96,284,73"/>
+<area shape="rect" id="Node000008" href="$DiagnosticManager_8hpp.html" title=" " alt="" coords="273,123,509,163"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="342,74,370,110,366,113,338,77"/>
+<area shape="rect" id="Node000003" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="18,211,165,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,156,97,197,92,196,98,155"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="118,153,271,273,268,277,115,157"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="128,153,236,203,233,207,126,158"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="125,234,250,277,249,282,123,239"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="262,357,329,383"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="102,235,129,270,169,307,209,332,250,350,248,355,207,336,166,311,125,273,97,238"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="121,357,179,383"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="98,235,126,308,141,344,136,346,121,310,93,237"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="298,310,298,344,293,344,293,310"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="273,312,187,354,185,349,271,307"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="320,165,149,210,148,205,319,160"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="381,165,312,274,308,271,377,162"/>
+<area shape="poly" id="edge13_Node000008_Node000005" title=" " alt="" coords="413,161,430,183,443,210,445,239,438,271,424,311,406,328,386,342,343,360,341,355,383,337,403,324,420,308,433,270,440,238,438,211,425,186,409,165"/>
+<area shape="poly" id="edge15_Node000008_Node000007" title=" " alt="" coords="364,165,302,205,299,201,361,161"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="378,211,429,236"/>
+<area shape="poly" id="edge14_Node000008_Node000009" title=" " alt="" coords="397,162,402,197,397,198,392,163"/>
+</map>

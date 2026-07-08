@@ -1,0 +1,7 @@
+<map id="fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess" name="fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess">
+<area shape="rect" id="Node000001" title="Base TeleopControl Process." alt="" coords="392,41,601,96"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html" title="Interface for the TeleopControl Process." alt="" coords="5,5,215,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,41,392,56,391,62,228,46"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="12,85,208,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,92,391,76,392,81,222,97"/>
+</map>

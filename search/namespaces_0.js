@@ -24,5 +24,6 @@ var searchData=
   ['fast_3a_3arf_3a_3aposesystem_3a_3aglobalposesubsystem_21',['GlobalPoseSubsystem',['../namespacefast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem.html',1,'fast::rf::PoseSystem']]],
   ['fast_3a_3arf_3a_3asafetysystem_22',['SafetySystem',['../namespacefast_1_1rf_1_1SafetySystem.html',1,'fast::rf']]],
   ['fast_3a_3arf_3a_3aterrainsystem_23',['TerrainSystem',['../namespacefast_1_1rf_1_1TerrainSystem.html',1,'fast::rf']]],
-  ['fast_3a_3arf_3a_3auserinterfacesystem_24',['UserInterfaceSystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem.html',1,'fast::rf']]]
+  ['fast_3a_3arf_3a_3auserinterfacesystem_24',['UserInterfaceSystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem.html',1,'fast::rf']]],
+  ['fast_3a_3arf_3a_3auserinterfacesystem_3a_3aremotecontrolsubsystem_25',['RemoteControlSubsystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html',1,'fast::rf::UserInterfaceSystem']]]
 ];

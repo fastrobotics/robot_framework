@@ -89,6 +89,11 @@ var hierarchy =
         [ "fast::rf::SafetySystem::DummySafetySystem", "classfast_1_1rf_1_1SafetySystem_1_1DummySafetySystem.html", null ]
       ] ]
     ] ],
+    [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html", [
+      [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html", [
+        [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BasicTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html", null ]
+      ] ]
+    ] ],
     [ "fast::rf::TerrainSystem::ITerrainSystem", "classfast_1_1rf_1_1TerrainSystem_1_1ITerrainSystem.html", [
       [ "fast::rf::TerrainSystem::BaseTerrainSystem", "classfast_1_1rf_1_1TerrainSystem_1_1BaseTerrainSystem.html", [
         [ "fast::rf::TerrainSystem::DummyTerrainSystem", "classfast_1_1rf_1_1TerrainSystem_1_1DummyTerrainSystem.html", null ]
