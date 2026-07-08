@@ -1,7 +1,7 @@
 @startuml
 title Global Pose Process Class Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace messages {
     namespace SensorMsgs {
       class GlobalPositionSensorMsg <<(M,#FFFF00)>>

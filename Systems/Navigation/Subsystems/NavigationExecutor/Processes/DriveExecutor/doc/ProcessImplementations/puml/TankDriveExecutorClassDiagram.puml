@@ -1,7 +1,7 @@
 @startuml
 title Tank Drive Executor Process Class Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace messages {
     namespace GeometryMsgs {
       class TwistWithCovarianceMsg <<(M,#FFFF00)>>

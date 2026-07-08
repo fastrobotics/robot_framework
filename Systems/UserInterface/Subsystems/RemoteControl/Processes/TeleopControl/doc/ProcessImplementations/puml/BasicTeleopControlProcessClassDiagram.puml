@@ -1,7 +1,7 @@
 @startuml
 title Basic Teleop Process Control Class Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace DiagnosticDefinition {
     enum DiagnosticType
   }
