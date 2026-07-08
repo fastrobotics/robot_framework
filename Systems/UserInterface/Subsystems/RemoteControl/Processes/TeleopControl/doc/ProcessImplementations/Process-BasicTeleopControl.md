@@ -17,6 +17,8 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
+  - [Artifacts Provides](#artifacts-provides)
+  - [Integration Steps](#integration-steps)
 - [Validation](#validation)
 
 # Process Implementation: TeleopControl
@@ -90,5 +92,14 @@ When a Key Event is pressed, the process will compute an updated TwistCmd to fit
 ![](puml/BasicTeleopControlProcessClassDiagram.png)
 
 # Usage Instructions
+
+## Artifacts Provides
+The following artifacts are provided:
+| Artifact                     | Description                                      |
+| ---------------------------- | ------------------------------------------------ |
+| `basic_TeleopControlProcess` | General Library that provides this functionality |
+
+
+## Integration Steps
 
 # Validation

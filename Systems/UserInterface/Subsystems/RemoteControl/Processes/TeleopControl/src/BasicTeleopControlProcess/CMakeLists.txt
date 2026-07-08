@@ -1,6 +1,7 @@
 add_library(basic_TeleopControlProcess STATIC BasicTeleopControlProcess.cpp)
 target_link_libraries(basic_TeleopControlProcess base_TeleopControlProcess)
-
+target_include_directories(basic_TeleopControlProcess
+                           PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 if(BUILD_TESTING)
 
   add_executable(test_basic_TeleopControlProcess
