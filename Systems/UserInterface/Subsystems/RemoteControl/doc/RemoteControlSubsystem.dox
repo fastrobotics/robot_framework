@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+ * @brief The RemoteControl Subsystem for the Robot Framework
+ */

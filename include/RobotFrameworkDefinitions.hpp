@@ -255,5 +255,9 @@ namespace fast::rf {
     }
     namespace UserInterfaceSystem {
         constexpr uint8_t SYSTEM_ID = 12;  //!< Unique ID for the User Interface System
-    }
+        namespace RemoteControlSubsystem {
+            constexpr uint8_t SUBSYSTEM_ID = 1;              //!< Unique ID for the Remote Control Subsystem
+            constexpr uint8_t PROCESS_TELEOPCONTROL_ID = 1;  //!< Unique ID for Teleop Control Process
+        }                                                    // namespace RemoteControlSubsystem
+    }                                                        // namespace UserInterfaceSystem
 }  // namespace fast::rf

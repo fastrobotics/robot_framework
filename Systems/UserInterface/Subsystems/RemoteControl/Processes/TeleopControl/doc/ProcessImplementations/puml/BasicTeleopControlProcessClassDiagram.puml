@@ -1,0 +1,34 @@
+@startuml
+title Basic Teleop Process Control Class Diagram
+
+namespace fast::fr {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace GeometryMsgs {
+      class TwistMsg <<(M,#FFFF00)>>
+    }
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  namespace UserInterfaceSystem {
+    namespace RemoteControlSubsystem {
+        interface ITeleopControlProcess
+        abstract BaseTeleopControlProcess
+        BaseTeleopControlProcess -up-|> ITeleopControlProcess
+        BaseTeleopControlProcess --> DiagnosticManager: <<use>>
+        class BasicTeleopControlProcess #Yellow {
+          +bool init()
+          +bool update(double current_time_sec, double delta_time_sec)
+          +bool key_pressed(KeyPressed key)
+        }
+        BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
+    }
+  }
+}
+@enduml

@@ -29,7 +29,9 @@
 
 ## Purpose
 
-The UserInterface System's role in the Robot Framework is to ???.
+The UserInterface System's role in the Robot Framework is to provide an interface to allow User control of the Robot.
+
+In general, the UserInterface System is different in context than other Systems that run onboard the Robot.  They provide either packages that a user selectively runs at their discretion, and also content that is deployed on a robot that interfaces to a user.
 
 ## General Requirements
 
@@ -57,7 +59,6 @@ Ideas:
 - System Viewer
 - Audio/Microphone
 - Video Display
-- Remote Control
 
 ## Detailed Documentation
 
@@ -66,8 +67,9 @@ Ideas:
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| --- | --- | --- |
+| State | Subsystem                                                                   | Purpose                                          |
+| ----- | --------------------------------------------------------------------------- | ------------------------------------------------ |
+| DRAFT | [RemoteControl](../Subsystems/RemoteControl/doc/Subsystem-RemoteControl.md) | Provides SW to support Remote Control operations |
 
 ## Package Diagram
 
