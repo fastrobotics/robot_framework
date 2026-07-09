@@ -66,6 +66,7 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
         } else {
             ASSERT_TRUE(
                 SUT.set_operation_mode((fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode)mode));
+            printf("%s\n", SUT.pretty().c_str());
         }
     }
     ASSERT_TRUE(SUT.set_operation_mode(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::RUN));

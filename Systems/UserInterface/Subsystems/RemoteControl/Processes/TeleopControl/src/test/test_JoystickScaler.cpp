@@ -17,7 +17,7 @@ TEST(JoystickScaler, InterfaceTestsThrustmasterJoystick) {
     auto scaled_joy = SUT.new_joy(joy);
     ASSERT_EQ(scaled_joy.axes.size(), 3);
 
-    ASSERT_FLOAT_EQ(scaled_joy.axes[0], -100.0);
-    ASSERT_FLOAT_EQ(scaled_joy.axes[1], 100.0);
-    ASSERT_FLOAT_EQ(scaled_joy.axes[2], -100.0);
+    ASSERT_FLOAT_EQ(scaled_joy.axes[0], -1.0 * JoystickScaler::AXIS_MAX_VALUE);
+    ASSERT_FLOAT_EQ(scaled_joy.axes[1], JoystickScaler::AXIS_MAX_VALUE);
+    ASSERT_FLOAT_EQ(scaled_joy.axes[2], -1.0 * JoystickScaler::AXIS_MAX_VALUE);
 }

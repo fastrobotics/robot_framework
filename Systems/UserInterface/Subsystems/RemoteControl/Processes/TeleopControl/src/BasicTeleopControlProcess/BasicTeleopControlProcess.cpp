@@ -25,9 +25,21 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         if (status == false) {
             return false;
         }
+        status = diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                                     fast::rf::Level::NOERROR,
+                                                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Ok");
+        if (status == false) {
+            return false;
+        }
         return true;
     }
     bool BasicTeleopControlProcess::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
+        bool status = diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Joystick Data");
+        if (status == false) {
+            return false;
+        }
         auto mapped_joy = mapper.new_joy(joy);
         auto scaled_joy = scaler.new_joy(mapped_joy);
         auto new_twist = twist_computer.new_joy(scaled_joy);

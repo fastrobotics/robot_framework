@@ -21,7 +21,7 @@ namespace fast::rf {
   }
   namespace UserInterfaceSystem {
     namespace RemoteControlSubsystem {
-      enum OperationMode #Orange {
+      enum OperationMode #LimeGreen {
         UNKNOWN = 0,
         JOY_TEST = 1,
         RUN = 2,
@@ -32,7 +32,7 @@ namespace fast::rf {
         THRUSTMASTER_JOYSTICK = 1,
         END_OF_LIST = 2
       }
-      interface ITeleopControlProcess #Orange {
+      interface ITeleopControlProcess #LimeGreen {
         +{abstract} bool init(ControlDevice device)
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} bool update(double current_time_sec, double delta_time_sec)
@@ -64,7 +64,7 @@ namespace fast::rf {
       note bottom of JoystickScaler
         Pass-Thru
       end note
-      abstract BaseTeleopControlProcess #Orange {
+      abstract BaseTeleopControlProcess #LimeGreen {
         +DiagnosticMsg[] get_diagnostics()
         +bool base_update(double current_time_sec, double delta_time_sec)
         +bool set_operation_mode(OperationMode mode)

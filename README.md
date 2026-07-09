@@ -22,8 +22,6 @@
 [ADR's](doc/ADR/ADR.md)
 
 # ToDo
-- Make more obvious limitations to new classes (JoystickMapper, JoystickScaler, TwistComputer)
-- Check doxygen
 
 # Code Documentation
 

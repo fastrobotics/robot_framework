@@ -18,6 +18,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
      */
     class JoystickScaler {
        public:
+        static constexpr double AXIS_MAX_VALUE = 100.0;  //!< The Max value of the Axis
         /**
          * @brief Initialize the object
          *

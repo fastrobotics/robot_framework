@@ -16,7 +16,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         out_joy.axes.resize(joy.axes.size());
         if (control_device == ControlDevice::THRUSTMASTER_JOYSTICK) {
             for (std::size_t i = 0; i < joy.axes.size(); ++i) {
-                out_joy.axes[i] = 100.0 * joy.axes[i];
+                out_joy.axes[i] = AXIS_MAX_VALUE * joy.axes[i];
+                if (out_joy.axes[i] > AXIS_MAX_VALUE) {
+                    out_joy.axes[i] = AXIS_MAX_VALUE;
+                } else if (out_joy.axes[i] < (-1.0 * AXIS_MAX_VALUE)) {
+                    out_joy.axes[i] = -1.0 * AXIS_MAX_VALUE;
+                }
             }
         }
         return out_joy;
