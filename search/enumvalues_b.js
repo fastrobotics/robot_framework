@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['sensors_0',['SENSORS',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5a3f9d1c3652820e6c9716f628c6f0b5af',1,'fast::rf::DiagnosticDefinition']]],
-  ['software_1',['SOFTWARE',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5aaea541d7f9574587656dc5125116e548',1,'fast::rf::DiagnosticDefinition']]],
-  ['starting_2',['starting',['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1a034312d8adc8099c1c6f53aaff745e26',1,'fast::rf::messages::NavMsgs::STARTING'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5a034312d8adc8099c1c6f53aaff745e26',1,'fast::rf::messages::NavMsgs::STARTING']]],
-  ['system_5fresource_3',['SYSTEM_RESOURCE',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5ab91820d6a1a09b8da30c5cff64ec61d6',1,'fast::rf::DiagnosticDefinition']]]
+  ['remote_5fcontrol_0',['REMOTE_CONTROL',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5abf93a2711fd75b37341df61a2325eb87',1,'fast::rf::DiagnosticDefinition']]],
+  ['resource_5fleak_1',['RESOURCE_LEAK',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baa135cd5542a6b22f701aa0889b9a46995',1,'fast::rf::DiagnosticDefinition']]],
+  ['run_2',['RUN',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816a855520d2a5b0b1a64b939e7e30889e2a',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]]
 ];

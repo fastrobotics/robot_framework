@@ -91,32 +91,49 @@ $(document).ready(function(){initNavTree('ITeleopControlProcess_8hpp.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">ITeleopControlProcess.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="DiagnosticMsg_8hpp_source.html">DiagnosticMsg.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="JoyMsg_8hpp_source.html">JoyMsg.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="RobotFrameworkDefinitions_8hpp_source.html">RobotFrameworkDefinitions.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="TwistMsg_8hpp_source.html">TwistMsg.hpp</a>&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ITeleopControlProcess.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ITeleopControlProcess_8hpp__incl.png" border="0" usemap="#aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hpp" alt=""/></div>
 <map name="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hpp" id="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hpp">
-<area shape="rect" title=" " alt="" coords="76,5,324,75"/>
-<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="5,123,152,148"/>
-<area shape="poly" title=" " alt="" coords="158,77,107,116,103,112,155,73"/>
-<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="95,196,326,221"/>
-<area shape="poly" title=" " alt="" coords="205,75,212,182,206,183,199,75"/>
-<area shape="rect" title=" " alt="" coords="238,123,301,148"/>
-<area shape="poly" title=" " alt="" coords="227,73,255,110,250,113,223,76"/>
-<area shape="poly" title=" " alt="" coords="101,146,178,187,176,192,99,150"/>
-<area shape="rect" title=" " alt="" coords="32,269,99,295"/>
-<area shape="poly" title=" " alt="" coords="70,150,54,171,41,197,39,212,41,228,53,257,48,259,36,229,34,212,36,195,49,168,66,147"/>
-<area shape="rect" title=" " alt="" coords="152,269,211,295"/>
-<area shape="poly" title=" " alt="" coords="79,148,76,182,78,202,85,220,109,246,140,264,138,269,106,250,80,223,73,203,70,183,73,148"/>
-<area shape="poly" title=" " alt="" coords="188,224,102,266,100,261,186,219"/>
-<area shape="poly" title=" " alt="" coords="208,223,194,258,189,256,203,221"/>
+<area shape="rect" title=" " alt="" coords="248,5,496,75"/>
+<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="49,123,196,148"/>
+<area shape="poly" title=" " alt="" coords="283,77,167,120,165,115,281,72"/>
+<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="68,196,299,221"/>
+<area shape="poly" title=" " alt="" coords="336,77,209,189,205,185,332,73"/>
+<area shape="rect" href="JoyMsg_8hpp.html" title=" " alt="" coords="323,196,420,221"/>
+<area shape="poly" title=" " alt="" coords="374,75,374,182,369,182,369,75"/>
+<area shape="rect" title=" " alt="" coords="559,269,622,295"/>
+<area shape="poly" title=" " alt="" coords="497,53,533,63,570,77,605,96,635,121,655,144,667,168,668,193,660,222,644,245,624,263,620,259,640,242,655,220,663,193,662,169,651,147,631,125,602,101,568,82,532,68,495,58"/>
+<area shape="rect" href="TwistMsg_8hpp.html" title=" " alt="" coords="510,123,620,148"/>
+<area shape="poly" title=" " alt="" coords="443,72,530,114,528,119,440,77"/>
+<area shape="poly" title=" " alt="" coords="135,147,167,184,163,187,131,150"/>
+<area shape="rect" title=" " alt="" coords="201,269,268,295"/>
+<area shape="poly" title=" " alt="" coords="85,151,53,163,25,180,15,189,9,199,9,209,14,220,25,229,41,238,86,253,188,272,187,277,85,258,39,243,22,233,10,223,3,210,4,197,11,186,22,176,51,159,83,146"/>
+<area shape="rect" title=" " alt="" coords="342,269,401,295"/>
+<area shape="poly" title=" " alt="" coords="104,150,82,165,63,183,53,202,53,211,58,219,91,230,164,244,329,271,328,277,163,249,90,235,54,223,48,212,48,201,59,180,79,161,101,146"/>
+<area shape="poly" title=" " alt="" coords="194,220,220,257,216,260,190,223"/>
+<area shape="poly" title=" " alt="" coords="215,219,331,262,329,267,213,224"/>
+<area shape="poly" title=" " alt="" coords="351,224,270,265,268,261,349,219"/>
+<area shape="poly" title=" " alt="" coords="374,222,374,256,369,256,369,222"/>
+<area shape="poly" title=" " alt="" coords="408,219,547,264,545,269,406,224"/>
+<area shape="poly" title=" " alt="" coords="577,147,598,182,602,203,595,223,583,234,565,243,518,258,415,278,414,273,517,253,563,238,580,229,591,220,597,203,593,184,573,150"/>
+<area shape="poly" title=" " alt="" coords="589,146,617,166,640,195,643,213,638,231,617,261,613,258,634,229,638,213,635,197,613,170,586,150"/>
+<area shape="rect" href="Vector3DMsg_8hpp.html" title=" " alt="" coords="445,196,581,221"/>
+<area shape="poly" title=" " alt="" coords="559,150,532,186,528,183,554,147"/>
+<area shape="poly" title=" " alt="" coords="469,224,282,271,281,266,468,219"/>
+<area shape="poly" title=" " alt="" coords="492,224,408,265,406,261,489,219"/>
+<area shape="poly" title=" " alt="" coords="527,219,569,258,566,262,524,223"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -125,10 +142,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="ITeleopControlProcess_8hpp__dep__incl.png" border="0" usemap="#aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hppdep" alt=""/></div>
 <map name="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hppdep" id="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2ITeleopControlProcess_8hppdep">
 <area shape="rect" title=" " alt="" coords="19,5,267,75"/>
-<area shape="rect" href="BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,123,281,192"/>
+<area shape="rect" href="BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,240,281,309"/>
+<area shape="poly" title=" " alt="" coords="64,85,45,103,30,124,22,142,19,157,22,173,30,191,49,217,75,238,71,242,45,221,25,193,17,174,14,157,17,140,25,121,41,99,60,81"/>
+<area shape="rect" href="JoystickMapper_8hpp.html" title=" " alt="" coords="40,123,247,192"/>
 <area shape="poly" title=" " alt="" coords="146,89,146,122,141,122,141,89"/>
-<area shape="rect" href="BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="18,240,269,324"/>
-<area shape="poly" title=" " alt="" coords="146,205,146,240,141,240,141,205"/>
+<area shape="rect" href="JoystickScaler_8hpp.html" title=" " alt="" coords="271,123,477,192"/>
+<area shape="poly" title=" " alt="" coords="224,79,308,120,305,125,222,83"/>
+<area shape="rect" href="BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="18,357,269,441"/>
+<area shape="poly" title=" " alt="" coords="146,323,146,357,141,357,141,323"/>
+<area shape="poly" title=" " alt="" coords="146,206,146,240,141,240,141,206"/>
+<area shape="poly" title=" " alt="" coords="296,201,212,242,210,237,293,196"/>
 </map>
 </div>
 </div>
@@ -154,6 +177,22 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem" id="r_namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html">fast::rf::UserInterfaceSystem::RemoteControlSubsystem</a></td></tr>
 <tr class="memdesc:namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">The RemoteControl Subsystem for the Robot Framework. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a75b280101c7713f5db71426f96c0534f" id="r_a75b280101c7713f5db71426f96c0534f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534f">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ControlDevice</a> { <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534fa696b031073e74bf2cb98e5ef201d4aa3">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::UNKNOWN</a> = 0
+, <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534fa64f6a9e6e350c89933f75600777dd0c6">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::THRUSTMASTER_JOYSTICK</a> = 1
+, <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534fac2b0b4a580050a88a759ac7c20ce853c">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::END_OF_LIST</a> = 2
+ }</td></tr>
+<tr class="memdesc:a75b280101c7713f5db71426f96c0534f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum defining what Control Devices are supported.  <a href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534f">More...</a><br /></td></tr>
+<tr class="separator:a75b280101c7713f5db71426f96c0534f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab18fe5dfa263083da9e75dc0e20c816" id="r_aab18fe5dfa263083da9e75dc0e20c816"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode</a> { <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816a696b031073e74bf2cb98e5ef201d4aa3">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::UNKNOWN</a> = 0
+, <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816a66e444f4a53ba266fc2c762f6add3a1a">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::JOY_TEST</a> = 1
+, <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816a855520d2a5b0b1a64b939e7e30889e2a">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::RUN</a> = 2
+, <a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816ac2b0b4a580050a88a759ac7c20ce853c">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::END_OF_LIST</a> = 3
+ }</td></tr>
+<tr class="memdesc:aab18fe5dfa263083da9e75dc0e20c816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Operation Mode.  <a href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816">More...</a><br /></td></tr>
+<tr class="separator:aab18fe5dfa263083da9e75dc0e20c816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Gitz (<a href="#" onclick="location.href='mai'+'lto:'+'dav'+'id'+'git'+'z@'+'gma'+'il'+'.co'+'m'; return false;">david<span class="obfuscator">.nosp@m.</span>gitz<span class="obfuscator">.nosp@m.</span>@gmai<span class="obfuscator">.nosp@m.</span>l.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
@@ -166,7 +205,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5ef85acd675d452a88be64b3c3117dbd.html">Systems</a></li><li class="navelem"><a class="el" href="dir_563cd8feaea76c3de18d5e547548d76e.html">UserInterface</a></li><li class="navelem"><a class="el" href="dir_b684de018d8707e02d9817f7404c63a5.html">Subsystems</a></li><li class="navelem"><a class="el" href="dir_380250eb84d1f6c6606bced224eb26de.html">RemoteControl</a></li><li class="navelem"><a class="el" href="dir_e8995442b77f0403479ce9568496e865.html">Processes</a></li><li class="navelem"><a class="el" href="dir_214953e55f593af5ef2f81017f65290f.html">TeleopControl</a></li><li class="navelem"><a class="el" href="dir_d2b951856641e63041c61e297446e276.html">include</a></li><li class="navelem"><a class="el" href="ITeleopControlProcess_8hpp.html">ITeleopControlProcess.hpp</a></li>
-    <li class="footer">Generated on Wed Jul 8 2026 09:28:07 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

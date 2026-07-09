@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['unknown_0',['unknown',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a696b031073e74bf2cb98e5ef201d4aa3',1,'fast::rf::UNKNOWN'],['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5a696b031073e74bf2cb98e5ef201d4aa3',1,'fast::rf::DiagnosticDefinition::UNKNOWN'],['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baa696b031073e74bf2cb98e5ef201d4aa3',1,'fast::rf::DiagnosticDefinition::UNKNOWN'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1a696b031073e74bf2cb98e5ef201d4aa3',1,'fast::rf::messages::NavMsgs::UNKNOWN'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5a696b031073e74bf2cb98e5ef201d4aa3',1,'fast::rf::messages::NavMsgs::UNKNOWN']]],
-  ['unknown_5ferror_1',['UNKNOWN_ERROR',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baa9a10f345b0f755d461a8673a5e9ef6b4',1,'fast::rf::DiagnosticDefinition']]],
-  ['unknown_5ftype_2',['UNKNOWN_TYPE',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5a7280a7d8974164a48d863dee5e341f27',1,'fast::rf::DiagnosticDefinition']]]
+  ['thrustmaster_5fjoystick_0',['THRUSTMASTER_JOYSTICK',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534fa64f6a9e6e350c89933f75600777dd0c6',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
+  ['timing_1',['TIMING',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5a8f9e1889c89e42901ab7c0a033a3347c',1,'fast::rf::DiagnosticDefinition']]]
 ];

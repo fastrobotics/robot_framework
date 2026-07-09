@@ -97,6 +97,8 @@ $(document).ready(function(){initNavTree('BaseTeleopControlProcess_8hpp.html',''
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="ITeleopControlProcess_8hpp_source.html">ITeleopControlProcess.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="DiagnosticManager_8hpp_source.html">Infrastructure/DiagnosticManager/DiagnosticManager.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="JoystickMapper_8hpp_source.html">JoystickMapper.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="JoystickScaler_8hpp_source.html">JoystickScaler.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="RobotFrameworkDefinitions_8hpp_source.html">RobotFrameworkDefinitions.hpp</a>&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -104,32 +106,54 @@ Include dependency graph for BaseTeleopControlProcess.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="BaseTeleopControlProcess_8hpp__incl.png" border="0" usemap="#aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BaseTeleopControlProcess_8hpp" alt=""/></div>
 <map name="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BaseTeleopControlProcess_8hpp" id="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BaseTeleopControlProcess_8hpp">
-<area shape="rect" title=" " alt="" coords="176,5,452,75"/>
-<area shape="rect" href="ITeleopControlProcess_8hpp.html" title=" " alt="" coords="5,130,199,155"/>
-<area shape="poly" title=" " alt="" coords="244,77,140,127,137,122,242,72"/>
-<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="180,284,411,309"/>
-<area shape="poly" title=" " alt="" coords="454,70,488,86,514,106,523,119,528,132,528,147,523,164,510,187,493,208,451,241,405,266,359,283,358,278,402,261,449,237,489,204,506,184,518,162,523,147,522,133,518,121,510,110,485,90,451,74"/>
-<area shape="rect" title=" " alt="" coords="240,211,303,236"/>
-<area shape="poly" title=" " alt="" coords="288,76,274,99,263,123,260,161,266,197,261,197,255,162,258,122,269,96,284,73"/>
-<area shape="rect" href="DiagnosticManager_8hpp.html" title=" " alt="" coords="273,123,509,163"/>
-<area shape="poly" title=" " alt="" coords="342,74,370,110,366,113,338,77"/>
-<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="18,211,165,236"/>
-<area shape="poly" title=" " alt="" coords="103,156,97,197,92,196,98,155"/>
-<area shape="poly" title=" " alt="" coords="118,153,271,273,268,277,115,157"/>
-<area shape="poly" title=" " alt="" coords="128,153,236,203,233,207,126,158"/>
-<area shape="poly" title=" " alt="" coords="125,234,250,277,249,282,123,239"/>
-<area shape="rect" title=" " alt="" coords="262,357,329,383"/>
-<area shape="poly" title=" " alt="" coords="102,235,129,270,169,307,209,332,250,350,248,355,207,336,166,311,125,273,97,238"/>
-<area shape="rect" title=" " alt="" coords="121,357,179,383"/>
-<area shape="poly" title=" " alt="" coords="98,235,126,308,141,344,136,346,121,310,93,237"/>
-<area shape="poly" title=" " alt="" coords="298,310,298,344,293,344,293,310"/>
-<area shape="poly" title=" " alt="" coords="273,312,187,354,185,349,271,307"/>
-<area shape="poly" title=" " alt="" coords="320,165,149,210,148,205,319,160"/>
-<area shape="poly" title=" " alt="" coords="381,165,312,274,308,271,377,162"/>
-<area shape="poly" title=" " alt="" coords="413,161,430,183,443,210,445,239,438,271,424,311,406,328,386,342,343,360,341,355,383,337,403,324,420,308,433,270,440,238,438,211,425,186,409,165"/>
-<area shape="poly" title=" " alt="" coords="364,165,302,205,299,201,361,161"/>
-<area shape="rect" title=" " alt="" coords="378,211,429,236"/>
-<area shape="poly" title=" " alt="" coords="397,162,402,197,397,198,392,163"/>
+<area shape="rect" title=" " alt="" coords="479,5,755,75"/>
+<area shape="rect" href="ITeleopControlProcess_8hpp.html" title=" " alt="" coords="556,203,749,229"/>
+<area shape="poly" title=" " alt="" coords="600,76,589,111,589,129,592,147,608,172,628,193,624,196,603,175,588,149,583,130,584,110,595,74"/>
+<area shape="rect" href="RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="89,357,320,383"/>
+<area shape="poly" title=" " alt="" coords="566,77,435,167,359,225,285,286,225,348,221,345,282,282,355,221,432,163,563,73"/>
+<area shape="rect" title=" " alt="" coords="732,431,795,456"/>
+<area shape="poly" title=" " alt="" coords="755,51,831,70,868,84,902,101,931,122,954,148,969,179,974,214,974,298,969,327,957,351,938,373,914,391,860,418,809,435,807,430,858,413,911,386,934,369,952,348,964,325,969,298,969,215,964,180,949,151,927,126,899,105,866,89,830,75,754,57"/>
+<area shape="rect" href="DiagnosticManager_8hpp.html" title=" " alt="" coords="5,196,241,236"/>
+<area shape="poly" title=" " alt="" coords="479,63,370,88,314,105,260,125,205,156,157,190,154,185,202,151,258,120,312,99,369,82,478,58"/>
+<area shape="rect" href="JoystickMapper_8hpp.html" title=" " alt="" coords="766,123,915,148"/>
+<area shape="poly" title=" " alt="" coords="699,72,801,115,799,120,697,77"/>
+<area shape="rect" href="JoystickScaler_8hpp.html" title=" " alt="" coords="601,123,741,148"/>
+<area shape="poly" title=" " alt="" coords="639,73,660,109,655,112,634,76"/>
+<area shape="rect" href="DiagnosticMsg_8hpp.html" title=" " alt="" coords="346,284,493,309"/>
+<area shape="poly" title=" " alt="" coords="620,231,467,282,465,277,618,226"/>
+<area shape="poly" title=" " alt="" coords="556,231,448,251,390,267,335,286,277,317,231,351,227,347,275,313,333,282,389,262,447,246,555,225"/>
+<area shape="rect" href="JoyMsg_8hpp.html" title=" " alt="" coords="759,357,856,383"/>
+<area shape="poly" title=" " alt="" coords="671,227,703,251,739,282,793,344,789,348,735,286,700,255,667,231"/>
+<area shape="poly" title=" " alt="" coords="691,226,736,244,787,271,835,308,855,331,871,356,875,369,874,381,860,401,836,418,809,430,807,425,834,413,856,397,869,379,870,369,866,358,851,334,831,312,784,275,734,249,689,231"/>
+<area shape="rect" href="TwistMsg_8hpp.html" title=" " alt="" coords="565,284,676,309"/>
+<area shape="poly" title=" " alt="" coords="650,230,633,272,628,270,645,228"/>
+<area shape="poly" title=" " alt="" coords="386,312,253,355,252,350,384,307"/>
+<area shape="rect" title=" " alt="" coords="325,431,391,456"/>
+<area shape="poly" title=" " alt="" coords="416,311,392,358,369,419,364,417,388,356,411,308"/>
+<area shape="rect" title=" " alt="" coords="485,431,543,456"/>
+<area shape="poly" title=" " alt="" coords="421,309,424,343,428,363,436,381,456,404,480,422,477,426,452,408,432,384,423,365,418,344,416,310"/>
+<area shape="poly" title=" " alt="" coords="230,380,322,422,320,427,228,385"/>
+<area shape="poly" title=" " alt="" coords="255,380,472,430,471,435,254,385"/>
+<area shape="poly" title=" " alt="" coords="759,382,405,437,405,432,758,376"/>
+<area shape="poly" title=" " alt="" coords="761,385,557,434,556,429,760,380"/>
+<area shape="poly" title=" " alt="" coords="802,384,780,420,775,418,798,382"/>
+<area shape="poly" title=" " alt="" coords="622,310,614,345,596,384,574,408,550,426,546,421,571,404,592,381,609,343,617,309"/>
+<area shape="poly" title=" " alt="" coords="634,308,704,381,743,419,739,423,700,385,630,311"/>
+<area shape="rect" href="Vector3DMsg_8hpp.html" title=" " alt="" coords="446,357,582,383"/>
+<area shape="poly" title=" " alt="" coords="605,312,544,352,541,347,602,307"/>
+<area shape="poly" title=" " alt="" coords="490,385,397,427,395,422,488,380"/>
+<area shape="poly" title=" " alt="" coords="517,383,517,417,511,417,511,383"/>
+<area shape="poly" title=" " alt="" coords="555,380,719,427,718,432,553,385"/>
+<area shape="poly" title=" " alt="" coords="195,233,364,278,362,283,194,239"/>
+<area shape="poly" title=" " alt="" coords="137,235,163,283,195,344,190,346,158,285,132,238"/>
+<area shape="poly" title=" " alt="" coords="110,238,90,268,72,306,67,326,66,346,69,364,79,381,93,393,116,403,178,420,248,430,311,436,311,442,248,436,177,425,114,408,91,397,75,384,64,366,60,346,62,325,67,305,86,266,106,235"/>
+<area shape="poly" title=" " alt="" coords="242,215,363,220,494,231,611,251,656,265,690,282,709,305,728,341,757,416,753,418,723,343,705,308,687,286,654,269,609,256,493,236,363,225,242,221"/>
+<area shape="rect" title=" " alt="" coords="98,284,149,309"/>
+<area shape="poly" title=" " alt="" coords="126,236,126,270,121,270,121,236"/>
+<area shape="poly" title=" " alt="" coords="814,150,694,201,692,196,812,146"/>
+<area shape="poly" title=" " alt="" coords="845,148,850,217,848,263,841,310,825,347,820,344,835,309,843,263,844,217,840,148"/>
+<area shape="poly" title=" " alt="" coords="671,149,661,191,656,189,666,148"/>
+<area shape="poly" title=" " alt="" coords="700,146,734,165,764,194,785,232,798,273,809,343,804,344,793,274,780,234,760,198,731,170,698,150"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -177,7 +201,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5ef85acd675d452a88be64b3c3117dbd.html">Systems</a></li><li class="navelem"><a class="el" href="dir_563cd8feaea76c3de18d5e547548d76e.html">UserInterface</a></li><li class="navelem"><a class="el" href="dir_b684de018d8707e02d9817f7404c63a5.html">Subsystems</a></li><li class="navelem"><a class="el" href="dir_380250eb84d1f6c6606bced224eb26de.html">RemoteControl</a></li><li class="navelem"><a class="el" href="dir_e8995442b77f0403479ce9568496e865.html">Processes</a></li><li class="navelem"><a class="el" href="dir_214953e55f593af5ef2f81017f65290f.html">TeleopControl</a></li><li class="navelem"><a class="el" href="dir_d2b951856641e63041c61e297446e276.html">include</a></li><li class="navelem"><a class="el" href="BaseTeleopControlProcess_8hpp.html">BaseTeleopControlProcess.hpp</a></li>
-    <li class="footer">Generated on Wed Jul 8 2026 09:28:07 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

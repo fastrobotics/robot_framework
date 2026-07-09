@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html" title="Interface for the TeleopControl Process." alt="" coords="5,5,215,60"/>
-<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html" title="Base TeleopControl Process." alt="" coords="263,5,472,60"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="228,30,263,30,263,35,228,35"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html" title="Minimal Implementation for a TeleopControl Process." alt="" coords="520,5,729,60"/>
-<area shape="poly" id="edge42_Node000001_Node000002" title=" " alt="" coords="486,30,520,30,520,35,486,35"/>
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1IUserInterfaceSystem.html" title="Interface for the UserInterface System." alt="" coords="5,5,215,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html" title="Base Class for the UserInterface System." alt="" coords="263,5,472,45"/>
+<area shape="poly" id="edge39_Node000000_Node000001" title=" " alt="" coords="228,23,263,23,263,28,228,28"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html" title="Dummy UserInterface System." alt="" coords="520,5,739,45"/>
+<area shape="poly" id="edge40_Node000001_Node000002" title=" " alt="" coords="486,23,520,23,520,28,486,28"/>
 </map>

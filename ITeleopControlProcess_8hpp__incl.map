@@ -1,16 +1,30 @@
 <map id="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/ITeleopControlProcess.hpp" name="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/ITeleopControlProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="76,5,324,75"/>
-<area shape="rect" id="Node000002" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="5,123,152,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,77,107,116,103,112,155,73"/>
-<area shape="rect" id="Node000003" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="95,196,326,221"/>
-<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="205,75,212,182,206,183,199,75"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="238,123,301,148"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="227,73,255,110,250,113,223,76"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,146,178,187,176,192,99,150"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="32,269,99,295"/>
-<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="70,150,54,171,41,197,39,212,41,228,53,257,48,259,36,229,34,212,36,195,49,168,66,147"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="152,269,211,295"/>
-<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="79,148,76,182,78,202,85,220,109,246,140,264,138,269,106,250,80,223,73,203,70,183,73,148"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="188,224,102,266,100,261,186,219"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="208,223,194,258,189,256,203,221"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="248,5,496,75"/>
+<area shape="rect" id="Node000002" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="49,123,196,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,77,167,120,165,115,281,72"/>
+<area shape="rect" id="Node000003" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="68,196,299,221"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="336,77,209,189,205,185,332,73"/>
+<area shape="rect" id="Node000006" href="$JoyMsg_8hpp.html" title=" " alt="" coords="323,196,420,221"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="374,75,374,182,369,182,369,75"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="559,269,622,295"/>
+<area shape="poly" id="edge19_Node000001_Node000007" title=" " alt="" coords="497,53,533,63,570,77,605,96,635,121,655,144,667,168,668,193,660,222,644,245,624,263,620,259,640,242,655,220,663,193,662,169,651,147,631,125,602,101,568,82,532,68,495,58"/>
+<area shape="rect" id="Node000008" href="$TwistMsg_8hpp.html" title=" " alt="" coords="510,123,620,148"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="443,72,530,114,528,119,440,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="135,147,167,184,163,187,131,150"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="201,269,268,295"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="85,151,53,163,25,180,15,189,9,199,9,209,14,220,25,229,41,238,86,253,188,272,187,277,85,258,39,243,22,233,10,223,3,210,4,197,11,186,22,176,51,159,83,146"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="342,269,401,295"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="104,150,82,165,63,183,53,202,53,211,58,219,91,230,164,244,329,271,328,277,163,249,90,235,54,223,48,212,48,201,59,180,79,161,101,146"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,220,220,257,216,260,190,223"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="215,219,331,262,329,267,213,224"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="351,224,270,265,268,261,349,219"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="374,222,374,256,369,256,369,222"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="408,219,547,264,545,269,406,224"/>
+<area shape="poly" id="edge17_Node000008_Node000005" title=" " alt="" coords="577,147,598,182,602,203,595,223,583,234,565,243,518,258,415,278,414,273,517,253,563,238,580,229,591,220,597,203,593,184,573,150"/>
+<area shape="poly" id="edge18_Node000008_Node000007" title=" " alt="" coords="589,146,617,166,640,195,643,213,638,231,617,261,613,258,634,229,638,213,635,197,613,170,586,150"/>
+<area shape="rect" id="Node000009" href="$Vector3DMsg_8hpp.html" title=" " alt="" coords="445,196,581,221"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="559,150,532,186,528,183,554,147"/>
+<area shape="poly" id="edge14_Node000009_Node000004" title=" " alt="" coords="469,224,282,271,281,266,468,219"/>
+<area shape="poly" id="edge15_Node000009_Node000005" title=" " alt="" coords="492,224,408,265,406,261,489,219"/>
+<area shape="poly" id="edge16_Node000009_Node000007" title=" " alt="" coords="527,219,569,258,566,262,524,223"/>
 </map>

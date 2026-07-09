@@ -115,9 +115,9 @@ Inheritance diagram for fast::rf::UserInterfaceSystem::RemoteControlSubsystem::I
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a34a9912c39125f4129278d6537b673e1" id="r_a34a9912c39125f4129278d6537b673e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a34a9912c39125f4129278d6537b673e1">init</a> ()=0</td></tr>
-<tr class="memdesc:a34a9912c39125f4129278d6537b673e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the object.  <br /></td></tr>
-<tr class="separator:a34a9912c39125f4129278d6537b673e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ba24d9d8765ce609e4663d461609d4" id="r_a00ba24d9d8765ce609e4663d461609d4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a00ba24d9d8765ce609e4663d461609d4">init</a> (<a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534f">ControlDevice</a> device)=0</td></tr>
+<tr class="memdesc:a00ba24d9d8765ce609e4663d461609d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the object.  <br /></td></tr>
+<tr class="separator:a00ba24d9d8765ce609e4663d461609d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4759dbe240c63668aa540dc8af8527c7" id="r_a4759dbe240c63668aa540dc8af8527c7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a4759dbe240c63668aa540dc8af8527c7">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
 <tr class="memdesc:a4759dbe240c63668aa540dc8af8527c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
 <tr class="separator:a4759dbe240c63668aa540dc8af8527c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +127,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a44476d57c50b4371536fe8897ec827" id="r_a3a44476d57c50b4371536fe8897ec827"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html">fast::rf::messages::InfrastructureMsgs::DiagnosticMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a3a44476d57c50b4371536fe8897ec827">get_diagnostics</a> ()=0</td></tr>
 <tr class="memdesc:a3a44476d57c50b4371536fe8897ec827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the diagnostic object.  <br /></td></tr>
 <tr class="separator:a3a44476d57c50b4371536fe8897ec827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16095cf611110021975c5696fc41763" id="r_ae16095cf611110021975c5696fc41763"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#ae16095cf611110021975c5696fc41763">new_joy</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html">fast::rf::messages::SensorMsgs::JoyMsg</a> joy)=0</td></tr>
+<tr class="memdesc:ae16095cf611110021975c5696fc41763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a Joystick Message.  <br /></td></tr>
+<tr class="separator:ae16095cf611110021975c5696fc41763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7802ea16670eabef0e26e45bf5176284" id="r_a7802ea16670eabef0e26e45bf5176284"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">fast::rf::messages::GeometryMsgs::TwistMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a7802ea16670eabef0e26e45bf5176284">get_twist_output</a> ()=0</td></tr>
+<tr class="memdesc:a7802ea16670eabef0e26e45bf5176284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the twist output object.  <br /></td></tr>
+<tr class="separator:a7802ea16670eabef0e26e45bf5176284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e45419ab34343a52c20a478b697890" id="r_a17e45419ab34343a52c20a478b697890"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html#a17e45419ab34343a52c20a478b697890">set_operation_mode</a> (<a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816">OperationMode</a> mode)=0</td></tr>
+<tr class="memdesc:a17e45419ab34343a52c20a478b697890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the operation mode object.  <br /></td></tr>
+<tr class="separator:a17e45419ab34343a52c20a478b697890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the TeleopControl Process. </p>
@@ -161,8 +170,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a34a9912c39125f4129278d6537b673e1" name="a34a9912c39125f4129278d6537b673e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34a9912c39125f4129278d6537b673e1">&#9670;&#160;</a></span>init()</h2>
+<a id="a7802ea16670eabef0e26e45bf5176284" name="a7802ea16670eabef0e26e45bf5176284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7802ea16670eabef0e26e45bf5176284">&#9670;&#160;</a></span>get_twist_output()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +180,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess::init </td>
+          <td class="memname">virtual <a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html">fast::rf::messages::GeometryMsgs::TwistMsg</a> fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess::get_twist_output </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -184,12 +193,88 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get the twist output object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html" title="Data Structure for encoding Velocity (linear and angular)">fast::rf::messages::GeometryMsgs::TwistMsg</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html#a79145cd21422d5c66758037e63f10358">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess</a>.</p>
+
+</div>
+</div>
+<a id="a00ba24d9d8765ce609e4663d461609d4" name="a00ba24d9d8765ce609e4663d461609d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00ba24d9d8765ce609e4663d461609d4">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess::init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534f">ControlDevice</a>&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p>Initialize the object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>The Controller Device </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>true </dd>
 <dd>
 false </dd></dl>
 
-<p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html#a7438ef06e61d67e22e9112099dedc740">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BasicTeleopControlProcess</a>.</p>
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html#a7f2511a0f7fc6f2009bf88894c3cc53b">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BasicTeleopControlProcess</a>.</p>
+
+</div>
+</div>
+<a id="ae16095cf611110021975c5696fc41763" name="ae16095cf611110021975c5696fc41763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16095cf611110021975c5696fc41763">&#9670;&#160;</a></span>new_joy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess::new_joy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html">fast::rf::messages::SensorMsgs::JoyMsg</a>&#160;</td>
+          <td class="paramname"><em>joy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Process a Joystick Message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joy</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html#a99a2c79592f8697aff1989236e443729">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BasicTeleopControlProcess</a>.</p>
 
 </div>
 </div>
@@ -220,6 +305,45 @@ false </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 <p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html#a28a85b6eb24856c9fda23a6c8e51453e">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess</a>.</p>
+
+</div>
+</div>
+<a id="a17e45419ab34343a52c20a478b697890" name="a17e45419ab34343a52c20a478b697890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e45419ab34343a52c20a478b697890">&#9670;&#160;</a></span>set_operation_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool fast::rf::UserInterfaceSystem::RemoteControlSubsystem::ITeleopControlProcess::set_operation_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816">OperationMode</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the operation mode object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html#a205bc1933a39fe0904129c14b0a427c8">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::BaseTeleopControlProcess</a>.</p>
 
 </div>
 </div>
@@ -282,7 +406,7 @@ false If the process did not update ok </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem.html">UserInterfaceSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html">RemoteControlSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html">ITeleopControlProcess</a></li>
-    <li class="footer">Generated on Wed Jul 8 2026 09:28:07 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

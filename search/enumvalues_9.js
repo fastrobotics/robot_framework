@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['planning_0',['planning',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5abf71c229d973f999f1a0db6c0ddd294e',1,'fast::rf::DiagnosticDefinition::PLANNING'],['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5abf71c229d973f999f1a0db6c0ddd294e',1,'fast::rf::messages::NavMsgs::PLANNING']]],
-  ['pose_1',['POSE',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5ac04482f786dfe8f6d66d78ab6f79c40d',1,'fast::rf::DiagnosticDefinition']]]
+  ['nodata_0',['NODATA',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baae5c1b61d3810e29aebbc8fba3978d362',1,'fast::rf::DiagnosticDefinition']]],
+  ['noerror_1',['noerror',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a2b7a5d9c6a3ccad249c1bb7ecc93a6ed',1,'fast::rf::NOERROR'],['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baa2b7a5d9c6a3ccad249c1bb7ecc93a6ed',1,'fast::rf::DiagnosticDefinition::NOERROR']]],
+  ['notice_2',['NOTICE',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29aaa14599dc3fdfa9cc81a7c3c247b77b9',1,'fast::rf']]]
 ];

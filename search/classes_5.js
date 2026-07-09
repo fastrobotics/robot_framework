@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['objectmsg_0',['ObjectMsg',['../structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html',1,'fast::rf::messages::AwarenessMsgs']]],
-  ['odommsg_1',['OdomMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['orientationmsg_2',['OrientationMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html',1,'fast::rf::messages::GeometryMsgs']]]
+  ['joymsg_0',['JoyMsg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html',1,'fast::rf::messages::SensorMsgs']]],
+  ['joystickmapper_1',['JoystickMapper',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickMapper.html',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
+  ['joystickscaler_2',['JoystickScaler',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickScaler.html',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]]
 ];

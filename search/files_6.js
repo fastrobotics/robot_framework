@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pointmsg_2ehpp_0',['PointMsg.hpp',['../PointMsg_8hpp.html',1,'']]],
-  ['posemsg_2ehpp_1',['PoseMsg.hpp',['../PoseMsg_8hpp.html',1,'']]],
-  ['posewithcovariancemsg_2ehpp_2',['PoseWithCovarianceMsg.hpp',['../PoseWithCovarianceMsg_8hpp.html',1,'']]]
+  ['objectmsg_2ehpp_0',['ObjectMsg.hpp',['../ObjectMsg_8hpp.html',1,'']]],
+  ['odommsg_2ehpp_1',['OdomMsg.hpp',['../OdomMsg_8hpp.html',1,'']]],
+  ['orientationmsg_2ehpp_2',['OrientationMsg.hpp',['../OrientationMsg_8hpp.html',1,'']]]
 ];

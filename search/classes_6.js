@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pointmsg_0',['PointMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['posemsg_1',['PoseMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
-  ['posewithcovariancemsg_2',['PoseWithCovarianceMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseWithCovarianceMsg.html',1,'fast::rf::messages::GeometryMsgs']]]
+  ['objectmsg_0',['ObjectMsg',['../structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html',1,'fast::rf::messages::AwarenessMsgs']]],
+  ['odommsg_1',['OdomMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html',1,'fast::rf::messages::GeometryMsgs']]],
+  ['orientationmsg_2',['OrientationMsg',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html',1,'fast::rf::messages::GeometryMsgs']]]
 ];

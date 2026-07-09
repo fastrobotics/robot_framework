@@ -52,7 +52,8 @@ var annotated_dup =
             [ "TrajectoryCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg.html", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg" ]
           ] ],
           [ "SensorMsgs", "namespacefast_1_1rf_1_1messages_1_1SensorMsgs.html", [
-            [ "GlobalPositionSensorMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg" ]
+            [ "GlobalPositionSensorMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg" ],
+            [ "JoyMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg" ]
           ] ],
           [ "StandardMsgs", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs.html", [
             [ "Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg" ],
@@ -129,7 +130,10 @@ var annotated_dup =
           [ "RemoteControlSubsystem", "namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html", [
             [ "BaseTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BaseTeleopControlProcess" ],
             [ "BasicTeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1BasicTeleopControlProcess" ],
-            [ "ITeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess" ]
+            [ "ITeleopControlProcess", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1ITeleopControlProcess" ],
+            [ "JoystickMapper", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickMapper.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickMapper" ],
+            [ "JoystickScaler", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickScaler.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickScaler" ],
+            [ "TwistComputer", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TwistComputer.html", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TwistComputer" ]
           ] ],
           [ "BaseUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html", null ],
           [ "DummyUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html", null ],

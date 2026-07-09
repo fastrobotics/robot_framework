@@ -114,6 +114,9 @@ var hierarchy =
         [ "fast::rf::UserInterfaceSystem::DummyUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html", null ]
       ] ]
     ] ],
+    [ "fast::rf::messages::SensorMsgs::JoyMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html", null ],
+    [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::JoystickMapper", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickMapper.html", null ],
+    [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::JoystickScaler", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickScaler.html", null ],
     [ "fast::rf::messages::AwarenessMsgs::ObjectMsg", "structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OdomMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OrientationMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html", null ],
@@ -123,6 +126,7 @@ var hierarchy =
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveChannelConfig", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveChannelConfig.html", null ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveData", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html", null ],
     [ "fast::rf::messages::NavMsgs::TrajectoryCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg.html", null ],
+    [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TwistComputer", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TwistComputer.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html", null ],
     [ "fast::rf::messages::StandardMsgs::Vector3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html", null ]

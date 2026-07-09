@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1NavigationSystem_1_1INavigationSystem.html" title="Interface for the Navigation System." alt="" coords="5,5,197,45"/>
-<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1NavigationSystem_1_1BaseNavigationSystem.html" title="Base Class for the Navigation System." alt="" coords="245,5,437,45"/>
-<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="211,23,245,23,245,28,211,28"/>
-<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html" title="Dummy Navigation System." alt="" coords="485,5,688,45"/>
-<area shape="poly" id="edge20_Node000001_Node000002" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html" title="Interface for the GlobalPlannerManager Process." alt="" coords="5,5,237,60"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess.html" title="Base GlobalPlannerManager Process." alt="" coords="285,5,545,60"/>
+<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="251,30,285,30,285,35,251,35"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPlannerManagerProcess.html" title="Minimal Implementation for a GlobalPlannerManager Process." alt="" coords="593,5,856,60"/>
+<area shape="poly" id="edge18_Node000001_Node000002" title=" " alt="" coords="559,30,593,30,593,35,559,35"/>
 </map>

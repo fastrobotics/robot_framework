@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['latitude_5fdeg_0',['latitude_deg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a62af393f8ed89e54ee2732db33c89265',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]],
-  ['left_5fchannel_1',['left_channel',['../structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveData.html#a62278f0a59bff83ee142be8efa86aada',1,'fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveData']]],
-  ['left_5fdrive_2',['left_drive',['../structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorOutput.html#aeb5c6cf3c94fc361a1c501c5f09ba8b3',1,'fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorOutput']]],
-  ['level_3',['level',['../structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html#ad2634faec33859cd66b6eabded3cd5ad',1,'fast::rf::messages::InfrastructureMsgs::DiagnosticMsg::level'],['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29',1,'fast::rf::Level']]],
-  ['linear_4',['linear',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html#ae32da1b88acac120ce399bfdf6d56177',1,'fast::rf::messages::GeometryMsgs::TwistMsg']]],
-  ['local_5fpose_5f_5',['local_pose_',['../classfast_1_1rf_1_1PoseSystem_1_1BasePoseSystem.html#ac93bf4bb385c9649125518ac3c8d98e4',1,'fast::rf::PoseSystem::BasePoseSystem']]],
-  ['longitude_5fdeg_6',['longitude_deg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#afa0d69656b54b35a6f025367f34f0949',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg']]]
+  ['joy_5ftest_0',['JOY_TEST',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816a66e444f4a53ba266fc2c762f6add3a1a',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
+  ['joymsg_1',['JoyMsg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html',1,'fast::rf::messages::SensorMsgs']]],
+  ['joymsg_2ehpp_2',['JoyMsg.hpp',['../JoyMsg_8hpp.html',1,'']]],
+  ['joystickmapper_3',['JoystickMapper',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickMapper.html',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
+  ['joystickmapper_2ehpp_4',['JoystickMapper.hpp',['../JoystickMapper_8hpp.html',1,'']]],
+  ['joystickscaler_5',['JoystickScaler',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1JoystickScaler.html',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
+  ['joystickscaler_2ehpp_6',['JoystickScaler.hpp',['../JoystickScaler_8hpp.html',1,'']]]
 ];

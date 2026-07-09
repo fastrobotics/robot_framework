@@ -1,7 +1,9 @@
 <map id="msgs/StandardMsgs/include/Vector3DMsg.hpp" name="msgs/StandardMsgs/include/Vector3DMsg.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,209,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="30,93,97,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,47,79,83,74,80,94,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="121,93,184,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,44,141,80,137,83,116,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,5,227,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,72,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,48,64,86,60,82,103,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,93,155,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,46,128,79,123,79,123,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="179,93,242,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,44,190,82,186,86,144,48"/>
 </map>
