@@ -22,6 +22,9 @@ TEST(BasicTeleopControlProcess, JoyTestMode) {
     BasicTeleopControlProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.set_operation_mode(OperationMode::JOY_TEST));
+    fast::rf::messages::SensorMsgs::JoyMsg joy;
+    joy.axes.resize(3);
+    EXPECT_TRUE(SUT.new_joy(joy));
     auto twist = SUT.get_twist_output();
     ASSERT_FLOAT_EQ(twist.linear.x, 0.0);
     ASSERT_FLOAT_EQ(twist.angular.z, 0.0);

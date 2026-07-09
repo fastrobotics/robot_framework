@@ -19,10 +19,19 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     bool BasicTeleopControlProcess::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
         auto mapped_joy = mapper.new_joy(joy);
         auto scaled_joy = scaler.new_joy(mapped_joy);
+        auto new_twist = twist_computer.new_joy(scaled_joy);
         if (operation_mode == OperationMode::JOY_TEST) {
             printf("Joy Test Mode\n");
+            printf("\nInput\n");
+            printf("%s\n", joy.pretty().c_str());
+            printf("\nMapped\n");
+            printf("%s\n", mapped_joy.pretty().c_str());
+            printf("\nScaled\n");
+            printf("%s\n", scaled_joy.pretty().c_str());
+            printf("\nTwist:\n");
+            printf("%s\n", new_twist.pretty().c_str());
         } else if (operation_mode == OperationMode::RUN) {
-            desired_twist = twist_computer.new_joy(scaled_joy);
+            desired_twist = new_twist;
         } else {
             return false;
         }
