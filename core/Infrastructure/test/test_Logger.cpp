@@ -27,7 +27,7 @@ TEST(Logger, NegativeAssertions) {
     ASSERT_EQ(Logger::log_debug("An Error Message that won't get printed"), Logger::LoggerStatus::FAILED_TO_OPEN);
 }
 TEST(Logger, LoggerLevelChecks) {
-    // ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger"));
+    ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger"));
     ASSERT_EQ(Logger::log_debug("A Test Debug Message"), Logger::LoggerStatus::LOG_WRITTEN);
     ASSERT_EQ(Logger::log_info("A Test Info Message"), Logger::LoggerStatus::LOG_WRITTEN);
     ASSERT_EQ(Logger::log_notice("A Test Notice Message"), Logger::LoggerStatus::LOG_WRITTEN);
