@@ -10,6 +10,6 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         out_joy.axes[0] = joy.axes[0];  // X-Axis
         out_joy.axes[1] = joy.axes[1];  // Y-Axis
         out_joy.axes[2] = joy.axes[2];  // Throttle
-        return joy;
+        return out_joy;
     }
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
