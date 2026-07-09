@@ -18,7 +18,7 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
 
         return empty;
     }
-    bool key_pressed([[maybe_unused]] KeyPressed key) { return false; }
+    bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
     bool set_operation_mode([[maybe_unused]] OperationMode mode) { return false; }
     fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() {
         fast::rf::messages::GeometryMsgs::TwistMsg twist;
@@ -31,7 +31,7 @@ TEST(TestTeleopControlProcessInterface, InterfaceTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0, 0.0));
-    ASSERT_FALSE(SUT.key_pressed(KeyPressed::UNKNOWN));
+    ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
     auto twist = SUT.get_twist_output();
     ASSERT_FLOAT_EQ(twist.linear.x, 0.0);
     ASSERT_FLOAT_EQ(twist.linear.y, 0.0);
@@ -52,7 +52,7 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
     bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
-    bool key_pressed([[maybe_unused]] KeyPressed key) { return false; }
+    bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
     TestBaseTeleopControlProcess SUT;
@@ -72,5 +72,5 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0, 0.0));
     printf("%s\n", SUT.pretty().c_str());
-    ASSERT_FALSE(SUT.key_pressed(KeyPressed::ESC));
+    ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
 }

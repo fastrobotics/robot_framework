@@ -6,6 +6,9 @@ namespace fast::rf {
     enum DiagnosticType
   }
   namespace messages {
+    namespace SensorMsgs {
+      class JoyMsg <<(M,#FFFF00)>>
+    }
     namespace GeometryMsgs {
       class TwistMsg <<(M,#FFFF00)>>
     }
@@ -22,21 +25,29 @@ namespace fast::rf {
         abstract BaseTeleopControlProcess
         BaseTeleopControlProcess -up-|> ITeleopControlProcess
         BaseTeleopControlProcess --> DiagnosticManager: <<use>>
-        class BasicTeleopControlProcess #Orange {
-          +{static} DEFAULT_STEP: double = 10.0
+        class TwistComputer #Pink {
           +{static} MAX_VALUE: double = 100.0
-          +bool init()
-          +bool set_config( double forward_velocity_x_step_change, \n double angular_velocity_z_step_change, \n double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
-          +bool update(double current_time_sec, double delta_time_sec)
-          +bool key_pressed(KeyPressed key)
-          -double forward_velocity_x_step_change_
-          -double angular_velocity_z_step_change_
+          +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
+          +TwistMsg new_joy(JoyMsg joy)
           -double max_forward_x_velocity_
           -double max_reverse_x_velocity_
           -double max_angular_z_velocity_
           -double min_angular_z_velocity_
         }
+        note bottom of TwistComputer
+          Just takes the Axis values of the input Joystick and assigns a twist
+        end note
+        class BasicTeleopControlProcess #Orange {
+          
+          +bool init()
+          +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
+          +bool update(double current_time_sec, double delta_time_sec)
+          +bool new_joy(JoyMsg joy)
+          -TwistComputer twist_computer
+
+        }
         BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
+        BasicTeleopControlProcess --> TwistComputer: <<use>>
     }
   }
 }

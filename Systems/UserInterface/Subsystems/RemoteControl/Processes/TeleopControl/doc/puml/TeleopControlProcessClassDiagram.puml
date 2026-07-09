@@ -6,6 +6,9 @@ namespace fast::rf {
     enum DiagnosticType
   }
   namespace messages {
+    namespace SensorMsgs {
+      class JoyMsg <<(M,#FFFF00)>>
+    }
     namespace GeometryMsgs {
       class TwistMsg <<(M,#FFFF00)>>
     }
@@ -18,19 +21,9 @@ namespace fast::rf {
   }
   namespace UserInterfaceSystem {
     namespace RemoteControlSubsystem {
-      enum KeyPressed #Orange {
-        UNKNOWN = 0,
-        UP_ARROW = 1,
-        DOWN_ARROW = 2,
-        LEFT_ARROW = 3,
-        RIGHT_ARROW = 4,
-        SPACE_BAR = 5,
-        ESC = 6,
-        END_OF_LIST = 7
-      }
       enum OperationMode #Orange {
         UNKNOWN = 0,
-        KEY_TEST = 1,
+        JOY_TEST = 1,
         RUN = 2,
         END_OF_LIST = 3
       }
@@ -39,18 +32,32 @@ namespace fast::rf {
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} bool update(double current_time_sec, double delta_time_sec)
         +{abstract} string pretty()
-        +{abstract} bool key_pressed(KeyPressed key)
+        +{abstract} bool new_joy(JoyMsg joy)
         +{abstract} TwistMsg get_twist_output()
         +{abstract} bool set_operation_mode(OperationMode mode)
       }
-      ITeleopControlProcess --> KeyPressed: <<use>>
       ITeleopControlProcess --> OperationMode: <<use>>
+      class JoystickMapper #Pink {
+        +bool set_mapping()
+        +JoyMsg new_joy(JoyMsg joy)
+      }
+      note bottom of JoystickMapper
+        Pass-Thru
+      end note
+      class JoystickScaler #Pink {
+        +JoyMsg new_joy(JoyMsg joy)
+      }
+      note bottom of JoystickScaler
+        Pass-Thru
+      end note
       abstract BaseTeleopControlProcess #Orange {
         +DiagnosticMsg[] get_diagnostics()
         +bool base_update(double current_time_sec, double delta_time_sec)
         +bool set_operation_mode(OperationMode mode)
         +string pretty()
         #DiagnosticManager diagnosticManager
+        #JoystickMapper joy_mapper
+        #JoystickScaler joy_scaler
         +TwistMsg get_twist_output()
         -TwistMsg desired_twist
         -OperationMode operation_mode = OperationMode::RUN
@@ -58,6 +65,9 @@ namespace fast::rf {
       }
       BaseTeleopControlProcess -up-|> ITeleopControlProcess
       BaseTeleopControlProcess --> DiagnosticManager: <<use>>
+      BaseTeleopControlProcess --> JoystickMapper: <<use>>
+      BaseTeleopControlProcess --> JoystickScaler: <<use>>
+      
       class BasicTeleopControlProcess
       BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
       class DummyTeleopControlProcess {

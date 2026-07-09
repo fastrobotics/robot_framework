@@ -11,6 +11,8 @@
 #pragma once
 #include <ITeleopControlProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <JoystickMapper.hpp>
+#include <JoystickScaler.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
@@ -85,5 +87,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         fast::rf::messages::GeometryMsgs::TwistMsg
             desired_twist;                                 //!< Data member representing the most current desired twist
         OperationMode operation_mode{OperationMode::RUN};  //!< Operation Mode of the process
+        JoystickMapper mapper;                             //!< Maps Joystick inputs to commmon definition
+        JoystickScaler scaler;                             //!< Scales Joystick data to common definition
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
