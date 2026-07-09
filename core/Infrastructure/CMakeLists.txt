@@ -1,1 +1,6 @@
+# add_library(logger Logger.cpp)
+add_library(singletonLogger SingletonLogger.cpp)
 add_subdirectory(DiagnosticManager)
+if(BUILD_TESTING)
+  add_subdirectory(test)
+endif()
