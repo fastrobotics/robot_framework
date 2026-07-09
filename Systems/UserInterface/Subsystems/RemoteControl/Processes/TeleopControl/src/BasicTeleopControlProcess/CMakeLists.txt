@@ -1,12 +1,11 @@
+add_library(remoteControlTwistComputer STATIC TwistComputer.cpp)
+target_link_libraries(remoteControlTwistComputer geometry_msgs sensor_msgs)
+
 add_library(basic_TeleopControlProcess STATIC BasicTeleopControlProcess.cpp)
-
+target_link_libraries(basic_TeleopControlProcess base_TeleopControlProcess
+                      remoteControlTwistComputer)
+target_include_directories(basic_TeleopControlProcess
+                           PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 if(BUILD_TESTING)
-
-  target_link_libraries(basic_TeleopControlProcess base_TeleopControlProcess)
-  add_executable(test_basic_TeleopControlProcess
-                 test/test_BasicTeleopControlProcess.cpp)
-  target_link_libraries(test_basic_TeleopControlProcess GTest::gtest_main
-                        basic_TeleopControlProcess)
-
-  gtest_discover_tests(test_basic_TeleopControlProcess)
+  add_subdirectory(test)
 endif()

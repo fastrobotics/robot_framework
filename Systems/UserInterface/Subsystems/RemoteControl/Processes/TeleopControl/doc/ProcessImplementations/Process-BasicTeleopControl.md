@@ -9,6 +9,7 @@
   - [Limitations](#limitations)
 - [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
+  - [Modes](#modes)
   - [Keypad Inputs Supported](#keypad-inputs-supported)
   - [Interface Inputs Supported](#interface-inputs-supported)
 - [Outputs](#outputs)
@@ -16,6 +17,8 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
+  - [Artifacts Provides](#artifacts-provides)
+  - [Integration Steps](#integration-steps)
 - [Validation](#validation)
 
 # Process Implementation: TeleopControl
@@ -48,14 +51,21 @@ The following are a listing of all limitations in this module:
 # Process Architecture
 
 # Inputs
+## Modes
+The Following Operation Modes are supported for this Module:
+| Mode                      | Description                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------------- |
+| `OperationMode::RUN`      | Normal operation, takes keyboard input and generates output.                       |
+| `OperationMode::KEY_TEST` | Test mode.  Prints out information when a Key is provided.  Does not drive output. |
+
 ## Keypad Inputs Supported
-| Input       | Usage                                           |
-| ----------- | ----------------------------------------------- |
-| UP_ARROW    | Increase Forward Velocity (Max 100.0%)          |
-| DOWN_ARROW  | Decrease Forward Velocity (Max -100.0%)         |
-| LEFT_ARROW  | Increase Turn Rate (Max -100.0%)                |
-| RIGHT_ARROW | Decrease Turn Rate (Max 100.0%)                 |
-| SPACE_BAR   | Set Forward Velocity and Turn Rate to 0% (STOP) |
+| Input       | Usage                                                 |
+| ----------- | ----------------------------------------------------- |
+| UP_ARROW    | Increase Forward Velocity (Max 100.0%, Configurable)  |
+| DOWN_ARROW  | Decrease Forward Velocity (Max -100.0%, Configurable) |
+| LEFT_ARROW  | Increase Turn Rate (Max -100.0%, Configurable)        |
+| RIGHT_ARROW | Decrease Turn Rate (Max 100.0%, Configurable)         |
+| SPACE_BAR   | Set Forward Velocity and Turn Rate to 0% (STOP)       |
 
 ## Interface Inputs Supported
 
@@ -82,5 +92,14 @@ When a Key Event is pressed, the process will compute an updated TwistCmd to fit
 ![](puml/BasicTeleopControlProcessClassDiagram.png)
 
 # Usage Instructions
+
+## Artifacts Provides
+The following artifacts are provided:
+| Artifact                     | Description                                      |
+| ---------------------------- | ------------------------------------------------ |
+| `basic_TeleopControlProcess` | General Library that provides this functionality |
+
+
+## Integration Steps
 
 # Validation

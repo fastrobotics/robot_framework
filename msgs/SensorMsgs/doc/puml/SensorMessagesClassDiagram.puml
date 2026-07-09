@@ -17,5 +17,11 @@ namespace fast::rf::messages {
       +bool ok()
     }
     GlobalPositionSensorMsg --> Covariance3DMsg: <<use>>
+
+    class JoyMsg <<(M,#FFFF00)>> #Orange {
+      +double time_stamp
+      +double[] axes
+      +uint32[] buttons
+    }
 }
 @enduml

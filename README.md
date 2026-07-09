@@ -22,8 +22,6 @@
 [ADR's](doc/ADR/ADR.md)
 
 # ToDo
-- Make process check if diagnostics are initialized before allowing to start
-- Update Template with changes from PR
 
 # Code Documentation
 

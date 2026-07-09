@@ -7,6 +7,7 @@ namespace fast::rf::messages {
       +double x
       +double y
       +double z
+      +string pretty()
     }
     struct Covariance3DMsg <<(M,#FFFF00) >> #Orange {
       +double[9] covariance

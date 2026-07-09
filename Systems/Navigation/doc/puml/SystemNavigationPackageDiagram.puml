@@ -22,7 +22,7 @@ namespace fast::rf {
     package LocalPlannerSubsystem {
 
     }
-    package NavigationExecutor {
+    package NavigationExecutorSubsystem {
       
     }
   }

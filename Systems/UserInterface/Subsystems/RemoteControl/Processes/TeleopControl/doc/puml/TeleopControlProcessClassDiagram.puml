@@ -1,11 +1,14 @@
 @startuml
 title TeleopControl Process Class Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace DiagnosticDefinition {
     enum DiagnosticType
   }
   namespace messages {
+    namespace SensorMsgs {
+      class JoyMsg <<(M,#FFFF00)>>
+    }
     namespace GeometryMsgs {
       class TwistMsg <<(M,#FFFF00)>>
     }
@@ -18,38 +21,71 @@ namespace fast::fr {
   }
   namespace UserInterfaceSystem {
     namespace RemoteControlSubsystem {
-      enum KeyPressed #Yellow {
+      enum OperationMode #LimeGreen {
         UNKNOWN = 0,
-        UP_ARROW = 1,
-        DOWN_ARROW = 2,
-        LEFT_ARROW = 3,
-        RIGHT_ARROW = 4,
-        SPACE_BAR = 5,
-        ESC = 6
+        JOY_TEST = 1,
+        RUN = 2,
+        END_OF_LIST = 3
       }
-      interface ITeleopControlProcess #Yellow {
-        +{abstract} bool init()
+      enum ControlDevice #LimeGreen {
+        UNKNOWN = 0,
+        THRUSTMASTER_JOYSTICK = 1,
+        END_OF_LIST = 2
+      }
+      interface ITeleopControlProcess #LimeGreen {
+        +{abstract} bool init(ControlDevice device)
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} bool update(double current_time_sec, double delta_time_sec)
         +{abstract} string pretty()
-        +{abstract} bool key_pressed(KeyPressed key)
+        +{abstract} bool new_joy(JoyMsg joy)
         +{abstract} TwistMsg get_twist_output()
+        +{abstract} bool set_operation_mode(OperationMode mode)
       }
-      ITeleopControlProcess --> KeyPressed: <<use>>
-      abstract BaseTeleopControlProcess #Yellow {
+      ITeleopControlProcess --> OperationMode: <<use>>
+      ITeleopControlProcess --> ControlDevice: <<use>>
+      class JoystickMapper #Pink {
+        +bool set_mapping()
+        +bool init(ControlDevice device)
+        +JoyMsg new_joy(JoyMsg joy)
+        -bool is_initialized
+        -ControlDevice control_device
+      }
+      JoystickMapper --> ControlDevice: <<use>>
+      note bottom of JoystickMapper
+        Pass-Thru
+      end note
+      class JoystickScaler #Pink {
+        +bool init(ControlDevice device)
+        +JoyMsg new_joy(JoyMsg joy)
+        -bool is_initialized
+        -ControlDevice control_device
+      }
+      JoystickScaler --> ControlDevice: <<use>>
+      note bottom of JoystickScaler
+        Pass-Thru
+      end note
+      abstract BaseTeleopControlProcess #LimeGreen {
         +DiagnosticMsg[] get_diagnostics()
         +bool base_update(double current_time_sec, double delta_time_sec)
+        +bool set_operation_mode(OperationMode mode)
         +string pretty()
         #DiagnosticManager diagnosticManager
+        #JoystickMapper joy_mapper
+        #JoystickScaler joy_scaler
         +TwistMsg get_twist_output()
         -TwistMsg desired_twist
+        -OperationMode operation_mode = OperationMode::RUN
 
       }
       BaseTeleopControlProcess -up-|> ITeleopControlProcess
       BaseTeleopControlProcess --> DiagnosticManager: <<use>>
+      BaseTeleopControlProcess --> JoystickMapper: <<use>>
+      BaseTeleopControlProcess --> JoystickScaler: <<use>>
+      
       class BasicTeleopControlProcess
       BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
       class DummyTeleopControlProcess {
+        +bool init(ControlDevice device)
         +bool update(double current_time_sec, double delta_time_sec)
       }
       DummyTeleopControlProcess -up-|> BaseTeleopControlProcess

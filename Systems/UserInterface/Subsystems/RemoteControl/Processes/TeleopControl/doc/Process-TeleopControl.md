@@ -6,11 +6,16 @@
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Process Architecture](#process-architecture)
+- [Devices Supported](#devices-supported)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Components](#components)
+    - [Component: Joystick Mapper](#component-joystick-mapper)
+    - [Component: Scaler](#component-scaler)
+    - [Component: Twist Computer](#component-twist-computer)
   - [TeleopControl Process Implementation](#teleopcontrol-process-implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
@@ -26,20 +31,26 @@
 
 ## Purpose
 
-This process's objective is to ???.
+This process's objective is to take in Joystick Commands and convert to a standard Twist message.
 
 ## General Requirements
 
 # Process Architecture
 
 ![](dia/TeleopControlProcessArchitecture.png)
+# Devices Supported
+The following Devices are supported:
+| Device                | ControlDevice Definition               |
+| --------------------- | -------------------------------------- |
+| Thrustmaster Joystick | `ControlDevice::THRUSTMASTER_JOYSTICK` |
 
 # Inputs
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input    | DataType | Description   | Requirement |
+| -------- | -------- | ------------- | ----------- |
+| Joystick | JoyMsg   | Joystick Data |             |
 
 # Outputs
 
@@ -51,7 +62,8 @@ The following outputs are provided by this system.
 | Desired Twist | TwistMsg | A Desired Twist taken from some User Controller              |       |
 
 # How It Works
-Typicall this Process will interface with some user hardware (joystick, keyboard, mouse, other hardware).
+Typically this Process will interface with some user hardware (joystick, keyboard, mouse, other hardware).
+
 
 ## Detailed Documentation
 
@@ -60,6 +72,18 @@ Typicall this Process will interface with some user hardware (joystick, keyboard
 ## Class Diagram
 
 ![](puml/TeleopControlProcessClassDiagram.png)
+
+## Components
+There are 3 main components of the Teleop Control Process:
+
+### Component: Joystick Mapper
+This component is responsible for taking the unique Joystick data (i.e. one Joystick vendor may propogate data in different vector indexes)
+
+### Component: Scaler
+This component is responsible for scaling all Joystick data to a common range.
+
+### Component: Twist Computer
+This component is responsible for taking the Joystick data and converting to a Twist Message.
 
 ## TeleopControl Process Implementation
 

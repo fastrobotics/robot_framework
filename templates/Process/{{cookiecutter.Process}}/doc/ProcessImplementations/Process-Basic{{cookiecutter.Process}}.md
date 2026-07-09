@@ -1,6 +1,6 @@
 [{{cookiecutter.Process}} Process](../Process-{{cookiecutter.Process}}.md)
 
-- [Process Implementation: {{cookiecutter.Process}}](#process-Implementation-cookiecutterprocess)
+- [Process Implementation: {{cookiecutter.Process}}](#process-implementation-cookiecutterprocess)
 - [Document History](#document-history)
 - [Overview](#overview)
   - [ToDo](#todo)
@@ -14,6 +14,8 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
+  - [Artifacts Provides](#artifacts-provides)
+  - [Integration Steps](#integration-steps)
 - [Validation](#validation)
 
 # Process Implementation: {{cookiecutter.Process}}
@@ -65,5 +67,14 @@ The following outputs are provided by this system.
 ## Class Diagram
 
 # Usage Instructions
+
+## Artifacts Provides
+The following artifacts are provided:
+| Artifact                                | Description                                      |
+| --------------------------------------- | ------------------------------------------------ |
+| `basic_{{cookiecutter.Process}}Process` | General Library that provides this functionality |
+
+
+## Integration Steps
 
 # Validation

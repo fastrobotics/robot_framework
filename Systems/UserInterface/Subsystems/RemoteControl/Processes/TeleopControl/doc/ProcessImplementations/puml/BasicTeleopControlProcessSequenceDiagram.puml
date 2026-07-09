@@ -1,0 +1,26 @@
+@startuml
+title Basic Teleop Control Process Sequence Diagram
+actor User as user
+participant ITeleopControlProcess as interface
+participant BaseTeleopControlProcess as base
+participant BasicTeleopControlProcess as concrete
+participant JoystickMapper as mapper
+participant JoystickScaler as scaler
+participant TwistComputer as twist_computer
+
+user -> interface++: new_joy(joy)
+interface -> concrete++: new_joy(joy)
+concrete -> mapper++: new_joy(joy)
+mapper --> concrete--: joy
+concrete -> scaler++: new_joy(joy)
+scaler --> concrete--: joy
+concrete -> twist_computer++: new_joy(joy)
+twist_computer --> concrete--: twist
+concrete -> concrete: desired_twist = twist
+concrete--
+
+user -> interface++: get_twist_output()
+interface -> base++: get_twist_output()
+base --> interface--: desired_twist
+interface --> user--: desired_twist
+@enduml

@@ -11,6 +11,8 @@
 #pragma once
 #include <ITeleopControlProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <JoystickMapper.hpp>
+#include <JoystickScaler.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
@@ -50,15 +52,42 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         }
 
         /**
+         * @brief Get the twist output object
+         *
+         * @return fast::rf::messages::GeometryMsgs::TwistMsg
+         */
+        fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() { return desired_twist; }
+
+        /**
          * @brief Pretty print the Process
          *
          * @return std::string
          */
         std::string pretty() override;
 
+        /**
+         * @brief Set the operation mode object
+         *
+         * @param mode Any operation mode that is not UNKNOWN OR END_OF_LIST is supported.
+         * @return true
+         * @return false
+         */
+        bool set_operation_mode(OperationMode mode) {
+            if ((mode == OperationMode::UNKNOWN) || (mode == OperationMode::END_OF_LIST)) {
+                return false;
+            }
+            operation_mode = mode;
+            return true;
+        }
+
        protected:
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::GeometryMsgs::TwistMsg
+            desired_twist;                                 //!< Data member representing the most current desired twist
+        OperationMode operation_mode{OperationMode::RUN};  //!< Operation Mode of the process
+        JoystickMapper mapper;                             //!< Maps Joystick inputs to commmon definition
+        JoystickScaler scaler;                             //!< Scales Joystick data to common definition
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

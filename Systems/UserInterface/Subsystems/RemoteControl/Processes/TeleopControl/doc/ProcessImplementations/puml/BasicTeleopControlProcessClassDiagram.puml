@@ -1,11 +1,14 @@
 @startuml
 title Basic Teleop Process Control Class Diagram
 
-namespace fast::fr {
+namespace fast::rf {
   namespace DiagnosticDefinition {
     enum DiagnosticType
   }
   namespace messages {
+    namespace SensorMsgs {
+      class JoyMsg <<(M,#FFFF00)>>
+    }
     namespace GeometryMsgs {
       class TwistMsg <<(M,#FFFF00)>>
     }
@@ -20,14 +23,33 @@ namespace fast::fr {
     namespace RemoteControlSubsystem {
         interface ITeleopControlProcess
         abstract BaseTeleopControlProcess
+        enum ControlDevice
         BaseTeleopControlProcess -up-|> ITeleopControlProcess
         BaseTeleopControlProcess --> DiagnosticManager: <<use>>
-        class BasicTeleopControlProcess #Yellow {
-          +bool init()
+        class TwistComputer #Pink {
+          +{static} MAX_VALUE: double = 100.0
+          +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
+          +TwistMsg new_joy(JoyMsg joy)
+          -double max_forward_x_velocity_
+          -double max_reverse_x_velocity_
+          -double max_angular_z_velocity_
+          -double min_angular_z_velocity_
+        }
+        note bottom of TwistComputer
+          Just takes the Axis values of the input Joystick and assigns a twist
+        end note
+        class BasicTeleopControlProcess #LimeGreen {
+          
+          +bool init(ControlDevice device)
+          +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
           +bool update(double current_time_sec, double delta_time_sec)
-          +bool key_pressed(KeyPressed key)
+          +bool new_joy(JoyMsg joy)
+          -TwistComputer twist_computer
+
         }
         BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
+        BasicTeleopControlProcess --> TwistComputer: <<use>>
+        BasicTeleopControlProcess --> ControlDevice: <<use>>
     }
   }
 }
