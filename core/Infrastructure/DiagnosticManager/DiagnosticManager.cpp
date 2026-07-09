@@ -1,4 +1,5 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <Infrastructure/Logger.hpp>
 #include <algorithm>
 namespace fast::rf::core::infrastructure {
     bool DiagnosticManager::initialize_diagnostics(

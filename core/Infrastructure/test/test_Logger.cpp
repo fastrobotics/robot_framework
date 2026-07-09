@@ -7,22 +7,31 @@ class UserClass {
    public:
     UserClass() = default;
     virtual ~UserClass() = default;
-    UserClass(Logger* logger_) { logger = logger_; }
     bool are_you_ok() {
-        logger->log_warn("I'm Fine.");
+        Logger::log_warn("I'm Ok");
         return true;
     }
 
    private:
-    Logger* logger{nullptr};
 };
+
 TEST(Logger, BasicAssertions) {
-    Logger* logger = new Logger(Level::DEBUG, "test_Logger");
-    ASSERT_TRUE(logger != nullptr);
-    ASSERT_TRUE(logger->is_logger_ok());
-    logger->log_debug("Help!");
-    logger->log_warn("What's Up?");
-    UserClass SUT(logger);
+    ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger"));
+    ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_WRITTEN);
+    Logger::log_warn("What's up?");
+    UserClass SUT;
     ASSERT_TRUE(SUT.are_you_ok());
-    delete logger;
+}
+TEST(Logger, NegativeAssertions) {
+    ASSERT_FALSE(Logger::init(Level::UNKNOWN, "Test-Logger2"));
+    ASSERT_EQ(Logger::log_debug("An Error Message that won't get printed"), Logger::LoggerStatus::FAILED_TO_OPEN);
+}
+TEST(Logger, LoggerLevelChecks) {
+    // ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger"));
+    ASSERT_EQ(Logger::log_debug("A Test Debug Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::log_info("A Test Info Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::log_notice("A Test Notice Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::log_warn("A Test Warn Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::log_error("A Test Error Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::log_fatal("A Test Fatal Message"), Logger::LoggerStatus::LOG_WRITTEN);
 }
