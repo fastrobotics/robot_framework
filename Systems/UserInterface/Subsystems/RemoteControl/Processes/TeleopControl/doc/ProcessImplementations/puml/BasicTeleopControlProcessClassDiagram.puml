@@ -23,6 +23,7 @@ namespace fast::rf {
     namespace RemoteControlSubsystem {
         interface ITeleopControlProcess
         abstract BaseTeleopControlProcess
+        enum ControlDevice
         BaseTeleopControlProcess -up-|> ITeleopControlProcess
         BaseTeleopControlProcess --> DiagnosticManager: <<use>>
         class TwistComputer #Pink {
@@ -39,7 +40,7 @@ namespace fast::rf {
         end note
         class BasicTeleopControlProcess #Orange {
           
-          +bool init()
+          +bool init(ControlDevice device)
           +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
           +bool update(double current_time_sec, double delta_time_sec)
           +bool new_joy(JoyMsg joy)
@@ -48,6 +49,7 @@ namespace fast::rf {
         }
         BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
         BasicTeleopControlProcess --> TwistComputer: <<use>>
+        BasicTeleopControlProcess --> ControlDevice: <<use>>
     }
   }
 }

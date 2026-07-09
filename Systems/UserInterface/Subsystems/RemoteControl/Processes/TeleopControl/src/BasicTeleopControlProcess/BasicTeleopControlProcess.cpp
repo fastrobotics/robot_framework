@@ -1,11 +1,22 @@
 #include <BasicTeleopControlProcess/BasicTeleopControlProcess.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
 
-    bool BasicTeleopControlProcess::init() {
+    bool BasicTeleopControlProcess::init(ControlDevice device) {
+        if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
+            return false;
+        }
+        bool status = mapper.init(device);
+        if (status == false) {
+            return false;
+        }
+        status = scaler.init(device);
+        if (status == false) {
+            return false;
+        }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
     bool BasicTeleopControlProcess::update([[maybe_unused]] double current_time_sec,

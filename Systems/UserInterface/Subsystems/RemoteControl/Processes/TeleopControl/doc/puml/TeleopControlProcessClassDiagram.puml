@@ -27,8 +27,13 @@ namespace fast::rf {
         RUN = 2,
         END_OF_LIST = 3
       }
+      enum ControlDevice #LimeGreen {
+        UNKNOWN = 0,
+        THRUSTMASTER_JOYSTICK = 1,
+        END_OF_LIST = 2
+      }
       interface ITeleopControlProcess #Orange {
-        +{abstract} bool init()
+        +{abstract} bool init(ControlDevice device)
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} bool update(double current_time_sec, double delta_time_sec)
         +{abstract} string pretty()
@@ -37,16 +42,25 @@ namespace fast::rf {
         +{abstract} bool set_operation_mode(OperationMode mode)
       }
       ITeleopControlProcess --> OperationMode: <<use>>
+      ITeleopControlProcess --> ControlDevice: <<use>>
       class JoystickMapper #Pink {
         +bool set_mapping()
+        +bool init(ControlDevice device)
         +JoyMsg new_joy(JoyMsg joy)
+        -bool is_initialized
+        -ControlDevice control_device
       }
+      JoystickMapper --> ControlDevice: <<use>>
       note bottom of JoystickMapper
         Pass-Thru
       end note
       class JoystickScaler #Pink {
+        +bool init(ControlDevice device)
         +JoyMsg new_joy(JoyMsg joy)
+        -bool is_initialized
+        -ControlDevice control_device
       }
+      JoystickScaler --> ControlDevice: <<use>>
       note bottom of JoystickScaler
         Pass-Thru
       end note
@@ -71,6 +85,7 @@ namespace fast::rf {
       class BasicTeleopControlProcess
       BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
       class DummyTeleopControlProcess {
+        +bool init(ControlDevice device)
         +bool update(double current_time_sec, double delta_time_sec)
       }
       DummyTeleopControlProcess -up-|> BaseTeleopControlProcess

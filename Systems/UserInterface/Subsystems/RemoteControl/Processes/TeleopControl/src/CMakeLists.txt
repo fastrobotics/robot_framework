@@ -1,8 +1,10 @@
 add_library(joystickMapper STATIC JoystickMapper.cpp)
-target_link_libraries(joystickMapper sensor_msgs)
+target_link_libraries(joystickMapper sensor_msgs infrastructure_msgs
+                      geometry_msgs)
 
 add_library(joystickScaler STATIC JoystickScaler.cpp)
-target_link_libraries(joystickScaler sensor_msgs)
+target_link_libraries(joystickScaler sensor_msgs infrastructure_msgs
+                      geometry_msgs)
 
 add_library(base_TeleopControlProcess STATIC BaseTeleopControlProcess.cpp)
 target_link_libraries(

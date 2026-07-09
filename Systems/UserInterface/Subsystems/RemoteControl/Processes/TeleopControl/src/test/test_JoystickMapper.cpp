@@ -6,8 +6,9 @@
 #include <JoystickMapper.hpp>
 
 using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
-TEST(JoystickMapper, InterfaceTests) {
+TEST(JoystickMapper, InterfaceTestsThrustmasterJoystick) {
     JoystickMapper SUT;
+    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     for (uint8_t i = 0; i < JoystickMapper::AXIS_COUNT; ++i) {
         joy.axes.push_back((double)i);

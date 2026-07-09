@@ -9,7 +9,7 @@
 using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
 class TestTeleopControlProcessInterface : public ITeleopControlProcess {
    public:
-    bool init() { return true; }
+    bool init([[maybe_unused]] ControlDevice device) { return true; }
     bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return false;
     }
@@ -28,7 +28,7 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
 };
 TEST(TestTeleopControlProcessInterface, InterfaceTests) {
     TestTeleopControlProcessInterface SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0, 0.0));
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
@@ -43,7 +43,7 @@ TEST(TestTeleopControlProcessInterface, InterfaceTests) {
 class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
    public:
     TestBaseTeleopControlProcess() : BaseTeleopControlProcess() {}
-    bool init() override {
+    bool init([[maybe_unused]] ControlDevice device) override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
@@ -56,7 +56,7 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
     TestBaseTeleopControlProcess SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
     for (uint8_t mode = 0;
          mode <= (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST; ++mode) {
         if ((mode == 0) ||

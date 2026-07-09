@@ -24,12 +24,13 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         BasicTeleopControlProcess() : BaseTeleopControlProcess() {}
 
         /**
-         * @brief Initialize the Object
+         * @brief Initialize the object
          *
+         * @param device The controller device
          * @return true
          * @return false
          */
-        bool init() override;
+        bool init(ControlDevice device) override;
 
         /**
          * @brief Set the config object

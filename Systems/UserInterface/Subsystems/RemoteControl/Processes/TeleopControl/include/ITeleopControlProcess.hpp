@@ -17,6 +17,15 @@
 
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     /**
+     * @brief Enum defining what Control Devices are supported
+     *
+     */
+    enum class ControlDevice {
+        UNKNOWN = 0,                //!< Unknown
+        THRUSTMASTER_JOYSTICK = 1,  //!< A specific type of Joystick
+        END_OF_LIST = 2             //!< Not supported, used for range checks
+    };
+    /**
      * @brief Set Operation Mode
      *
      */
@@ -39,10 +48,11 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         /**
          * @brief Initialize the object
          *
+         * @param device The Controller Device
          * @return true
          * @return false
          */
-        virtual bool init() = 0;
+        virtual bool init(ControlDevice device) = 0;
 
         /**
          * @brief Generic Update function

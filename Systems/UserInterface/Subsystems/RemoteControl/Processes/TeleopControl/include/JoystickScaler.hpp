@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <ITeleopControlProcess.hpp>
 #include <JoyMsg.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     /**
@@ -18,12 +19,24 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     class JoystickScaler {
        public:
         /**
+         * @brief Initialize the object
+         *
+         * @param device What type of device will be used.
+         * @return true
+         * @return false
+         */
+        bool init(ControlDevice device);
+        /**
          * @brief Process a Joystick message
          *
          * @param joy
          * @return fast::rf::messages::SensorMsgs::JoyMsg
          */
         fast::rf::messages::SensorMsgs::JoyMsg new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy);
+
+       private:
+        ControlDevice control_device{ControlDevice::UNKNOWN};  //!< The device that is being used
+        bool is_initialized{false};                            //!< If the object is initialized
     };
 
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

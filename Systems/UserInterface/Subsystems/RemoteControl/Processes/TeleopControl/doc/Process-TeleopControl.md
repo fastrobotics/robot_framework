@@ -6,6 +6,7 @@
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
 - [Process Architecture](#process-architecture)
+- [Devices Supported](#devices-supported)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -30,13 +31,18 @@
 
 ## Purpose
 
-This process's objective is to ???.
+This process's objective is to take in Joystick Commands and convert to a standard Twist message.
 
 ## General Requirements
 
 # Process Architecture
 
 ![](dia/TeleopControlProcessArchitecture.png)
+# Devices Supported
+The following Devices are supported:
+| Device                | ControlDevice Definition               |
+| --------------------- | -------------------------------------- |
+| Thrustmaster Joystick | `ControlDevice::THRUSTMASTER_JOYSTICK` |
 
 # Inputs
 
