@@ -24,13 +24,9 @@
 
 # ToDo
 ## This PR
-| Item                                           |
-| ---------------------------------------------- |
-| Doxygen                                        |
-| Code Coverage                                  |
-| SW Architecture                                |
-| Content documentation, integration guide, etc. |
-| Diagnostic Manager Markdown                    |
+| Item |
+| ---- |
+
 
 # Code Documentation
 
