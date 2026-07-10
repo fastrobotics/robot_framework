@@ -1,0 +1,22 @@
+@startuml
+title Logger Class Diagram
+namespace fast::rf {
+    enum LoggerStatus #LimeGreen {
+        UNKNOWN = 0,
+        FAILED_TO_OPEN = 1,
+        LOG_WRITTEN = 2,
+        LOG_SUPPRESSED = 3,
+        END_OF_LIST = 4
+    }
+    class Logger #LimeGreen {
+        +Logger(Level level, std::string name)
+        +log_debug(string msg)
+        +log_info(string msg)
+        +log_notice(string msg)
+        +log_warn(string msg)
+        +log_error(string msg)
+        +log_fatal(string msg)
+    }
+    Logger +-- LoggerStatus
+}
+@enduml

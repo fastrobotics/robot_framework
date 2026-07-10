@@ -1,0 +1,9 @@
+ /**
+ * @namespace fast::rf::core
+ * @brief Core content for the Robot Framework
+ */
+
+  /**
+ * @namespace fast::rf::core::infrastructure
+ * @brief Infrastructure content for the Robot Framework
+ */

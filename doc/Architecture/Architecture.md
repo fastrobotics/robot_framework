@@ -2,6 +2,7 @@
 
 - [Architecture](#architecture)
 - [Overview](#overview)
+- [Infrastructure](#infrastructure)
 - [Systems](#systems)
 - [Package Diagram](#package-diagram)
 
@@ -16,6 +17,9 @@ Note that at the System level, only some number of interfaces are called out. Th
 ![](../../Legend.png)
 
 ![](dia/GeneralApplicationArchitecture.png)
+
+# Infrastructure
+[Infrastructure](../../include/Infrastructure/doc/Infrastructure.md)
 
 # Systems
 
