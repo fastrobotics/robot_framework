@@ -1,0 +1,14 @@
+@startuml
+title Infrastructure Package Diagram
+namespace fast::rf {
+    namespace core::infrastructure {
+        class DiagnosticManager #LimeGreen
+    }
+    class Logger #LimeGreen
+    enum Level #LimeGreen
+    namespace DiagnosticDefinition {
+        enum DiagnosticType #LimeGreen
+        enum DiagnosticMessage #LimeGreen
+    }
+}
+@enduml
