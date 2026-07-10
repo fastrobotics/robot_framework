@@ -24,7 +24,7 @@ The Logger provides a convenient way to log messages to console and to text file
 ![](../../../Legend.png)
 
 
-![](puml/
+![](puml/LoggerClassDiagram.png)
 
 # Features
 The following features are available in the Logger:

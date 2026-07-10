@@ -23,7 +23,7 @@ Infrastructure Content for this framework is useful by any other module freely. 
 ![](../../../Legend.png)
 ## Package Diagram
 
-![](puml/
+![](puml/InfrastructurePackageDiagram.png)
 
 ## Software Content
 | Module                                                              |
