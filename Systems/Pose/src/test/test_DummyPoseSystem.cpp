@@ -3,7 +3,7 @@
 
 #include <DummyPoseSystem/DummyPoseSystem.hpp>
 using namespace fast::rf::PoseSystem;
-TEST(DummyPoseSyste, BasicAssertions) {
+TEST(DummyPoseSystem, BasicAssertions) {
     DummyPoseSystem SUT;
     ASSERT_TRUE(SUT.update(0.0, 0.0));
     ASSERT_FLOAT_EQ(SUT.get_global_pose().time_stamp, 0.0);

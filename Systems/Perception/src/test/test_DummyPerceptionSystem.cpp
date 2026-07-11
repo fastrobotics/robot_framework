@@ -3,4 +3,4 @@
 
 #include <DummyPerceptionSystem/DummyPerceptionSystem.hpp>
 using namespace fast::rf::PerceptionSystem;
-TEST(DummyPerceptionSyste, BasicAssertions) { DummyPerceptionSystem SUT; }
+TEST(DummyPerceptionSystem, BasicAssertions) { DummyPerceptionSystem SUT; }

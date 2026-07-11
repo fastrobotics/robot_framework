@@ -1,6 +1,6 @@
 /**
  * @file BaseTrajectoryControllerProcess.hpp
- * @author yDavid Gitz (davidgitz@gmail.com)
+ * @author David Gitz (davidgitz@gmail.com)
  * @brief
  * @version 0.1
  * @date 2026-06-27

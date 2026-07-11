@@ -1,0 +1,9 @@
+if(BUILD_TESTING)
+
+  add_executable(test_basic_{{cookiecutter.Process}}Process
+                 test_Basic{{cookiecutter.Process}}Process.cpp)
+  target_link_libraries(test_basic_{{cookiecutter.Process}}Process
+                        GTest::gtest_main basic_{{cookiecutter.Process}}Process)
+
+  gtest_discover_tests(test_basic_{{cookiecutter.Process}}Process)
+endif()

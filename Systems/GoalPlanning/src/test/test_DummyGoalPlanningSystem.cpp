@@ -3,4 +3,4 @@
 
 #include <DummyGoalPlanningSystem/DummyGoalPlanningSystem.hpp>
 using namespace fast::rf::GoalPlanningSystem;
-TEST(DummyGoalPlanningSyste, BasicAssertions) { DummyGoalPlanningSystem SUT; }
+TEST(DummyGoalPlanningSystem, BasicAssertions) { DummyGoalPlanningSystem SUT; }

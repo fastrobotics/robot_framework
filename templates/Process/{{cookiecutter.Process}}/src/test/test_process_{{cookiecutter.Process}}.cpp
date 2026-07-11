@@ -19,6 +19,9 @@ public:
 
         return empty;
     }
+  std::string pretty() override {
+    return "";
+  }
 };
 TEST(Test{{cookiecutter.Process}}ProcessInterface, InterfaceTests) {
   Test{{cookiecutter.Process}}ProcessInterface SUT;

@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::BaseMachineSystem
+ * @brief The BaseMachine System for the Robot Framework
+ */

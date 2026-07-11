@@ -25,6 +25,7 @@ Note that at the System level, only some number of interfaces are called out. Th
 
 | Status | System                                                                             |
 | ------ | ---------------------------------------------------------------------------------- |
+| DRAFT  | [Base Machine](../../Systems/BaseMachine/doc/System-BaseMachine.md)                |
 | NEW    | [Awareness](../../Systems/Awareness/doc/System-Awareness.md)                       |
 | NEW    | [Comms](../../Systems/Comms/doc/System-Comms.md)                                   |
 | NEW    | [Data Storage](../../Systems/DataStorage/doc/System-DataStorage.md)                |

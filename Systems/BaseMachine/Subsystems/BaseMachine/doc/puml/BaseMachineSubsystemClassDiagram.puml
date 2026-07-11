@@ -1,0 +1,24 @@
+@startuml
+title BaseMachine Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace BaseMachineSystem {
+    namespace BaseMachineSubsystem {
+      interface IBaseMachineSubsystem {
+
+      }
+      abstract BaseBaseMachineSubsystem {
+
+      }
+      BaseBaseMachineSubsystem -up-|> IBaseMachineSubsystem
+      class BasicBaseMachineSubsystem {
+      }
+      BasicBaseMachineSubsystem -up-|> BaseBaseMachineSubsystem
+      class DummyBaseMachineSubsystem {
+      }
+      DummyBaseMachineSubsystem -up-|> BaseBaseMachineSubsystem
+    }
+  }
+}
+@enduml
