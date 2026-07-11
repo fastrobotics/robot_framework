@@ -18,6 +18,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      *
      */
     class BasicHatDriverProcess : public BaseHatDriverProcess {
+       public:
         BasicHatDriverProcess() : BaseHatDriverProcess() {}
 
         /**

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_ARMV7L")
+endif()
 add_definitions(-std=c++14 -Wall -Wextra -Wno-switch -Werror)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BUILD_TESTING "Build the test suite" ON)

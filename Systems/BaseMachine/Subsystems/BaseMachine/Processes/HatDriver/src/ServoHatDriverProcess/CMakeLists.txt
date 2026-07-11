@@ -1,3 +1,9 @@
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+  add_library(servoHatDriver STATIC ServoHatDriver.cpp)
+else()
+  add_library(mockServoHatDriver STATIC MockServoHatDriver.cpp)
+endif()
+
 add_library(servoHatDriverProcess STATIC ServoHatDriverProcess.cpp)
 target_link_libraries(servoHatDriverProcess base_HatDriverProcess)
 target_include_directories(servoHatDriverProcess
