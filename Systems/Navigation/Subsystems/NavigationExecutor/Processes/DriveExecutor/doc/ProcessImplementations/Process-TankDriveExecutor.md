@@ -16,6 +16,10 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram-1)
 - [Usage Instructions](#usage-instructions)
+  - [Artifacts Provides](#artifacts-provides)
+  - [Integration Steps](#integration-steps)
+    - [Build Instructions](#build-instructions)
+    - [Code Instructions](#code-instructions)
 - [Validation](#validation)
 
 # Process Implementation: Tank Drive Executor
@@ -87,5 +91,53 @@ Additional Diagnostic Types are implemented specifically for this Process Implem
 ## Class Diagram
 
 # Usage Instructions
+## Artifacts Provides
+The following artifacts are provided:
+| Artifact                   | Description                                      |
+| -------------------------- | ------------------------------------------------ |
+| `TankDriveExecutorProcess` | General Library that provides this functionality |
+
+
+## Integration Steps
+### Build Instructions
+Add the following to your CMakeLists.txt file:
+```cmake
+target_link_libraries(<binary> <blah> TankDriveExecutorProcess)
+```
+
+### Code Instructions
+NOTE: Consult this module's [API](https://fastrobotics.github.io/robot_framework/classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TankDriveExecutorProcess.html) when in doubt.
+
+Add the following to your header:
+
+```cpp
+#include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
+...
+fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorProcess
+            process;  //!< Execution Process
+```
+
+Add the following to your implementation:
+```cpp
+// Initialize:
+process.init();
+fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveChannelConfig left_channel_config(1000.0, 1500.0, 2000.0); // Or whatever your definition is
+fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveChannelConfig right_channel_config(1000.0, 1500.0, 2000.0); // Or whatever your definition is
+process.set_config(left_channel_config, right_channel_config);
+
+// Update the process at a periodic rate
+process.update(now,delta_now) // Some current timestamp, along with the time since it was previously updated.
+
+// Provide it a command
+process.new_command(twist)
+
+// Get the converted output
+fast::rf::NavigationSystem::NavigationExecutorSubsystem::IDriveExecutorOutput* general_output =  process.get_output();
+fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorOutput* output =
+  dynamic_cast<fast::rf::NavigationSystem::NavigationExecutorSubsystem::TankDriveExecutorOutput*>(general_output);
+```
+
+See the API for more detail, how to inspect diagnostics, etc.
 
 # Validation
+This content is validated using data created in [Tank Drive Calculations](data/TankDriveCalculations.ods)

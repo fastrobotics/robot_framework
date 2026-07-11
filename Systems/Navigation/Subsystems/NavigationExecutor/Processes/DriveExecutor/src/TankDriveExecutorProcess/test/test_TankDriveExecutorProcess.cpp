@@ -15,6 +15,16 @@ TEST(TankDriveExecutorProcess, AssertionTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0, 0.0));
 }
+TEST(TankDriveExecutorProcess, NegativeAssertionTests) {
+    TankDriveExecutorProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    TankDriveChannelConfig left_config(2000.0, 1500.0, 1000.0);
+    ASSERT_FALSE(left_config.is_ok());
+    TankDriveChannelConfig right_config(1000.0, 1500.0, 1000.0);
+    ASSERT_FALSE(right_config.is_ok());
+    ASSERT_FALSE(SUT.set_config(left_config, right_config));
+}
 TEST(TankDriveExecutorProcess, UserInterfaceTests) {
     TankDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
