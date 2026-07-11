@@ -19,6 +19,7 @@ namespace fast::rf {
           +double min_value
           +double neutral_value
           +double max_value
+          +bool is_ok()
       }
       struct TankDriveExecutorOutput #LimeGreen {
           +double left_drive

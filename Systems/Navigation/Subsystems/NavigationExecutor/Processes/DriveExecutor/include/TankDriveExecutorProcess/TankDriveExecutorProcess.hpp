@@ -44,6 +44,19 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         TankDriveChannelConfig(double min, double neutral, double max)
             : min_value(min), neutral_value(neutral), max_value(max) {}  //!< Function to initialize
+
+        /**
+         * @brief Validates if config is ok.
+         *
+         * @return true
+         * @return false
+         */
+        bool is_ok() {
+            if ((max_value > neutral_value) && (neutral_value > min_value)) {
+                return true;
+            }
+            return false;
+        }
     };
     /**
      * @brief Process for Tank Drive Executor
@@ -93,12 +106,19 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         /**
          * @brief Initialize the Process with the correct Channel Config
-         * @param left_channel Left Channel Config
-         * @param right_channel Right Channel Config
+         *
+         * @param left_channel
+         * @param right_channel
+         * @return true
+         * @return false If the configuration is invalid
          */
-        void set_config(TankDriveChannelConfig left_channel, TankDriveChannelConfig right_channel) {
+        bool set_config(TankDriveChannelConfig left_channel, TankDriveChannelConfig right_channel) {
+            if ((left_channel.is_ok() == false) || (right_channel.is_ok() == false)) {
+                return false;
+            }
             left_channel_config = left_channel;
             right_channel_config = right_channel;
+            return true;
         }
         /**
          * @brief Clip a value to be with boundaries

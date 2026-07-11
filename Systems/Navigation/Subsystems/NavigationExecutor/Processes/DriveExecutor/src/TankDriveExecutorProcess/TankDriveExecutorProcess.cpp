@@ -42,19 +42,23 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     }
     TankDriveData TankDriveExecutorProcess::convert(GeometryMsgs::TwistMsg twist) {
         TankDriveData data;
+        // Normalize to [-1.0,1.0]
+        double input_forward_normalized = twist.linear.x / 100.0;
+        double input_rotate_normalized = twist.angular.z / 100.0;
+
         // Invert Rotate due to Right Handle Rule Conventions
-        double inverted_rotate = -1.0 * twist.angular.z;
+        double inverted_rotate = -1.0 * input_rotate_normalized;
 
         // Throttle/Steer Mixing
-        double left_mixed = twist.linear.x + inverted_rotate;
-        double right_mixed = twist.linear.x - inverted_rotate;
+        double left_mixed = input_forward_normalized + inverted_rotate;
+        double right_mixed = input_forward_normalized - inverted_rotate;
 
         // Invert Right Channel
         double right_inverted = -1.0 * right_mixed;
 
         // Scale back to Output Range
-        double m_left = left_channel_config.max_value - left_channel_config.min_value / 2.0;
-        double m_right = right_channel_config.max_value - right_channel_config.min_value / 2.0;
+        double m_left = (left_channel_config.max_value - left_channel_config.min_value) / 2.0;
+        double m_right = (right_channel_config.max_value - right_channel_config.min_value) / 2.0;
 
         double b_left = left_channel_config.neutral_value - (m_left * 0.0);
         double b_right = right_channel_config.neutral_value - (m_right * 0.0);
@@ -63,19 +67,9 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         double right_scaled = right_inverted * m_right + b_right;
 
         // Clip to Min/Max
-        double left_clipped = left_scaled;
-        if (left_channel_config.max_value > left_channel_config.min_value) {
-            left_clipped = clip(left_clipped, left_channel_config.min_value, left_channel_config.max_value);
-        } else {
-            left_clipped = clip(left_clipped, left_channel_config.max_value, left_channel_config.min_value);
-        }
+        double left_clipped = clip(left_scaled, left_channel_config.min_value, left_channel_config.max_value);
 
-        double right_clipped = right_scaled;
-        if (right_channel_config.max_value > right_channel_config.min_value) {
-            right_clipped = clip(right_clipped, right_channel_config.min_value, right_channel_config.max_value);
-        } else {
-            right_clipped = clip(right_clipped, right_channel_config.max_value, right_channel_config.min_value);
-        }
+        double right_clipped = clip(right_scaled, right_channel_config.min_value, right_channel_config.max_value);
 
         data.left_channel = left_clipped;
         data.right_channel = right_clipped;
