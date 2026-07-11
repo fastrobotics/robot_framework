@@ -13,7 +13,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
     TankDriveChannelConfig left_channel_config(1000.0, 1500.0, 2000.0);
     TankDriveChannelConfig right_channel_config(1000.0, 1500.0, 2000.0);
     ASSERT_TRUE(SUT.set_config(left_channel_config, right_channel_config));
-    if (1) {  // Neutral
+    {  // Neutral
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 0.0;
         twist.angular.z = 0.0;
@@ -21,7 +21,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
         ASSERT_FLOAT_EQ(output.left_channel, 1500.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1500.0);
     }
-    if (1) {  // Full Forward
+    {  // Full Forward
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 100.0;
         twist.angular.z = 0.0;
@@ -29,7 +29,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
         ASSERT_FLOAT_EQ(output.left_channel, 2000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1000.0);
     }
-    if (1) {  // Half Forward
+    {  // Half Forward
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 50.0;
         twist.angular.z = 0.0;
@@ -37,7 +37,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
         ASSERT_FLOAT_EQ(output.left_channel, 1750.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1250.0);
     }
-    if (1) {  // Full Backward
+    {  // Full Backward
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = -100.0;
         twist.angular.z = 0.0;
@@ -45,7 +45,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
         ASSERT_FLOAT_EQ(output.left_channel, 1000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 2000.0);
     }
-    if (1) {  // Full Left
+    {  // Full Left
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 0.0;
         twist.angular.z = 100.0;
@@ -53,7 +53,7 @@ TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
         ASSERT_FLOAT_EQ(output.left_channel, 1000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1000.0);
     }
-    if (1) {  // Full Right
+    {  // Full Right
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 0.0;
         twist.angular.z = -100.0;
@@ -67,7 +67,7 @@ TEST(TankDriveExecutorProcess, TestClipping) {
     TankDriveChannelConfig left_channel_config(1000.0, 1500.0, 2000.0);
     TankDriveChannelConfig right_channel_config(1000.0, 1500.0, 2000.0);
     ASSERT_TRUE(SUT.set_config(left_channel_config, right_channel_config));
-    if (1) {  // Double Full Forward
+    {  // Double Full Forward
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 200.0;
         twist.angular.z = 0.0;
@@ -75,7 +75,7 @@ TEST(TankDriveExecutorProcess, TestClipping) {
         ASSERT_FLOAT_EQ(output.left_channel, 2000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1000.0);
     }
-    if (1) {  // Double Full Backward
+    {  // Double Full Backward
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = -200.0;
         twist.angular.z = 0.0;
@@ -83,7 +83,7 @@ TEST(TankDriveExecutorProcess, TestClipping) {
         ASSERT_FLOAT_EQ(output.left_channel, 1000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 2000.0);
     }
-    if (1) {  // Double Full Left
+    {  // Double Full Left
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 0.0;
         twist.angular.z = 200.0;
@@ -91,7 +91,7 @@ TEST(TankDriveExecutorProcess, TestClipping) {
         ASSERT_FLOAT_EQ(output.left_channel, 1000.0);
         ASSERT_FLOAT_EQ(output.right_channel, 1000.0);
     }
-    if (1) {  // Double Full Right
+    {  // Double Full Right
         GeometryMsgs::TwistMsg twist;
         twist.linear.x = 0.0;
         twist.angular.z = -200.0;
