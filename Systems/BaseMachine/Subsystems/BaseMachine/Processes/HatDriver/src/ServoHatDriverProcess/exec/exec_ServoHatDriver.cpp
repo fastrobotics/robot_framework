@@ -64,6 +64,7 @@ int main(int argc, char* argv[]) {
 #endif
     if (driver->init() == false) {
         fast::rf::Logger::log_error("Unable to Initialize Driver.");
+        return 1;
     }
     fast::rf::Logger::log_info(driver->pretty());
     if (reset == true) {

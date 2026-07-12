@@ -15,6 +15,7 @@
   - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
   - [Test Executable](#test-executable)
+    - [Modes](#modes)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
 - [Validation](#validation)
@@ -84,8 +85,13 @@ A Test Executable is provided.  This executable changes based on the following a
 
 To use this, after building/installing, run the following:
 ```bash
-./install/bin/exec_servohat_driver
+./install/bin/exec_servohat_driver <arguments>
 ```
+
+### Modes
+```bash
+```
+
 ## Artifacts Provides
 The following artifacts are provided:
 | Artifact                | Description                                                |
