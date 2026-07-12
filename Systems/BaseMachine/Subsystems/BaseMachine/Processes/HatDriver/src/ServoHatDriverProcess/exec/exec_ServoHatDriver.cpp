@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
     driver = new MockServoHatDriver();
 #endif
     if (driver->init() == false) {
-        fast::rf::Logger::log_error("Unable to Initialize Driver.");
+        fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting!");
         return 1;
     }
     fast::rf::Logger::log_info(driver->pretty());
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
     } else if (mode == "ramp") {
         value = IServoHatDriver::MED_SERVO_VALUE;
     } else {
-        fast::rf::Logger::log_error("Mode: " + mode + " Not Supported!");
+        fast::rf::Logger::log_error("Mode: " + mode + " Not Supported.  Exiting!");
         delete driver;
         return 1;
     }
