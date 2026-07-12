@@ -13,7 +13,15 @@
 
 #include <ServoHatDriverProcess/IServoHatDriver.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+    /**
+     * @brief A real ServoHat.  Only compiles on armv7l Architecture.
+     *
+     */
     class ServoHatDriver : public IServoHatDriver {
+        /**
+         * @brief
+         *
+         */
         enum class Adafruit16ChServoHatConstant {
             MODE1 = 0x00,
             MODE2 = 0x01,
@@ -39,8 +47,28 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
        public:
         ServoHatDriver() = default;
         virtual ~ServoHatDriver() = default;
+        /**
+         * @brief Initialize the object
+         *
+         * @param address
+         * @return true
+         * @return false
+         */
         bool init(uint16_t address = 0x40) override;
+        /**
+         * @brief Human readable string of the status of the object
+         *
+         * @return std::string
+         */
         std::string pretty() override;
+        /**
+         * @brief Set the Servo Value at a Channel
+         *
+         * @param channel
+         * @param value
+         * @return true
+         * @return false
+         */
         bool setServoValue(uint16_t channel, uint16_t value) override;
 
        private:

@@ -18,6 +18,8 @@
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
 - [Validation](#validation)
+- [Helpful Commands](#helpful-commands)
+  - [I2C Query](#i2c-query)
 
 # Process Implementation: Servo Hat Driver
 
@@ -89,3 +91,7 @@ The following artifacts are provided:
 ## Integration Steps
 
 # Validation
+
+# Helpful Commands
+## I2C Query
+`i2cdetect -y 1`

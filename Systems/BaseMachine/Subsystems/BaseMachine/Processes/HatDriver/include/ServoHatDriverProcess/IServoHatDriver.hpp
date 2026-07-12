@@ -12,12 +12,36 @@
 #include <cstdint>
 #include <string>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+    /**
+     * @brief Interface class for a generic Servo Hat
+     *
+     */
     class IServoHatDriver {
        public:
         IServoHatDriver() = default;
         virtual ~IServoHatDriver() = default;
+        /**
+         * @brief Initialize the Hat with an address
+         *
+         * @param address
+         * @return true
+         * @return false
+         */
         virtual bool init(uint16_t address = 0) = 0;
+        /**
+         * @brief Get a human readable string representing the status of the object
+         *
+         * @return std::string
+         */
         virtual std::string pretty() = 0;
+        /**
+         * @brief Set the Servo Value at a Channel
+         *
+         * @param channel
+         * @param value
+         * @return true
+         * @return false
+         */
         virtual bool setServoValue(uint16_t channel, uint16_t value) = 0;
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
