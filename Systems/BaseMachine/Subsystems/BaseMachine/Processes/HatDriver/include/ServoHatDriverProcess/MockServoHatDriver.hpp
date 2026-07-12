@@ -15,7 +15,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
        public:
         MockServoHatDriver() = default;
         virtual ~MockServoHatDriver() = default;
-        bool init() override;
+        bool init(uint16_t address = 0) override;
         std::string pretty() override;
+        bool setServoValue(uint16_t channel, uint16_t value) override;
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

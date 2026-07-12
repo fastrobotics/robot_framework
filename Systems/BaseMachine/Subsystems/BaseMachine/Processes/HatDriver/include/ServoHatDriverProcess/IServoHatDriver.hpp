@@ -15,7 +15,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
        public:
         IServoHatDriver() = default;
         virtual ~IServoHatDriver() = default;
-        virtual bool init() = 0;
+        virtual bool init(uint16_t address = 0) = 0;
         virtual std::string pretty() = 0;
+        virtual bool setServoValue(uint16_t channel, uint16_t value) = 0;
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
