@@ -42,7 +42,7 @@
 
 ## Purpose
 
-This specific Process Implementation provides ???
+This specific Process Implementation provides a way to control a Servo Hat.
 
 ## General Requirements
 
@@ -89,7 +89,19 @@ To use this, after building/installing, run the following:
 ```
 
 ### Modes
+Mode: `direct`
 ```bash
+./install/bin/exec_servohat_driver -c <Channel> -v <Value> # Sets Channel <Channel> to Value <Value> for 3 seconds, then resets and exits.
+```
+
+Mode: `reset`
+```bash
+./install/bin/exec_servohat_driver -r # Resets all Channels
+```
+
+Mode: `ramp`
+```bash
+./install/bin/exec_servohat_driver -c <Channel> -m ramp # Ramps Channel <Channel> up and down to max/min values
 ```
 
 ## Artifacts Provides

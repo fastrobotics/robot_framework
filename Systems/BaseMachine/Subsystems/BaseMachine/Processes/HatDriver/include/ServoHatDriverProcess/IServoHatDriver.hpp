@@ -18,9 +18,9 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      */
     class IServoHatDriver {
        public:
-        static constexpr uint16_t MAX_SERVO_VALUE = 2000;
-        static constexpr uint16_t MED_SERVO_VALUE = 1500;
-        static constexpr uint16_t MIN_SERVO_VALUE = 1000;
+        static constexpr uint16_t MAX_SERVO_VALUE = 2000;  //!< Max Servo Value
+        static constexpr uint16_t MED_SERVO_VALUE = 1500;  //!< Medium Servo Value
+        static constexpr uint16_t MIN_SERVO_VALUE = 1000;  //!< Min Servo Value
         IServoHatDriver() = default;
         virtual ~IServoHatDriver() = default;
         /**
@@ -30,7 +30,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          * @return true
          * @return false
          */
-        virtual bool init(uint16_t address = 0) = 0;
+        virtual bool init(uint16_t address = 0x40) = 0;
         /**
          * @brief Get a human readable string representing the status of the object
          *

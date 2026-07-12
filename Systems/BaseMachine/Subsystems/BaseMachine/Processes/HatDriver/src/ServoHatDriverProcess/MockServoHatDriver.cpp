@@ -1,7 +1,10 @@
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
-    bool MockServoHatDriver::init([[maybe_unused]] uint16_t address) { return true; }
+    bool MockServoHatDriver::init([[maybe_unused]] uint16_t address) {
+        fast::rf::Logger::log_info("Initializing Mock Servo Hat Driver at address: " + std::to_string(address));
+        return true;
+    }
     std::string MockServoHatDriver::pretty() {
         std::string str;
         str = "---Mock Servo Hat Driver---";

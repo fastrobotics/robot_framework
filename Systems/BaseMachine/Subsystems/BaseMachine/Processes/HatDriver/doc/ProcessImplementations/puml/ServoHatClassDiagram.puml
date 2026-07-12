@@ -2,14 +2,29 @@
 title Servo Hat Class Diagram
 namespace fast::rf {
     namespace BaseMachineSystem::BaseMachineSubsystem {
-        interface IHatDriverProcess #Orange
-        interface IServoHatDriver #Orange {
+        interface IHatDriverProcess
+        interface IServoHatDriver #LimeGreen {
+            +{static} MAX_SERVO_VALUE: uint16 = 2000
+            +{static} MED_SERVO_VALUE: uint16 = 1500
+            +{static} MIN_SERVO_VALUE: uint16 = 1000
+            +{abstract} bool init(uint16 address)
+            +{abstract} string pretty()
+            +{abstract} setServoValue(uint16 channel, uint16 value)
 
         }
-        class MockServoHatDriver #Orange {
-
+        class MockServoHatDriver #LimeGreen {
+            +bool init(uint16 address)
+            +string pretty()
+            +setServoValue(uint16 channel, uint16 value)
         }
-        class ServoHatDriver #Orange {
+        class ServoHatDriver #LimeGreen {
+            +bool init(uint16 address)
+            +string pretty()
+            +setServoValue(uint16 channel, uint16 value)
+            -int servoHatFd;
+            -void resetAllPWM(int on, int off)
+            -void setPWMFreq(int freq)
+            -void setPWM(int pin_number, int on, int off)
 
         }
 
