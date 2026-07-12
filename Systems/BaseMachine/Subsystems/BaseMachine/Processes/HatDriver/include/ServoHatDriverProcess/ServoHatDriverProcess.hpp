@@ -55,6 +55,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         std::string pretty();
 
        private:
-        IServoHatDriver* driver;
+        IServoHatDriver* driver;  //!< Will be either a Mock ServoHatDriver if executed on x86_64 or a real
+                                  //!< ServoHatDriver if executed on armv7l.
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
