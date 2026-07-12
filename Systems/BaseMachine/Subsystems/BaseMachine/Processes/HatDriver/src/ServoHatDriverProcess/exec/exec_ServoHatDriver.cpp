@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
     driver = new MockServoHatDriver();
 #endif
     if (driver->init() == false) {
-        fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting! channel: " + std::to_string(channel));
+        fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting!");
         return 1;
     }
     fast::rf::Logger::log_info(driver->pretty());

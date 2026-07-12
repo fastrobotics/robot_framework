@@ -13,14 +13,11 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
         int mode1 = wiringPiI2CReadReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1);
         if (mode1 < 0) {
-            std::string str = "Unable to initialize Servo Hat at address: " + std::to_string(uint16_t);
-            fast::rf::Logger::log_error(str);
-            return false;
+                        return false;
         }
         mode1 = mode1 & ~(int)Adafruit16ChServoHatConstant::SLEEP;
         if (mode1 < 0) {
-            std::string str = "Unable to initialize Servo Hat at address: " + std::to_string(uint16_t);
-            fast::rf::Logger::log_error(str);
+            fast::rf::Logger::log_error("Unable to initialize Servo Hat at address: " + std::to_string(address));
             return false;
         }
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1, mode1);
