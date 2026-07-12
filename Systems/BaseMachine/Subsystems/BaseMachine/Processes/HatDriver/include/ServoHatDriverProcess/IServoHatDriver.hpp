@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <cstdint>
 #include <string>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     class IServoHatDriver {
