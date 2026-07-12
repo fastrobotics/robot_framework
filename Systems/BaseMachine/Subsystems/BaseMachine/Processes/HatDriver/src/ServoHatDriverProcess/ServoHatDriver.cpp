@@ -56,4 +56,10 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::LED0_OFF_L + 4 * channel, off & 0xFF);
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::LED0_OFF_H + 4 * channel, off >> 8);
     }
+    void ServoHatDriver::resetAllPWM(int on, int off) {
+        wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_ON_L, on & 0xFF);
+        wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_ON_H, on >> 8);
+        wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_OFF_L, off & 0xFF);
+        wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_OFF_H, off >> 8);
+    }
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

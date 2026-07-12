@@ -45,6 +45,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
        private:
         int servoHatFd{-1};
+        void resetAllPWM(int on, int off);
         void setPWMFreq(int freq);
 
         void setPWM(int pin_number, int on, int off);
