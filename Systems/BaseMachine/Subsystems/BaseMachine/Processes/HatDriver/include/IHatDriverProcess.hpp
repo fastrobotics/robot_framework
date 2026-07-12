@@ -20,6 +20,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      */
     class IHatDriverProcess {
        public:
+
         IHatDriverProcess() = default;
         virtual ~IHatDriverProcess() = default;
 

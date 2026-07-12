@@ -1,3 +1,28 @@
 @startuml
 title Servo Hat Class Diagram
+namespace fast::rf {
+    namespace BaseMachineSystem::BaseMachineSubsystem {
+        interface IHatDriverProcess #Orange
+        interface IServoHatDriver #Orange {
+
+        }
+        class MockServoHatDriver #Orange {
+
+        }
+        class ServoHatDriver #Orange {
+
+        }
+
+        ServoHatDriver -up-|> IServoHatDriver
+        MockServoHatDriver -up-|> IServoHatDriver
+
+        class ServoHatDriverProcess #Orange {
+
+        }
+        ServoHatDriverProcess -up-|> IHatDriverProcess
+        ServoHatDriverProcess --> IServoHatDriver: <<use>>
+        ServoHatDriverProcess --> MockServoHatDriver: <<use: x86_64>>
+        ServoHatDriverProcess --> ServoHatDriver: <<use: armv7l>>
+    }
+}
 @enduml

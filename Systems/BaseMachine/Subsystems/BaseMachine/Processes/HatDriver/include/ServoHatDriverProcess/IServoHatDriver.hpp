@@ -18,6 +18,9 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      */
     class IServoHatDriver {
        public:
+        static constexpr uint16_t MAX_SERVO_VALUE = 2000;
+        static constexpr uint16_t MED_SERVO_VALUE = 1500;
+        static constexpr uint16_t MIN_SERVO_VALUE = 1000;
         IServoHatDriver() = default;
         virtual ~IServoHatDriver() = default;
         /**

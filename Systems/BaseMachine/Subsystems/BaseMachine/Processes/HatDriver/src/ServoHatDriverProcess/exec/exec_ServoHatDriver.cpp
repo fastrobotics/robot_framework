@@ -13,7 +13,7 @@ void printHelp() {
     printf("-h This Menu.\n");
     printf("-r Reset all Channels.\n");
     printf("-c Channel Number.\n");
-    // printf("-m Mode: ramp,direct.\n");
+    printf("-m Mode: ramp,direct.\n");
     printf("-v Value to Set.\n");
 }
 int main(int argc, char* argv[]) {
@@ -33,7 +33,6 @@ int main(int argc, char* argv[]) {
             case 'c':
                 channel = atoi(optarg);
                 continue;
-                /*
             case 'm':
                 mode = optarg;
                 if (mode == "ramp") {
@@ -41,7 +40,6 @@ int main(int argc, char* argv[]) {
                 } else {
                     continue;
                 };
-            */
             case 'v':
                 value = atoi(optarg);
                 break;
@@ -74,11 +72,32 @@ int main(int argc, char* argv[]) {
         }
         delete driver;
         return 0;
+    } else if (mode == "direct") {
+    } else if (mode == "ramp") {
+        value = IServoHatDriver::MED_SERVO_VALUE;
+    } else {
+        fast::rf::Logger::log_error("Mode: " + mode + " Not Supported!");
+        delete driver;
+        return 1;
     }
     double delta_time_sec = 0.01;
+    bool direction = true;
+
     while (true) {
-        fast::rf::Logger::log_debug("Running");
         usleep(delta_time_sec * 1000000.0);
+        if (mode == "ramp") {
+            if (value >= IServoHatDriver::MAX_SERVO_VALUE) {
+                direction = false;
+            } else if (value <= IServoHatDriver::MIN_SERVO_VALUE) {
+                direction = true;
+            }
+            if (direction == true) {
+                value += 1;
+            } else {
+                value -= 1;
+            }
+        } else if (mode == "direct") {  // Default, nothing to do here
+        }
         driver->setServoValue(channel, value);
     }
     delete driver;

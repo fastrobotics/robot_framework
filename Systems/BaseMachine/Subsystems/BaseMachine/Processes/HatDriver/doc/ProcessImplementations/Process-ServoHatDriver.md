@@ -32,8 +32,12 @@
 
 ## ToDo
 
-| Item |
-| ---- |
+| Item                      |
+| ------------------------- |
+| Add Driver to Process     |
+| Add API Calls for Process |
+| Unit Testing              |
+| Clean up documentation    |
 
 ## Purpose
 
@@ -68,14 +72,15 @@ The following outputs are provided by this system.
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
+![](puml/ServoHatClassDiagram.png)
 
 # Usage Instructions
 ## Test Executable
 A Test Executable is provided.  This executable changes based on the following architectures:
-| Architecture | Driver               | Comments                                          |
-| ------------ | -------------------- | ------------------------------------------------- |
-| `x86_64`     | `MockServoHatDriver` | A Mock Servo Hat Driver that produces dummy data. |
-| `armv7l`     | `ServoHatDriver`     | A Real Servo Hat Driver                           |
+| Architecture | Driver               | Comments                                                         |
+| ------------ | -------------------- | ---------------------------------------------------------------- |
+| `x86_64`     | `MockServoHatDriver` | A Mock Servo Hat Driver that emulates the real Servo Hat Driver. |
+| `armv7l`     | `ServoHatDriver`     | A Real Servo Hat Driver                                          |
 
 To use this, after building/installing, run the following:
 ```bash
@@ -83,9 +88,11 @@ To use this, after building/installing, run the following:
 ```
 ## Artifacts Provides
 The following artifacts are provided:
-| Artifact                 | Description                                      |
-| ------------------------ | ------------------------------------------------ |
-| `basic_HatDriverProcess` | General Library that provides this functionality |
+| Artifact                | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| `servoHatDriver`        | A Driver for a Servo Hat capable of running on armv7l      |
+| `mockServoHatDriver`    | A Mock Driver for a Servo Hat capable of running on x86_64 |
+| `servoHatDriverProcess` | The Process that manages the Driver.                       |
 
 
 ## Integration Steps
