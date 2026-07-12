@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
     fast::rf::Logger::log_info(driver->pretty());
     if (reset == true) {
         for (uint8_t ch = 0; ch < 16; ++ch) {
-            driver->setServoValue(ch, 1500);
+            driver->setServoValue(ch, IServoHatDriver::MED_SERVO_VALUE);
         }
         delete driver;
         return 0;
@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
         delete driver;
         return 1;
     }
-    double delta_time_sec = 0.01;
+    double delta_time_sec = 0.02;
     bool direction = true;
 
     while (true) {
@@ -100,6 +100,14 @@ int main(int argc, char* argv[]) {
         } else if (mode == "direct") {  // Default, nothing to do here
         }
         driver->setServoValue(channel, value);
+        if (mode == "direct") {
+            fast::rf::Logger::log_notice("Holding for 3 Seconds");
+            usleep(3.0 * 1000000.0);  // Holdfor 3 seconds
+            driver->setServoValue(channel, IServoHatDriver::MED_SERVO_VALUE);
+            fast::rf::Logger::log_notice("Done, Exiting.");
+            delete driver;
+            return 0;
+        }
     }
     delete driver;
     return 0;
