@@ -3,10 +3,9 @@
 #include <cmath>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool ServoHatDriver::init(uint16_t address) {
-        printf("xxx0\n");
+        address = 0x40;  // Have to figure out why have to set this manually and not using default.
         servoHatFd = wiringPiI2CSetup(address);
         resetAllPWM(0, 0);
-        printf("xxx1\n");
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE2,
                              (int)Adafruit16ChServoHatConstant::OUTDRV);
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1,
