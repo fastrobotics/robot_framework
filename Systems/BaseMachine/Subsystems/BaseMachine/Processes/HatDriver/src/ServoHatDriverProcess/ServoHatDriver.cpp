@@ -31,7 +31,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool setServoValue(uint16_t channel, uint16_t value) {
         fast::rf::Logger::log_info("C: " + std::to_string(channel) + " V: " + std::to_string(value));
         int on = 0;
-        int off = v / 3.90;
+        int off = (int)((double)value / 3.90);
         setPWM(channel, on, off);
         return true;
     }

@@ -39,7 +39,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
        public:
         ServoHatDriver() = default;
         virtual ~ServoHatDriver() = default;
-        bool init(uin16_t address = 0x40) override;
+        bool init(uint16_t address = 0x40) override;
         std::string pretty() override;
         bool setServoValue(uint16_t channel, uint16_t value) override;
 
