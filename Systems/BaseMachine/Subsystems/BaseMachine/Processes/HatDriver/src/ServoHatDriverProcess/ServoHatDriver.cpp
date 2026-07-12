@@ -3,9 +3,10 @@
 #include <cmath>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool ServoHatDriver::init(uint16_t address) {
+        printf("xxx0\n");
         servoHatFd = wiringPiI2CSetup(address);
         resetAllPWM(0, 0);
-
+        printf("xxx1\n");
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE2,
                              (int)Adafruit16ChServoHatConstant::OUTDRV);
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1,
@@ -13,7 +14,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
         int mode1 = wiringPiI2CReadReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1);
         if (mode1 < 0) {
-                        return false;
+            fast::rf::Logger::log_error("Unable to initialize Servo Hat at address: " + std::to_string(address));
+            return false;
         }
         mode1 = mode1 & ~(int)Adafruit16ChServoHatConstant::SLEEP;
         if (mode1 < 0) {
