@@ -1,6 +1,6 @@
 if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
   add_library(servoHatDriver STATIC ServoHatDriver.cpp)
-  target_link_libraries(servoHatDriver logger)
+  target_link_libraries(servoHatDriver logger wiringPi)
 else()
   add_library(mockServoHatDriver STATIC MockServoHatDriver.cpp)
   target_link_libraries(mockServoHatDriver logger)
