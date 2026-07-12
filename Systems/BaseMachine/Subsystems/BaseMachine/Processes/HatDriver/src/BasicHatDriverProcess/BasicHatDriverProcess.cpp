@@ -16,5 +16,10 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         }
         return true;
     }
+    std::string BasicHatDriverProcess::pretty() {
+        std::string str = "---Basic Hat Driver Process---";
+        str += base_pretty();
+        return str;
+    }
 
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

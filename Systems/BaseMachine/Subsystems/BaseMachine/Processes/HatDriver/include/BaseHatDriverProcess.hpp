@@ -49,14 +49,13 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
             return diagnosticManager.get_diagnostics();
         }
 
+       protected:
         /**
          * @brief Pretty print the Process
          *
          * @return std::string
          */
-        std::string pretty() override;
-
-       protected:
+        std::string base_pretty();
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.

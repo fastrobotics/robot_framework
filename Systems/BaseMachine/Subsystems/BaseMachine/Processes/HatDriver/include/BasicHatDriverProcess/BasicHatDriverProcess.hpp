@@ -39,6 +39,13 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          */
         bool update(double current_time_sec, double delta_time_sec) override;
 
+        /**
+         * @brief Human readable version of the object
+         *
+         * @return std::string
+         */
+        std::string pretty();
+
        private:
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

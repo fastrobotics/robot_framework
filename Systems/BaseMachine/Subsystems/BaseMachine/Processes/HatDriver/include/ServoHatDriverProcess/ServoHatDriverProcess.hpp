@@ -4,6 +4,11 @@
 #pragma once
 
 #include <BaseHatDriverProcess.hpp>
+#ifdef ARCHITECTURE_ARMV7L
+#include <ServoHatDriverProcess/ServoHatDriver.hpp>
+#else
+#include <ServoHatDriverProcess/MockServoHatDriver.hpp>
+#endif
 
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     /**
@@ -32,6 +37,24 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          */
         bool update(double current_time_sec, double delta_time_sec) override;
 
+        /**
+         * @brief Set the Servo Value on a Channel
+         *
+         * @param channel
+         * @param value
+         * @return true
+         * @return false
+         */
+        bool setServoValue(uint16_t channel, uint16_t value);
+
+        /**
+         * @brief Human readable string of the object
+         *
+         * @return std::string
+         */
+        std::string pretty();
+
        private:
+        IServoHatDriver* driver;
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

@@ -24,7 +24,7 @@ namespace fast::rf {
         abstract BaseHatDriverProcess {
           +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
-          +string pretty()
+          #string base_pretty()
           #DiagnosticManager diagnosticManager
 
         }
@@ -33,10 +33,12 @@ namespace fast::rf {
         class BasicHatDriverProcess {
           +bool init()
           +bool update(double current_time_sec, double delta_time_sec)
+          +string pretty()
         }
         BasicHatDriverProcess -up-|> BaseHatDriverProcess
         class DummyHatDriverProcess {
           +bool update(double current_time_sec, double delta_time_sec)
+          +string pretty()
         }
         DummyHatDriverProcess -up-|> BaseHatDriverProcess
     }

@@ -27,7 +27,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     }
     std::string ServoHatDriver::pretty() {
         std::string str;
-        str = "---Servo Hat Driver---";
+        str = "\n---Servo Hat Driver---";
         return str;
     }
     bool ServoHatDriver::setServoValue(uint16_t channel, uint16_t value) {

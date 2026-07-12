@@ -16,6 +16,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      * @brief Interface class for a generic Servo Hat
      *
      */
+
     class IServoHatDriver {
        public:
         static constexpr uint16_t MAX_SERVO_VALUE = 2000;  //!< Max Servo Value

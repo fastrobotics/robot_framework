@@ -6,7 +6,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
         return true;
     }
-    std::string BaseHatDriverProcess::pretty() {
+    std::string BaseHatDriverProcess::base_pretty() {
         std::string str = "\n---HatDriver---\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
 

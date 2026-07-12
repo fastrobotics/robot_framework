@@ -18,6 +18,8 @@
     - [Modes](#modes)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
+    - [Build Instructions](#build-instructions)
+    - [Code Instructions](#code-instructions)
 - [Validation](#validation)
 - [Helpful Commands](#helpful-commands)
   - [I2C Query](#i2c-query)
@@ -115,6 +117,37 @@ The following artifacts are provided:
 
 ## Integration Steps
 
+### Build Instructions
+Add the following to your CMakeLists.txt file:
+```cmake
+target_link_libraries(<binary> <blah> servoHatDriverProcess)
+```
+
+### Code Instructions
+NOTE: Consult this module's API-TODO when in doubt.
+
+Add the following to your header:
+
+```cpp
+#include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
+...
+fast::rf::BaseMachineSystem::BaseMachineSubsystem::ServoHatDriverProcess
+            process;  //!< Execution Process
+```
+
+Add the following to your implementation:
+```cpp
+// Initialize:
+process.init();
+
+// Update the process at a periodic rate
+process.update(now,delta_now) // Some current timestamp, along with the time since it was previously updated.
+
+// Provide it a command
+process.setServoValue(channel,value)
+```
+
+See the API for more detail, how to inspect diagnostics, etc.
 # Validation
 
 # Helpful Commands

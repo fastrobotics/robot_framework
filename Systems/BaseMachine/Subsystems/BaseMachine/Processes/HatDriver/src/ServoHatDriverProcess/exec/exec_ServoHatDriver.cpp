@@ -1,3 +1,5 @@
+// LCOV_EXCL_START
+// No way to unit test this, this is a sample executive driver
 #ifdef ARCHITECTURE_ARMV7L
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #else
@@ -112,3 +114,4 @@ int main(int argc, char* argv[]) {
     delete driver;
     return 0;
 }
+// LCOV_EXCL_STOP

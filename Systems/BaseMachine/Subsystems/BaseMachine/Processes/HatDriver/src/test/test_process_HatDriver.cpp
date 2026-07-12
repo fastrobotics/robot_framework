@@ -38,10 +38,16 @@ class TestBaseHatDriverProcess : public BaseHatDriverProcess {
     bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
         return base_update(current_time_sec, delta_time_sec);
     }
+    std::string pretty() {
+        std::string str = "---Test-Base---\n";
+        str += base_pretty();
+        return str;
+    }
 };
 TEST(BaseHatDriverProcess, BasicAssertions) {
     TestBaseHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_GT(SUT.pretty().size(), 0);
 }

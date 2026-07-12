@@ -7,7 +7,14 @@ else()
 endif()
 
 add_library(servoHatDriverProcess STATIC ServoHatDriverProcess.cpp)
-target_link_libraries(servoHatDriverProcess base_HatDriverProcess)
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+  target_link_libraries(exec_servohat_driver servoHatDriver logger)
+
+else()
+  target_link_libraries(servoHatDriverProcess base_HatDriverProcess
+                        mockServoHatDriver logger)
+endif()
+
 target_include_directories(servoHatDriverProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_subdirectory(exec)

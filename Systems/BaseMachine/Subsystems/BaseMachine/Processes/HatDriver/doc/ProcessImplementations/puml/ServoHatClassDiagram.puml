@@ -32,6 +32,10 @@ namespace fast::rf {
         MockServoHatDriver -up-|> IServoHatDriver
 
         class ServoHatDriverProcess #Orange {
+            +bool init()
+            +string pretty()
+            +bool setServoValue(uint16 channel, uint16 value)
+            -IServoHatDriver driver
 
         }
         ServoHatDriverProcess -up-|> IHatDriverProcess
