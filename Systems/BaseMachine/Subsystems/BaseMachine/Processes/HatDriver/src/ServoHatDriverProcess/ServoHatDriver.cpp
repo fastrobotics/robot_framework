@@ -1,5 +1,6 @@
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
+#include <cmath>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool ServoHatDriver::init(uint16_t address) {
         servoHatFd = wiringPiI2CSetup(address);
@@ -28,7 +29,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         str = "---Servo Hat Driver---";
         return str;
     }
-    bool setServoValue(uint16_t channel, uint16_t value) {
+    bool ServoHatDriver::setServoValue(uint16_t channel, uint16_t value) {
         fast::rf::Logger::log_info("C: " + std::to_string(channel) + " V: " + std::to_string(value));
         int on = 0;
         int off = (int)((double)value / 3.90);
