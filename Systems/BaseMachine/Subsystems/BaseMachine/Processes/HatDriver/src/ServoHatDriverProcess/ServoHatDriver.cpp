@@ -3,7 +3,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool ServoHatDriver::init() { return true; }
     std::string ServoHatDriver::pretty() {
         std::string str;
-        str = "---Mock Servo Hat Driver---";
+        str = "---Servo Hat Driver---";
         return str;
     }
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
