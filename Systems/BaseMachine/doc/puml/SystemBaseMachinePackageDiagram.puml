@@ -1,0 +1,21 @@
+@startuml
+title System-BaseMachine Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  namespace BaseMachineSystem {
+    interface IBaseMachineSystem {
+    }
+    abstract BaseBaseMachineSystem {
+    }
+    IBaseMachineSystem <|-- BaseBaseMachineSystem
+    class BasicBaseMachineSystem {
+
+    }
+    BaseBaseMachineSystem <|-- BasicBaseMachineSystem
+    class DummyBaseMachineSystem  {
+    }
+    BaseBaseMachineSystem <|-- DummyBaseMachineSystem
+  }
+}
+@enduml

@@ -3,4 +3,4 @@
 
 #include <DummyNavigationSystem/DummyNavigationSystem.hpp>
 using namespace fast::rf::NavigationSystem;
-TEST(DummyNavigationSyste, BasicAssertions) { DummyNavigationSystem SUT; }
+TEST(DummyNavigationSystem, BasicAssertions) { DummyNavigationSystem SUT; }

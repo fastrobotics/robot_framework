@@ -3,4 +3,4 @@
 
 #include <DummyDataStorageSystem/DummyDataStorageSystem.hpp>
 using namespace fast::rf::DataStorageSystem;
-TEST(DummyDataStorageSyste, BasicAssertions) { DummyDataStorageSystem SUT; }
+TEST(DummyDataStorageSystem, BasicAssertions) { DummyDataStorageSystem SUT; }

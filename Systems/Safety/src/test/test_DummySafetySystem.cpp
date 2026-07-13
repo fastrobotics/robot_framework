@@ -3,4 +3,4 @@
 
 #include <DummySafetySystem/DummySafetySystem.hpp>
 using namespace fast::rf::SafetySystem;
-TEST(DummySafetySyste, BasicAssertions) { DummySafetySystem SUT; }
+TEST(DummySafetySystem, BasicAssertions) { DummySafetySystem SUT; }

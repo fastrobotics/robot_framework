@@ -13,6 +13,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
@@ -65,6 +66,12 @@ The following outputs are provided by this system.
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
+![](puml/TODO)
+
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # Usage Instructions
 

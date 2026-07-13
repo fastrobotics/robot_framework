@@ -178,6 +178,7 @@ namespace fast::rf {
             }
         }
     }  // namespace DiagnosticDefinition
+
     namespace AwarenessSystem {
         constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Awareness System
         namespace ObjectFusionSubsystem {
@@ -260,4 +261,12 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_TELEOPCONTROL_ID = 1;  //!< Unique ID for Teleop Control Process
         }                                                    // namespace RemoteControlSubsystem
     }                                                        // namespace UserInterfaceSystem
+    namespace BaseMachineSystem {
+        const uint8_t SYSTEM_ID = 13;  //!< Unique ID for the Base Machine System
+        namespace BaseMachineSubsystem {
+            constexpr uint8_t SUBSYSTEM_ID = 1;          //!< Unique ID for the Base Machine Subsystem
+            constexpr uint8_t PROCESS_HATDRIVER_ID = 1;  //!< Unique ID for the Hat Driver Process
+
+        }  // namespace BaseMachineSubsystem
+    }      // namespace BaseMachineSystem
 }  // namespace fast::rf

@@ -59,12 +59,12 @@ namespace fast::rf {
 
     }
     namespace NavigationExecutorSubsystem {
-      class IDriveExecutorProcess #LimeGreen
-      class IDriveExecutorOutput #LimeGreen
+      interface IDriveExecutorProcess #LimeGreen
+      interface IDriveExecutorOutput #LimeGreen
       class TankDriveExecutorOutput #LimeGreen
       class TankDriveExecutor #LimeGreen {} 
-      TankDriveExecutorOutput --|> IDriveExecutorOutput
-      TankDriveExecutorProcess --|> IDriveExecutorProcess
+      TankDriveExecutorOutput -up-|> IDriveExecutorOutput
+      TankDriveExecutorProcess -up-|> IDriveExecutorProcess
       TankDriveExecutorProcess --> TankDriveExecutorOutput: <<use>>
       TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
     }
@@ -99,6 +99,13 @@ namespace fast::rf {
   }
   namespace UserInterfaceSystem {
 
+  }
+  namespace BaseMachineSystem #Yellow {
+    namespace BaseMachineSubsystem #Yellow {
+      interface IServoHatProcess
+      class ServoHatProcess
+      ServoHatProcess -up-|> IServoHatProcess
+    }
   }
 }
 

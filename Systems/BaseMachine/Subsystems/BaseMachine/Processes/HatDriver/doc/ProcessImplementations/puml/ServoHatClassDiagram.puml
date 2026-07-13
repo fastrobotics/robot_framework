@@ -1,0 +1,47 @@
+@startuml
+title Servo Hat Class Diagram
+namespace fast::rf {
+    namespace BaseMachineSystem::BaseMachineSubsystem {
+        interface IHatDriverProcess
+        interface IServoHatDriver #LimeGreen {
+            +{static} MAX_SERVO_VALUE: uint16 = 2000
+            +{static} MED_SERVO_VALUE: uint16 = 1500
+            +{static} MIN_SERVO_VALUE: uint16 = 1000
+            +{abstract} bool init(uint16 address)
+            +{abstract} string pretty()
+            +{abstract} setServoValue(uint16 channel, uint16 value)
+
+        }
+        class MockServoHatDriver #LimeGreen {
+            +bool init(uint16 address)
+            +string pretty()
+            +setServoValue(uint16 channel, uint16 value)
+        }
+        class ServoHatDriver #LimeGreen {
+            +bool init(uint16 address)
+            +string pretty()
+            +setServoValue(uint16 channel, uint16 value)
+            -int servoHatFd;
+            -void resetAllPWM(int on, int off)
+            -void setPWMFreq(int freq)
+            -void setPWM(int pin_number, int on, int off)
+
+        }
+
+        ServoHatDriver -up-|> IServoHatDriver
+        MockServoHatDriver -up-|> IServoHatDriver
+
+        class ServoHatDriverProcess #Orange {
+            +bool init()
+            +string pretty()
+            +bool setServoValue(uint16 channel, uint16 value)
+            -IServoHatDriver driver
+
+        }
+        ServoHatDriverProcess -up-|> IHatDriverProcess
+        ServoHatDriverProcess --> IServoHatDriver: <<use>>
+        ServoHatDriverProcess --> MockServoHatDriver: <<use: x86_64>>
+        ServoHatDriverProcess --> ServoHatDriver: <<use: armv7l>>
+    }
+}
+@enduml

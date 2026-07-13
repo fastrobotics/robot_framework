@@ -16,6 +16,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
@@ -91,7 +92,14 @@ When a Key Event is pressed, the process will compute an updated TwistCmd to fit
 ## Class Diagram
 ![](puml/BasicTeleopControlProcessClassDiagram.png)
 
-# Usage Instructions
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type  | Description                            |
+| ---------------- | -------------------------------------- |
+| `SOFTWARE`       | General Software readiness             |
+| `REMOTE_CONTROL` | Un-trips when R/C command is provided. |
+
+# Usage Instructions 
 
 ## Artifacts Provides
 The following artifacts are provided:

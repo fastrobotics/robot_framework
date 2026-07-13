@@ -3,4 +3,4 @@
 
 #include <DummyCommsSystem/DummyCommsSystem.hpp>
 using namespace fast::rf::CommsSystem;
-TEST(DummyCommsSyste, BasicAssertions) { DummyCommsSystem SUT; }
+TEST(DummyCommsSystem, BasicAssertions) { DummyCommsSystem SUT; }

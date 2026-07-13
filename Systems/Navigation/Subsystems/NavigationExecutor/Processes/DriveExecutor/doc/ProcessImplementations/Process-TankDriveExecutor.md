@@ -15,6 +15,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram-1)
+  - [Diagnostics](#diagnostics-1)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
@@ -89,6 +90,15 @@ Additional Diagnostic Types are implemented specifically for this Process Implem
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
+![](puml/TankDriveExecutorClassDiagram.png)s
+
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type  | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| `SOFTWARE`       | General Software readiness                     |
+| `REMOTE_CONTROL` | Un-trips when R/C commands are being provided. |
+
 
 # Usage Instructions
 ## Artifacts Provides
