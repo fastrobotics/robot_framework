@@ -14,6 +14,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Diagnostics](#diagnostics-1)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -77,6 +78,11 @@ Additional Diagnostic Types are implemented specifically for this Process Implem
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
+
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # Usage Instructions
 

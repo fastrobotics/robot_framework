@@ -1,6 +1,6 @@
 [HatDriver Process](../Process-HatDriver.md)
 
-- [Process Implementation: HatDriver](#process-implementation-cookiecutterprocess)
+- [Process Implementation: HatDriver](#process-implementation-hatdriver)
 - [Document History](#document-history)
 - [Overview](#overview)
   - [ToDo](#todo)
@@ -13,6 +13,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provides](#artifacts-provides)
   - [Integration Steps](#integration-steps)
@@ -66,12 +67,17 @@ The following outputs are provided by this system.
 
 ## Class Diagram
 
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
+
 # Usage Instructions
 
 ## Artifacts Provides
 The following artifacts are provided:
-| Artifact                                | Description                                      |
-| --------------------------------------- | ------------------------------------------------ |
+| Artifact                 | Description                                      |
+| ------------------------ | ------------------------------------------------ |
 | `basic_HatDriverProcess` | General Library that provides this functionality |
 
 

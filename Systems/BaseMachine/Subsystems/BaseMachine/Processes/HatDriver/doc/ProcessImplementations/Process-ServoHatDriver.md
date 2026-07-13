@@ -13,6 +13,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
   - [Test Executable](#test-executable)
     - [Modes](#modes)
@@ -35,8 +36,8 @@
 
 ## ToDo
 
-| Item                      |
-| ------------------------- |
+| Item |
+| ---- |
 
 
 ## Purpose
@@ -73,6 +74,12 @@ The following outputs are provided by this system.
 
 ## Class Diagram
 ![](puml/ServoHatClassDiagram.png)
+
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
+
 
 # Usage Instructions
 ## Test Executable
