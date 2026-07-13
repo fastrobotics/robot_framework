@@ -8,7 +8,6 @@ endif()
 
 add_library(servoHatDriverProcess STATIC ServoHatDriverProcess.cpp)
 if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
-  target_link_libraries(exec_servohat_driver servoHatDriver logger)
   target_link_libraries(servoHatDriverProcess base_HatDriverProcess
                         servoHatDriver logger)
 
