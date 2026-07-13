@@ -77,8 +77,11 @@ The following outputs are provided by this system.
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type  | Description                             |
+| ---------------- | --------------------------------------- |
+| `SOFTWARE`       | General Software readiness              |
+| `REMOTE_CONTROL` | Un-trips when R/C command is provided   |
+| `ACTUATORS`      | Un-trips when Servo Hat is initialized. |
 
 
 # Usage Instructions

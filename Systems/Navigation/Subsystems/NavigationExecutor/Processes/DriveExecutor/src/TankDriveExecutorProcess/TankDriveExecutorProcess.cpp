@@ -4,7 +4,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
-        diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
 
         diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
@@ -15,9 +14,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Waiting for R/C Command.");
 
-        diagnosticManager.update_diagnostic(
-            fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::WARN,
-            fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Waiting for R/C Command.");
         return status;
     }
     bool TankDriveExecutorProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
@@ -34,9 +30,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         output->right_drive = data.right_channel;
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
-            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
-        diagnosticManager.update_diagnostic(
-            fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
         return output;
     }

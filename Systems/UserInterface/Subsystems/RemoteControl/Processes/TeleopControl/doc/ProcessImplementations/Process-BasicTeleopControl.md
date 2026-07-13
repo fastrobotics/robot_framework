@@ -94,10 +94,12 @@ When a Key Event is pressed, the process will compute an updated TwistCmd to fit
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type  | Description                            |
+| ---------------- | -------------------------------------- |
+| `SOFTWARE`       | General Software readiness             |
+| `REMOTE_CONTROL` | Un-trips when R/C command is provided. |
 
-# Usage Instructions
+# Usage Instructions 
 
 ## Artifacts Provides
 The following artifacts are provided:

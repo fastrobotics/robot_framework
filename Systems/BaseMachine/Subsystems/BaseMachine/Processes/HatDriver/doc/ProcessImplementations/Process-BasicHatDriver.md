@@ -69,8 +69,10 @@ The following outputs are provided by this system.
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type | Description                              |
+| --------------- | ---------------------------------------- |
+| `SOFTWARE`      | General Diagnostics concerning Software. |
+
 
 # Usage Instructions
 

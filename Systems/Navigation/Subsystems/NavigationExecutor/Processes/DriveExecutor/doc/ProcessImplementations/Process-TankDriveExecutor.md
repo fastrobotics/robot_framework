@@ -90,11 +90,14 @@ Additional Diagnostic Types are implemented specifically for this Process Implem
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
+![](puml/TankDriveExecutorClassDiagram.png)s
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type  | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| `SOFTWARE`       | General Software readiness                     |
+| `REMOTE_CONTROL` | Un-trips when R/C commands are being provided. |
 
 
 # Usage Instructions
