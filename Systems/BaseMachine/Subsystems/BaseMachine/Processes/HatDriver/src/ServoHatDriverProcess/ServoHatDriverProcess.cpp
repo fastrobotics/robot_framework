@@ -5,8 +5,9 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     bool ServoHatDriverProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+        diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
-        // Add more as needed
+
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
 
 #ifdef ARCHITECTURE_ARMV7L
@@ -24,6 +25,9 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Servo Hat Actuators Ready.");
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING, "Waiting for R/C Commands.");
         return status;
     }
     bool ServoHatDriverProcess::update([[maybe_unused]] double current_time_sec,
@@ -35,6 +39,9 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return true;
     }
     bool ServoHatDriverProcess::setServoValue(uint16_t channel, uint16_t value) {
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving R/C Commands.");
         return driver->setServoValue(channel, value);
     }
     std::string ServoHatDriverProcess::pretty() {

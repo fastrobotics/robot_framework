@@ -24,8 +24,9 @@
 
 # ToDo
 ## This PR
-| Item |
-| ---- |
+| Item                                                                |
+| ------------------------------------------------------------------- |
+| Add diagnostics reported in markdown documentation for each Process |
 
 
 # Code Documentation
