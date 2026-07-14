@@ -9,5 +9,8 @@
     },
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[plantuml]": {
+        "editor.formatOnSave": false
     }
 }

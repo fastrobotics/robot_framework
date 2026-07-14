@@ -3,7 +3,7 @@ title System-Safety Package Diagram
 
 namespace fast::rf {
   namespace messages  {}
-  namespace SafetySystem {
+  package SafetySystem #LightYellow;line:blue {
     interface ISafetySystem {
     }
     abstract BaseSafetySystem {

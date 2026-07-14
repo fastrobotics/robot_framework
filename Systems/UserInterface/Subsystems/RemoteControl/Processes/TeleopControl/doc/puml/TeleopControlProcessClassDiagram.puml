@@ -20,7 +20,7 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace UserInterfaceSystem {
-    namespace RemoteControlSubsystem {
+    package RemoteControlSubsystem #LightYellow;line:blue {
       enum OperationMode #LimeGreen {
         UNKNOWN = 0,
         JOY_TEST = 1,
@@ -82,13 +82,14 @@ namespace fast::rf {
       BaseTeleopControlProcess --> JoystickMapper: <<use>>
       BaseTeleopControlProcess --> JoystickScaler: <<use>>
       
-      class BasicTeleopControlProcess
+      class BasicTeleopControlProcess #LimeGreen
       BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
       class DummyTeleopControlProcess {
         +bool init(ControlDevice device)
         +bool update(double current_time_sec, double delta_time_sec)
       }
       DummyTeleopControlProcess -up-|> BaseTeleopControlProcess
+
     }
   }
 }

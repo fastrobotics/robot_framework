@@ -6,7 +6,7 @@ namespace fast::rf {
     class AwarenessMsg <<(M,#FFFF00) >>
     class OdomMsg <<(M,#FFFF00) >>
   }
-  namespace AwarenessSystem {
+  package AwarenessSystem #LightYellow;line:blue {
     together {
       namespace ObjectFusionSubsystem {
         interface IObjectFusionSubsystem

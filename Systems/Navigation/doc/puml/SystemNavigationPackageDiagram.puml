@@ -2,8 +2,7 @@
 title System-Navigation Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace NavigationSystem {
+  package NavigationSystem #LightYellow;line:blue {
     interface INavigationSystem {
     }
     abstract BaseNavigationSystem {
@@ -16,14 +15,29 @@ namespace fast::rf {
     class DummyNavigationSystem  {
     }
     BaseNavigationSystem <|-- DummyNavigationSystem
-    package GlobalPlannerSubsystem {
+    namespace GlobalPlannerSubsystem {
+      namespace GlobalPlannerManagerProcess {
+        interface IGlobalPlannerManagerProcess
+      }
+      namespace GlobalPathStorageProcess {
+        interface IGlobalPathStorageProcess
+      }
+      namespace FreeSpacePlannerProcess {
+        interface IFreeSpacePlannerProcess
+      }
+      namespace GlobalPathRoutePlannerProcess {
+        interface IGlobalPathRoutePlannerProcess
+      }
+    }
+    namespace LocalPlannerSubsystem {
 
     }
-    package LocalPlannerSubsystem {
-
-    }
-    package NavigationExecutorSubsystem {
-      
+    namespace NavigationExecutorSubsystem {
+      interface IDriveExecutorProcess #LimeGreen
+      class TankDriveExecutorProcess #LimeGreen
+      TankDriveExecutorProcess -up-|> IDriveExecutorProcess
+      interface ITrajectoryControllerProcess
+      interface ITrajectorySelectorProcess
     }
   }
 }

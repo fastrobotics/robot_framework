@@ -36,6 +36,17 @@ namespace fast::rf {
     }
 
   }
+  namespace BaseMachineSystem #LimeGreen {
+    namespace BaseMachineSubsystem #LimeGreen {
+      interface IHatDriverProcess #LimeGreen
+      class ServoHatDriverProcess #LimeGreen
+      ServoHatDriverProcess -up-|> IHatDriverProcess
+      class IServoHatDriver #LimeGreen
+      class ServoDriver #LimeGreen
+      ServoDriver -up-|> IServoHatDriver
+      ServoHatDriverProcess --> IServoHatDriver: <<use>>
+    }
+  }
   namespace CommsSystem {
 
   }
@@ -53,20 +64,28 @@ namespace fast::rf {
   }
   namespace NavigationSystem {
     namespace GlobalPlannerSubsystem {
-
+      namespace GlobalPlannerManagerProcess {
+        interface IGlobalPlannerManagerProcess
+      }
+      namespace GlobalPathStorageProcess {
+        interface IGlobalPathStorageProcess
+      }
+      namespace FreeSpacePlannerProcess {
+        interface IFreeSpacePlannerProcess
+      }
+      namespace GlobalPathRoutePlannerProcess {
+        interface IGlobalPathRoutePlannerProcess
+      }
     }
     namespace LocalPlannerSubsystem {
 
     }
     namespace NavigationExecutorSubsystem {
       interface IDriveExecutorProcess #LimeGreen
-      interface IDriveExecutorOutput #LimeGreen
-      class TankDriveExecutorOutput #LimeGreen
-      class TankDriveExecutor #LimeGreen {} 
-      TankDriveExecutorOutput -up-|> IDriveExecutorOutput
+      class TankDriveExecutorProcess #LimeGreen
       TankDriveExecutorProcess -up-|> IDriveExecutorProcess
-      TankDriveExecutorProcess --> TankDriveExecutorOutput: <<use>>
-      TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+      interface ITrajectoryControllerProcess
+      interface ITrajectorySelectorProcess
     }
 
   }
@@ -77,18 +96,13 @@ namespace fast::rf {
   }
   namespace PoseSystem {
     namespace InertialSensorSubsystem {
-
     }
     namespace GlobalSensorSubsystem {
-
     }
     namespace GlobalPoseSubsystem {
-
     }
     namespace LocalPoseSubsystem {
-
     }
-
   }
   PoseSystem --> GeometryMsgs: <<use>>
   namespace SafetySystem {
@@ -98,13 +112,24 @@ namespace fast::rf {
 
   }
   namespace UserInterfaceSystem {
+    namespace RemoteControlSubsystem #LimeGreen {
+      namespace TeleopControlProcess #LimeGreen {
+        interface ITeleopControlProcess #LimeGreen
+        class BasicTeleopControlProcess #LimeGreen
+        BasicTeleopControlProcess -up-|> ITeleopControlProcess
+      }
+    } 
 
   }
-  namespace BaseMachineSystem #Yellow {
-    namespace BaseMachineSubsystem #Yellow {
-      interface IServoHatProcess
-      class ServoHatProcess
-      ServoHatProcess -up-|> IServoHatProcess
+  namespace BaseMachineSystem #LimeGreen {
+    namespace BaseMachineSubsystem #LimeGreen {
+      interface IHatDriverProcess #LimeGreen
+      class ServoHatDriverProcess #LimeGreen
+      ServoHatDriverProcess -up-|> IHatDriverProcess
+      class IServoHatDriver #LimeGreen
+      class ServoDriver #LimeGreen
+      ServoDriver -up-|> IServoHatDriver
+      ServoHatDriverProcess --> IServoHatDriver: <<use>>
     }
   }
 }

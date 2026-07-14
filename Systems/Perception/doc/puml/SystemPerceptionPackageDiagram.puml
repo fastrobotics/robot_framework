@@ -3,7 +3,7 @@ title System-Perception Package Diagram
 
 namespace fast::rf {
   namespace messages  {}
-  namespace PerceptionSystem {
+  package PerceptionSystem #LightYellow;line:blue {
     interface IPerceptionSystem {
     }
     abstract BasePerceptionSystem {

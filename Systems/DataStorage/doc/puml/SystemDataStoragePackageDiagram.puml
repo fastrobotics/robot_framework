@@ -2,8 +2,7 @@
 title System-DataStorage Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace DataStorageSystem {
+  package DataStorageSystem #LightYellow;line:blue {
     interface IDataStorageSystem {
     }
     abstract BaseDataStorageSystem {

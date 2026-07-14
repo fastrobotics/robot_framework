@@ -14,7 +14,7 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace NavigationSystem {
-    namespace NavigationExecutorSubsystem {
+    package NavigationExecutorSubsystem #LightYellow;line:blue {
         interface ITrajectoryControllerProcess  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()

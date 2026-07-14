@@ -14,14 +14,14 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace BaseMachineSystem {
-    namespace BaseMachineSubsystem {
-        interface IHatDriverProcess  {
+    package BaseMachineSubsystem  #LightYellow;line:blue {
+        interface IHatDriverProcess #LimeGreen  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
           +{abstract} string pretty()
         }
-        abstract BaseHatDriverProcess {
+        abstract BaseHatDriverProcess #LimeGreen {
           +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
           #string base_pretty()

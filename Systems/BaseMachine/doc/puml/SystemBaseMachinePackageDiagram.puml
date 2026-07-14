@@ -2,8 +2,7 @@
 title System-BaseMachine Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace BaseMachineSystem {
+  package BaseMachineSystem #LightYellow;line:blue {
     interface IBaseMachineSystem {
     }
     abstract BaseBaseMachineSystem {
@@ -16,6 +15,15 @@ namespace fast::rf {
     class DummyBaseMachineSystem  {
     }
     BaseBaseMachineSystem <|-- DummyBaseMachineSystem
+    namespace BaseMachineSubsystem #LimeGreen {
+      interface IHatDriverProcess #LimeGreen
+      class ServoHatDriverProcess #LimeGreen
+      ServoHatDriverProcess -up-|> IHatDriverProcess
+      class IServoHatDriver #LimeGreen
+      class ServoDriver #LimeGreen
+      ServoDriver -up-|> IServoHatDriver
+      ServoHatDriverProcess --> IServoHatDriver: <<use>>
+    }
   }
 }
 @enduml

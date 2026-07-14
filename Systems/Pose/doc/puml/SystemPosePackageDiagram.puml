@@ -6,21 +6,20 @@ namespace fast::rf {
     class OdomMsg <<(M,#FFFF00) >>
   }
   namespace PoseSystem {
-    together {
-      namespace InertialSensorSubsystem {
-        interface IInertialSensorSubsystem
+    namespace InertialSensorSubsystem {
+      interface IInertialSensorSubsystem
 
-      }
-      namespace GlobalSensorSubsystem {
-        interface IGlobalSensorSubsystem
-      }
-      namespace GlobalPoseSubsystem {
-        interface IGlobalPoseSubsystem
-      }
-      namespace LocalPoseSubsystem {
-        interface ILocalPoseSubsystem
-      }
     }
+    namespace GlobalSensorSubsystem {
+      interface IGlobalSensorSubsystem
+    }
+    namespace GlobalPoseSubsystem {
+      interface IGlobalPoseSubsystem
+    }
+    namespace LocalPoseSubsystem {
+      interface ILocalPoseSubsystem
+    }
+    
     interface IPoseSystem #Orange {
       +{abstract} bool update(double current_time_sec, double delta_time_sec)
       +{abstract} OdomMsg get_global_pose()

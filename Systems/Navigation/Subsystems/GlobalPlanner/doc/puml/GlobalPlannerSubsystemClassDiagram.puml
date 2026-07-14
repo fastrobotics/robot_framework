@@ -9,7 +9,7 @@ namespace fast::rf {
     }
   }
   namespace NavigationSystem {
-    namespace GlobalPlannerSubsystem {
+    package GlobalPlannerSubsystem #LightYellow;line:blue {
       interface IGlobalPlannerSubsystem {
         +{abstract} GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
         +{abstract} GlobalPathPlanningStateMsg get_GlobalPathPlanningState()
@@ -31,19 +31,19 @@ namespace fast::rf {
         +GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
       }
       DummyGlobalPlannerSubsystem -up-|> BaseGlobalPlannerSubsystem
+      namespace GlobalPlannerManagerProcess {
+        interface IGlobalPlannerManagerProcess
+      }
+      namespace GlobalPathStorageProcess {
+        interface IGlobalPathStorageProcess
+      }
+      namespace FreeSpacePlannerProcess {
+        interface IFreeSpacePlannerProcess
+      }
+      namespace GlobalPathRoutePlannerProcess {
+        interface IGlobalPathRoutePlannerProcess
+      }
     }
-    package GlobalPlannerManagerProcess {
-
-    }
-    package GlobalPathStorageProcess {
-      
-    }
-    package FreeSpacePlannerProcess {
-
-    }
-    package GlobalPathRoutePlannerProcess {
-      
-    }
-  }
+  
 }
 @enduml

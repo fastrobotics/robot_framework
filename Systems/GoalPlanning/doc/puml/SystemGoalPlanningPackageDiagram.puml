@@ -2,8 +2,7 @@
 title System-GoalPlanning Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace GoalPlanningSystem {
+  package GoalPlanningSystem #LightYellow;line:blue {
     interface IGoalPlanningSystem {
     }
     abstract BaseGoalPlanningSystem {
