@@ -2,7 +2,10 @@
     "files.watcherExclude": {
         "build/**": true
     },
-    "editor.formatOnSave": true,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.formatOnSave": true
+    },
     "C_Cpp.clang_format_style": "file",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
