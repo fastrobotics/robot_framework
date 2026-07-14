@@ -1,7 +1,7 @@
 @startuml
 title Servo Hat Class Diagram
 namespace fast::rf {
-    namespace BaseMachineSystem::BaseMachineSubsystem {
+    package BaseMachineSystem::BaseMachineSubsystem  #LightYellow;line:blue {
         interface IHatDriverProcess
         interface IServoHatDriver #LimeGreen {
             +{static} MAX_SERVO_VALUE: uint16 = 2000

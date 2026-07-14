@@ -2,8 +2,7 @@
 title System-Terrain Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace TerrainSystem {
+  package TerrainSystem #LightYellow;line:blue {
     interface ITerrainSystem {
     }
     abstract BaseTerrainSystem {

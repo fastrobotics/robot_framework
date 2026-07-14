@@ -4,7 +4,7 @@ namespace fast::rf {
   namespace messages {
   }
   namespace BaseMachineSystem {
-    namespace BaseMachineSubsystem {
+    package BaseMachineSubsystem #LightYellow;line:blue  {
       interface IBaseMachineSubsystem {
 
       }
@@ -18,6 +18,14 @@ namespace fast::rf {
       class DummyBaseMachineSubsystem {
       }
       DummyBaseMachineSubsystem -up-|> BaseBaseMachineSubsystem
+      interface IHatDriverProcess #LimeGreen
+      class ServoHatDriverProcess #LimeGreen
+      ServoHatDriverProcess -up-|> IHatDriverProcess
+      class IServoHatDriver #LimeGreen
+      class ServoDriver #LimeGreen
+      ServoDriver -up-|> IServoHatDriver
+      ServoHatDriverProcess --> IServoHatDriver: <<use>>
+
     }
   }
 }

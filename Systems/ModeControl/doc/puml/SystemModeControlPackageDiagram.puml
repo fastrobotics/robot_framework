@@ -3,7 +3,7 @@ title System-ModeControl Package Diagram
 
 namespace fast::rf {
   namespace messages {}
-  namespace ModeControlSystem {
+  package ModeControlSystem #LightYellow;line:blue {
     interface IModeControlSystem {
     }
     abstract BaseModeControlSystem {

@@ -4,7 +4,7 @@ namespace fast::rf {
   namespace messages {
   }
   namespace NavigationSystem {
-    namespace NavigationExecutorSubsystem {
+    package NavigationExecutorSubsystem #LightYellow;line:blue {
       interface INavigationExecutorSubsystem {
 
       }
@@ -18,6 +18,11 @@ namespace fast::rf {
       class DummyNavigationExecutorSubsystem {
       }
       DummyNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
+      interface IDriveExecutorProcess #LimeGreen
+      class TankDriveExecutorProcess #LimeGreen
+      TankDriveExecutorProcess -up-|> IDriveExecutorProcess
+      interface ITrajectoryControllerProcess
+      interface ITrajectorySelectorProcess
     }
   }
 }

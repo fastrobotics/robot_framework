@@ -17,11 +17,11 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace NavigationSystem {
-    namespace NavigationExecutorSubsystem {
+    package NavigationExecutorSubsystem #LightYellow;line:blue {
         interface IDriveExecutorOutput #LimeGreen {
 
         }
-        interface IDriveExecutorProcess #Orange {
+        interface IDriveExecutorProcess #LimeGreen {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} IDriveExecutorOutput new_cmd(TwistMsg cmd)
@@ -30,7 +30,7 @@ namespace fast::rf {
           +{abstract} string pretty()
         }
         IDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
-        abstract BaseDriveExecutorProcess #Orange {
+        abstract BaseDriveExecutorProcess #LimeGreen {
           +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
           +string pretty()
@@ -52,6 +52,8 @@ namespace fast::rf {
         }
         DummyDriveExecutorProcess -up-|> BaseDriveExecutorProcess
         DummyDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+        class TankDriveExecutorProcess #LimeGreen
+        TankDriveExecutorProcess -up-|> IDriveExecutorProcess
     }
   }
 }

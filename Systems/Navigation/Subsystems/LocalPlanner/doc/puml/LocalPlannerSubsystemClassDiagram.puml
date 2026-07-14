@@ -15,7 +15,7 @@ namespace fast::rf {
     }
   }
   namespace NavigationSystem {
-    namespace LocalPlannerSubsystem {
+    package LocalPlannerSubsystem #LightYellow;line:blue {
       interface ILocalPlannerSubsystem {
         +{abstract} GlobalPathCommandStateMsg new_GlobalPathCommand(GlobalPathCommandMsg cmd)
         +{abstract} GlobalPathCommandStateMsg get_GlobalPathCommandState()

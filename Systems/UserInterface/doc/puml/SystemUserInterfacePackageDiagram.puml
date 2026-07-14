@@ -2,8 +2,7 @@
 title System-UserInterface Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace UserInterfaceSystem {
+  package UserInterfaceSystem #LightYellow;line:blue {
     namespace Tools {
       class DiagnosticViewer {
 
@@ -12,8 +11,12 @@ namespace fast::rf {
 
       }
     }
-    package RemoteControlSubsystem #Yellow {
-
+    namespace RemoteControlSubsystem #LimeGreen {
+      namespace TeleopControlProcess #LimeGreen {
+        interface ITeleopControlProcess #LimeGreen
+        class BasicTeleopControlProcess #LimeGreen
+        BasicTeleopControlProcess -up-|> ITeleopControlProcess
+      }
     } 
     
 }

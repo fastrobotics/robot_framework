@@ -3,7 +3,7 @@ title System-ImplementControl Package Diagram
 
 namespace fast::rf {
   namespace messages  {}
-  namespace ImplementControlSystem {
+  package ImplementControlSystem  #LightYellow;line:blue {
     interface IImplementControlSystem {
     }
     abstract BaseImplementControlSystem {

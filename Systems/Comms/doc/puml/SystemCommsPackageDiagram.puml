@@ -2,8 +2,7 @@
 title System-Comms Package Diagram
 
 namespace fast::rf {
-  namespace messages  {}
-  namespace CommsSystem {
+  package CommsSystem #LightYellow;line:blue {
     interface ICommsSystem {
     }
     abstract BaseCommsSystem {
