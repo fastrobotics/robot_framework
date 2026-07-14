@@ -31,7 +31,7 @@ namespace fast::rf {
         ServoHatDriver -up-|> IServoHatDriver
         MockServoHatDriver -up-|> IServoHatDriver
 
-        class ServoHatDriverProcess #Orange {
+        class ServoHatDriverProcess #LimeGreen {
             +bool init()
             +string pretty()
             +bool setServoValue(uint16 channel, uint16 value)
