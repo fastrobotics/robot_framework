@@ -64,14 +64,15 @@ The following outputs are provided by this system.
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| --- | --- | --- |
-| NEW | [Object Fusion](Subsystems/ObjectFusionSubsystem/ObjectFusionSubsystem.md) | Receives various sensor inputs and fuses them together to form a picture of the objects in the environment. |
-| NEW | [Global Awareness](Subsystems/GlobalAwarenessSubsystem/GlobalAwarenessSubsystem.md) | From the Objects created/tracked in the Fusion process, computes a list of Global Objects (i.e. all) objects in the environment. |
-| NEW | [Local Awareness](Subsystems/LocalAwarenessSubsystem/LocalAwarenessSubsystem.md) | From the Objects created/tracked in the Fusion process, computes a list of Local Objects (i.e. limited to the surroundings of the robot). |
-| NEW | [Object Prediction](Subsystems/ObjectFusionSubsystem/ObjectFusionSubsystem.md) | Predicts where objects will be in the future. |
+| State | Subsystem                                                                           | Purpose                                                                                                                                   |
+| ----- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| NEW   | [Object Fusion](Subsystems/ObjectFusionSubsystem/ObjectFusionSubsystem.md)          | Receives various sensor inputs and fuses them together to form a picture of the objects in the environment.                               |
+| NEW   | [Global Awareness](Subsystems/GlobalAwarenessSubsystem/GlobalAwarenessSubsystem.md) | From the Objects created/tracked in the Fusion process, computes a list of Global Objects (i.e. all) objects in the environment.          |
+| NEW   | [Local Awareness](Subsystems/LocalAwarenessSubsystem/LocalAwarenessSubsystem.md)    | From the Objects created/tracked in the Fusion process, computes a list of Local Objects (i.e. limited to the surroundings of the robot). |
+| NEW   | [Object Prediction](Subsystems/ObjectFusionSubsystem/ObjectFusionSubsystem.md)      | Predicts where objects will be in the future.                                                                                             |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemAwarenessPackageDiagram.png)
 

@@ -1,3 +1,5 @@
+[![Build and Test CI](https://github.com/fastrobotics/robot_framework/actions/workflows/build-test.yml/badge.svg)](https://github.com/fastrobotics/robot_framework/actions/workflows/build-test.yml)
+
 # FAST Robotics - Robot Framework
 
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
@@ -73,6 +75,8 @@ ctest
 # Generate Code Coverage (after running [Run Unit Tests](#run-unit-tests-after-running-build))
 
 ```bash
+cd <repo>
+source repo_config
 ./dev_tools/scripts/dev_tools.sh code_coverage
 ```
 

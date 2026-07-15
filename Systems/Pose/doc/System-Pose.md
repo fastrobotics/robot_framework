@@ -61,14 +61,15 @@ The following outputs are provided by this system.
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| --- | --- | --- |
-| NEW | [Inertial Sensors](../Subsystems/InertialSensorSubsystem/doc/Subsystem-InertialSensor.md) | |
-| NEW | [Global Sensors](../Subsystems/GlobalSensorSubsystem/doc/Subsystem-GlobalSensor.md) | |
-| DRAFT | [Global Pose](../Subsystems/GlobalPoseSubsystem/doc/Subsystem-GlobalPose.md) | |
-| NEW | [Local Pose](../Subsystems/LocalPoseSubsystem/doc/Subsystem-LocalPose.md) | |
+| State | Subsystem                                                                                 | Purpose |
+| ----- | ----------------------------------------------------------------------------------------- | ------- |
+| NEW   | [Inertial Sensors](../Subsystems/InertialSensorSubsystem/doc/Subsystem-InertialSensor.md) |         |
+| NEW   | [Global Sensors](../Subsystems/GlobalSensorSubsystem/doc/Subsystem-GlobalSensor.md)       |         |
+| DRAFT | [Global Pose](../Subsystems/GlobalPoseSubsystem/doc/Subsystem-GlobalPose.md)              |         |
+| NEW   | [Local Pose](../Subsystems/LocalPoseSubsystem/doc/Subsystem-LocalPose.md)                 |         |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemPosePackageDiagram.png)
 

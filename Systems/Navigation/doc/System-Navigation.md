@@ -66,6 +66,7 @@ The following Subsystems are provided in this System:
 | NEW   | [Navigation Executor](../Subsystems/NavigationExecutor/doc/Subsystem-NavigationExecutor.md) | Given Drive Commands, will generae Base Machine commands suitable for some Base Machine component to move the robot. |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemNavigationPackageDiagram.png)
 

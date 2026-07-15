@@ -65,9 +65,10 @@ Ideas:
 
 The following Subsystems are provided in this System:
 | State | Subsystem | Purpose |
-| --- | --- | --- |
+| ----- | --------- | ------- |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemTerrainPackageDiagram.png)
 
