@@ -3,7 +3,6 @@
 - [Process Implementation: Tank Drive Executor](#process-implementation-tank-drive-executor)
 - [Document History](#document-history)
 - [Overview](#overview)
-  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
@@ -32,13 +31,6 @@
 |       0        | 28-June-2026 | Drafted Document |
 
 # Overview
-
-## ToDo
-
-| Item                                         |
-| -------------------------------------------- |
-| Math to convert Twist to Tank Drive Controls |
-| Figure out Drive Executor Output             |
 
 ## Purpose
 

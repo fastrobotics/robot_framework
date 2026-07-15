@@ -3,7 +3,6 @@
 - [Process Implementation: TeleopControl](#process-implementation-teleopcontrol)
 - [Document History](#document-history)
 - [Overview](#overview)
-  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
@@ -31,12 +30,6 @@
 |       0        | 7-July-2026 | David Gitz | Drafted Document |
 
 # Overview
-
-## ToDo
-
-| Item                                                                                    |
-| --------------------------------------------------------------------------------------- |
-| Investigate Joystick Driver (or whatever compatible hardware device) will be used first |
 
 ## Purpose
 

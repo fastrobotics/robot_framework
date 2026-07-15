@@ -3,7 +3,6 @@
 - [Process Implementation: GlobalPathRoutePlanner](#process-implementation-globalpathrouteplanner)
 - [Document History](#document-history)
 - [Overview](#overview)
-  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
@@ -24,11 +23,6 @@
 | :------------: | ---- | ------ | ------ |
 
 # Overview
-
-## ToDo
-
-| Item |
-| ---- |
 
 ## Purpose
 

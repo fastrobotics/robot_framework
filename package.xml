@@ -5,7 +5,7 @@
   <description>The robot framework</description>
   <license>MIT</license>
 
-  <maintainer email="user@todo.todo">User</maintainer>
+  <maintainer email="davidgitz@gmail.com">User</maintainer>
 
   <buildtool_depend>cmake</buildtool_depend>
 
