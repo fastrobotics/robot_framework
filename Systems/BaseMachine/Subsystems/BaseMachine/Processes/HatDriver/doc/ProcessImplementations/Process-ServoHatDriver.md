@@ -3,7 +3,6 @@
 - [Process Implementation: Servo Hat Driver](#process-implementation-servo-hat-driver)
 - [Document History](#document-history)
 - [Overview](#overview)
-  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
@@ -33,12 +32,6 @@
 | :------------: | ------------ | ---------- | ---------------- |
 |       0        | 11-July-2027 | David Gitz | Drafted Document |
 # Overview
-
-## ToDo
-
-| Item |
-| ---- |
-
 
 ## Purpose
 

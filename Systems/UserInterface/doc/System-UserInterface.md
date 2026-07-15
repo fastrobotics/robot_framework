@@ -72,6 +72,7 @@ The following Subsystems are provided in this System:
 | DRAFT | [RemoteControl](../Subsystems/RemoteControl/doc/Subsystem-RemoteControl.md) | Provides SW to support Remote Control operations |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemUserInterfacePackageDiagram.png)
 

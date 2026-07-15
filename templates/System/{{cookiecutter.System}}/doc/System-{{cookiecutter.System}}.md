@@ -59,9 +59,10 @@ The following outputs are provided by this system.
 
 The following Subsystems are provided in this System:
 | State | Subsystem | Purpose |
-| --- | --- | --- |
+| ----- | --------- | ------- |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/System{{cookiecutter.System}}PackageDiagram.png)
 

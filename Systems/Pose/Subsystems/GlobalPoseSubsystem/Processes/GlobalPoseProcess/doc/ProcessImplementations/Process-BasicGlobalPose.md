@@ -3,7 +3,6 @@
 - [Process Implementation: Basic Global Pose](#process-implementation-basic-global-pose)
 - [Document History](#document-history)
 - [Overview](#overview)
-  - [ToDo](#todo)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
@@ -25,14 +24,6 @@
 |       0        | 26-June-2026 | David Gitz | Drafted Document |
 
 # Overview
-
-## ToDo
-
-| Item                                                                                        |
-| ------------------------------------------------------------------------------------------- |
-| Add specific Class Diagram                                                                  |
-| Add Sequence Diagram                                                                        |
-| Move Geo Conversion to separate library, other Concrete Processes will need to do the same. |
 
 ## Purpose
 

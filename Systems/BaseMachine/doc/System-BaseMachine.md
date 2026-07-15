@@ -63,6 +63,7 @@ The following Subsystems are provided in this System:
 | NEW   | [Base Machine Subsystem](../Subsystems/BaseMachine/doc/Subsystem-BaseMachine.md) | General Base Machine Subsystem |
 
 ## Package Diagram
+![](../../../Legend.png)
 
 ![](puml/SystemBaseMachinePackageDiagram.png)
 

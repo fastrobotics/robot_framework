@@ -1,11 +1,10 @@
+[![Build and Test CI](https://github.com/fastrobotics/robot_framework/actions/workflows/build-test.yml/badge.svg)](https://github.com/fastrobotics/robot_framework/actions/workflows/build-test.yml)
+
 # FAST Robotics - Robot Framework
 
 - [FAST Robotics - Robot Framework](#fast-robotics---robot-framework)
-- [ToDo List](#todo-list)
 - [Architecture Decision Records](#architecture-decision-records)
 - [Requirements](#requirements)
-- [ToDo](#todo)
-  - [This PR](#this-pr)
 - [Code Documentation](#code-documentation)
 - [Architecture](#architecture)
 - [Messages](#messages)
@@ -15,25 +14,12 @@
 - [Generate Code Coverage (after running Run Unit Tests)](#generate-code-coverage-after-running-run-unit-tests)
 - [Templates](#templates)
 
-# ToDo List
-- Add remainder of System ID tests
-- Flesh out Diagnostic attributes
-- Add generic process interface with common functions that must be implemented
-- Update templates
-- 
 # Architecture Decision Records
 
 [ADR's](doc/ADR/ADR.md)
 
 # Requirements
 [Requirements](doc/Requirements/Requirements.md)
-
-# ToDo
-## This PR
-| Item |
-| ---- |
-
-
 
 # Code Documentation
 
@@ -89,6 +75,8 @@ ctest
 # Generate Code Coverage (after running [Run Unit Tests](#run-unit-tests-after-running-build))
 
 ```bash
+cd <repo>
+source repo_config
 ./dev_tools/scripts/dev_tools.sh code_coverage
 ```
 
