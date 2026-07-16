@@ -9,7 +9,6 @@
 using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
 
 TEST(ServoHatDriverProcess, BasicTests) {
-    fast::rf::Logger::init(fast::rf::Level::DEBUG, "Test-ServoHatProcess1");
     ServoHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0, 0.0));
@@ -23,7 +22,6 @@ TEST(ServoHatDriverProcess, BasicTests) {
     }
 }
 TEST(ServoHatDriverProcess, BasicConversionTests) {
-    fast::rf::Logger::init(fast::rf::Level::DEBUG, "Test-ServoHatProcess1");
     ServoHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(true);

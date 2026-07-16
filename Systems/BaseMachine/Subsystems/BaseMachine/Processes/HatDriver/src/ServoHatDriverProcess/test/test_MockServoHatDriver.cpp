@@ -9,7 +9,6 @@
 using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
 
 TEST(MockServoHatDriver, BasicTests) {
-    fast::rf::Logger::init(fast::rf::Level::DEBUG, "ServoHatDriver");
     MockServoHatDriver SUT;
     ASSERT_TRUE(SUT.init());
     fast::rf::Logger::log_info(SUT.pretty());

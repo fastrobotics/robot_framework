@@ -50,12 +50,16 @@ target_link_libraries(<binary orlibrary> logger)
 #include <Infrastructure/Logger.hpp>
 ```
 
-3. In your main function, initialize the logger:
+3. (Optional) In your main function, initialize the logger:
 ```cpp
 fast::rf::Logger::init(fast::rf::Level::DEBUG, <Object Name>); // Set minimum level appropriately, and set an Object Name (typically the name of the binary).
 ```
+
+NOTE: If you don't do this, that's perfectly fine, you just won't get an output file.  This is useful in unit tests where you want to utilize the logger but don't want to have a text file output for every test case.  IF you skip this test, the logger will be initialized to a DEBUG level.
+
+
 ## Typical Usage
-Wherever you need to log a console/file output, simply call:
+Wherever you need to log a console/file output(see the note above), simply call:
 ```cpp
 fast::rf::Logger::log_warn("Message") // Or whatever verbosity level is appropriate.
 ```

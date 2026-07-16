@@ -22,7 +22,10 @@ jobs:
         run: ./scripts/setup_robot.sh
 
       - name: Prepare to Build
-        run: cmake -S . -B build
+        run: |
+          rm -rf build 2>/dev/null
+          mkdir -p ~/var/log/output/
+          cmake -S . -B build
 
       - name: Build Repo
         run: cmake --build build --target install -j20
