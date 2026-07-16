@@ -1,6 +1,7 @@
 
 #include <gtest/gtest.h>
 
+#include <DiagnosticMsg.hpp>
 #include <Infrastructure/Logger.hpp>
 using namespace fast::rf;
 class UserClass {
@@ -54,6 +55,15 @@ TEST(Logger, LongFile) {
     while (line_counter < (Logger::MAXLINE_COUNT * 2)) {
         line_counter++;
         ASSERT_TRUE(SUT.are_you_ok());
+    }
+}
+using namespace fast::rf::messages::InfrastructureMsgs;
+TEST(Logger, LogDiagnostics) {
+    DiagnosticMsg diagnostic(1, 2, 3, fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+    diagnostic.description = "Some Diagnostic Message";
+    for (uint8_t i = 0; i < (uint8_t)fast::rf::Level::END_OF_LIST; ++i) {
+        diagnostic.level = (fast::rf::Level)i;
+        ASSERT_EQ(Logger::log_diagnostic(diagnostic), Logger::LoggerStatus::LOG_WRITTEN);
     }
 }
 TEST(Logger, LazyInitializationWithoutExplicitInit) {

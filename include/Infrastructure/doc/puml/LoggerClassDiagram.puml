@@ -1,6 +1,9 @@
 @startuml
 title Logger Class Diagram
 namespace fast::rf {
+    namespace messages::InfrastructureMsgs {
+        class DiagnosticMsg <<(M,#FFFF00)>>
+    }
     enum LoggerStatus #LimeGreen {
         UNKNOWN = 0,
         FAILED_TO_OPEN = 1,
@@ -10,6 +13,7 @@ namespace fast::rf {
     }
     class Logger #LimeGreen {
         +Logger(Level level, std::string name)
+        +log_diagnostic(DiagnosticMsg msg)
         +log_debug(string msg)
         +log_info(string msg)
         +log_notice(string msg)

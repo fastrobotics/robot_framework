@@ -64,4 +64,10 @@ Wherever you need to log a console/file output(see the note above), simply call:
 fast::rf::Logger::log_warn("Message") // Or whatever verbosity level is appropriate.
 ```
 
+You can also call this with a `DiagnosticMsg` object:
+```cpp
+fast::rf::Logger::log_diagnostic(DiagnosticMsg diagnostic)
+```
+
 # Validation
+This module is tested extensively by Unit Tests.

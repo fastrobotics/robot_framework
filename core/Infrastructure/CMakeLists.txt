@@ -1,4 +1,5 @@
 add_library(logger Logger.cpp)
+target_link_libraries(logger infrastructure_msgs)
 add_subdirectory(DiagnosticManager)
 if(BUILD_TESTING)
   add_subdirectory(test)
