@@ -71,8 +71,11 @@ namespace fast::rf {
                    tempstr.c_str(), END_COLOR.c_str());
             return LoggerStatus::FAILED_TO_OPEN;
         }
+        printf("xxx0\n");
         bool file_is_open = write_to_file && log_file.is_open();
         if (file_is_open || (!write_to_file && console_print)) {
+            printf("xxx1\n");
+            printf("level: %d verbosity: %d\n", (uint8_t)level, (uint8_t)verbosity);
             if (level >= verbosity) {
                 line_counter++;
                 switch (level) {
