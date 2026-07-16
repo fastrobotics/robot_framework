@@ -1,6 +1,6 @@
 @startuml
 title Logger Class Diagram
-namespace fast::rf {
+package fast::rf #LightYellow;line:blue {
     namespace messages::InfrastructureMsgs {
         class DiagnosticMsg <<(M,#FFFF00)>>
     }
