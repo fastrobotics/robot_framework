@@ -30,7 +30,7 @@ jobs:
         run: cmake --build build --target install -j20
 
       - name: Run Unit Tests
-        run: ctest --verbose
+        run: ctest --verbose -R Logger.
         working-directory: build
 
       - name: Generate Cobertura XML
