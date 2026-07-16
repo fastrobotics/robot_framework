@@ -28,6 +28,30 @@ namespace fast::rf {
         }
         logger_ok = true;
     }
+    Logger::LoggerStatus Logger::LOG_DIAGNOSTIC(std::string filename, uint64_t linenumber,
+                                                fast::rf::messages::InfrastructureMsgs::DiagnosticMsg msg) {
+        std::string diag_string = msg.pretty();
+        switch (msg.level) {
+            case fast::rf::Level::NOERROR:
+                return LOG_INFO(filename, linenumber, diag_string);
+            case fast::rf::Level::DEBUG:
+                return LOG_DEBUG(filename, linenumber, diag_string);
+            case fast::rf::Level::INFO:
+                return LOG_INFO(filename, linenumber, diag_string);
+            case fast::rf::Level::NOTICE:
+                return LOG_NOTICE(filename, linenumber, diag_string);
+            case fast::rf::Level::WARN:
+                return LOG_WARN(filename, linenumber, diag_string);
+            case fast::rf::Level::ERROR:
+                return LOG_ERROR(filename, linenumber, diag_string);
+            case fast::rf::Level::FATAL:
+                return LOG_FATAL(filename, linenumber, diag_string);
+
+            default:
+                return LOG_ERROR("", 0, "UNKNOWN LEVEL: " + std::to_string((uint8_t)msg.level));
+        }
+        return LoggerStatus::FAILED_TO_OPEN;
+    }
     Logger::LoggerStatus Logger::LOG_DEBUG(std::string filename, uint64_t linenumber, std::string tempstr) {
         return print_log(filename, linenumber, Level::DEBUG, tempstr);
     }

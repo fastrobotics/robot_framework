@@ -10,12 +10,18 @@
  */
 #pragma once
 
+#include <DiagnosticMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
 #include <string>
 namespace fast::rf {
+    /**
+     * @brief Log a Diagnostic
+     *
+     */
+#define log_diagnostic(diagnostic) getLoggerInstance().LOG_DIAGNOSTIC(__FILE__, __LINE__, diagnostic)
 #define log_debug(tempstr) getLoggerInstance().LOG_DEBUG(__FILE__, __LINE__, tempstr)    //!< Log a Debug Message
 #define log_info(tempstr) getLoggerInstance().LOG_INFO(__FILE__, __LINE__, tempstr)      //!< Log a Info Message
 #define log_notice(tempstr) getLoggerInstance().LOG_NOTICE(__FILE__, __LINE__, tempstr)  //!< Log a Notice Message
@@ -86,6 +92,17 @@ namespace fast::rf {
          * @return false
          */
         bool is_logger_ok() { return logger_ok; }
+
+        /**
+         * @brief Do Not Use
+         *
+         * @param filename
+         * @param linenumber
+         * @param msg
+         * @return LoggerStatus
+         */
+        LoggerStatus LOG_DIAGNOSTIC(std::string filename, uint64_t linenumber,
+                                    fast::rf::messages::InfrastructureMsgs::DiagnosticMsg msg);
 
         /**
          * @brief Do Not Use
