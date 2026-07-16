@@ -13,6 +13,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <fstream>
 #include <iostream>
+#include <stdexcept>
 #include <string>
 namespace fast::rf {
 #define log_debug(tempstr) getLoggerInstance().LOG_DEBUG(__FILE__, __LINE__, tempstr)    //!< Log a Debug Message
@@ -60,7 +61,7 @@ namespace fast::rf {
             if (instance != nullptr) {
                 throw std::runtime_error("Logger is already initialized!");
             }
-            instance = new Logger(level, name);
+            instance = new Logger(level, name, true);
             if (instance->logger_ok == false) {
                 return false;
             }
@@ -74,7 +75,7 @@ namespace fast::rf {
          */
         static Logger& getLoggerInstance() {
             if (instance == nullptr) {
-                throw std::runtime_error("Logger has not been initialized yet!");
+                instance = new Logger(Level::DEBUG, "default_logger", false);
             }
             return *instance;
         }
@@ -157,7 +158,7 @@ namespace fast::rf {
 
        private:
         // Private Constructor
-        Logger(Level level, std::string name);
+        Logger(Level level, std::string name, bool write_to_file);
 
         const std::string GREEN_FOREGROUND = "\033[1;32m";
         const std::string YELLOW_FOREGROUND = "\033[1;33m";
@@ -165,6 +166,7 @@ namespace fast::rf {
         const std::string END_COLOR = "\033[0m";
 
         bool logger_ok{false};
+        bool write_to_file{true};
         uint64_t line_counter{0};
         Level verbosity{Level::DEBUG};
         std::ofstream log_file;
