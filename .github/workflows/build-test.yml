@@ -24,6 +24,7 @@ jobs:
       - name: Prepare to Build
         run: |
           rm -rf build 2>/dev/null
+          mkdir -p ~/var/log/output/
           cmake -S . -B build
 
       - name: Build Repo
