@@ -8,8 +8,12 @@ class UserClass {
     UserClass() = default;
     virtual ~UserClass() = default;
     bool are_you_ok() {
-        Logger::log_warn("I'm Ok");
-        return true;
+        auto status = Logger::log_warn("I'm Ok");
+        if (status == Logger::LoggerStatus::LOG_WRITTEN) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
    private:
@@ -28,6 +32,7 @@ TEST(Logger, ExceptionalCases) {
     Logger::log_warn("What's up?");
     UserClass SUT;
     ASSERT_TRUE(SUT.are_you_ok());
+    ASSERT_FALSE(Logger::init(Level::DEBUG, "/Test-Logger2"));  // Already Initialized
 }
 TEST(Logger, NegativeAssertions) {
     ASSERT_FALSE(Logger::init(Level::UNKNOWN, "Test-Logger3"));
@@ -42,7 +47,15 @@ TEST(Logger, LoggerLevelChecks) {
     ASSERT_EQ(Logger::log_error("A Test Error Message"), Logger::LoggerStatus::LOG_WRITTEN);
     ASSERT_EQ(Logger::log_fatal("A Test Fatal Message"), Logger::LoggerStatus::LOG_WRITTEN);
 }
-
+TEST(Logger, LongFile) {
+    ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger-LongFile"));
+    UserClass SUT;
+    uint16_t line_counter = 0;
+    while (line_counter < (Logger::MAXLINE_COUNT * 2)) {
+        line_counter++;
+        ASSERT_TRUE(SUT.are_you_ok());
+    }
+}
 TEST(Logger, LazyInitializationWithoutExplicitInit) {
     Logger::shutdown();
     ASSERT_EQ(Logger::log_debug("Lazy initialization should work without an explicit init"),

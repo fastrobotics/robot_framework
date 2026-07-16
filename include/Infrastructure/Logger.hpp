@@ -59,7 +59,7 @@ namespace fast::rf {
          */
         static bool init(Level level, std::string name) {
             if (instance != nullptr) {
-                throw std::runtime_error("Logger is already initialized!");
+                return false;
             }
             instance = new Logger(level, name, true);
             if (instance->logger_ok == false) {

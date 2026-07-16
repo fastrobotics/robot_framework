@@ -50,7 +50,7 @@ target_link_libraries(<binary orlibrary> logger)
 #include <Infrastructure/Logger.hpp>
 ```
 
-1. (Optional) In your main function, initialize the logger:
+3. (Optional) In your main function, initialize the logger:
 ```cpp
 fast::rf::Logger::init(fast::rf::Level::DEBUG, <Object Name>); // Set minimum level appropriately, and set an Object Name (typically the name of the binary).
 ```
