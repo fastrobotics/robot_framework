@@ -301,7 +301,7 @@ Manager Process#</dia:string>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#ArmChangeSrv: Request/Response#</dia:string>
+            <dia:string>#ArmStateChangeSrv: Request/Response#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>

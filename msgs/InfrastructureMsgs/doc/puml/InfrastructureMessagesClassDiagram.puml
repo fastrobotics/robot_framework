@@ -6,50 +6,40 @@ namespace fast::rf {
     enum DiagnosticType
     enum DiagnosticMessage
   }
+  enum ArmedState
 
 }
 namespace fast::rf::messages {
   package InfrastructureMsgs #LightYellow;line:blue  {
-    enum ArmedState #Yellow {
-      UNKNOWN=0,
-      DISARMED=1,
-      DISARMED_CANNOTARM=2,
-      ARMING=3,
-      ARMED=4,
-      NOCHANGE=5,
-      END_OF_LIST=6
-
-    }
-    class ArmCommandMsg <<(M,#FFFF00)>> #Yellow {
+    
+    class ArmCommandMsg <<(M,#FFFF00)>> #LimeGreen {
       +ArmedState armed_state
     }
     ArmCommandMsg --> ArmedState: <<use>>
-    struct ArmChangeSrvRequest #Yellow {
+    struct ArmStateChangeSrvRequest #LimeGreen {
       +ArmedState requested_armed_state
 
     }
-    ArmChangeSrvRequest --> ArmedState: <<use>>
-    struct ArmChangeSrvResponse #Yellow {
+    ArmStateChangeSrvRequest --> ArmedState: <<use>>
+    struct ArmStateChangeSrvResponse #LimeGreen {
       +ArmedState current_armed_state
       +bool request_approved
 
     }
-    ArmChangeSrvResponse --> ArmedState: <<use>>
-    class ArmChangeSrv <<(M,#FFFF00)>> #Yellow {
-      +ArmChangeSrvRequest request
-      +ArmChangeSrvResponse response
+    ArmStateChangeSrvResponse --> ArmedState: <<use>>
+    class ArmStateChangeSrv <<(M,#FFFF00)>> #LimeGreen {
+      +ArmStateChangeSrvRequest request
+      +ArmStateChangeSrvResponse response
     }
-    ArmChangeSrv +-- ArmChangeSrvRequest
-    ArmChangeSrv +-- ArmChangeSrvResponse
-    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #Yellow {
+    ArmStateChangeSrv +-- ArmStateChangeSrvRequest
+    ArmStateChangeSrv +-- ArmStateChangeSrvResponse
+    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
       +uint8_t componentID
       +bool ready_to_arm
     }
-    note right of ReadyToArmStatusMsg
-    Implement during AB#1769
-    end note
+
     class DiagnosticMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID

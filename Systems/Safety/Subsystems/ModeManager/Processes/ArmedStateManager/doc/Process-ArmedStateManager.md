@@ -40,7 +40,7 @@ The following inputs are required in order for this system to properly function.
 
 | Input                 | DataType              | Description                                                                                                                              | Requirement |
 | --------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Arm Change Request    | `ArmChangeSrv`        | A Service (request/response) that is used to request a change in the armed state of the robot.                                           |             |
+| Arm Change Request    | `ArmStateChangeSrv`   | A Service (request/response) that is used to request a change in the armed state of the robot.                                           |             |
 | Ready To Arm Messages | `ReadyToArmStatusMsg` | A message that is provided by other processes that indicates if they are ready to arm.  Note that typically there will be many of these. |             |
 
 # Outputs

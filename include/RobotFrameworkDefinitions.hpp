@@ -57,6 +57,41 @@ namespace fast::rf {
         }
     }
     /**
+     * @brief ArmedState Definition
+     *
+     */
+    enum class ArmedState {
+        UNKNOWN = 0,             //!< Unknown Level
+        DISARMED = 1,            //!< Disarmed On Purpose.  Can be Armed.
+        DISARMED_CANNOTARM = 2,  //!< Robot is Disarmed, but it cannot arm.
+        ARMING = 3,              //!< Robot is Arming
+        ARMED = 4,               //!< Robot is Armed
+        END_OF_LIST = 5          //!< No use typically, Last item of list.  Used for range checks.
+
+    };
+    /**
+     * @brief Pretty string for Armed State
+     *
+     * @param state
+     * @return std::string
+     */
+    inline std::string pretty(ArmedState state) {
+        switch (state) {
+            case ArmedState::UNKNOWN:
+                return "UNKNOWN";
+            case ArmedState::DISARMED:
+                return "DISARMED";
+            case ArmedState::DISARMED_CANNOTARM:
+                return "DISARMED-CANNOTARM";
+            case ArmedState::ARMING:
+                return "ARMING";
+            case ArmedState::ARMED:
+                return "ARMED";
+            default:
+                return pretty(ArmedState::UNKNOWN);
+        }
+    }
+    /**
      * @brief Diagnostic Definitions
      *
      */
