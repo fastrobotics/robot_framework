@@ -25,6 +25,9 @@ namespace fast::rf {
       }
       BasicArmedStateManagerProcess -up-|> IArmedStateManagerProcess
     }
+    note right of ModeManagerSubsystem
+    Implement during AB#1765
+    end note
   }
 }
 @enduml

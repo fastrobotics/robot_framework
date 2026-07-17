@@ -35,6 +35,9 @@ namespace fast::rf {
           +{abstract} ArmCommandMsg get_ArmCommandMsg()
 
         }
+        note right of IArmedStateManagerProcess
+        Implement during AB#1766
+        end note
         abstract BaseArmedStateManagerProcess #Yellow {
           +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
