@@ -3,19 +3,19 @@ title Armed State-State Machine Diagram
 
 [*] --> DISARMED_CANNOTARM
 
-DISARMED_CANNOTARM --> DISARMED: All Ready To Arm's Received\n All are Current\n All Are True
+DISARMED_CANNOTARM --> DISARMED: Robot is Ready to Arm
 
-DISARMED --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+DISARMED --> DISARMED_CANNOTARM: Robot is not Ready to Arm
 
 DISARMED --> ARMING: Requested ARMED State
 
-ARMING --> ARMED: Arming for 5 Seconds
+ARMING --> ARMED: Arming for X Seconds
 
-ARMING --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+ARMING --> DISARMED_CANNOTARM: Robot is not Ready to Arm
 ARMING --> DISARMED: Requested DISARMED State
 
 ARMED --> DISARMED: Requested DISARMED State
 
-ARMED --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+ARMED --> DISARMED_CANNOTARM: Robot is not Ready to Arm
 
 @enduml

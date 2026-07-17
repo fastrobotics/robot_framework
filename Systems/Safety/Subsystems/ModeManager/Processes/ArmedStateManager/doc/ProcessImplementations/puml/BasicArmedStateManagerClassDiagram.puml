@@ -28,7 +28,7 @@ namespace fast::rf {
         interface IArmedStateManagerProcess #Yellow  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
-          +{abstract} bool update(double current_time_sec, double delta_time_sec)
+          +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
           +{abstract} ArmStateChangeSrvResponse request_armstate_change(ArmStateChangeSrvRequest request)
           +{abstract} bool new_ReadyToArmStatus(ReadyToArmStatusMsg msg)
@@ -40,17 +40,17 @@ namespace fast::rf {
         end note
         abstract BaseArmedStateManagerProcess #Yellow {
           +DiagnosticMsg[] get_diagnostics()
-          +bool base_update(double current_time_sec, double delta_time_sec)
+          +bool base_update(double current_time_sec)
           +string pretty()
           #DiagnosticManager diagnosticManager
 
         }
         BaseArmedStateManagerProcess -up-|> IArmedStateManagerProcess
         BaseArmedStateManagerProcess --> DiagnosticManager: <<use>>
-        class ArmStateCommander #Yellow {
+        class ArmStateCommander #Orange {
             +bool init()
             +string pretty()
-            +bool update(double current_time_sec, double delta_time_sec)
+            +bool update(double current_time_sec)
             +bool update_ready_to_arm(bool ready_to_arm)
             +ArmStateChangeSrvResponse request_armstate_change(ArmfChangeSrvRequest request)
             +ArmCommandMsg get_ArmCommandMsg()
@@ -59,13 +59,13 @@ namespace fast::rf {
             +bool add_monitor(uint8_t system_id, uint8_t subsystem_id, uint8_t component_id)
             +bool init()
             +string pretty()
-            +bool update(double current_time_sec, double delta_time_sec)
+            +bool update(double current_time_sec)
             +bool get_ready_to_arm()
             +bool new_ArmedStatus(ReadyToArmStatusMsg msg)
         }
         class BasicArmedStateManagerProcess #Yellow {
           +bool init()
-          +bool update(double current_time_sec, double delta_time_sec)
+          +bool update(double current_time_sec)
           +bool new_ReadyToArmStatus(ReadyToArmStatusMsg msg)
           +ArmStateChangeSrvResponse request_armstate_change(ArmfChangeSrvRequest request)
           +ArmCommandMsg get_ArmCommandMsg()

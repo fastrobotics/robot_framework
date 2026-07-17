@@ -55,6 +55,8 @@ The following outputs are provided by this system.
 
 ## Detailed Documentation
 
+![](puml/ArmedStateMachineDiagram.png)
+
 ![](../../../../../../../Legend.png)
 
 ## Class Diagram

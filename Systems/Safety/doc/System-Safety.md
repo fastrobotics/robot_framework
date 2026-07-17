@@ -12,6 +12,7 @@
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
+    - [Armed State Machine](#armed-state-machine)
   - [Software Content](#software-content)
 - [Subsystems](#subsystems)
   - [Package Diagram](#package-diagram)
@@ -59,6 +60,8 @@ Ideas:
 - System Resource Monitor (CPU, RAM, etc)
 
 ## Detailed Documentation
+### Armed State Machine
+![](../Subsystems/ModeManager/Processes/ArmedStateManager/doc/puml/ArmedStateMachineDiagram.png)
 
 ## Software Content
 
