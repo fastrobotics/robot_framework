@@ -1,0 +1,21 @@
+@startuml
+title Armed State-State Machine Diagram
+
+[*] --> DISARMED_CANNOTARM
+
+DISARMED_CANNOTARM --> DISARMED: All Ready To Arm's Received\n All are Current\n All Are True
+
+DISARMED --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+
+DISARMED --> ARMING: Requested ARMED State
+
+ARMING --> ARMED: Arming for 5 Seconds
+
+ARMING --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+ARMING --> DISARMED: Requested DISARMED State
+
+ARMED --> DISARMED: Requested DISARMED State
+
+ARMED --> DISARMED_CANNOTARM: Any Ready To Arm Timeout\n Any Ready To Arm is False
+
+@enduml
