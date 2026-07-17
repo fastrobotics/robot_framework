@@ -15,4 +15,12 @@ if(BUILD_TESTING)
                         GTest::gtest_main)
 
   gtest_discover_tests(test_msgs_InfrastructureMsgs_ReadyToArmStatusMsg)
+
+  # Test: InfrastructureMsgs::ArmCommandMsg
+  add_executable(test_msgs_InfrastructureMsgs_ArmCommandMsg
+                 test_msgs_InfrastructureMsgs_ArmCommandMsg.cpp)
+  target_link_libraries(test_msgs_InfrastructureMsgs_ArmCommandMsg
+                        GTest::gtest_main)
+
+  gtest_discover_tests(test_msgs_InfrastructureMsgs_ArmCommandMsg)
 endif()

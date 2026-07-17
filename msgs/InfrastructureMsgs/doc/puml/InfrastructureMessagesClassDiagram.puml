@@ -6,21 +6,13 @@ namespace fast::rf {
     enum DiagnosticType
     enum DiagnosticMessage
   }
+  enum ArmedState
 
 }
 namespace fast::rf::messages {
   package InfrastructureMsgs #LightYellow;line:blue  {
-    enum ArmedState #Yellow {
-      UNKNOWN=0,
-      DISARMED=1,
-      DISARMED_CANNOTARM=2,
-      ARMING=3,
-      ARMED=4,
-      NOCHANGE=5,
-      END_OF_LIST=6
-
-    }
-    class ArmCommandMsg <<(M,#FFFF00)>> #Yellow {
+    
+    class ArmCommandMsg <<(M,#FFFF00)>> #LimeGreen {
       +ArmedState armed_state
     }
     ArmCommandMsg --> ArmedState: <<use>>
@@ -41,7 +33,7 @@ namespace fast::rf::messages {
     }
     ArmChangeSrv +-- ArmChangeSrvRequest
     ArmChangeSrv +-- ArmChangeSrvResponse
-    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #Orange {
+    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
       +uint8_t componentID

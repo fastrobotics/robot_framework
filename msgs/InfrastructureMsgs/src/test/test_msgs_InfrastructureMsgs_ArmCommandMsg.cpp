@@ -2,9 +2,9 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-#include <ReadyToArmStatusMsg.hpp>
+#include <ArmCommandMsg.hpp>
 using namespace fast::rf::messages::InfrastructureMsgs;
-TEST(ReadyToArmStatusMsg, DefaultZeroConstructor) {
-    ReadyToArmStatusMsg SUT(1, 2, 3);
+TEST(ArmCommandMsg, DefaultZeroConstructor) {
+    ArmCommandMsg SUT;
     ASSERT_TRUE(true);
 }
