@@ -29,7 +29,7 @@
 
 ## Purpose
 
-The Safety System's role in the Robot Framework is to ???.
+The Safety System's role in the Robot Framework is to ensure the robot is always operating safely.
 
 ## General Requirements
 
@@ -67,7 +67,7 @@ Ideas:
 The following Subsystems are provided in this System:
 | State | Subsystem                                                              | Purpose                        |
 | ----- | ---------------------------------------------------------------------- | ------------------------------ |
-| NEW   | [Mode Manager](../Subsystems/ModeManager/doc/Subsystem-ModeManager.md) | Manages Mode, Armed State, etc |
+| DRAFT | [Mode Manager](../Subsystems/ModeManager/doc/Subsystem-ModeManager.md) | Manages Mode, Armed State, etc |
 ## Package Diagram
 ![](../../../Legend.png)
 
