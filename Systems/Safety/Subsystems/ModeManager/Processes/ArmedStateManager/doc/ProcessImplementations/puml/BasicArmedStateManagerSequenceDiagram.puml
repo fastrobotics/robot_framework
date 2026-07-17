@@ -1,0 +1,65 @@
+@startuml
+title Basic Armed State Manager Sequence Diagram
+actor Requester as requester
+actor ConsumerProcess as consumer
+actor ProviderProcess as provider
+actor Owner as owner
+
+participant BasicArmedStateManagerProcess as process
+participant ReadyToArmComputer as computer
+participant ArmStateCommander as commander
+
+
+
+alt Initialize
+owner++
+owner -> process++: init()
+process -> computer++: init()
+computer --> process--: status
+process -> commander++: init()
+commander --> process--: status
+process --> owner--: status
+
+end
+
+alt Update
+owner -> process++: update(double current_time, double delta_time)
+process -> computer++: update(double current_time, double delta_time)()
+computer --> process--: status
+process -> commander++: update(double current_time, double delta_time)
+commander --> process--: status
+process --> owner--: status
+end
+
+alt New Ready To Arm Msg
+provider -> owner++: new_ReadyToArmStatus(status)
+owner -> process++: new_ReadyToArmStatus(status)
+process -> computer++: new_ReadyToArmStatus(status)
+computer --> process--: status
+process -> computer++: get_ready_to_arm()
+computer --> process--: ready_to_arm
+process -> commander++: update_ready_to_arm(ready_to_arm)
+commander --> process--: status
+process --> owner--: status
+owner--
+end
+
+alt Publish Arm Command
+owner -> process++: get_ArmCommandMsg()
+process -> commander++: get_ArmCommandMsg()
+commander --> process--: arm_command_msg
+process --> owner--: arm_command_msg
+owner -> consumer: send_ArmCommandMsg(arm_command_msg) 
+note over consumer: via Middle Ware
+end
+
+alt Request Arm State Change
+requester -> owner++: request_armstate_change(request)
+owner -> process++: request_armstate_change(request)
+process -> commander++: request_armstate_change(request)
+commander --> process--: response
+process --> owner--: response
+owner --> requester--: response
+end
+
+@enduml

@@ -105,8 +105,15 @@ namespace fast::rf {
     }
   }
   PoseSystem --> GeometryMsgs: <<use>>
-  namespace SafetySystem {
+  namespace SafetySystem #Yellow {
+    namespace ModeManagerSubsystem #Yellow {
+      interface IArmedStateManagerProcess #Yellow {
 
+      }
+      class BasicArmedStateManagerProcess #Yellow {
+      }
+      BasicArmedStateManagerProcess -up-|> IArmedStateManagerProcess
+    }
   }
   namespace TerrainSystem {
 
