@@ -29,7 +29,7 @@
 
 ## Purpose
 
-The ModeManager Subsystem's role in the Robot Framework is to ???
+The ModeManager Subsystem's role in the Robot Framework is to safely manage the various Modes available on the Robot.
 
 ## General Requirements
 
@@ -65,8 +65,9 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process |
-| ------ | ------- |
+| Status | Process                                                                                |
+| ------ | -------------------------------------------------------------------------------------- |
+| DRAFT  | [Armed State Manager](../Processes/ArmedStateManager/doc/Process-ArmedStateManager.md) |
 
 ## Package Diagram
 
