@@ -23,4 +23,12 @@ if(BUILD_TESTING)
                         GTest::gtest_main)
 
   gtest_discover_tests(test_msgs_InfrastructureMsgs_ArmCommandMsg)
+
+  # Test: InfrastructureMsgs::ArmStateChangeSrv
+  add_executable(test_msgs_InfrastructureMsgs_ArmStateChangeSrv
+                 test_msgs_InfrastructureMsgs_ArmStateChangeSrv.cpp)
+  target_link_libraries(test_msgs_InfrastructureMsgs_ArmStateChangeSrv
+                        GTest::gtest_main)
+
+  gtest_discover_tests(test_msgs_InfrastructureMsgs_ArmStateChangeSrv)
 endif()

@@ -16,23 +16,23 @@ namespace fast::rf::messages {
       +ArmedState armed_state
     }
     ArmCommandMsg --> ArmedState: <<use>>
-    struct ArmChangeSrvRequest #Yellow {
+    struct ArmStateChangeSrvRequest #Orange {
       +ArmedState requested_armed_state
 
     }
-    ArmChangeSrvRequest --> ArmedState: <<use>>
-    struct ArmChangeSrvResponse #Yellow {
+    ArmStateChangeSrvRequest --> ArmedState: <<use>>
+    struct ArmStateChangeSrvResponse #Orange {
       +ArmedState current_armed_state
       +bool request_approved
 
     }
-    ArmChangeSrvResponse --> ArmedState: <<use>>
-    class ArmChangeSrv <<(M,#FFFF00)>> #Yellow {
-      +ArmChangeSrvRequest request
-      +ArmChangeSrvResponse response
+    ArmStateChangeSrvResponse --> ArmedState: <<use>>
+    class ArmStateChangeSrv <<(M,#FFFF00)>> #Orange {
+      +ArmStateChangeSrvRequest request
+      +ArmStateChangeSrvResponse response
     }
-    ArmChangeSrv +-- ArmChangeSrvRequest
-    ArmChangeSrv +-- ArmChangeSrvResponse
+    ArmStateChangeSrv +-- ArmStateChangeSrvRequest
+    ArmStateChangeSrv +-- ArmStateChangeSrvResponse
     class ReadyToArmStatusMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
