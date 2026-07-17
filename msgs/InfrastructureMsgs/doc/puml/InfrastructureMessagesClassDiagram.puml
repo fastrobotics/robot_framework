@@ -41,7 +41,7 @@ namespace fast::rf::messages {
     }
     ArmChangeSrv +-- ArmChangeSrvRequest
     ArmChangeSrv +-- ArmChangeSrvResponse
-    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #Yellow {
+    class ReadyToArmStatusMsg <<(M,#FFFF00)>> #Orange {
       +uint8_t systemID
       +uint8_t subsystemID
       +uint8_t componentID
