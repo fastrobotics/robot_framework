@@ -1,0 +1,33 @@
+@startuml
+title ModeManager Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace SafetySystem {
+    package ModeManagerSubsystem #LightYellow;line:blue {
+      interface IModeManagerSubsystem {
+
+      }
+      abstract BaseModeManagerSubsystem {
+
+      }
+      BaseModeManagerSubsystem -up-|> IModeManagerSubsystem
+      class BasicModeManagerSubsystem {
+      }
+      BasicModeManagerSubsystem -up-|> BaseModeManagerSubsystem
+      class DummyModeManagerSubsystem {
+      }
+      DummyModeManagerSubsystem -up-|> BaseModeManagerSubsystem
+      interface IArmedStateManagerProcess #Yellow {
+
+      }
+      class BasicArmedStateManagerProcess #Yellow {
+      }
+      BasicArmedStateManagerProcess -up-|> IArmedStateManagerProcess
+    }
+    note right of ModeManagerSubsystem
+    Implement during AB#1765
+    end note
+  }
+}
+@enduml

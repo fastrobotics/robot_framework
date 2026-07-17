@@ -65,9 +65,9 @@ Ideas:
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| ----- | --------- | ------- |
-
+| State | Subsystem                                                              | Purpose                        |
+| ----- | ---------------------------------------------------------------------- | ------------------------------ |
+| NEW   | [Mode Manager](../Subsystems/ModeManager/doc/Subsystem-ModeManager.md) | Manages Mode, Armed State, etc |
 ## Package Diagram
 ![](../../../Legend.png)
 

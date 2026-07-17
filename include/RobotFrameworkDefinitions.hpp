@@ -250,7 +250,11 @@ namespace fast::rf {
     }
     namespace SafetySystem {
         constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Safety System
-    }
+        namespace ModeManagerSubsystem {
+            const uint8_t SUBSYSTEM_ID = 1;                      //!< Unique ID for the Mode Manager Subsystem
+            constexpr uint8_t PROCESS_ARMEDSTATEMANAGER_ID = 1;  //!< Unique ID for the Armed State Manager Process
+        }                                                        // namespace ModeManagerSubsystem
+    }                                                            // namespace SafetySystem
     namespace TerrainSystem {
         constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the Terrain System
     }
