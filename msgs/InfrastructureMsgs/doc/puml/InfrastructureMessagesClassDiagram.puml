@@ -39,9 +39,7 @@ namespace fast::rf::messages {
       +uint8_t componentID
       +bool ready_to_arm
     }
-    note right of ReadyToArmStatusMsg
-    Implement during AB#1769
-    end note
+
     class DiagnosticMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
