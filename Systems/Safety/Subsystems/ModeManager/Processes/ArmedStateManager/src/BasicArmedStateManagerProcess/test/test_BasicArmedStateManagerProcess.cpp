@@ -13,6 +13,9 @@ TEST(BasicArmedStateManagerProcess, BasicTests) {
     ASSERT_TRUE(SUT.update(0.0, 0.0));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
+    /**
+     * @todo Implement this during AB#1766
+     */
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);

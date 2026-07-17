@@ -28,7 +28,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         BaseArmedStateManagerProcess()
             : diagnosticManager(fast::rf::SafetySystem::SYSTEM_ID,
                                 fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_1_ID) {}
+                                fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID) {}
         /**
          * @brief Update the base object
          *
