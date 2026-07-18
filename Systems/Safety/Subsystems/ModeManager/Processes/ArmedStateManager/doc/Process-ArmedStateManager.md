@@ -12,6 +12,7 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
   - [Sequence Diagram](#sequence-diagram)
+  - [Diagnostics](#diagnostics)
   - [Functionality](#functionality)
     - [Monitor Ready to Arm Status Messages](#monitor-ready-to-arm-status-messages)
     - [Arm Change Service](#arm-change-service)
@@ -72,6 +73,13 @@ The following outputs are provided by this system.
 
 ## Sequence Diagram
 ![](puml/ArmedStateManagerProcessSequenceDiagram.png)
+
+## Diagnostics
+The following Diagnostics are reported by this Process:
+| Diagnostic Type  | Description                                                                    |
+| ---------------- | ------------------------------------------------------------------------------ |
+| `SOFTWARE`       | General Software readiness                                                     |
+| `COMMUNICATIONS` | Un-trips when all Ready to Arm messages are being received at a regular basis. |
 
 
 ## Functionality

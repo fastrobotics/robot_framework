@@ -40,6 +40,8 @@ namespace fast::rf {
             +bool update(double current_time_sec)
             +bool get_ready_to_arm()
             +bool new_ArmedStatus(ReadyToArmStatusMsg msg)
+            +bool is_all_signals_rate_ok()
+            +bool is_all_signals_ever_received()
         }
         interface IArmedStateManagerProcess #Orange {
           +{abstract} bool init()

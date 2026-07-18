@@ -2,7 +2,7 @@
 #include <ReadyToArmComputer.hpp>
 namespace fast::rf::SafetySystem::ModeManagerSubsystem {
     bool ReadyToArmComputer::add_monitor(uint8_t systemID, uint8_t subsystemID, uint8_t processID) {
-        [[maybe_unused]] std::size_t before_size = monitors.size();
+        std::size_t before_size = monitors.size();
         Monitor monitor = Monitor(systemID, subsystemID, processID);
         monitors.insert({monitor.key, monitor});
         std::size_t after_size = monitors.size();
@@ -17,6 +17,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         if (monitors.size() > 0) {
             return true;
         } else {
+            fast::rf::Logger::log_error("Can't Initialize, No Monitors Configured!");
             return false;
         }
     }
@@ -40,9 +41,12 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
             return false;
         }
         bool all_ready_to_arm = true;
+        bool all_signals_rate_ok_ = true;
+        bool all_signals_ever_received_ = true;
         for (auto monitor : monitors) {
-            if (monitor.second.time_last_updated < 0) {
+            if (monitor.second.rx_count == 0) {
                 fast::rf::Logger::log_warn(monitor.second.pretty() + " NEVER RECEIVED!");
+                all_signals_ever_received_ = false;
                 all_ready_to_arm = false;
             } else if (monitor.second.ready_to_arm == false) {
                 fast::rf::Logger::log_warn(monitor.second.pretty() + " NOT READY!");
@@ -53,9 +57,12 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
                     monitor.second.ready_to_arm = false;
                     fast::rf::Logger::log_warn(monitor.second.pretty() + " TIMEOUT!");
                     all_ready_to_arm = false;
+                    all_signals_rate_ok_ = false;
                 }
             }
         }
+        all_signals_ever_received = all_signals_ever_received_;
+        all_signals_rate_ok = all_signals_rate_ok_;
         if (all_ready_to_arm == true) {
             ready_to_arm = true;
         } else {
@@ -63,14 +70,14 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         }
         return true;
     }
-    bool ReadyToArmComputer::new_ArmedStatus([
-        [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) {
+    bool ReadyToArmComputer::new_ArmedStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) {
         auto key = generate_key(msg.systemID, msg.subsystemID, msg.processID);
         auto it = monitors.find(key);
         if (it == monitors.end()) {
             fast::rf::Logger::log_warn("Monitor not initialized for: " + msg.pretty());
             return false;
         } else {
+            it->second.rx_count++;
             it->second.ready_to_arm = msg.ready_to_arm;
             it->second.time_last_updated = current_time_sec;
         }

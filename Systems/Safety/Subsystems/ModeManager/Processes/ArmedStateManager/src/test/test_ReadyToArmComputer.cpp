@@ -37,20 +37,26 @@ TEST(ReadyToArmComputer, FullTests) {
     process2.systemID = 2;
     process2.subsystemID = 3;
     process2.processID = 4;
+    ASSERT_FALSE(SUT.is_all_signals_ever_received());
     ASSERT_TRUE(SUT.add_monitor(process1.systemID, process1.subsystemID, process1.processID));
     ASSERT_TRUE(SUT.add_monitor(process2.systemID, process2.subsystemID, process2.processID));
     ASSERT_FALSE(SUT.add_monitor(process2.systemID, process2.subsystemID, process2.processID));
+    ASSERT_FALSE(SUT.is_all_signals_ever_received());
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(current_time));
-
+    ASSERT_FALSE(SUT.is_all_signals_ever_received());
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process1));
+    ASSERT_FALSE(SUT.is_all_signals_ever_received());
     process2.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
+    ASSERT_TRUE(SUT.is_all_signals_ever_received());
 
     ASSERT_TRUE(SUT.get_ready_to_arm());
+    ASSERT_TRUE(SUT.is_all_signals_ever_received());
+    ASSERT_TRUE(SUT.is_all_signals_rate_ok());
 
     current_time += ReadyToArmComputer::PROCESS_TIMEOUT_SEC / 2.0;
     ASSERT_TRUE(SUT.update(current_time));
@@ -60,12 +66,14 @@ TEST(ReadyToArmComputer, FullTests) {
     ASSERT_TRUE(SUT.update(current_time));
     fast::rf::Logger::log_info(SUT.pretty());
     ASSERT_FALSE(SUT.get_ready_to_arm());
+    ASSERT_FALSE(SUT.is_all_signals_rate_ok());
 
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process1));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
     ASSERT_FALSE(SUT.get_ready_to_arm());
+    ASSERT_FALSE(SUT.is_all_signals_rate_ok());
 
     process2.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));
@@ -73,6 +81,7 @@ TEST(ReadyToArmComputer, FullTests) {
     ASSERT_TRUE(SUT.update(current_time));
     fast::rf::Logger::log_info(SUT.pretty());
     ASSERT_TRUE(SUT.get_ready_to_arm());
+    ASSERT_TRUE(SUT.is_all_signals_rate_ok());
 
     process2.ready_to_arm = false;
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));

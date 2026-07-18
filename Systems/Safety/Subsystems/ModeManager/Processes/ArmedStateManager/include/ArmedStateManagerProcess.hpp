@@ -10,8 +10,9 @@
  */
 #pragma once
 
+#include <ArmStateCommander.hpp>
 #include <BaseArmedStateManagerProcess.hpp>
-
+#include <ReadyToArmComputer.hpp>
 namespace fast::rf::SafetySystem::ModeManagerSubsystem {
     /**
      * @brief Minimal Implementation for a ArmedStateManager Process
@@ -39,6 +40,33 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          */
         bool update(double current_time_sec, double delta_time_sec) override;
 
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
+
+        /**
+         * @brief Request an Arm State Change
+         *
+         * @param request
+         * @return fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse
+         */
+        fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request_armstate_change(
+            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request) override;
+
+        /**
+         * @brief Provide a new Ready to Arm Status
+         *
+         * @param msg
+         * @return true
+         * @return false
+         */
+        bool new_ReadyToArmStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) override;
+
        private:
+        ArmStateCommander arm_state_commander;
+        ReadyToArmComputer ready_to_arm_computer;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem

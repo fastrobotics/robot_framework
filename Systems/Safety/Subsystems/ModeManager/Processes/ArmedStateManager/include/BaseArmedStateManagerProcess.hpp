@@ -54,11 +54,19 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          *
          * @return std::string
          */
-        std::string pretty() override;
+        virtual std::string pretty();
+
+        /**
+         * @brief Get the ArmCommandMsg object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() { return arm_command; }
 
        protected:
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg arm_command;  //!< The robot Armed State Command
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem

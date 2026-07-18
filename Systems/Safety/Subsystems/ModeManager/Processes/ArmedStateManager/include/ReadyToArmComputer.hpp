@@ -47,6 +47,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
             MonitorKey key;            //!< Key for Monitor
             bool ready_to_arm;         //!< If the process is ready to arm
             double time_last_updated;  //!< Timestamp when the Monitor was updated.
+            uint64_t rx_count;         //!< Counter of how many times it's been updated
 
             /**
              * @brief Construct a new Monitor object
@@ -60,7 +61,8 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
                   subsystemID(subsystemID),
                   processID(processID),
                   ready_to_arm(false),
-                  time_last_updated(-1.0) {
+                  time_last_updated(-1.0),
+                  rx_count(0) {
                 key = generate_key(systemID, subsystemID, processID);
             }
             /**
@@ -72,7 +74,8 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
             std::string pretty(std::string after_string = "") {
                 std::string str = std::to_string(systemID) + "-" + std::to_string(subsystemID) + "-" +
                                   std::to_string(processID) + " Ready To Arm: " + std::to_string(ready_to_arm) +
-                                  " Time Last Update: " + std::to_string(time_last_updated) + " (sec)" + after_string;
+                                  " Time Last Update: " + std::to_string(time_last_updated) + " (sec)" +
+                                  " RX: " + std::to_string(rx_count) + after_string;
                 return str;
             }
         };
@@ -123,9 +126,27 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          */
         bool new_ArmedStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg);
 
+        /**
+         * @brief Are all Monitor Signals being received
+         *
+         * @return true
+         * @return false
+         */
+        bool is_all_signals_rate_ok() { return all_signals_rate_ok; }
+
+        /**
+         * @brief Have all Signals ever been received
+         *
+         * @return true
+         * @return false
+         */
+        bool is_all_signals_ever_received() { return all_signals_ever_received; }
+
        private:
         double current_time_sec{-1.0};
         bool ready_to_arm{false};
         std::map<MonitorKey, Monitor> monitors;
+        bool all_signals_rate_ok{false};
+        bool all_signals_ever_received{false};
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
