@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
+#include <ArmedStateManagerProcess.hpp>
 #include <BaseArmedStateManagerProcess.hpp>
 #include <IArmedStateManagerProcess.hpp>
 
@@ -44,4 +45,20 @@ TEST(BaseArmedStateManagerProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0, 0.0));
+}
+TEST(ArmedStateManagerProcess, BasicTests) {
+    ArmedStateManagerProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    auto diagnostics = SUT.get_diagnostics();
+    ASSERT_GT(diagnostics.size(), 0);
+    /**
+     * @todo Implement this during AB#1766
+     */
+    /*
+    for (auto diagnostic : diagnostics) {
+        ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+        ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
+    }
+    */
 }

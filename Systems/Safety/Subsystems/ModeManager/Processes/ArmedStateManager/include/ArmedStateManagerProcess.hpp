@@ -1,5 +1,5 @@
 /**
- * @file BasicArmedStateManagerProcess.hpp
+ * @file ArmedStateManagerProcess.hpp
  * @author David Gitz (davidgitz@gmail.com)
  * @brief
  * @version 0.1
@@ -17,9 +17,9 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
      * @brief Minimal Implementation for a ArmedStateManager Process
      *
      */
-    class BasicArmedStateManagerProcess : public BaseArmedStateManagerProcess {
+    class ArmedStateManagerProcess : public BaseArmedStateManagerProcess {
        public:
-        BasicArmedStateManagerProcess() : BaseArmedStateManagerProcess() {}
+        ArmedStateManagerProcess() : BaseArmedStateManagerProcess() {}
 
         /**
          * @brief Initialize the Object

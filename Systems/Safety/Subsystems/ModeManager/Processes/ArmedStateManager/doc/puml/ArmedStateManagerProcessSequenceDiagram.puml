@@ -1,11 +1,11 @@
 @startuml
-title Basic Armed State Manager Sequence Diagram
+title Basic Armed State Manager Process Sequence Diagram
 actor Requester as requester
 actor ConsumerProcess as consumer
 actor ProviderProcess as provider
 actor Owner as owner
 
-participant BasicArmedStateManagerProcess as process
+participant ArmedStateManagerProcess as process
 participant ReadyToArmComputer as computer
 participant ArmStateCommander as commander
 

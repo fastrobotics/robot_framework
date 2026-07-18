@@ -11,7 +11,9 @@
 #pragma once
 #include <ReadyToArmStatusMsg.hpp>
 #include <cstdint>
+#include <map>
 #include <string>
+#include <tuple>
 namespace fast::rf::SafetySystem::ModeManagerSubsystem {
     /**
      * @brief Ready To Arm Computer
@@ -20,6 +22,24 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
      */
     class ReadyToArmComputer {
        public:
+        struct Monitor {
+            uint8_t systemID;
+            uint8_t subsystemID;
+            uint8_t componentID;
+            using MonitorKey = std::tuple<uint8_t, uint8_t, uint8_t>;
+            MonitorKey key;
+            bool ready_to_arm;
+            double last_update_time_sec;
+
+            Monitor(uint8_t systemID, uint8_t subsystemID, uint8_t componentID)
+                : systemID(systemID),
+                  subsystemID(subsystemID),
+                  componentID(componentID),
+                  ready_to_arm(false),
+                  last_update_time_sec(-1.0) {
+                key = std::make_tuple(systemID, subsystemID, componentID);
+            }
+        };
         /**
          * @brief Add Monitor
          *
@@ -57,7 +77,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return true
          * @return false
          */
-        bool get_ready_to_arm();
+        bool get_ready_to_arm() { return ready_to_arm; }
         /**
          * @brief Process a new Armed Status Message
          *
@@ -66,5 +86,9 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return false
          */
         bool new_ArmedStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg);
+
+       private:
+        bool ready_to_arm{false};
+        std::map<Monitor::MonitorKey, Monitor> monitors;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
