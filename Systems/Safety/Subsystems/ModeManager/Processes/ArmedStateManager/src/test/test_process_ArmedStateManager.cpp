@@ -103,14 +103,17 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
 
+    fast::rf::Logger::log_info(SUT.pretty());
     diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     bool comms_diagnostic_check = false;
-    ASSERT_TRUE(comms_diagnostic_check);  // TODO THIS
     for (auto diagnostic : diagnostics) {
-        ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
-        ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
+        if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS) {
+            ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA);
+            comms_diagnostic_check = true;
+        }
     }
+    ASSERT_TRUE(comms_diagnostic_check);
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process2;
     process2.systemID = fast::rf::NavigationSystem::SYSTEM_ID;
@@ -129,8 +132,28 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
 
-    fast::rf::Logger::log_info(SUT.pretty());
+    current_time += 0.1 + ReadyToArmComputer::PROCESS_TIMEOUT_SEC;
+    ASSERT_TRUE(SUT.update(current_time));
 
+    fast::rf::Logger::log_info(SUT.pretty());
+    diagnostics = SUT.get_diagnostics();
+    ASSERT_GT(diagnostics.size(), 0);
+    comms_diagnostic_check = false;
+    for (auto diagnostic : diagnostics) {
+        if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS) {
+            ASSERT_EQ(diagnostic.diagnosticMessage,
+                      fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS);
+            comms_diagnostic_check = true;
+        }
+    }
+    ASSERT_TRUE(comms_diagnostic_check);
+
+    fast::rf::Logger::log_info(SUT.pretty());
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
+    current_time += 0.1;
+    ASSERT_TRUE(SUT.update(current_time));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
     diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
