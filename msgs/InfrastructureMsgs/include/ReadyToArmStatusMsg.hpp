@@ -20,7 +20,7 @@ namespace fast::rf::messages::InfrastructureMsgs {
         uint8_t subsystemID;  //!< Unique Identifier for the Subsystem
         uint8_t processID;    //!< Unique Identifier for the Process
         bool ready_to_arm;    //!< If the Process is Ready to Arm
-        ReadyToArmStatusMsg() {}
+        ReadyToArmStatusMsg() : systemID(0), subsystemID(0), processID(0) {}
 
         /**
          * @brief Construct a new Ready To Arm Status Msg object
@@ -31,5 +31,16 @@ namespace fast::rf::messages::InfrastructureMsgs {
          */
         ReadyToArmStatusMsg(uint8_t systemID, uint8_t subsystemID, uint8_t processID)
             : systemID(systemID), subsystemID(subsystemID), processID(processID), ready_to_arm(false){};
+
+        /**
+         * @brief Print out human readable string
+         *
+         * @return std::string
+         */
+        std::string pretty() {
+            std::string str = std::to_string(systemID) + "-" + std::to_string(subsystemID) + "-" +
+                              std::to_string(processID) + " Ready To Arm: " + std::to_string(ready_to_arm);
+            return str;
+        }
     };
 }  // namespace fast::rf::messages::InfrastructureMsgs
