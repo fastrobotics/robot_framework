@@ -55,7 +55,7 @@ namespace fast::rf {
             +ArmStateChangeSrvResponse request_armstate_change(ArmfChangeSrvRequest request)
             +ArmCommandMsg get_ArmCommandMsg()
         }
-        class ReadyToArmComputer #Yellow {
+        class ReadyToArmComputer #Orange {
             +bool add_monitor(uint8_t system_id, uint8_t subsystem_id, uint8_t component_id)
             +bool init()
             +string pretty()

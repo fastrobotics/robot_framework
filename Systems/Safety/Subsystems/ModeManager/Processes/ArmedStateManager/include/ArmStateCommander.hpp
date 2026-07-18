@@ -69,6 +69,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         bool first_run{true};
         double last_time_sec{-1.0};
         double run_time{0.0};
+        double hold_timer{0.0};
         fast::rf::messages::InfrastructureMsgs::ArmCommandMsg arm_command;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem

@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <cstdint>
 namespace fast::rf::messages::InfrastructureMsgs {
     /**
      * @brief ReadyToArmStatusMsg Definition

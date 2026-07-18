@@ -1,6 +1,9 @@
 add_library(armStateCommander STATIC ArmStateCommander.cpp)
 target_link_libraries(armStateCommander infrastructure_msgs logger)
 
+add_library(readyToArmComputer STATIC ReadyToArmComputer.cpp)
+target_link_libraries(readyToArmComputer infrastructure_msgs logger)
+
 add_library(base_ArmedStateManagerProcess STATIC
             BaseArmedStateManagerProcess.cpp)
 target_link_libraries(base_ArmedStateManagerProcess diagnosticManager
