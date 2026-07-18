@@ -41,7 +41,7 @@ namespace fast::rf {
             +bool get_ready_to_arm()
             +bool new_ArmedStatus(ReadyToArmStatusMsg msg)
         }
-        interface IArmedStateManagerProcess #Yellow {
+        interface IArmedStateManagerProcess #Orange {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} bool update(double current_time_sec, double delta_time_sec)
@@ -57,6 +57,8 @@ namespace fast::rf {
           +DiagnosticMsg[] get_diagnostics()
           +bool base_update(double current_time_sec, double delta_time_sec)
           +string pretty()
+          +ArmCommandMsg get_ArmCommandMsg()
+          #ArmCommandMsg arm_command
           #DiagnosticManager diagnosticManager
 
         }
@@ -67,7 +69,6 @@ namespace fast::rf {
           +bool update(double current_time_sec, double delta_time_sec)
           +bool new_ReadyToArmStatus(ReadyToArmStatusMsg msg)
           +ArmStateChangeSrvResponse request_armstate_change(ArmfChangeSrvRequest request)
-          +ArmCommandMsg get_ArmCommandMsg()
           -ArmStateCommander arm_state_commander
           -ReadyToArmComputer ready_to_arm_computer
         }
