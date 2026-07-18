@@ -21,6 +21,8 @@
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provided](#artifacts-provided)
   - [Integration Steps](#integration-steps)
+    - [Build Instructions](#build-instructions)
+    - [Code Instructions](#code-instructions)
 - [Validation](#validation)
 
 # Process: ArmedStateManager
@@ -108,4 +110,43 @@ The following artifacts are provided:
 
 
 ## Integration Steps
+
+### Build Instructions
+Add the following to your CMakeLists.txt file:
+```cmake
+target_link_libraries(<binary> <blah> armedStateManagerProcess)
+```
+
+### Code Instructions
+NOTE: Consult this module's API-TODO when in doubt.
+
+Add the following to your header:
+
+```cpp
+#include <ArmedStateManagerProcess.hpp>
+...
+fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManagerProcess process;  //!< Execution Process
+```
+
+Add the following to your implementation:
+```cpp
+// Initialize:
+process.init();
+
+// Update the process at a periodic rate
+process.update(now) // Some current timestamp
+
+// Provide it new Ready To Arm Messages
+process.new_ReadyToArmStatus(msg)
+
+// Handle Arm State Change Request/Response Service
+auto response = process.request_armstate_change(request)
+
+// Get the latest Arm State Command for the Robot and Publish
+auto arm_command = process.get_ArmCommandMsg()
+```
+
+
+See the API for more detail, how to inspect diagnostics, etc.
 # Validation
+This module and related classes are entirely validated thru Unit Tests.
