@@ -38,11 +38,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @brief Generic Update function
          *
          * @param current_time_sec Current time stamp
-         * @param delta_time_sec Difference in time between previous iterations
          * @return true If the process updated ok
          * @return false If the process did not update ok
          */
-        virtual bool update(double current_time_sec, double delta_time_sec) = 0;
+        virtual bool update(double current_time_sec) = 0;
 
         /**
          * @brief Pretty print the Process
@@ -66,7 +65,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          */
         virtual fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse
         request_armstate_change(
-            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request) = 0;
+            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request) = 0;
 
         /**
          * @brief Provide a new Ready to Arm Status

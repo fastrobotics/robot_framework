@@ -30,6 +30,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         for (auto monitor : monitors) {
             str += "\t[" + std::to_string(counter) + "/" + std::to_string(monitors.size()) + "] " +
                    monitor.second.pretty() + "\n";
+            counter++;
         }
         return str;
     }

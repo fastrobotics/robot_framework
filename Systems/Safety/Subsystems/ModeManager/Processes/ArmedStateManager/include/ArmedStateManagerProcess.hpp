@@ -34,11 +34,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @brief Update with recent timing data
          *
          * @param current_time_sec
-         * @param delta_time_sec
          * @return true If update executed ok
          * @return false If update executed with some error
          */
-        bool update(double current_time_sec, double delta_time_sec) override;
+        bool update(double current_time_sec) override;
 
         /**
          * @brief Human readable string
@@ -54,7 +53,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse
          */
         fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request_armstate_change(
-            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request) override;
+            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request) override;
 
         /**
          * @brief Provide a new Ready to Arm Status
@@ -64,6 +63,15 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return false
          */
         bool new_ReadyToArmStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) override;
+
+        /**
+         * @brief Get the ArmCommandMsg object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() override {
+            return arm_state_commander.get_ArmCommandMsg();
+        }
 
        private:
         ArmStateCommander arm_state_commander;

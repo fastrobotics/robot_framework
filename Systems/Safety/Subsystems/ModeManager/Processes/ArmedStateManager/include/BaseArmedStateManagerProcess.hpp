@@ -33,12 +33,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @brief Update the base object
          *
          * @param current_time_sec
-         * @param delta_time_sec
          * @return true If ok
          * @return false If not ok
          */
-        bool base_update(double current_time_sec,
-                         double delta_time_sec);  //!< Base function to update
+        virtual bool update(double current_time_sec);
 
         /**
          * @brief Get the diagnostics object
@@ -56,17 +54,9 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          */
         virtual std::string pretty();
 
-        /**
-         * @brief Get the ArmCommandMsg object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
-         */
-        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() { return arm_command; }
-
        protected:
-        double current_time_sec_{-1.0};  //!< Current system time
+        double current_time_sec{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
-        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg arm_command;  //!< The robot Armed State Command
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
