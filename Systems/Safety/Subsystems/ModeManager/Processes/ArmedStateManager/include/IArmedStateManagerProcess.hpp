@@ -9,7 +9,10 @@
  *
  */
 #pragma once
+#include <ArmCommandMsg.hpp>
+#include <ArmStateChangeSrv.hpp>
 #include <DiagnosticMsg.hpp>
+#include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
@@ -35,11 +38,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @brief Generic Update function
          *
          * @param current_time_sec Current time stamp
-         * @param delta_time_sec Difference in time between previous iterations
          * @return true If the process updated ok
          * @return false If the process did not update ok
          */
-        virtual bool update(double current_time_sec, double delta_time_sec) = 0;
+        virtual bool update(double current_time_sec) = 0;
 
         /**
          * @brief Pretty print the Process
@@ -54,5 +56,31 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+
+        /**
+         * @brief Request an Arm State Change
+         *
+         * @param request
+         * @return fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse
+        request_armstate_change(
+            fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request) = 0;
+
+        /**
+         * @brief Provide a new Ready to Arm Status
+         *
+         * @param msg
+         * @return true
+         * @return false
+         */
+        virtual bool new_ReadyToArmStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) = 0;
+
+        /**
+         * @brief Get the ArmCommandMsg object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() = 0;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem

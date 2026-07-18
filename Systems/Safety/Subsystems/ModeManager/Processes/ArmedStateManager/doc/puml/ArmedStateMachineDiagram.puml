@@ -1,0 +1,21 @@
+@startuml
+title Armed State-State Machine Diagram
+
+[*] --> DISARMED_CANNOTARM
+
+DISARMED_CANNOTARM --> DISARMED: Robot is Ready to Arm
+
+DISARMED --> DISARMED_CANNOTARM: Robot is not Ready to Arm
+
+DISARMED --> ARMING: Requested ARMED State
+
+ARMING --> ARMED: Arming for X Seconds
+
+ARMING --> DISARMED_CANNOTARM: Robot is not Ready to Arm
+ARMING --> DISARMED: Requested DISARMED State
+
+ARMED --> DISARMED: Requested DISARMED State
+
+ARMED --> DISARMED_CANNOTARM: Robot is not Ready to Arm
+
+@enduml

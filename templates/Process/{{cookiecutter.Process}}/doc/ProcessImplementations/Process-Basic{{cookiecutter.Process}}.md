@@ -14,7 +14,7 @@
   - [Class Diagram](#class-diagram)
   - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
-  - [Artifacts Provides](#artifacts-provides)
+  - [Artifacts Provided](#artifacts-provided)
   - [Integration Steps](#integration-steps)
 - [Validation](#validation)
 
@@ -69,7 +69,7 @@ The following Diagnostics are reported by this Process:
 
 # Usage Instructions
 
-## Artifacts Provides
+## Artifacts Provided
 The following artifacts are provided:
 | Artifact                                | Description                                      |
 | --------------------------------------- | ------------------------------------------------ |
