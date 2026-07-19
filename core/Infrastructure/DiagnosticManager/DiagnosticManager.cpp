@@ -5,6 +5,7 @@ namespace fast::rf::core::infrastructure {
     bool DiagnosticManager::initialize_diagnostics(
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types) {
         if ((system_id == 0) || (subsystem_id == 0) || (process_id == 0)) {
+            fast::rf::Logger::log_error("Can't initialize Diagnostic Manager!");
             return false;
         }
         for (auto type : diagnostic_types) {
@@ -33,6 +34,8 @@ namespace fast::rf::core::infrastructure {
             it->second.description = description;
             return true;
         }
+        fast::rf::Logger::log_warn("Diagnostic Manager isn't initialized with Type: " +
+                                   fast::rf::DiagnosticDefinition::pretty(type));
         return false;
     }
     std::string DiagnosticManager::pretty() {
@@ -45,5 +48,15 @@ namespace fast::rf::core::infrastructure {
             counter++;
         }
         return str;
+    }
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> DiagnosticManager::get_diagnostics(
+        fast::rf::Level level) {
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
+        for (auto it : diagnostic_map) {
+            if (it.second.level >= level) {
+                diagnostics.push_back(it.second);
+            }
+        }
+        return diagnostics;
     }
 }  // namespace fast::rf::core::infrastructure

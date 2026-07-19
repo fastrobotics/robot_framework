@@ -108,4 +108,46 @@ TEST(DiagnosticManager, UpdateDiagnostic) {
         ASSERT_EQ(diagnostic.level, fast::rf::Level::NOERROR);
         ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
     }
+    ASSERT_FALSE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::DEBUG,
+                                       fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR,
+                                       "No problem,but this diagnostic isn't initialized."));
+}
+TEST(DiagnosticManager, GetDiagnosticsAtAboveThreshold) {
+    DiagnosticManager SUT(1, 2, 3);
+    std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS);
+    diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::PLANNING);
+    ASSERT_TRUE(SUT.initialize_diagnostics(diagnostic_types));
+    ASSERT_TRUE(SUT.is_initialized());
+    ASSERT_EQ(SUT.get_diagnostics().size(), 3);
+    for (auto diagnostic : SUT.get_diagnostics()) {
+        ASSERT_EQ(diagnostic.level, fast::rf::Level::INFO);
+        ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+    }
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::DEBUG).size(), 3);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::INFO).size(), 3);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::NOTICE).size(), 0);
+
+    ASSERT_TRUE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
+                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA,
+                                      "Testing Error Condition"));
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::DEBUG).size(), 3);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::INFO).size(), 3);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::NOTICE).size(), 1);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::WARN).size(), 1);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::ERROR).size(), 1);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::FATAL).size(), 0);
+
+    ASSERT_TRUE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                      fast::rf::Level::NOERROR,
+                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "All Ok"));
+    ASSERT_TRUE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS,
+                                      fast::rf::Level::NOERROR,
+                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "All Ok"));
+    ASSERT_TRUE(SUT.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::PLANNING,
+                                      fast::rf::Level::NOERROR,
+                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "All Ok"));
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::NOERROR).size(), 3);
+    ASSERT_EQ(SUT.get_diagnostics(fast::rf::Level::DEBUG).size(), 0);
 }
