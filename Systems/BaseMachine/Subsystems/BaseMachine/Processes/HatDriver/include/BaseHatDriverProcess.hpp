@@ -28,7 +28,10 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         BaseHatDriverProcess()
             : diagnosticManager(fast::rf::BaseMachineSystem::SYSTEM_ID,
                                 fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
-                                fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID) {}
+                                fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID),
+              ready_to_arm(fast::rf::BaseMachineSystem::SYSTEM_ID,
+                           fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
+                           fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -36,7 +39,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          * @return true If ok
          * @return false If not ok
          */
-        bool base_update(double current_time_sec);  //!< Base function to update
+        virtual bool update(double current_time_sec);  //!< Base function to update
 
         /**
          * @brief Get the diagnostics object
@@ -47,15 +50,23 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
             return diagnosticManager.get_diagnostics();
         }
 
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
+
        protected:
         /**
          * @brief Pretty print the Process
          *
          * @return std::string
          */
-        std::string base_pretty();
+        virtual std::string pretty();
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

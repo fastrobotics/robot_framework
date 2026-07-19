@@ -8,6 +8,7 @@ namespace fast::rf {
   namespace messages {
     namespace InfrastructureMsgs {
       class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
     }
   }
   namespace core::Infrastructure {
@@ -18,14 +19,17 @@ namespace fast::rf {
         interface IHatDriverProcess #LimeGreen  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
         }
         abstract BaseHatDriverProcess #LimeGreen {
           +DiagnosticMsg[] get_diagnostics()
-          +bool base_update(double current_time_sec)
-          #string base_pretty()
+          +bool update(double current_time_sec)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          #string pretty()
           #DiagnosticManager diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
 
         }
         BaseHatDriverProcess -up-|> IHatDriverProcess

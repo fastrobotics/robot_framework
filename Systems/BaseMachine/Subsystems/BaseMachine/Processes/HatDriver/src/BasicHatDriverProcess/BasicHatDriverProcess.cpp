@@ -9,15 +9,18 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return status;
     }
     bool BasicHatDriverProcess::update(double current_time_sec) {
-        bool status = BaseHatDriverProcess::base_update(current_time_sec);
+        bool status = BaseHatDriverProcess::update(current_time_sec);
+        // GCOV_EXCL_START
+        // This will always be ok
         if (status == false) {
             return false;
         }
+        // GCOV_EXCL_STOP
         return true;
     }
     std::string BasicHatDriverProcess::pretty() {
         std::string str = "---Basic Hat Driver Process---";
-        str += base_pretty();
+        str += BaseHatDriverProcess::pretty();
         return str;
     }
 

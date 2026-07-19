@@ -31,7 +31,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return status;
     }
     bool ServoHatDriverProcess::update(double current_time_sec) {
-        bool status = BaseHatDriverProcess::base_update(current_time_sec);
+        bool status = BaseHatDriverProcess::update(current_time_sec);
         if (status == false) {
             return false;
         }
@@ -45,7 +45,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     }
     std::string ServoHatDriverProcess::pretty() {
         std::string str = "\n---Servo Hat Driver Process---";
-        str += base_pretty();
+        str += BaseHatDriverProcess::pretty();
         str += "\n" + driver->pretty();
         return str;
     }
