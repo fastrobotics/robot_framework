@@ -11,7 +11,7 @@ using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsyste
 class Test{{cookiecutter.Process}}ProcessInterface : public I{{cookiecutter.Process}}Process {
 public:
   bool init() { return true; }
-  bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
+  bool update([[maybe_unused]] double current_time_sec) override {
     return false;
   }
   std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
@@ -27,7 +27,7 @@ TEST(Test{{cookiecutter.Process}}ProcessInterface, InterfaceTests) {
   Test{{cookiecutter.Process}}ProcessInterface SUT;
   ASSERT_TRUE(SUT.init());
   ASSERT_EQ(SUT.get_diagnostics().size(), 0);
-  ASSERT_FALSE(SUT.update(0.0, 0.0));
+  ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBase{{cookiecutter.Process}}Process : public Base{{cookiecutter.Process}}Process {
 public:
@@ -38,13 +38,13 @@ public:
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
   }
-  bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
-    return base_update(current_time_sec, delta_time_sec);
+  bool update(double current_time_sec) override {
+    return base_update(current_time_sec);
   }
 };
 TEST(Base{{cookiecutter.Process}}Process, BasicAssertions) {
   TestBase{{cookiecutter.Process}}Process SUT;
   ASSERT_TRUE(SUT.init());
   ASSERT_GT(SUT.get_diagnostics().size(), 0);
-  ASSERT_TRUE(SUT.update(0.0, 0.0));
+  ASSERT_TRUE(SUT.update(0.0));
 }

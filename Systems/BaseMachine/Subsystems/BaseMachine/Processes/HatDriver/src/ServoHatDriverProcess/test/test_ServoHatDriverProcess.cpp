@@ -11,7 +11,7 @@ using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
 TEST(ServoHatDriverProcess, BasicTests) {
     ServoHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
     fast::rf::Logger::log_notice(SUT.pretty());
     ASSERT_TRUE(SUT.setServoValue(0, 0));
     auto diagnostics = SUT.get_diagnostics();

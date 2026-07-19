@@ -13,12 +13,12 @@ using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 TEST(TankDriveExecutorProcess, AssertionTests) {
     TankDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
 }
 TEST(TankDriveExecutorProcess, NegativeAssertionTests) {
     TankDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
     TankDriveChannelConfig left_config(2000.0, 1500.0, 1000.0);
     ASSERT_FALSE(left_config.is_ok());
     TankDriveChannelConfig right_config(1000.0, 1500.0, 1000.0);

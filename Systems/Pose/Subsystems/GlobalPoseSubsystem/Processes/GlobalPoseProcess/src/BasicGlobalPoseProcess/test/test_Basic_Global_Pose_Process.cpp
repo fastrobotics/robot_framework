@@ -12,7 +12,7 @@ TEST(BasicGlobalPoseProcess, BasicTests) {
     SensorMsgs::GlobalPositionSensorMsg gps1;
     gps1.time_stamp = 0.3;
     ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.new_GlobalPositionSensorMsg(0, gps1));
 }
 TEST(BasicGlobalPoseProcess, BasicConversionTests) {

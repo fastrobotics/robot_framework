@@ -34,12 +34,10 @@ public:
    * @brief Update the base object
    *
    * @param current_time_sec
-   * @param delta_time_sec
    * @return true If ok
    * @return false If not ok
    */
-  bool base_update(double current_time_sec,
-                   double delta_time_sec); //!< Base function to update
+  bool base_update(double current_time_sec); //!< Base function to update
                   
   /**
          * @brief Get the diagnostics object

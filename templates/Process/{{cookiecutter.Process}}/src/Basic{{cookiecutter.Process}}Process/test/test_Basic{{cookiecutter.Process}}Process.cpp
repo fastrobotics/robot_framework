@@ -10,7 +10,7 @@ using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsyste
 TEST(Basic{{cookiecutter.Process}}Process, BasicTests) {
   Basic{{cookiecutter.Process}}Process SUT;
   ASSERT_TRUE(SUT.init());
-  ASSERT_TRUE(SUT.update(0.0, 0.0));
+  ASSERT_TRUE(SUT.update(0.0));
   auto diagnostics = SUT.get_diagnostics();
   ASSERT_GT(diagnostics.size(), 0);
   for (auto diagnostic : diagnostics) {

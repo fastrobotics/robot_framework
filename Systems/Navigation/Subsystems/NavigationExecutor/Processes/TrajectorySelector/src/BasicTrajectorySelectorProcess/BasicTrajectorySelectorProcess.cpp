@@ -7,8 +7,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-    bool BasicTrajectorySelectorProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
-        bool status = BaseTrajectorySelectorProcess::base_update(current_time_sec, delta_time_sec);
+    bool BasicTrajectorySelectorProcess::update(double current_time_sec) {
+        bool status = BaseTrajectorySelectorProcess::base_update(current_time_sec);
         if (status == false) {
             return false;
         }
