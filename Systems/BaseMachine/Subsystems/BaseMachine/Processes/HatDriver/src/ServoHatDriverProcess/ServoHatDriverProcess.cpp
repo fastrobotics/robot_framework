@@ -30,9 +30,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
             fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING, "Waiting for R/C Commands.");
         return status;
     }
-    bool ServoHatDriverProcess::update([[maybe_unused]] double current_time_sec,
-                                       [[maybe_unused]] double delta_time_sec) {
-        bool status = BaseHatDriverProcess::base_update(current_time_sec, delta_time_sec);
+    bool ServoHatDriverProcess::update(double current_time_sec) {
+        bool status = BaseHatDriverProcess::base_update(current_time_sec);
         if (status == false) {
             return false;
         }

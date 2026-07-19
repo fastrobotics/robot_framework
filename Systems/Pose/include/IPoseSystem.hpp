@@ -25,11 +25,10 @@ namespace fast::rf::PoseSystem {
          * @brief
          *
          * @param current_time_sec
-         * @param delta_time_sec
          * @return true
          * @return false
          */
-        virtual bool update(double current_time_sec, double delta_time_sec) = 0;
+        virtual bool update(double current_time_sec) = 0;
         /**
          * @brief Get the global pose object
          *

@@ -30,7 +30,7 @@ namespace fast::rf {
           +IDriveExecutorOutput new_cmd(TwistMsg cmd)
           +IDriveExecutorOutput get_output()
           +bool init()
-          +bool update(double current_time_sec, double delta_time_sec)
+          +bool update(double current_time_sec)
           +TankDriveData convert(GeometryMsgs::TwistMsg twist)
           +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel)
       }

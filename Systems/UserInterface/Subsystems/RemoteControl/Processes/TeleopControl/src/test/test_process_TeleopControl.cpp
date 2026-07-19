@@ -10,9 +10,7 @@ using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
 class TestTeleopControlProcessInterface : public ITeleopControlProcess {
    public:
     bool init([[maybe_unused]] ControlDevice device) { return true; }
-    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
-        return false;
-    }
+    bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -30,7 +28,7 @@ TEST(TestTeleopControlProcessInterface, InterfaceTests) {
     TestTeleopControlProcessInterface SUT;
     ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
-    ASSERT_FALSE(SUT.update(0.0, 0.0));
+    ASSERT_FALSE(SUT.update(0.0));
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
     auto twist = SUT.get_twist_output();
     ASSERT_FLOAT_EQ(twist.linear.x, 0.0);
@@ -49,9 +47,7 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
-        return base_update(current_time_sec, delta_time_sec);
-    }
+    bool update([[maybe_unused]] double current_time_sec) override { return base_update(current_time_sec); }
     bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
@@ -71,7 +67,7 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
     }
     ASSERT_TRUE(SUT.set_operation_mode(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::RUN));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
     printf("%s\n", SUT.pretty().c_str());
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
 }

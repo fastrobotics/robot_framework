@@ -8,9 +8,8 @@ bool Basic{{cookiecutter.Process}}Process::init() {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-bool Basic{{cookiecutter.Process}}Process::update([[maybe_unused]]  double current_time_sec,
-                                    [[maybe_unused]] double delta_time_sec) {
-  bool status = Base{{cookiecutter.Process}}Process::base_update(current_time_sec, delta_time_sec);
+bool Basic{{cookiecutter.Process}}Process::update(double current_time_sec) {
+  bool status = Base{{cookiecutter.Process}}Process::base_update(current_time_sec);
   if (status == false) {
     return false;
   }

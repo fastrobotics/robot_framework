@@ -21,14 +21,14 @@ namespace fast::rf {
     }
     
     interface IPoseSystem #Orange {
-      +{abstract} bool update(double current_time_sec, double delta_time_sec)
+      +{abstract} bool update(double current_time_sec)
       +{abstract} OdomMsg get_global_pose()
       +{abstract} OdomMsg get_local_pose()
     }
     abstract BasePoseSystem #Orange {
       +OdomMsg get_global_pose()
       +OdomMsg get_local_pose()
-      #bool base_update(doublecurrent_time_sec, double delta_time_sec)
+      #bool base_update(doublecurrent_time_sec)
       #double current_time_sec_
       #OdomMsg global_pose_
       #OdomMsg local_pose_
@@ -39,7 +39,7 @@ namespace fast::rf {
     }
     BasePoseSystem <|-- BasicPoseSystem
     class DummyPoseSystem #Orange {
-      +bool update(double current_time_sec, double delta_time_sec)
+      +bool update(double current_time_sec)
     }
     BasePoseSystem <|-- DummyPoseSystem
   }

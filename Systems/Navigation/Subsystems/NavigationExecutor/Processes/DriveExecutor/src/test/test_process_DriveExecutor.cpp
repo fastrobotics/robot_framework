@@ -19,9 +19,7 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
     IDriveExecutorOutput* get_output() { return output; }
     bool init() { return true; }
 
-    bool update([[maybe_unused]] double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
-        return false;
-    }
+    bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -36,7 +34,7 @@ TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
     TestDriveExecutorProcessInterface SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
-    ASSERT_FALSE(SUT.update(0.0, 0.0));
+    ASSERT_FALSE(SUT.update(0.0));
     GeometryMsgs::TwistMsg cmd;
     auto general_output = SUT.new_cmd(cmd);
     ASSERT_NE(general_output, nullptr);
@@ -63,13 +61,11 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
     }
     IDriveExecutorOutput* new_cmd([[maybe_unused]] GeometryMsgs::TwistMsg cmd) override { return nullptr; }
     IDriveExecutorOutput* get_output() { return nullptr; }
-    bool update(double current_time_sec, [[maybe_unused]] double delta_time_sec) override {
-        return base_update(current_time_sec, delta_time_sec);
-    }
+    bool update(double current_time_sec) override { return base_update(current_time_sec); }
 };
 TEST(BaseDriveExecutorProcess, BasicAssertions) {
     TestBaseDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
-    ASSERT_TRUE(SUT.update(0.0, 0.0));
+    ASSERT_TRUE(SUT.update(0.0));
 }

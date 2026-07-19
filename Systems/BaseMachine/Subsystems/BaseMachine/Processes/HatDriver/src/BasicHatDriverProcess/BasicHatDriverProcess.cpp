@@ -8,9 +8,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-    bool BasicHatDriverProcess::update([[maybe_unused]] double current_time_sec,
-                                       [[maybe_unused]] double delta_time_sec) {
-        bool status = BaseHatDriverProcess::base_update(current_time_sec, delta_time_sec);
+    bool BasicHatDriverProcess::update(double current_time_sec) {
+        bool status = BaseHatDriverProcess::base_update(current_time_sec);
         if (status == false) {
             return false;
         }

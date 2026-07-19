@@ -7,8 +7,8 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-    bool BasicGlobalPathRoutePlannerProcess::update(double current_time_sec, [[maybe_unused]] double delta_time_sec) {
-        bool status = BaseGlobalPathRoutePlannerProcess::base_update(current_time_sec, delta_time_sec);
+    bool BasicGlobalPathRoutePlannerProcess::update(double current_time_sec) {
+        bool status = BaseGlobalPathRoutePlannerProcess::base_update(current_time_sec);
         if (status == false) {
             return false;
         }
