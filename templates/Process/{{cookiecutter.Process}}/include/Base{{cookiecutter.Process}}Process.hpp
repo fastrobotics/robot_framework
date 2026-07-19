@@ -29,7 +29,11 @@ public:
    */
   Base{{cookiecutter.Process}}Process() : diagnosticManager(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID,
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
-                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID) {}
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID),
+                                 ready_to_arm(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID,
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID)
+                                 {}
   /**
    * @brief Update the base object
    *
@@ -37,7 +41,7 @@ public:
    * @return true If ok
    * @return false If not ok
    */
-  bool base_update(double current_time_sec); //!< Base function to update
+  virtual bool update(double current_time_sec); //!< Base function to update
                   
   /**
          * @brief Get the diagnostics object
@@ -48,16 +52,24 @@ public:
             return diagnosticManager.get_diagnostics();
         }
 
+         /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
+
         /**
          * @brief Pretty print the Process
          * 
          * @return std::string 
          */
-    std::string pretty() override;
+    virtual std::string pretty();
 
 protected:
   double current_time_sec_{-1.0};    //!< Current system time
   fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+   fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

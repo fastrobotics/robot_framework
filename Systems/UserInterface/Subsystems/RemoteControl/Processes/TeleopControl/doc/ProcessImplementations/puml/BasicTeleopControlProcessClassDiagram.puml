@@ -43,6 +43,7 @@ namespace fast::rf {
           +bool init(ControlDevice device)
           +bool set_config(double max_forward_x_velocity, \n double max_reverse_x_velocity, \n double max_angular_z_velocity, \n double min_angular_z_velocity)
           +bool update(double current_time_sec)
+          +string pretty()
           +bool new_joy(JoyMsg joy)
           -TwistComputer twist_computer
 

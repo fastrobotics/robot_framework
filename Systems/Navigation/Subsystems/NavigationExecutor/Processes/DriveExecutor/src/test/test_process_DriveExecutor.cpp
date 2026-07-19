@@ -6,6 +6,7 @@
 #include <BaseDriveExecutorProcess.hpp>
 #include <IDriveExecutorOutput.hpp>
 #include <IDriveExecutorProcess.hpp>
+#include <Infrastructure/Logger.hpp>
 
 using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 class TestDriveExecutorOutput : public IDriveExecutorOutput {
@@ -26,6 +27,10 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
         return empty;
     }
     std::string pretty() override { return "Test"; }
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() {
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
+        return ready_to_arm;
+    }
 
    private:
     TestDriveExecutorOutput* output = new TestDriveExecutorOutput();
@@ -61,11 +66,32 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
     }
     IDriveExecutorOutput* new_cmd([[maybe_unused]] GeometryMsgs::TwistMsg cmd) override { return nullptr; }
     IDriveExecutorOutput* get_output() { return nullptr; }
-    bool update(double current_time_sec) override { return base_update(current_time_sec); }
+    bool update(double current_time_sec) override { return BaseDriveExecutorProcess::update(current_time_sec); }
+    std::string pretty() {
+        std::string str = "---Test-Base---\n";
+        str += BaseDriveExecutorProcess::pretty();
+        return str;
+    }
+    bool inject_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
+    }
+    bool clear_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+    }
 };
 TEST(BaseDriveExecutorProcess, BasicAssertions) {
     TestBaseDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.inject_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_TRUE(SUT.clear_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }

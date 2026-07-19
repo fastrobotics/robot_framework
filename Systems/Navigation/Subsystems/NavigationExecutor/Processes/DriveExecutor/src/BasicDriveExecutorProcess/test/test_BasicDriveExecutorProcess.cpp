@@ -15,4 +15,5 @@ TEST(BasicDriveExecutorProcess, BasicTests) {
 TEST(BasicDriveExecutorProcess, BasicConversionTests) {
     BasicDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
+    ASSERT_GT(SUT.pretty().size(), 0);
 }

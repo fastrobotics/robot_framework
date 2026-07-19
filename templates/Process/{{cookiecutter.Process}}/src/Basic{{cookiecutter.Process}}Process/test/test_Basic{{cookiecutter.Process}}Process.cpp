@@ -17,9 +17,10 @@ TEST(Basic{{cookiecutter.Process}}Process, BasicTests) {
     ASSERT_NE(diagnostic.diagnosticMessage,fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
     ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
   }
+   ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
 TEST(Basic{{cookiecutter.Process}}Process, BasicConversionTests) {
   Basic{{cookiecutter.Process}}Process SUT;
   ASSERT_TRUE(SUT.init());
-  ASSERT_TRUE(true);
+  ASSERT_GT(SUT.pretty().size(), 0);
 }

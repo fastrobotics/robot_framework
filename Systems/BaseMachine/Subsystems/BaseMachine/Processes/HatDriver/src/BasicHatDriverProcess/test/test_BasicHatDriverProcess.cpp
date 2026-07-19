@@ -15,5 +15,5 @@ TEST(BasicHatDriverProcess, BasicTests) {
 TEST(BasicHatDriverProcess, BasicConversionTests) {
     BasicHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_TRUE(true);
+    ASSERT_GT(SUT.pretty().size(), 0);
 }

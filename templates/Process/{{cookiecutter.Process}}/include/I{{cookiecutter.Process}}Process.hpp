@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <DiagnosticMsg.hpp>
+#include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
@@ -53,6 +54,13 @@ public:
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+  virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
         
   
 };

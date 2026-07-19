@@ -5,6 +5,7 @@
 
 #include <BaseTeleopControlProcess.hpp>
 #include <ITeleopControlProcess.hpp>
+#include <Infrastructure/Logger.hpp>
 
 using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
 class TestTeleopControlProcessInterface : public ITeleopControlProcess {
@@ -15,6 +16,10 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
+    }
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() {
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
+        return ready_to_arm;
     }
     bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
     bool set_operation_mode([[maybe_unused]] OperationMode mode) { return false; }
@@ -47,8 +52,25 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
-    bool update([[maybe_unused]] double current_time_sec) override { return base_update(current_time_sec); }
+    bool update([[maybe_unused]] double current_time_sec) override {
+        return BaseTeleopControlProcess::update(current_time_sec);
+    }
+    std::string pretty() {
+        std::string str = "---Test-Base---\n";
+        str += BaseTeleopControlProcess::pretty();
+        return str;
+    }
     bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
+    bool inject_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
+    }
+    bool clear_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+    }
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
     TestBaseTeleopControlProcess SUT;
@@ -70,4 +92,10 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.update(0.0));
     printf("%s\n", SUT.pretty().c_str());
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
+    ASSERT_TRUE(SUT.inject_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_TRUE(SUT.clear_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }

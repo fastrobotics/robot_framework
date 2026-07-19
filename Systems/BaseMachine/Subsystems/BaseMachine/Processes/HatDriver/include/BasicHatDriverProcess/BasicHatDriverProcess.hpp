@@ -43,7 +43,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          *
          * @return std::string
          */
-        std::string pretty();
+        std::string pretty() override;
 
        private:
     };

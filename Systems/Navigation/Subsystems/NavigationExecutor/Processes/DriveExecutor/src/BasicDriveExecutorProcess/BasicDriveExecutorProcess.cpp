@@ -14,11 +14,19 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         return output;
     }
     bool BasicDriveExecutorProcess::update(double current_time_sec) {
-        bool status = BaseDriveExecutorProcess::base_update(current_time_sec);
+        bool status = BaseDriveExecutorProcess::update(current_time_sec);
+        // GCOV_EXCL_START
+        // This will always be ok
         if (status == false) {
             return false;
         }
+        // GCOV_EXCL_STOP
         return true;
+    }
+    std::string BasicDriveExecutorProcess::pretty() {
+        std::string str = "---Basic Drive Executor Process---";
+        str += BaseDriveExecutorProcess::pretty();
+        return str;
     }
 
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

@@ -38,6 +38,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         bool update(double current_time_sec) override;
 
         /**
+         * @brief Human readable string of object
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
+        /**
          * @brief Process a new Twist Command
          *
          * @param cmd

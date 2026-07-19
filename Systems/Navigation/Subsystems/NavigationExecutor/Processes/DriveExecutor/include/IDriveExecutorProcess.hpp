@@ -11,6 +11,7 @@
 #pragma once
 #include <DiagnosticMsg.hpp>
 #include <IDriveExecutorOutput.hpp>
+#include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <TwistMsg.hpp>
 #include <vector>
@@ -70,5 +71,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return std::string
          */
         virtual std::string pretty() = 0;
+
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

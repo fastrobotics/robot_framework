@@ -39,6 +39,13 @@ public:
    */
   bool update(double current_time_sec) override;
 
+  /**
+   * @brief Human readable status of object
+   * 
+   * @return std::string 
+   */
+   std::string pretty() override;
+
 private:
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

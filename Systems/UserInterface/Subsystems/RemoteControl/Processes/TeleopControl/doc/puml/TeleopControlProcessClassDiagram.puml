@@ -14,6 +14,7 @@ namespace fast::rf {
     }
     namespace InfrastructureMsgs {
       class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
     }
   }
   namespace core::Infrastructure {
@@ -35,6 +36,7 @@ namespace fast::rf {
       interface ITeleopControlProcess #LimeGreen {
         +{abstract} bool init(ControlDevice device)
         +{abstract} DiagnosticMsg[] get_diagnostics()
+        +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
         +{abstract} bool update(double current_time_sec)
         +{abstract} string pretty()
         +{abstract} bool new_joy(JoyMsg joy)
@@ -66,10 +68,12 @@ namespace fast::rf {
       end note
       abstract BaseTeleopControlProcess #LimeGreen {
         +DiagnosticMsg[] get_diagnostics()
-        +bool base_update(double current_time_sec)
+        +bool update(double current_time_sec)
         +bool set_operation_mode(OperationMode mode)
         +string pretty()
+        +ReadyToArmStatusMsg get_ready_to_arm()
         #DiagnosticManager diagnosticManager
+         #ReadyToArmStatusMsg ready_to_arm
         #JoystickMapper joy_mapper
         #JoystickScaler joy_scaler
         +TwistMsg get_twist_output()

@@ -20,7 +20,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         return status;
     }
     bool BasicTeleopControlProcess::update(double current_time_sec) {
-        bool status = BaseTeleopControlProcess::base_update(current_time_sec);
+        bool status = BaseTeleopControlProcess::update(current_time_sec);
         if (status == false) {
             return false;
         }
@@ -31,6 +31,11 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
             return false;
         }
         return true;
+    }
+    std::string BasicTeleopControlProcess::pretty() {
+        std::string str = "---Basic Telelop Control Process---";
+        str += BaseTeleopControlProcess::pretty();
+        return str;
     }
     bool BasicTeleopControlProcess::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
         bool status = diagnosticManager.update_diagnostic(

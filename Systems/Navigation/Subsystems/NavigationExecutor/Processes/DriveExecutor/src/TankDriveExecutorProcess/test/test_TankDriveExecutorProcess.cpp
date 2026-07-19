@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include <IDriveExecutorOutput.hpp>
+#include <Infrastructure/Logger.hpp>
 #include <TankDriveExecutorProcess/TankDriveExecutorOutput.hpp>
 #include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
 #include <TwistMsg.hpp>
@@ -39,6 +40,10 @@ TEST(TankDriveExecutorProcess, UserInterfaceTests) {
         ASSERT_EQ(diagnostic.level, fast::rf::Level::NOERROR);
         ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
     }
+    ASSERT_TRUE(SUT.update(0.0));
+    fast::rf::Logger::log_debug(SUT.pretty());
+
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_NE(general_output, nullptr);
     {
         auto output = dynamic_cast<TankDriveExecutorOutput*>(general_output);
