@@ -80,6 +80,14 @@ namespace fast::rf::core::infrastructure {
          */
         std::string pretty();
 
+        /**
+         * @brief  Get all diagnostics at or above the Level
+         *
+         * @param level
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
+         */
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics(fast::rf::Level level);
+
        private:
         uint8_t system_id;
         uint8_t subsystem_id;
