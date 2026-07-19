@@ -36,7 +36,7 @@ namespace fast::rf::messages {
     class ReadyToArmStatusMsg <<(M,#FFFF00)>> #LimeGreen {
       +uint8_t systemID
       +uint8_t subsystemID
-      +uint8_t componentID
+      +uint8_t processID
       +bool ready_to_arm
       +string pretty()
     }
