@@ -30,7 +30,10 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         BaseTeleopControlProcess()
             : diagnosticManager(fast::rf::UserInterfaceSystem::SYSTEM_ID,
                                 fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
-                                fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID) {}
+                                fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID),
+              ready_to_arm(fast::rf::UserInterfaceSystem::SYSTEM_ID,
+                           fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
+                           fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID) {}
         /**
          * @brief Update the base object
          *
@@ -38,7 +41,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          * @return true If ok
          * @return false If not ok
          */
-        bool base_update(double current_time_sec);  //!< Base function to update
+        virtual bool update(double current_time_sec);  //!< Base function to update
 
         /**
          * @brief Get the diagnostics object
@@ -49,6 +52,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
             return diagnosticManager.get_diagnostics();
         }
 
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
         /**
          * @brief Get the twist output object
          *
@@ -61,7 +70,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          *
          * @return std::string
          */
-        std::string pretty() override;
+        virtual std::string pretty();
 
         /**
          * @brief Set the operation mode object
@@ -82,6 +91,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         fast::rf::messages::GeometryMsgs::TwistMsg
             desired_twist;                                 //!< Data member representing the most current desired twist
         OperationMode operation_mode{OperationMode::RUN};  //!< Operation Mode of the process

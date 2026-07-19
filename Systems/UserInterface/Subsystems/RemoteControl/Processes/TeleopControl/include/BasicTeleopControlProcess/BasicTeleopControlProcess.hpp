@@ -66,6 +66,13 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          */
         bool new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy);
 
+        /**
+         * @brief Human readable output of object
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
+
        private:
         TwistComputer twist_computer;
     };
