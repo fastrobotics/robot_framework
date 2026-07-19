@@ -15,5 +15,10 @@ bool Basic{{cookiecutter.Process}}Process::update(double current_time_sec) {
   }
   return true;
 }
+std::string Basic{{cookiecutter.Process}}Process::pretty() {
+    std::string str = "---Basic {{cookiecutter.Process}} Process---";
+    str += Base{{cookiecutter.Process}}Process::pretty();
+    return str;
+}
 
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem
