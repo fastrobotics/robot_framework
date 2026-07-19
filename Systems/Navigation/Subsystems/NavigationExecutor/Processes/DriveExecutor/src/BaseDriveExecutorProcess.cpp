@@ -2,7 +2,7 @@
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     bool BaseDriveExecutorProcess::update(double current_time_sec) {
         current_time_sec_ = current_time_sec;
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;

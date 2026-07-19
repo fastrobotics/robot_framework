@@ -1,22 +1,33 @@
 #include <BasicTeleopControlProcess/BasicTeleopControlProcess.hpp>
+#include <Infrastructure/Logger.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
 
     bool BasicTeleopControlProcess::init(ControlDevice device) {
         if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
+            fast::rf::Logger::log_error("Unable to initialize an Unknown Control Device.");
             return false;
         }
         bool status = mapper.init(device);
         if (status == false) {
+            fast::rf::Logger::log_error("Unable to initialize Joystick Mapper");
             return false;
         }
         status = scaler.init(device);
         if (status == false) {
+            fast::rf::Logger::log_error("Unable to initialize Joystick Scaler.");
             return false;
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        if (status == false) {
+            fast::rf::Logger::log_error("Unable to initialize Diagnostics.");
+        }
+
+        status = diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "No Joystick Data Yet.");
         return status;
     }
     bool BasicTeleopControlProcess::update(double current_time_sec) {
