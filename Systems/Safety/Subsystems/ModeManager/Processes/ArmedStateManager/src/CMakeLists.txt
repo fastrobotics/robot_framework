@@ -11,8 +11,9 @@ target_link_libraries(base_ArmedStateManagerProcess diagnosticManager
 target_include_directories(base_ArmedStateManagerProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(armedStateManagerProcess STATIC ArmedStateManagerProcess.cpp)
-target_link_libraries(armedStateManagerProcess diagnosticManager
-                      infrastructure_msgs readyToArmComputer armStateCommander)
+target_link_libraries(
+  armedStateManagerProcess diagnosticManager infrastructure_msgs
+  readyToArmComputer armStateCommander base_ArmedStateManagerProcess)
 target_include_directories(armedStateManagerProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 
