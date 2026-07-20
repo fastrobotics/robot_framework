@@ -36,9 +36,12 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         return true;
     }
     bool ArmStateCommander::update_ready_to_arm(bool robot_ready_to_arm) {
-        if ((robot_ready_to_arm == false) && (arm_command.armed_state != fast::rf::ArmedState::DISARMED_CANNOTARM)) {
+        if (robot_ready_to_arm == false) {
+            auto prev_state = arm_command.armed_state;
             arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
-            fast::rf::Logger::log_warn("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+            if (prev_state != arm_command.armed_state) {
+                fast::rf::Logger::log_warn("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+            }
         } else {
             if (arm_command.armed_state == fast::rf::ArmedState::DISARMED_CANNOTARM) {
                 arm_command.armed_state = fast::rf::ArmedState::DISARMED;
