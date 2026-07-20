@@ -59,15 +59,17 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         auto scaled_joy = scaler.new_joy(mapped_joy);
         auto new_twist = twist_computer.new_joy(scaled_joy);
         if (operation_mode == OperationMode::JOY_TEST) {
-            printf("Joy Test Mode\n");
-            printf("\nInput\n");
-            printf("%s\n", joy.pretty().c_str());
-            printf("\nMapped\n");
-            printf("%s\n", mapped_joy.pretty().c_str());
-            printf("\nScaled\n");
-            printf("%s\n", scaled_joy.pretty().c_str());
-            printf("\nTwist:\n");
-            printf("%s\n", new_twist.pretty().c_str());
+            std::string str = "Joy Test Mode";
+            str += "\n\nInput:\n";
+            str += joy.pretty();
+            str += "\nMapped:\n\n";
+            str += mapped_joy.pretty();
+            str += "\nScaled:\n\n";
+            str += scaled_joy.pretty();
+            str += "\nTwist:\n\n";
+            str += new_twist.pretty();
+
+            fast::rf::Logger::log_debug(str);
         } else if (operation_mode == OperationMode::RUN) {
             desired_twist = new_twist;
         } else {

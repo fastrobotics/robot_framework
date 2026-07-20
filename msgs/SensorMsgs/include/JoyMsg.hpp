@@ -28,7 +28,12 @@ namespace fast::rf::messages::SensorMsgs {
          * @return std::string
          */
         std::string pretty() {
-            std::string str = "Axes:\n";
+            std::string str = "Buttons:\n";
+            for (std::size_t i = 0; i < buttons.size(); ++i) {
+                str += "\t[" + std::to_string(i) + "/" + std::to_string(buttons.size()) +
+                       "]: " + std::to_string(buttons[i]) + "\n";
+            }
+            str += "Axes:\n";
             for (std::size_t i = 0; i < axes.size(); ++i) {
                 str += "\t[" + std::to_string(i) + "/" + std::to_string(axes.size()) + "]: " + std::to_string(axes[i]) +
                        "\n";

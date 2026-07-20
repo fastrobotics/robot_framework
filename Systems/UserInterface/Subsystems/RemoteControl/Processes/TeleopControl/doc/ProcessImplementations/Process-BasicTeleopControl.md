@@ -9,7 +9,6 @@
 - [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
   - [Modes](#modes)
-  - [Keypad Inputs Supported](#keypad-inputs-supported)
   - [Interface Inputs Supported](#interface-inputs-supported)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -47,19 +46,12 @@ The following are a listing of all limitations in this module:
 # Inputs
 ## Modes
 The Following Operation Modes are supported for this Module:
-| Mode                      | Description                                                                        |
-| ------------------------- | ---------------------------------------------------------------------------------- |
-| `OperationMode::RUN`      | Normal operation, takes keyboard input and generates output.                       |
-| `OperationMode::KEY_TEST` | Test mode.  Prints out information when a Key is provided.  Does not drive output. |
+| Mode                      | Description                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| `OperationMode::RUN`      | Normal operation, takes joystick input and generates output.                                  |
+| `OperationMode::JOY_TEST` | Test mode.  Prints out information when a Joystick Input is provided.  Does not drive output. |
 
-## Keypad Inputs Supported
-| Input       | Usage                                                 |
-| ----------- | ----------------------------------------------------- |
-| UP_ARROW    | Increase Forward Velocity (Max 100.0%, Configurable)  |
-| DOWN_ARROW  | Decrease Forward Velocity (Max -100.0%, Configurable) |
-| LEFT_ARROW  | Increase Turn Rate (Max -100.0%, Configurable)        |
-| RIGHT_ARROW | Decrease Turn Rate (Max 100.0%, Configurable)         |
-| SPACE_BAR   | Set Forward Velocity and Turn Rate to 0% (STOP)       |
+
 
 ## Interface Inputs Supported
 
@@ -76,7 +68,7 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
-When a Key Event is pressed, the process will compute an updated TwistCmd to fit a "Desired Command" that other processes can then use for consumption.
+
 
 ## Detailed Documentation
 
