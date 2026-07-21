@@ -1,7 +1,6 @@
 [TeleopControl Process](../Process-TeleopControl.md)
 
 - [Process Implementation: TeleopControl](#process-implementation-teleopcontrol)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -24,12 +23,6 @@
 - [Validation](#validation)
 
 # Process Implementation: TeleopControl
-
-# Document History
-
-| Version Number | Date        | Author     | Change           |
-| :------------: | ----------- | ---------- | ---------------- |
-|       0        | 7-July-2026 | David Gitz | Drafted Document |
 
 # Overview
 

@@ -1,7 +1,6 @@
 [HatDriver Process](../Process-HatDriver.md)
 
 - [Process Implementation: Servo Hat Driver](#process-implementation-servo-hat-driver)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -26,11 +25,6 @@
 
 # Process Implementation: Servo Hat Driver
 
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 11-July-2027 | David Gitz | Drafted Document |
 # Overview
 
 ## Purpose

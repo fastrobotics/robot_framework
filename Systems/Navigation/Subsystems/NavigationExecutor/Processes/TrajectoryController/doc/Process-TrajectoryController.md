@@ -1,7 +1,6 @@
 [Navigation Executor Subsystem](../../../doc/Subsystem-NavigationExecutor.md)
 
 - [Process: Trajectory Controller](#process-trajectory-controller)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process: Trajectory Controller
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

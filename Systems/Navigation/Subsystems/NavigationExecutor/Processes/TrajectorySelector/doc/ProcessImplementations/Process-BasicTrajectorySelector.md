@@ -1,7 +1,6 @@
 [Trajectory Selector Process](../Process-TrajectorySelector.md)
 
 - [Process Implementation: TrajectorySelector](#process-implementation-trajectoryselector)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: TrajectorySelector
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

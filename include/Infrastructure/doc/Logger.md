@@ -4,13 +4,6 @@
 
 # Logger
 
-
-# Document History
-
-| Version Number | Date        | Author     | Change           |
-| :------------: | ----------- | ---------- | ---------------- |
-|       0        | 9-July-2026 | David Gitz | Drafted Document |
-
 # Overview
 
 ## Purpose

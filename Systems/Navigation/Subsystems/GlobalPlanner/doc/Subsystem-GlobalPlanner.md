@@ -1,7 +1,6 @@
 [Navigation System](../../../doc/System-Navigation.md)
 
 - [Subsystem: Global Planner](#subsystem-global-planner)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -18,12 +17,6 @@
 - [Validation](#validation)
 
 # Subsystem: Global Planner
-
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 27-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 

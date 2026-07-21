@@ -3,7 +3,6 @@
 [Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: Comms](#system-comms)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,11 +18,6 @@
 - [Validation](#validation)
 
 # System: Comms
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

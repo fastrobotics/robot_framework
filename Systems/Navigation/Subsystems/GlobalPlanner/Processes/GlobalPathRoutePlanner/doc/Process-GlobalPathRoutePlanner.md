@@ -1,7 +1,6 @@
 [GlobalPlanner Subsystem](../../../doc/Subsystem-GlobalPlanner.md)
 
 - [Process: GlobalPathRoutePlanner](#process-globalpathrouteplanner)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process: GlobalPathRoutePlanner
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

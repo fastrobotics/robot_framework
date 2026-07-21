@@ -1,7 +1,6 @@
 [HatDriver Process](../Process-HatDriver.md)
 
 - [Process Implementation: HatDriver](#process-implementation-hatdriver)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,11 +18,6 @@
 - [Validation](#validation)
 
 # Process Implementation: HatDriver
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

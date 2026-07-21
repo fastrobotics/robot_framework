@@ -1,7 +1,6 @@
 [{{cookiecutter.Process}} Process](../Process-{{cookiecutter.Process}}.md)
 
 - [Process Implementation: {{cookiecutter.Process}}](#process-implementation-cookiecutterprocess)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,11 +18,6 @@
 - [Validation](#validation)
 
 # Process Implementation: {{cookiecutter.Process}}
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

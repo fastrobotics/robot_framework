@@ -4,12 +4,6 @@
 
 # Infrastructure
 
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 22-June-2026 | David Gitz | Drafted Document |
-
 # Overview
 
 ## Purpose

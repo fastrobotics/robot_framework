@@ -1,7 +1,6 @@
 [Safety System](../../../doc/System-Safety.md)
 
 - [Subsystem: ModeManager](#subsystem-modemanager)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -18,12 +17,6 @@
 - [Validation](#validation)
 
 # Subsystem: ModeManager
-
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 24-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 

@@ -3,7 +3,6 @@
 [Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: DataStorage](#system-datastorage)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,11 +18,6 @@
 - [Validation](#validation)
 
 # System: DataStorage
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 
