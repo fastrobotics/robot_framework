@@ -42,6 +42,15 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         virtual bool update(double current_time_sec);  //!< Base function to update
 
         /**
+         * @brief Update the Robot Arm Command State
+         *
+         * @param robot_arm_command_
+         */
+        void update_RobotArmCommand(fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command_) override {
+            robot_arm_command = robot_arm_command_;
+        }
+
+        /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
@@ -67,6 +76,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;   //!< The Robot Arm Command State
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem

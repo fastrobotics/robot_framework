@@ -17,6 +17,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
      */
     class ServoHatDriverProcess : public BaseHatDriverProcess {
        public:
+        static constexpr uint8_t MAX_CHANNEL_COUNT = 16;  //!< Max number of channels on a Servo Hat
         ServoHatDriverProcess() : BaseHatDriverProcess() {}
 
         /**

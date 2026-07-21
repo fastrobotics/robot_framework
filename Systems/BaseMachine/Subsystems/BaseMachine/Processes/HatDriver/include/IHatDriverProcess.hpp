@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <ArmCommandMsg.hpp>
 #include <DiagnosticMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
@@ -40,6 +41,15 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          * @return false If the process did not update ok
          */
         virtual bool update(double current_time_sec) = 0;
+
+        /**
+         * @brief Update Robot Command Armed State
+         *
+         * @param robot_arm_command
+         * @return void
+         */
+        virtual void update_RobotArmCommand(
+            fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) = 0;
 
         /**
          * @brief Pretty print the Process
