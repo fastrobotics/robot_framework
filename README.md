@@ -69,7 +69,7 @@ Run the following:
 ```bash
 cd <repo>
 cd build
-ctest
+ctest -j 20
 ```
 
 # Generate Code Coverage (after running [Run Unit Tests](#run-unit-tests-after-running-build))

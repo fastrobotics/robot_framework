@@ -12,6 +12,8 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
    public:
     bool init([[maybe_unused]] ControlDevice device) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
+    void update_RobotArmCommand([
+        [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) {}
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -26,6 +28,10 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
     fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() {
         fast::rf::messages::GeometryMsgs::TwistMsg twist;
         return twist;
+    }
+    fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest get_armstate_change_request() {
+        fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request;
+        return request;
     }
     std::string pretty() { return "Test"; }
 };
@@ -98,4 +104,5 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.clear_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
 }

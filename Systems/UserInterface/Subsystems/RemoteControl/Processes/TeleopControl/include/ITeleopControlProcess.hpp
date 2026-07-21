@@ -9,6 +9,8 @@
  *
  */
 #pragma once
+#include <ArmCommandMsg.hpp>
+#include <ArmStateChangeSrv.hpp>
 #include <DiagnosticMsg.hpp>
 #include <JoyMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
@@ -65,6 +67,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         virtual bool update(double current_time_sec) = 0;
 
         /**
+         * @brief Update Robot Command Armed State
+         *
+         * @param robot_arm_command
+         * @return void
+         */
+        virtual void update_RobotArmCommand(
+            fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) = 0;
+        /**
          * @brief Pretty print the Process
          *
          * @return std::string
@@ -100,6 +110,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          * @return fast::rf::messages::GeometryMsgs::TwistMsg
          */
         virtual fast::rf::messages::GeometryMsgs::TwistMsg get_twist_output() = 0;
+
+        /**
+         * @brief Get the armstate change request
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
+        get_armstate_change_request() = 0;
 
         /**
          * @brief Set the operation mode object
