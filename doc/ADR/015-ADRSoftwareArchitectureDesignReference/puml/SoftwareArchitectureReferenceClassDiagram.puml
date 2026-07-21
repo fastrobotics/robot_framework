@@ -1,5 +1,41 @@
 @startuml
 title Software Architecture Reference Class Diagram
+'All code in this repo will be under this namespace
+namespace fast::rf { 
+    namespace messages {
+        ' A message that is used.  Not necessary to include a direct relationship unless it's useful
+        ' Classes/Namespaces that are NOT the focus of this design should NEVER be color-coded
+        ' Add Middleware Stereotype if message is not middle-ware agnostic
+        class Message1Msg <<(M,#FFFF00)>> <<Middleware>>
+    }
+    'A namespace below this
+    namespace sub_namespace {
+        ' The actual content that is being designed here
+        package Package #LightYellow;line:blue {
+            enum EnumDefinition #Yellow
+            ' Interface classes should be preceeded with "I"
+            interface IInterfaceClass #Yellow {
+                +{abstract} bool new_data(Message1Msg data)
+                +{abstract} uint8 get_data()
+            }
+            ' An Enum defined inside the Interface
+            IInterfaceClass +-- EnumDefinition
+            
+            ' Not necessary to include a direct relationship unless it's useful
+            IInterfaceClass --> Message1Msg: <<use>>
 
+            ' Base classes should be preceeded with "Base"
+            abstract BaseClass #Yellow {
+                +uint8 get_data()
+                #uint8 data
+            }
+            BaseClass -up-|> IInterfaceClass
+            class ConcreteClass #Yellow {
+                +bool new_data(Message1Msg data)
+            }
+            ConcreteClass .up.|> BaseClass
+        }
+    }
+}
 
 @enduml
