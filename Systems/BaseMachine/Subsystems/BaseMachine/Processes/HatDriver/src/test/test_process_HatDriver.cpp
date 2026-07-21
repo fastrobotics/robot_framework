@@ -18,6 +18,8 @@ class TestHatDriverProcessInterface : public IHatDriverProcess {
 
         return empty;
     }
+    void update_RobotArmCommand([
+        [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) {}
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;

@@ -15,10 +15,13 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 #else
         driver = new MockServoHatDriver();
 #endif
+        // GCOV_EXCL_START
+        // MockServoHatDriver will always be ok
         if (driver->init() == false) {
             fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting!");
             return 1;
         }
+        // GCOV_EXCL_STOP
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Servo Hat SW Ready.");
@@ -32,8 +35,16 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
     }
     bool ServoHatDriverProcess::update(double current_time_sec) {
         bool status = BaseHatDriverProcess::update(current_time_sec);
+        // GCOV_EXCL_START
+        // Always Ok
         if (status == false) {
             return false;
+        }
+        // GCOV_EXCL_STOP
+        if (robot_arm_command.armed_state != fast::rf::ArmedState::ARMED) {
+            for (uint8_t i = 0; i < ServoHatDriverProcess::MAX_CHANNEL_COUNT; ++i) {
+                driver->setServoValue(i, 0);
+            }
         }
         return true;
     }
@@ -41,7 +52,11 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving R/C Commands.");
-        return driver->setServoValue(channel, value);
+        if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
+            return driver->setServoValue(channel, value);
+        } else {
+            return driver->setServoValue(channel, 0);
+        }
     }
     std::string ServoHatDriverProcess::pretty() {
         std::string str = "\n---Servo Hat Driver Process---";

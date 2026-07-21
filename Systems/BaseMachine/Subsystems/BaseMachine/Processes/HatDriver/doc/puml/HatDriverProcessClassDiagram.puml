@@ -9,6 +9,7 @@ namespace fast::rf {
     namespace InfrastructureMsgs {
       class DiagnosticMsg <<(M,#FFFF00)>>
       class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+      class ArmCommandMsg <<(M,#FFFF00)>>
     }
   }
   namespace core::Infrastructure {
@@ -30,6 +31,7 @@ namespace fast::rf {
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
+          #robot_arm_command robot_arm_command
 
         }
         BaseHatDriverProcess -up-|> IHatDriverProcess
@@ -37,6 +39,7 @@ namespace fast::rf {
         class BasicHatDriverProcess {
           +bool init()
           +bool update(double current_time_sec)
+          +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
           +string pretty()
         }
         BasicHatDriverProcess -up-|> BaseHatDriverProcess
