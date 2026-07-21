@@ -11,15 +11,22 @@ namespace fast::rf {
     'A namespace below this
     namespace sub_namespace {
         ' The actual content that is being designed here
-        package Package #LightYellow;line:blue {
+        ' Note that package must be used due to plantuml limitation
+        package new_namespace #LightYellow;line:blue {
             enum EnumDefinition #Yellow
+            struct OutputContainer #Yellow {
+                EnumDefinition status
+            }
+            OutputContainer --> EnumDefinition: <<use>>
             ' Interface classes should be preceeded with "I"
             interface IInterfaceClass #Yellow {
                 +{abstract} bool new_data(Message1Msg data)
                 +{abstract} uint8 get_data()
+                +{abstract} OutputContainer get_output()
             }
             ' An Enum defined inside the Interface
             IInterfaceClass +-- EnumDefinition
+            IInterfaceClass --> OutputContainer: <<use>>
             
             ' Not necessary to include a direct relationship unless it's useful
             IInterfaceClass --> Message1Msg: <<use>>
@@ -27,9 +34,14 @@ namespace fast::rf {
             ' Base classes should be preceeded with "Base"
             abstract BaseClass #Yellow {
                 +uint8 get_data()
+                +OutputContainer get_output()
                 #uint8 data
             }
             BaseClass -up-|> IInterfaceClass
+
+            ' Consider if this dependency is actually useful in a diagram
+            BaseClass --> OutputContainer: <<use>>
+
             class ConcreteClass #Yellow {
                 +bool new_data(Message1Msg data)
             }
