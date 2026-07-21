@@ -1,7 +1,6 @@
 [GlobalPlanner Subsystem](../../../doc/Subsystem-GlobalPlanner.md)
 
 - [Process: GlobalPlannerManager](#process-globalplannermanager)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process: GlobalPlannerManager
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

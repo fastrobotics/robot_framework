@@ -1,7 +1,6 @@
 [FreeSpacePlanner Process](../Process-FreeSpacePlanner.md)
 
 - [Process Implementation: FreeSpacePlanner](#process-implementation-freespaceplanner)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: FreeSpacePlanner
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

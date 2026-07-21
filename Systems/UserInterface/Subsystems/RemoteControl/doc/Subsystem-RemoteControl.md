@@ -1,7 +1,6 @@
 [UserInterface System](../../../doc/System-UserInterface.md)
 
 - [Subsystem: RemoteControl](#subsystem-remotecontrol)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -18,12 +17,6 @@
 - [Validation](#validation)
 
 # Subsystem: RemoteControl
-
-# Document History
-
-| Version Number | Date        | Author     | Change           |
-| :------------: | ----------- | ---------- | ---------------- |
-|       0        | 7-July-2026 | David Gitz | Drafted Document |
 
 # Overview
 

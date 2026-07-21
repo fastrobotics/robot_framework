@@ -3,7 +3,6 @@
 [Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: Awareness](#system-awareness)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,12 +18,6 @@
 - [Validation](#validation)
 
 # System: Awareness
-
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 22-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 

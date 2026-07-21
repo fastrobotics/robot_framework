@@ -1,7 +1,6 @@
 [RemoteControl Subsystem](../../../doc/Subsystem-RemoteControl.md)
 
 - [Process: TeleopControl](#process-teleopcontrol)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -21,11 +20,6 @@
 - [Validation](#validation)
 
 # Process: TeleopControl
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

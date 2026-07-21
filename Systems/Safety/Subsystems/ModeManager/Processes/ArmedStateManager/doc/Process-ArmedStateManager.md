@@ -1,7 +1,6 @@
 [ModeManager Subsystem](../../../doc/Subsystem-ModeManager.md)
 
 - [Process: ArmedStateManager](#process-armedstatemanager)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -26,11 +25,6 @@
 - [Validation](#validation)
 
 # Process: ArmedStateManager
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

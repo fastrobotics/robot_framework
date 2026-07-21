@@ -1,7 +1,6 @@
 [Global Pose Process](../Process-TrajectoryController.md)
 
 - [Process Implementation: Trajectory Controller](#process-implementation-trajectory-controller)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: Trajectory Controller
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

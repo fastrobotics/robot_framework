@@ -3,7 +3,6 @@
 [Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: Perception](#system-perception)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -19,11 +18,6 @@
 - [Validation](#validation)
 
 # System: Perception
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

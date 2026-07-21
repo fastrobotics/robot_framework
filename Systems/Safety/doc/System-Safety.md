@@ -3,7 +3,6 @@
 [Architecture](../../../doc/Architecture/Architecture.md)
 
 - [System: Safety](#system-safety)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -20,11 +19,6 @@
 - [Validation](#validation)
 
 # System: Safety
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

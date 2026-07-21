@@ -1,7 +1,6 @@
 [GlobalPathRoutePlanner Process](../Process-GlobalPathRoutePlanner.md)
 
 - [Process Implementation: GlobalPathRoutePlanner](#process-implementation-globalpathrouteplanner)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: GlobalPathRoutePlanner
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

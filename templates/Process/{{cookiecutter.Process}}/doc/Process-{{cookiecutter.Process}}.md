@@ -1,7 +1,6 @@
 [{{cookiecutter.Subsystem}} Subsystem](../../../doc/Subsystem-{{cookiecutter.Subsystem}}.md)
 
 - [Process: {{cookiecutter.Process}}](#process-cookiecutterprocess)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -11,16 +10,11 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
-  - [{{cookiecutter.Process}} Process Implementation](#cookiecutterprocess-process-Implementation)
+  - [{{cookiecutter.Process}} Process Implementation](#cookiecutterprocess-process-implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
 # Process: {{cookiecutter.Process}}
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

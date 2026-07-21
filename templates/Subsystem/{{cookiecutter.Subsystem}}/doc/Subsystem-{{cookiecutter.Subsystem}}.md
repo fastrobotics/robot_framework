@@ -1,7 +1,6 @@
 [{{cookiecutter.System}} System](../../../doc/System-{{cookiecutter.System}}.md)
 
 - [Subsystem: {{cookiecutter.Subsystem}}](#subsystem-cookiecuttersubsystem)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -18,12 +17,6 @@
 - [Validation](#validation)
 
 # Subsystem: {{cookiecutter.Subsystem}}
-
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 24-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 

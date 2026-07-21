@@ -1,7 +1,6 @@
 [GlobalPlannerManager Process](../Process-GlobalPlannerManager.md)
 
 - [Process Implementation: GlobalPlannerManager](#process-implementation-globalplannermanager)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,11 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: GlobalPlannerManager
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

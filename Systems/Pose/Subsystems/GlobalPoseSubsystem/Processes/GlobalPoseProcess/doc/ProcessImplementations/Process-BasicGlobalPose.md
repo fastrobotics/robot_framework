@@ -1,7 +1,6 @@
 [Global Pose Process](../Process-GlobalPose.md)
 
 - [Process Implementation: Basic Global Pose](#process-implementation-basic-global-pose)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -16,12 +15,6 @@
 - [Validation](#validation)
 
 # Process Implementation: Basic Global Pose
-
-# Document History
-
-| Version Number | Date         | Author     | Change           |
-| :------------: | ------------ | ---------- | ---------------- |
-|       0        | 26-June-2026 | David Gitz | Drafted Document |
 
 # Overview
 

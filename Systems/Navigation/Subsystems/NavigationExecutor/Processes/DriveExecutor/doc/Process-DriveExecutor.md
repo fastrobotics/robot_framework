@@ -1,7 +1,6 @@
 [Navigation Executor Subsystem](../../../doc/Subsystem-NavigationExecutor.md)
 
 - [Process: Drive Executor](#process-drive-executor)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -17,11 +16,6 @@
 - [Validation](#validation)
 
 # Process: Drive Executor
-
-# Document History
-
-| Version Number | Date | Author | Change |
-| :------------: | ---- | ------ | ------ |
 
 # Overview
 

@@ -1,7 +1,6 @@
 [Drive Executor Process](../Process-DriveExecutor.md)
 
 - [Process Implementation: Tank Drive Executor](#process-implementation-tank-drive-executor)
-- [Document History](#document-history)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -23,12 +22,6 @@
 - [Validation](#validation)
 
 # Process Implementation: Tank Drive Executor
-
-# Document History
-
-| Version Number | Date         | Author           | Change |
-| :------------: | ------------ | ---------------- | ------ |
-|       0        | 28-June-2026 | Drafted Document |
 
 # Overview
 
