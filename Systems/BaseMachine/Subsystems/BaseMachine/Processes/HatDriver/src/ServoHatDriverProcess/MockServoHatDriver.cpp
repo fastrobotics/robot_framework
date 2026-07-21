@@ -11,8 +11,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return str;
     }
     bool MockServoHatDriver::setServoValue(uint16_t channel, uint16_t value) {
-        fast::rf::Logger::log_info("I'm a Mock, setting Channel: " + std::to_string(channel) +
-                                   " to: " + std::to_string(value));
+        fast::rf::Logger::log_debug("I'm a Mock, setting Channel: " + std::to_string(channel) +
+                                    " to: " + std::to_string(value));
         return true;
     }
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
