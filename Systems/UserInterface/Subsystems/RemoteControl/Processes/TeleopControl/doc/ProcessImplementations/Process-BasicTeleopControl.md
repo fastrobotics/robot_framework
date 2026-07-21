@@ -12,6 +12,9 @@
   - [Interface Inputs Supported](#interface-inputs-supported)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
+  - [Controls](#controls)
+    - [Joystick Axis's](#joystick-axiss)
+    - [Joystick Buttons](#joystick-buttons)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
   - [Diagnostics](#diagnostics)
@@ -68,7 +71,13 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
+## Controls
+### Joystick Axis's
 
+### Joystick Buttons
+| Button | Usage                    |
+| ------ | ------------------------ |
+| 1      | Request Arm State Change |
 
 ## Detailed Documentation
 

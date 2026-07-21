@@ -44,6 +44,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         virtual bool update(double current_time_sec);  //!< Base function to update
 
         /**
+         * @brief Update the Robot Arm Command State
+         *
+         * @param robot_arm_command_
+         */
+        void update_RobotArmCommand(fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command_) override {
+            robot_arm_command = robot_arm_command_;
+        }
+        /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
@@ -58,6 +66,18 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
+
+        /**
+         * @brief Get the armstate change request object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
+         */
+        fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
+        get_armstate_change_request() {
+            auto return_request = armstate_change_request;
+            armstate_change_request.requested_armed_state = fast::rf::ArmedState::UNKNOWN;
+            return return_request;
+        }
         /**
          * @brief Get the twist output object
          *
@@ -91,11 +111,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;   //!< The Robot Arm Command State
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         fast::rf::messages::GeometryMsgs::TwistMsg
             desired_twist;                                 //!< Data member representing the most current desired twist
         OperationMode operation_mode{OperationMode::RUN};  //!< Operation Mode of the process
         JoystickMapper mapper;                             //!< Maps Joystick inputs to commmon definition
         JoystickScaler scaler;                             //!< Scales Joystick data to common definition
+        fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
+            armstate_change_request;  //!< Arm State Change Request Object
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

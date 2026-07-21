@@ -15,6 +15,13 @@ namespace fast::rf {
     namespace InfrastructureMsgs {
       class DiagnosticMsg <<(M,#FFFF00)>>
       class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+      class ArmCommandMsg <<(M,#FFFF00)>>
+      class ArmStateChangeSrv <<(M,#FFFF00)>> {
+        +ArmStateChangeSrvRequest request
+        +ArmStateChangeSrvResponse response
+      }
+      ArmStateChangeSrv +-- ArmStateChangeSrvRequest
+      ArmStateChangeSrv +-- ArmStateChangeSrvResponse
     }
   }
   namespace core::Infrastructure {
@@ -37,10 +44,12 @@ namespace fast::rf {
         +{abstract} bool init(ControlDevice device)
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+        +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
         +{abstract} bool update(double current_time_sec)
         +{abstract} string pretty()
         +{abstract} bool new_joy(JoyMsg joy)
         +{abstract} TwistMsg get_twist_output()
+        +{abstract} ArmStateChangeSrvRequest get_armstate_change_request()
         +{abstract} bool set_operation_mode(OperationMode mode)
       }
       ITeleopControlProcess --> OperationMode: <<use>>
@@ -69,11 +78,15 @@ namespace fast::rf {
       abstract BaseTeleopControlProcess #LimeGreen {
         +DiagnosticMsg[] get_diagnostics()
         +bool update(double current_time_sec)
+        +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
         +bool set_operation_mode(OperationMode mode)
         +string pretty()
         +ReadyToArmStatusMsg get_ready_to_arm()
+        +ArmStateChangeSrvRequest get_armstate_change_request()
         #DiagnosticManager diagnosticManager
-         #ReadyToArmStatusMsg ready_to_arm
+        #ReadyToArmStatusMsg ready_to_arm
+        #robot_arm_command robot_arm_command
+        #ArmStateChangeSrvRequest armstate_change_request
         #JoystickMapper joy_mapper
         #JoystickScaler joy_scaler
         +TwistMsg get_twist_output()

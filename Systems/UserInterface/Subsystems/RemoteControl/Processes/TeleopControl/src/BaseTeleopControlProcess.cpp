@@ -21,6 +21,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
             str += "\nOp Mode: UNKNOWN\n";
         }
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
+        str += "\tArm Command: " + fast::rf::pretty(robot_arm_command.armed_state) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += "\tDesired Twist: " + desired_twist.pretty() + "\n";
         str += diagnosticManager.pretty();
