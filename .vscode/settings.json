@@ -4,22 +4,22 @@
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-        "editor.formatOnSave": true
+        #"editor.formatOnSave": true
     },
     "C_Cpp.clang_format_style": "file",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools",
-        "editor.formatOnSave": true
+        #"editor.formatOnSave": true
     },
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools",
-        "editor.formatOnSave": true
+        #"editor.formatOnSave": true
     },
     "[plantuml]": {
         "editor.formatOnSave": false
     },
     "[cmake]": {
         "editor.defaultFormatter": "cheshirekow.cmake-format",
-        "editor.formatOnSave": true
+        #"editor.formatOnSave": true
     }
 }
