@@ -13,7 +13,8 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
                 diagnosticManager.update_diagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
-                    "Have not received input for: " + std::to_string(last_input_delta_time) + " (sec)");
+                    "Have not received input for: " + std::to_string(last_input_delta_time) + " > " +
+                        std::to_string(ITeleopControlProcess::INPUT_TIMEOUT_SEC) + " (sec)");
             }
         }
         auto diagnostics = diagnosticManager.get_diagnostics(fast::rf::Level::WARN);
