@@ -42,7 +42,7 @@ namespace fast::rf {
           
 
         }
-        BaseDriveExecutorProcess -up-|> IDriveExecutorProcess
+        BaseDriveExecutorProcess .up.|> IDriveExecutorProcess
         BaseDriveExecutorProcess --> DiagnosticManager: <<use>>
         class BasicDriveExecutorProcess {
           +bool init()

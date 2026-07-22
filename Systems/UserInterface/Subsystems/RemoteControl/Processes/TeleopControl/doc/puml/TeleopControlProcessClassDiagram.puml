@@ -94,7 +94,7 @@ namespace fast::rf {
         -OperationMode operation_mode = OperationMode::RUN
 
       }
-      BaseTeleopControlProcess -up-|> ITeleopControlProcess
+      BaseTeleopControlProcess .up.|> ITeleopControlProcess
       BaseTeleopControlProcess --> DiagnosticManager: <<use>>
       BaseTeleopControlProcess --> JoystickMapper: <<use>>
       BaseTeleopControlProcess --> JoystickScaler: <<use>>

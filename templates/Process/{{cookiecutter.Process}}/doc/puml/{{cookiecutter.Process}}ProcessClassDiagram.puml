@@ -32,7 +32,7 @@ namespace fast::rf {
           #ReadyToArmStatusMsg ready_to_arm
 
         }
-        Base{{cookiecutter.Process}}Process -up-|> I{{cookiecutter.Process}}Process
+        Base{{cookiecutter.Process}}Process .up.|> I{{cookiecutter.Process}}Process
         Base{{cookiecutter.Process}}Process --> DiagnosticManager: <<use>>
         class Basic{{cookiecutter.Process}}Process {
           +bool init()

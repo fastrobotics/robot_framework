@@ -59,7 +59,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
 
         }
-        BaseArmedStateManagerProcess -up-|> IArmedStateManagerProcess
+        BaseArmedStateManagerProcess .up.|> IArmedStateManagerProcess
         BaseArmedStateManagerProcess --> DiagnosticManager: <<use>>
         class ArmedStateManagerProcess #LimeGreen {
           +bool init()

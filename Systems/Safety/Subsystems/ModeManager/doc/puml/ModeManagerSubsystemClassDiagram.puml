@@ -11,7 +11,7 @@ namespace fast::rf {
       abstract BaseModeManagerSubsystem {
 
       }
-      BaseModeManagerSubsystem -up-|> IModeManagerSubsystem
+      BaseModeManagerSubsystem .up.|> IModeManagerSubsystem
       class BasicModeManagerSubsystem {
       }
       BasicModeManagerSubsystem -up-|> BaseModeManagerSubsystem

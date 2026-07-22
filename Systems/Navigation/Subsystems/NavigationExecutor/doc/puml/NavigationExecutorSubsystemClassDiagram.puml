@@ -11,7 +11,7 @@ namespace fast::rf {
       abstract BaseNavigationExecutorSubsystem {
 
       }
-      BaseNavigationExecutorSubsystem -up-|> INavigationExecutorSubsystem
+      BaseNavigationExecutorSubsystem .up.|> INavigationExecutorSubsystem
       class BasicNavigationExecutorSubsystem {
       }
       BasicNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem

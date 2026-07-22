@@ -37,7 +37,7 @@ namespace fast::rf {
                 +OutputContainer get_output()
                 #uint8 data
             }
-            BaseClass -up-|> IInterfaceClass
+            BaseClass .up.|> IInterfaceClass
 
             ' Consider if this dependency is actually useful in a diagram
             BaseClass --> OutputContainer: <<use>>
@@ -45,7 +45,7 @@ namespace fast::rf {
             class ConcreteClass #Yellow {
                 +bool new_data(Message1Msg data)
             }
-            ConcreteClass .up.|> BaseClass
+            ConcreteClass -up-|> BaseClass
         }
     }
 }
