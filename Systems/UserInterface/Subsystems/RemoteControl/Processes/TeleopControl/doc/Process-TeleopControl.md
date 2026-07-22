@@ -21,8 +21,6 @@
 
 # Process: TeleopControl
 
-
-
 # Overview
 
 ## Purpose

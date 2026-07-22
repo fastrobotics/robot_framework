@@ -51,6 +51,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         return str;
     }
     bool BasicTeleopControlProcess::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
+        last_input_time_sec = current_time_sec_;
         bool status = diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Joystick Data");
