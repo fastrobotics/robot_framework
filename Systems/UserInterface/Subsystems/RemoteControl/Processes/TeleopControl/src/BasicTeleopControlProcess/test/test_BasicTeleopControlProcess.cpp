@@ -62,6 +62,15 @@ TEST(BasicTeleopControlProcess, ConfigurationTests) {
         ASSERT_TRUE(SUT.set_config(100.0, -100.0, 100.0, -100.0));
     }
 }
+TEST(BasicTeleopControlProcess, TestInputTimeout) {
+    BasicTeleopControlProcess SUT;
+    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
+    fast::rf::messages::SensorMsgs::JoyMsg joy;
+    joy.buttons.resize(4);
+    joy.buttons[0];
+    EXPECT_TRUE(SUT.)
+}
 TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
     BasicTeleopControlProcess SUT;
     EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
