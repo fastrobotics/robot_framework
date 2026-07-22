@@ -108,7 +108,8 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         }
 
        protected:
-        double current_time_sec_{-1.0};  //!< Current system time
+        double current_time_sec_{-1.0};    //!< Current system time
+        double last_input_time_sec{-1.0};  //!< Time when last input was received
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;   //!< The Robot Arm Command State

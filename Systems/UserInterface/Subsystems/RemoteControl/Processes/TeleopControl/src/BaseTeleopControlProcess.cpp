@@ -1,10 +1,29 @@
 #include <BaseTeleopControlProcess.hpp>
+#include <Infrastructure/Logger.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     bool BaseTeleopControlProcess::update(double current_time_sec) {
         current_time_sec_ = current_time_sec;
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
+        if (last_input_time_sec < 0) {
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Input never Received.");
+        } else {
+            double last_input_delta_time = current_time_sec_ - last_input_time_sec;
+            if (last_input_delta_time > ITeleopControlProcess::INPUT_TIMEOUT_SEC) {
+                diagnosticManager.update_diagnostic(
+                    fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
+                    fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
+                    "Have not received input for: " + std::to_string(last_input_delta_time) + " > " +
+                        std::to_string(ITeleopControlProcess::INPUT_TIMEOUT_SEC) + " (sec)");
+            }
+        }
+        auto diagnostics = diagnosticManager.get_diagnostics(fast::rf::Level::WARN);
+        if (diagnostics.size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
+            for (auto diagnostic : diagnostics) {
+                fast::rf::Logger::log_diagnostic(diagnostic);
+            }
             ready_to_arm.ready_to_arm = false;
         }
 
