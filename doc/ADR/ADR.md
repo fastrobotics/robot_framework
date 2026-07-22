@@ -18,4 +18,3 @@
 | READY  | [Unit Tests can use real Data](012-ADRDataSourceUnitTests/012-ADRDataSourceUnitTests.md)                                                            |
 | NEW    | [Provide Analysis Capabilities](013-ADRProvideAnalysisCapabilities/013-ADRProvideAnalysisCapabilities.md)                                           |
 | NEW    | [Unit Conventions](014-ADRUnitConventions/014-ADRUnitConventions.md)                                                                                |
-| DRAFT  | [Software Architecture Design Reference](015-ADRSoftwareArchitectureDesignReference/015-ADRSoftwareArchitectureDesignReference.md)                  |
