@@ -8,4 +8,5 @@ target_include_directories(basic_TeleopControlProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 if(BUILD_TESTING)
   add_subdirectory(test)
+
 endif()
