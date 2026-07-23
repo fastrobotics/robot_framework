@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #include <cmath>
