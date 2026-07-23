@@ -46,7 +46,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
        public:
         ServoHatDriver() = default;
-        virtual ~ServoHatDriver() = default;
+        virtual ~ServoHatDriver();
         /**
          * @brief Initialize the object
          *

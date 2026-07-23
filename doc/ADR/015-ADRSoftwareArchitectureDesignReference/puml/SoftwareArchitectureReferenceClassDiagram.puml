@@ -1,7 +1,8 @@
 @startuml
 title Software Architecture Reference Class Diagram
 'All code in this repo will be under this namespace
-namespace fast::rf { 
+namespace fast::rf {
+
     namespace messages {
         ' A message that is used.  Not necessary to include a direct relationship unless it's useful
         ' Classes/Namespaces that are NOT the focus of this design should NEVER be color-coded
@@ -27,7 +28,7 @@ namespace fast::rf {
             ' An Enum defined inside the Interface
             IInterfaceClass +-- EnumDefinition
             IInterfaceClass --> OutputContainer: <<use>>
-            
+
             ' Not necessary to include a direct relationship unless it's useful
             IInterfaceClass --> Message1Msg: <<use>>
 

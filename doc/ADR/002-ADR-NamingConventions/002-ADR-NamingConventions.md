@@ -19,9 +19,9 @@
 ## Name components for what they DO, not what data they manipulate
 
 The general idea behind this convention is to make it intuitively obvious what a specific component does. Here are some examples:
-| What the component is | Good Name | Bad Name |
-| --- | --- | --- |
-| Computes Pose in a Global Frame | GlobalPose | NavOdometryComputer |
+| What the component is                 | Good Name   | Bad Name            |
+| ------------------------------------- | ----------- | ------------------- |
+| Computes Pose in a Global Frame       | GlobalPose  | NavOdometryComputer |
 | Computes goals using a Behaviour Tree | GoalPlanner | BehaviorTreePlanner |
 
 ## Namespace hierarchy
@@ -75,3 +75,4 @@ This ADR should be revisited in the future based on the following:
 # Deviations
 
 Not following this practice may be unavoidable in some exceptions. These are detailed below:
+1. In `puml` files, `package` will be used to indicate the focus of a current design.  For more information, see [ADR 015](../015-ADRSoftwareArchitectureDesignReference/015-ADRSoftwareArchitectureDesignReference.md).
