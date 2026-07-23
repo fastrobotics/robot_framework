@@ -84,7 +84,7 @@ This component is responsible for taking the Joystick data and converting to a T
 | Status | Implementation                                                                           | Details                             |
 | ------ | ---------------------------------------------------------------------------------------- | ----------------------------------- |
 | NEW    | DummyTeleopControlProcess                                                                | Used for generating fake data       |
-| NEW    | [BasicTeleopControlProcess](../doc/ProcessImplementations/Process-BasicTeleopControl.md) | Trivial implentation, very limited. |
+| DRAFT  | [BasicTeleopControlProcess](../doc/ProcessImplementations/Process-BasicTeleopControl.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

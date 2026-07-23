@@ -1,7 +1,10 @@
+#include <unistd.h>
+
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #include <cmath>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+    ServoHatDriver::~ServoHatDriver() { close(servoHatFd); }
     bool ServoHatDriver::init(uint16_t address) {
         servoHatFd = wiringPiI2CSetup(address);
         resetAllPWM(0, 0);
