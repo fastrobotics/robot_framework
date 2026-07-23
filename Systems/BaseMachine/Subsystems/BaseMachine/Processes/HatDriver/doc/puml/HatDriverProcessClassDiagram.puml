@@ -34,7 +34,7 @@ namespace fast::rf {
           #robot_arm_command robot_arm_command
 
         }
-        BaseHatDriverProcess -up-|> IHatDriverProcess
+        BaseHatDriverProcess .up.|> IHatDriverProcess
         BaseHatDriverProcess --> DiagnosticManager: <<use>>
         class BasicHatDriverProcess {
           +bool init()

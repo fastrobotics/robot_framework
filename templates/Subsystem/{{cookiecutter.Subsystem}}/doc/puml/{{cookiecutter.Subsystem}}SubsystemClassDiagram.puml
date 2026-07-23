@@ -11,7 +11,7 @@ namespace fast::rf {
       abstract Base{{cookiecutter.Subsystem}}Subsystem {
 
       }
-      Base{{cookiecutter.Subsystem}}Subsystem -up-|> I{{cookiecutter.Subsystem}}Subsystem
+      Base{{cookiecutter.Subsystem}}Subsystem .up.|> I{{cookiecutter.Subsystem}}Subsystem
       class Basic{{cookiecutter.Subsystem}}Subsystem {
       }
       Basic{{cookiecutter.Subsystem}}Subsystem -up-|> Base{{cookiecutter.Subsystem}}Subsystem

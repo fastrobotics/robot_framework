@@ -56,6 +56,7 @@ namespace fast::rf {
                 return pretty(Level::UNKNOWN);
         }
     }
+
     /**
      * @brief ArmedState Definition
      *

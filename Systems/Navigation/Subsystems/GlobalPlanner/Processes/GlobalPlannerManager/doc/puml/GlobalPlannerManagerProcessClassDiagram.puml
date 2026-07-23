@@ -26,7 +26,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
 
         }
-        BaseGlobalPlannerManagerProcess -up-|> IGlobalPlannerManagerProcess
+        BaseGlobalPlannerManagerProcess .up.|> IGlobalPlannerManagerProcess
         BaseGlobalPlannerManagerProcess --> DiagnosticManager: <<use>>
         class BasicGlobalPlannerManagerProcess {
           +bool update(double current_time_sec)

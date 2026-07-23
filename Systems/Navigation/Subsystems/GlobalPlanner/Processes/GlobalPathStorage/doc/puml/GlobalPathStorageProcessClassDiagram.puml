@@ -26,7 +26,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
 
         }
-        BaseGlobalPathStorageProcess -up-|> IGlobalPathStorageProcess
+        BaseGlobalPathStorageProcess .up.|> IGlobalPathStorageProcess
         BaseGlobalPathStorageProcess --> DiagnosticManager: <<use>>
         class BasicGlobalPathStorageProcess {
           +bool init()

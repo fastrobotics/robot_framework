@@ -11,7 +11,7 @@ namespace fast::rf {
       abstract BaseBaseMachineSubsystem {
 
       }
-      BaseBaseMachineSubsystem -up-|> IBaseMachineSubsystem
+      BaseBaseMachineSubsystem .up.|> IBaseMachineSubsystem
       class BasicBaseMachineSubsystem {
       }
       BasicBaseMachineSubsystem -up-|> BaseBaseMachineSubsystem

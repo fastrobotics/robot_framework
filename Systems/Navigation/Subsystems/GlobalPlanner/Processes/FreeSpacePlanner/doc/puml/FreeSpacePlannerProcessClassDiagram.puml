@@ -27,7 +27,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
 
         }
-        BaseFreeSpacePlannerProcess -up-|> IFreeSpacePlannerProcess
+        BaseFreeSpacePlannerProcess .up.|> IFreeSpacePlannerProcess
         class BasicFreeSpacePlannerProcess {
           +bool init()
           +bool update(double current_time_sec)

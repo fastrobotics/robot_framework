@@ -22,7 +22,7 @@ namespace fast::rf {
         #GlobalPathResponseMsg global_path_response
 
       }
-      BaseGlobalPlannerSubsystem -up-|> IGlobalPlannerSubsystem
+      BaseGlobalPlannerSubsystem .up.|> IGlobalPlannerSubsystem
       class BasicGlobalPlannerSubsystem {
         +GlobalPathResponseMsg plan_GlobalPath(GlobalPathRequestMsg req)
       }

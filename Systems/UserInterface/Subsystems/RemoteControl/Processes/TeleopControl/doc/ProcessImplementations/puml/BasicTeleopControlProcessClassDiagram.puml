@@ -24,7 +24,7 @@ namespace fast::rf {
         interface ITeleopControlProcess
         abstract BaseTeleopControlProcess
         enum ControlDevice
-        BaseTeleopControlProcess -up-|> ITeleopControlProcess
+        BaseTeleopControlProcess .up.|> ITeleopControlProcess
         BaseTeleopControlProcess --> DiagnosticManager: <<use>>
         class TwistComputer #Pink {
           +{static} MAX_VALUE: double = 100.0

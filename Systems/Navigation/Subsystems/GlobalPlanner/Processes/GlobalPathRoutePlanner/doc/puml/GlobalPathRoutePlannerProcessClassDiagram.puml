@@ -26,7 +26,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
 
         }
-        BaseGlobalPathRoutePlannerProcess -up-|> IGlobalPathRoutePlannerProcess
+        BaseGlobalPathRoutePlannerProcess .up.|> IGlobalPathRoutePlannerProcess
         class BasicGlobalPathRoutePlannerProcess {
           +bool init()
           +bool update(double current_time_sec)

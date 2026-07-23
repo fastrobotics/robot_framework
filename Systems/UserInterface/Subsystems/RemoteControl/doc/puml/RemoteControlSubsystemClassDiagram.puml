@@ -9,7 +9,7 @@ namespace fast::rf {
       abstract BaseRemoteControlSubsystem {
 
       }
-      BaseRemoteControlSubsystem -up-|> IRemoteControlSubsystem
+      BaseRemoteControlSubsystem .up.|> IRemoteControlSubsystem
       class BasicRemoteControlSubsystem {
       }
       BasicRemoteControlSubsystem -up-|> BaseRemoteControlSubsystem
