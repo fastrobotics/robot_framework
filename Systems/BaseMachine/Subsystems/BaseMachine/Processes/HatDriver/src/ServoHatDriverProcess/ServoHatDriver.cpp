@@ -4,7 +4,7 @@
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #include <cmath>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
-    void ServoHatDriver::~ServoHatDriver() { close(servoHatFd); }
+    ServoHatDriver::~ServoHatDriver() { close(servoHatFd); }
     bool ServoHatDriver::init(uint16_t address) {
         servoHatFd = wiringPiI2CSetup(address);
         resetAllPWM(0, 0);
