@@ -43,7 +43,8 @@ namespace fast::rf {
           UNKNOWN=0,
           MOCK_IMU=1,
           SYDTM151_IMU=2
-          END_OF_LIST=3,
+          RAZOR9DOF_IMU = 3,
+          END_OF_LIST=4,
         }
         interface IIMUDriver #Orange {
           +{abstract} bool init(IMUDevice imu_type)
@@ -75,6 +76,12 @@ namespace fast::rf {
            +string pretty()
         }
         IMUSYDTM151Driver -up-|> BaseIMUDriver
+        class IMURazor9DOFDriver #Orange {
+           +bool init(IMUDevice imu_type)
+           +update(double current_time_sec)
+           +string pretty()
+        }
+        IMURazor9DOFDriver -up-|> BaseIMUDriver
         class IMUProcess {
           +bool init()
           +bool update(double current_time_sec)

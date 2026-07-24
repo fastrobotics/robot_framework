@@ -30,7 +30,7 @@ namespace fast::rf::messages::SensorMsgs {
         fast::rf::messages::StandardMsgs::Vector3DMsg linear_acceleration;              //!< Linear Acceleration
         fast::rf::messages::StandardMsgs::Covariance3DMsg
             linear_acceleration_covariance;  //!< Linear Acceleration Covariance
-        ImuMsg() : time_stamp(-1.0) {}
+        ImuMsg() : time_stamp(-1.0), seq(0) {}
 
         /**
          * @brief Human readable string of the data

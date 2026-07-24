@@ -8,6 +8,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     }
     bool BaseIMUDriver::update(double current_time_sec_) {
         current_time_sec = current_time_sec_;
+        if (start_time < 0.0) {
+            start_time = current_time_sec_;
+        }
         return true;
     }
     std::string BaseIMUDriver::pretty() {

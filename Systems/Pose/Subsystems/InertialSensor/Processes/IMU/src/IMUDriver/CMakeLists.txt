@@ -7,6 +7,7 @@ add_library(mockIMUDriver STATIC MockIMUDriver.cpp)
 target_link_libraries(mockIMUDriver base_IMUDriver)
 
 add_subdirectory(IMUSYDTM151Driver)
+add_subdirectory(IMURazor9DOFDriver)
 add_subdirectory(exec)
 if(BUILD_TESTING)
   add_subdirectory(test)

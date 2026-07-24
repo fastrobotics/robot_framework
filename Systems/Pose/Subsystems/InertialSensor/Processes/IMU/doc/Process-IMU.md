@@ -89,7 +89,7 @@ A Test Executable is provided.
 
 To use this, after building/installing, run the following:
 ```bash
-./install/bin/exec_imudriver -d <Driver Version.  1-Mock IMU.  2- SYD TM151>
+./install/bin/exec_imudriver -l <Logger Level (DEBUG=2--> FATAL=7)> -d <Driver Version.  1-Mock IMU.  2- SYD TM151>
 ```
 
 

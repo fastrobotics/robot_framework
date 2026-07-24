@@ -1,7 +1,15 @@
+#include <cstring>
+#include <iostream>
+
+// Linux & System headers
+#include <errno.h>   // Error integer and strerror() function
+#include <fcntl.h>   // Contains file controls like O_RDWR, O_NOCTTY
+#include <unistd.h>  // write(), read(), close()
+
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <Infrastructure/Logger.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
-    const std::string IMUSYDTM151Driver::serial_port = "/dev/ttyUSB0";
+    const std::string IMUSYDTM151Driver::serial_port = "/dev/ttyACM0";
     bool IMUSYDTM151Driver::init(IMUDevice device) {
         if (device != IMUDevice::SYDTM151_IMU) {
             return false;
@@ -35,12 +43,30 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             fast::rf::Logger::log_warn("Unable to update Driver!");
             return false;
         }
-        fast::rf::Logger::log_warn("Implement this!!!");
-        return false;
+        std::memset(&readBuffer, 0, sizeof(readBuffer));
+
+        // Attempt to read data
+        int numBytesRead = read(serial_fd, &readBuffer, sizeof(readBuffer) - 1);
+
+        if (numBytesRead < 0) {
+            // fast::rf::Logger::log_warn("Error Reading: " + std::string(strerror(errno)));
+        } else if (numBytesRead == 0) {
+            // Timeout reached with no new data incoming
+            fast::rf::Logger::log_warn("Nothing Read");
+        } else {
+            imu_data.seq++;
+            imu_data.time_stamp = current_time_sec;
+            packet_rx_counter++;
+            fast::rf::Logger::log_debug("RX: " + std::to_string(numBytesRead) + "-->" + std::string(readBuffer));
+        }
+        return true;
     }
     std::string IMUSYDTM151Driver::pretty() {
         std::string str = "---IMU Driver: SYDTM151---\n";
-        str += BaseIMUDriver::pretty();
+        str += BaseIMUDriver::pretty() + "\n";
+        double packet_rx_rate = (double)(packet_rx_counter) / ((current_time_sec - start_time));
+        str += "\tRX Packets: " + std::to_string(packet_rx_counter) + " Rate: " + std::to_string(packet_rx_rate) +
+               " (hz)\n";
         return str;
     }
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

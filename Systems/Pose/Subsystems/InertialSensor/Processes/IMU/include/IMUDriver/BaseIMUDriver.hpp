@@ -52,6 +52,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         virtual bool update(double current_time_sec);
 
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;  //!< IMU Data
+        double start_time{-1.0};                          //!< When the driver was started
         double current_time_sec{-1.0};                    //!< Current Time
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

@@ -28,7 +28,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             SYDTM151_IMU =
                 2,  //!< Sensor:
                     //!< https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-robotshop-tm151
-            END_OF_LIST = 3  //!< Last item of list. Used for Range Checks.
+            RAZOR9DOF_IMU = 3,
+            END_OF_LIST = 4  //!< Last item of list. Used for Range Checks.
         };
         IIMUDriver() = default;
         virtual ~IIMUDriver() = default;
