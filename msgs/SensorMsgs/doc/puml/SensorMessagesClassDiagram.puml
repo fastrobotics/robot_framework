@@ -30,6 +30,7 @@ namespace fast::rf::messages {
 
     struct ImuMsg <<(M,#FFFF00)>> #Yellow {
       +double time_stamp
+      +uint64 seq
       +OrientationMsg orientation
       +Covariance3DMsg orientation_covariance
       +Vector3DMsg angular_velocity

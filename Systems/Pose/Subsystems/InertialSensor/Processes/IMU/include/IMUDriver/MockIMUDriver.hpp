@@ -32,5 +32,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return std::string
          */
         std::string pretty() override;
+
+        /**
+         * @brief Update the object
+         *
+         * @param current_time_sec
+         * @return true
+         * @return false
+         */
+        bool update(double current_time_sec) override;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

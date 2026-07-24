@@ -17,6 +17,7 @@ class TestIMUDriverInterface : public IIMUDriver {
         fast::rf::messages::SensorMsgs::ImuMsg data;
         return data;
     }
+    bool update([[maybe_unused]] double current_time) { return true; }
 };
 
 TEST(TestIIMUDriverInterface, InterfaceTests) {
@@ -24,11 +25,17 @@ TEST(TestIIMUDriverInterface, InterfaceTests) {
     ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
     ASSERT_EQ(SUT.pretty().size(), 0);
     ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
+    ASSERT_TRUE(SUT.update(0.0));
 }
+class TestBaseIMUDriver : public BaseIMUDriver {
+   public:
+    bool init(IIMUDriver::IMUDevice device) { return BaseIMUDriver::init(device); }
+    std::string pretty() { return BaseIMUDriver::pretty(); }
+};
 TEST(TestBaseIMUDriver, BasicAssertions) {
-    BaseIMUDriver SUT;
+    TestBaseIMUDriver SUT;
     ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
-    ASSERT_EQ(SUT.pretty().size(), 0);
+    ASSERT_GT(SUT.pretty().size(), 0);
     ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
 }
 

@@ -19,6 +19,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     class BaseIMUDriver : public IIMUDriver {
        public:
         /**
+         * @brief Get the imu data
+         *
+         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         */
+        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data();
+
+       protected:
+        /**
          * @brief Initialize the base object.  Called by the concrete object.
          *
          * @param device
@@ -35,13 +43,15 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         virtual std::string pretty();
 
         /**
-         * @brief Get the imu data
+         * @brief Update the base object.  Called by the concrete object.
          *
-         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         * @param current_time_sec
+         * @return true
+         * @return false
          */
-        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data();
+        virtual bool update(double current_time_sec);
 
-       protected:
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;  //!< IMU Data
+        double current_time_sec{-1.0};                    //!< Current Time
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

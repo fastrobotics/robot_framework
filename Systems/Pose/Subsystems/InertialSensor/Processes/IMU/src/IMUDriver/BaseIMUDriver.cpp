@@ -6,8 +6,12 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         }
         return true;
     }
+    bool BaseIMUDriver::update(double current_time_sec_) {
+        current_time_sec = current_time_sec_;
+        return true;
+    }
     std::string BaseIMUDriver::pretty() {
-        std::string str = "";
+        std::string str = imu_data.pretty();
         return str;
     }
     fast::rf::messages::SensorMsgs::ImuMsg BaseIMUDriver::get_imu_data() { return imu_data; }

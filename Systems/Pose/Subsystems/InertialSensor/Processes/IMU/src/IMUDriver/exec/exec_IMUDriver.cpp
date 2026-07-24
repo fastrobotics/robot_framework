@@ -8,6 +8,7 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
 #include <RobotFrameworkDefinitions.hpp>
+#include <chrono>
 
 using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 void printHelp() {
@@ -18,7 +19,7 @@ void printHelp() {
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     fast::rf::Logger::init(fast::rf::Level::DEBUG, "IMUDriver");
 
-    double delta_time_sec = 0.02;
+    double delta_time_sec = 0.001;
     uint8_t driver_version = 0;
     IIMUDriver* driver;
 
@@ -68,9 +69,14 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         fast::rf::Logger::log_error("Unable to initialize IMU Driver!");
         return 1;
     }
+    double current_time = 0.0;
     while (true) {
-        usleep(delta_time_sec * 1000000.0);
+        if (driver->update(current_time) == false) {
+            fast::rf::Logger::log_warn("Unable to Update Driver!");
+        }
         fast::rf::Logger::log_info(driver->pretty());
+        usleep(delta_time_sec * 1000000.0);
+        current_time += delta_time_sec;
     }
     delete driver;
     return 0;

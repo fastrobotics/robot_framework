@@ -52,5 +52,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return fast::rf::messages::SensorMsgs::ImuMsg
          */
         virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
+
+        /**
+         * @brief Update the driver
+         *
+         * @param current_time_sec
+         * @return true
+         * @return false
+         */
+        virtual bool update(double current_time_sec) = 0;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

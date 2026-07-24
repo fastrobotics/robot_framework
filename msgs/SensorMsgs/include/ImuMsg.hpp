@@ -22,6 +22,7 @@ namespace fast::rf::messages::SensorMsgs {
      */
     struct ImuMsg {
         double time_stamp;                                                              //!< Timestamp of data
+        uint64_t seq;                                                                   //!< Sequence Number
         fast::rf::messages::GeometryMsgs::OrientationMsg orientation;                   //!< Euler Angle Orientation
         fast::rf::messages::StandardMsgs::Covariance3DMsg orientation_covariance;       //!< Orientation Covariance
         fast::rf::messages::StandardMsgs::Vector3DMsg angular_velocity;                 //!< Angular Velocity
@@ -37,7 +38,8 @@ namespace fast::rf::messages::SensorMsgs {
          * @return std::string
          */
         std::string pretty() {
-            std::string str = "Orientation:\n";
+            std::string str = "T: " + std::to_string(time_stamp) + " S: " + std::to_string(seq) + "\n";
+            str += "Orientation:\n";
             str += "\t" + orientation.pretty() + "\n";
             str += "Angular Velocity:\n";
             str += "\t" + angular_velocity.pretty() + "\n";

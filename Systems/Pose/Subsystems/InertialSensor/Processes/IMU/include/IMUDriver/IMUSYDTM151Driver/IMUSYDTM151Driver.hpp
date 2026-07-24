@@ -9,6 +9,10 @@
  *
  */
 #pragma once
+#include <fcntl.h>
+#include <stdio.h>
+#include <termios.h>
+
 #include <IMUDriver/BaseIMUDriver.hpp>
 
 #include "EasyObjectDictionary.h"
@@ -24,6 +28,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IMUSYDTM151Driver : public BaseIMUDriver {
        public:
+        static const std::string serial_port;  //!< Serial Port Name.  Defined in cpp file.
+        static const int baud_rate = B115200;  //!< Baud Rate for Device
         /**
          * @brief Initialize the device
          *
@@ -38,5 +44,17 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return std::string
          */
         std::string pretty() override;
+
+        /**
+         * @brief Update the object.
+         *
+         * @param current_time_sec
+         * @return true
+         * @return false
+         */
+        bool update(double current_time_sec) override;
+
+       private:
+        int serial_fd{-1};  //!< Serial Port Device
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

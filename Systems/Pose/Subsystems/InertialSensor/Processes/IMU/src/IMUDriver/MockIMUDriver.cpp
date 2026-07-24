@@ -5,16 +5,21 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         if (status == false) {
             return false;
         }
-        /**
-         * @todo Flesh this out better during AB#1732
-         *
-         */
-        imu_data.time_stamp = 1.0;
+        return true;
+    }
+    bool MockIMUDriver::update(double current_time_sec_) {
+        bool status = BaseIMUDriver::update(current_time_sec_);
+        if (status == false) {
+            return false;
+        }
+        imu_data.time_stamp = current_time_sec;
+        imu_data.seq++;
         return true;
     }
     std::string MockIMUDriver::pretty() {
         std::string str = "---Mock IMU Driver---";
         str += BaseIMUDriver::pretty();
+
         return str;
     }
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

@@ -48,12 +48,14 @@ namespace fast::rf {
         interface IIMUDriver #Orange {
           +{abstract} bool init(IMUDevice imu_type)
           +{abstract} string pretty()
+          +{abstract} update(double current_time_sec)
           +{abstract} ImuMsg get_imu_data()
         }
         IIMUDriver +-- IMUDevice
         abstract BaseIMUDriver #Orange {
           +ImuMsg get_imu_data()
           #bool init(IMUDevice imu_type)
+          #update(double current_time_sec)
           #string pretty()
           #ImuMsg imu_data
         }
@@ -61,6 +63,7 @@ namespace fast::rf {
 
         class MockIMUDriver #Yellow {
            +bool init(IMUDevice imu_type)
+           +update(double current_time_sec)
            +string pretty()
            
         }
@@ -68,6 +71,7 @@ namespace fast::rf {
 
         class IMUSYDTM151Driver #Orange {
            +bool init(IMUDevice imu_type)
+           +update(double current_time_sec)
            +string pretty()
         }
         IMUSYDTM151Driver -up-|> BaseIMUDriver
