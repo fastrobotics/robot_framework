@@ -4,7 +4,7 @@ namespace fast::rf {
   namespace messages {
   }
   namespace {{cookiecutter.System}}System {
-    namespace {{cookiecutter.Subsystem}}Subsystem {
+    package {{cookiecutter.Subsystem}}Subsystem #LightYellow;line:blue {
       interface I{{cookiecutter.Subsystem}}Subsystem {
 
       }

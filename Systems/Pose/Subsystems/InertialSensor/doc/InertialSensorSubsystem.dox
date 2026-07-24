@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::PoseSystem::InertialSensorSubsystem
+ * @brief The InertialSensor Subsystem for the Robot Framework
+ */

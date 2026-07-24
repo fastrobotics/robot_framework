@@ -1,0 +1,95 @@
+@startuml
+title IMU Process Class Diagram
+
+namespace fast::rf {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    }
+    namespace SensorMsgs {
+      class ImuMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  namespace PoseSystem {
+    package InertialSensorSubsystem #LightYellow;line:blue {
+        interface IIMUProcess #Yellow {
+          +{abstract} bool init()
+          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+          +{abstract} bool update(double current_time_sec)
+          +{abstract} string pretty()
+          +{abstract} ImuMsg get_imu_data()
+        }
+        abstract BaseIMUProcess #Yellow {
+          +DiagnosticMsg[] get_diagnostics()
+          +bool update(double current_time_sec)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          #string pretty()
+          #DiagnosticManager diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+
+        }
+        BaseIMUProcess .up.|> IIMUProcess
+        BaseIMUProcess --> DiagnosticManager: <<use>>
+
+        enum IMUDevice #Orange {
+          UNKNOWN=0,
+          MOCK_IMU=1,
+          SYDTM151_IMU=2
+          END_OF_LIST=3,
+        }
+        interface IIMUDriver #Orange {
+          +{abstract} bool init(IMUDevice imu_type)
+          +{abstract} string pretty()
+          +{abstract} ImuMsg get_imu_data()
+        }
+        IIMUDriver +-- IMUDevice
+        abstract BaseIMUDriver #Orange {
+          +ImuMsg get_imu_data()
+          #bool init(IMUDevice imu_type)
+          #string pretty()
+          #ImuMsg imu_data
+        }
+        BaseIMUDriver .up.|> IIMUDriver
+
+        class MockIMUDriver #Yellow {
+           +bool init(IMUDevice imu_type)
+           +string pretty()
+           
+        }
+        MockIMUDriver -up-|> BaseIMUDriver
+
+        class IMUSYDTM151Driver #Orange {
+           +bool init(IMUDevice imu_type)
+           +string pretty()
+        }
+        IMUSYDTM151Driver -up-|> BaseIMUDriver
+        class IMUProcess {
+          +bool init()
+          +bool update(double current_time_sec)
+          +string pretty()
+          +ImuMsg get_imu_data()
+          -IIMUDriver driver
+        }
+        IMUProcess -up-|> BaseIMUProcess
+        IMUProcess --> IIMUDriver
+        class DummyIMUProcess {
+          +bool init()
+          +bool update(double current_time_sec)
+          +string pretty()
+          +ImuMsg get_imu_data()
+        }
+        DummyIMUProcess -up-|> BaseIMUProcess
+        DummyIMUProcess --> IIMUDriver
+        DummyIMUProcess *-> MockIMUDriver
+    }
+  }
+}
+@enduml

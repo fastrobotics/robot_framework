@@ -1,5 +1,8 @@
 #include <Base{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
+  bool Base{{cookiecutter.Process}}Process::init() {
+    return true;
+  }
 bool Base{{cookiecutter.Process}}Process::update([[maybe_unused]] double current_time_sec) {
 
   current_time_sec_ = current_time_sec;

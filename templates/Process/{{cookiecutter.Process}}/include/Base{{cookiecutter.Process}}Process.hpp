@@ -35,7 +35,15 @@ public:
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID)
                                  {}
   /**
-   * @brief Update the base object
+         * @brief Initialize the base object.  Called by Concrete Function.
+         *
+         * @return true
+         * @return false
+         */
+        virtual bool init();
+  
+                                 /**
+   * @brief Update the base object.  Called by Concrete Function.
    *
    * @param current_time_sec
    * @return true If ok

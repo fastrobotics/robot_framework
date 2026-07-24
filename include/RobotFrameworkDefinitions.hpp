@@ -248,8 +248,9 @@ namespace fast::rf {
     namespace PoseSystem {
         constexpr uint8_t SYSTEM_ID = 7;  //!< Unique ID for Pose System
         namespace InertialSensorSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for Inertial Sensor Subsystem
-        }
+            constexpr uint8_t SUBSYSTEM_ID = 1;    //!< Unique ID for Inertial Sensor Subsystem
+            constexpr uint8_t PROCESS_IMU_ID = 1;  //!< Unique ID for IMU Process
+        }                                          // namespace InertialSensorSubsystem
         namespace GlobalSensorSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Global Sensor Subsystem
         }

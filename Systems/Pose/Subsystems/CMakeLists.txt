@@ -1,1 +1,2 @@
 add_subdirectory(GlobalPoseSubsystem)
+add_subdirectory(InertialSensor)

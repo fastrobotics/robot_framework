@@ -1,0 +1,2 @@
+add_library(imuSYDTM151Driver STATIC IMUSYDTM151Driver.cpp)
+target_link_libraries(imuSYDTM151Driver base_IMUDriver)

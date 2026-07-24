@@ -3,7 +3,7 @@ title System-{{cookiecutter.System}} Package Diagram
 
 namespace fast::rf {
   namespace messages  {}
-  namespace {{cookiecutter.System}}System {
+  package {{cookiecutter.System}}System #LightYellow;line:blue {
     interface I{{cookiecutter.System}}System {
     }
     abstract Base{{cookiecutter.System}}System {

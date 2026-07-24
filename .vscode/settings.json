@@ -16,7 +16,7 @@
         "editor.formatOnSave": true
     },
     "[plantuml]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "[cmake]": {
         "editor.defaultFormatter": "cheshirekow.cmake-format",

@@ -7,46 +7,47 @@ namespace fast::rf::messages {
     class Vector3DMsg <<(M,#FFFF00) >>
   }
 
-  namespace GeometryMsgs  {
-    struct PointMsg <<(M,#FFFF00) >> #Orange {
+  package GeometryMsgs #LightYellow;line:blue {
+    struct PointMsg <<(M,#FFFF00) >> #LimeGreen {
       +double x
       +double y
       +double z 
     }
-    struct OrientationMsg <<(M,#FFFF00) >> #Orange {
+    struct OrientationMsg <<(M,#FFFF00) >> #LimeGreen {
       +double roll
       +double pitch
       +double yaw
+      +string pretty()
     }
-    struct PoseMsg <<(M,#FFFF00)>> #Orange {
+    struct PoseMsg <<(M,#FFFF00)>> #LimeGreen {
       +PointMsg position
       +OrientationMsg orientation
 
     }
     PoseMsg --> PointMsg: <<use>>
     PoseMsg --> OrientationMsg: <<use>>
-    struct PoseWithCovarianceMsg <<(M,#FFFF00)>> #Orange {
+    struct PoseWithCovarianceMsg <<(M,#FFFF00)>> #LimeGreen {
       +PoseMsg pose
       +Covariance6DMsg covariance
     }
     PoseWithCovarianceMsg --> Covariance6DMsg: <<use>>
     PoseWithCovarianceMsg --> PoseMsg: <<use>>
 
-    struct TwistMsg <<(M,#FFFF00)>> #Orange {
+    struct TwistMsg <<(M,#FFFF00)>> #LimeGreen {
       +Vector3DMsg linear
       +Vector3DMsg angular
       +string pretty()
     }
     TwistMsg --> Vector3DMsg: <<use>>
 
-    struct TwistWithCovarianceMsg <<(M,#FFFF00)>> #Orange {
+    struct TwistWithCovarianceMsg <<(M,#FFFF00)>> #LimeGreen {
       +TwistMsg twist
       +Covariance6DMsg covariance
     }
     TwistWithCovarianceMsg --> TwistMsg: <<use>>
     TwistWithCovarianceMsg --> Covariance6DMsg: <<use>>
 
-    struct OdomMsg <<(M,#FFFF00)>> #Orange {
+    struct OdomMsg <<(M,#FFFF00)>> #LimeGreen {
       +string pretty()
       +PoseWithCovarianceMsg pose
       +TwistWithCovarianceMsg twist
