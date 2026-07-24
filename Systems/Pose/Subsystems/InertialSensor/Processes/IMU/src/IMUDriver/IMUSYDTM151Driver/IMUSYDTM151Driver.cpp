@@ -35,7 +35,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             fast::rf::Logger::log_warn("Unable to update Driver!");
             return false;
         }
-        fast::r::Logger::log_warn("Implement this!!!");
+        fast::rf::Logger::log_warn("Implement this!!!");
         return false;
     }
     std::string IMUSYDTM151Driver::pretty() {

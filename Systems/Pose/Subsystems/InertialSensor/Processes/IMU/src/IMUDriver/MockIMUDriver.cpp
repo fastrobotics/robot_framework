@@ -17,7 +17,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return true;
     }
     std::string MockIMUDriver::pretty() {
-        std::string str = "---Mock IMU Driver---";
+        std::string str = "---Mock IMU Driver---\n";
         str += BaseIMUDriver::pretty();
 
         return str;
