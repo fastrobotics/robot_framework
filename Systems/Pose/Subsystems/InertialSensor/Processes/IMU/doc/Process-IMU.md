@@ -15,6 +15,7 @@
   - [Other IMU Process Implementation](#other-imu-process-implementation)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provided](#artifacts-provided)
+  - [Test Executable](#test-executable)
   - [Integration Steps](#integration-steps)
 - [Validation](#validation)
 
@@ -81,6 +82,15 @@ The following artifacts are provided:
 | Artifact     | Description                                      |
 | ------------ | ------------------------------------------------ |
 | `imuProcess` | General Library that provides this functionality |
+
+
+## Test Executable
+A Test Executable is provided.  
+
+To use this, after building/installing, run the following:
+```bash
+./install/bin/exec_imudriver -d <Driver Version.  1-Mock IMU.  2- SYD TM151>
+```
 
 
 ## Integration Steps

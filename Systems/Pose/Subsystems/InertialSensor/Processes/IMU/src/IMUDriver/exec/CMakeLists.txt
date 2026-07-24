@@ -1,0 +1,3 @@
+add_executable(exec_imudriver exec_IMUDriver.cpp)
+target_link_libraries(exec_imudriver mockIMUDriver imuSYDTM151Driver)
+install(TARGETS exec_imudriver RUNTIME DESTINATION bin)
