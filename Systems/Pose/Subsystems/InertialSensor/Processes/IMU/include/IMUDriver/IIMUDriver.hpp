@@ -32,8 +32,25 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         };
         IIMUDriver() = default;
         virtual ~IIMUDriver() = default;
+        /**
+         * @brief Initialize the driver
+         *
+         * @param device
+         * @return true
+         * @return false
+         */
         virtual bool init(IMUDevice device) = 0;
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
         virtual std::string pretty() = 0;
+        /**
+         * @brief Get the imu data
+         *
+         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         */
         virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
