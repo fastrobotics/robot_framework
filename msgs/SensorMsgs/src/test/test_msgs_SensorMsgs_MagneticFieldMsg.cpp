@@ -2,10 +2,9 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-#include <JoyMsg.hpp>
+#include <MagneticFieldMsg.hpp>
 using namespace fast::rf::messages::SensorMsgs;
-TEST(JoyMsg, DefaultZeroConstructor) {
-    JoyMsg SUT;
-    SUT.axes.resize(3);
+TEST(MagneticFieldMsg, DefaultZeroConstructor) {
+    MagneticFieldMsg SUT;
     ASSERT_GT(SUT.pretty().size(), 0);
 }

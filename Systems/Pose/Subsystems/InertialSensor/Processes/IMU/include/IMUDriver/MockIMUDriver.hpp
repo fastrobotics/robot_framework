@@ -21,11 +21,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the Mock Driver
          *
-         * @param device
          * @return true
          * @return false
          */
-        bool init(IIMUDriver::IMUDevice device) override;
+        bool init();
         /**
          * @brief Get a human readable string of the object
          *

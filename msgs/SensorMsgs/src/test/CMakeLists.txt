@@ -18,3 +18,11 @@ target_link_libraries(test_msgs_SensorMsgs_ImuMsg GTest::gtest_main
                       standard_msgs geometry_msgs infrastructure_msgs logger)
 
 gtest_discover_tests(test_msgs_SensorMsgs_ImuMsg)
+
+# Test: SensorMsgs::MagneticFieldMsg
+add_executable(test_msgs_SensorMsgs_MagneticFieldMsg
+               test_msgs_SensorMsgs_MagneticFieldMsg.cpp)
+target_link_libraries(test_msgs_SensorMsgs_MagneticFieldMsg GTest::gtest_main
+                      standard_msgs geometry_msgs infrastructure_msgs logger)
+
+gtest_discover_tests(test_msgs_SensorMsgs_MagneticFieldMsg)

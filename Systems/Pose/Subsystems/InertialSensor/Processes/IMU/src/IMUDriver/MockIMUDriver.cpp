@@ -1,7 +1,7 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
-    bool MockIMUDriver::init(IIMUDriver::IMUDevice device) {
-        bool status = BaseIMUDriver::init(device);
+    bool MockIMUDriver::init() {
+        bool status = BaseIMUDriver::init(IMUDevice::MOCK_IMU);
         if (status == false) {
             return false;
         }
@@ -14,6 +14,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         }
         imu_data.time_stamp = current_time_sec;
         imu_data.seq++;
+        magnetic_data.time_stamp = current_time_sec;
+        magnetic_data.seq++;
         return true;
     }
     std::string MockIMUDriver::pretty() {

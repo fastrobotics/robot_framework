@@ -48,8 +48,10 @@ The following inputs are required in order for this system to properly function.
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output        | DataType           | Description | Usage |
+| ------------- | ------------------ | ----------- | ----- |
+| IMU Data      | `ImuMsg`           |             |       |
+| Magnetic Data | `MagneticFieldMsg` |             |       |
 
 # How It Works
 

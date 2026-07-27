@@ -32,11 +32,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the device
          *
-         * @param device
          * @return true
          * @return false
          */
-        bool init(IMUDevice device) override;
+        bool init();
         /**
          * @brief Human readable data for the driver
          *

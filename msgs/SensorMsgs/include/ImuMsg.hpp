@@ -18,7 +18,9 @@
 namespace fast::rf::messages::SensorMsgs {
     /**
      * @brief IMUMsg Data
-     *
+     * @details Covariance special Values:
+     * Variance(Diagonal) -> 0: Unknown, -> -1: Not supported, do not use measurement
+     * Covariance -> 0: Unknown
      */
     struct ImuMsg {
         double time_stamp;                                                              //!< Timestamp of data

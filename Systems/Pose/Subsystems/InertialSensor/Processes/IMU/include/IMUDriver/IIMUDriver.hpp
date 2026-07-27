@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <ImuMsg.hpp>
+#include <MagneticFieldMsg.hpp>
 #include <string>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     /**
@@ -36,11 +37,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the driver
          *
-         * @param device
          * @return true
          * @return false
          */
-        virtual bool init(IMUDevice device) = 0;
+        virtual bool init() = 0;
         /**
          * @brief Human readable string
          *
@@ -53,6 +53,13 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return fast::rf::messages::SensorMsgs::ImuMsg
          */
         virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
+
+        /**
+         * @brief Get the magnetic data
+         *
+         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         */
+        virtual fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() = 0;
 
         /**
          * @brief Update the driver

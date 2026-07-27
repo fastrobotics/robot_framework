@@ -10,8 +10,9 @@
 #include <Infrastructure/Logger.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     const std::string IMUSYDTM151Driver::serial_port = "/dev/ttyACM0";
-    bool IMUSYDTM151Driver::init(IMUDevice device) {
-        if (device != IMUDevice::SYDTM151_IMU) {
+    bool IMUSYDTM151Driver::init() {
+        bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU);
+        if (status == false) {
             return false;
         }
         /**

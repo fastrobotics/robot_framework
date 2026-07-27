@@ -12,6 +12,7 @@ namespace fast::rf {
     }
     namespace SensorMsgs {
       class ImuMsg <<(M,#FFFF00)>>
+      class MagneticFieldMsg <<(M,#FFFF00)>>
     }
   }
   namespace core::Infrastructure {
@@ -47,23 +48,26 @@ namespace fast::rf {
           END_OF_LIST=4,
         }
         interface IIMUDriver #Orange {
-          +{abstract} bool init(IMUDevice imu_type)
+          +{abstract} bool init()
           +{abstract} string pretty()
           +{abstract} update(double current_time_sec)
           +{abstract} ImuMsg get_imu_data()
+          +{abstract} MagneticFieldMsg get_magnetic_data()
         }
         IIMUDriver +-- IMUDevice
         abstract BaseIMUDriver #Orange {
           +ImuMsg get_imu_data()
+          +MagneticFieldMsg get_magnetic_data()
           #bool init(IMUDevice imu_type)
           #update(double current_time_sec)
           #string pretty()
           #ImuMsg imu_data
+          #MagneticFieldMsg magnetic_data
         }
         BaseIMUDriver .up.|> IIMUDriver
 
         class MockIMUDriver #Yellow {
-           +bool init(IMUDevice imu_type)
+           +bool init()
            +update(double current_time_sec)
            +string pretty()
            
@@ -71,13 +75,13 @@ namespace fast::rf {
         MockIMUDriver -up-|> BaseIMUDriver
 
         class IMUSYDTM151Driver #Orange {
-           +bool init(IMUDevice imu_type)
+           +bool init()
            +update(double current_time_sec)
            +string pretty()
         }
         IMUSYDTM151Driver -up-|> BaseIMUDriver
         class IMURazor9DOFDriver #Orange {
-           +bool init(IMUDevice imu_type)
+           +bool init()
            +update(double current_time_sec)
            +string pretty()
         }

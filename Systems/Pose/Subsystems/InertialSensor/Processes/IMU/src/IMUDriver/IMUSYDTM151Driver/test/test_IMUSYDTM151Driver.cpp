@@ -10,6 +10,6 @@ using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 
 TEST(IMUSYDTM151Driver, InterfaceTests) {
     IMUSYDTM151Driver SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::SYDTM151_IMU));
+    ASSERT_TRUE(SUT.init());
     fast::rf::Logger::log_info(SUT.pretty());
 }

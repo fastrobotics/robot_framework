@@ -23,7 +23,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          *
          * @return fast::rf::messages::SensorMsgs::ImuMsg
          */
-        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data();
+        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() override;
+
+        /**
+         * @brief Get the magnetic data
+         *
+         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         */
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data();
 
        protected:
         /**
@@ -51,8 +58,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         virtual bool update(double current_time_sec);
 
-        fast::rf::messages::SensorMsgs::ImuMsg imu_data;  //!< IMU Data
-        double start_time{-1.0};                          //!< When the driver was started
-        double current_time_sec{-1.0};                    //!< Current Time
+        fast::rf::messages::SensorMsgs::ImuMsg imu_data;                 //!< IMU Data
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;  //!< Magnetic Data
+        double start_time{-1.0};                                         //!< When the driver was started
+        double current_time_sec{-1.0};                                   //!< Current Time
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

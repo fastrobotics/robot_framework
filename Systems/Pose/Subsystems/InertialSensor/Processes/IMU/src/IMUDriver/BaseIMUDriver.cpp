@@ -15,7 +15,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     }
     std::string BaseIMUDriver::pretty() {
         std::string str = imu_data.pretty();
+        str += magnetic_data.pretty();
         return str;
     }
     fast::rf::messages::SensorMsgs::ImuMsg BaseIMUDriver::get_imu_data() { return imu_data; }
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg BaseIMUDriver::get_magnetic_data() { return magnetic_data; }
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

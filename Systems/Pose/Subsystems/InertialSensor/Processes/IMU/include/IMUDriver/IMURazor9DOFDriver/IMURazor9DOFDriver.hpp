@@ -17,16 +17,31 @@
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     /**
      * @brief Driver for IMU Sensor Sparkfun Razor 9DOF
+     * @todo Figure out units for mag readings in AB#1795
 
      * Refer to
     https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-sparkfun-9dof-razor-imu*
      */
     class IMURazor9DOFDriver : public BaseIMUDriver {
+        struct SensorData {
+            fast::rf::messages::SensorMsgs::ImuMsg imu_msg;
+            fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_field_msg;
+        };
         struct DataPacket {
             bool ok;
             double acc_x_g;
             double acc_y_g;
             double acc_z_g;
+            double gyro_x_rps;
+            double gyro_y_rps;
+            double gyro_z_rps;
+            double mag_x;
+            double mag_y;
+            double mag_z;
+            double pitch_rad;
+            double roll_rad;
+            double yaw_rad;
+            double heading_rad;
             DataPacket() : ok(false) {}
         };
 
@@ -36,11 +51,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the device
          *
-         * @param device
          * @return true
          * @return false
          */
-        bool init(IMUDevice device) override;
+        bool init();
         /**
          * @brief Human readable data for the driver
          *
@@ -71,11 +85,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @param packet
          * @return fast::rf::messages::SensorMsgs::ImuMsg
          */
-        static fast::rf::messages::SensorMsgs::ImuMsg convert(DataPacket packet);
+        static SensorData convert(DataPacket packet);
 
        private:
         int serial_fd{-1};  //!< Serial Port Device
-        char readBuffer[256];
+        char readBuffer[512];
         uint64_t packet_rx_ok_counter{0};
         uint64_t packet_rx_dropped_counter{0};
     };
