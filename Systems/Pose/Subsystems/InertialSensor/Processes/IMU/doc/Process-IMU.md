@@ -17,6 +17,8 @@
   - [Artifacts Provided](#artifacts-provided)
   - [Test Executable](#test-executable)
   - [Integration Steps](#integration-steps)
+    - [Build Instructions](#build-instructions)
+    - [Code Instructions](#code-instructions)
 - [Validation](#validation)
 
 # Process: IMU
@@ -96,5 +98,35 @@ To use this, after building/installing, run the following:
 
 
 ## Integration Steps
+### Build Instructions
+Add the following to your CMakeLists.txt file:
+```cmake
+target_link_libraries(<binary> <blah> imuProcess)
+```
+
+
+### Code Instructions
+NOTE: Consult this module's API-TODO when in doubt.
+
+Add the following to your header:
+
+```cpp
+#include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
+...
+fast::rf::PoseSystem::InertialSensorSubsystem::IMUProcess
+            process;  //!< Execution Process
+```
+
+Add the following to your implementation:
+```cpp
+// Initialize:
+process.init(<IMU Type>);
+
+// Update the process at a periodic rate
+process.update(now) // Some current timestamp
+
+// Get Data from it
+```
+
 
 # Validation

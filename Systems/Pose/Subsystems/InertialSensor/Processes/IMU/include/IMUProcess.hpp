@@ -46,6 +46,20 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         std::string pretty() override;
 
+        /**
+         * @brief Get the imu data object
+         *
+         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         */
+        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() override;
+
+        /**
+         * @brief Get the magnetic data object
+         *
+         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         */
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() override;
+
        private:
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

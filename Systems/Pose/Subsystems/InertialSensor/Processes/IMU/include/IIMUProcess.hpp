@@ -62,5 +62,19 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+
+        /**
+         * @brief Get the imu data object
+         *
+         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         */
+        virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
+
+        /**
+         * @brief Get the magnetic data object
+         *
+         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         */
+        virtual fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() = 0;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
