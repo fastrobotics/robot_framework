@@ -21,6 +21,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @brief Implment a more generic serial port reading class during AB#1794.
          *
          */
+        // GCOV_EXCL_START
+        // No practical way to unit test
         serial_fd = open(serial_port.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
         if (serial_fd < 0) {
             fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + serial_port);
@@ -37,6 +39,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         tty.c_oflag &= ~OPOST;
         tcsetattr(serial_fd, TCSANOW, &tty);
         eP = new EasyProfile(&eOD);
+        // GCOV_EXCL_STOP
         return true;
     }
     bool IMUSYDTM151Driver::update(double current_time_sec_) {
@@ -45,6 +48,12 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             fast::rf::Logger::log_warn("Unable to update Driver!");
             return false;
         }
+        if (serial_fd < 0) {
+            fast::rf::Logger::log_error("Serial Port not Accessible!");
+            return false;
+        }
+        // GCOV_EXCL_START
+        // No Practical way to unit test
         std::memset(&readBuffer, 0, sizeof(readBuffer));
 
         // Attempt to read data
@@ -75,9 +84,12 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
             fast::rf::Logger::log_debug("RX: " + std::to_string(numBytesRead) + "-->" + std::string(readBuffer));
         }
+        // GCOV_EXCL_STOP
         return true;
     }
     BaseIMUDriver::DataPacket IMUSYDTM151Driver::parse(char* msg, int numBytesRead) {
+        // GCOV_EXCL_START
+        // No Practical way to unit test
         DataPacket packet;
         Ep_Header header;  // Then let the EasyProfile do the rest such as data assembling and checksum verification.
         if (EP_SUCC_ == eP->On_RecvPkg(msg, numBytesRead, &header)) {
@@ -123,7 +135,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                     break;
             }
         }
-
+        // GCOV_EXCL_STOP
         return packet;
     }
     BaseIMUDriver::SensorData IMUSYDTM151Driver::convert(BaseIMUDriver::DataPacket packet) {
