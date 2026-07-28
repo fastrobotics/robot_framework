@@ -20,7 +20,7 @@ namespace fast::rf {
   }
   namespace PoseSystem {
     package InertialSensorSubsystem #LightYellow;line:blue {
-        interface IIMUProcess #Orange {
+        interface IIMUProcess #LimeGreen {
           +{abstract} bool init(IMUDevice device_type)
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
@@ -31,7 +31,7 @@ namespace fast::rf {
         }
         IIMUProcess --> IMUDevice: <<use>>
         
-        abstract BaseIMUProcess #Orange {
+        abstract BaseIMUProcess #LimeGreen {
           +DiagnosticMsg[] get_diagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
@@ -44,14 +44,14 @@ namespace fast::rf {
         BaseIMUProcess .up.|> IIMUProcess
         BaseIMUProcess --> DiagnosticManager: <<use>>
 
-        enum IMUDevice #Orange {
+        enum IMUDevice #LimeGreen {
           UNKNOWN=0,
           MOCK_IMU=1,
           SYDTM151_IMU=2
           RAZOR9DOF_IMU = 3,
           END_OF_LIST=4,
         }
-        interface IIMUDriver #Orange {
+        interface IIMUDriver #LimeGreen {
           +{abstract} bool init()
           +{abstract} string pretty()
           +{abstract} update(double current_time_sec)
@@ -60,11 +60,11 @@ namespace fast::rf {
           +{static} IMUDevice convert_name(std::string name);
         }
         IIMUDriver +-- IMUDevice
-        struct SensorData #Orange {
+        struct SensorData #LimeGreen {
           +ImuMsg imu_msg
           +MagneticFieldMsg magnetic_field_msg
         }
-        struct DataPacket #Orange {
+        struct DataPacket #LimeGreen {
             +bool ok
             +bool skipped
             +double acc_x_g
@@ -81,7 +81,7 @@ namespace fast::rf {
             +double yaw_rad
             +double heading_rad
         }
-        abstract BaseIMUDriver #Orange {
+        abstract BaseIMUDriver #LimeGreen {
           +ImuMsg get_imu_data()
           +MagneticFieldMsg get_magnetic_data()
           #bool init(IMUDevice imu_type)
@@ -94,7 +94,7 @@ namespace fast::rf {
         BaseIMUDriver +-- SensorData
         BaseIMUDriver +-- DataPacket
 
-        class MockIMUDriver #Yellow {
+        class MockIMUDriver #LimeGreen {
            +bool init()
            +update(double current_time_sec)
            +string pretty()
@@ -102,19 +102,19 @@ namespace fast::rf {
         }
         MockIMUDriver -up-|> BaseIMUDriver
 
-        class IMUSYDTM151Driver #Orange {
+        class IMUSYDTM151Driver #LimeGreen {
            +bool init()
            +update(double current_time_sec)
            +string pretty()
         }
         IMUSYDTM151Driver -up-|> BaseIMUDriver
-        class IMURazor9DOFDriver #Orange {
+        class IMURazor9DOFDriver #LimeGreen {
            +bool init()
            +update(double current_time_sec)
            +string pretty()
         }
         IMURazor9DOFDriver -up-|> BaseIMUDriver
-        class IMUProcess #Orange {
+        class IMUProcess #LimeGreen {
           +bool init(IMUDevice device_type)
           +bool update(double current_time_sec)
           +string pretty()

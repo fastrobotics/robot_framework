@@ -53,6 +53,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Not able to Update IMU!");
             }
+            /**
+             * @todo Trip diagnostic if Packet Error is too high during AB#1796
+             *
+             */
             if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
                 ready_to_arm.ready_to_arm = true;
             } else {

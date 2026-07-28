@@ -11,6 +11,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Device Support](#device-support)
   - [Diagnostics](#diagnostics)
   - [Other IMU Process Implementation](#other-imu-process-implementation)
 - [Usage Instructions](#usage-instructions)
@@ -64,6 +65,15 @@ The following outputs are provided by this system.
 ## Class Diagram
 
 ![](puml/IMUProcessClassDiagram.png)
+
+## Device Support
+The following IMU's are supported:
+| Type        | Description                          | Reference                                                                                                                                                       |
+| ----------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MOCK`      | A Mock IMU that provides dummy data. |                                                                                                                                                                 |
+| `SYDTM151`  | 9-Axis AHRS IMU                      | [Link](https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-adafruit-lsm9ds0)        |
+| `RAZOR9DOF` | 9-Axis AHRZ IMU                      | [Link](https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-sparkfun-9dof-razor-imu) |
+
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
@@ -120,12 +130,14 @@ fast::rf::PoseSystem::InertialSensorSubsystem::IMUProcess
 Add the following to your implementation:
 ```cpp
 // Initialize:
-process.init(<IMU Type>);
+process.init(<IMU Type>); // See above
 
 // Update the process at a periodic rate
 process.update(now) // Some current timestamp
 
 // Get Data from it
+auto imu_data = process.get_imu_data();
+auto magnetic_data = process.get_magnetic_data();
 ```
 
 
