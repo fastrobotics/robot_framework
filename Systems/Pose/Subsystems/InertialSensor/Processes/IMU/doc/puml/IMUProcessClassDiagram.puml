@@ -57,6 +57,7 @@ namespace fast::rf {
           +{abstract} update(double current_time_sec)
           +{abstract} ImuMsg get_imu_data()
           +{abstract} MagneticFieldMsg get_magnetic_data()
+          +{static} IMUDevice convert_name(std::string name);
         }
         IIMUDriver +-- IMUDevice
         struct SensorData #Orange {

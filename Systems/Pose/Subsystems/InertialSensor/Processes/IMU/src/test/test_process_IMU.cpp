@@ -23,10 +23,18 @@ class TestIMUProcessInterface : public IIMUProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() {
+        fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+        return imu_data;
+    }
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() {
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+        return magnetic_data;
+    }
 };
 TEST(TestIMUProcessInterface, InterfaceTests) {
     TestIMUProcessInterface SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::UNKNOWN));
+    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
@@ -59,10 +67,18 @@ class TestBaseIMUProcess : public BaseIMUProcess {
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
+    fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() {
+        fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+        return imu_data;
+    }
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() {
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+        return magnetic_data;
+    }
 };
 TEST(BaseIMUProcess, BasicAssertions) {
     TestBaseIMUProcess SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
+    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK")));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());
@@ -75,7 +91,7 @@ TEST(BaseIMUProcess, BasicAssertions) {
 
 TEST(IMUProcess, BasicTests) {
     IMUProcess SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
+    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK")));
     ASSERT_TRUE(SUT.update(0.0));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
@@ -88,7 +104,7 @@ TEST(IMUProcess, BasicTests) {
 }
 TEST(IMUProcess, BadDriverConfiguration) {
     IMUProcess SUT;
-    ASSERT_FALSE(SUT.init(IIMUDriver::IMUDevice::UNKNOWN));
+    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
     ASSERT_FALSE(SUT.update(0.0));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);

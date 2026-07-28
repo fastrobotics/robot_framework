@@ -32,6 +32,23 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             RAZOR9DOF_IMU = 3,
             END_OF_LIST = 4  //!< Last item of list. Used for Range Checks.
         };
+        /**
+         * @brief Convert a IMU name to a type
+         *
+         * @param name
+         * @return IMUDevice
+         */
+        static IMUDevice convert_name(std::string name) {
+            if (name == "MOCK") {
+                return IMUDevice::MOCK_IMU;
+            } else if (name == "SYDTM151") {
+                return IMUDevice::SYDTM151_IMU;
+            } else if (name == "RAZOR9DOF") {
+                return IMUDevice::RAZOR9DOF_IMU;
+            } else {
+                return IMUDevice::UNKNOWN;
+            }
+        }
         IIMUDriver() = default;
         virtual ~IIMUDriver() = default;
         /**
