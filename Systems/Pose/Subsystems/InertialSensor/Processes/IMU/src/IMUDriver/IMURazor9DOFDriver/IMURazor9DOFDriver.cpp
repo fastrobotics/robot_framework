@@ -76,6 +76,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                 magnetic_data.seq = packet_rx_ok_counter;
                 magnetic_data.time_stamp = current_time_sec;
                 packet_rx_ok_counter++;
+            } else if (packet.skipped == true) {
+                // Do nothing, don't care.
             } else {
                 packet_rx_dropped_counter++;
             }
@@ -116,9 +118,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                 packet.gyro_x_rps = std::stod(tokens[5]) * M_PI / 180.0;
                 packet.gyro_y_rps = std::stod(tokens[6]) * M_PI / 180.0;
                 packet.gyro_z_rps = std::stod(tokens[7]) * M_PI / 180.0;
-                packet.mag_x = std::stod(tokens[8]);
-                packet.mag_y = std::stod(tokens[9]);
-                packet.mag_z = std::stod(tokens[10]);
+                packet.mag_x_T = std::stod(tokens[8]);
+                packet.mag_y_T = std::stod(tokens[9]);
+                packet.mag_z_T = std::stod(tokens[10]);
                 packet.pitch_rad = std::stod(tokens[11]) * M_PI / 180.0;
                 packet.roll_rad = std::stod(tokens[12]) * M_PI / 180.0;
                 packet.yaw_rad = std::stod(tokens[13]) * M_PI / 180.0;
@@ -149,9 +151,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         sensor_data.imu_msg = imu_msg;
 
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_msg;
-        magnetic_msg.magnetic_field.x = packet.mag_x;
-        magnetic_msg.magnetic_field.y = packet.mag_y;
-        magnetic_msg.magnetic_field.z = packet.mag_z;
+        magnetic_msg.magnetic_field.x = packet.mag_x_T;
+        magnetic_msg.magnetic_field.y = packet.mag_y_T;
+        magnetic_msg.magnetic_field.z = packet.mag_z_T;
 
         sensor_data.magnetic_field_msg = magnetic_msg;
         return sensor_data;

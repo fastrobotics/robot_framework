@@ -27,36 +27,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IMUSYDTM151Driver : public BaseIMUDriver {
        public:
-        /**
-         * @brief SensorData structure
-         *
-         */
-        struct SensorData {
-            fast::rf::messages::SensorMsgs::ImuMsg imu_msg;
-            fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_field_msg;
-        };
-        /**
-         * @brief DataPacket structure
-         *
-         */
-        struct DataPacket {
-            bool ok;
-            bool skipped;
-            double acc_x_g;
-            double acc_y_g;
-            double acc_z_g;
-            double gyro_x_rps;
-            double gyro_y_rps;
-            double gyro_z_rps;
-            double mag_x;
-            double mag_y;
-            double mag_z;
-            double pitch_rad;
-            double roll_rad;
-            double yaw_rad;
-            double heading_rad;
-            DataPacket() : ok(false), skipped(false) {}
-        };
         static const std::string serial_port;  //!< Serial Port Name.  Defined in cpp file.
         static const int baud_rate = B115200;  //!< Baud Rate for Device
         /**
@@ -86,9 +56,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @brief Parse a string that's received
          *
          * @param msg
-         * @return DataPacket
+         * @param numBytesRead
+         * @return BaseIMUDriver::DataPacket
          */
-        DataPacket parse(char* msg, int numBytesRead);
+        BaseIMUDriver::DataPacket parse(char* msg, int numBytesRead);
 
         /**
          * @brief Convert a Data Packet to IMU Data
@@ -96,7 +67,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @param packet
          * @return fast::rf::messages::SensorMsgs::ImuMsg
          */
-        static SensorData convert(DataPacket packet);
+        static BaseIMUDriver::SensorData convert(BaseIMUDriver::DataPacket packet);
 
        private:
         int serial_fd{-1};  //!< Serial Port Device

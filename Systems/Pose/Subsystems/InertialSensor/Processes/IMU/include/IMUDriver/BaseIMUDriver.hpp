@@ -19,6 +19,36 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     class BaseIMUDriver : public IIMUDriver {
        public:
         /**
+         * @brief SensorData structure
+         *
+         */
+        struct SensorData {
+            fast::rf::messages::SensorMsgs::ImuMsg imu_msg;                       //!< IMU Sensor Data
+            fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_field_msg;  //!< Magnetic Sensor Data
+        };
+        /**
+         * @brief DataPacket structure
+         *
+         */
+        struct DataPacket {
+            bool ok;             //!< If the packet was parsed ok
+            bool skipped;        //!< If the packet was skipped
+            double acc_x_g;      //!< Acceleration in G's
+            double acc_y_g;      //!< Acceleration in G's
+            double acc_z_g;      //!< Acceleration in G's
+            double gyro_x_rps;   //!< Rotation Rate in rad/s
+            double gyro_y_rps;   //!< Rotation Rate in rad/s
+            double gyro_z_rps;   //!< Rotation Rate in rad/s
+            double mag_x_T;      //!< Magnetometer reading in Tesla
+            double mag_y_T;      //!< Magnetometer reading in Tesla
+            double mag_z_T;      //!< Magnetometer reading in Tesla
+            double pitch_rad;    //!< Orientation in Radians
+            double roll_rad;     //!< Orientation in Radians
+            double yaw_rad;      //!< Orientation in Radians
+            double heading_rad;  //!< Heading in Radians
+            DataPacket() : ok(false), skipped(false) {}
+        };
+        /**
          * @brief Get the imu data
          *
          * @return fast::rf::messages::SensorMsgs::ImuMsg

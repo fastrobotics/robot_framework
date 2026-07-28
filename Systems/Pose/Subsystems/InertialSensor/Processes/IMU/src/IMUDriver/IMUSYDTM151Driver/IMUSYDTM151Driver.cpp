@@ -77,8 +77,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         }
         return true;
     }
-    IMUSYDTM151Driver::DataPacket IMUSYDTM151Driver::parse([[maybe_unused]] char* msg,
-                                                           [[maybe_unused]] int numBytesRead) {
+    BaseIMUDriver::DataPacket IMUSYDTM151Driver::parse(char* msg, int numBytesRead) {
         DataPacket packet;
         Ep_Header header;  // Then let the EasyProfile do the rest such as data assembling and checksum verification.
         if (EP_SUCC_ == eP->On_RecvPkg(msg, numBytesRead, &header)) {
@@ -98,9 +97,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         packet.gyro_x_rps = ep_Raw_GyroAccMag.gyro[0] * M_PI / 180.0;
                         packet.gyro_y_rps = ep_Raw_GyroAccMag.gyro[1] * M_PI / 180.0;
                         packet.gyro_z_rps = ep_Raw_GyroAccMag.gyro[2] * M_PI / 180.0;
-                        packet.mag_x = ep_Raw_GyroAccMag.mag[0] * 0.00005;  // Convert to Tesla
-                        packet.mag_y = ep_Raw_GyroAccMag.mag[1] * 0.00005;  // Convert to Tesla;
-                        packet.mag_z = ep_Raw_GyroAccMag.mag[2] * 0.00005;  // Convert to Tesla;
+                        packet.mag_x_T = ep_Raw_GyroAccMag.mag[0] * 0.00005;  // Convert to Tesla
+                        packet.mag_y_T = ep_Raw_GyroAccMag.mag[1] * 0.00005;  // Convert to Tesla;
+                        packet.mag_z_T = ep_Raw_GyroAccMag.mag[2] * 0.00005;  // Convert to Tesla;
                         packet.ok = true;
                     }
                 } break;
@@ -127,8 +126,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
         return packet;
     }
-    IMUSYDTM151Driver::SensorData IMUSYDTM151Driver::convert([[maybe_unused]] IMUSYDTM151Driver::DataPacket packet) {
-        IMUSYDTM151Driver::SensorData sensor_data;
+    BaseIMUDriver::SensorData IMUSYDTM151Driver::convert(BaseIMUDriver::DataPacket packet) {
+        BaseIMUDriver::SensorData sensor_data;
         fast::rf::messages::SensorMsgs::ImuMsg imu_msg;
         imu_msg.linear_acceleration.x = packet.acc_x_g * 9.81;
         imu_msg.linear_acceleration.y = packet.acc_y_g * 9.81;
@@ -143,9 +142,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         sensor_data.imu_msg = imu_msg;
 
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_msg;
-        magnetic_msg.magnetic_field.x = packet.mag_x;
-        magnetic_msg.magnetic_field.y = packet.mag_y;
-        magnetic_msg.magnetic_field.z = packet.mag_z;
+        magnetic_msg.magnetic_field.x = packet.mag_x_T;
+        magnetic_msg.magnetic_field.y = packet.mag_y_T;
+        magnetic_msg.magnetic_field.z = packet.mag_z_T;
 
         sensor_data.magnetic_field_msg = magnetic_msg;
         return sensor_data;
