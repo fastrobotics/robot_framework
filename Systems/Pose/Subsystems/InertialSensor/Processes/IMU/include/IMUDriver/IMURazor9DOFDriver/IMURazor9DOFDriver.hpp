@@ -23,10 +23,19 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-sparkfun-9dof-razor-imu*
      */
     class IMURazor9DOFDriver : public BaseIMUDriver {
+       public:
+        /**
+         * @brief SensorData structure
+         *
+         */
         struct SensorData {
             fast::rf::messages::SensorMsgs::ImuMsg imu_msg;
             fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_field_msg;
         };
+        /**
+         * @brief DataPacket structure
+         *
+         */
         struct DataPacket {
             bool ok;
             double acc_x_g;
@@ -44,8 +53,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             double heading_rad;
             DataPacket() : ok(false) {}
         };
-
-       public:
         static const std::string serial_port;  //!< Serial Port Name.  Defined in cpp file.
         static const int baud_rate = B115200;  //!< Baud Rate for Device
         /**

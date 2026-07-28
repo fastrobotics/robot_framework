@@ -24,10 +24,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the Object
          *
+         * @param imu_type
          * @return true
          * @return false
          */
-        bool init() override;
+        bool init(IIMUDriver::IMUDevice imu_type) override;
 
         /**
          * @brief Update with recent timing data

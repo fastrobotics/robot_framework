@@ -30,7 +30,7 @@ namespace fast::rf::messages::GeometryMsgs {
          */
         std::string pretty() {
             std::string str = "R: " + std::to_string(roll) + " (rad) P: " + std::to_string(pitch) +
-                              " (rad) Y: " + std::to_string(yaw) + " (yaw)";
+                              " (rad) Y: " + std::to_string(yaw) + " (rad)";
             return str;
         }
     };

@@ -1,15 +1,16 @@
 #include <IMUProcess.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
-    bool IMUProcess::init() {
-        bool status = BaseIMUProcess::init();
-        if (status == false) {
-            return false;
-        }
+    bool IMUProcess::init(IIMUDriver::IMUDevice imu_type) {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS);
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = BaseIMUProcess::init(imu_type);
+        if (status == false) {
+            return false;
+        }
+
         return status;
     }
     bool IMUProcess::update(double current_time_sec) {

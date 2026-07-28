@@ -10,10 +10,10 @@
  */
 #pragma once
 #include <DiagnosticMsg.hpp>
+#include <IMUDriver/IIMUDriver.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     /**
      * @brief Interface for the IMU Process
@@ -27,10 +27,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the object
          *
+         * @param imu_type
          * @return true
          * @return false
          */
-        virtual bool init() = 0;
+        virtual bool init(IIMUDriver::IMUDevice imu_type) = 0;
 
         /**
          * @brief Generic Update function

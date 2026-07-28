@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <IIMUProcess.hpp>
+#include <IMUDriver/IIMUDriver.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
@@ -35,10 +36,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
+         * @param imu_type
          * @return true
          * @return false
          */
-        virtual bool init();
+        virtual bool init(IIMUDriver::IMUDevice imu_type);
         /**
          * @brief Update the base object.  Called by Concrete Function.
          *
@@ -76,5 +78,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
+        IIMUDriver* driver{nullptr};                                               //!< IMU Driver
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

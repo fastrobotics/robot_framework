@@ -11,7 +11,7 @@
 using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 class TestIMUProcessInterface : public IIMUProcess {
    public:
-    bool init() { return true; }
+    bool init([[maybe_unused]] IIMUDriver::IMUDevice imu_type) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
@@ -26,17 +26,21 @@ class TestIMUProcessInterface : public IIMUProcess {
 };
 TEST(TestIMUProcessInterface, InterfaceTests) {
     TestIMUProcessInterface SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::UNKNOWN));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBaseIMUProcess : public BaseIMUProcess {
    public:
     TestBaseIMUProcess() : BaseIMUProcess() {}
-    bool init() override {
+    bool init(IIMUDriver::IMUDevice imu_type) override {
+        bool status = BaseIMUProcess::init(imu_type);
+        if (status == false) {
+            return false;
+        }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseIMUProcess::update(current_time_sec); }
@@ -58,7 +62,7 @@ class TestBaseIMUProcess : public BaseIMUProcess {
 };
 TEST(BaseIMUProcess, BasicAssertions) {
     TestBaseIMUProcess SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());
@@ -71,13 +75,24 @@ TEST(BaseIMUProcess, BasicAssertions) {
 
 TEST(IMUProcess, BasicTests) {
     IMUProcess SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(IIMUDriver::IMUDevice::MOCK_IMU));
     ASSERT_TRUE(SUT.update(0.0));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
+    fast::rf::Logger::log_notice(SUT.pretty());
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+}
+TEST(IMUProcess, BadDriverConfiguration) {
+    IMUProcess SUT;
+    ASSERT_FALSE(SUT.init(IIMUDriver::IMUDevice::UNKNOWN));
+    ASSERT_FALSE(SUT.update(0.0));
+    auto diagnostics = SUT.get_diagnostics();
+    ASSERT_GT(diagnostics.size(), 0);
+    fast::rf::Logger::log_notice(SUT.pretty());
+
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
 }

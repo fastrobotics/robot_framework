@@ -19,7 +19,7 @@ void printHelp() {
     printf("-d Driver Version: 1-Mock 2-SYDTM151 3-Razor9DOF\n");
 }
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
-    double delta_time_sec = 0.001;
+    double delta_time_sec = 0.0001;
     uint8_t logger_level = 2;
     uint8_t driver_version = 0;
     IIMUDriver* driver;
