@@ -35,6 +35,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return initialized_ok;
     }
     bool BaseIMUProcess::update(double current_time_sec) {
+        if (current_time_sec <= 0.0) {  // Invalid Timestamp
+            return false;
+        }
         current_time_sec_ = current_time_sec;
         if (driver == nullptr) {
             diagnosticManager.update_diagnostic(

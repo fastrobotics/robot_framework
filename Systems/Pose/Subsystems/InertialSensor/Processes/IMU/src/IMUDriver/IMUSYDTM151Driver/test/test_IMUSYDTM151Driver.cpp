@@ -12,7 +12,7 @@ TEST(IMUSYDTM151Driver, InterfaceTests) {
     IMUSYDTM151Driver SUT;
     ASSERT_FALSE(SUT.init());  // Won't be able to initialize as it's dependent on a Serial Port.
     fast::rf::Logger::log_info(SUT.pretty());
-    ASSERT_FALSE(SUT.update(0.0));  // Won't be able to update as it's dependent on a Serial Port
+    ASSERT_FALSE(SUT.update(0.1));  // Won't be able to update as it's dependent on a Serial Port
 }
 TEST(IMURazor9DOFDriver, PacketParsing) {
     IMUSYDTM151Driver SUT;

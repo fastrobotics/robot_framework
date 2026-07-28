@@ -36,7 +36,7 @@ TEST(TestIMUProcessInterface, InterfaceTests) {
     TestIMUProcessInterface SUT;
     ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
-    ASSERT_FALSE(SUT.update(0.0));
+    ASSERT_FALSE(SUT.update(0.1));
 }
 class TestBaseIMUProcess : public BaseIMUProcess {
    public:
@@ -80,7 +80,7 @@ TEST(BaseIMUProcess, BasicAssertions) {
     TestBaseIMUProcess SUT;
     ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK")));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.update(0.1));
     ASSERT_TRUE(SUT.inject_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
@@ -92,7 +92,7 @@ TEST(BaseIMUProcess, BasicAssertions) {
 TEST(IMUProcess, BasicTests) {
     IMUProcess SUT;
     ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK")));
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     fast::rf::Logger::log_notice(SUT.pretty());
@@ -104,8 +104,8 @@ TEST(IMUProcess, BasicTests) {
 }
 TEST(IMUProcess, BadDriverConfiguration) {
     IMUProcess SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
-    ASSERT_FALSE(SUT.update(0.0));
+    ASSERT_FALSE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
+    ASSERT_FALSE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     fast::rf::Logger::log_notice(SUT.pretty());

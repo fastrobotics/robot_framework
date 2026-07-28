@@ -30,7 +30,7 @@ TEST(TestIIMUDriverInterface, InterfaceTests) {
     ASSERT_EQ(SUT.pretty().size(), 0);
     ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
     ASSERT_LT(SUT.get_magnetic_data().time_stamp, 0.0);
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.update(0.1));
 }
 class TestBaseIMUDriver : public BaseIMUDriver {
    public:
@@ -41,7 +41,7 @@ class TestBaseIMUDriver : public BaseIMUDriver {
 TEST(TestBaseIMUDriver, BasicAssertions) {
     TestBaseIMUDriver SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.update(0.1));
     ASSERT_GT(SUT.pretty().size(), 0);
     ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
     ASSERT_LT(SUT.get_magnetic_data().time_stamp, 0.0);
