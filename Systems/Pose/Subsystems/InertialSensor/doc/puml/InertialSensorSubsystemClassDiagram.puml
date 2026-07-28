@@ -1,0 +1,32 @@
+@startuml
+title InertialSensor Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+    namespace SensorMsgs {
+      class ImuMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace PoseSystem {
+    package InertialSensorSubsystem #LightYellow;line:blue {
+      interface IInertialSensorSubsystem {
+
+      }
+      abstract BaseInertialSensorSubsystem {
+
+      }
+      BaseInertialSensorSubsystem .up.|> IInertialSensorSubsystem
+      class BasicInertialSensorSubsystem {
+      }
+      BasicInertialSensorSubsystem -up-|> BaseInertialSensorSubsystem
+      class DummyInertialSensorSubsystem {
+      }
+      DummyInertialSensorSubsystem -up-|> BaseInertialSensorSubsystem
+
+      namespace IMUProcess #Yellow {
+
+      }
+
+    }
+  }
+}
+@enduml

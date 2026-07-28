@@ -8,5 +8,4 @@ TEST(JoyMsg, DefaultZeroConstructor) {
     JoyMsg SUT;
     SUT.axes.resize(3);
     ASSERT_GT(SUT.pretty().size(), 0);
-    printf("%s\n", SUT.pretty().c_str());
 }

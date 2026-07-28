@@ -1,6 +1,9 @@
 {
     "files.watcherExclude": {
-        "build/**": true
+        "build/**": true,
+        "install/**": true,
+        "html/**": true,
+        "coverage/**": true
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
@@ -16,7 +19,7 @@
         "editor.formatOnSave": true
     },
     "[plantuml]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "[cmake]": {
         "editor.defaultFormatter": "cheshirekow.cmake-format",

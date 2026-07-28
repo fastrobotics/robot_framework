@@ -4,10 +4,14 @@ title Sensor Message Package Diagram
 namespace fast::rf::messages {
   namespace StandardMsgs {
     class Covariance3DMsg <<(M,#FFFF00) >>
+    class Vector3DMsg <<(M,#FFFF00)>>
   }
-  namespace SensorMsgs  {
+  namespace GeometryMsgs {
+    class OrientationMsg <<(M,#FFFF00) >>
+  }
+  package SensorMsgs #LightYellow;line:blue {
     GlobalPositionCovarianceMsg --> Covariance3DMsg: <<use>>
-    class GlobalPositionSensorMsg <<(M,#FFFF00)>> #Orange {
+    struct GlobalPositionSensorMsg <<(M,#FFFF00)>> #LimeGreen {
       +double time_stamp
       +double latitude_deg
       +double longitude_deg
@@ -18,10 +22,35 @@ namespace fast::rf::messages {
     }
     GlobalPositionSensorMsg --> Covariance3DMsg: <<use>>
 
-    class JoyMsg <<(M,#FFFF00)>> #Orange {
+    struct JoyMsg <<(M,#FFFF00)>> #LimeGreen {
       +double time_stamp
       +double[] axes
       +uint32[] buttons
     }
-}
-@enduml
+
+    struct ImuMsg <<(M,#FFFF00)>> #Orange {
+      +double time_stamp
+      +uint64 seq
+      +OrientationMsg orientation
+      +Covariance3DMsg orientation_covariance
+      +Vector3DMsg angular_velocity
+      +Covariance3DMsg angular_velocity_covariance
+      +Vector3DMsg linear_acceleration
+      +Covariance3DMsg linear_acceleration_covariance
+      +string pretty()
+    }
+    ImuMsg --> OrientationMsg: <<use>>
+    ImuMsg --> Vector3DMsg: <<use>>
+    ImuMsg --> Covariance3DMsg: <<use>>
+
+    struct MagneticFieldMsg <<(M,#FFFF00)>> #Orange {
+      +double time_stamp
+      +uint64 seq
+      +Vector3DMsg magnetic_field
+      +Covariance3DMsg magnetic_field_covariance
+      +string pretty()
+    }
+    MagneticFieldMsg --> Vector3DMsg: <<use>>
+    MagneticFieldMsg --> Covariance3DMsg: <<use>>
+  }
+  @enduml
