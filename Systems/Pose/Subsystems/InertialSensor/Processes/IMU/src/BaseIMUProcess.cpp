@@ -36,6 +36,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return initialized_ok;
     }
     bool BaseIMUProcess::update(double current_time_sec) {
+        blah;
         fast::rf::Logger::log_warn("T: " + std::to_string(current_time_sec));
         if (current_time_sec <= 0.0) {  // Invalid Timestamp
             fast::rf::Logger::log_warn("Invalid Timestamp!");
