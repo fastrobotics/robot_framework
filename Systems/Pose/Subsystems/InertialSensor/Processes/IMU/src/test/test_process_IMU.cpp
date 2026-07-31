@@ -23,13 +23,15 @@ class TestIMUProcessInterface : public IIMUProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
-    fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() {
+    bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;
-        return imu_data;
+        data = imu_data;
+        return true;
     }
-    fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() {
+    bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
-        return magnetic_data;
+        data = magnetic_data;
+        return true;
     }
 };
 TEST(TestIMUProcessInterface, InterfaceTests) {
@@ -37,6 +39,10 @@ TEST(TestIMUProcessInterface, InterfaceTests) {
     ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN")));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.1));
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_TRUE(SUT.get_imu_data(imu_data));
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_TRUE(SUT.get_magnetic_data(magnetic_data));
 }
 class TestBaseIMUProcess : public BaseIMUProcess {
    public:
@@ -67,13 +73,15 @@ class TestBaseIMUProcess : public BaseIMUProcess {
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
-    fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() {
+    bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;
-        return imu_data;
+        data = imu_data;
+        return true;
     }
-    fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() {
+    bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
-        return magnetic_data;
+        data = magnetic_data;
+        return true;
     }
 };
 TEST(BaseIMUProcess, BasicAssertions) {
@@ -87,6 +95,10 @@ TEST(BaseIMUProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.clear_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_TRUE(SUT.get_imu_data(imu_data));
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_TRUE(SUT.get_magnetic_data(magnetic_data));
 }
 
 TEST(IMUProcess, BasicTests) {
@@ -101,6 +113,10 @@ TEST(IMUProcess, BasicTests) {
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_TRUE(SUT.get_imu_data(imu_data));
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_TRUE(SUT.get_magnetic_data(magnetic_data));
 }
 TEST(IMUProcess, BadDriverConfiguration) {
     IMUProcess SUT;

@@ -75,13 +75,20 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                  * @todo Assign Covariance Data during AB#1795
                  *
                  */
-                imu_data = sensor_data.imu_msg;
-                imu_data.seq = packet_rx_ok_counter;
-                imu_data.time_stamp = current_time_sec;
-
-                magnetic_data = sensor_data.magnetic_field_msg;
-                magnetic_data.seq = packet_rx_ok_counter;
-                magnetic_data.time_stamp = current_time_sec;
+                {
+                    fast::rf::messages::SensorMsgs::ImuMsg data;
+                    data = sensor_data.imu_msg;
+                    data.seq = packet_rx_ok_counter;
+                    data.time_stamp = current_time_sec;
+                    new_imu_data(data);
+                }
+                {
+                    fast::rf::messages::SensorMsgs::MagneticFieldMsg data;
+                    data = sensor_data.magnetic_field_msg;
+                    data.seq = packet_rx_ok_counter;
+                    data.time_stamp = current_time_sec;
+                    new_magnetic_data(data);
+                }
                 packet_rx_ok_counter++;
 
             } else if (packet.skipped == true) {

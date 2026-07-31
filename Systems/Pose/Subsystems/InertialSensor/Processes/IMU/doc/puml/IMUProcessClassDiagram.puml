@@ -26,8 +26,8 @@ namespace fast::rf {
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
-          +{abstract} ImuMsg get_imu_data()
-          +{abstract} MagneticFieldMsg get_magnetic_data()
+          +{abstract} bool get_imu_data(ImuMsg& data)
+          +{abstract} bool get_magnetic_data(MagneticFieldMsg& data)
         }
         IIMUProcess --> IMUDevice: <<use>>
         
@@ -55,8 +55,8 @@ namespace fast::rf {
           +{abstract} bool init()
           +{abstract} string pretty()
           +{abstract} update(double current_time_sec)
-          +{abstract} ImuMsg get_imu_data()
-          +{abstract} MagneticFieldMsg get_magnetic_data()
+          +{abstract}  bool get_imu_data(ImuMsg& data)
+          +{abstract} bool get_magnetic_data(MagneticFieldMsg& data)
           +{static} IMUDevice convert_name(std::string name);
         }
         IIMUDriver +-- IMUDevice
@@ -82,8 +82,8 @@ namespace fast::rf {
             +double heading_rad
         }
         abstract BaseIMUDriver #LimeGreen {
-          +ImuMsg get_imu_data()
-          +MagneticFieldMsg get_magnetic_data()
+          +bool get_imu_data(ImuMsg& data)
+          +bool get_magnetic_data(MagneticFieldMsg& data)
           #bool init(IMUDevice imu_type)
           #update(double current_time_sec)
           #string pretty()
@@ -118,8 +118,8 @@ namespace fast::rf {
           +bool init(IMUDevice device_type)
           +bool update(double current_time_sec)
           +string pretty()
-          +ImuMsg get_imu_data()
-          +MagneticFieldMsg get_magnetic_data()
+          +bool get_imu_data(ImuMsg& data)
+          +bool get_magnetic_data(MagneticFieldMsg& data)
           
         }
         IMUProcess -up-|> BaseIMUProcess
@@ -128,8 +128,8 @@ namespace fast::rf {
           +bool init(IMUDevice device_type)
           +bool update(double current_time_sec)
           +string pretty()
-          +ImuMsg get_imu_data()
-          +MagneticFieldMsg get_magnetic_data()
+          +bool get_imu_data(ImuMsg& data)
+          +bool get_magnetic_data(MagneticFieldMsg& data)
         }
         DummyIMUProcess -up-|> BaseIMUProcess
         DummyIMUProcess --> IIMUDriver

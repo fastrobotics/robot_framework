@@ -64,19 +64,24 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return std::string
          */
         virtual std::string pretty() = 0;
-        /**
-         * @brief Get the imu data
-         *
-         * @return fast::rf::messages::SensorMsgs::ImuMsg
-         */
-        virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
 
         /**
-         * @brief Get the magnetic data
+         * @brief Get the imu data object
          *
-         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         * @param imu_data
+         * @return true if New
+         * @return false
          */
-        virtual fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() = 0;
+        virtual bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_data) = 0;
+
+        /**
+         * @brief Get the magnetic data object
+         *
+         * @param data
+         * @return true If New
+         * @return false
+         */
+        virtual bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) = 0;
 
         /**
          * @brief Update the driver
