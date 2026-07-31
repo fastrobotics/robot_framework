@@ -136,8 +136,14 @@ process.init(<IMU Type>); // See above
 process.update(now) // Some current timestamp
 
 // Get Data from it
-auto imu_data = process.get_imu_data();
-auto magnetic_data = process.get_magnetic_data();
+fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+if(process.get_imu_data(imu_data)) {
+  // Do something
+}
+fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+if(process.get_magnetic_data(magnetic_data)) {
+  // Do something
+}
 ```
 
 
