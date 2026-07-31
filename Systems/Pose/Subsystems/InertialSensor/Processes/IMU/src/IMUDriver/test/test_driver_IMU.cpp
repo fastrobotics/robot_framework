@@ -13,13 +13,15 @@ class TestIMUDriverInterface : public IIMUDriver {
    public:
     bool init() { return true; }
     std::string pretty() { return ""; }
-    fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() {
-        fast::rf::messages::SensorMsgs::ImuMsg data;
-        return data;
+    bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
+        fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+        data = imu_data;
+        return true;
     }
-    fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() {
-        fast::rf::messages::SensorMsgs::MagneticFieldMsg data;
-        return data;
+    bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
+        fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+        data = magnetic_data;
+        return true;
     }
     bool update([[maybe_unused]] double current_time) { return true; }
 };
@@ -28,9 +30,14 @@ TEST(TestIIMUDriverInterface, InterfaceTests) {
     TestIMUDriverInterface SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_EQ(SUT.pretty().size(), 0);
-    ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
-    ASSERT_LT(SUT.get_magnetic_data().time_stamp, 0.0);
+
     ASSERT_TRUE(SUT.update(0.1));
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_TRUE(SUT.get_imu_data(imu_data));
+    ASSERT_LT(imu_data.time_stamp, 0.0);
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_TRUE(SUT.get_magnetic_data(magnetic_data));
+    ASSERT_LT(magnetic_data.time_stamp, 0.0);
 }
 class TestBaseIMUDriver : public BaseIMUDriver {
    public:
@@ -43,8 +50,12 @@ TEST(TestBaseIMUDriver, BasicAssertions) {
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.1));
     ASSERT_GT(SUT.pretty().size(), 0);
-    ASSERT_LT(SUT.get_imu_data().time_stamp, 0.0);
-    ASSERT_LT(SUT.get_magnetic_data().time_stamp, 0.0);
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_FALSE(SUT.get_imu_data(imu_data));
+    ASSERT_LT(imu_data.time_stamp, 0.0);
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_FALSE(SUT.get_magnetic_data(magnetic_data));
+    ASSERT_LT(magnetic_data.time_stamp, 0.0);
 }
 
 TEST(TestIMUMockDriver, BasicTests) {
@@ -52,6 +63,10 @@ TEST(TestIMUMockDriver, BasicTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_GT(SUT.pretty().size(), 0);
-    ASSERT_GT(SUT.get_imu_data().time_stamp, 0.0);
-    ASSERT_GT(SUT.get_magnetic_data().time_stamp, 0.0);
+    fast::rf::messages::SensorMsgs::ImuMsg imu_data;
+    ASSERT_TRUE(SUT.get_imu_data(imu_data));
+    ASSERT_GT(imu_data.time_stamp, 0.0);
+    fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;
+    ASSERT_TRUE(SUT.get_magnetic_data(magnetic_data));
+    ASSERT_GT(magnetic_data.time_stamp, 0.0);
 }

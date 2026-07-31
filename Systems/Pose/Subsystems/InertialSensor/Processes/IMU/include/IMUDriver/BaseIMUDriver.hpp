@@ -49,18 +49,22 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             DataPacket() : ok(false), skipped(false) {}
         };
         /**
-         * @brief Get the imu data
+         * @brief Get the imu data object
          *
-         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         * @param imu_data
+         * @return true If new
+         * @return false
          */
-        fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() override;
+        bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_data) override;
 
         /**
-         * @brief Get the magnetic data
+         * @brief Get the magnetic data object
          *
-         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         * @param magnetic_data
+         * @return true If new
+         * @return false
          */
-        fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data();
+        bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& magnetic_data);
 
        protected:
         /**
@@ -88,9 +92,26 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         virtual bool update(double current_time_sec);
 
+        /**
+         * @brief Set new IMU Data
+         *
+         * @param data
+         */
+        void new_imu_data(fast::rf::messages::SensorMsgs::ImuMsg data);
+
+        /**
+         * @brief Set new Magnetic Data
+         *
+         * @param data
+         */
+        void new_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg data);
+
+        double start_time{-1.0};        //!< When the driver was started
+        double current_time_sec{-1.0};  //!< Current Time
+       private:
+        bool is_new_imu_data{false};                                     // If there's new IMU data
+        bool is_new_magnetic_data{false};                                // If there's new Magnetic Data
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;                 //!< IMU Data
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;  //!< Magnetic Data
-        double start_time{-1.0};                                         //!< When the driver was started
-        double current_time_sec{-1.0};                                   //!< Current Time
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

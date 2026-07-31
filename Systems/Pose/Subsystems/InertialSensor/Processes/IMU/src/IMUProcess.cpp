@@ -25,10 +25,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         str += BaseIMUProcess::pretty();
         return str;
     }
-    fast::rf::messages::SensorMsgs::ImuMsg IMUProcess::get_imu_data() { return driver->get_imu_data(); }
+    bool IMUProcess::get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) { return driver->get_imu_data(data); }
 
-    fast::rf::messages::SensorMsgs::MagneticFieldMsg IMUProcess::get_magnetic_data() {
-        return driver->get_magnetic_data();
+    bool IMUProcess::get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
+        return driver->get_magnetic_data(data);
     }
 
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

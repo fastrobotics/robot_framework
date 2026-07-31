@@ -6,10 +6,20 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     }
     bool MockIMUDriver::update(double current_time_sec_) {
         BaseIMUDriver::update(current_time_sec_);
-        imu_data.time_stamp = current_time_sec;
-        imu_data.seq++;
-        magnetic_data.time_stamp = current_time_sec;
-        magnetic_data.seq++;
+        {
+            fast::rf::messages::SensorMsgs::ImuMsg data;
+            get_imu_data(data);
+            data.time_stamp = current_time_sec;
+            data.seq++;
+            new_imu_data(data);
+        }
+        {
+            fast::rf::messages::SensorMsgs::MagneticFieldMsg data;
+            get_magnetic_data(data);
+            data.time_stamp = current_time_sec;
+            data.seq++;
+            new_magnetic_data(data);
+        }
         return true;
     }
     std::string MockIMUDriver::pretty() {

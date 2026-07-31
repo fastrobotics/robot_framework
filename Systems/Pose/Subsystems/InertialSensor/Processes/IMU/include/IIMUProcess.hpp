@@ -66,15 +66,19 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Get the imu data object
          *
-         * @return fast::rf::messages::SensorMsgs::ImuMsg
+         * @param data
+         * @return true If the data is new
+         * @return false If the data is not new
          */
-        virtual fast::rf::messages::SensorMsgs::ImuMsg get_imu_data() = 0;
+        virtual bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) = 0;
 
         /**
          * @brief Get the magnetic data object
          *
-         * @return fast::rf::messages::SensorMsgs::MagneticFieldMsg
+         * @param data
+         * @return true  If the data is new
+         * @return false If the data is not new
          */
-        virtual fast::rf::messages::SensorMsgs::MagneticFieldMsg get_magnetic_data() = 0;
+        virtual bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) = 0;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
