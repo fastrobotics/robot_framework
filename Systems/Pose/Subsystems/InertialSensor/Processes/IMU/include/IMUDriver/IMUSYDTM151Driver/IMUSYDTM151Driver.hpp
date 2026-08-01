@@ -27,15 +27,15 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IMUSYDTM151Driver : public BaseIMUDriver {
        public:
-        static const std::string serial_port;  //!< Serial Port Name.  Defined in cpp file.
         static const int baud_rate = B115200;  //!< Baud Rate for Device
         /**
          * @brief Initialize the device
          *
+         * @param device_name
          * @return true
          * @return false
          */
-        bool init(std::string imu_device_name);
+        bool init(std::string device_name);
         /**
          * @brief Human readable data for the driver
          *

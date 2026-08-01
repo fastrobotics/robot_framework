@@ -28,10 +28,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the device
          *
+         * @param device_name
          * @return true
          * @return false
          */
-        bool init(std::string imu_device_name);
+        bool init(std::string device_name);
         /**
          * @brief Human readable data for the driver
          *

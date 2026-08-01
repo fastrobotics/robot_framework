@@ -21,6 +21,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the Mock Driver
          *
+         * @param imu_device_name
          * @return true
          * @return false
          */

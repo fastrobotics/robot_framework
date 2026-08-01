@@ -17,20 +17,25 @@ void printHelp() {
     printf("-h This Menu.\n");
     printf("-l Logger Level (2:DEBUG ->7: FATAL)\n");
     printf("-d Driver Version: 1-Mock 2-SYDTM151 3-Razor9DOF\n");
+    printf("-n Device Name: /dev/ttyUSB0\n");
 }
-int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
+int main(int argc, char* argv[]) {
     double delta_time_sec = 0.0001;
     uint8_t logger_level = 2;
     uint8_t driver_version = 0;
+    std::string device_name = "/dev/ttyUSB0";
     IIMUDriver* driver;
 
     for (;;) {
-        switch (getopt(argc, argv, "l:d:h")) {
+        switch (getopt(argc, argv, "l:d:n:h")) {
             case 'l':
                 logger_level = atoi(optarg);
                 continue;
             case 'd':
                 driver_version = atoi(optarg);
+                continue;
+            case 'n':
+                device_name = std::string(optarg);
                 break;
 
             case '?':
@@ -56,21 +61,21 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     switch (driver_version) {
         case 1:
             driver = new MockIMUDriver();
-            status = driver->init();
+            status = driver->init(device_name);
             if (status == false) {
                 return 1;
             }
             break;
         case 2:
             driver = new IMUSYDTM151Driver();
-            status = driver->init();
+            status = driver->init(device_name);
             if (status == false) {
                 return 1;
             }
             break;
         case 3:
             driver = new IMURazor9DOFDriver();
-            status = driver->init();
+            status = driver->init(device_name);
             if (status == false) {
                 return 1;
             }

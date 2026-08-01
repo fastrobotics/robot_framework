@@ -71,6 +71,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @brief Initialize the base object.  Called by the concrete object.
          *
          * @param device
+         * @param imu_device_name
          * @return true
          * @return false
          */
@@ -106,7 +107,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         void new_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg data);
 
-        std::string imu_device_name{""};  //< IMU Device Name
+        std::string imu_device_name{""};  //!< IMU Device Name
         double start_time{-1.0};          //!< When the driver was started
         double current_time_sec{-1.0};    //!< Current Time
        private:

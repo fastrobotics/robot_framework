@@ -26,9 +26,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         // GCOV_EXCL_START
         // No practical way to unit test
-        serial_fd = open(serial_port.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
+        serial_fd = open(device_name.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
         if (serial_fd < 0) {
-            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + serial_port);
+            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + device_name);
             return false;
         }
         struct termios tty;
