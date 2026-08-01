@@ -122,8 +122,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         packet.acc_z_g = ep_Raw_GyroAccMag.acc[2];
                         packet.gyro_x_rps = ep_Raw_GyroAccMag.gyro[0] * M_PI / 180.0;
                         packet.gyro_y_rps = ep_Raw_GyroAccMag.gyro[1] * M_PI / 180.0;
-                        printf("xxx0: %f\n", ep_Raw_GyroAccMag.gyro[1]);
-                        printf("xxx1: %f\n", packet.gyro_y_rps);
+                        fast::rf::Logger::log_warn("xxx0: " + std::to_string(ep_Raw_GyroAccMag.gyro[1]));
+                        fast::rf::Logger::log_warn("xxx1: " + std::to_string(packet.gyro_y_rps));
                         packet.gyro_z_rps = ep_Raw_GyroAccMag.gyro[2] * M_PI / 180.0;
                         packet.mag_x_T = ep_Raw_GyroAccMag.mag[0] * 0.00005;  // Convert to Tesla
                         packet.mag_y_T = ep_Raw_GyroAccMag.mag[1] * 0.00005;  // Convert to Tesla;
@@ -162,7 +162,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
         imu_msg.angular_velocity.x = packet.gyro_x_rps;
         imu_msg.angular_velocity.y = packet.gyro_y_rps;
-        printf("xxx2: %f\n", imu_msg.angular_velocity.y);
+        fast::rf::Logger::log_warn("xxx2: " + std::to_string(imu_msg.angular_velocity.y));
         imu_msg.angular_velocity.z = packet.gyro_z_rps;
         imu_msg.orientation.pitch = packet.pitch_rad;
         imu_msg.orientation.roll = packet.roll_rad;
