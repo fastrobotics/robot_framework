@@ -4,22 +4,22 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
-    bool BaseIMUProcess::init(IIMUDriver::IMUDevice imu_type) {
+    bool BaseIMUProcess::init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name) {
         bool initialized_ok = false;
         switch (imu_type) {
             case IIMUDriver::IMUDevice::MOCK_IMU:
                 driver = new MockIMUDriver();
-                initialized_ok = driver->init();
+                initialized_ok = driver->init(imu_device_name);
                 break;
             // GCOV_EXCL_START
             // No Practical Way to Unit Test
             case IIMUDriver::IMUDevice::RAZOR9DOF_IMU:
                 driver = new IMURazor9DOFDriver();
-                initialized_ok = driver->init();
+                initialized_ok = driver->init(imu_device_name);
                 break;
             case IIMUDriver::IMUDevice::SYDTM151_IMU:
                 driver = new IMUSYDTM151Driver();
-                initialized_ok = driver->init();
+                initialized_ok = driver->init(imu_device_name);
                 break;
             // GCOV_EXCL_STOP
             default:

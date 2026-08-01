@@ -31,22 +31,23 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          *
          */
         struct DataPacket {
-            bool ok;             //!< If the packet was parsed ok
-            bool skipped;        //!< If the packet was skipped
-            double acc_x_g;      //!< Acceleration in G's
-            double acc_y_g;      //!< Acceleration in G's
-            double acc_z_g;      //!< Acceleration in G's
-            double gyro_x_rps;   //!< Rotation Rate in rad/s
-            double gyro_y_rps;   //!< Rotation Rate in rad/s
-            double gyro_z_rps;   //!< Rotation Rate in rad/s
-            double mag_x_T;      //!< Magnetometer reading in Tesla
-            double mag_y_T;      //!< Magnetometer reading in Tesla
-            double mag_z_T;      //!< Magnetometer reading in Tesla
-            double pitch_rad;    //!< Orientation in Radians
-            double roll_rad;     //!< Orientation in Radians
-            double yaw_rad;      //!< Orientation in Radians
-            double heading_rad;  //!< Heading in Radians
-            DataPacket() : ok(false), skipped(false) {}
+            bool ok;              //!< If the packet was parsed ok
+            bool skipped;         //!< If the packet was skipped
+            uint8_t packet_type;  //!< Generic Packet Type
+            double acc_x_g;       //!< Acceleration in G's
+            double acc_y_g;       //!< Acceleration in G's
+            double acc_z_g;       //!< Acceleration in G's
+            double gyro_x_rps;    //!< Rotation Rate in rad/s
+            double gyro_y_rps;    //!< Rotation Rate in rad/s
+            double gyro_z_rps;    //!< Rotation Rate in rad/s
+            double mag_x_T;       //!< Magnetometer reading in Tesla
+            double mag_y_T;       //!< Magnetometer reading in Tesla
+            double mag_z_T;       //!< Magnetometer reading in Tesla
+            double pitch_rad;     //!< Orientation in Radians
+            double roll_rad;      //!< Orientation in Radians
+            double yaw_rad;       //!< Orientation in Radians
+            double heading_rad;   //!< Heading in Radians
+            DataPacket() : ok(false), skipped(false), packet_type(0) {}
         };
         /**
          * @brief Get the imu data object
@@ -71,10 +72,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @brief Initialize the base object.  Called by the concrete object.
          *
          * @param device
+         * @param imu_device_name
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice device);
+        virtual bool init(IIMUDriver::IMUDevice device, std::string imu_device_name);
 
         /**
          * @brief Get a human readable string of the object.  Called by the concrete object.
@@ -106,8 +108,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         void new_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg data);
 
-        double start_time{-1.0};        //!< When the driver was started
-        double current_time_sec{-1.0};  //!< Current Time
+        std::string imu_device_name{""};  //!< IMU Device Name
+        double start_time{-1.0};          //!< When the driver was started
+        double current_time_sec{-1.0};    //!< Current Time
        private:
         bool is_new_imu_data{false};                                     // If there's new IMU data
         bool is_new_magnetic_data{false};                                // If there's new Magnetic Data

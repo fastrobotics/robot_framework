@@ -10,13 +10,13 @@ using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 
 TEST(IMUSYDTM151Driver, InterfaceTests) {
     IMUSYDTM151Driver SUT;
-    ASSERT_FALSE(SUT.init());  // Won't be able to initialize as it's dependent on a Serial Port.
+    ASSERT_FALSE(SUT.init(""));  // Won't be able to initialize as it's dependent on a Serial Port.
     fast::rf::Logger::log_info(SUT.pretty());
     ASSERT_FALSE(SUT.update(0.1));  // Won't be able to update as it's dependent on a Serial Port
 }
 TEST(IMURazor9DOFDriver, PacketParsing) {
     IMUSYDTM151Driver SUT;
-    ASSERT_FALSE(SUT.init());  // Won't be able to initialize as it's dependent on a Serial Port.
+    ASSERT_FALSE(SUT.init(""));  // Won't be able to initialize as it's dependent on a Serial Port.
     BaseIMUDriver::DataPacket data_packet;
     data_packet.ok = true;
     auto sensor_msg = SUT.convert(data_packet);

@@ -17,9 +17,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      * @todo Make this a config item during AB#1798
      *
      */
-    const std::string IMURazor9DOFDriver::serial_port = "/dev/ttyACM0";
-    bool IMURazor9DOFDriver::init() {
-        bool status = BaseIMUDriver::init(IMUDevice::RAZOR9DOF_IMU);
+    bool IMURazor9DOFDriver::init(std::string device_name) {
+        bool status = BaseIMUDriver::init(IMUDevice::RAZOR9DOF_IMU, device_name);
         if (status == false) {
             return false;
         }
@@ -29,9 +28,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         // GCOV_EXCL_START
         // No practical way to unit test
-        serial_fd = open(serial_port.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
+        serial_fd = open(imu_device_name.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
         if (serial_fd < 0) {
-            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + serial_port);
+            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + imu_device_name);
             return false;
         }
         struct termios tty;
@@ -61,7 +60,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         // No practical way to unit test
         std::memset(&readBuffer, 0, sizeof(readBuffer));
 
-        // Attempt to read data
+        // Attempt to read dataf
         int numBytesRead = read(serial_fd, &readBuffer, sizeof(readBuffer) - 1);
 
         if (numBytesRead < 0) {

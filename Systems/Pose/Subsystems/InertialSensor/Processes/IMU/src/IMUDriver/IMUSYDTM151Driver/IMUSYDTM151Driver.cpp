@@ -15,9 +15,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      * @todo Make this a config item during AB#1798
      *
      */
-    const std::string IMUSYDTM151Driver::serial_port = "/dev/ttyACM0";
-    bool IMUSYDTM151Driver::init() {
-        bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU);
+    bool IMUSYDTM151Driver::init(std::string device_name) {
+        bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU, device_name);
         if (status == false) {
             return false;
         }
@@ -27,9 +26,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         // GCOV_EXCL_START
         // No practical way to unit test
-        serial_fd = open(serial_port.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
+        serial_fd = open(device_name.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
         if (serial_fd < 0) {
-            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + serial_port);
+            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + device_name);
             return false;
         }
         struct termios tty;
@@ -116,6 +115,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                     Ep_Raw_GyroAccMag ep_Raw_GyroAccMag;
                     if (EP_SUCC_ == eOD.Read_Ep_Raw_GyroAccMag(&ep_Raw_GyroAccMag)) {
                         // Raw Data received
+                        packet.packet_type = (uint8_t)header.cmd;
                         packet.acc_x_g = ep_Raw_GyroAccMag.acc[0];  // Note 1: ep_Raw_GyroAccMag is defined in the
                                                                     // EasyProfile library as a global variable
                         packet.acc_y_g = ep_Raw_GyroAccMag.acc[1];  // Note 2: for the units and meaning of each value,
@@ -134,6 +134,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                     Ep_RPY ep_RPY;
                     if (EP_SUCC_ == eOD.Read_Ep_RPY(&ep_RPY)) {
                         // Roll Pitch Yaw data received
+                        packet.packet_type = (uint8_t)header.cmd;
                         packet.roll_rad =
                             ep_RPY.roll;  // Note 1, ep_RPY is defined in the EasyProfile library as a global variable
                         packet.pitch_rad = ep_RPY.pitch;  // Note 2, for the units and meaning of each value, refer to
@@ -154,27 +155,25 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return packet;
     }
     BaseIMUDriver::SensorData IMUSYDTM151Driver::convert(BaseIMUDriver::DataPacket packet) {
-        BaseIMUDriver::SensorData sensor_data;
-        fast::rf::messages::SensorMsgs::ImuMsg imu_msg;
-        imu_msg.linear_acceleration.x = packet.acc_x_g * 9.81;
-        imu_msg.linear_acceleration.y = packet.acc_y_g * 9.81;
-        imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
-        imu_msg.angular_velocity.x = packet.gyro_x_rps;
-        imu_msg.angular_velocity.y = packet.gyro_y_rps;
-        imu_msg.angular_velocity.z = packet.gyro_z_rps;
-        imu_msg.orientation.pitch = packet.pitch_rad;
-        imu_msg.orientation.roll = packet.roll_rad;
-        imu_msg.orientation.yaw = packet.yaw_rad;
+        if (packet.packet_type == (uint8_t)EP_CMD_Raw_GYRO_ACC_MAG_) {
+            sensor_data_.imu_msg.linear_acceleration.x = packet.acc_x_g * 9.81;
+            sensor_data_.imu_msg.linear_acceleration.y = packet.acc_y_g * 9.81;
+            sensor_data_.imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
+            sensor_data_.imu_msg.angular_velocity.x = packet.gyro_x_rps;
+            sensor_data_.imu_msg.angular_velocity.y = packet.gyro_y_rps;
+            sensor_data_.imu_msg.angular_velocity.z = packet.gyro_z_rps;
 
-        sensor_data.imu_msg = imu_msg;
+            sensor_data_.magnetic_field_msg.magnetic_field.x = packet.mag_x_T;
+            sensor_data_.magnetic_field_msg.magnetic_field.y = packet.mag_y_T;
+            sensor_data_.magnetic_field_msg.magnetic_field.z = packet.mag_z_T;
 
-        fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_msg;
-        magnetic_msg.magnetic_field.x = packet.mag_x_T;
-        magnetic_msg.magnetic_field.y = packet.mag_y_T;
-        magnetic_msg.magnetic_field.z = packet.mag_z_T;
+        } else if (packet.packet_type == (uint8_t)EP_CMD_RPY_) {
+            sensor_data_.imu_msg.orientation.pitch = packet.pitch_rad;
+            sensor_data_.imu_msg.orientation.roll = packet.roll_rad;
+            sensor_data_.imu_msg.orientation.yaw = packet.yaw_rad;
+        }
 
-        sensor_data.magnetic_field_msg = magnetic_msg;
-        return sensor_data;
+        return sensor_data_;
     }
 
     std::string IMUSYDTM151Driver::pretty() {

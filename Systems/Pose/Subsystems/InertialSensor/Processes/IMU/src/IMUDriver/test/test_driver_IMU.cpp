@@ -11,7 +11,7 @@
 using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 class TestIMUDriverInterface : public IIMUDriver {
    public:
-    bool init() { return true; }
+    bool init([[maybe_unused]] std::string device_name) { return true; }
     std::string pretty() { return ""; }
     bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;
@@ -28,7 +28,7 @@ class TestIMUDriverInterface : public IIMUDriver {
 
 TEST(TestIIMUDriverInterface, InterfaceTests) {
     TestIMUDriverInterface SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(""));
     ASSERT_EQ(SUT.pretty().size(), 0);
 
     ASSERT_TRUE(SUT.update(0.1));
@@ -41,13 +41,13 @@ TEST(TestIIMUDriverInterface, InterfaceTests) {
 }
 class TestBaseIMUDriver : public BaseIMUDriver {
    public:
-    bool init() { return BaseIMUDriver::init(IIMUDriver::IMUDevice::MOCK_IMU); }
+    bool init(std::string device_name) { return BaseIMUDriver::init(IIMUDriver::IMUDevice::MOCK_IMU, device_name); }
     std::string pretty() { return BaseIMUDriver::pretty(); }
     bool update(double current_time) { return BaseIMUDriver::update(current_time); }
 };
 TEST(TestBaseIMUDriver, BasicAssertions) {
     TestBaseIMUDriver SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(""));
     ASSERT_TRUE(SUT.update(0.1));
     ASSERT_GT(SUT.pretty().size(), 0);
     fast::rf::messages::SensorMsgs::ImuMsg imu_data;
@@ -60,7 +60,7 @@ TEST(TestBaseIMUDriver, BasicAssertions) {
 
 TEST(TestIMUMockDriver, BasicTests) {
     MockIMUDriver SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(""));
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_GT(SUT.pretty().size(), 0);
     fast::rf::messages::SensorMsgs::ImuMsg imu_data;
