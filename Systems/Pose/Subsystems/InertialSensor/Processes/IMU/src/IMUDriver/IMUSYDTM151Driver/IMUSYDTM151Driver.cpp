@@ -123,8 +123,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         packet.acc_z_g = ep_Raw_GyroAccMag.acc[2];
                         packet.gyro_x_rps = ep_Raw_GyroAccMag.gyro[0] * M_PI / 180.0;
                         packet.gyro_y_rps = ep_Raw_GyroAccMag.gyro[1] * M_PI / 180.0;
-                        fast::rf::Logger::log_warn("xxx0: " + std::to_string(ep_Raw_GyroAccMag.gyro[1]));
-                        fast::rf::Logger::log_warn("xxx1: " + std::to_string(packet.gyro_y_rps));
                         packet.gyro_z_rps = ep_Raw_GyroAccMag.gyro[2] * M_PI / 180.0;
                         packet.mag_x_T = ep_Raw_GyroAccMag.mag[0] * 0.00005;  // Convert to Tesla
                         packet.mag_y_T = ep_Raw_GyroAccMag.mag[1] * 0.00005;  // Convert to Tesla;
@@ -163,10 +161,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             sensor_data_.imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
             sensor_data_.imu_msg.angular_velocity.x = packet.gyro_x_rps;
             sensor_data_.imu_msg.angular_velocity.y = packet.gyro_y_rps;
-            fast::rf::Logger::log_warn(
-                "xxx2: " +
-                std::to_string(sensor_data_.imu_msg.angular_velocity
-                                   .y));  // TODO: Resolve why this line is getting hit twice, giving garbage output.
             sensor_data_.imu_msg.angular_velocity.z = packet.gyro_z_rps;
 
             sensor_data_.magnetic_field_msg.magnetic_field.x = packet.mag_x_T;
