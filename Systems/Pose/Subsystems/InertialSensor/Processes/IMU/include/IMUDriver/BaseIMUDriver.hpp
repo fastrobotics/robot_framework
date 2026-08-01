@@ -31,22 +31,23 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          *
          */
         struct DataPacket {
-            bool ok;             //!< If the packet was parsed ok
-            bool skipped;        //!< If the packet was skipped
-            double acc_x_g;      //!< Acceleration in G's
-            double acc_y_g;      //!< Acceleration in G's
-            double acc_z_g;      //!< Acceleration in G's
-            double gyro_x_rps;   //!< Rotation Rate in rad/s
-            double gyro_y_rps;   //!< Rotation Rate in rad/s
-            double gyro_z_rps;   //!< Rotation Rate in rad/s
-            double mag_x_T;      //!< Magnetometer reading in Tesla
-            double mag_y_T;      //!< Magnetometer reading in Tesla
-            double mag_z_T;      //!< Magnetometer reading in Tesla
-            double pitch_rad;    //!< Orientation in Radians
-            double roll_rad;     //!< Orientation in Radians
-            double yaw_rad;      //!< Orientation in Radians
-            double heading_rad;  //!< Heading in Radians
-            DataPacket() : ok(false), skipped(false) {}
+            bool ok;              //!< If the packet was parsed ok
+            bool skipped;         //!< If the packet was skipped
+            uint8_t packet_type;  //!< Generic Packet Type
+            double acc_x_g;       //!< Acceleration in G's
+            double acc_y_g;       //!< Acceleration in G's
+            double acc_z_g;       //!< Acceleration in G's
+            double gyro_x_rps;    //!< Rotation Rate in rad/s
+            double gyro_y_rps;    //!< Rotation Rate in rad/s
+            double gyro_z_rps;    //!< Rotation Rate in rad/s
+            double mag_x_T;       //!< Magnetometer reading in Tesla
+            double mag_y_T;       //!< Magnetometer reading in Tesla
+            double mag_z_T;       //!< Magnetometer reading in Tesla
+            double pitch_rad;     //!< Orientation in Radians
+            double roll_rad;      //!< Orientation in Radians
+            double yaw_rad;       //!< Orientation in Radians
+            double heading_rad;   //!< Heading in Radians
+            DataPacket() : ok(false), skipped(false), packet_type(0) {}
         };
         /**
          * @brief Get the imu data object

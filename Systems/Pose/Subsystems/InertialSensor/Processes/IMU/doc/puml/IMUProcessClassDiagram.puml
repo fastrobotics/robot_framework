@@ -67,6 +67,7 @@ namespace fast::rf {
         struct DataPacket #LimeGreen {
             +bool ok
             +bool skipped
+            +uint8 packet_type
             +double acc_x_g
             +double acc_y_g
             +double acc_z_g
