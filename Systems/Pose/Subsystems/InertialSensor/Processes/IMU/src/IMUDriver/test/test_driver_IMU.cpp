@@ -11,7 +11,7 @@
 using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 class TestIMUDriverInterface : public IIMUDriver {
    public:
-    bool init() { return true; }
+    bool init("") { return true; }
     std::string pretty() { return ""; }
     bool get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;

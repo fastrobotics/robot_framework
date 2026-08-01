@@ -31,7 +31,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice imu_type) = 0;
+        virtual bool init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name) = 0;
 
         /**
          * @brief Generic Update function

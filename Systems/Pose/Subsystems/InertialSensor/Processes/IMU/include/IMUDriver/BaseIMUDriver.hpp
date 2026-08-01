@@ -74,7 +74,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice device);
+        virtual bool init(IIMUDriver::IMUDevice device, std::string imu_device_name);
 
         /**
          * @brief Get a human readable string of the object.  Called by the concrete object.
@@ -106,8 +106,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         void new_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg data);
 
-        double start_time{-1.0};        //!< When the driver was started
-        double current_time_sec{-1.0};  //!< Current Time
+        std::string imu_device_name{""};  //< IMU Device Name
+        double start_time{-1.0};          //!< When the driver was started
+        double current_time_sec{-1.0};    //!< Current Time
        private:
         bool is_new_imu_data{false};                                     // If there's new IMU data
         bool is_new_magnetic_data{false};                                // If there's new Magnetic Data

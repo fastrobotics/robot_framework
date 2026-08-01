@@ -40,7 +40,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice imu_type);
+        virtual bool init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name);
         /**
          * @brief Update the base object.  Called by Concrete Function.
          *

@@ -1,7 +1,8 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
-    bool MockIMUDriver::init() {
-        BaseIMUDriver::init(IMUDevice::MOCK_IMU);
+    bool MockIMUDriver::init([[maybe_unused]] std::string device_name) {
+        imu_device_name = "mock";
+        BaseIMUDriver::init(IMUDevice::MOCK_IMU, imu_device_name);
         return true;
     }
     bool MockIMUDriver::update(double current_time_sec_) {

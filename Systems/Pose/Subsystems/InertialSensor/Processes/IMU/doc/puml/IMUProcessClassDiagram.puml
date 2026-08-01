@@ -21,7 +21,7 @@ namespace fast::rf {
   namespace PoseSystem {
     package InertialSensorSubsystem #LightYellow;line:blue {
         interface IIMUProcess #LimeGreen {
-          +{abstract} bool init(IMUDevice device_type)
+          +{abstract} bool init(IMUDevice imu_type,string imu_device_name)
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
@@ -52,7 +52,7 @@ namespace fast::rf {
           END_OF_LIST=4,
         }
         interface IIMUDriver #LimeGreen {
-          +{abstract} bool init()
+          +{abstract} bool init(string imu_device_name)
           +{abstract} string pretty()
           +{abstract} update(double current_time_sec)
           +{abstract}  bool get_imu_data(ImuMsg& data)
@@ -84,7 +84,7 @@ namespace fast::rf {
         abstract BaseIMUDriver #LimeGreen {
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
-          #bool init(IMUDevice imu_type)
+          #bool init(IMUDevice imu_type,string imu_device_name)
           #update(double current_time_sec)
           #string pretty()
           #ImuMsg imu_data
@@ -95,7 +95,7 @@ namespace fast::rf {
         BaseIMUDriver +-- DataPacket
 
         class MockIMUDriver #LimeGreen {
-           +bool init()
+           +bool init(string imu_device_name)
            +update(double current_time_sec)
            +string pretty()
            
@@ -103,19 +103,19 @@ namespace fast::rf {
         MockIMUDriver -up-|> BaseIMUDriver
 
         class IMUSYDTM151Driver #LimeGreen {
-           +bool init()
+           +bool init(string imu_device_name)
            +update(double current_time_sec)
            +string pretty()
         }
         IMUSYDTM151Driver -up-|> BaseIMUDriver
         class IMURazor9DOFDriver #LimeGreen {
-           +bool init()
+           +bool init(string imu_device_name)
            +update(double current_time_sec)
            +string pretty()
         }
         IMURazor9DOFDriver -up-|> BaseIMUDriver
         class IMUProcess #LimeGreen {
-          +bool init(IMUDevice device_type)
+          +bool init(IMUDevice device_type, string imu_device_name)
           +bool update(double current_time_sec)
           +string pretty()
           +bool get_imu_data(ImuMsg& data)
@@ -125,7 +125,7 @@ namespace fast::rf {
         IMUProcess -up-|> BaseIMUProcess
         IMUProcess --> IIMUDriver
         class DummyIMUProcess {
-          +bool init(IMUDevice device_type)
+          +bool init(IMUDevice device_type, string imu_device_name)
           +bool update(double current_time_sec)
           +string pretty()
           +bool get_imu_data(ImuMsg& data)

@@ -15,9 +15,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      * @todo Make this a config item during AB#1798
      *
      */
-    const std::string IMUSYDTM151Driver::serial_port = "/dev/ttyACM0";
-    bool IMUSYDTM151Driver::init() {
-        bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU);
+    bool IMUSYDTM151Driver::init(std::string device_name) {
+        bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU, device_name);
         if (status == false) {
             return false;
         }

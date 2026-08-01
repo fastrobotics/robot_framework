@@ -1,10 +1,11 @@
 #include <IMUDriver/BaseIMUDriver.hpp>
 #include <mutex>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
-    bool BaseIMUDriver::init(IIMUDriver::IMUDevice device) {
+    bool BaseIMUDriver::init(IIMUDriver::IMUDevice device, std::string device_name) {
         if ((device == IIMUDriver::IMUDevice::UNKNOWN) || (device == IIMUDriver::IMUDevice::END_OF_LIST)) {
             return false;
         }
+        imu_device_name = device_name;
         return true;
     }
     bool BaseIMUDriver::update(double current_time_sec_) {
@@ -15,7 +16,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return true;
     }
     std::string BaseIMUDriver::pretty() {
-        std::string str = imu_data.pretty();
+        std::string str = "---Base IMU Driver: " + imu_device_name + " ---\n";
+        str += imu_data.pretty();
         str += magnetic_data.pretty();
         return str;
     }
