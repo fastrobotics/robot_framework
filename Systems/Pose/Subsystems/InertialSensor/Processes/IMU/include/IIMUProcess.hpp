@@ -21,18 +21,30 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IIMUProcess {
        public:
+        /**
+         * @brief Data structure for IMU Configuration
+         *
+         */
+        struct IMUConfig {
+            IIMUDriver::IMUDevice imu_type;  //!< The type of IMU
+            std::string imu_device_name;     //!< Device File Path
+            fast::rf::messages::StandardMsgs::Covariance3DMsg
+                linear_accelerometer_covariance;                                        //!< Linear Acc Covariance
+            fast::rf::messages::StandardMsgs::Covariance3DMsg gyro_covariance;          //!< Gyro Covariance
+            fast::rf::messages::StandardMsgs::Covariance3DMsg magnetometer_covariance;  //!< Magnetometer Covariance
+            fast::rf::messages::StandardMsgs::Covariance3DMsg orientation_covariance;   //!< Orientation Covariance
+        };
         IIMUProcess() = default;
         virtual ~IIMUProcess() = default;
 
         /**
          * @brief Initialize the object
          *
-         * @param imu_type
-         * @param imu_device_name
+         * @param imu_config
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name) = 0;
+        virtual bool init(IMUConfig imu_config) = 0;
 
         /**
          * @brief Generic Update function

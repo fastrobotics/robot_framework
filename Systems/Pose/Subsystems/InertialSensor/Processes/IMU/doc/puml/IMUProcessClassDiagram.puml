@@ -14,6 +14,9 @@ namespace fast::rf {
       class ImuMsg <<(M,#FFFF00)>>
       class MagneticFieldMsg <<(M,#FFFF00)>>
     }
+    namespace StandardMsgs {
+      class Covariance3DMsg <<(M,#FFFF00)>>
+    }
   }
   namespace core::Infrastructure {
     class DiagnosticManager
@@ -85,7 +88,7 @@ namespace fast::rf {
         abstract BaseIMUDriver #LimeGreen {
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
-          #bool init(IMUDevice imu_type,string imu_device_name)
+          #bool init(IMUConfig imu_config)
           #update(double current_time_sec)
           #string pretty()
           #ImuMsg imu_data
@@ -116,21 +119,31 @@ namespace fast::rf {
         }
         IMURazor9DOFDriver -up-|> BaseIMUDriver
         class IMUProcess #LimeGreen {
-          +bool init(IMUDevice device_type, string imu_device_name)
+          +bool init(IMUConfig imu_config)
           +bool update(double current_time_sec)
           +string pretty()
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
           
         }
+        struct IMUConfig #Orange {
+          IMUDevice device_type
+          string imu_device_name
+          Covariance3DMsg linear_accelerometer_covariance
+          Covariance3DMsg gyro_covariance
+          Covariance3DMsg magnetometer_covariance
+          Covariance3DMsg orientation_covariance
+        }
+        IMUProcess +-- IMUConfig
         IMUProcess -up-|> BaseIMUProcess
         IMUProcess --> IIMUDriver
         class DummyIMUProcess {
-          +bool init(IMUDevice device_type, string imu_device_name)
+          +bool init(IMUConfig imu_config)
           +bool update(double current_time_sec)
           +string pretty()
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
+          #IMUConfig imu_config_
         }
         DummyIMUProcess -up-|> BaseIMUProcess
         DummyIMUProcess --> IIMUDriver

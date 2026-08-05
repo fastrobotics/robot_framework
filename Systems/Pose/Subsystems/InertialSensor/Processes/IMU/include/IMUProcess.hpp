@@ -22,14 +22,13 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         IMUProcess() : BaseIMUProcess() {}
 
         /**
-         * @brief Initialize the Object
+         * @brief  Initialize the Object
          *
-         * @param imu_type
-         * @param imu_device_name
+         * @param imu_config
          * @return true
          * @return false
          */
-        bool init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name) override;
+        bool init(IMUConfig imu_config) override;
 
         /**
          * @brief Update with recent timing data
