@@ -159,7 +159,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             sensor_data_.imu_msg.linear_acceleration.x = packet.acc_x_g * 9.81;
             sensor_data_.imu_msg.linear_acceleration.y = packet.acc_y_g * 9.81;
             sensor_data_.imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
-            sensor_data_.imu_msg.angular_velocity.x = packet.gyro_x_rps;
+            sensor_data_.imu_msg.angular_velocity.x = -1.0 * packet.gyro_x_rps;
             sensor_data_.imu_msg.angular_velocity.y = packet.gyro_y_rps;
             sensor_data_.imu_msg.angular_velocity.z = packet.gyro_z_rps;
 
