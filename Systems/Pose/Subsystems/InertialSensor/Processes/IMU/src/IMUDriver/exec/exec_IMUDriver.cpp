@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
     }
     double current_time = 0.0;
     double timer = 0.0;
-    double time_loop = 0.1;
+    double time_loop = 1.0;
     while (true) {
         if (driver->update(current_time) == false) {
             fast::rf::Logger::log_warn("Unable to Update Driver!");
