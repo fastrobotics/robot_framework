@@ -136,10 +136,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         // Roll Pitch Yaw data received
                         packet.packet_type = (uint8_t)header.cmd;
                         packet.roll_rad =
-                            ep_RPY.roll;  // Note 1, ep_RPY is defined in the EasyProfile library as a global variable
-                        packet.pitch_rad = ep_RPY.pitch;  // Note 2, for the units and meaning of each value, refer to
-                                                          // EasyObjectDictionary.h
-                        packet.yaw_rad = ep_RPY.yaw;
+                            ep_RPY.roll * M_PI /
+                            180.0;  // Note 1, ep_RPY is defined in the EasyProfile library as a global variable
+                        packet.pitch_rad = ep_RPY.pitch * M_PI / 180.0;  // Note 2, for the units and meaning of each
+                                                                         // value, refer to EasyObjectDictionary.h
+                        packet.yaw_rad = ep_RPY.yaw * M_PI / 180.0;
                         packet.ok = true;
                     }
                 } break;
@@ -159,7 +160,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             sensor_data_.imu_msg.linear_acceleration.x = packet.acc_x_g * 9.81;
             sensor_data_.imu_msg.linear_acceleration.y = packet.acc_y_g * 9.81;
             sensor_data_.imu_msg.linear_acceleration.z = packet.acc_z_g * 9.81;
-            sensor_data_.imu_msg.angular_velocity.x = packet.gyro_x_rps;
+            sensor_data_.imu_msg.angular_velocity.x = -1.0 * packet.gyro_x_rps;
             sensor_data_.imu_msg.angular_velocity.y = packet.gyro_y_rps;
             sensor_data_.imu_msg.angular_velocity.z = packet.gyro_z_rps;
 
@@ -168,9 +169,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             sensor_data_.magnetic_field_msg.magnetic_field.z = packet.mag_z_T;
 
         } else if (packet.packet_type == (uint8_t)EP_CMD_RPY_) {
-            sensor_data_.imu_msg.orientation.pitch = packet.pitch_rad;
-            sensor_data_.imu_msg.orientation.roll = packet.roll_rad;
-            sensor_data_.imu_msg.orientation.yaw = packet.yaw_rad;
+            sensor_data_.imu_msg.orientation.pitch = -1.0 * packet.pitch_rad;
+            sensor_data_.imu_msg.orientation.roll = -1.0 * packet.roll_rad;
+            sensor_data_.imu_msg.orientation.yaw = (2.0 * M_PI) - packet.yaw_rad;
         }
 
         return sensor_data_;
