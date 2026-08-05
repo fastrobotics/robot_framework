@@ -136,10 +136,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         // Roll Pitch Yaw data received
                         packet.packet_type = (uint8_t)header.cmd;
                         packet.roll_rad =
-                            ep_RPY.roll;  // Note 1, ep_RPY is defined in the EasyProfile library as a global variable
-                        packet.pitch_rad = ep_RPY.pitch;  // Note 2, for the units and meaning of each value, refer to
-                                                          // EasyObjectDictionary.h
-                        packet.yaw_rad = ep_RPY.yaw;
+                            ep_RPY.roll * M_PI /
+                            180.0;  // Note 1, ep_RPY is defined in the EasyProfile library as a global variable
+                        packet.pitch_rad = ep_RPY.pitch * M_PI / 180.0;  // Note 2, for the units and meaning of each
+                                                                         // value, refer to EasyObjectDictionary.h
+                        packet.yaw_rad = ep_RPY.yaw * M_PI / 180.0;
                         packet.ok = true;
                     }
                 } break;
