@@ -169,9 +169,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             sensor_data_.magnetic_field_msg.magnetic_field.z = packet.mag_z_T;
 
         } else if (packet.packet_type == (uint8_t)EP_CMD_RPY_) {
-            sensor_data_.imu_msg.orientation.pitch = packet.pitch_rad;
-            sensor_data_.imu_msg.orientation.roll = packet.roll_rad;
-            sensor_data_.imu_msg.orientation.yaw = packet.yaw_rad + M_PI;
+            sensor_data_.imu_msg.orientation.pitch = -1.0 * packet.pitch_rad;
+            sensor_data_.imu_msg.orientation.roll = -1.0 * packet.roll_rad;
+            sensor_data_.imu_msg.orientation.yaw = (2.0 * M_PI) - packet.yaw_rad;
         }
 
         return sensor_data_;
