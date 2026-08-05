@@ -103,9 +103,12 @@ A Test Executable is provided.
 
 To use this, after building/installing, run the following:
 ```bash
-./install/bin/exec_imudriver -l <Logger Level (DEBUG=2--> FATAL=7)> -d <Driver Version.  1-Mock IMU.  2- SYD TM151>
+./install/bin/exec_imudriver -l <Logger Level (DEBUG=2--> FATAL=7)> -d <Driver Version.  1-Mock IMU.  2- SYD TM151> -n <device_name>
 ```
-
+Where:
+- Logger Level: Any value 2 (DEBUG) --> 7 (FATAL)
+- Driver Version: 1: Mock IMU, 2: SYD TM151 IMU 3: Razor 9DOF IMU
+- Device Name: The device that is used.  For te SYD TM151 IMU's and the Razor 9DOF IMU's it's the serial port.  Typically these will be automaticall named to something like `/dev/imu_<blah>` using udev rules, and if not will show up as `/dev/tty<blah>`
 
 ## Integration Steps
 ### Build Instructions

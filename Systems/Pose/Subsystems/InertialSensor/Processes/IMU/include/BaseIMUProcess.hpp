@@ -36,12 +36,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
-         * @param imu_type
-         * @param imu_device_name
+         * @param imu_config
          * @return true
          * @return false
          */
-        virtual bool init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name);
+        virtual bool init(IMUConfig imu_config);
         /**
          * @brief Update the base object.  Called by Concrete Function.
          *
@@ -80,5 +79,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         IIMUDriver* driver{nullptr};                                               //!< IMU Driver
+        IMUConfig imu_config_;                                                     //!< IMU Configuration
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

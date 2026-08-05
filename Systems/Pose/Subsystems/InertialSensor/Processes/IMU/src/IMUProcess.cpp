@@ -1,12 +1,12 @@
 #include <IMUProcess.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
-    bool IMUProcess::init(IIMUDriver::IMUDevice imu_type, std::string imu_device_name) {
+    bool IMUProcess::init(IMUConfig imu_config) {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS);
         diagnosticManager.initialize_diagnostics(diagnostic_types);
-        bool status = BaseIMUProcess::init(imu_type, imu_device_name);
+        bool status = BaseIMUProcess::init(imu_config);
         if (status == false) {
             return false;
         }
@@ -25,10 +25,19 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         str += BaseIMUProcess::pretty();
         return str;
     }
-    bool IMUProcess::get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) { return driver->get_imu_data(data); }
+    bool IMUProcess::get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
+        bool status = driver->get_imu_data(data);
+        data.orientation_covariance = imu_config_.orientation_covariance;
+        data.angular_velocity_covariance = imu_config_.gyro_covariance;
+        data.linear_acceleration_covariance = imu_config_.linear_accelerometer_covariance;
+
+        return status;
+    }
 
     bool IMUProcess::get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
-        return driver->get_magnetic_data(data);
+        bool status = driver->get_magnetic_data(data);
+        data.magnetic_field_covariance = imu_config_.magnetometer_covariance;
+        return status;
     }
 
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

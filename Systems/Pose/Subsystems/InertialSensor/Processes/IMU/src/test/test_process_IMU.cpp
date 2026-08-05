@@ -11,9 +11,7 @@
 using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
 class TestIMUProcessInterface : public IIMUProcess {
    public:
-    bool init([[maybe_unused]] IIMUDriver::IMUDevice imu_type, [[maybe_unused]] std::string device_name) {
-        return true;
-    }
+    bool init([[maybe_unused]] IMUConfig imu_config) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
@@ -38,7 +36,10 @@ class TestIMUProcessInterface : public IIMUProcess {
 };
 TEST(TestIMUProcessInterface, InterfaceTests) {
     TestIMUProcessInterface SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("UNKNOWN"), ""));
+    IIMUProcess::IMUConfig imu_config;
+    imu_config.imu_type = IIMUDriver::convert_name("UNKNOWN");
+    imu_config.imu_device_name = "";
+    ASSERT_TRUE(SUT.init(imu_config));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.1));
     fast::rf::messages::SensorMsgs::ImuMsg imu_data;
@@ -49,8 +50,8 @@ TEST(TestIMUProcessInterface, InterfaceTests) {
 class TestBaseIMUProcess : public BaseIMUProcess {
    public:
     TestBaseIMUProcess() : BaseIMUProcess() {}
-    bool init(IIMUDriver::IMUDevice imu_type, std::string device_name) override {
-        bool status = BaseIMUProcess::init(imu_type, device_name);
+    bool init(IMUConfig imu_config) override {
+        bool status = BaseIMUProcess::init(imu_config);
         if (status == false) {
             return false;
         }
@@ -88,7 +89,10 @@ class TestBaseIMUProcess : public BaseIMUProcess {
 };
 TEST(BaseIMUProcess, BasicAssertions) {
     TestBaseIMUProcess SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK"), ""));
+    IIMUProcess::IMUConfig imu_config;
+    imu_config.imu_type = IIMUDriver::convert_name("MOCK");
+    imu_config.imu_device_name = "";
+    ASSERT_TRUE(SUT.init(imu_config));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.1));
     ASSERT_TRUE(SUT.inject_error());
@@ -105,7 +109,10 @@ TEST(BaseIMUProcess, BasicAssertions) {
 
 TEST(IMUProcess, BasicTests) {
     IMUProcess SUT;
-    ASSERT_TRUE(SUT.init(IIMUDriver::convert_name("MOCK"), ""));
+    IIMUProcess::IMUConfig imu_config;
+    imu_config.imu_type = IIMUDriver::convert_name("MOCK");
+    imu_config.imu_device_name = "";
+    ASSERT_TRUE(SUT.init(imu_config));
     ASSERT_TRUE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
@@ -122,7 +129,10 @@ TEST(IMUProcess, BasicTests) {
 }
 TEST(IMUProcess, BadDriverConfiguration) {
     IMUProcess SUT;
-    ASSERT_FALSE(SUT.init(IIMUDriver::convert_name("UNKNOWN"), ""));
+    IIMUProcess::IMUConfig imu_config;
+    imu_config.imu_type = IIMUDriver::convert_name("UNKNOWN");
+    imu_config.imu_device_name = "";
+    ASSERT_FALSE(SUT.init(imu_config));
     ASSERT_FALSE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
