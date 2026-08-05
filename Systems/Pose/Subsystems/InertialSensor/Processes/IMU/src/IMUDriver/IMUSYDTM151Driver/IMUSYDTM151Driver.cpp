@@ -171,7 +171,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         } else if (packet.packet_type == (uint8_t)EP_CMD_RPY_) {
             sensor_data_.imu_msg.orientation.pitch = packet.pitch_rad;
             sensor_data_.imu_msg.orientation.roll = packet.roll_rad;
-            sensor_data_.imu_msg.orientation.yaw = packet.yaw_rad;
+            sensor_data_.imu_msg.orientation.yaw = packet.yaw_rad + M_PI;
         }
 
         return sensor_data_;
