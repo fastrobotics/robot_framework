@@ -11,17 +11,23 @@ using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
 
 TEST(BasicTeleopControlProcess, BasicTests) {
     BasicTeleopControlProcess SUT;
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     ASSERT_TRUE(SUT.update(0.0));
     printf("%s\n", SUT.pretty().c_str());
 }
 TEST(BasicTeleopControlProcess, BasicConversionTests) {
     BasicTeleopControlProcess SUT;
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
 }
 TEST(BasicTeleopControlProcess, JoyTestMode) {
     BasicTeleopControlProcess SUT;
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     ASSERT_TRUE(SUT.set_operation_mode(OperationMode::JOY_TEST));
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.buttons.resize(2);
@@ -36,8 +42,9 @@ TEST(BasicTeleopControlProcess, DefaultConfigJoystickInput) {
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.axes.resize(3);
     joy.buttons.resize(2);
-
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     {  // Forward/Backwards Velocity
 
         ASSERT_TRUE(SUT.new_joy(joy));
@@ -51,7 +58,9 @@ TEST(BasicTeleopControlProcess, DefaultConfigJoystickInput) {
 }
 TEST(BasicTeleopControlProcess, ConfigurationTests) {
     BasicTeleopControlProcess SUT;
-    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     {                                                                // Forward Velocity Min/Max Configuration Checks
         ASSERT_FALSE(SUT.set_config(-100.0, 100.0, 100.0, -100.0));  // Max Reverse is higher than Max Forward
     }
@@ -64,8 +73,10 @@ TEST(BasicTeleopControlProcess, ConfigurationTests) {
 }
 TEST(BasicTeleopControlProcess, TestInputTimeout) {
     BasicTeleopControlProcess SUT;
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
     EXPECT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
-    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     double current_time = 0.0;
     EXPECT_TRUE(SUT.update(current_time));
     EXPECT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
@@ -90,7 +101,9 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
 }
 TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
     BasicTeleopControlProcess SUT;
-    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;
     robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
     fast::rf::messages::SensorMsgs::JoyMsg joy;

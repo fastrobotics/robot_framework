@@ -22,11 +22,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         /**
          * @brief Initialize the object
          *
-         * @param device What type of device will be used.
+         * @param device
+         * @param joy_calibration_data
          * @return true
          * @return false
          */
-        bool init(ControlDevice device);
+        bool init(ControlDevice device, JoystickCalibrationData joy_calibration_data);
         /**
          * @brief Process a Joystick message
          *
@@ -34,10 +35,23 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          * @return fast::rf::messages::SensorMsgs::JoyMsg
          */
         fast::rf::messages::SensorMsgs::JoyMsg new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy);
+        /**
+         * @brief Scale a value linearly
+         *
+         * @param input_value
+         * @param input_min
+         * @param input_max
+         * @param output_min
+         * @param output_max
+         * @return double
+         */
+        static double scale_value(double input_value, double input_min, double input_max, double output_min,
+                                  double output_max);
 
        private:
         ControlDevice control_device{ControlDevice::UNKNOWN};  //!< The device that is being used
         bool is_initialized{false};                            //!< If the object is initialized
+        JoystickCalibrationData joy_cal_data;                  //!< Joystick Calibration INformation
     };
 
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem

@@ -2,7 +2,7 @@
 #include <Infrastructure/Logger.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
 
-    bool BasicTeleopControlProcess::init(ControlDevice device) {
+    bool BasicTeleopControlProcess::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
         if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
             fast::rf::Logger::log_error("Unable to initialize an Unknown Control Device.");
             return false;
@@ -12,7 +12,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
             fast::rf::Logger::log_error("Unable to initialize Joystick Mapper");
             return false;
         }
-        status = scaler.init(device);
+        status = scaler.init(device, joy_calibration_data);
         if (status == false) {
             fast::rf::Logger::log_error("Unable to initialize Joystick Scaler.");
             return false;
