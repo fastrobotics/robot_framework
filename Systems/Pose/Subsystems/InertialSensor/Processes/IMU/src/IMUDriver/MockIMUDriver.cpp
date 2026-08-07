@@ -12,6 +12,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             get_imu_data(data);
             data.time_stamp = current_time_sec;
             data.seq++;
+            data.linear_acceleration.x = 1.0;
+            data.linear_acceleration.z = -9.81;
             new_imu_data(data);
         }
         {
