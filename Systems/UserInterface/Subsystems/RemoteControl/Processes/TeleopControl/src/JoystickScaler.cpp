@@ -1,3 +1,4 @@
+#include <Infrastructure/Logger.hpp>
 #include <JoystickScaler.hpp>
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     bool JoystickScaler::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
@@ -14,28 +15,34 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         if (is_initialized == false) {
             return out_joy;
         }
-
+        fast::rf::messages::SensorMsgs::JoyMsg cal_joy;
+        cal_joy.axes.resize(joy.axes.size());
         // Run Calibration
         // Do X Axis
         if (joy.axes[0] >= (joy_cal_data.x_deadband / 2.0)) {
-            joy.axes[0] = scale_value(joy.axes[0], 0.0, 1.0, 0.0, joy_cal_data.x_max);
+            cal_joy.axes[0] = scale_value(joy.axes[0], 0.0, 1.0, 0.0, joy_cal_data.x_max);
         } else if (joy.axes[0] <= (-1.0 * joy_cal_data.x_deadband / 2.0)) {
-            joy.axes[0] = scale_value(joy.axes[0], -1.0, 0.0, joy_cal_data.x_min, 0.0);
+            cal_joy.axes[0] = scale_value(joy.axes[0], -1.0, 0.0, joy_cal_data.x_min, 0.0);
         } else {
-            joy.axes[0] = 0.0;
+            cal_joy.axes[0] = 0.0;
         }
         // Do Y Axis
         if (joy.axes[1] >= (joy_cal_data.y_deadband / 2.0)) {
-            joy.axes[1] = scale_value(joy.axes[1], 0.0, 1.0, 0.0, joy_cal_data.y_max);
+            cal_joy.axes[1] = scale_value(joy.axes[1], 0.0, 1.0, 0.0, joy_cal_data.y_max);
         } else if (joy.axes[1] <= (-1.0 * joy_cal_data.y_deadband / 2.0)) {
-            joy.axes[1] = scale_value(joy.axes[1], -1.0, 0.0, joy_cal_data.y_min, 0.0);
+            cal_joy.axes[1] = scale_value(joy.axes[1], -1.0, 0.0, joy_cal_data.y_min, 0.0);
         } else {
-            joy.axes[1] = 0.0;
+            cal_joy.axes[1] = 0.0;
         }
+        fast::rf::Logger::log_debug("X in: " + std::to_string(joy.axes[0]) +
+                                    " out: " + std::to_string(cal_joy.axes[0]));
+        fast::rf::Logger::log_debug("Y in: " + std::to_string(joy.axes[1]) +
+                                    " out: " + std::to_string(cal_joy.axes[1]));
+
         out_joy.axes.resize(joy.axes.size());
         if (control_device == ControlDevice::THRUSTMASTER_JOYSTICK) {
-            for (std::size_t i = 0; i < joy.axes.size(); ++i) {
-                out_joy.axes[i] = AXIS_MAX_VALUE * joy.axes[i];
+            for (std::size_t i = 0; i < cal_joy.axes.size(); ++i) {
+                out_joy.axes[i] = AXIS_MAX_VALUE * cal_joy.axes[i];
                 if (out_joy.axes[i] > AXIS_MAX_VALUE) {
                     out_joy.axes[i] = AXIS_MAX_VALUE;
                 } else if (out_joy.axes[i] < (-1.0 * AXIS_MAX_VALUE)) {
