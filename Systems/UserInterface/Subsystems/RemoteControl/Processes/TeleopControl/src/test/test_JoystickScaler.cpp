@@ -73,8 +73,8 @@ TEST(JoystickScaler, TestCalibration) {
         auto scaled_joy = SUT.new_joy(joy);
         ASSERT_EQ(scaled_joy.axes.size(), 3);
 
-        ASSERT_FLOAT_EQ(scaled_joy.axes[0], joy_calibration.x_max);
-        ASSERT_FLOAT_EQ(scaled_joy.axes[1], joy_calibration.y_max);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[0], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.x_max);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[1], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.y_max);
     }
     {  // Max Top Left Quadrant
         joy.axes[0] = -1.0;
@@ -82,8 +82,8 @@ TEST(JoystickScaler, TestCalibration) {
         auto scaled_joy = SUT.new_joy(joy);
         ASSERT_EQ(scaled_joy.axes.size(), 3);
 
-        ASSERT_FLOAT_EQ(scaled_joy.axes[0], joy_calibration.x_min);
-        ASSERT_FLOAT_EQ(scaled_joy.axes[1], joy_calibration.y_max);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[0], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.x_min);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[1], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.y_max);
     }
     {  // Max Bottom Left Quadrant
         joy.axes[0] = -1.0;
@@ -91,8 +91,8 @@ TEST(JoystickScaler, TestCalibration) {
         auto scaled_joy = SUT.new_joy(joy);
         ASSERT_EQ(scaled_joy.axes.size(), 3);
 
-        ASSERT_FLOAT_EQ(scaled_joy.axes[0], joy_calibration.x_min);
-        ASSERT_FLOAT_EQ(scaled_joy.axes[1], joy_calibration.y_min);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[0], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.x_min);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[1], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.y_min);
     }
     {  // Max Bottom Right Quadrant
         joy.axes[0] = 1.0;
@@ -100,7 +100,7 @@ TEST(JoystickScaler, TestCalibration) {
         auto scaled_joy = SUT.new_joy(joy);
         ASSERT_EQ(scaled_joy.axes.size(), 3);
 
-        ASSERT_FLOAT_EQ(scaled_joy.axes[0], joy_calibration.x_max);
-        ASSERT_FLOAT_EQ(scaled_joy.axes[1], joy_calibration.y_min);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[0], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.x_max);
+        ASSERT_FLOAT_EQ(scaled_joy.axes[1], JoystickScaler::AXIS_MAX_VALUE * joy_calibration.y_min);
     }
 }

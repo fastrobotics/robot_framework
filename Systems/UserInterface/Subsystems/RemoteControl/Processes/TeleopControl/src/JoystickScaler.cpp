@@ -34,10 +34,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         } else {
             cal_joy.axes[1] = 0.0;
         }
-        fast::rf::Logger::log_debug("X in: " + std::to_string(joy.axes[0]) +
-                                    " out: " + std::to_string(cal_joy.axes[0]));
-        fast::rf::Logger::log_debug("Y in: " + std::to_string(joy.axes[1]) +
-                                    " out: " + std::to_string(cal_joy.axes[1]));
+        // Do Throttle Axis
+        if (joy.axes[2] >= (joy_cal_data.throttle_deadband / 2.0)) {
+            cal_joy.axes[2] = scale_value(joy.axes[2], 0.0, 1.0, 0.0, joy_cal_data.throttle_max);
+        } else if (joy.axes[2] <= (-1.0 * joy_cal_data.throttle_deadband / 2.0)) {
+            cal_joy.axes[2] = scale_value(joy.axes[2], -1.0, 0.0, joy_cal_data.throttle_min, 0.0);
+        } else {
+            cal_joy.axes[2] = 0.0;
+        }
 
         out_joy.axes.resize(joy.axes.size());
         if (control_device == ControlDevice::THRUSTMASTER_JOYSTICK) {
