@@ -16,6 +16,9 @@
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <TwistMsg.hpp>
+#include <cmath>
+#include <limits>
+#include <string>
 #include <vector>
 
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
@@ -40,6 +43,62 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
     };
 
     /**
+     * @brief CalibrationData Structure
+     *
+     */
+    struct JoystickCalibrationData {
+        double x_min;              //!< Min X value
+        double x_max;              //!< Max X Value
+        double x_deadband;         //!< X Deadband
+        double y_min;              //!< Min Y Value
+        double y_max;              //!< Max Y Value
+        double y_deadband;         //!< Y Deadband
+        double throttle_min;       //!< Min Throttle
+        double throttle_max;       //!< Max Throttle
+        double throttle_deadband;  //!< Throttle Deadband
+        JoystickCalibrationData() {
+            x_deadband = 0.0;
+            x_min = INFINITY;
+            x_max = -INFINITY;
+            y_deadband = 0.0;
+            y_min = INFINITY;
+            y_max = -INFINITY;
+            throttle_min = INFINITY;
+            throttle_max = -INFINITY;
+            throttle_deadband = 0.0;
+        }
+        /**
+         * @brief Optional Initializer in case you don't want to use a calibration file.
+         *
+         */
+        void optional_init() {
+            x_deadband = 0.0;
+            x_min = -1.0;
+            x_max = 1.0;
+            y_deadband = 0.0;
+            y_min = -1.0;
+            y_max = 1.0;
+            throttle_min = -1.0;
+            throttle_max = 1.0;
+            throttle_deadband = 0.0;
+        }
+        /**
+         * @brief Pretty print joystick dalibration data
+         *
+         * @return std::string
+         */
+        std::string pretty() {
+            std::string str = "\nX:\n\t DB: " + std::to_string(x_deadband) + " min: " + std::to_string(x_min) +
+                              " max: " + std::to_string(x_max) + "\n";
+            str += "Y:\n\t DB: " + std::to_string(y_deadband) + " min: " + std::to_string(y_min) +
+                   " max: " + std::to_string(y_max) + "\n";
+            str += "Thr:\n\t DB: " + std::to_string(throttle_deadband) + " min: " + std::to_string(throttle_min) +
+                   " max: " + std::to_string(throttle_max);
+            return str;
+        }
+    };
+
+    /**
      * @brief Interface for the TeleopControl Process
      *
      */
@@ -47,17 +106,19 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
        public:
         static constexpr double INPUT_TIMEOUT_SEC =
             5.0;  //!< R/C Input not provided for this duration will trip diagnostics/disable ready to arm
+
         ITeleopControlProcess() = default;
         virtual ~ITeleopControlProcess() = default;
 
         /**
          * @brief Initialize the object
          *
-         * @param device The Controller Device
+         * @param device
+         * @param joy_calibration_data
          * @return true
          * @return false
          */
-        virtual bool init(ControlDevice device) = 0;
+        virtual bool init(ControlDevice device, JoystickCalibrationData joy_calibration_data) = 0;
 
         /**
          * @brief Generic Update function

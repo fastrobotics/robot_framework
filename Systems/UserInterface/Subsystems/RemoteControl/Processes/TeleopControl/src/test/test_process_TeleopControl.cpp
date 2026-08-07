@@ -10,7 +10,9 @@
 using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
 class TestTeleopControlProcessInterface : public ITeleopControlProcess {
    public:
-    bool init([[maybe_unused]] ControlDevice device) { return true; }
+    bool init([[maybe_unused]] ControlDevice device, [[maybe_unused]] JoystickCalibrationData joy_calibration_data) {
+        return true;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     void update_RobotArmCommand([
         [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) {}
@@ -37,7 +39,9 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
 };
 TEST(TestTeleopControlProcessInterface, InterfaceTests) {
     TestTeleopControlProcessInterface SUT;
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
@@ -52,7 +56,8 @@ TEST(TestTeleopControlProcessInterface, InterfaceTests) {
 class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
    public:
     TestBaseTeleopControlProcess() : BaseTeleopControlProcess() {}
-    bool init([[maybe_unused]] ControlDevice device) override {
+    bool init([[maybe_unused]] ControlDevice device,
+              [[maybe_unused]] JoystickCalibrationData joy_calibration_data) override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
@@ -80,7 +85,9 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
     TestBaseTeleopControlProcess SUT;
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));
+    JoystickCalibrationData joy_calibration;
+    joy_calibration.optional_init();
+    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     for (uint8_t mode = 0;
          mode <= (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST; ++mode) {
         if ((mode == 0) ||

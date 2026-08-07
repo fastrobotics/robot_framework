@@ -26,11 +26,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         /**
          * @brief Initialize the object
          *
-         * @param device The controller device
+         * @param device
+         * @param joy_calibration_data
          * @return true
          * @return false
          */
-        bool init(ControlDevice device) override;
+        bool init(ControlDevice device, JoystickCalibrationData joy_calibration_data) override;
 
         /**
          * @brief Set the config object

@@ -29,6 +29,18 @@ namespace fast::rf {
   }
   namespace UserInterfaceSystem {
     package RemoteControlSubsystem #LightYellow;line:blue {
+      struct JoystickCalibrationData #Orange {
+        double x_min
+        double x_max
+        double x_deadband
+        double y_min
+        double y_max
+        double y_deadband
+        double throttle_min
+        double throttle_max
+        double throttle_deadband
+        +{static} pretty()
+      }
       enum OperationMode #LimeGreen {
         UNKNOWN = 0,
         JOY_TEST = 1,
@@ -41,7 +53,7 @@ namespace fast::rf {
         END_OF_LIST = 2
       }
       interface ITeleopControlProcess #LimeGreen {
-        +{abstract} bool init(ControlDevice device)
+        +{abstract} bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
         +{abstract} DiagnosticMsg[] get_diagnostics()
         +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
         +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
@@ -52,6 +64,7 @@ namespace fast::rf {
         +{abstract} ArmStateChangeSrvRequest get_armstate_change_request()
         +{abstract} bool set_operation_mode(OperationMode mode)
       }
+      ITeleopControlProcess +-- JoystickCalibrationData
       ITeleopControlProcess --> OperationMode: <<use>>
       ITeleopControlProcess --> ControlDevice: <<use>>
       class JoystickMapper #Pink {
@@ -65,16 +78,15 @@ namespace fast::rf {
       note bottom of JoystickMapper
         Pass-Thru
       end note
-      class JoystickScaler #Pink {
-        +bool init(ControlDevice device)
+      class JoystickScaler #LimeGreen {
+        +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
         +JoyMsg new_joy(JoyMsg joy)
         -bool is_initialized
         -ControlDevice control_device
+        -JoystickCalibrationData joy_cal_data
       }
+      JoystickScaler --> JoystickCalibrationData: <<use>>
       JoystickScaler --> ControlDevice: <<use>>
-      note bottom of JoystickScaler
-        Pass-Thru
-      end note
       abstract BaseTeleopControlProcess #LimeGreen {
         +DiagnosticMsg[] get_diagnostics()
         +bool update(double current_time_sec)
@@ -102,7 +114,7 @@ namespace fast::rf {
       class BasicTeleopControlProcess #LimeGreen
       BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
       class DummyTeleopControlProcess {
-        +bool init(ControlDevice device)
+        +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
         +bool update(double current_time_sec)
       }
       DummyTeleopControlProcess -up-|> BaseTeleopControlProcess
