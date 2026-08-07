@@ -121,9 +121,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                         packet.acc_y_g = ep_Raw_GyroAccMag.acc[1];  // Note 2: for the units and meaning of each value,
                                                                     // refer to EasyObjectDictionary.h
                         packet.acc_z_g = ep_Raw_GyroAccMag.acc[2];
-                        packet.gyro_x_rps = ep_Raw_GyroAccMag.gyro[0] * M_PI / 180.0;
-                        packet.gyro_y_rps = ep_Raw_GyroAccMag.gyro[1] * M_PI / 180.0;
-                        packet.gyro_z_rps = ep_Raw_GyroAccMag.gyro[2] * M_PI / 180.0;
+                        packet.gyro_x_rps = ep_Raw_GyroAccMag.gyro[0];
+                        packet.gyro_y_rps = ep_Raw_GyroAccMag.gyro[1];
+                        packet.gyro_z_rps = ep_Raw_GyroAccMag.gyro[2];
                         packet.mag_x_T = ep_Raw_GyroAccMag.mag[0] * 0.00005;  // Convert to Tesla
                         packet.mag_y_T = ep_Raw_GyroAccMag.mag[1] * 0.00005;  // Convert to Tesla;
                         packet.mag_z_T = ep_Raw_GyroAccMag.mag[2] * 0.00005;  // Convert to Tesla;
