@@ -12,7 +12,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         return true;
     }
     fast::rf::messages::SensorMsgs::JoyMsg JoystickScaler::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
-        fast::rf::Logger::log_error("xxxC X: " + std::to_string(joy_calibration_data.x_deadband));
+        fast::rf::Logger::log_error("xxxC X: " + std::to_string(joy_cal_data.x_deadband));
         fast::rf::messages::SensorMsgs::JoyMsg out_joy;
         if (is_initialized == false) {
             return out_joy;
