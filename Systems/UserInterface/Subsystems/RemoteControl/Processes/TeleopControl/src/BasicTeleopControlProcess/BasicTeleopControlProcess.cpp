@@ -3,7 +3,7 @@
 namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
 
     bool BasicTeleopControlProcess::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
-        fast::rf::Logger::log_error("X: " + std::to_string(joy_calibration_data.x_deadband));
+        fast::rf::Logger::log_error("xxxA X: " + std::to_string(joy_calibration_data.x_deadband));
         if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
             fast::rf::Logger::log_error("Unable to initialize an Unknown Control Device.");
             return false;
