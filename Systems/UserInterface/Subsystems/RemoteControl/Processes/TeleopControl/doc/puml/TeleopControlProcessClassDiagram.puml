@@ -29,7 +29,7 @@ namespace fast::rf {
   }
   namespace UserInterfaceSystem {
     package RemoteControlSubsystem #LightYellow;line:blue {
-      struct JoystickCalibrationData #Orange {
+      struct JoystickCalibrationData #LimeGreen {
         double x_min
         double x_max
         double x_deadband
