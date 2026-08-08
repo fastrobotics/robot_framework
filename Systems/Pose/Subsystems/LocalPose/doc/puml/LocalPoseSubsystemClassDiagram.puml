@@ -18,6 +18,19 @@ namespace fast::rf {
       class DummyLocalPoseSubsystem {
       }
       DummyLocalPoseSubsystem -up-|> BaseLocalPoseSubsystem
+      namespace InertialSensorFuserProcess #Yellow {
+
+      }
+      namespace WheelOdometryFuserProcess {
+
+      }
+      namespace VisualOdometryFuserProcess {
+
+      }
+      namespace LocalPoseFuserProcess #Yellow {
+        
+      }
+
     }
   }
 }

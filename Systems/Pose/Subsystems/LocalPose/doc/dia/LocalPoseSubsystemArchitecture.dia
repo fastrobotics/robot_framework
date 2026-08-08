@@ -90,7 +90,7 @@
         <dia:point val="30,-12"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15.9637,-13.3509;44.0773,-11.5851"/>
+        <dia:rectangle val="15.9637,-13.3098;44.0363,-11.6672"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -241,7 +241,7 @@
         <dia:point val="0,-1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="0,-1.61268;9.69612,-0.811816"/>
+        <dia:rectangle val="0,-1.59406;9.6925,-0.849062"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -274,7 +274,7 @@
         <dia:point val="2,8"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="2,7.40595;7.4075,8.15094"/>
+        <dia:rectangle val="2,7.40594;7.4225,8.15094"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -307,7 +307,7 @@
         <dia:point val="0,11"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="0,10.4059;5.315,11.1509"/>
+        <dia:rectangle val="0,10.4059;5.3275,11.1509"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -360,7 +360,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#Inertial Sensor Process#</dia:string>
+            <dia:string>#Inertial Sensor Fuser Process#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -369,7 +369,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="20,-0.530947"/>
+            <dia:point val="20,-0.530938"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -405,7 +405,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#Wheel Odometry Process#</dia:string>
+            <dia:string>#Wheel Odometry Fuser Process#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -414,7 +414,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="20,8.91905"/>
+            <dia:point val="20,8.91906"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -450,7 +450,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#Visual Odometry Process#</dia:string>
+            <dia:string>#Visual Odometry Fuser Process#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -503,7 +503,7 @@
         <dia:point val="31,0"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="31,-0.594053;36.125,0.150935"/>
+        <dia:rectangle val="31,-0.594062;36.1325,0.150938"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -565,7 +565,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="45,7.19405"/>
+            <dia:point val="45,7.19406"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -609,7 +609,7 @@
         <dia:point val="54,7"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="54,6.40595;57.3425,7.15094"/>
+        <dia:rectangle val="54,6.40594;57.345,7.15094"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">

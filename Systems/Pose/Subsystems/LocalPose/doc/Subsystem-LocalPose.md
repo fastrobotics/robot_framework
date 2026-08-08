@@ -60,12 +60,12 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process                  |
-| ------ | ------------------------ |
-| NEW    | Inertial Sensor Process  |
-| NEW    | Wheel Odometry Process   |
-| NEW    | Visual Odometry Process  |
-| NEW    | Local Pose Fuser Process |
+| Status | Process                                                                                              |
+| ------ | ---------------------------------------------------------------------------------------------------- |
+| DRAFT  | [Inertial Sensor Fuser Process](../Processes/InertialSensorFuser/doc/Process-InertialSensorFuser.md) |
+| NEW    | Wheel Odometry Fuser Process                                                                         |
+| NEW    | Visual Odometry Fuser Process                                                                        |
+| DRAFT  | [Local Pose Fuser Process](../Processes/LocalPoseFuser/doc/Process-LocalPoseFuser.md)                |  |
 
 ## Package Diagram
 
