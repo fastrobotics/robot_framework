@@ -1,0 +1,24 @@
+@startuml
+title LocalPose Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace PoseSystem {
+    package LocalPoseSubsystem #LightYellow;line:blue {
+      interface ILocalPoseSubsystem {
+
+      }
+      abstract BaseLocalPoseSubsystem {
+
+      }
+      BaseLocalPoseSubsystem .up.|> ILocalPoseSubsystem
+      class BasicLocalPoseSubsystem {
+      }
+      BasicLocalPoseSubsystem -up-|> BaseLocalPoseSubsystem
+      class DummyLocalPoseSubsystem {
+      }
+      DummyLocalPoseSubsystem -up-|> BaseLocalPoseSubsystem
+    }
+  }
+}
+@enduml

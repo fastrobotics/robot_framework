@@ -59,7 +59,7 @@ The following Subsystems are provided in this System:
 | DRAFT | [Inertial Sensors](../Subsystems/InertialSensor/doc/Subsystem-InertialSensor.md)    |         |
 | NEW   | [Global Sensors](../Subsystems/GlobalSensorSubsystem/doc/Subsystem-GlobalSensor.md) |         |
 | DRAFT | [Global Pose](../Subsystems/GlobalPoseSubsystem/doc/Subsystem-GlobalPose.md)        |         |
-| NEW   | [Local Pose](../Subsystems/LocalPoseSubsystem/doc/Subsystem-LocalPose.md)           |         |
+| DRAFT | [Local Pose](../Subsystems/LocalPose/doc/Subsystem-LocalPose.md)                    |         |
 
 ## Package Diagram
 ![](../../../Legend.png)
