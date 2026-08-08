@@ -24,9 +24,9 @@ namespace fast::rf {
       class DummyLocalPoseSubsystem {
       }
       DummyLocalPoseSubsystem -up-|> BaseLocalPoseSubsystem
-      namespace InertialSensorFuserProcess #Yellow {
-        interface IInertialSensorFuserProcess #Yellow {}
-        class BasicInertialSensorFuserProcess #Yellow {}
+      namespace InertialSensorFuserProcess #LimeGreen {
+        interface IInertialSensorFuserProcess #LimeGreen {}
+        class BasicInertialSensorFuserProcess #Pink {}
         BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
 
       }
@@ -36,9 +36,9 @@ namespace fast::rf {
       namespace VisualOdometryFuserProcess {
 
       }
-      namespace LocalPoseFuserProcess #Yellow {
-        interface ILocalPoseFuserProcess #Yellow {}
-        class BasicLocalPoseFuserProcess #Yellow {}
+      namespace LocalPoseFuserProcess #LimeGreen {
+        interface ILocalPoseFuserProcess #LimeGreen {}
+        class BasicLocalPoseFuserProcess #Pink {}
         BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
       }
 

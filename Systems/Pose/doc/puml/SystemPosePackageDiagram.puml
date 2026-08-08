@@ -2,8 +2,13 @@
 title System-Pose Package Diagram
 
 namespace fast::rf {
-  namespace messages::GeometryMsgs {
-    class OdomMsg <<(M,#FFFF00) >>
+  namespace messages {
+    namespace GeometryMsgs {
+      class OdomMsg <<(M,#FFFF00) >>
+    }
+    namespace SensorMsgs {
+      class ImuMsg <<(M,#FFFF00) >>
+    }
   }
   package PoseSystem #LightYellow;line:blue {
     namespace InertialSensorSubsystem #LimeGreen {
@@ -16,16 +21,16 @@ namespace fast::rf {
     namespace GlobalPoseSubsystem {
       interface IGlobalPoseSubsystem
     }
-    namespace LocalPoseSubsystem #Yellow {
-      namespace InertialSensorFuserProcess #Yellow {
-        interface IInertialSensorFuserProcess #Yellow {}
-        class BasicInertialSensorFuserProcess #Yellow {}
+    namespace LocalPoseSubsystem #LimeGreen {
+      namespace InertialSensorFuserProcess #LimeGreen {
+        interface IInertialSensorFuserProcess #LimeGreen {}
+        class BasicInertialSensorFuserProcess #Pink {}
         BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
 
       }
-      namespace LocalPoseFuserProcess #Yellow {
-        interface ILocalPoseFuserProcess #Yellow {}
-        class BasicLocalPoseFuserProcess #Yellow {}
+      namespace LocalPoseFuserProcess #LimeGreen {
+        interface ILocalPoseFuserProcess #LimeGreen {}
+        class BasicLocalPoseFuserProcess #Pink {}
         BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
       }
     }
