@@ -45,6 +45,15 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          */
         std::string pretty() override;
 
+        /**
+         * @brief Compute a new Machine Inertial Datum
+         *
+         * @param machine_inertial_data
+         * @return true
+         * @return false
+         */
+        bool new_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) override;
+
        private:
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

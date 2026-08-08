@@ -22,6 +22,11 @@ class TestLocalPoseFuserProcessInterface : public ILocalPoseFuserProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    bool new_machine_inertial_data([[maybe_unused]] fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
+        return false;
+    }
+
+    bool get_local_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg& local_pose) { return false; }
 };
 TEST(TestLocalPoseFuserProcessInterface, InterfaceTests) {
     TestLocalPoseFuserProcessInterface SUT;
@@ -54,6 +59,11 @@ class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
+    bool new_machine_inertial_data([[maybe_unused]] fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
+        fast::rf::messages::GeometryMsgs::OdomMsg pose;
+        new_local_pose(pose);
+        return true;
+    }
 };
 TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     TestBaseLocalPoseFuserProcess SUT;
@@ -66,4 +76,14 @@ TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.clear_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
+    ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
+    ASSERT_TRUE(SUT.get_local_pose(local_pose));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    ASSERT_FALSE(SUT.get_local_pose(local_pose));
+    fast::rf::Logger::log_debug(SUT.pretty());
 }

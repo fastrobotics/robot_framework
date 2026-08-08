@@ -4,13 +4,20 @@
 #include <stdio.h>
 
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
-
+#include <Infrastructure/Logger.hpp>
 using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
 
 TEST(BasicLocalPoseFuserProcess, BasicTests) {
     BasicLocalPoseFuserProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0));
+
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+
+    fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
+    ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
+    ASSERT_TRUE(SUT.update(1.0));
+    fast::rf::Logger::log_debug(SUT.pretty());
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
@@ -19,8 +26,18 @@ TEST(BasicLocalPoseFuserProcess, BasicTests) {
     }
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
-TEST(BasicLocalPoseFuserProcess, BasicConversionTests) {
+TEST(BasicLocalPoseFuserProcess, BasicInterfaceTests) {
     BasicLocalPoseFuserProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
+
+    fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
+    machine_inertial_data.time_stamp = 0.5;
+    machine_inertial_data.angular_velocity.z = 1.0;
+    ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
+    ASSERT_TRUE(SUT.update(1.0));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
+    ASSERT_TRUE(SUT.get_local_pose(local_pose));
+    ASSERT_FLOAT_EQ(machine_inertial_data.angular_velocity.z, local_pose.twist.twist.angular.z);
 }

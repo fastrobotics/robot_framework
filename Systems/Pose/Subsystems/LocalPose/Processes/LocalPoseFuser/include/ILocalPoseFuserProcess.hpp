@@ -10,6 +10,8 @@
  */
 #pragma once
 #include <DiagnosticMsg.hpp>
+#include <ImuMsg.hpp>
+#include <OdomMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
@@ -61,5 +63,23 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+
+        /**
+         * @brief Process a new Machine Inertial Datum
+         *
+         * @param machine_inertial_data
+         * @return true
+         * @return false
+         */
+        virtual bool new_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) = 0;
+
+        /**
+         * @brief Get the local pose object
+         *
+         * @param local_pose
+         * @return true If the data is new
+         * @return false
+         */
+        virtual bool get_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg& local_pose) = 0;
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

@@ -1,9 +1,10 @@
 #include <BaseLocalPoseFuserProcess.hpp>
+#include <mutex>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
     bool BaseLocalPoseFuserProcess::init() { return true; }
     bool BaseLocalPoseFuserProcess::update([[maybe_unused]] double current_time_sec) {
         current_time_sec_ = current_time_sec;
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;
@@ -16,7 +17,21 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
-
+        str += "\tNew Data: " + std::to_string(is_new_local_pose) + "\n";
+        str += local_pose_.pretty();
         return str;
+    }
+    bool BaseLocalPoseFuserProcess::get_local_pose([
+        [maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg& local_pose) {
+        static std::mutex mtx;
+        std::lock_guard<std::mutex> lock(mtx);
+        bool is_new = is_new_local_pose;
+        local_pose = local_pose_;
+        is_new_local_pose = false;
+        return is_new;
+    }
+    void BaseLocalPoseFuserProcess::new_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg local_pose) {
+        local_pose_ = local_pose;
+        is_new_local_pose = true;
     }
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

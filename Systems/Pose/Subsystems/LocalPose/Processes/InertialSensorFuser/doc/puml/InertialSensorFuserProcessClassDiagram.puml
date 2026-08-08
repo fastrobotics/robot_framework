@@ -39,6 +39,7 @@ namespace fast::rf {
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
           -ImuMsg machine_inertial_data
+          -bool is_new_machine_inertial_data
 
         }
         BaseInertialSensorFuserProcess .up.|> IInertialSensorFuserProcess
