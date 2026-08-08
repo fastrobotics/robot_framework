@@ -33,6 +33,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
+         * @param imu_count
          * @return true
          * @return false
          */
@@ -64,16 +65,37 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
 
         /**
+         * @brief Get the machine inertial data object
+         *
+         * @param imu_msg
+         * @return true If the data is new
+         * @return false False if the data is old
+         */
+        bool get_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_msg);
+
+       protected:
+        /**
          * @brief Pretty print the Process
          *
          * @return std::string
          */
         virtual std::string pretty();
 
-       protected:
+        /**
+         * @brief Give the Fuser the latest computed machine inertial data.  Expectation is that this is called by
+         * concrete class whenever a new datum is computed.
+         *
+         * @param imu_msg
+         */
+        void new_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg imu_msg);
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
+        uint8_t imu_count_{0};                                                     //!< How many IMU's are to be used
+
+       private:
+        bool is_new_machine_inertial_data{false};
+        fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

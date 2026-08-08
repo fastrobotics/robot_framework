@@ -67,14 +67,15 @@ public:
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
 
-        /**
+      
+
+protected:
+  /**
          * @brief Pretty print the Process
          * 
          * @return std::string 
          */
     virtual std::string pretty();
-
-protected:
   double current_time_sec_{-1.0};    //!< Current system time
   fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.

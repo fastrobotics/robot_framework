@@ -67,10 +67,19 @@ class TestBaseInertialSensorFuserProcess : public BaseInertialSensorFuserProcess
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
+    bool new_imu_data([[maybe_unused]] uint8_t imu_index, fast::rf::messages::SensorMsgs::ImuMsg imu_data) {
+        new_machine_inertial_data(imu_data);
+        return true;
+    }
 };
+TEST(BaseInertialSensorFuserProcess, FailureTests) {
+    TestBaseInertialSensorFuserProcess SUT;
+    ASSERT_FALSE(SUT.init(0));
+    ASSERT_TRUE(SUT.init(1));
+}
 TEST(BaseInertialSensorFuserProcess, BasicAssertions) {
     TestBaseInertialSensorFuserProcess SUT;
-    ASSERT_TRUE(SUT.init(0));
+    ASSERT_TRUE(SUT.init(1));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());
@@ -79,4 +88,13 @@ TEST(BaseInertialSensorFuserProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.clear_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::SensorMsgs::ImuMsg sensor_imu_data;
+    ASSERT_TRUE(SUT.new_imu_data(0, sensor_imu_data));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
+    ASSERT_TRUE(SUT.get_machine_inertial_data(machine_inertial_data));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    ASSERT_FALSE(SUT.get_machine_inertial_data(machine_inertial_data));
+    fast::rf::Logger::log_debug(SUT.pretty());
 }

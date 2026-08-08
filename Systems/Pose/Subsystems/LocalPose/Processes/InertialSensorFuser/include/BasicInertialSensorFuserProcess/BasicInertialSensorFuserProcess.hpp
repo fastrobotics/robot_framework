@@ -22,12 +22,13 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         BasicInertialSensorFuserProcess() : BaseInertialSensorFuserProcess() {}
 
         /**
-         * @brief Initialize the Object
+         * @brief Initialize the object
          *
+         * @param imu_count
          * @return true
          * @return false
          */
-        bool init() override;
+        bool init(uint8_t imu_count) override;
 
         /**
          * @brief Update with recent timing data
@@ -44,6 +45,16 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          * @return std::string
          */
         std::string pretty() override;
+
+        /**
+         * @brief Process a new IMU datum
+         *
+         * @param imu_index
+         * @param imu_data
+         * @return true
+         * @return false
+         */
+        bool new_imu_data(uint8_t imu_index, fast::rf::messages::SensorMsgs::ImuMsg imu_data) override;
 
        private:
     };
