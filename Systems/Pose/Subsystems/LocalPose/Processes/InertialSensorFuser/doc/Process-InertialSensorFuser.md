@@ -56,10 +56,10 @@ The following outputs are provided by this system.
 
 ## InertialSensorFuser Process Implementation
 
-| Status | Implementation                                                                               | Details                             |
-| ------ | -------------------------------------------------------------------------------------------- | ----------------------------------- |
-| NEW    | DummyInertialSensorFuserProcess                                                              | Used for generating fake data       |
-| NEW    | [BasicInertialSensorFuserProcess](ProcessImplementation/Process-BasicInertialSensorFuser.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                                       | Details                                                   |
+| ------ | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| NEW    | DummyInertialSensorFuserProcess                                                                      | Used for generating fake data                             |
+| NEW    | [BasicInertialSensorFuserProcess](../doc/ProcessImplementations/Process-BasicInertialSensorFuser.md) | Trivial Impelemntation.  This essentially is a pass-thru. |
 
 # Usage Instructions
 

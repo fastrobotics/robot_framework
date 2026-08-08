@@ -28,7 +28,7 @@ namespace fast::rf::messages {
       +uint32[] buttons
     }
 
-    struct ImuMsg <<(M,#FFFF00)>> #Orange {
+    struct ImuMsg <<(M,#FFFF00)>> #LimeGreen {
       +double time_stamp
       +uint64 seq
       +OrientationMsg orientation
@@ -43,7 +43,7 @@ namespace fast::rf::messages {
     ImuMsg --> Vector3DMsg: <<use>>
     ImuMsg --> Covariance3DMsg: <<use>>
 
-    struct MagneticFieldMsg <<(M,#FFFF00)>> #Orange {
+    struct MagneticFieldMsg <<(M,#FFFF00)>> #LimeGreen {
       +double time_stamp
       +uint64 seq
       +Vector3DMsg magnetic_field

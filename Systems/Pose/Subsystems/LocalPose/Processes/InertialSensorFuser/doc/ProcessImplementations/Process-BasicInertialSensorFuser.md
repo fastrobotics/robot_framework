@@ -1,6 +1,6 @@
 [InertialSensorFuser Process](../Process-InertialSensorFuser.md)
 
-- [Process Implementation: InertialSensorFuser](#process-implementation-cookiecutterprocess)
+- [Process Implementation: InertialSensorFuser](#process-implementation-inertialsensorfuser)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -9,8 +9,6 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
-  - [Detailed Documentation](#detailed-documentation)
-  - [Class Diagram](#class-diagram)
   - [Diagnostics](#diagnostics)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provided](#artifacts-provided)
@@ -49,13 +47,6 @@ The following outputs are provided by this system.
 
 # How It Works
 
-## Detailed Documentation
-
-![](../../../../../../../../Legend.png)
-
-## Class Diagram
-![](puml/TODO)
-
 ## Diagnostics
 The following Diagnostics are reported by this Process:
 | Diagnostic Type | Description |
@@ -65,8 +56,8 @@ The following Diagnostics are reported by this Process:
 
 ## Artifacts Provided
 The following artifacts are provided:
-| Artifact                                | Description                                      |
-| --------------------------------------- | ------------------------------------------------ |
+| Artifact                           | Description                                      |
+| ---------------------------------- | ------------------------------------------------ |
 | `basic_InertialSensorFuserProcess` | General Library that provides this functionality |
 
 

@@ -1,6 +1,6 @@
 [LocalPose Subsystem](../../../doc/Subsystem-LocalPose.md)
 
-- [Process: LocalPoseFuser](#process-cookiecutterprocess)
+- [Process: LocalPoseFuser](#process-localposefuser)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -10,7 +10,7 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
-  - [LocalPoseFuser Process Implementation](#cookiecutterprocess-process-implementation)
+  - [LocalPoseFuser Process Implementation](#localposefuser-process-implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -54,10 +54,10 @@ The following outputs are provided by this system.
 
 ## LocalPoseFuser Process Implementation
 
-| Status | Implementation                                                                                         | Details                             |
-| ------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| NEW    | DummyLocalPoseFuserProcess                                                                   | Used for generating fake data       |
-| NEW    | [BasicLocalPoseFuserProcess](ProcessImplementation/Process-BasicLocalPoseFuser.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                             | Details                             |
+| ------ | ------------------------------------------------------------------------------------------ | ----------------------------------- |
+| NEW    | DummyLocalPoseFuserProcess                                                                 | Used for generating fake data       |
+| NEW    | [BasicLocalPoseFuserProcess](../doc/ProcessImplementations/Process-BasicLocalPoseFuser.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

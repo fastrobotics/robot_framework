@@ -6,8 +6,8 @@ namespace fast::rf {
     class OdomMsg <<(M,#FFFF00) >>
   }
   package PoseSystem #LightYellow;line:blue {
-    namespace InertialSensorSubsystem #Yellow {
-      interface IInertialSensorSubsystem
+    namespace InertialSensorSubsystem #LimeGreen {
+      interface IInertialSensorSubsystem #LimeGreen
 
     }
     namespace GlobalSensorSubsystem {
@@ -16,8 +16,13 @@ namespace fast::rf {
     namespace GlobalPoseSubsystem {
       interface IGlobalPoseSubsystem
     }
-    namespace LocalPoseSubsystem {
-      interface ILocalPoseSubsystem
+    namespace LocalPoseSubsystem #Yellow {
+      namespace InertialSensorFuserProcess #Yellow {
+        interface IInertialSensorFuserProcess #Yellow {}
+        class BasicInertialSensorFuserProcess #Yellow {}
+        BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
+
+      }
     }
 
     interface IPoseSystem #Orange {
