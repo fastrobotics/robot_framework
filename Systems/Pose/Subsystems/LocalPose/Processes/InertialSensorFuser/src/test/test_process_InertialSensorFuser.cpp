@@ -10,7 +10,7 @@
 using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
 class TestInertialSensorFuserProcessInterface : public IInertialSensorFuserProcess {
    public:
-    bool init() { return true; }
+    bool init([[maybe_unused]] uint8_t imu_count) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
@@ -22,20 +22,33 @@ class TestInertialSensorFuserProcessInterface : public IInertialSensorFuserProce
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    bool new_imu_data([[maybe_unused]] uint8_t imu_index,
+                      [[maybe_unused]] fast::rf::messages::SensorMsgs::ImuMsg imu_data) {
+        return false;
+    }
+    bool get_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_msg) {
+        fast::rf::messages::SensorMsgs::ImuMsg data;
+        imu_msg = data;
+        return false;
+    }
 };
 TEST(TestInertialSensorFuserProcessInterface, InterfaceTests) {
     TestInertialSensorFuserProcessInterface SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(0));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBaseInertialSensorFuserProcess : public BaseInertialSensorFuserProcess {
    public:
     TestBaseInertialSensorFuserProcess() : BaseInertialSensorFuserProcess() {}
-    bool init() override {
+    bool init(uint8_t imu_count) override {
+        bool status = BaseInertialSensorFuserProcess::init(imu_count);
+        if (status == false) {
+            return false;
+        }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseInertialSensorFuserProcess::update(current_time_sec); }
@@ -57,7 +70,7 @@ class TestBaseInertialSensorFuserProcess : public BaseInertialSensorFuserProcess
 };
 TEST(BaseInertialSensorFuserProcess, BasicAssertions) {
     TestBaseInertialSensorFuserProcess SUT;
-    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.init(0));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());

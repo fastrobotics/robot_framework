@@ -36,7 +36,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          * @return true
          * @return false
          */
-        virtual bool init();
+        virtual bool init(uint8_t imu_count);
 
         /**
          * @brief Update the base object.  Called by Concrete Function.

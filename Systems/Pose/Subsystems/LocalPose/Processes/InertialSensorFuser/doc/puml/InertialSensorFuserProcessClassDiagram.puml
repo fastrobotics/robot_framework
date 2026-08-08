@@ -19,7 +19,7 @@ namespace fast::rf {
   }
   namespace PoseSystem {
     package LocalPoseSubsystem #LightYellow;line:blue {
-        interface IInertialSensorFuserProcess #Yellow {
+        interface IInertialSensorFuserProcess #Orange {
           +{abstract} bool init(uint8 imu_count)
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
@@ -28,7 +28,7 @@ namespace fast::rf {
           +{abstract} bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
           +{abstract} bool get_machine_inertial_data(ImuMsg imu_msg)
         }
-        abstract BaseInertialSensorFuserProcess #Yellow {
+        abstract BaseInertialSensorFuserProcess #Orange {
           +bool init(uint8 imu_count)
           +DiagnosticMsg[] get_diagnostics()
           +bool update(double current_time_sec)
@@ -41,13 +41,13 @@ namespace fast::rf {
         }
         BaseInertialSensorFuserProcess .up.|> IInertialSensorFuserProcess
         BaseInertialSensorFuserProcess --> DiagnosticManager: <<use>>
-        class BasicInertialSensorFuserProcess #Yellow {
+        class BasicInertialSensorFuserProcess #Orange {
           +bool init(uint8 imu_count)
           +bool update(double current_time_sec)
           +bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
         }
         BasicInertialSensorFuserProcess -up-|> BaseInertialSensorFuserProcess
-        class DummyInertialSensorFuserProcess #Yellow {
+        class DummyInertialSensorFuserProcess #Orange {
           +bool update(double current_time_sec)
         }
         DummyInertialSensorFuserProcess -up-|> BaseInertialSensorFuserProcess

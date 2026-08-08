@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <DiagnosticMsg.hpp>
+#include <ImuMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
@@ -27,10 +28,11 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         /**
          * @brief Initialize the object
          *
+         * @param imu_count How many IMU's are there
          * @return true
          * @return false
          */
-        virtual bool init() = 0;
+        virtual bool init(uint8_t imu_count) = 0;
 
         /**
          * @brief Generic Update function
@@ -61,5 +63,24 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+
+        /**
+         * @brief Process a new IMU Message
+         *
+         * @param imu_index
+         * @param imu_data
+         * @return true
+         * @return false
+         */
+        virtual bool new_imu_data(uint8_t imu_index, fast::rf::messages::SensorMsgs::ImuMsg imu_data) = 0;
+
+        /**
+         * @brief Get the machine inertial data object
+         *
+         * @param imu_msg
+         * @return true
+         * @return false
+         */
+        virtual bool get_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_msg) = 0;
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
