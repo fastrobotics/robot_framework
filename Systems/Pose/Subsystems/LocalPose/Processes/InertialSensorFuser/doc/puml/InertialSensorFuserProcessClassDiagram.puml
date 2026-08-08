@@ -38,8 +38,10 @@ namespace fast::rf {
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
+          #uint64_t imu_rx_count
           -ImuMsg machine_inertial_data
           -bool is_new_machine_inertial_data
+          
 
         }
         BaseInertialSensorFuserProcess .up.|> IInertialSensorFuserProcess

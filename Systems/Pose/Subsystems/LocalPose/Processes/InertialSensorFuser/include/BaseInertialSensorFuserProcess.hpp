@@ -93,6 +93,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         uint8_t imu_count_{0};                                                     //!< How many IMU's are to be used
+        uint64_t imu_rx_count{0};  //!< How many IMU messages have been received
 
        private:
         bool is_new_machine_inertial_data{false};

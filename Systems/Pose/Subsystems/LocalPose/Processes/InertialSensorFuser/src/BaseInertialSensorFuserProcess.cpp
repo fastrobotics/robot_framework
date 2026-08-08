@@ -24,7 +24,8 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
         str += "\tIMU Count: " + std::to_string(imu_count_) +
-               " New Data: " + std::to_string(is_new_machine_inertial_data) + "\n";
+               " New Data: " + std::to_string(is_new_machine_inertial_data) + " Rx: " + std::to_string(imu_rx_count) +
+               "\n";
         str += machine_inertial_data.pretty();
 
         return str;

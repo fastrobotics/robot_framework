@@ -35,6 +35,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         if (imu_index > imu_count_) {
             return false;
         }
+        imu_rx_count++;
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving IMU Data");
