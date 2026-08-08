@@ -250,7 +250,7 @@ namespace fast::rf {
         namespace InertialSensorSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 1;    //!< Unique ID for Inertial Sensor Subsystem
             constexpr uint8_t PROCESS_IMU_ID = 1;  //!< Unique ID for IMU Process
-        }  // namespace InertialSensorSubsystem
+        }                                          // namespace InertialSensorSubsystem
         namespace GlobalSensorSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Global Sensor Subsystem
         }
@@ -263,8 +263,8 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_WHEELODOMETRYFUSER_ID = 2;   //!< Unique ID for Wheel Odometry Fuser
             constexpr uint8_t PROCESS_VISUALODOMETRFUSER_ID = 3;   //!< Unique ID for Visual Odometry Fuser
             constexpr uint8_t PROCESS_LOCALPOSEFUSER_ID = 4;       //!< Unique ID for Local Pose Fuser
-        }  // namespace LocalPoseSubsystem
-    }  // namespace PoseSystem
+        }                                                          // namespace LocalPoseSubsystem
+    }                                                              // namespace PoseSystem
     namespace NavigationSystem {
         constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Navigation System
         namespace GlobalPlannerSubsystem {
@@ -274,7 +274,7 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_FREESPACE_PLANNER_ID = 3;      //!< Unique ID for Free Space Planner Process
             constexpr uint8_t PROCESS_GLOBALPATH_ROUTEPLANNER_ID =
                 4;  //!< Unique ID for Global Path Route Planner Process
-        }  // namespace GlobalPlannerSubsystem
+        }           // namespace GlobalPlannerSubsystem
         namespace LocalPlannerSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Local Planner Subsystem
         }
@@ -284,8 +284,8 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_TRAJECTORY_SELECTOR_ID = 2;  //!< Unique ID for the Trajectory Selector Process
             constexpr uint8_t PROCESS_TRAJECTORY_CONTROLLER_ID =
                 3;  //!< Unique ID for the Trajectory Controller Process
-        }  // namespace NavigationExecutorSubsystem
-    }  // namespace NavigationSystem
+        }           // namespace NavigationExecutorSubsystem
+    }               // namespace NavigationSystem
     namespace PerceptionSystem {
         constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
     }
@@ -294,8 +294,8 @@ namespace fast::rf {
         namespace ModeManagerSubsystem {
             const uint8_t SUBSYSTEM_ID = 1;                      //!< Unique ID for the Mode Manager Subsystem
             constexpr uint8_t PROCESS_ARMEDSTATEMANAGER_ID = 1;  //!< Unique ID for the Armed State Manager Process
-        }  // namespace ModeManagerSubsystem
-    }  // namespace SafetySystem
+        }                                                        // namespace ModeManagerSubsystem
+    }                                                            // namespace SafetySystem
     namespace TerrainSystem {
         constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the Terrain System
     }
@@ -304,8 +304,8 @@ namespace fast::rf {
         namespace RemoteControlSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 1;              //!< Unique ID for the Remote Control Subsystem
             constexpr uint8_t PROCESS_TELEOPCONTROL_ID = 1;  //!< Unique ID for Teleop Control Process
-        }  // namespace RemoteControlSubsystem
-    }  // namespace UserInterfaceSystem
+        }                                                    // namespace RemoteControlSubsystem
+    }                                                        // namespace UserInterfaceSystem
     namespace BaseMachineSystem {
         const uint8_t SYSTEM_ID = 13;  //!< Unique ID for the Base Machine System
         namespace BaseMachineSubsystem {
@@ -313,5 +313,5 @@ namespace fast::rf {
             constexpr uint8_t PROCESS_HATDRIVER_ID = 1;  //!< Unique ID for the Hat Driver Process
 
         }  // namespace BaseMachineSubsystem
-    }  // namespace BaseMachineSystem
+    }      // namespace BaseMachineSystem
 }  // namespace fast::rf

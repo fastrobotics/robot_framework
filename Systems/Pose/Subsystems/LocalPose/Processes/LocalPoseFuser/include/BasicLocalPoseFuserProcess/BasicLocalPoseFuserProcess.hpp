@@ -13,15 +13,15 @@
 #include <BaseLocalPoseFuserProcess.hpp>
 
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
-/**
- * @brief Minimal Implementation for a LocalPoseFuser Process
- *
- */
-class BasicLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
-public:
-  BasicLocalPoseFuserProcess() : BaseLocalPoseFuserProcess() {}
+    /**
+     * @brief Minimal Implementation for a LocalPoseFuser Process
+     *
+     */
+    class BasicLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
+       public:
+        BasicLocalPoseFuserProcess() : BaseLocalPoseFuserProcess() {}
 
-   /**
+        /**
          * @brief Initialize the Object
          *
          * @return true
@@ -29,23 +29,22 @@ public:
          */
         bool init() override;
 
-        
-  /**
-   * @brief Update with recent timing data
-   *
-   * @param current_time_sec
-   * @return true If update executed ok
-   * @return false If update executed with some error
-   */
-  bool update(double current_time_sec) override;
+        /**
+         * @brief Update with recent timing data
+         *
+         * @param current_time_sec
+         * @return true If update executed ok
+         * @return false If update executed with some error
+         */
+        bool update(double current_time_sec) override;
 
-  /**
-   * @brief Human readable status of object
-   * 
-   * @return std::string 
-   */
-   std::string pretty() override;
+        /**
+         * @brief Human readable status of object
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
 
-private:
-};
-} // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+       private:
+    };
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

@@ -15,40 +15,40 @@
 #include <vector>
 
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
-/**
- * @brief Interface for the LocalPoseFuser Process
- *
- */
-class ILocalPoseFuserProcess {
-public:
-  ILocalPoseFuserProcess() = default;
-  virtual ~ILocalPoseFuserProcess() = default;
+    /**
+     * @brief Interface for the LocalPoseFuser Process
+     *
+     */
+    class ILocalPoseFuserProcess {
+       public:
+        ILocalPoseFuserProcess() = default;
+        virtual ~ILocalPoseFuserProcess() = default;
 
-  /**
-   * @brief Initialize the object
-   *
-   * @return true
-   * @return false
-   */
-  virtual bool init() = 0;
+        /**
+         * @brief Initialize the object
+         *
+         * @return true
+         * @return false
+         */
+        virtual bool init() = 0;
 
-  /**
-   * @brief Generic Update function
-   *
-   * @param current_time_sec Current time stamp
-   * @return true If the process updated ok
-   * @return false If the process did not update ok
-   */
-  virtual bool update(double current_time_sec) = 0;
+        /**
+         * @brief Generic Update function
+         *
+         * @param current_time_sec Current time stamp
+         * @return true If the process updated ok
+         * @return false If the process did not update ok
+         */
+        virtual bool update(double current_time_sec) = 0;
 
-  /**
-   * @brief Pretty print the Process
-   * 
-   * @return std::string 
-   */
-  virtual std::string pretty() = 0;
+        /**
+         * @brief Pretty print the Process
+         *
+         * @return std::string
+         */
+        virtual std::string pretty() = 0;
 
-  /**
+        /**
          * @brief Get the diagnostic object
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
@@ -60,8 +60,6 @@ public:
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-  virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
-        
-  
-};
-} // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+    };
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
