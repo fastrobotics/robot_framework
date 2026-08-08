@@ -23,6 +23,11 @@ namespace fast::rf {
         BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
 
       }
+      namespace LocalPoseFuserProcess #Yellow {
+        interface ILocalPoseFuserProcess #Yellow {}
+        class BasicLocalPoseFuserProcess #Yellow {}
+        BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
+      }
     }
 
     interface IPoseSystem #Orange {

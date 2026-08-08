@@ -46,6 +46,7 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
+This Basic Inertial Sensor Fuser is a simplistic class that essentially takes one IMU Message in and does a pass-thru on the output side.
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:

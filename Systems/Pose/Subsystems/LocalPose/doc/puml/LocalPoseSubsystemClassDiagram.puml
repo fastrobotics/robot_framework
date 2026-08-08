@@ -5,6 +5,9 @@ namespace fast::rf {
     namespace SensorMsgs {
       class ImuMsg <<(M,#FFFF00)>>
     }
+    namespace GeometryMsgs {
+      class OdomMsg <<(M,#FFFF00)>>
+    }
   }
   namespace PoseSystem {
     package LocalPoseSubsystem #LightYellow;line:blue {
@@ -34,7 +37,9 @@ namespace fast::rf {
 
       }
       namespace LocalPoseFuserProcess #Yellow {
-        
+        interface ILocalPoseFuserProcess #Yellow {}
+        class BasicLocalPoseFuserProcess #Yellow {}
+        BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
       }
 
     }

@@ -54,10 +54,10 @@ The following outputs are provided by this system.
 
 ## LocalPoseFuser Process Implementation
 
-| Status | Implementation                                                                             | Details                             |
-| ------ | ------------------------------------------------------------------------------------------ | ----------------------------------- |
-| NEW    | DummyLocalPoseFuserProcess                                                                 | Used for generating fake data       |
-| NEW    | [BasicLocalPoseFuserProcess](../doc/ProcessImplementations/Process-BasicLocalPoseFuser.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                             | Details                                            |
+| ------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| NEW    | DummyLocalPoseFuserProcess                                                                 | Used for generating fake data                      |
+| NEW    | [BasicLocalPoseFuserProcess](../doc/ProcessImplementations/Process-BasicLocalPoseFuser.md) | This is a trivial implemention.  Mainly pass-thru. |
 
 # Usage Instructions
 

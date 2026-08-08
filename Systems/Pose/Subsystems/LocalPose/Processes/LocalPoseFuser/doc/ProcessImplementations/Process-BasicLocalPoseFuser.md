@@ -46,6 +46,7 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
+This Basic Local Pose Fuser essentially is a pass-thru.
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
