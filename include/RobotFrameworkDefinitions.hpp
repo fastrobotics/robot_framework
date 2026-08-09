@@ -258,9 +258,13 @@ namespace fast::rf {
             constexpr uint8_t SUBSYSTEM_ID = 3;  //!< Unique ID for Global Pose Subsystem
         }
         namespace LocalPoseSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 4;  //!< Unique ID for  Local Pose Subsystem
-        }
-    }  // namespace PoseSystem
+            constexpr uint8_t SUBSYSTEM_ID = 4;                    //!< Unique ID for  Local Pose Subsystem
+            constexpr uint8_t PROCESS_INERTIALSENSORFUSER_ID = 1;  //!< Unique ID for Inertial Sensor Fuser
+            constexpr uint8_t PROCESS_WHEELODOMETRYFUSER_ID = 2;   //!< Unique ID for Wheel Odometry Fuser
+            constexpr uint8_t PROCESS_VISUALODOMETRFUSER_ID = 3;   //!< Unique ID for Visual Odometry Fuser
+            constexpr uint8_t PROCESS_LOCALPOSEFUSER_ID = 4;       //!< Unique ID for Local Pose Fuser
+        }                                                          // namespace LocalPoseSubsystem
+    }                                                              // namespace PoseSystem
     namespace NavigationSystem {
         constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Navigation System
         namespace GlobalPlannerSubsystem {

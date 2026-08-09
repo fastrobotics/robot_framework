@@ -22,7 +22,7 @@ namespace fast::rf {
       }
       DummyInertialSensorSubsystem -up-|> BaseInertialSensorSubsystem
 
-      namespace IMUProcess #Yellow {
+      namespace IMUProcess #LimeGreen {
 
       }
 

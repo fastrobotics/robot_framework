@@ -1,0 +1,63 @@
+@startuml
+title LocalPoseFuser Process Class Diagram
+
+namespace fast::rf {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    }
+    namespace SensorMsgs {
+      class ImuMsg <<(M,#FFFF00)>>
+    }
+    namespace GeometryMsgs {
+      class OdomMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  namespace PoseSystem {
+    package LocalPoseSubsystem #LightYellow;line:blue {
+        interface ILocalPoseFuserProcess #LimeGreen  {
+          +{abstract} bool init()
+          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+          +{abstract} bool new_machine_inertial_data(ImuMsg machine_inertial_data)
+          +{abstract} bool get_local_pose(OdomMsg local_pose)
+          +{abstract} bool update(double current_time_sec)
+          +{abstract} string pretty()
+        }
+        abstract BaseLocalPoseFuserProcess #LimeGreen {
+          +bool init()
+          +DiagnosticMsg[] get_diagnostics()
+          +bool update(double current_time_sec)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          +bool get_local_pose(OdomMsg local_pose)
+          #void new_local_pose(OdomMsg local_pose)
+          #string pretty()
+          #DiagnosticManager diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+          -OdomMsg local_pose_
+          -bool is_new_local_pose
+
+        }
+        BaseLocalPoseFuserProcess .up.|> ILocalPoseFuserProcess
+        BaseLocalPoseFuserProcess --> DiagnosticManager: <<use>>
+        class BasicLocalPoseFuserProcess #Pink {
+          +bool init()
+          +bool new_machine_inertial_data(ImuMsg machine_inertial)
+          +bool update(double current_time_sec)
+        }
+        BasicLocalPoseFuserProcess -up-|> BaseLocalPoseFuserProcess
+        class DummyLocalPoseFuserProcess {
+          +bool update(double current_time_sec)
+        }
+        DummyLocalPoseFuserProcess -up-|> BaseLocalPoseFuserProcess
+    }
+  }
+}
+@enduml

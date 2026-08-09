@@ -1,0 +1,62 @@
+@startuml
+title InertialSensorFuser Process Class Diagram
+
+namespace fast::rf {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    }
+    namespace SensorMsgs {
+      class ImuMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  namespace PoseSystem {
+    package LocalPoseSubsystem #LightYellow;line:blue {
+        interface IInertialSensorFuserProcess #LimeGreen {
+          +{abstract} bool init(uint8 imu_count)
+          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+          +{abstract} bool update(double current_time_sec)
+          +{abstract} string pretty()
+          +{abstract} bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
+          +{abstract} bool get_machine_inertial_data(ImuMsg imu_msg)
+        }
+        abstract BaseInertialSensorFuserProcess #LimeGreen {
+          +bool init(uint8 imu_count)
+          +DiagnosticMsg[] get_diagnostics()
+          +bool update(double current_time_sec)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          +bool get_machine_inertial_data(ImuMsg imu_msg)
+          #void new_machine_inertial_data(ImuMsg imu_msg)
+          #string pretty()
+          #DiagnosticManager diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+          #uint64_t imu_rx_count
+          -ImuMsg machine_inertial_data
+          -bool is_new_machine_inertial_data
+          
+
+        }
+        BaseInertialSensorFuserProcess .up.|> IInertialSensorFuserProcess
+        BaseInertialSensorFuserProcess --> DiagnosticManager: <<use>>
+        class BasicInertialSensorFuserProcess #Pink {
+          +bool init(uint8 imu_count)
+          +bool update(double current_time_sec)
+          +bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
+        }
+        BasicInertialSensorFuserProcess -up-|> BaseInertialSensorFuserProcess
+        class DummyInertialSensorFuserProcess  {
+          +bool update(double current_time_sec)
+        }
+        DummyInertialSensorFuserProcess -up-|> BaseInertialSensorFuserProcess
+    }
+  }
+}
+@enduml
