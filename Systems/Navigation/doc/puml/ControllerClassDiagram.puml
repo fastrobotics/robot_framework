@@ -3,7 +3,7 @@ title Controller Class Diagram
 namespace fast::rf {
   namespace NavigationSystem  {
     package Controller #LightYellow;line:blue {
-        enum ControllerType #Orange {
+        enum ControllerType #LimeGreen {
             UNKNOWN=0,
             PID_CONTROLLER=1,
             END_OF_LIST=2
@@ -14,11 +14,12 @@ namespace fast::rf {
         interface IControllerConfig #Orange {
 
         }
-        interface IController #Orange {
+        interface IController #LimeGreen {
             +{abstract} bool init(IControllerConfig config)
-            +{abstract} bool new_set_point(double set_point)
-            +{abstract} bool new_sensor_input(double sensor_input)
+            +{abstract} bool new_set_point(double set_point,double time_stamp_sec)
+            +{abstract} bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +{abstract} bool update(double current_time_sec)
+            +{abstract} double get_sensor_delta_time_sec()
             +{abstract} bool get_output(IControllerOutput output)
             +{abstract} string pretty()
 
@@ -26,25 +27,30 @@ namespace fast::rf {
         IController +-- ControllerType
         IController --> IControllerOutput: <<use>>
         IController --> IControllerConfig: <<use>>
-        abstract BaseController #Orange {
+        abstract BaseController #LimeGreen {
             +ControllerType get_controller_type()
+            +double get_sensor_delta_time_sec()
             #bool init(IControllerConfig config)
+            #bool new_set_point(double set_point,double time_stamp_sec)
+            #bool new_sensor_input(double sensor_input,double time_stamp_sec)
             #bool update(double current_time_sec)
             #string pretty()
             #IControllerConfig config_
             -ControllerType controller_type
         }
         BaseController .up.|> IController
-        class PIDControllerOutput #Yellow {
+        class PIDControllerOutput #Orange {
 
         }
         PIDControllerOutput -up-|> IControllerOutput
-        class PIDControllerConfig #Yellow {
+        class PIDControllerConfig #Orange {
 
         }
         PIDControllerConfig -up-|> IControllerConfig
-        class PIDController #Yellow {
+        class PIDController #Orange {
             +bool init(PIDControllerConfig config)
+            +bool new_set_point(double set_point,double time_stamp_sec)
+            +bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +bool update(double current_time_sec)
             +bool get_output(PIDControllerOutput output)
             +string pretty()

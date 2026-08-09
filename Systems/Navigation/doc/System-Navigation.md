@@ -14,6 +14,7 @@
   - [Other Software Content](#other-software-content)
     - [Controller Software](#controller-software)
       - [Class Diagram](#class-diagram)
+      - [PID Controller](#pid-controller)
 - [Subsystems](#subsystems)
   - [Package Diagram](#package-diagram)
 - [Usage Instructions](#usage-instructions)
@@ -56,6 +57,9 @@ The Controll Software is used to take in a desired set point and a sensor value 
 
 #### Class Diagram
 ![](puml/ControllerClassDiagram.png)
+
+#### PID Controller
+PID Controllers can be used to tune specific types of Systems.
 
 
 # Subsystems

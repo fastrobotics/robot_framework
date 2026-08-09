@@ -11,9 +11,26 @@
 #pragma once
 #include <Controller/BaseController.hpp>
 namespace fast::rf::NavigationSystem::Controller {
+    /**
+     * @brief A PID Controller
+     *
+     */
     class PIDController : public BaseController {
        public:
-        bool init(IControllerConfig config) override;
+        /**
+         * @brief Initialize the object
+         *
+         * @param config
+         * @return true
+         * @return false
+         */
+        bool init(IControllerConfig* config) override;
+
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
         std::string pretty() override;
     };
 }  // namespace fast::rf::NavigationSystem::Controller

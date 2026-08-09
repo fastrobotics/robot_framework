@@ -10,17 +10,104 @@
  */
 #pragma once
 #include <string>
+/**
+ * @brief Namespace for Controllers
+ *
+ */
 namespace fast::rf::NavigationSystem::Controller {
-    enum class ControllerType { UNKNOWN = 0, PID_CONTROLLER = 1, END_OF_LIST = 2 };
-    class IControllerConfig {
-        IControllerConfig() = default;
-        virtual ~IControllerConfig() = default;
+    /**
+     * @brief The type of Controller
+     *
+     */
+    enum class ControllerType {
+        UNKNOWN = 0,         //!< Unknown Type
+        PID_CONTROLLER = 1,  //!< PID Controller
+        END_OF_LIST = 2      //!< End of List, used for Range Checks
     };
-    class IControllerOutput {};
+    /**
+     * @brief Generic Controller Config interface
+     *
+     */
+    class IControllerConfig {
+       public:
+        IControllerConfig() = default;
+        virtual ~IControllerConfig() {}
+    };
+    /**
+     * @brief Generic Controller Output Interface
+     *
+     */
+    class IControllerOutput {
+       public:
+        IControllerOutput() = default;
+        virtual ~IControllerOutput() {}
+        bool is_new{false};  //!< If the data is new
+    };
+    /**
+     * @brief Generic Controller
+     *
+     */
     class IController {
        public:
+        /**
+         * @brief Get the controller type
+         *
+         * @return ControllerType
+         */
         virtual ControllerType get_controller_type() = 0;
+        /**
+         * @brief Initialize the Controller
+         *
+         * @param config
+         * @return true
+         * @return false
+         */
         virtual bool init(IControllerConfig* config) = 0;
+        /**
+         * @brief Provide a new Set Point
+         *
+         * @param set_point
+         * @param time_stamp_sec
+         * @return true
+         * @return false
+         */
+        virtual bool new_set_point(double set_point, double time_stamp_sec) = 0;
+        /**
+         * @brief Provide a new Sensor Input.  Generally a new output will be computed at this time
+         *
+         * @param sensor_input
+         * @param time_stamp_sec
+         * @return true
+         * @return false
+         */
+        virtual bool new_sensor_input(double sensor_input, double time_stamp_sec) = 0;
+        /**
+         * @brief Update the object
+         *
+         * @param current_time_sec
+         * @return true
+         * @return false
+         */
+        virtual bool update(double current_time_sec) = 0;
+
+        /**
+         * @brief Get the sensor delta time sec, otherwise known as sampling time
+         *
+         * @return double
+         */
+        virtual double get_sensor_delta_time_sec() = 0;
+
+        /**
+         * @brief Get the output
+         *
+         * @return IControllerOutput*
+         */
+        virtual IControllerOutput* get_output() = 0;
+        /**
+         * @brief Print a human readable string
+         *
+         * @return std::string
+         */
         virtual std::string pretty() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::Controller
