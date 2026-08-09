@@ -10,12 +10,12 @@
  */
 #pragma once
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-/**
- * @brief Interface for the DriveExecutor Process
- *
- */
-struct IDriveExecutorOutput {
-    IDriveExecutorOutput() = default;
-    virtual ~IDriveExecutorOutput() = default;
-};
+    /**
+     * @brief Interface for the DriveExecutor Process
+     *
+     */
+    struct IDriveExecutorOutput {
+        IDriveExecutorOutput() = default;
+        virtual ~IDriveExecutorOutput() = default;
+    };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
