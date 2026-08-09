@@ -12,6 +12,8 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
+    - [Controller Software](#controller-software)
+      - [Class Diagram](#class-diagram)
 - [Subsystems](#subsystems)
   - [Package Diagram](#package-diagram)
 - [Usage Instructions](#usage-instructions)
@@ -48,6 +50,13 @@ The following outputs are provided by this system.
 ## Detailed Documentation
 
 ## Software Content
+This package also provides the follow:
+### Controller Software
+The Controll Software is used to take in a desired set point and a sensor value and compute a command value based on the control system being used.
+
+#### Class Diagram
+![](puml/ControllerClassDiagram.png)
+
 
 # Subsystems
 

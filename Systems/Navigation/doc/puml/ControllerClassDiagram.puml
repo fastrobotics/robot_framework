@@ -1,0 +1,49 @@
+@startuml
+title Controller Class Diagram
+namespace fast::rf {
+  namespace NavigationSystem  {
+    package Controller #LightYellow;line:blue {
+        interface IControllerOutput #Yellow {
+
+        }
+        interface IControllerConfig #Yellow {
+
+        }
+        interface IController #Yellow {
+            +{abstract} bool init(IControllerConfig config)
+            +{abstract} bool new_set_point(double set_point)
+            +{abstract} bool new_sensor_input(double sensor_input)
+            +{abstract} bool update(double current_time_sec)
+            +{abstract} bool get_output(IControllerOutput output)
+            +{abstract} string pretty()
+
+        }
+        IController --> IControllerOutput: <<use>>
+        IController --> IControllerConfig: <<use>>
+        abstract BaseController #Yellow {
+            #bool init(IControllerConfig config)
+            #bool update(double current_time_sec)
+            #string pretty()
+        }
+        BaseController .up.|> IController
+        class PIDControllerOutput #Yellow {
+
+        }
+        PIDControllerOutput -up-|> IControllerOutput
+        class PIDControllerConfig #Yellow {
+
+        }
+        PIDControllerConfig -up-|> IControllerConfig
+        class PIDController #Yellow {
+            +bool init(PIDControllerConfig config)
+            +bool update(double current_time_sec)
+            +bool get_output(PIDControllerOutput output)
+            +string pretty()
+        }
+        PIDController -up-|> BaseController
+        PIDController --> PIDControllerOutput: <<use>>
+        PIDController --> PIDControllerConfig: <<use>>
+    }
+  }
+}
+@enduml

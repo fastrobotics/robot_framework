@@ -29,6 +29,11 @@ namespace fast::rf {
         interface IGlobalPathRoutePlannerProcess
       }
     }
+    namespace Controller {
+      interface IController #Yellow {}
+      class PIDController #Yellow {}
+      PIDController -up-|> IController
+    }
     namespace LocalPlannerSubsystem {
 
     }
