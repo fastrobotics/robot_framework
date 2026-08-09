@@ -37,9 +37,8 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         is_new_machine_inertial_data = true;
     }
     bool BaseInertialSensorFuserProcess::get_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_msg) {
-        fast::rf::messages::SensorMsgs::ImuMsg data;
         bool is_new = is_new_machine_inertial_data;
-        imu_msg = data;
+        imu_msg = machine_inertial_data;
         is_new_machine_inertial_data = false;
         return is_new;
     }
