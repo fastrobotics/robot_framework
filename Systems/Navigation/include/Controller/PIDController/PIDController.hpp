@@ -24,16 +24,19 @@ namespace fast::rf::NavigationSystem::Controller {
          * @param P Proportional Constant
          * @param I Integration Constant
          * @param D Derivative Constant
+         * @param sensor_scale_factor How much to scale Sensor Value by
          */
-        void set_parameters(double P, double I, double D) {
+        void set_parameters(double P, double I, double D, double sensor_scale_factor) {
             K_P = P;
             K_I = I;
             K_D = D;
+            sensor_scale = sensor_scale_factor;
         }
 
-        double K_P{0.0};  //!< Proportional Constant
-        double K_I{0.0};  //!< Integration Constant
-        double K_D{0.0};  //!< Derivative Contant
+        double K_P{0.0};           //!< Proportional Constant
+        double K_I{0.0};           //!< Integration Constant
+        double K_D{0.0};           //!< Derivative Contant
+        double sensor_scale{1.0};  //!< Sensor Scale Factor
     };
     /**
      * @brief Output Object
@@ -42,6 +45,10 @@ namespace fast::rf::NavigationSystem::Controller {
     class PIDControllerOutput : public IControllerOutput {
        public:
         ~PIDControllerOutput() override {}
+        double setpoint_sensor_error{0.0};  //!< Difference between Set Point and Sensor Value
+        double P_term{0.0};                 //!< Proportional Term
+        double I_term{0.0};                 //!< Integration Term
+        double D_term{0.0};                 //!< Derivative Term
     };
     /**
      * @brief A PID Controller
