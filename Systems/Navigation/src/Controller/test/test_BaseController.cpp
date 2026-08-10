@@ -34,7 +34,7 @@ class TestBaseController : public BaseController {
     }
     bool update(double current_time_sec) {
         output_->value = 1.0;
-        output_->command_value = output_->value;
+        output_->command_value = BaseController::process_command_value(output_->value);
         output_->is_new = true;
         return BaseController::update(current_time_sec);
     }
@@ -58,6 +58,7 @@ class TestBaseController : public BaseController {
 TEST(BaseController, BasicAssertions) {
     TestBaseController SUT;
     IControllerConfig* config = new TestControllerConfig;
+    config->set_parameters(1.0, -1.0);
     ASSERT_TRUE(SUT.init(config));
     ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), -1.0);
     fast::rf::Logger::log_debug(SUT.pretty());

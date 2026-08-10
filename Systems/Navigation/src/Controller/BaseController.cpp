@@ -26,6 +26,14 @@ namespace fast::rf::NavigationSystem::Controller {
         update_count++;
         return true;
     }
+    double BaseController::process_command_value(double command_value) {
+        if (command_value > config_->max_output) {
+            command_value = config_->max_output;
+        } else if (command_value < config_->min_output) {
+            command_value = config_->min_output;
+        }
+        return command_value;
+    }
     std::string BaseController::pretty() {
         std::string str = "---Base Controller---\n";
         str += "\tController Type: " + std::to_string((uint8_t)controller_type) + "\n";

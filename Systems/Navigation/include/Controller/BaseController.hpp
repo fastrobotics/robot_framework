@@ -67,6 +67,15 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return false
          */
         bool new_sensor_input(double sensor_input, double time_stamp_sec) override = 0;
+
+        /**
+         * @brief Process a command value
+         *
+         * @param command_value
+         * @return double
+         */
+        double process_command_value(double command_value);
+
         /**
          * @brief Human readable string.  Should be called by concrete class.
          *

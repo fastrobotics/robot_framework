@@ -13,6 +13,10 @@ namespace fast::rf {
             +double command_value
         }
         interface IControllerConfig #Orange {
+            +set_parameters(double max_output, double min_output) 
+            +double max_output
+            +double min_output
+
 
         }
         interface IController #LimeGreen {
@@ -48,11 +52,12 @@ namespace fast::rf {
         }
         PIDControllerOutput -up-|> IControllerOutput
         class PIDControllerConfig #Orange {
+            +void set_parameters(double P, double I, double D, double sensor_scale_factor)
             +double K_P
             +double K_I
             +double K_D
             +double sensor_scale
-            +void set_parameters(double P, double I, double D, double sensor_scale_factor)
+            
 
         }
         PIDControllerConfig -up-|> IControllerConfig

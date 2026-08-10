@@ -23,7 +23,8 @@ namespace fast::rf::NavigationSystem::Controller {
         output_->P_term = config->K_P * output_->setpoint_sensor_error;
         output_->I_term = config->K_I * 0.0;  // Fill this in
         output_->D_term = config->K_D * 0.0;  // Fill this in
-        output_->command_value = output_->P_term + output_->I_term + output_->D_term;
+        double value = output_->P_term + output_->I_term + output_->D_term;
+        output_->command_value = BaseController::process_command_value(value);
         return true;
     }
     bool PIDController::update(double current_time_sec) { return BaseController::update(current_time_sec); }
