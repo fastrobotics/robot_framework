@@ -41,7 +41,8 @@ namespace fast::rf::NavigationSystem::Controller {
        public:
         IControllerOutput() = default;
         virtual ~IControllerOutput() {}
-        bool is_new{false};  //!< If the data is new
+        bool is_new{false};         //!< If the data is new
+        double command_value{0.0};  //!< The command value of the controller
     };
     /**
      * @brief Generic Controller

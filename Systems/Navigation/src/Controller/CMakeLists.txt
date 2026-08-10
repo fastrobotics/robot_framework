@@ -1,6 +1,6 @@
 add_library(base_Controller STATIC BaseController.cpp)
 target_link_libraries(base_Controller logger)
-# add_subdirectory(PIDController)
+add_subdirectory(PIDController)
 if(BUILD_TESTING)
   add_subdirectory(test)
 endif()

@@ -34,6 +34,7 @@ namespace fast::rf::NavigationSystem::Controller {
         if (get_sensor_delta_time_sec() > 0.0) {
             str += "\tSensor Delta Time: " + std::to_string(1000.0 * get_sensor_delta_time_sec()) + " (mS)" + "\n";
         }
+
         str += "\tCounts:\n";
         str += "\t\tUpdate: " + std::to_string(update_count) + "\n";
         str += "\t\tSensor Rx: " + std::to_string(sensor_rx_count) + "\n";

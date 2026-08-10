@@ -34,6 +34,7 @@ class TestBaseController : public BaseController {
     }
     bool update(double current_time_sec) {
         output_->value = 1.0;
+        output_->command_value = output_->value;
         output_->is_new = true;
         return BaseController::update(current_time_sec);
     }
@@ -73,6 +74,7 @@ TEST(BaseController, BasicAssertions) {
     ASSERT_NE(output, nullptr);
     ASSERT_FLOAT_EQ(output->value, 1.0);
     ASSERT_TRUE(output->is_new);
+    ASSERT_FLOAT_EQ(output->command_value, 1.0);
     output = SUT.get_output();
     ASSERT_FALSE(output->is_new);
     fast::rf::Logger::log_debug(SUT.pretty());
