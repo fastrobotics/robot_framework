@@ -30,8 +30,8 @@ namespace fast::rf {
       }
     }
     namespace Controller {
-      interface IController #Yellow {}
-      class PIDController #Yellow {}
+      interface IController #LimeGreen {}
+      class PIDController #LimeGreen {}
       PIDController -up-|> IController
     }
     namespace LocalPlannerSubsystem {

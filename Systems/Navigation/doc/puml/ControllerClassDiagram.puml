@@ -8,11 +8,11 @@ namespace fast::rf {
             PID_CONTROLLER=1,
             END_OF_LIST=2
         }
-        interface IControllerOutput #Orange {
+        interface IControllerOutput #LimeGreen {
             +bool is_new
             +double command_value
         }
-        interface IControllerConfig #Orange {
+        interface IControllerConfig #LimeGreen {
             +set_parameters(double max_output, double min_output) 
             +double max_output
             +double min_output
@@ -44,14 +44,14 @@ namespace fast::rf {
             -ControllerType controller_type
         }
         BaseController .up.|> IController
-        class PIDControllerOutput #Orange {
+        class PIDControllerOutput #LimeGreen {
             +double setpoint_sensor_error
             +double P_term
             +double I_term
             +double D_term
         }
         PIDControllerOutput -up-|> IControllerOutput
-        class PIDControllerConfig #Orange {
+        class PIDControllerConfig #LimeGreen {
             +void set_parameters(double P, double I, double D, double sensor_scale_factor)
             +double K_P
             +double K_I
@@ -61,7 +61,7 @@ namespace fast::rf {
 
         }
         PIDControllerConfig -up-|> IControllerConfig
-        class PIDController #Orange {
+        class PIDController #LimeGreen {
             +bool init(PIDControllerConfig config)
             +bool new_set_point(double set_point,double time_stamp_sec)
             +bool new_sensor_input(double sensor_input,double time_stamp_sec)

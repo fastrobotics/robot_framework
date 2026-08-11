@@ -8,7 +8,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         return status;
     }
     bool BasicTrajectoryControllerProcess::update(double current_time_sec) {
-        bool status = BaseTrajectoryControllerProcess::base_update(current_time_sec);
+        bool status = BaseTrajectoryControllerProcess::update(current_time_sec);
         if (status == false) {
             return false;
         }

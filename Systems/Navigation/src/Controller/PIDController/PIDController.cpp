@@ -19,10 +19,16 @@ namespace fast::rf::NavigationSystem::Controller {
             return false;
         }
         output_->is_new = true;
+        double prev_error = output_->setpoint_sensor_error;
         output_->setpoint_sensor_error = latest_set_point - (config->sensor_scale * latest_sensor_input);
+        I_acc += output_->setpoint_sensor_error * get_sensor_delta_time_sec();
+
         output_->P_term = config->K_P * output_->setpoint_sensor_error;
-        output_->I_term = config->K_I * 0.0;  // Fill this in
-        output_->D_term = config->K_D * 0.0;  // Fill this in
+        output_->I_term = config->K_I * I_acc;
+        if (get_sensor_delta_time_sec() > 0.0) {
+            double delta_error = (output_->setpoint_sensor_error - prev_error);
+            output_->D_term = config->K_D * delta_error / get_sensor_delta_time_sec();
+        }
         double value = output_->P_term + output_->I_term + output_->D_term;
         output_->command_value = BaseController::process_command_value(value);
         return true;

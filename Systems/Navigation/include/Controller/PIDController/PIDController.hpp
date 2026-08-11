@@ -109,5 +109,6 @@ namespace fast::rf::NavigationSystem::Controller {
 
        private:
         PIDControllerOutput* output_{nullptr};
+        double I_acc{0.0};
     };
 }  // namespace fast::rf::NavigationSystem::Controller

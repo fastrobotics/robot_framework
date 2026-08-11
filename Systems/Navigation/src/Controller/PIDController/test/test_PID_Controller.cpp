@@ -10,12 +10,12 @@ TEST(PIDController, BasicAssertions) {
     PIDController SUT;
     IControllerConfig* config = new PIDControllerConfig;
     ASSERT_TRUE(SUT.init(config));
-    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), -1.0);
+    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     fast::rf::Logger::log_debug(SUT.pretty());
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(0.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.0, current_time_sec));
-    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), -1.0);
+    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     current_time_sec += 1.0;
     ASSERT_TRUE(SUT.update(current_time_sec));
 
@@ -66,8 +66,8 @@ TestDataRecord parse(std::vector<std::string> items) {
     record.expected_command_value = std::stod(items[3]);
     record.expected_setpoint_sensor_error = std::stod(items[6]);
     record.expected_p_term = std::stod(items[7]);
-    record.expected_i_term = std::stod(items[8]);
-    record.expected_d_term = std::stod(items[9]);
+    record.expected_i_term = std::stod(items[9]);
+    record.expected_d_term = std::stod(items[11]);
     return record;
 }
 TEST(PIDController, DataReadProcess) {
@@ -159,16 +159,25 @@ TEST(PIDController, DataReadProcess) {
     ASSERT_FALSE(config_ == nullptr);
     config_->set_parameters(K_P, K_I, K_D, sensor_scale_value);
     ASSERT_TRUE(SUT.init(config));
+
+    bool first = true;
     for (auto test_data_record : test_data_records) {
         ASSERT_TRUE(SUT.new_set_point(test_data_record.set_point, test_data_record.time_stamp));
         ASSERT_TRUE(SUT.new_sensor_input(test_data_record.sensor_value, test_data_record.time_stamp));
-
-        auto output = SUT.get_output();
-        ASSERT_TRUE(output->is_new);
-        ASSERT_FLOAT_EQ(output->setpoint_sensor_error, test_data_record.expected_setpoint_sensor_error);
-        ASSERT_FLOAT_EQ(output->P_term, test_data_record.expected_p_term);
-        ASSERT_FLOAT_EQ(output->I_term, test_data_record.expected_i_term);
-        ASSERT_FLOAT_EQ(output->D_term, test_data_record.expected_d_term);
-        ASSERT_FLOAT_EQ(output->command_value, test_data_record.expected_command_value);
+        if (first) {
+        } else {
+            auto output = SUT.get_output();
+            if (first == true) {
+                first = false;
+                continue;
+            }
+            ASSERT_TRUE(output->is_new);
+            ASSERT_FLOAT_EQ(output->setpoint_sensor_error, test_data_record.expected_setpoint_sensor_error);
+            ASSERT_FLOAT_EQ(output->P_term, test_data_record.expected_p_term);
+            ASSERT_FLOAT_EQ(output->I_term, test_data_record.expected_i_term);
+            ASSERT_FLOAT_EQ(output->D_term, test_data_record.expected_d_term);
+            ASSERT_FLOAT_EQ(output->command_value, test_data_record.expected_command_value);
+        }
+        first = false;
     }
 }

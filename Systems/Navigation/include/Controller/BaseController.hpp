@@ -90,7 +90,7 @@ namespace fast::rf::NavigationSystem::Controller {
        private:
         ControllerType controller_type{ControllerType::UNKNOWN};
         double sensor_timestamp_sec_{0.0};
-        double delta_sensor_sample_time_sec{-1.0};
+        double delta_sensor_sample_time_sec{0.0};
         double current_time_sec_{0.0};
 
         uint64_t sensor_rx_count{0};

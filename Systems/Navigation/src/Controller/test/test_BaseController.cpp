@@ -60,12 +60,12 @@ TEST(BaseController, BasicAssertions) {
     IControllerConfig* config = new TestControllerConfig;
     config->set_parameters(1.0, -1.0);
     ASSERT_TRUE(SUT.init(config));
-    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), -1.0);
+    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     fast::rf::Logger::log_debug(SUT.pretty());
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(0.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.0, current_time_sec));
-    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), -1.0);
+    ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     current_time_sec += 1.0;
     ASSERT_TRUE(SUT.update(current_time_sec));
 
