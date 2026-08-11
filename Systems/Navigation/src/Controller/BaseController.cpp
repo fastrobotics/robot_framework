@@ -36,6 +36,8 @@ namespace fast::rf::NavigationSystem::Controller {
     }
     std::string BaseController::pretty() {
         std::string str = "---Base Controller---\n";
+        str += "\tMax Command: " + std::to_string(config_->max_output) +
+               " Min Command: " + std::to_string(config_->min_output) + "\n";
         str += "\tController Type: " + std::to_string((uint8_t)controller_type) + "\n";
         str += "\tLatest Set Point: " + std::to_string(latest_set_point) +
                " Sensor Input: " + std::to_string(latest_sensor_input) + "\n";

@@ -38,10 +38,12 @@ namespace fast::rf {
           #bool update(double current_time_sec)
           #bool new_pose(OdomMsg pose)
           #bool new_desired_command(TwistMsg cmd)
+          #void set_command(TwistMsg command)
           #string pretty()
           #DiagnosticManager diagnosticManager
           #IController controller
           -TwistMsg command
+          -bool is_new_command
 
         }
         BaseTrajectoryControllerProcess --> IController: <<use>>
@@ -51,6 +53,10 @@ namespace fast::rf {
           +bool init()
           +bool update(double current_time_sec)
           +string pretty()
+          +bool new_pose(OdomMsg pose)
+          +bool new_desired_command(TwistMsg cmd)
+          +bool get_command(TwistMsg cmd)
+         
         }
         BasicTrajectoryControllerProcess -up-|> BaseTrajectoryControllerProcess
         BasicTrajectoryControllerProcess *-> PIDController: <<use>>

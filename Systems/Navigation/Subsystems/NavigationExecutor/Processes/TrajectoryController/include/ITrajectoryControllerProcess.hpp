@@ -47,6 +47,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         virtual bool update(double current_time_sec) = 0;
 
+        virtual std::string pretty() = 0;
+
         virtual bool new_pose(fast::rf::messages::GeometryMsgs::OdomMsg pose) = 0;
         virtual bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) = 0;
         virtual bool get_command(fast::rf::messages::GeometryMsgs::TwistMsg& cmd) = 0;

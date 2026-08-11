@@ -20,16 +20,18 @@ class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerPro
     bool new_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg pose) { return false; }
     bool new_desired_command([[maybe_unused]] fast::rf::messages::GeometryMsgs::TwistMsg cmd) { return false; }
     bool get_command([[maybe_unused]] fast::rf::messages::GeometryMsgs::TwistMsg& cmd) { return false; }
+    std::string pretty() { return ""; }
 };
 TEST(TestTrajectoryControllerProcessInterface, InterfaceTests) {
     TestTrajectoryControllerProcessInterface SUT;
     ASSERT_FALSE(SUT.update(0.0));
+    ASSERT_EQ(SUT.pretty(), "");
 }
 class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProcess {
    public:
     TestBaseTrajectoryControllerProcess() : BaseTrajectoryControllerProcess() {}
     bool init() override {
-        controller = new fast::rf::NavigationSystem::Controller::PIDController;
+        controller_ = new fast::rf::NavigationSystem::Controller::PIDController;
         bool status = BaseTrajectoryControllerProcess::init();
         if (status == false) {
             return false;
@@ -44,12 +46,24 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
         return BaseTrajectoryControllerProcess::new_pose(pose);
     }
     bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) {
+        set_command(cmd);
         return BaseTrajectoryControllerProcess::new_desired_command(cmd);
     }
+    std::string pretty() { return BaseTrajectoryControllerProcess::pretty(); }
 };
 TEST(BaseTrajectoryControllerProcess, BasicAssertions) {
     TestBaseTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    fast::rf::Logger::log_debug(SUT.pretty());
     ASSERT_TRUE(SUT.update(0.0));
+    fast::rf::messages::GeometryMsgs::OdomMsg pose;
+    ASSERT_TRUE(SUT.new_pose(pose));
+
+    fast::rf::messages::GeometryMsgs::TwistMsg desired_command;
+    desired_command.linear.x = 1.0;
+    ASSERT_TRUE(SUT.new_desired_command(desired_command));
+    fast::rf::messages::GeometryMsgs::TwistMsg command;
+    ASSERT_TRUE(SUT.get_command(command));
+    ASSERT_FLOAT_EQ(command.linear.x, 1.0);
 }

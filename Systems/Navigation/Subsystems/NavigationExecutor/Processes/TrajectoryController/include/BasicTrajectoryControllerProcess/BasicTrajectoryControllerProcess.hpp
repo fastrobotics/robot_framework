@@ -37,6 +37,11 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         bool update(double current_time_sec) override;
 
+        std::string pretty() override;
+
+        bool new_pose(fast::rf::messages::GeometryMsgs::OdomMsg pose) override;
+        bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) override;
+
        private:
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
