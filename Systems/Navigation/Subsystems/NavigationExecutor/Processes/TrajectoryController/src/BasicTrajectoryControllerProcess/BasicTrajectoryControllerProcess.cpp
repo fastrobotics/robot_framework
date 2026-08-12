@@ -4,8 +4,14 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     bool BasicTrajectoryControllerProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::PLANNING);
+        diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::POSE);
         bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::WARN,
+                                            fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE,
+                                            "No Pose Update Yet");
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No Ouput Data Computed Yet.");
         controller_ = new Controller::PIDController;
         controller_->init();
         status = set_parameters(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -19,8 +25,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         auto* controller = dynamic_cast<Controller::PIDController*>(controller_);
         bool status = controller->set_config(config);
-
-        printf("xxx1\n");
         fast::rf::Logger::log_debug(pretty());
         return status;
     }
@@ -48,11 +52,15 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         if (status == false) {
             return false;
         }
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Pose Received");
         status = controller_->new_sensor_input(pose.twist.twist.angular.z, current_time_sec_);
         auto cmd = latest_desired_command;
         auto controller_output_ = controller_->get_output();
         cmd.angular.z = controller_output_->command_value;
         set_command(cmd);
+
         return controller_output_->is_new;
     }
     bool BasicTrajectoryControllerProcess::new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) {

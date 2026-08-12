@@ -20,6 +20,10 @@ class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerPro
     bool new_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg pose) { return false; }
     bool new_desired_command([[maybe_unused]] fast::rf::messages::GeometryMsgs::TwistMsg cmd) { return false; }
     bool get_command([[maybe_unused]] fast::rf::messages::GeometryMsgs::TwistMsg& cmd) { return false; }
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() {
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
+        return ready_to_arm;
+    }
     std::string pretty() { return ""; }
 };
 TEST(TestTrajectoryControllerProcessInterface, InterfaceTests) {
@@ -50,13 +54,25 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
         return BaseTrajectoryControllerProcess::new_desired_command(cmd);
     }
     std::string pretty() { return BaseTrajectoryControllerProcess::pretty(); }
+    bool inject_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
+    }
+    bool clear_error() {
+        return diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+    }
 };
 TEST(BaseTrajectoryControllerProcess, BasicAssertions) {
     TestBaseTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::Logger::log_debug(SUT.pretty());
     ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::messages::GeometryMsgs::OdomMsg pose;
     ASSERT_TRUE(SUT.new_pose(pose));
 
@@ -66,4 +82,11 @@ TEST(BaseTrajectoryControllerProcess, BasicAssertions) {
     fast::rf::messages::GeometryMsgs::TwistMsg command;
     ASSERT_TRUE(SUT.get_command(command));
     ASSERT_FLOAT_EQ(command.linear.x, 1.0);
+
+    ASSERT_TRUE(SUT.inject_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_TRUE(SUT.clear_error());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }

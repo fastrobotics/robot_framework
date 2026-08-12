@@ -12,6 +12,7 @@
 
 #include <DiagnosticMsg.hpp>
 #include <OdomMsg.hpp>
+#include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <TwistMsg.hpp>
 #include <vector>
@@ -53,6 +54,13 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return std::string
          */
         virtual std::string pretty() = 0;
+
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
 
         /**
          * @brief Process a new pose

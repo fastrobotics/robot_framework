@@ -13,6 +13,9 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         return new_command;
     }
     void BaseTrajectoryControllerProcess::set_command(fast::rf::messages::GeometryMsgs::TwistMsg command) {
+        diagnosticManager.update_diagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Command Output Computed.");
         command_ = command;
         is_new_command = true;
     }
@@ -37,6 +40,11 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
             return false;
         }
         bool status = controller_->update(current_time_sec);
+        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
+            ready_to_arm.ready_to_arm = true;
+        } else {
+            ready_to_arm.ready_to_arm = false;
+        }
         return status;
     }
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem

@@ -39,6 +39,13 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
             return diagnosticManager.get_diagnostics();
         }
+
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
         /**
          * @brief Get the command data
          *
@@ -100,8 +107,9 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
-            diagnosticManager;                          //!< Entity responsible for managing diagnostics.
-        Controller::IController* controller_{nullptr};  //!< Interface to controller
+            diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
+        Controller::IController* controller_{nullptr};                             //!< Interface to controller
 
         fast::rf::messages::GeometryMsgs::TwistMsg latest_desired_command;  //!< Storage for latest desired command
 
