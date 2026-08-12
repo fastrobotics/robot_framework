@@ -11,7 +11,7 @@
 #pragma once
 
 #include <BaseTrajectoryControllerProcess.hpp>
-
+#include <Controller/PIDController/PIDController.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     /**
      * @brief Minimal implementation for a TrajectoryController Process
@@ -28,6 +28,22 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return false
          */
         bool init() override;
+
+        /**
+         * @brief Set the parameters object
+         *
+         * @param max_output
+         * @param min_output
+         * @param sensor_scale_factor
+         * @param K_P
+         * @param K_I
+         * @param K_D
+         * @return true
+         * @return false
+         */
+        bool set_parameters(double max_output, double min_output, double sensor_scale_factor, double K_P, double K_I,
+                            double K_D);
+
         /**
          * @brief Update with recent timing data
          *
@@ -36,6 +52,31 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return false If update executed with some error
          */
         bool update(double current_time_sec) override;
+
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
+
+        /**
+         * @brief Process a new pose
+         *
+         * @param pose
+         * @return true
+         * @return false
+         */
+        bool new_pose(fast::rf::messages::GeometryMsgs::OdomMsg pose) override;
+
+        /**
+         * @brief Process a new desired command
+         *
+         * @param cmd
+         * @return true
+         * @return false
+         */
+        bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) override;
 
        private:
     };

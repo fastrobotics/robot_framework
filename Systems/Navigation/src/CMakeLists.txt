@@ -1,3 +1,4 @@
+add_subdirectory(Controller)
 add_library(base_Navigation_system STATIC BaseNavigationSystem.cpp)
 target_link_libraries(base_Navigation_system geometry_msgs)
 add_library(dummy_Navigation_system STATIC

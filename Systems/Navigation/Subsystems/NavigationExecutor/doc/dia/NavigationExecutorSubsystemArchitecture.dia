@@ -13,16 +13,16 @@
           <dia:string>#Letter#</dia:string>
         </dia:attribute>
         <dia:attribute name="tmargin">
-          <dia:real val="2.54"/>
+          <dia:real val="2.5399999618530273"/>
         </dia:attribute>
         <dia:attribute name="bmargin">
-          <dia:real val="2.54"/>
+          <dia:real val="2.5399999618530273"/>
         </dia:attribute>
         <dia:attribute name="lmargin">
-          <dia:real val="2.54"/>
+          <dia:real val="2.5399999618530273"/>
         </dia:attribute>
         <dia:attribute name="rmargin">
-          <dia:real val="2.54"/>
+          <dia:real val="2.5399999618530273"/>
         </dia:attribute>
         <dia:attribute name="is_portrait">
           <dia:boolean val="false"/>
@@ -58,9 +58,11 @@
     <dia:attribute name="color">
       <dia:color val="#d8e5e5ff"/>
     </dia:attribute>
-    <dia:attribute name="guides"/>
-    <dia:attribute name="guide_color">
-      <dia:color val="#00ff00ff"/>
+    <dia:attribute name="guides">
+      <dia:composite type="guides">
+        <dia:attribute name="hguides"/>
+        <dia:attribute name="vguides"/>
+      </dia:composite>
     </dia:attribute>
     <dia:attribute name="display">
       <dia:composite type="display">
@@ -70,16 +72,10 @@
         <dia:attribute name="snap-to-grid">
           <dia:boolean val="true"/>
         </dia:attribute>
-        <dia:attribute name="snap-to-guides">
-          <dia:boolean val="true"/>
-        </dia:attribute>
         <dia:attribute name="snap-to-object">
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="show-grid">
-          <dia:boolean val="true"/>
-        </dia:attribute>
-        <dia:attribute name="show-guides">
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="show-connection-points">
@@ -94,12 +90,12 @@
         <dia:point val="30,-12"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="20.4763,-13.51;39.5237,-11.585"/>
+        <dia:rectangle val="12.1137,-13.3509;47.9273,-11.5851"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#New Subsystem Architecture#</dia:string>
+            <dia:string>#Navigation Executor Subsystem Architecture#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="Sans" style="88" name="Helvetica-BoldOblique"/>
@@ -156,7 +152,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="79,9.285"/>
+            <dia:point val="79,9.19406"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -201,7 +197,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="-6,9.285"/>
+            <dia:point val="-6,9.19406"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -246,7 +242,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="14,-0.215"/>
+            <dia:point val="14,-0.305937"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -291,7 +287,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="38,-0.215"/>
+            <dia:point val="38,-0.305937"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -336,7 +332,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="59,-0.215"/>
+            <dia:point val="59,-0.305937"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -380,7 +376,7 @@
         <dia:point val="-1,-1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-1.02188,-1.70688;5.2825,-0.76625"/>
+        <dia:rectangle val="-1,-1.59406;5.655,-0.849062"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -413,7 +409,7 @@
         <dia:point val="24,-3"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="24,-3.70688;29.8444,-2.76625"/>
+        <dia:rectangle val="24,-3.59406;30.2075,-2.84906"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -502,7 +498,7 @@
         <dia:point val="11,7"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="11,6.29313;12.4644,7.23375"/>
+        <dia:rectangle val="11,6.40594;12.4825,7.15094"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -563,7 +559,7 @@
         <dia:point val="45,-1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="45,-1.685;51.265,-0.81"/>
+        <dia:rectangle val="45,-1.59406;51.7725,-0.849062"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -624,7 +620,7 @@
         <dia:point val="69,1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="69,0.293125;73.9069,1.23375"/>
+        <dia:rectangle val="69,0.405938;74.2,1.15094"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">

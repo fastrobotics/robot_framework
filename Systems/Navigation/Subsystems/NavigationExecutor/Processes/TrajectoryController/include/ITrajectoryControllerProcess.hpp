@@ -11,7 +11,10 @@
 #pragma once
 
 #include <DiagnosticMsg.hpp>
+#include <OdomMsg.hpp>
+#include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
+#include <TwistMsg.hpp>
 #include <vector>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
@@ -30,7 +33,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return false
          */
         virtual bool init() = 0;
-
+        /**
+         * @brief Get the diagnostic object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
+         */
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
         /**
          * @brief Generic Update function
          *
@@ -41,10 +49,44 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         virtual bool update(double current_time_sec) = 0;
 
         /**
-         * @brief Get the diagnostic object
+         * @brief Human readable string
          *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
+         * @return std::string
          */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+        virtual std::string pretty() = 0;
+
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+
+        /**
+         * @brief Process a new pose
+         *
+         * @param pose
+         * @return true
+         * @return false
+         */
+        virtual bool new_pose(fast::rf::messages::GeometryMsgs::OdomMsg pose) = 0;
+
+        /**
+         * @brief Process a new desired command
+         *
+         * @param cmd
+         * @return true
+         * @return false
+         */
+        virtual bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) = 0;
+
+        /**
+         * @brief Get the command data
+         *
+         * @param cmd
+         * @return true if New
+         * @return false  if Not
+         */
+        virtual bool get_command(fast::rf::messages::GeometryMsgs::TwistMsg& cmd) = 0;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
