@@ -40,7 +40,7 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return true
          * @return false
          */
-        bool init(IControllerConfig* config) override = 0;
+        bool init() override = 0;
         /**
          * @brief Generic update.  Should be called by concrete class.
          *
@@ -72,9 +72,11 @@ namespace fast::rf::NavigationSystem::Controller {
          * @brief Process a command value
          *
          * @param command_value
+         * @param max_output
+         * @param min_output
          * @return double
          */
-        double process_command_value(double command_value);
+        double process_command_value(double command_value, double max_output, double min_output);
 
         /**
          * @brief Human readable string.  Should be called by concrete class.
@@ -83,9 +85,8 @@ namespace fast::rf::NavigationSystem::Controller {
          */
         std::string pretty() override = 0;
 
-        IControllerConfig* config_{nullptr};  //!< Generic config container
-        double latest_set_point{0.0};         //!< Latest Set Point
-        double latest_sensor_input{0.0};      //!< Latest Sensor Input
+        double latest_set_point{0.0};     //!< Latest Set Point
+        double latest_sensor_input{0.0};  //!< Latest Sensor Input
 
        private:
         ControllerType controller_type{ControllerType::UNKNOWN};

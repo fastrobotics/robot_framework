@@ -19,14 +19,19 @@ namespace fast::rf::NavigationSystem::Controller {
        public:
         ~PIDControllerConfig() override {}
         /**
-         * @brief Set the parameters
+         * @brief Set the parameters data
          *
+         * @param max_output
+         * @param min_output
          * @param P Proportional Constant
          * @param I Integration Constant
          * @param D Derivative Constant
          * @param sensor_scale_factor How much to scale Sensor Value by
          */
-        void set_parameters(double P, double I, double D, double sensor_scale_factor) {
+        void set_parameters(double max_output, double min_output, double P, double I, double D,
+                            double sensor_scale_factor) {
+            max_output_ = max_output;
+            min_output_ = min_output;
             K_P = P;
             K_I = I;
             K_D = D;
@@ -59,11 +64,22 @@ namespace fast::rf::NavigationSystem::Controller {
         /**
          * @brief Initialize the object
          *
+         * @return true
+         * @return false
+         */
+        bool init() override;
+
+        /**
+         * @brief Set the config data
+         *
          * @param config
          * @return true
          * @return false
          */
-        bool init(IControllerConfig* config) override;
+        bool set_config(PIDControllerConfig config) {
+            config_ = config;
+            return true;
+        }
 
         /**
          * @brief Process a new set point
@@ -108,6 +124,7 @@ namespace fast::rf::NavigationSystem::Controller {
         std::string pretty() override;
 
        private:
+        PIDControllerConfig config_;
         PIDControllerOutput* output_{nullptr};
         double I_acc{0.0};
     };

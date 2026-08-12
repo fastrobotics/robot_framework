@@ -13,14 +13,13 @@ namespace fast::rf {
             +double command_value
         }
         interface IControllerConfig #LimeGreen {
-            +set_parameters(double max_output, double min_output) 
             +double max_output
             +double min_output
 
 
         }
         interface IController #LimeGreen {
-            +{abstract} bool init(IControllerConfig config)
+            +{abstract} bool init()
             +{abstract} bool new_set_point(double set_point,double time_stamp_sec)
             +{abstract} bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +{abstract} bool update(double current_time_sec)
@@ -31,16 +30,14 @@ namespace fast::rf {
         }
         IController +-- ControllerType
         IController --> IControllerOutput: <<use>>
-        IController --> IControllerConfig: <<use>>
         abstract BaseController #LimeGreen {
             +ControllerType get_controller_type()
             +double get_sensor_delta_time_sec()
-            #bool init(IControllerConfig config)
+            #bool init()
             #bool new_set_point(double set_point,double time_stamp_sec)
             #bool new_sensor_input(double sensor_input,double time_stamp_sec)
             #bool update(double current_time_sec)
             #string pretty()
-            #IControllerConfig config_
             -ControllerType controller_type
         }
         BaseController .up.|> IController
@@ -52,7 +49,7 @@ namespace fast::rf {
         }
         PIDControllerOutput -up-|> IControllerOutput
         class PIDControllerConfig #LimeGreen {
-            +void set_parameters(double P, double I, double D, double sensor_scale_factor)
+            +void set_parameters(double max_value, double min_value, double P, double I, double D, double sensor_scale_factor)
             +double K_P
             +double K_I
             +double K_D
@@ -62,12 +59,14 @@ namespace fast::rf {
         }
         PIDControllerConfig -up-|> IControllerConfig
         class PIDController #LimeGreen {
-            +bool init(PIDControllerConfig config)
+            +bool init()
+            +bool set_config(PIDControllerConfig config)
             +bool new_set_point(double set_point,double time_stamp_sec)
             +bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +bool update(double current_time_sec)
             +bool get_output(PIDControllerOutput output)
             +string pretty()
+            -PIDControllerConfig config
         }
         PIDController -up-|> BaseController
         PIDController --> PIDControllerOutput: <<use>>

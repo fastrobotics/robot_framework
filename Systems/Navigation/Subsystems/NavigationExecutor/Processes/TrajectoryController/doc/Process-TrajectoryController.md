@@ -54,10 +54,10 @@ The following outputs are provided by this system.
 
 ## Trajectory Controller Process Implementations
 
-| Status | Implementation                                                                                  | Details                             |
-| ------ | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
-| NEW    | DummyTrajectoryControllerProcess                                                                | Used for generating fake data       |
-| NEW    | [BasicTrajectoryControllerProcess](ProcessImplementations/Process-BasicTrajectoryController.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                                  | Details                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| NEW    | DummyTrajectoryControllerProcess                                                                | Used for generating fake data                                               |
+| NEW    | [BasicTrajectoryControllerProcess](ProcessImplementations/Process-BasicTrajectoryController.md) | PID Controller on Twist-Angular Z component.  Everything else is pass-thru. |
 
 # Usage Instructions
 

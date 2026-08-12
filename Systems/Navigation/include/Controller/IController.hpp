@@ -32,18 +32,8 @@ namespace fast::rf::NavigationSystem::Controller {
        public:
         IControllerConfig() = default;
         virtual ~IControllerConfig() {}
-        /**
-         * @brief Set the Config Parameters
-         *
-         * @param max_v
-         * @param min_v
-         */
-        void set_parameters(double max_v, double min_v) {
-            max_output = max_v;
-            min_output = min_v;
-        }
-        double max_output{0.0};  //!< Max Output Value
-        double min_output{0.0};  //!< Min Output Value
+        double max_output_{0.0};  //!< Max Output Value
+        double min_output_{0.0};  //!< Min Output Value
     };
     /**
      * @brief Generic Controller Output Interface
@@ -68,14 +58,15 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return ControllerType
          */
         virtual ControllerType get_controller_type() = 0;
+
         /**
          * @brief Initialize the Controller
          *
-         * @param config
          * @return true
          * @return false
          */
-        virtual bool init(IControllerConfig* config) = 0;
+        virtual bool init() = 0;
+
         /**
          * @brief Provide a new Set Point
          *

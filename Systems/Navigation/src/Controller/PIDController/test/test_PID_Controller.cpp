@@ -8,8 +8,7 @@ using namespace fast::rf::NavigationSystem::Controller;
 #include <limits>
 TEST(PIDController, BasicAssertions) {
     PIDController SUT;
-    IControllerConfig* config = new PIDControllerConfig;
-    ASSERT_TRUE(SUT.init(config));
+    ASSERT_TRUE(SUT.init());
     ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     fast::rf::Logger::log_debug(SUT.pretty());
     double current_time_sec = 0.0;
@@ -30,12 +29,10 @@ TEST(PIDController, BasicAssertions) {
 }
 TEST(PIDController, SimpleCompute) {
     PIDController SUT;
-    IControllerConfig* config = new PIDControllerConfig;
-    config->set_parameters(5.0, -5.0);
-    auto* config_ = dynamic_cast<PIDControllerConfig*>(config);
-    ASSERT_FALSE(config_ == nullptr);
-    config_->set_parameters(2.0, 0.0, 0.0, 2.0);
-    ASSERT_TRUE(SUT.init(config));
+    PIDControllerConfig config;
+    config.set_parameters(5.0, -5.0, 2.0, 0.0, 0.0, 2.0);
+    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.set_config(config));
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(1.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.2, current_time_sec));
@@ -153,12 +150,10 @@ TEST(PIDController, DataReadProcess) {
     ASSERT_GT(test_data_records.size(), 0);
 
     PIDController SUT;
-    IControllerConfig* config = new PIDControllerConfig;
-    config->set_parameters(max_command_value, min_command_value);
-    auto* config_ = dynamic_cast<PIDControllerConfig*>(config);
-    ASSERT_FALSE(config_ == nullptr);
-    config_->set_parameters(K_P, K_I, K_D, sensor_scale_value);
-    ASSERT_TRUE(SUT.init(config));
+    PIDControllerConfig config;
+    config.set_parameters(max_command_value, min_command_value, K_P, K_I, K_D, sensor_scale_value);
+    ASSERT_TRUE(SUT.set_config(config));
+    ASSERT_TRUE(SUT.init();
 
     bool first = true;
     for (auto test_data_record : test_data_records) {

@@ -19,8 +19,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     bool BaseTrajectoryControllerProcess::new_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg pose) {
         return true;
     }
-    bool BaseTrajectoryControllerProcess::new_desired_command(
-        [[maybe_unused]] fast::rf::messages::GeometryMsgs::TwistMsg cmd) {
+    bool BaseTrajectoryControllerProcess::new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) {
+        latest_desired_command = cmd;
         return true;
     }
     std::string BaseTrajectoryControllerProcess::pretty() {

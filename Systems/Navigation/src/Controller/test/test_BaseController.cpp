@@ -2,11 +2,6 @@
 
 #include <Controller/BaseController.hpp>
 using namespace fast::rf::NavigationSystem::Controller;
-class TestControllerConfig : public IControllerConfig {
-   public:
-    ~TestControllerConfig() override {}
-    double test_config_attribute{0.0};
-};
 class TestControllerOutput : public IControllerOutput {
    public:
     ~TestControllerOutput() override {}
@@ -14,15 +9,8 @@ class TestControllerOutput : public IControllerOutput {
 };
 class TestBaseController : public BaseController {
    public:
-    bool init(IControllerConfig* config) {
-        auto* config_ = dynamic_cast<TestControllerConfig*>(config);
-        if (!config_) {
-            return false;
-        }
-        if (config_->test_config_attribute > 0.0) {
-            return false;
-        }
-        bool status = BaseController::init(config);
+    bool init() {
+        bool status = BaseController::init();
         output_ = new TestControllerOutput();
         return status;
     }
@@ -34,7 +22,7 @@ class TestBaseController : public BaseController {
     }
     bool update(double current_time_sec) {
         output_->value = 1.0;
-        output_->command_value = BaseController::process_command_value(output_->value);
+        output_->command_value = BaseController::process_command_value(output_->value, 1.0, -1.0);
         output_->is_new = true;
         return BaseController::update(current_time_sec);
     }
@@ -45,9 +33,7 @@ class TestBaseController : public BaseController {
         return output;
     }
     std::string pretty() {
-        auto config = dynamic_cast<TestControllerConfig*>(config_);
         std::string str = BaseController::pretty();
-        str += "attr: " + std::to_string(config->test_config_attribute) + "\n";
         str += "val: " + std::to_string(output_->value) + "\n";
         return str;
     }
@@ -57,9 +43,8 @@ class TestBaseController : public BaseController {
 };
 TEST(BaseController, BasicAssertions) {
     TestBaseController SUT;
-    IControllerConfig* config = new TestControllerConfig;
-    config->set_parameters(1.0, -1.0);
-    ASSERT_TRUE(SUT.init(config));
+
+    ASSERT_TRUE(SUT.init());
     ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
     fast::rf::Logger::log_debug(SUT.pretty());
     double current_time_sec = 0.0;

@@ -1,12 +1,6 @@
 #include <Controller/BaseController.hpp>
 namespace fast::rf::NavigationSystem::Controller {
-    bool BaseController::init(IControllerConfig* config) {
-        if (config == nullptr) {
-            return false;
-        }
-        config_ = config;
-        return true;
-    }
+    bool BaseController::init() { return true; }
     bool BaseController::new_set_point(double set_point, [[maybe_unused]] double time_stamp_sec) {
         latest_set_point = set_point;
         setpoint_rx_count++;
@@ -26,18 +20,16 @@ namespace fast::rf::NavigationSystem::Controller {
         update_count++;
         return true;
     }
-    double BaseController::process_command_value(double command_value) {
-        if (command_value > config_->max_output) {
-            command_value = config_->max_output;
-        } else if (command_value < config_->min_output) {
-            command_value = config_->min_output;
+    double BaseController::process_command_value(double command_value, double max_output, double min_output) {
+        if (command_value > max_output) {
+            command_value = max_output;
+        } else if (command_value < min_output) {
+            command_value = min_output;
         }
         return command_value;
     }
     std::string BaseController::pretty() {
         std::string str = "---Base Controller---\n";
-        str += "\tMax Command: " + std::to_string(config_->max_output) +
-               " Min Command: " + std::to_string(config_->min_output) + "\n";
         str += "\tController Type: " + std::to_string((uint8_t)controller_type) + "\n";
         str += "\tLatest Set Point: " + std::to_string(latest_set_point) +
                " Sensor Input: " + std::to_string(latest_sensor_input) + "\n";

@@ -17,8 +17,18 @@ TEST(BasicTrajectoryControllerProcess, BasicTests) {
 TEST(BasicTrajectoryControllerProcess, BasicInterfaceTests) {
     BasicTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
-}
-TEST(BasicTrajectoryControllerProcess, ControllerTests) {
-    BasicTrajectoryControllerProcess SUT;
-    ASSERT_TRUE(false);
+    ASSERT_TRUE(SUT.set_parameters(5.0, -5.0, 2.0, 2.0, 0.0, 0.0));
+
+    fast::rf::messages::GeometryMsgs::TwistMsg desired_command;
+    desired_command.linear.x = 1.0;
+    desired_command.angular.z = 1.0;
+    ASSERT_TRUE(SUT.new_desired_command(desired_command));
+    fast::rf::messages::GeometryMsgs::OdomMsg pose;
+    ASSERT_TRUE(SUT.new_pose(pose));
+    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::messages::GeometryMsgs::TwistMsg command;
+    ASSERT_TRUE(SUT.get_command(command));
+    ASSERT_FLOAT_EQ(command.linear.x, desired_command.linear.x);
+    ASSERT_NE(command.angular.z, 0.0);
+    ASSERT_NE(command.angular.z, desired_command.angular.z);
 }

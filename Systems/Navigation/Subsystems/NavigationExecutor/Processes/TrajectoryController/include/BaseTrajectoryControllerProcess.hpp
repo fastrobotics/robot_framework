@@ -39,11 +39,31 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
             return diagnosticManager.get_diagnostics();
         }
-
+        /**
+         * @brief Get the command data
+         *
+         * @param cmd
+         * @return true If the command is new
+         * @return false If the command is not new
+         */
         bool get_command(fast::rf::messages::GeometryMsgs::TwistMsg& cmd);
 
        protected:
+        /**
+         * @brief Initialize the class.  Called by concrete class.
+         *
+         * @return true
+         * @return false
+         */
         bool init() override = 0;
+
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
+        std::string pretty() override = 0;
+
         /**
          * @brief Update the base object
          *
@@ -51,19 +71,43 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          * @return true If ok
          * @return false If not ok
          */
+        bool update(double current_time_sec) override = 0;
 
-        std::string pretty() override = 0;
-        bool update(double current_time_sec) override = 0;  //!< Base function to update
+        /**
+         * @brief Process a pose
+         *
+         * @param pose
+         * @return true
+         * @return false
+         */
         bool new_pose(fast::rf::messages::GeometryMsgs::OdomMsg pose) override = 0;
+
+        /**
+         * @brief Process a new desired command
+         *
+         * @param cmd
+         * @return true
+         * @return false
+         */
         bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) override = 0;
+
+        /**
+         * @brief Set the command data
+         *
+         * @param command
+         */
+        void set_command(fast::rf::messages::GeometryMsgs::TwistMsg command);
+
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
-            diagnosticManager;  //!< Entity responsible for managing diagnostics.
-        Controller::IController* controller_{nullptr};
-        void set_command(fast::rf::messages::GeometryMsgs::TwistMsg command);
+            diagnosticManager;                          //!< Entity responsible for managing diagnostics.
+        Controller::IController* controller_{nullptr};  //!< Interface to controller
+
+        fast::rf::messages::GeometryMsgs::TwistMsg latest_desired_command;  //!< Storage for latest desired command
 
        private:
         bool is_new_command{false};
+
         fast::rf::messages::GeometryMsgs::TwistMsg command_;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
