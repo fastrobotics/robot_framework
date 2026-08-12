@@ -153,7 +153,7 @@ TEST(PIDController, DataReadProcess) {
     PIDControllerConfig config;
     config.set_parameters(max_command_value, min_command_value, K_P, K_I, K_D, sensor_scale_value);
     ASSERT_TRUE(SUT.set_config(config));
-    ASSERT_TRUE(SUT.init();
+    ASSERT_TRUE(SUT.init());
 
     bool first = true;
     for (auto test_data_record : test_data_records) {
