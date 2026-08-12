@@ -29,7 +29,10 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
             : diagnosticManager(
                   fast::rf::NavigationSystem::SYSTEM_ID,
                   fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID) {}
+                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID),
+              ready_to_arm(fast::rf::NavigationSystem::SYSTEM_ID,
+                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID) {}
 
         /**
          * @brief Get the diagnostics object
