@@ -75,7 +75,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         auto key = generate_key(msg.systemID, msg.subsystemID, msg.processID);
         auto it = monitors.find(key);
         if (it == monitors.end()) {
-            fast::rf::Logger::log_warn("Monitor not initialized for: " + msg.pretty());
+            fast::rf::Logger::log_error("Monitor not initialized for: " + msg.pretty());
             return false;
         } else {
             it->second.rx_count++;
