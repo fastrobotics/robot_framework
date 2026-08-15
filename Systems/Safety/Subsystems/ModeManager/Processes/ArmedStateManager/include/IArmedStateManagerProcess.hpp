@@ -82,5 +82,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
          */
         virtual fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() = 0;
+
+        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem

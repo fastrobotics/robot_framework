@@ -26,7 +26,10 @@ class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
         response.request_approved = false;
         return response;
     }
-
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() {
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
+        return ready_to_arm;
+    }
     bool new_ReadyToArmStatus([
         [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) override {
         return false;
@@ -127,8 +130,15 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     process3.processID = fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID;
     process3.ready_to_arm = true;
 
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process4;
+    process4.systemID = fast::rf::NavigationSystem::SYSTEM_ID;
+    process4.subsystemID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID;
+    process4.processID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID;
+    process4.ready_to_arm = true;
+
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
 
@@ -152,6 +162,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
@@ -178,6 +189,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
+        ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
         ASSERT_TRUE(SUT.update(current_time));
     }
 

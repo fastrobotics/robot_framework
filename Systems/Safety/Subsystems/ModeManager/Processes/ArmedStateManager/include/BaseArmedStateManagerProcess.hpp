@@ -28,7 +28,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         BaseArmedStateManagerProcess()
             : diagnosticManager(fast::rf::SafetySystem::SYSTEM_ID,
                                 fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID) {}
+                                fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID),
+              ready_to_arm(fast::rf::SafetySystem::SYSTEM_ID,
+                           fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
+                           fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -54,9 +57,17 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          */
         virtual std::string pretty();
 
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
+
        protected:
         double current_time_sec{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
