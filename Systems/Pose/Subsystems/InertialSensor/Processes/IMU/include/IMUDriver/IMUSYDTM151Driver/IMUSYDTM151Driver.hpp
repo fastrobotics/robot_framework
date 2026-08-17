@@ -73,8 +73,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         int serial_fd{-1};  //!< Serial Port Device
         BaseIMUDriver::SensorData sensor_data_;
         char readBuffer[64];
-        uint64_t packet_rx_ok_counter{0};
-        uint64_t packet_rx_dropped_counter{0};
         EasyObjectDictionary eOD;
         EasyProfile* eP{nullptr};
     };

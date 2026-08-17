@@ -19,6 +19,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IIMUDriver {
        public:
+        static constexpr double HIGH_PACKET_DROPPED_RATE_THRESHOLD = 1.0;
+        static constexpr double LOW_PACKET_RX_RATE_THRESHOLD = 140.0;
         /**
          * @brief Define all supported IMU's
          *

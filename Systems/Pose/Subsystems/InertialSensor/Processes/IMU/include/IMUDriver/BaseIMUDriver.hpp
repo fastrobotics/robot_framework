@@ -108,13 +108,24 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         void new_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg data);
 
+        void increment_packet_rx_counter();
+
+        uint64_t get_packet_rx_ok_counter() { return packet_rx_ok_counter; }
+
+        void increment_packet_rx_dropped_counter();
+
         std::string imu_device_name{""};  //!< IMU Device Name
         double start_time{-1.0};          //!< When the driver was started
         double current_time_sec{-1.0};    //!< Current Time
+
        private:
         bool is_new_imu_data{false};                                     // If there's new IMU data
         bool is_new_magnetic_data{false};                                // If there's new Magnetic Data
         fast::rf::messages::SensorMsgs::ImuMsg imu_data;                 //!< IMU Data
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;  //!< Magnetic Data
+        uint64_t packet_rx_ok_counter{0};
+        uint64_t packet_rx_dropped_counter{0};
+        double packet_rx_rate{0.0};
+        double packet_dropped_rate{0.0};
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

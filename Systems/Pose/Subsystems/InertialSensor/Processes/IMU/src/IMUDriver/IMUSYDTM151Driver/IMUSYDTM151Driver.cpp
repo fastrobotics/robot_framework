@@ -65,7 +65,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         if (numBytesRead < 0) {
             // fast::rf::Logger::log_warn("Error Reading: " + std::string(strerror(errno)));
         } else if (numBytesRead == 0) {
-            packet_rx_dropped_counter++;
+            increment_packet_rx_dropped_counter();
         } else {
             DataPacket packet = parse(readBuffer, numBytesRead);
             if (packet.ok == true) {
@@ -77,26 +77,24 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                 {
                     fast::rf::messages::SensorMsgs::ImuMsg data;
                     data = sensor_data.imu_msg;
-                    data.seq = packet_rx_ok_counter;
+                    data.seq = get_packet_rx_ok_counter();
                     data.time_stamp = current_time_sec;
                     new_imu_data(data);
                 }
                 {
                     fast::rf::messages::SensorMsgs::MagneticFieldMsg data;
                     data = sensor_data.magnetic_field_msg;
-                    data.seq = packet_rx_ok_counter;
+                    data.seq = get_packet_rx_ok_counter();
                     data.time_stamp = current_time_sec;
                     new_magnetic_data(data);
                 }
-                packet_rx_ok_counter++;
+                increment_packet_rx_counter();
 
             } else if (packet.skipped == true) {
                 // Do nothing, don't care.
             } else {
-                packet_rx_dropped_counter++;
+                increment_packet_rx_dropped_counter();
             }
-
-            fast::rf::Logger::log_debug("RX: " + std::to_string(numBytesRead) + "-->" + std::string(readBuffer));
         }
         // GCOV_EXCL_STOP
         return true;
@@ -180,12 +178,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     std::string IMUSYDTM151Driver::pretty() {
         std::string str = "---IMU Driver: SYDTM151---\n";
         str += BaseIMUDriver::pretty() + "\n";
-        double packet_rx_rate = (double)(packet_rx_ok_counter) / ((current_time_sec - start_time));
-        str += "\tRX Packets: " + std::to_string(packet_rx_ok_counter) + " Rate: " + std::to_string(packet_rx_rate) +
-               " (hz)\n";
-        double packet_dropped_rate = (double)(packet_rx_dropped_counter) / ((current_time_sec - start_time));
-        str += "\tDropped RX Packets: " + std::to_string(packet_rx_dropped_counter) +
-               " Rate: " + std::to_string(packet_dropped_rate) + " (hz)\n";
         return str;
     }
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
