@@ -67,6 +67,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& magnetic_data);
 
+        double get_packet_dropped_rate() override { return packet_dropped_rate; }
+
+        double get_packet_rx_rate() override { return packet_rx_rate; }
+
        protected:
         /**
          * @brief Initialize the base object.  Called by the concrete object.
@@ -125,7 +129,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         fast::rf::messages::SensorMsgs::MagneticFieldMsg magnetic_data;  //!< Magnetic Data
         uint64_t packet_rx_ok_counter{0};
         uint64_t packet_rx_dropped_counter{0};
-        double packet_rx_rate{0.0};
-        double packet_dropped_rate{0.0};
+        double packet_rx_rate{-1.0};
+        double packet_dropped_rate{-1.0};
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

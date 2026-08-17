@@ -14,17 +14,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         if (start_time < 0.0) {
             start_time = current_time_sec_;
         }
-        packet_rx_rate = (double)(packet_rx_ok_counter) / ((current_time_sec - start_time));
-        packet_dropped_rate = (double)(packet_rx_dropped_counter) / ((current_time_sec - start_time));
+
         if ((current_time_sec - start_time) > 5.0) {  // Allow the Process to accumulate some data
-            if (packet_dropped_rate > HIGH_PACKET_DROPPED_RATE_THRESHOLD) {
-                fast::rf::Logger::log_warn("High Packet Drop Rate: " + std::to_string(packet_dropped_rate) + "/" +
-                                           std::to_string(HIGH_PACKET_DROPPED_RATE_THRESHOLD) + " (Hz)");
-            }
-            if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
-                fast::rf::Logger::log_warn("Low Packet Rate: " + std::to_string(packet_rx_rate) + "/" +
-                                           std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
-            }
+            packet_rx_rate = (double)(packet_rx_ok_counter) / ((current_time_sec - start_time));
+            packet_dropped_rate = (double)(packet_rx_dropped_counter) / ((current_time_sec - start_time));
         }
         return true;
     }

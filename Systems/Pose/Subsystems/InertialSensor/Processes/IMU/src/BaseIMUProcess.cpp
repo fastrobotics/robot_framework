@@ -58,6 +58,17 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Not able to Update IMU!");
             }
+            double packet_dropped_rate = driver->get_packet_dropped_rate();
+            if (packet_dropped_rate > HIGH_PACKET_DROPPED_RATE_THRESHOLD) {
+                fast::rf::Logger::log_warn("High Packet Drop Rate: " + std::to_string(packet_dropped_rate) + "/" +
+                                           std::to_string(HIGH_PACKET_DROPPED_RATE_THRESHOLD) + " (Hz)");
+            }
+            double packet_rx_rate = driver->get_packet_rx_rate();
+            if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
+                fast::rf::Logger::log_warn("Low Packet Rate: " + std::to_string(packet_rx_rate) + "/" +
+                                           std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
+            }
+
             /**
              * @todo Trip diagnostic if Packet Error is too high during AB#1796
              *
