@@ -5,6 +5,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS);
+        diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::TIMING);
         diagnosticManager.initialize_diagnostics(diagnostic_types);
         bool status = BaseIMUProcess::init(imu_config);
         if (status == false) {

@@ -54,6 +54,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             bool status = driver->update(current_time_sec_);
             if (status == false) {
                 fast::rf::Logger::log_warn("Driver Not Updated!");
+
                 diagnosticManager.update_diagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Not able to Update IMU!");
@@ -72,8 +73,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             if (packet_rx_rate >= 0.0) {
                 if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
                     diagnosticManager.update_diagnostic(
-                        fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
-                        fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
+                        fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::ERROR,
+                        fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                         "Low Packet Rate: " + std::to_string(packet_rx_rate) + " < " +
                             std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
                 }
