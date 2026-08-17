@@ -1,9 +1,17 @@
+add_library(poseUtility STATIC PoseUtility.cpp)
+target_link_libraries(poseUtility geometry_msgs)
+
 add_library(base_pose_system STATIC BasePoseSystem.cpp)
 target_link_libraries(base_pose_system geometry_msgs)
 add_library(dummy_pose_system STATIC DummyPoseSystem/DummyPoseSystem.cpp)
 target_link_libraries(dummy_pose_system base_pose_system)
 
 if(BUILD_TESTING)
+  add_executable(test_PoseUtility test/test_PoseUtility.cpp)
+  target_link_libraries(test_PoseUtility GTest::gtest_main geometry_msgs
+                        poseUtility)
+
+  gtest_discover_tests(test_PoseUtility)
 
   add_executable(test_system_Pose test/test_system_Pose.cpp)
   target_link_libraries(test_system_Pose GTest::gtest_main geometry_msgs

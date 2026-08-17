@@ -67,10 +67,12 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          * @brief Get the local pose object
          *
          * @param local_pose
-         * @return true
+         * @param angular_acc
+         * @return true If the data is new
          * @return false
          */
-        bool get_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg& local_pose) override;
+        bool get_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg& local_pose,
+                            fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg& angular_acc) override;
 
        protected:
         /**
@@ -81,17 +83,21 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         virtual std::string pretty();
 
         /**
-         * @brief Handle a new computed local pose
+         * @brief Handle a new computed pose data
          *
          * @param local_pose
+         * @param angular_acc
          */
-        void new_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg local_pose);
+        void new_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg local_pose,
+                            fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc);
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
        private:
         fast::rf::messages::GeometryMsgs::OdomMsg local_pose_;  //!< Computed Local Pose
-        bool is_new_local_pose{false};                          //!< If the local pose is new or not
+        fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg
+            angular_acc_;               //!< Computed Local Pose Angular Acceleration
+        bool is_new_local_pose{false};  //!< If the local pose is new or not
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

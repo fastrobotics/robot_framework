@@ -1,4 +1,20 @@
 if(BUILD_TESTING)
+  # Test: GeometryMsgs::AccelMsg
+  add_executable(test_msgs_GeometryMsgs_AccelMsg
+                 test/test_msgs_GeometryMsgs_AccelMsg.cpp)
+  target_link_libraries(test_msgs_GeometryMsgs_AccelMsg GTest::gtest_main
+                        standard_msgs)
+
+  gtest_discover_tests(test_msgs_GeometryMsgs_AccelMsg)
+
+  # Test: GeometryMsgs::AccelWithCovarianceMsg
+  add_executable(test_msgs_GeometryMsgs_AccelWithCovarianceMsg
+                 test/test_msgs_GeometryMsgs_AccelWithCovarianceMsg.cpp)
+  target_link_libraries(test_msgs_GeometryMsgs_AccelWithCovarianceMsg
+                        GTest::gtest_main standard_msgs)
+
+  gtest_discover_tests(test_msgs_GeometryMsgs_AccelWithCovarianceMsg)
+
   add_executable(test_GeometryMsgs_PointMsg test/test_GeometryMsgs_PointMsg.cpp)
   target_link_libraries(test_GeometryMsgs_PointMsg PRIVATE GTest::gtest_main
                                                            geometry_msgs)

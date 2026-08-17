@@ -55,5 +55,6 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         bool new_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) override;
 
        private:
+        fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem

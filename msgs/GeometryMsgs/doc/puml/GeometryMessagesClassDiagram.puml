@@ -8,6 +8,19 @@ namespace fast::rf::messages {
   }
 
   package GeometryMsgs #LightYellow;line:blue {
+    struct AccelMsg <<(M,#FFFF00)>> #LimeGreen {
+      +string pretty()
+      +Vector3DMsg linear
+      +Vector3DMsg angular
+    }
+    struct AccelWithCovarianceMsg <<(M,#FFFF00)>> #LimeGreen {
+      +string pretty()
+      +double time_stamp
+      +AccelMsg accel
+      +Covariance6DMsg covariance
+    }
+    AccelWithCovarianceMsg --> AccelMsg: <<use>>
+    AccelWithCovarianceMsg --> Covariance6DMsg: <<use>>
     struct PointMsg <<(M,#FFFF00) >> #LimeGreen {
       +double x
       +double y
@@ -49,6 +62,7 @@ namespace fast::rf::messages {
 
     struct OdomMsg <<(M,#FFFF00)>> #LimeGreen {
       +string pretty()
+      +double time_stamp
       +PoseWithCovarianceMsg pose
       +TwistWithCovarianceMsg twist
     }

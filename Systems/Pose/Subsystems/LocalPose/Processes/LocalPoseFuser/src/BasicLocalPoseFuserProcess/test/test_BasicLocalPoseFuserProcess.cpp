@@ -38,6 +38,8 @@ TEST(BasicLocalPoseFuserProcess, BasicInterfaceTests) {
     ASSERT_TRUE(SUT.update(1.0));
     fast::rf::Logger::log_debug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
-    ASSERT_TRUE(SUT.get_local_pose(local_pose));
+    fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc;
+    ASSERT_TRUE(SUT.get_local_pose(local_pose, angular_acc));
     ASSERT_FLOAT_EQ(machine_inertial_data.angular_velocity.z, local_pose.twist.twist.angular.z);
+    ASSERT_GT(angular_acc.time_stamp, 0.0);
 }

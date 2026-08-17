@@ -1,4 +1,5 @@
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
+#include <PoseUtility.hpp>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
 
     bool BasicLocalPoseFuserProcess::init() {
@@ -36,22 +37,41 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
     }
     bool BasicLocalPoseFuserProcess::new_machine_inertial_data(
         fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
+        bool any_error = false;
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Machine Inertial Data");
-
-        fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
+        auto prev_local_pose = local_pose;
         // Compute Local Pose
+
         local_pose.time_stamp = machine_inertial_data.time_stamp;
         local_pose.twist.twist.angular = machine_inertial_data.angular_velocity;
 
         // Fill in Twist Covariance during AB#1813
 
-        diagnosticManager.update_diagnostic(
-            fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
-            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Local Pose Updated");
+        fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc_covariance;
+        // Compute Angular Acceleration
+        fast::rf::messages::GeometryMsgs::AccelMsg angular_acc;
+        bool status = PoseUtility::differentiate(prev_local_pose, local_pose, angular_acc);
+        if (status == false) {
+            any_error = true;
+            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
+                                                fast::rf::Level::WARN,
+                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                                "Not able to differentiate Local Pose!");
+        }
+        angular_acc_covariance.accel = angular_acc;
+        angular_acc_covariance.time_stamp = local_pose.time_stamp;
 
-        new_local_pose(local_pose);
+        // Fill in Angular Acc Covariance during AB#1813
+
+        if (any_error == false) {
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Local Pose Updated");
+        }
+
+        new_local_pose(local_pose, angular_acc_covariance);
 
         return true;
     }
