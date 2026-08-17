@@ -31,6 +31,8 @@ namespace fast::rf {
           +{abstract} string pretty()
           +{abstract} bool get_imu_data(ImuMsg& data)
           +{abstract} bool get_magnetic_data(MagneticFieldMsg& data)
+          +{abstract} double get_packet_dropped_rate()
+          +{abstract} double get_packet_rx_rate()
         }
         IIMUProcess --> IMUDevice: <<use>>
         
@@ -61,6 +63,8 @@ namespace fast::rf {
           +{abstract}  bool get_imu_data(ImuMsg& data)
           +{abstract} bool get_magnetic_data(MagneticFieldMsg& data)
           +{static} IMUDevice convert_name(std::string name);
+          +{abstract} double get_packet_dropped_rate()
+          +{abstract} double get_packet_rx_rate()
         }
         IIMUDriver +-- IMUDevice
         struct SensorData #LimeGreen {
@@ -88,9 +92,14 @@ namespace fast::rf {
         abstract BaseIMUDriver #LimeGreen {
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
+          +double get_packet_dropped_rate()
+          +double get_packet_rx_rate()
           #bool init(IMUConfig imu_config)
           #update(double current_time_sec)
           #string pretty()
+          #void increment_packet_rx_counter()
+          #uint64 get_packet_rx_counter()
+          #void increment_packet_rx_dropped_counter()
           #ImuMsg imu_data
           #MagneticFieldMsg magnetic_data
         }

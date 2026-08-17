@@ -82,6 +82,12 @@ The following Diagnostics are reported by this Process:
 | `SOFTWARE`      | Software Diagnostics       |
 | `SENSORS`       | General Sensor Diagnostics |
 
+This Process computes the following Diagnostic Events:
+| Event                            |
+| -------------------------------- |
+| IMU Packet Drop Rate is too high |
+| IMU Send Rate is too Low         |
+
 ## Other IMU Process Implementation
 
 | Status | Implementation  | Details                       |

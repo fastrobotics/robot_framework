@@ -68,7 +68,5 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
        private:
         int serial_fd{-1};  //!< Serial Port Device
         char readBuffer[512];
-        uint64_t packet_rx_ok_counter{0};
-        uint64_t packet_rx_dropped_counter{0};
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

@@ -24,6 +24,10 @@ class TestIMUDriverInterface : public IIMUDriver {
         return true;
     }
     bool update([[maybe_unused]] double current_time) { return true; }
+
+    double get_packet_dropped_rate() override { return 0.0; }
+
+    double get_packet_rx_rate() override { return 0.0; }
 };
 
 TEST(TestIIMUDriverInterface, InterfaceTests) {

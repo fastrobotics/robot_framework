@@ -92,5 +92,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          * @return false
          */
         virtual bool update(double current_time_sec) = 0;
+
+        virtual double get_packet_dropped_rate() = 0;
+
+        virtual double get_packet_rx_rate() = 0;
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem

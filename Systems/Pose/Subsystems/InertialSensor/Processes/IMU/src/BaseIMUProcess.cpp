@@ -33,6 +33,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             diagnosticManager.update_diagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::NOERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
         }
         return initialized_ok;
     }
@@ -54,14 +57,31 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             bool status = driver->update(current_time_sec_);
             if (status == false) {
                 fast::rf::Logger::log_warn("Driver Not Updated!");
+
                 diagnosticManager.update_diagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Not able to Update IMU!");
             }
-            /**
-             * @todo Trip diagnostic if Packet Error is too high during AB#1796
-             *
-             */
+            double packet_dropped_rate = driver->get_packet_dropped_rate();
+            if (packet_dropped_rate >= 0.0) {
+                if (packet_dropped_rate > HIGH_PACKET_DROPPED_RATE_THRESHOLD) {
+                    diagnosticManager.update_diagnostic(
+                        fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
+                        fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
+                        "High Packet Drop Rate: " + std::to_string(packet_dropped_rate) + " > " +
+                            std::to_string(HIGH_PACKET_DROPPED_RATE_THRESHOLD) + " (Hz)");
+                }
+            }
+            double packet_rx_rate = driver->get_packet_rx_rate();
+            if (packet_rx_rate >= 0.0) {
+                if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
+                    diagnosticManager.update_diagnostic(
+                        fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::ERROR,
+                        fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                        "Low Packet Rate: " + std::to_string(packet_rx_rate) + " < " +
+                            std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
+                }
+            }
             if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
                 ready_to_arm.ready_to_arm = true;
             } else {
