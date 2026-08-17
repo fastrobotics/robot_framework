@@ -33,6 +33,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             diagnosticManager.update_diagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
+
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::NOERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
         }
         return initialized_ok;
     }
