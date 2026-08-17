@@ -21,8 +21,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
      */
     class IIMUProcess {
        public:
-        static constexpr double HIGH_PACKET_DROPPED_RATE_THRESHOLD = 1.0;
-        static constexpr double LOW_PACKET_RX_RATE_THRESHOLD = 140.0;
+        static constexpr double HIGH_PACKET_DROPPED_RATE_THRESHOLD = 10.0;
+        static constexpr double LOW_PACKET_RX_RATE_THRESHOLD = 50.0;
         /**
          * @brief Data structure for IMU Configuration
          *
