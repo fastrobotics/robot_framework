@@ -33,9 +33,8 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             diagnosticManager.update_diagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
-
             diagnosticManager.update_diagnostic(
-                fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::NOERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
         }
         return initialized_ok;
@@ -77,7 +76,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
             if (packet_rx_rate >= 0.0) {
                 if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
                     diagnosticManager.update_diagnostic(
-                        fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::ERROR,
+                        fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::ERROR,
                         fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                         "Low Packet Rate: " + std::to_string(packet_rx_rate) + " < " +
                             std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
