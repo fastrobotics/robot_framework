@@ -69,7 +69,8 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
             diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
                                                 fast::rf::Level::ERROR,
                                                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
-                                                "High Angular Acceleration.  Disarming!");
+                                                "High Angular Acceleration: " + angular_acc.angular.pretty() + " > " +
+                                                    std::to_string(HIGH_ANGULARRATE_DISARM_LIMIT) + "  Disarming!");
         }
         angular_acc_covariance.time_stamp = local_pose.time_stamp;
 
