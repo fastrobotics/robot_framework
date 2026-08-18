@@ -29,7 +29,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
             double delta_t = (current_time_sec - prev_time);
             normal_rotate_accel_timer += delta_t;
         }
-        if (normal_rotate_accel_timer > 5.0) {
+        if (normal_rotate_accel_timer > HIGH_ANGULARRATE_DISARM_TIMER) {
             excessive_rotate_accel = false;
         }
         // GCOV_EXCL_START
@@ -74,16 +74,17 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         if ((std::fabs(angular_acc.angular.x) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.y) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.z) > HIGH_ANGULARRATE_DISARM_LIMIT)) {
+            high_angular_accel = angular_acc;
             excessive_rotate_accel = true;
             normal_rotate_accel_timer = 0.0;
         }
         if (excessive_rotate_accel == true) {
             any_error = true;
-            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
-                                                fast::rf::Level::ERROR,
-                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
-                                                "High Angular Acceleration: " + angular_acc.angular.pretty() + " > " +
-                                                    std::to_string(HIGH_ANGULARRATE_DISARM_LIMIT) + "  Disarming!");
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::ERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                "High Angular Acceleration: " + high_angular_accel.angular.pretty() + " > " +
+                    std::to_string(HIGH_ANGULARRATE_DISARM_LIMIT) + "  Disarming!");
         }
         angular_acc_covariance.time_stamp = local_pose.time_stamp;
 
