@@ -22,7 +22,16 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         return status;
     }
     bool BasicLocalPoseFuserProcess::update(double current_time_sec) {
+        double prev_time = current_time_sec_;
+
         bool status = BaseLocalPoseFuserProcess::update(current_time_sec);
+        if (prev_time > 0.0) {
+            double delta_t = (current_time_sec - prev_time);
+            normal_rotate_accel_timer += delta_t;
+        }
+        if (normal_rotate_accel_timer > 5.0) {
+            excessive_rotate_accel = false;
+        }
         // GCOV_EXCL_START
         // No practical need for this
         if (status == false) {
@@ -65,6 +74,10 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         if ((std::fabs(angular_acc.angular.x) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.y) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.z) > HIGH_ANGULARRATE_DISARM_LIMIT)) {
+            excessive_rotate_accel = true;
+            normal_rotate_accel_timer = 0.0;
+        }
+        if (excessive_rotate_accel == true) {
             any_error = true;
             diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
                                                 fast::rf::Level::ERROR,

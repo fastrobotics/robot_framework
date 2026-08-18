@@ -56,5 +56,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
 
        private:
         fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
+        bool excessive_rotate_accel{false};
+        double normal_rotate_accel_timer{0.0};
     };
 }  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
