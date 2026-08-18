@@ -10,6 +10,7 @@
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
   - [Diagnostics](#diagnostics)
+    - [Diagnostic Events](#diagnostic-events)
 - [Usage Instructions](#usage-instructions)
   - [Artifacts Provided](#artifacts-provided)
   - [Integration Steps](#integration-steps)
@@ -50,8 +51,18 @@ This Basic Local Pose Fuser essentially is a pass-thru.
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type | Description                          |
+| --------------- | ------------------------------------ |
+| `SOFTWARE`      | General Software related Diagnostics |
+| `POSE`          | Pose related Diagnostics             |
+
+### Diagnostic Events
+The following Events can trigger diagnostics in this module:
+| Event                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------- |
+| Not able to compute the differential between the current computed Odometry data and the previous Odometry data. |
+| Excessive Angular Acceleration                                                                                  |
+
 
 # Usage Instructions
 

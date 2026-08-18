@@ -14,6 +14,7 @@ namespace fast::rf {
       class ImuMsg <<(M,#FFFF00)>>
     }
     namespace GeometryMsgs {
+      class AccelWithCovarianceMsg <<(M,#FFFF00)>>
       class OdomMsg <<(M,#FFFF00)>>
     }
   }
@@ -27,7 +28,7 @@ namespace fast::rf {
           +{abstract} DiagnosticMsg[] get_diagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool new_machine_inertial_data(ImuMsg machine_inertial_data)
-          +{abstract} bool get_local_pose(OdomMsg local_pose)
+          +{abstract} bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
         }
@@ -36,12 +37,13 @@ namespace fast::rf {
           +DiagnosticMsg[] get_diagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
-          +bool get_local_pose(OdomMsg local_pose)
-          #void new_local_pose(OdomMsg local_pose)
+          +bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)
+          #void new_local_pose(OdomMsg local_pose,AccelWithCovarianceMsg angular_acc)
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
           -OdomMsg local_pose_
+          -AccelWithCovarianceMsg angular_acc
           -bool is_new_local_pose
 
         }

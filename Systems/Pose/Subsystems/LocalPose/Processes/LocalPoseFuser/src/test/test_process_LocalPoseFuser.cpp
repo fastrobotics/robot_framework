@@ -26,7 +26,10 @@ class TestLocalPoseFuserProcessInterface : public ILocalPoseFuserProcess {
         return false;
     }
 
-    bool get_local_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg& local_pose) { return false; }
+    bool get_local_pose([[maybe_unused]] fast::rf::messages::GeometryMsgs::OdomMsg& local_pose,
+                        [[maybe_unused]] fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg& angular_acc) {
+        return false;
+    }
 };
 TEST(TestLocalPoseFuserProcessInterface, InterfaceTests) {
     TestLocalPoseFuserProcessInterface SUT;
@@ -61,7 +64,8 @@ class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
     }
     bool new_machine_inertial_data([[maybe_unused]] fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
         fast::rf::messages::GeometryMsgs::OdomMsg pose;
-        new_local_pose(pose);
+        fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc;
+        new_local_pose(pose, angular_acc);
         return true;
     }
 };
@@ -82,8 +86,9 @@ TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
     fast::rf::Logger::log_debug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
-    ASSERT_TRUE(SUT.get_local_pose(local_pose));
+    fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg local_pose_angular_acc;
+    ASSERT_TRUE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
     fast::rf::Logger::log_debug(SUT.pretty());
-    ASSERT_FALSE(SUT.get_local_pose(local_pose));
+    ASSERT_FALSE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
     fast::rf::Logger::log_debug(SUT.pretty());
 }

@@ -4,6 +4,7 @@ title System-Pose Package Diagram
 namespace fast::rf {
   namespace messages {
     namespace GeometryMsgs {
+      class AccelMsg <<(M,#FFFF00)>>
       class OdomMsg <<(M,#FFFF00) >>
     }
     namespace SensorMsgs {
@@ -30,6 +31,9 @@ namespace fast::rf {
       class BasicLocalPoseFuserProcess #Pink {}
       BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
       
+    }
+    class PoseUtility #LimeGreen {
+      +{static} bool differentiate(OdomMsg previous, OdomMsg current,AccelMsg computed_angular_acc)
     }
 
     interface IPoseSystem #Orange {

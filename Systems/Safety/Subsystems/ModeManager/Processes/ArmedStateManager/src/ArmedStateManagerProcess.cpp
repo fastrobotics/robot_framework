@@ -41,10 +41,15 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
             fast::rf::UserInterfaceSystem::SYSTEM_ID,
             fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
             fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID);
+
         ready_to_arm_computer.add_monitor(
             fast::rf::NavigationSystem::SYSTEM_ID,
             fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
             fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID);
+
+        ready_to_arm_computer.add_monitor(fast::rf::PoseSystem::SYSTEM_ID,
+                                          fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
+                                          fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID);
 
         // GCOV_EXCL_START
         status = ready_to_arm_computer.init();

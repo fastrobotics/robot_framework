@@ -1,4 +1,6 @@
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
+#include <PoseUtility.hpp>
+#include <cmath>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
 
     bool BasicLocalPoseFuserProcess::init() {
@@ -20,7 +22,16 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         return status;
     }
     bool BasicLocalPoseFuserProcess::update(double current_time_sec) {
+        double prev_time = current_time_sec_;
+
         bool status = BaseLocalPoseFuserProcess::update(current_time_sec);
+        if (prev_time > 0.0) {
+            double delta_t = (current_time_sec - prev_time);
+            normal_rotate_accel_timer += delta_t;
+        }
+        if (normal_rotate_accel_timer > HIGH_ANGULARRATE_DISARM_TIMER) {
+            excessive_rotate_accel = false;
+        }
         // GCOV_EXCL_START
         // No practical need for this
         if (status == false) {
@@ -36,22 +47,57 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
     }
     bool BasicLocalPoseFuserProcess::new_machine_inertial_data(
         fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
+        bool any_error = false;
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Machine Inertial Data");
-
-        fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
+        auto prev_local_pose = local_pose;
         // Compute Local Pose
+
         local_pose.time_stamp = machine_inertial_data.time_stamp;
         local_pose.twist.twist.angular = machine_inertial_data.angular_velocity;
 
         // Fill in Twist Covariance during AB#1813
 
-        diagnosticManager.update_diagnostic(
-            fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
-            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Local Pose Updated");
+        fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc_covariance;
+        // Compute Angular Acceleration
+        fast::rf::messages::GeometryMsgs::AccelMsg angular_acc;
+        bool status = PoseUtility::differentiate(prev_local_pose, local_pose, angular_acc);
+        if (status == false) {
+            any_error = true;
+            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                                fast::rf::Level::WARN,
+                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                                "Not able to differentiate Local Pose!");
+        }
+        angular_acc_covariance.accel = angular_acc;
+        // Do something better here during AB#1847
+        if ((std::fabs(angular_acc.angular.x) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
+            (std::fabs(angular_acc.angular.y) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
+            (std::fabs(angular_acc.angular.z) > HIGH_ANGULARRATE_DISARM_LIMIT)) {
+            high_angular_accel = angular_acc;
+            excessive_rotate_accel = true;
+            normal_rotate_accel_timer = 0.0;
+        }
+        if (excessive_rotate_accel == true) {
+            any_error = true;
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::ERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                "High Angular Acceleration: " + high_angular_accel.angular.pretty() + " > " +
+                    std::to_string(HIGH_ANGULARRATE_DISARM_LIMIT) + "  Disarming!");
+        }
+        angular_acc_covariance.time_stamp = local_pose.time_stamp;
 
-        new_local_pose(local_pose);
+        // Fill in Angular Acc Covariance during AB#1813
+
+        if (any_error == false) {
+            diagnosticManager.update_diagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Local Pose Updated");
+        }
+
+        new_local_pose(local_pose, angular_acc_covariance);
 
         return true;
     }
