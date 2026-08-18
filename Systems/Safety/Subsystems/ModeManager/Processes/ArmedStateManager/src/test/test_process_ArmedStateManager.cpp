@@ -136,9 +136,16 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     process4.processID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID;
     process4.ready_to_arm = true;
 
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process5;
+    process5.systemID = fast::rf::PoseSystem::SYSTEM_ID;
+    process5.subsystemID = fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID;
+    process5.processID = fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID;
+    process5.ready_to_arm = true;
+
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process5));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
 
@@ -163,6 +170,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
+    ASSERT_TRUE(SUT.new_ReadyToArmStatus(process5));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
@@ -190,6 +198,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
         ASSERT_TRUE(SUT.new_ReadyToArmStatus(process4));
+        ASSERT_TRUE(SUT.new_ReadyToArmStatus(process5));
         ASSERT_TRUE(SUT.update(current_time));
     }
 
