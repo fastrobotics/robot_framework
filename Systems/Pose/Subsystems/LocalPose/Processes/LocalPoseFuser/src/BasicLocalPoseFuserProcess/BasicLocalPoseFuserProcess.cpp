@@ -1,5 +1,6 @@
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
 #include <PoseUtility.hpp>
+#include <cmath>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem {
 
     bool BasicLocalPoseFuserProcess::init() {
@@ -61,6 +62,15 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
                                                 "Not able to differentiate Local Pose!");
         }
         angular_acc_covariance.accel = angular_acc;
+        if ((std::fabs(angular_acc.angular.x) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
+            (std::fabs(angular_acc.angular.y) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
+            (std::fabs(angular_acc.angular.z) > HIGH_ANGULARRATE_DISARM_LIMIT)) {
+            any_error = true;
+            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
+                                                fast::rf::Level::ERROR,
+                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                                "High Angular Acceleration.  Disarming!");
+        }
         angular_acc_covariance.time_stamp = local_pose.time_stamp;
 
         // Fill in Angular Acc Covariance during AB#1813
