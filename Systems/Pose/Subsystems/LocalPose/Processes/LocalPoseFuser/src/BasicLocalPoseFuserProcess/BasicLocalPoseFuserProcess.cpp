@@ -56,7 +56,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         bool status = PoseUtility::differentiate(prev_local_pose, local_pose, angular_acc);
         if (status == false) {
             any_error = true;
-            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
+            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
                                                 fast::rf::Level::WARN,
                                                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                                                 "Not able to differentiate Local Pose!");
