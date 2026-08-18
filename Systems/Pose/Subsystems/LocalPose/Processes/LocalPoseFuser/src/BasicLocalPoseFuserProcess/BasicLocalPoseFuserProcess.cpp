@@ -71,6 +71,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
                                                 "Not able to differentiate Local Pose!");
         }
         angular_acc_covariance.accel = angular_acc;
+        // Do something better here during AB#1847
         if ((std::fabs(angular_acc.angular.x) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.y) > HIGH_ANGULARRATE_DISARM_LIMIT) ||
             (std::fabs(angular_acc.angular.z) > HIGH_ANGULARRATE_DISARM_LIMIT)) {
