@@ -8,7 +8,7 @@
 #include <IMUProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
+using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 class TestIMUProcessInterface : public IIMUProcess {
    public:
     bool init([[maybe_unused]] IMUConfig imu_config) { return true; }

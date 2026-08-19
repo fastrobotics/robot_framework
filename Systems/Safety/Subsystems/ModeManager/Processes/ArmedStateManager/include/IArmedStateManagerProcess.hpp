@@ -16,7 +16,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     /**
      * @brief Interface for the ArmedStateManager Process
      *
@@ -85,4 +85,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
 
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

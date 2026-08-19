@@ -1,5 +1,5 @@
 #include <JoystickMapper.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     bool JoystickMapper::init(ControlDevice device) {
         if ((device != ControlDevice::UNKNOWN) && (device != ControlDevice::END_OF_LIST)) {
             control_device = device;
@@ -25,4 +25,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         }
         return out_joy;
     }
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

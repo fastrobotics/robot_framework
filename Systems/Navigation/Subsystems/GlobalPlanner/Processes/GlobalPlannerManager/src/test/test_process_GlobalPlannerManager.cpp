@@ -6,7 +6,7 @@
 #include <BaseGlobalPlannerManagerProcess.hpp>
 #include <IGlobalPlannerManagerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPlannerManager;
 class TestGlobalPlannerManagerProcessInterface : public IGlobalPlannerManagerProcess {
    public:
     bool init() { return true; }

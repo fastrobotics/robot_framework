@@ -10,7 +10,7 @@
 #include <Infrastructure/Logger.hpp>
 #define _USE_MATH_DEFINES
 #include <cmath>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @todo Make this a config item during AB#1798
      *
@@ -180,4 +180,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         str += BaseIMUDriver::pretty() + "\n";
         return str;
     }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

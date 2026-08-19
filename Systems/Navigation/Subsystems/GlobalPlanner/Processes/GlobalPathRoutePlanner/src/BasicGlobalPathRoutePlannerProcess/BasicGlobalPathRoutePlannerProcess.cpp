@@ -1,5 +1,5 @@
 #include <BasicGlobalPathRoutePlannerProcess/BasicGlobalPathRoutePlannerProcess.hpp>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner {
     bool BasicGlobalPathRoutePlannerProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
@@ -15,4 +15,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         return true;
     }
 
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner

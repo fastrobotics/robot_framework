@@ -217,100 +217,217 @@ namespace fast::rf {
 
     namespace AwarenessSystem {
         constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Awareness System
+        struct Id {};
+        inline const char* toString(Id) { return "awareness"; }
         namespace ObjectFusionSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for ObjectFusion Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "object_fusion"; }
+        }  // namespace ObjectFusionSubsystem
         namespace GlobalAwarenessSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Global Awareness Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "global_awareness"; }
+        }  // namespace GlobalAwarenessSubsystem
         namespace LocalAwarenessSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 3;  //!< Unique ID for Local Awareness Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "local_awareness"; }
+        }  // namespace LocalAwarenessSubsystem
         namespace ObjectPredictionSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 4;  //!< Unique ID for  Object Prediction Subsystem
-        }
-    }  // namespace AwarenessSystem
+            struct Id {};
+            inline const char* toString(Id) { return "object_prediction"; }
+        }  // namespace ObjectPredictionSubsystem
+    }      // namespace AwarenessSystem
     namespace CommsSystem {
         constexpr uint8_t SYSTEM_ID = 2;  //!< Unique ID for the Comms System
-    }
+        struct Id {};
+        inline const char* toString(Id) { return "comms"; }
+    }  // namespace CommsSystem
     namespace DataStorageSystem {
         constexpr uint8_t SYSTEM_ID = 3;  //!< Unique ID for the Data Storage System
-    }
+        struct Id {};
+        inline const char* toString(Id) { return "data_storage"; }
+    }  // namespace DataStorageSystem
     namespace GoalPlanningSystem {
         constexpr uint8_t SYSTEM_ID = 4;  //!< Unique ID for the Goal Planning System
-    }
+        struct Id {};
+        inline const char* toString(Id) { return "goal_planning"; }
+    }  // namespace GoalPlanningSystem
     namespace ImplementControlSystem {
         constexpr uint8_t SYSTEM_ID = 5;  //!< Unique ID for the Implement Control System
-    }
-    namespace ModeControlSystem {
-        constexpr uint8_t SYSTEM_ID = 6;  //!< Unique ID for the Mode Control System
-    }
+        struct Id {};
+        inline const char* toString(Id) { return "implement_control"; }
+    }  // namespace ImplementControlSystem
     namespace PoseSystem {
-        constexpr uint8_t SYSTEM_ID = 7;  //!< Unique ID for Pose System
+        constexpr uint8_t SYSTEM_ID = 6;  //!< Unique ID for Pose System
+        struct Id {};
+        inline const char* toString(Id) { return "pose"; }
         namespace InertialSensorSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 1;    //!< Unique ID for Inertial Sensor Subsystem
-            constexpr uint8_t PROCESS_IMU_ID = 1;  //!< Unique ID for IMU Process
-        }                                          // namespace InertialSensorSubsystem
+            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for Inertial Sensor Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "inertial_sensor"; }
+            namespace IMU {
+                constexpr uint8_t PROCESS_IMU_ID = 1;  //!< Unique ID for IMU Process
+                struct Id {};
+                inline const char* toString(Id) { return "imu"; }
+            }  // namespace IMU
+
+        }  // namespace InertialSensorSubsystem
         namespace GlobalSensorSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Global Sensor Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "global_sensor"; }
+        }  // namespace GlobalSensorSubsystem
         namespace GlobalPoseSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 3;  //!< Unique ID for Global Pose Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "global_pose"; }
+        }  // namespace GlobalPoseSubsystem
         namespace LocalPoseSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 4;                    //!< Unique ID for  Local Pose Subsystem
-            constexpr uint8_t PROCESS_INERTIALSENSORFUSER_ID = 1;  //!< Unique ID for Inertial Sensor Fuser
-            constexpr uint8_t PROCESS_WHEELODOMETRYFUSER_ID = 2;   //!< Unique ID for Wheel Odometry Fuser
-            constexpr uint8_t PROCESS_VISUALODOMETRFUSER_ID = 3;   //!< Unique ID for Visual Odometry Fuser
-            constexpr uint8_t PROCESS_LOCALPOSEFUSER_ID = 4;       //!< Unique ID for Local Pose Fuser
-        }                                                          // namespace LocalPoseSubsystem
-    }                                                              // namespace PoseSystem
+            constexpr uint8_t SUBSYSTEM_ID = 4;  //!< Unique ID for  Local Pose Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "local_pose"; }
+            namespace InertialSensorFuser {
+                constexpr uint8_t PROCESS_INERTIALSENSORFUSER_ID = 1;  //!< Unique ID for Inertial Sensor Fuser
+                struct Id {};
+                inline const char* toString(Id) { return "inertial_sensor_fuser"; }
+            }  // namespace InertialSensorFuser
+            namespace WheelOdometryFuser {
+                constexpr uint8_t PROCESS_WHEELODOMETRYFUSER_ID = 2;  //!< Unique ID for Wheel Odometry Fuser
+                struct Id {};
+                inline const char* toString(Id) { return "wheel_odometry_fuser"; }
+            }  // namespace WheelOdometryFuser
+            namespace VisualOdometryFuser {
+                constexpr uint8_t PROCESS_VISUALODOMETRFUSER_ID = 3;  //!< Unique ID for Visual Odometry Fuser
+                struct Id {};
+                inline const char* toString(Id) { return "visual_odometry_fuser"; }
+            }  // namespace VisualOdometryFuser
+            namespace LocalPoseFuser {
+                constexpr uint8_t PROCESS_LOCALPOSEFUSER_ID = 4;  //!< Unique ID for Local Pose Fuser
+                struct Id {};
+                inline const char* toString(Id) { return "local_pose_fuser"; }
+            }  // namespace LocalPoseFuser
+
+        }  // namespace LocalPoseSubsystem
+    }      // namespace PoseSystem
     namespace NavigationSystem {
-        constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Navigation System
+        constexpr uint8_t SYSTEM_ID = 7;  //!< Unique ID for the Navigation System
+        struct Id {};
+        inline const char* toString(Id) { return "navigation"; }
         namespace GlobalPlannerSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 1;                      //!< Unique ID for Global Planner Subsystem
-            constexpr uint8_t PROCESS_GLOBALPLANNER_MANAGER_ID = 1;  //!< Unique ID for Global Planner Manager Process
-            constexpr uint8_t PROCESS_GLOBALPATH_STORAGE_ID = 2;     //!< Unique ID for Global Path Storage Process
-            constexpr uint8_t PROCESS_FREESPACE_PLANNER_ID = 3;      //!< Unique ID for Free Space Planner Process
-            constexpr uint8_t PROCESS_GLOBALPATH_ROUTEPLANNER_ID =
-                4;  //!< Unique ID for Global Path Route Planner Process
-        }           // namespace GlobalPlannerSubsystem
+            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for Global Planner Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "goal_planner"; }
+            namespace GlobalPlannerManager {
+                constexpr uint8_t PROCESS_GLOBALPLANNER_MANAGER_ID =
+                    1;  //!< Unique ID for Global Planner Manager Process
+                struct Id {};
+                inline const char* toString(Id) { return "global_planner_manager"; }
+            }  // namespace GlobalPlannerManager
+            namespace GlobalPathStorage {
+                constexpr uint8_t PROCESS_GLOBALPATH_STORAGE_ID = 2;  //!< Unique ID for Global Path Storage Process
+                struct Id {};
+                inline const char* toString(Id) { return "global_path_storage"; }
+            }  // namespace GlobalPathStorage
+            namespace FreeSpacePlanner {
+                constexpr uint8_t PROCESS_FREESPACE_PLANNER_ID = 3;  //!< Unique ID for Free Space Planner Process
+                struct Id {};
+                inline const char* toString(Id) { return "free_space_planner"; }
+            }  // namespace FreeSpacePlanner
+            namespace GlobalPathRoutePlanner {
+                constexpr uint8_t PROCESS_GLOBALPATH_ROUTEPLANNER_ID =
+                    4;  //!< Unique ID for Global Path Route Planner Process
+                struct Id {};
+                inline const char* toString(Id) { return "route_planner"; }
+            }  // namespace GlobalPathRoutePlanner
+
+        }  // namespace GlobalPlannerSubsystem
         namespace LocalPlannerSubsystem {
             constexpr uint8_t SUBSYSTEM_ID = 2;  //!< Unique ID for Local Planner Subsystem
-        }
+            struct Id {};
+            inline const char* toString(Id) { return "local_planner"; }
+        }  // namespace LocalPlannerSubsystem
         namespace NavigationExecutorSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 3;                    //!< Unique ID for  Navigation Executor Subsystem
-            constexpr uint8_t PROCESS_DRIVE_EXECUTOR_ID = 1;       //!< Unique ID for the Drive Executor Process
-            constexpr uint8_t PROCESS_TRAJECTORY_SELECTOR_ID = 2;  //!< Unique ID for the Trajectory Selector Process
-            constexpr uint8_t PROCESS_TRAJECTORY_CONTROLLER_ID =
-                3;  //!< Unique ID for the Trajectory Controller Process
-        }           // namespace NavigationExecutorSubsystem
-    }               // namespace NavigationSystem
+            constexpr uint8_t SUBSYSTEM_ID = 3;  //!< Unique ID for  Navigation Executor Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "navigation_executor"; }
+            namespace DriveExecutor {
+                constexpr uint8_t PROCESS_DRIVE_EXECUTOR_ID = 1;  //!< Unique ID for the Drive Executor Process
+                struct Id {};
+                inline const char* toString(Id) { return "drive_executor"; }
+            }  // namespace DriveExecutor
+            namespace TrajectorySelector {
+                constexpr uint8_t PROCESS_TRAJECTORY_SELECTOR_ID =
+                    2;  //!< Unique ID for the Trajectory Selector Process
+                struct Id {};
+                inline const char* toString(Id) { return "trajectory_selector"; }
+            }  // namespace TrajectorySelector
+            namespace TrajectoryController {
+                constexpr uint8_t PROCESS_TRAJECTORY_CONTROLLER_ID =
+                    3;  //!< Unique ID for the Trajectory Controller Process
+                struct Id {};
+                inline const char* toString(Id) { return "trajectory_controller"; }
+            }  // namespace TrajectoryController
+
+        }  // namespace NavigationExecutorSubsystem
+    }      // namespace NavigationSystem
     namespace PerceptionSystem {
-        constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
-    }
+        constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Perception System
+        struct Id {};
+        inline const char* toString(Id) { return "perception"; }
+    }  // namespace PerceptionSystem
     namespace SafetySystem {
-        constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Safety System
+        constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Safety System
+        struct Id {};
+        inline const char* toString(Id) { return "safety"; }
         namespace ModeManagerSubsystem {
-            const uint8_t SUBSYSTEM_ID = 1;                      //!< Unique ID for the Mode Manager Subsystem
-            constexpr uint8_t PROCESS_ARMEDSTATEMANAGER_ID = 1;  //!< Unique ID for the Armed State Manager Process
-        }                                                        // namespace ModeManagerSubsystem
-    }                                                            // namespace SafetySystem
+            const uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for the Mode Manager Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "mode_manager"; }
+
+            namespace ArmedStateManager {
+                constexpr uint8_t PROCESS_ARMEDSTATEMANAGER_ID = 1;  //!< Unique ID for the Armed State Manager Process
+                struct Id {};
+                inline const char* toString(Id) { return "armed_state_manager"; }
+            }  // namespace ArmedStateManager
+        }      // namespace ModeManagerSubsystem
+    }          // namespace SafetySystem
     namespace TerrainSystem {
-        constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the Terrain System
-    }
+        constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Terrain System
+        struct Id {};
+        inline const char* toString(Id) { return "terrain"; }
+    }  // namespace TerrainSystem
     namespace UserInterfaceSystem {
-        constexpr uint8_t SYSTEM_ID = 12;  //!< Unique ID for the User Interface System
+        constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the User Interface System
+        struct Id {};
+        inline const char* toString(Id) { return "user_interface"; }
         namespace RemoteControlSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 1;              //!< Unique ID for the Remote Control Subsystem
-            constexpr uint8_t PROCESS_TELEOPCONTROL_ID = 1;  //!< Unique ID for Teleop Control Process
-        }                                                    // namespace RemoteControlSubsystem
-    }                                                        // namespace UserInterfaceSystem
+            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for the Remote Control Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "remote_control"; }
+            namespace TeleopControl {
+                constexpr uint8_t PROCESS_TELEOPCONTROL_ID = 1;  //!< Unique ID for Teleop Control Process
+                struct Id {};
+                inline const char* toString(Id) { return "teleop_control"; }
+            }  // namespace TeleopControl
+
+        }  // namespace RemoteControlSubsystem
+    }      // namespace UserInterfaceSystem
     namespace BaseMachineSystem {
-        const uint8_t SYSTEM_ID = 13;  //!< Unique ID for the Base Machine System
+        const uint8_t SYSTEM_ID = 12;  //!< Unique ID for the Base Machine System
+        struct Id {};
+        inline const char* toString(Id) { return "base_machine"; }
         namespace BaseMachineSubsystem {
-            constexpr uint8_t SUBSYSTEM_ID = 1;          //!< Unique ID for the Base Machine Subsystem
-            constexpr uint8_t PROCESS_HATDRIVER_ID = 1;  //!< Unique ID for the Hat Driver Process
+            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for the Base Machine Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "base_machine"; }
+            namespace HatDriver {
+                constexpr uint8_t PROCESS_HATDRIVER_ID = 1;  //!< Unique ID for the Hat Driver Process
+                struct Id {};
+                inline const char* toString(Id) { return "hat_driver"; }
+            }  // namespace HatDriver
 
         }  // namespace BaseMachineSubsystem
     }      // namespace BaseMachineSystem

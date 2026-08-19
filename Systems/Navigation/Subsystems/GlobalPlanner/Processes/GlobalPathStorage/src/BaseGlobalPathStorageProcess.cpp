@@ -1,8 +1,8 @@
 #include <BaseGlobalPathStorageProcess.hpp>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage {
     bool BaseGlobalPathStorageProcess::base_update(double current_time_sec) {
         current_time_sec_ = current_time_sec;
 
         return true;
     }
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage

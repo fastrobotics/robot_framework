@@ -1,6 +1,6 @@
 #include <ArmStateCommander.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     bool ArmStateCommander::init() {
         arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
         return true;
@@ -81,4 +81,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         return response;
     }
 
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

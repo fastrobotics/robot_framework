@@ -9,7 +9,7 @@
  *
  */
 #pragma once
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
      * @brief Interface for the DriveExecutor Process
      *
@@ -18,4 +18,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         IDriveExecutorOutput() = default;
         virtual ~IDriveExecutorOutput() = default;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

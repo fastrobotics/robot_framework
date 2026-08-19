@@ -23,13 +23,16 @@ namespace fast::rf {
       interface IGlobalPoseSubsystem
     }
     namespace LocalPoseSubsystem #LimeGreen {
-      interface IInertialSensorFuserProcess #LimeGreen {}
-      class BasicInertialSensorFuserProcess #Pink {}
-      BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
-
-      interface ILocalPoseFuserProcess #LimeGreen {}
-      class BasicLocalPoseFuserProcess #Pink {}
-      BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
+      namespace InertialSensorFuser {
+        interface IInertialSensorFuserProcess #LimeGreen {}
+        class BasicInertialSensorFuserProcess #Pink {}
+        BasicInertialSensorFuserProcess -up-|> IInertialSensorFuserProcess
+      }
+      namespace LocalPoseFuser {
+        interface ILocalPoseFuserProcess #LimeGreen {}
+        class BasicLocalPoseFuserProcess #Pink {}
+        BasicLocalPoseFuserProcess -up-|> ILocalPoseFuserProcess
+      }
       
     }
     class PoseUtility #LimeGreen {

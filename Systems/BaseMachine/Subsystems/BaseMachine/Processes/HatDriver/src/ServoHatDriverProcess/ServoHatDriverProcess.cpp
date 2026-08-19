@@ -1,6 +1,6 @@
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
     bool ServoHatDriverProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
@@ -65,4 +65,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return str;
     }
 
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

@@ -3,7 +3,7 @@
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <IMUDriver/MockIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUProcess::init(IMUConfig imu_config) {
         imu_config_ = imu_config;
         bool initialized_ok = false;
@@ -101,4 +101,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
         return str;
     }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

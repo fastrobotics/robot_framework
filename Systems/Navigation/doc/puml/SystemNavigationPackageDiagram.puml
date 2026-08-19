@@ -16,16 +16,16 @@ namespace fast::rf {
     }
     BaseNavigationSystem <|-- DummyNavigationSystem
     namespace GlobalPlannerSubsystem {
-      namespace GlobalPlannerManagerProcess {
+      namespace GlobalPlannerManager {
         interface IGlobalPlannerManagerProcess
       }
-      namespace GlobalPathStorageProcess {
+      namespace GlobalPathStorage {
         interface IGlobalPathStorageProcess
       }
-      namespace FreeSpacePlannerProcess {
+      namespace FreeSpacePlanner {
         interface IFreeSpacePlannerProcess
       }
-      namespace GlobalPathRoutePlannerProcess {
+      namespace GlobalPathRoutePlanner {
         interface IGlobalPathRoutePlannerProcess
       }
     }

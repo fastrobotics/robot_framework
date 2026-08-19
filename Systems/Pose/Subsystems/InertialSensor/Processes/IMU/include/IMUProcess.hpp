@@ -12,7 +12,7 @@
 
 #include <BaseIMUProcess.hpp>
 
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Minimal Implementation for a IMU Process
      *
@@ -66,4 +66,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
        private:
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

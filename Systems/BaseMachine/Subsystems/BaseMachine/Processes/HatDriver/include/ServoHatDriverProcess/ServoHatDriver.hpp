@@ -12,7 +12,7 @@
 #include <wiringPiI2C.h>
 
 #include <ServoHatDriverProcess/IServoHatDriver.hpp>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief A real ServoHat.  Only compiles on armv7l Architecture.
      *
@@ -78,4 +78,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
         void setPWM(int pin_number, int on, int off);
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

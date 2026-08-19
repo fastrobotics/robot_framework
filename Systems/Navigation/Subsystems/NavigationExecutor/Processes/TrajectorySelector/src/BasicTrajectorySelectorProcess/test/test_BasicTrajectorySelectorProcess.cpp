@@ -5,7 +5,7 @@
 
 #include <BasicTrajectorySelectorProcess/BasicTrajectorySelectorProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector;
 
 TEST(BasicTrajectorySelectorProcess, BasicTests) {
     BasicTrajectorySelectorProcess SUT;

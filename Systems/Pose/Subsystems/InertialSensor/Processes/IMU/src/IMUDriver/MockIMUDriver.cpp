@@ -1,5 +1,5 @@
 #include <IMUDriver/MockIMUDriver.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool MockIMUDriver::init([[maybe_unused]] std::string device_name) {
         imu_device_name = "mock";
         BaseIMUDriver::init(IMUDevice::MOCK_IMU, imu_device_name);
@@ -31,4 +31,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
         return str;
     }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

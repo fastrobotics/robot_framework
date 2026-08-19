@@ -5,7 +5,7 @@
 
 #include <BasicDriveExecutorProcess/BasicDriveExecutorProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor;
 
 TEST(BasicDriveExecutorProcess, BasicTests) {
     BasicDriveExecutorProcess SUT;

@@ -1,7 +1,7 @@
 #include <IMUDriver/BaseIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
 #include <mutex>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUDriver::init(IIMUDriver::IMUDevice device, std::string device_name) {
         if ((device == IIMUDriver::IMUDevice::UNKNOWN) || (device == IIMUDriver::IMUDevice::END_OF_LIST)) {
             return false;
@@ -63,4 +63,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     void BaseIMUDriver::increment_packet_rx_counter() { packet_rx_ok_counter++; }
 
     void BaseIMUDriver::increment_packet_rx_dropped_counter() { packet_rx_dropped_counter++; }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

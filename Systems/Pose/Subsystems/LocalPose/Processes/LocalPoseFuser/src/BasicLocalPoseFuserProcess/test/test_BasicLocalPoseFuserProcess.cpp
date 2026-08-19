@@ -5,7 +5,7 @@
 
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
-using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
+using namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser;
 
 TEST(BasicLocalPoseFuserProcess, BasicTests) {
     BasicLocalPoseFuserProcess SUT;

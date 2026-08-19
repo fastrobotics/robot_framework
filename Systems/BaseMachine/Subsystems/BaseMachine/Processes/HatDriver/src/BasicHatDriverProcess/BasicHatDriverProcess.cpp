@@ -1,5 +1,5 @@
 #include <BasicHatDriverProcess/BasicHatDriverProcess.hpp>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
     bool BasicHatDriverProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
@@ -24,4 +24,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         return str;
     }
 
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

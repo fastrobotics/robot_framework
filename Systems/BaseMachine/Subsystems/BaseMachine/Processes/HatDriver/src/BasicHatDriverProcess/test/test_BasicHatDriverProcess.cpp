@@ -5,7 +5,7 @@
 
 #include <BasicHatDriverProcess/BasicHatDriverProcess.hpp>
 
-using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
+using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 
 TEST(BasicHatDriverProcess, BasicTests) {
     BasicHatDriverProcess SUT;

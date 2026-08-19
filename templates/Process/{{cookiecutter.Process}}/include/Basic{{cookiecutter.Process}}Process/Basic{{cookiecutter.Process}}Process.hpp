@@ -12,7 +12,7 @@
 
 #include <Base{{cookiecutter.Process}}Process.hpp>
 
-namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
+namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 /**
  * @brief Minimal Implementation for a {{cookiecutter.Process}} Process
  *

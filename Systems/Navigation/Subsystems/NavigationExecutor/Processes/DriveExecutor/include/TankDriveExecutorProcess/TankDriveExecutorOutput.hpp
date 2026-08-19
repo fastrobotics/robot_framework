@@ -14,17 +14,17 @@
 
 #include <IDriveExecutorOutput.hpp>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
-/**
- * @brief TankDriveExecutorOutput
- *
- */
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
+    /**
+     * @brief TankDriveExecutorOutput
+     *
+     */
 
-struct TankDriveExecutorOutput : public IDriveExecutorOutput {
-    TankDriveExecutorOutput() : IDriveExecutorOutput() {}
-    double left_drive{0};   //!< Left Drive Output
-    double right_drive{0};  //!< Right Drive Output
+    struct TankDriveExecutorOutput : public IDriveExecutorOutput {
+        TankDriveExecutorOutput() : IDriveExecutorOutput() {}
+        double left_drive{0};   //!< Left Drive Output
+        double right_drive{0};  //!< Right Drive Output
 
-   private:
-};
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+       private:
+    };
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

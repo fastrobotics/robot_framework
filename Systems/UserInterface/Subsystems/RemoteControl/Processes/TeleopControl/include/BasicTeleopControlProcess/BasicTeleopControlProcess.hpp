@@ -14,7 +14,7 @@
 #include <BasicTeleopControlProcess/TwistComputer.hpp>
 #include <JoyMsg.hpp>
 
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Minimal Implementation for a TeleopControl Process
      *
@@ -77,4 +77,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
        private:
         TwistComputer twist_computer;
     };
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

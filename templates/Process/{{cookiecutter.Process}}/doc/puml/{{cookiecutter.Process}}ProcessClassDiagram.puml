@@ -15,7 +15,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace {{cookiecutter.System}}System {
-    package {{cookiecutter.Subsystem}}Subsystem #LightYellow;line:blue {
+    namespace {{cookiecutter.Subsystem}}Subsystem {
+      package {{cookiecutter.Process}} #LightYellow;line:blue {
         interface I{{cookiecutter.Process}}Process  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
@@ -43,6 +44,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         Dummy{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
+      }
     }
   }
 }

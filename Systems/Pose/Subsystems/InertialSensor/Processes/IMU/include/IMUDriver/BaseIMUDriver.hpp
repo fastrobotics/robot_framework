@@ -11,7 +11,7 @@
 #pragma once
 #include <IMUDriver/IIMUDriver.hpp>
 #include <ImuMsg.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Base IMU Driver
      *
@@ -132,4 +132,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         double packet_rx_rate{-1.0};
         double packet_dropped_rate{-1.0};
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

@@ -6,7 +6,7 @@
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
+using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 
 TEST(IMUSYDTM151Driver, InterfaceTests) {
     IMUSYDTM151Driver SUT;

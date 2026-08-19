@@ -13,7 +13,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     /**
      * @brief Base ArmedStateManager Process
       @details Concrete ArmedStateManager Processes should derive from this
@@ -26,12 +26,12 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          *
          */
         BaseArmedStateManagerProcess()
-            : diagnosticManager(fast::rf::SafetySystem::SYSTEM_ID,
-                                fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID),
-              ready_to_arm(fast::rf::SafetySystem::SYSTEM_ID,
-                           fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
-                           fast::rf::SafetySystem::ModeManagerSubsystem::PROCESS_ARMEDSTATEMANAGER_ID) {}
+            : diagnosticManager(
+                  fast::rf::SafetySystem::SYSTEM_ID, fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
+                  fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::PROCESS_ARMEDSTATEMANAGER_ID),
+              ready_to_arm(
+                  fast::rf::SafetySystem::SYSTEM_ID, fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
+                  fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::PROCESS_ARMEDSTATEMANAGER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -70,4 +70,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

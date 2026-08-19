@@ -11,7 +11,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <chrono>
 
-using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
+using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 void printHelp() {
     printf("Tester for IMU Driver\n");
     printf("-h This Menu.\n");

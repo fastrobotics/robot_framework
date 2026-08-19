@@ -17,7 +17,7 @@
 #include <TwistMsg.hpp>
 #include <vector>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     /**
      * @brief Interface for the TrajectoryController Process
      *
@@ -89,4 +89,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         virtual bool get_command(fast::rf::messages::GeometryMsgs::TwistMsg& cmd) = 0;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

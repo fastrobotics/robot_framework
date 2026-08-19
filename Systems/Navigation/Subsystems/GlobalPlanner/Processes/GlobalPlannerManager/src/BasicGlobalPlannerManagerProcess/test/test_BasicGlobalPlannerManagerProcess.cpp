@@ -5,7 +5,7 @@
 
 #include <BasicGlobalPlannerManagerProcess/BasicGlobalPlannerManagerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPlannerManager;
 
 TEST(BasicGlobalPlannerManagerProcess, BasicTests) {
     BasicGlobalPlannerManagerProcess SUT;

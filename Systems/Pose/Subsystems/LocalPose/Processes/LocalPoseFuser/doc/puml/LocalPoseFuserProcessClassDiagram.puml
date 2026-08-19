@@ -22,7 +22,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace PoseSystem {
-    package LocalPoseSubsystem #LightYellow;line:blue {
+    namespace LocalPoseSubsystem {
+      package LocalPoseFuser #LightYellow;line:blue {
         interface ILocalPoseFuserProcess #LimeGreen  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()

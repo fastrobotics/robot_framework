@@ -14,7 +14,7 @@
 
 #include <IMUDriver/BaseIMUDriver.hpp>
 
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Driver for IMU Sensor Sparkfun Razor 9DOF
      * @todo Figure out units for mag readings in AB#1795
@@ -69,4 +69,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         int serial_fd{-1};  //!< Serial Port Device
         char readBuffer[512];
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

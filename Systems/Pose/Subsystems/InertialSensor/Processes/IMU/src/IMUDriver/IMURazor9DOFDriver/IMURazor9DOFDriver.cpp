@@ -12,7 +12,7 @@
 #include <boost/algorithm/string/split.hpp>
 #define _USE_MATH_DEFINES
 #include <cmath>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @todo Make this a config item during AB#1798
      *
@@ -166,4 +166,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         sensor_data.magnetic_field_msg = magnetic_msg;
         return sensor_data;
     }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

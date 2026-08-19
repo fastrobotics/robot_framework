@@ -6,7 +6,7 @@
 #include <BasicTeleopControlProcess/TwistComputer.hpp>
 #include <cmath>
 
-using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
+using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl;
 
 TEST(TwistComputer, BasicTwistComputeTests) {
     TwistComputer SUT;

@@ -12,7 +12,7 @@
 
 #include <BaseTrajectorySelectorProcess.hpp>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector {
     /**
      * @brief Minimal implementation for a TrajectorySelector Process
      *
@@ -40,4 +40,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
        private:
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector

@@ -3,7 +3,7 @@
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #include <cmath>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     ServoHatDriver::~ServoHatDriver() { close(servoHatFd); }
     bool ServoHatDriver::init(uint16_t address) {
         servoHatFd = wiringPiI2CSetup(address);
@@ -67,4 +67,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_OFF_L, off & 0xFF);
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::ALL_LED_OFF_H, off >> 8);
     }
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

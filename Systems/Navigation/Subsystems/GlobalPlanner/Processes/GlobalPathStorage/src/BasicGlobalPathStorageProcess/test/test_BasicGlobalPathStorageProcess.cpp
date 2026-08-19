@@ -5,7 +5,7 @@
 
 #include <BasicGlobalPathStorageProcess/BasicGlobalPathStorageProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage;
 
 TEST(BasicGlobalPathStorageProcess, BasicTests) {
     BasicGlobalPathStorageProcess SUT;

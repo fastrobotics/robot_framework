@@ -8,7 +8,7 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
+using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 class TestIMUDriverInterface : public IIMUDriver {
    public:
     bool init([[maybe_unused]] std::string device_name) { return true; }

@@ -8,7 +8,7 @@
 #include <IArmedStateManagerProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::SafetySystem::ModeManagerSubsystem;
+using namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager;
 class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
    public:
     bool init() { return true; }
@@ -102,7 +102,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process1;
     process1.systemID = fast::rf::BaseMachineSystem::SYSTEM_ID;
     process1.subsystemID = fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID;
-    process1.processID = fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID;
+    process1.processID = fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::PROCESS_HATDRIVER_ID;
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
 
@@ -121,25 +121,27 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process2;
     process2.systemID = fast::rf::NavigationSystem::SYSTEM_ID;
     process2.subsystemID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID;
-    process2.processID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID;
+    process2.processID =
+        fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::PROCESS_DRIVE_EXECUTOR_ID;
     process2.ready_to_arm = true;
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process3;
     process3.systemID = fast::rf::UserInterfaceSystem::SYSTEM_ID;
     process3.subsystemID = fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID;
-    process3.processID = fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID;
+    process3.processID = fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::PROCESS_TELEOPCONTROL_ID;
     process3.ready_to_arm = true;
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process4;
     process4.systemID = fast::rf::NavigationSystem::SYSTEM_ID;
     process4.subsystemID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID;
-    process4.processID = fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID;
+    process4.processID =
+        fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::PROCESS_TRAJECTORY_CONTROLLER_ID;
     process4.ready_to_arm = true;
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process5;
     process5.systemID = fast::rf::PoseSystem::SYSTEM_ID;
     process5.subsystemID = fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID;
-    process5.processID = fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID;
+    process5.processID = fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::PROCESS_LOCALPOSEFUSER_ID;
     process5.ready_to_arm = true;
 
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));

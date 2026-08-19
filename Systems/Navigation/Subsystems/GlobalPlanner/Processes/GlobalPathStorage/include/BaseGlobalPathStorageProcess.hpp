@@ -13,7 +13,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage {
     /**
      * @brief Base GlobalPathStorage Process
       @details Concrete GlobalPathStorage Processes should derive from this
@@ -28,7 +28,8 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         BaseGlobalPathStorageProcess()
             : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
                                 fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::PROCESS_GLOBALPATH_STORAGE_ID) {}
+                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage::
+                                    PROCESS_GLOBALPATH_STORAGE_ID) {}
         /**
          * @brief Update the base object
          *
@@ -52,4 +53,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage

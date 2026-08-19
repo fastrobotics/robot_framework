@@ -14,7 +14,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
      * @brief Base DriveExecutor Process
       @details Concrete DriveExecutor Processes should derive from this
@@ -27,12 +27,14 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          *
          */
         BaseDriveExecutorProcess()
-            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
-                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID),
-              ready_to_arm(fast::rf::NavigationSystem::SYSTEM_ID,
-                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID) {}
+            : diagnosticManager(
+                  fast::rf::NavigationSystem::SYSTEM_ID,
+                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::PROCESS_DRIVE_EXECUTOR_ID),
+              ready_to_arm(
+                  fast::rf::NavigationSystem::SYSTEM_ID,
+                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::PROCESS_DRIVE_EXECUTOR_ID) {}
 
         /**
          * @brief Update the base object
@@ -71,4 +73,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

@@ -7,7 +7,7 @@
 #include <Infrastructure/Logger.hpp>
 #include <cmath>
 
-using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
+using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl;
 
 TEST(BasicTeleopControlProcess, BasicTests) {
     BasicTeleopControlProcess SUT;

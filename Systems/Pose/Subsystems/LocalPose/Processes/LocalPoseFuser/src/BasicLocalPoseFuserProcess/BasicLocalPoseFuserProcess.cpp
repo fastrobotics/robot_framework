@@ -1,7 +1,7 @@
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
 #include <PoseUtility.hpp>
 #include <cmath>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
 
     bool BasicLocalPoseFuserProcess::init() {
         bool status = BaseLocalPoseFuserProcess::init();
@@ -102,4 +102,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         return true;
     }
 
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

@@ -18,7 +18,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace PoseSystem {
-    package LocalPoseSubsystem #LightYellow;line:blue {
+    namespace LocalPoseSubsystem {
+      package InertialSensorFuser #LightYellow;line:blue {
         interface IInertialSensorFuserProcess #LimeGreen {
           +{abstract} bool init(uint8 imu_count)
           +{abstract} DiagnosticMsg[] get_diagnostics()
@@ -56,6 +57,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         DummyInertialSensorFuserProcess -up-|> BaseInertialSensorFuserProcess
+      }
     }
   }
 }

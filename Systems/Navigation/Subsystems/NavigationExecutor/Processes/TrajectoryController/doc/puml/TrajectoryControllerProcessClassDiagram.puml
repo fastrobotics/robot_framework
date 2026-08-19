@@ -22,7 +22,8 @@ namespace fast::rf {
     interface IController
     class PIDController
     PIDController -up-|> IController
-    package NavigationExecutorSubsystem #LightYellow;line:blue {
+    namespace NavigationExecutorSubsystem {
+      package TrajectoryController #LightYellow;line:blue {
         interface ITrajectoryControllerProcess #LimeGreen  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
@@ -70,6 +71,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         DummyTrajectoryControllerProcess -up-|> BaseTrajectoryControllerProcess
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 #include <Infrastructure/Logger.hpp>
 #include <ReadyToArmComputer.hpp>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     bool ReadyToArmComputer::add_monitor(uint8_t systemID, uint8_t subsystemID, uint8_t processID) {
         std::size_t before_size = monitors.size();
         Monitor monitor = Monitor(systemID, subsystemID, processID);
@@ -84,4 +84,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         }
         return true;
     }
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

@@ -6,7 +6,7 @@
 #include <BaseGlobalPathStorageProcess.hpp>
 #include <IGlobalPathStorageProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage;
 class TestGlobalPathStorageProcessInterface : public IGlobalPathStorageProcess {
    public:
     bool init() { return true; }

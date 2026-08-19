@@ -11,7 +11,7 @@
 #pragma once
 #include <ArmCommandMsg.hpp>
 #include <ArmStateChangeSrv.hpp>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     /**
      * @brief ArmStateCommander
      * @details Responsible for computing the Arm State of the Robot
@@ -72,4 +72,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         double hold_timer{0.0};
         fast::rf::messages::InfrastructureMsgs::ArmCommandMsg arm_command;
     };
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

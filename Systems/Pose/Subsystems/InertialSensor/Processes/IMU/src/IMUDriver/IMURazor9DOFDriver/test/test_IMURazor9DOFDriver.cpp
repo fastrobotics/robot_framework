@@ -6,7 +6,7 @@
 #include <IMUDriver/IMURazor9DOFDriver/IMURazor9DOFDriver.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::InertialSensorSubsystem;
+using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 
 TEST(IMURazor9DOFDriver, InterfaceTests) {
     IMURazor9DOFDriver SUT;

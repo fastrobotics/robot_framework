@@ -13,7 +13,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
     /**
      * @brief Base InertialSensorFuser Process
       @details Concrete InertialSensorFuser Processes should derive from this
@@ -26,10 +26,12 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          *
          */
         BaseInertialSensorFuserProcess()
-            : diagnosticManager(fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                                fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_INERTIALSENSORFUSER_ID),
-              ready_to_arm(fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                           fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_INERTIALSENSORFUSER_ID) {}
+            : diagnosticManager(
+                  fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
+                  fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::PROCESS_INERTIALSENSORFUSER_ID),
+              ready_to_arm(
+                  fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
+                  fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::PROCESS_INERTIALSENSORFUSER_ID) {}
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
@@ -99,4 +101,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         bool is_new_machine_inertial_data{false};
         fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser

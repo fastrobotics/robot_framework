@@ -17,7 +17,7 @@
 #include "EasyObjectDictionary.h"
 #include "EasyProfile.h"
 
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Driver for IMU Sensor SYD TM151
 
@@ -76,4 +76,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         EasyObjectDictionary eOD;
         EasyProfile* eP{nullptr};
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

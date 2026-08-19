@@ -1,6 +1,6 @@
 #include <BasicTeleopControlProcess/BasicTeleopControlProcess.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
 
     bool BasicTeleopControlProcess::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
         if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
@@ -100,4 +100,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         return true;
     }
 
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

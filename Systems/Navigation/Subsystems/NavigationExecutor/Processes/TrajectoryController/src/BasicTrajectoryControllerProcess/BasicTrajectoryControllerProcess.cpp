@@ -1,6 +1,6 @@
 #include <BasicTrajectoryControllerProcess/BasicTrajectoryControllerProcess.hpp>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     bool BasicTrajectoryControllerProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
@@ -72,4 +72,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         return status;
     }
 
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

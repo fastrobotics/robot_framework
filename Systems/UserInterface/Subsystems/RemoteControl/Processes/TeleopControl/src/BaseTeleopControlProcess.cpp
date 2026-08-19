@@ -1,6 +1,6 @@
 #include <BaseTeleopControlProcess.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     bool BaseTeleopControlProcess::update(double current_time_sec) {
         current_time_sec_ = current_time_sec;
         if (last_input_time_sec < 0) {
@@ -39,6 +39,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         } else {
             str += "\nOp Mode: UNKNOWN\n";
         }
+        str += "\tSys: " + std::string(fast::rf::UserInterfaceSystem::toString(fast::rf::UserInterfaceSystem::Id{})) +
+               "/" +
+               std::string(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::toString(
+                   fast::rf::UserInterfaceSystem::RemoteControlSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::toString(
+                   fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::Id{})) +
+               "\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tArm Command: " + fast::rf::pretty(robot_arm_command.armed_state) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
@@ -47,4 +55,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
 
         return str;
     }
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

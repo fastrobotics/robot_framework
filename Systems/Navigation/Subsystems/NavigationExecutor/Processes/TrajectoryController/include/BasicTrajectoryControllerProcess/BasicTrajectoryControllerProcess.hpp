@@ -12,7 +12,7 @@
 
 #include <BaseTrajectoryControllerProcess.hpp>
 #include <Controller/PIDController/PIDController.hpp>
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     /**
      * @brief Minimal implementation for a TrajectoryController Process
      *
@@ -80,4 +80,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
        private:
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

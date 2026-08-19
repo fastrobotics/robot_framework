@@ -14,7 +14,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace NavigationSystem {
-    package GlobalPlannerSubsystem #LightYellow;line:blue {
+    namespace GlobalPlannerSubsystem {
+      package FreeSpacePlanner #LightYellow;line:blue {
       
         interface IFreeSpacePlannerProcess  {
           +{abstract} bool init()
@@ -37,6 +38,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         DummyFreeSpacePlannerProcess -up-|> BaseFreeSpacePlannerProcess
+      }
     }
   }
 }

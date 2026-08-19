@@ -14,7 +14,7 @@
 #include <IDriveExecutorOutput.hpp>
 #include <TankDriveExecutorProcess/TankDriveExecutorOutput.hpp>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
      * @brief Data Structure encoding Tank Drive Data
      *
@@ -142,4 +142,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         TankDriveChannelConfig right_channel_config;
         TankDriveExecutorOutput* output;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

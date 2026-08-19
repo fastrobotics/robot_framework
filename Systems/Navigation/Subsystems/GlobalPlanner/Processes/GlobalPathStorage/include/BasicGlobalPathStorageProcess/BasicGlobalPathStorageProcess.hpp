@@ -12,7 +12,7 @@
 
 #include <BaseGlobalPathStorageProcess.hpp>
 
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage {
     /**
      * @brief Minimal Implementation for a GlobalPathStorage Process
      *
@@ -40,4 +40,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
 
        private:
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage

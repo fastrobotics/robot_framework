@@ -13,7 +13,7 @@
 #include <ArmStateCommander.hpp>
 #include <BaseArmedStateManagerProcess.hpp>
 #include <ReadyToArmComputer.hpp>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     /**
      * @brief Minimal Implementation for a ArmedStateManager Process
      *
@@ -77,4 +77,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         ArmStateCommander arm_state_commander;
         ReadyToArmComputer ready_to_arm_computer;
     };
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

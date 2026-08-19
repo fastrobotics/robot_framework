@@ -14,7 +14,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace NavigationSystem {
-    package GlobalPlannerSubsystem #LightYellow;line:blue {
+    namespace GlobalPlannerSubsystem {
+      package GlobalPlannerManager #LightYellow;line:blue {
         interface IGlobalPlannerManagerProcess  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
@@ -36,6 +37,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         DummyGlobalPlannerManagerProcess -up-|> BaseGlobalPlannerManagerProcess
+      }
     }
   }
 }

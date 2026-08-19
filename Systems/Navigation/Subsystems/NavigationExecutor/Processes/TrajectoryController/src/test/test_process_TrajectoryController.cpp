@@ -7,7 +7,7 @@
 #include <Controller/PIDController/PIDController.hpp>
 #include <ITrajectoryControllerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController;
 class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerProcess {
    public:
     bool init() override { return true; }

@@ -1,5 +1,5 @@
 #include <BasicTeleopControlProcess/TwistComputer.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     bool TwistComputer::set_config(double max_forward_x_velocity, double max_reverse_x_velocity,
                                    double max_angular_z_velocity, double min_angular_z_velocity) {
         // Forward Velocity Checks
@@ -28,4 +28,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         twist.linear.x = joy.axes[1];
         return twist;
     }
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

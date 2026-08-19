@@ -21,7 +21,7 @@
 #include <string>
 #include <vector>
 
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Enum defining what Control Devices are supported
      *
@@ -191,4 +191,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          */
         virtual bool set_operation_mode(OperationMode mode) = 0;
     };
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

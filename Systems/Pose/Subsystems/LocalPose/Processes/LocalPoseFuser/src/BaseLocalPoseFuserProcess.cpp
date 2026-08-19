@@ -1,6 +1,6 @@
 #include <BaseLocalPoseFuserProcess.hpp>
 #include <mutex>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     bool BaseLocalPoseFuserProcess::init() { return true; }
     bool BaseLocalPoseFuserProcess::update([[maybe_unused]] double current_time_sec) {
         current_time_sec_ = current_time_sec;
@@ -40,4 +40,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         angular_acc_ = angular_acc;
         is_new_local_pose = true;
     }
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

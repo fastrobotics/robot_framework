@@ -7,7 +7,7 @@
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
 
-using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
+using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 
 TEST(ServoHatDriverProcess, BasicTests) {
     ServoHatDriverProcess SUT;

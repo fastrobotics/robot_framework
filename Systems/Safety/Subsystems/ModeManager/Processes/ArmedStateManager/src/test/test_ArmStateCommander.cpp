@@ -6,7 +6,7 @@
 #include <ArmStateChangeSrv.hpp>
 #include <ArmStateCommander.hpp>
 #include <Infrastructure/Logger.hpp>
-using namespace fast::rf::SafetySystem::ModeManagerSubsystem;
+using namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager;
 TEST(ArmStateCommander, InterfaceTests) {
     ArmStateCommander SUT;
     ASSERT_TRUE(SUT.init());

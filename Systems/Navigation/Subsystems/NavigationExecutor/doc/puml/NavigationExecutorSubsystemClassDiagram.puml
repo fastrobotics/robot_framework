@@ -18,11 +18,17 @@ namespace fast::rf {
       class DummyNavigationExecutorSubsystem {
       }
       DummyNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
-      interface IDriveExecutorProcess #LimeGreen
-      class TankDriveExecutorProcess #LimeGreen
-      TankDriveExecutorProcess -up-|> IDriveExecutorProcess
-      interface ITrajectoryControllerProcess
-      interface ITrajectorySelectorProcess
+      namespace DriveExecutor {
+        interface IDriveExecutorProcess #LimeGreen
+        class TankDriveExecutorProcess #LimeGreen
+        TankDriveExecutorProcess -up-|> IDriveExecutorProcess
+      }
+      namespace TrajectoryController {
+        interface ITrajectoryControllerProcess
+      }
+      namespace TrajectorySelector {
+        interface ITrajectorySelectorProcess
+      }
     }
   }
 }

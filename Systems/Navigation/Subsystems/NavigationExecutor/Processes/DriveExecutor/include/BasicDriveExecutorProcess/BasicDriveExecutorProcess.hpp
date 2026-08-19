@@ -12,7 +12,7 @@
 
 #include <BaseDriveExecutorProcess.hpp>
 
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
      * @brief Minimal implementation for a DriveExecutor Process
      *
@@ -63,4 +63,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
        private:
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

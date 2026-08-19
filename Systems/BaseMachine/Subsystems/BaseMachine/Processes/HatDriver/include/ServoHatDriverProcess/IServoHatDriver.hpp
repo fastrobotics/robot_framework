@@ -11,7 +11,7 @@
 #pragma once
 #include <cstdint>
 #include <string>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Interface class for a generic Servo Hat
      *
@@ -48,4 +48,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          */
         virtual bool setServoValue(uint16_t channel, uint16_t value) = 0;
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

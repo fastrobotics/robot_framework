@@ -11,7 +11,7 @@
 #pragma once
 #include <ITeleopControlProcess.hpp>
 #include <JoyMsg.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Maps Raw Joystick Data to a common definition.
      * @details
@@ -41,4 +41,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         bool is_initialized{false};                            // If the object is initialized
     };
 
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl
