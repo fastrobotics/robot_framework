@@ -1,6 +1,6 @@
 #include <BaseLocalPoseFuserProcess.hpp>
 #include <mutex>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     bool BaseLocalPoseFuserProcess::init() { return true; }
     bool BaseLocalPoseFuserProcess::update([[maybe_unused]] double current_time_sec) {
         current_time_sec_ = current_time_sec;
@@ -14,6 +14,13 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
     }
     std::string BaseLocalPoseFuserProcess::pretty() {
         std::string str = "\n---LocalPoseFuser---\n";
+        str += "\tSys: " + std::string(fast::rf::PoseSystem::toString(fast::rf::PoseSystem::Id{})) + "/" +
+               std::string(
+                   fast::rf::PoseSystem::LocalPoseSubsystem::toString(fast::rf::PoseSystem::LocalPoseSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::toString(
+                   fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::Id{})) +
+               "\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
@@ -40,4 +47,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         angular_acc_ = angular_acc;
         is_new_local_pose = true;
     }
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

@@ -6,7 +6,7 @@
 #include <BasicTrajectoryControllerProcess/BasicTrajectoryControllerProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController;
 
 TEST(BasicTrajectoryControllerProcess, BasicTests) {
     BasicTrajectoryControllerProcess SUT;

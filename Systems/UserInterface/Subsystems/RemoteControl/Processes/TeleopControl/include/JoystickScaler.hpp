@@ -11,7 +11,7 @@
 #pragma once
 #include <ITeleopControlProcess.hpp>
 #include <JoyMsg.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Scales Joystick Data to a common definition
      *
@@ -54,4 +54,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         JoystickCalibrationData joy_cal_data;                  //!< Joystick Calibration INformation
     };
 
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

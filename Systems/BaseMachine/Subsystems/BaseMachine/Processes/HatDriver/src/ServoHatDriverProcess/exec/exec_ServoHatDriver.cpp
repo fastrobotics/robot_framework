@@ -9,7 +9,7 @@
 
 #include <Infrastructure/Logger.hpp>
 #include <RobotFrameworkDefinitions.hpp>
-using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
+using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 void printHelp() {
     printf("Tester for Servo Hat Driver\n");
     printf("-h This Menu.\n");

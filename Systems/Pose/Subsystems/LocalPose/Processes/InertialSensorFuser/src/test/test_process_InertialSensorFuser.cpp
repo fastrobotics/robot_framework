@@ -7,7 +7,7 @@
 #include <IInertialSensorFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
+using namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser;
 class TestInertialSensorFuserProcessInterface : public IInertialSensorFuserProcess {
    public:
     bool init([[maybe_unused]] uint8_t imu_count) { return true; }
@@ -35,6 +35,7 @@ class TestInertialSensorFuserProcessInterface : public IInertialSensorFuserProce
 TEST(TestInertialSensorFuserProcessInterface, InterfaceTests) {
     TestInertialSensorFuserProcessInterface SUT;
     ASSERT_TRUE(SUT.init(0));
+
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }

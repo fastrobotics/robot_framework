@@ -15,7 +15,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Interface for the HatDriver Process
      *
@@ -72,4 +72,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          */
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

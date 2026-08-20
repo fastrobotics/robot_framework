@@ -12,7 +12,7 @@
 #include <ITrajectorySelectorProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector {
     /**
      * @brief Base TrajectorySelector Process
       @details Concrete TrajectorySelector Processes should derive from this
@@ -25,10 +25,10 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          *
          */
         BaseTrajectorySelectorProcess()
-            : diagnosticManager(
-                  fast::rf::NavigationSystem::SYSTEM_ID,
-                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_SELECTOR_ID) {}
+            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
+                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::
+                                    PROCESS_TRAJECTORY_SELECTOR_ID) {}
         /**
          * @brief Update the base object
          *
@@ -52,4 +52,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector

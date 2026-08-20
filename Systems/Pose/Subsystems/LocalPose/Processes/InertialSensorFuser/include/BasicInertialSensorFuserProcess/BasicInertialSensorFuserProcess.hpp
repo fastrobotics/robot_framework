@@ -12,7 +12,7 @@
 
 #include <BaseInertialSensorFuserProcess.hpp>
 
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
     /**
      * @brief Minimal Implementation for a InertialSensorFuser Process
      *
@@ -58,4 +58,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
 
        private:
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser

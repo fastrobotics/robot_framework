@@ -14,7 +14,7 @@
 #include <vector>
 
 #include <I{{cookiecutter.Process}}Process.hpp>
-namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
+namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 /**
  * @brief Base {{cookiecutter.Process}} Process
   @details Concrete {{cookiecutter.Process}} Processes should derive from this
@@ -29,10 +29,10 @@ public:
    */
   Base{{cookiecutter.Process}}Process() : diagnosticManager(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID,
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
-                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID),
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID),
                                  ready_to_arm(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID,
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
-                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process_IDName}}_ID)
+                                fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID)
                                  {}
   /**
          * @brief Initialize the base object.  Called by Concrete Function.

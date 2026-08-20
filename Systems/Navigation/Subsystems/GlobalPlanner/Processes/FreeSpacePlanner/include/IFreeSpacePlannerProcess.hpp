@@ -12,7 +12,7 @@
 #include <DiagnosticMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner {
     /**
      * @brief Interface for the FreeSpacePlanner Process
      *
@@ -45,4 +45,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner

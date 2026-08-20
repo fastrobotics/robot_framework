@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem;
+using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}};
 class Test{{cookiecutter.Process}}ProcessInterface : public I{{cookiecutter.Process}}Process {
 public:
   bool init() { return true; }

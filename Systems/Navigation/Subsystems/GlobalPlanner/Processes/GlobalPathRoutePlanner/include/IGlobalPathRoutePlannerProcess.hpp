@@ -13,7 +13,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner {
     /**
      * @brief Interface for the GlobalPathRoutePlanner Process
      *
@@ -46,4 +46,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner

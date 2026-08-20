@@ -13,7 +13,7 @@
 #include <ITrajectoryControllerProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     /**
      * @brief Base TrajectoryController Process
       @details Concrete TrajectoryController Processes should derive from this
@@ -26,13 +26,14 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          *
          */
         BaseTrajectoryControllerProcess()
-            : diagnosticManager(
-                  fast::rf::NavigationSystem::SYSTEM_ID,
-                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                  fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID),
+            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
+                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::
+                                    PROCESS_TRAJECTORY_CONTROLLER_ID),
               ready_to_arm(fast::rf::NavigationSystem::SYSTEM_ID,
                            fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID) {}
+                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::
+                               PROCESS_TRAJECTORY_CONTROLLER_ID) {}
 
         /**
          * @brief Get the diagnostics object
@@ -121,4 +122,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
 
         fast::rf::messages::GeometryMsgs::TwistMsg command_;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

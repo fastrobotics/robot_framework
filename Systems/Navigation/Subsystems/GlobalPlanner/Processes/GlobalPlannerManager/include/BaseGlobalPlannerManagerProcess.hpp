@@ -14,7 +14,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPlannerManager {
     /**
      * @brief Base GlobalPlannerManager Process
       @details Concrete GlobalPlannerManager Processes should derive from this
@@ -29,7 +29,8 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         BaseGlobalPlannerManagerProcess()
             : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
                                 fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::PROCESS_GLOBALPLANNER_MANAGER_ID) {}
+                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPlannerManager::
+                                    PROCESS_GLOBALPLANNER_MANAGER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -53,4 +54,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPlannerManager

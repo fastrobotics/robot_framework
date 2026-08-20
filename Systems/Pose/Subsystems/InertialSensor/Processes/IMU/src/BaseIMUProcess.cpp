@@ -3,7 +3,7 @@
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <IMUDriver/MockIMUDriver.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUProcess::init(IMUConfig imu_config) {
         imu_config_ = imu_config;
         bool initialized_ok = false;
@@ -92,6 +92,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
     }
     std::string BaseIMUProcess::pretty() {
         std::string str = "\n---IMU---\n";
+
+        str += "\tSys: " + std::string(fast::rf::PoseSystem::toString(fast::rf::PoseSystem::Id{})) + "/" +
+               std::string(fast::rf::PoseSystem::InertialSensorSubsystem::toString(
+                   fast::rf::PoseSystem::InertialSensorSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::PoseSystem::InertialSensorSubsystem::IMU::toString(
+                   fast::rf::PoseSystem::InertialSensorSubsystem::IMU::Id{})) +
+               "\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
@@ -101,4 +109,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
         return str;
     }
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

@@ -6,7 +6,7 @@
 #include <BasicInertialSensorFuserProcess/BasicInertialSensorFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
+using namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser;
 
 TEST(BasicInertialSensorFuserProcess, BasicTests) {
     BasicInertialSensorFuserProcess SUT;

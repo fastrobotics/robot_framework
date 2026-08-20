@@ -12,7 +12,7 @@
 
 #include <BaseGlobalPathRoutePlannerProcess.hpp>
 
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner {
     /**
      * @brief Minimal Implementation for a GlobalPathRoutePlanner Process
      *
@@ -40,4 +40,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
 
        private:
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner

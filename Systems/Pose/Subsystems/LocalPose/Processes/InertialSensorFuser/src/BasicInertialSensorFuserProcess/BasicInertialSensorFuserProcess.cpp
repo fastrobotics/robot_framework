@@ -1,5 +1,5 @@
 #include <BasicInertialSensorFuserProcess/BasicInertialSensorFuserProcess.hpp>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
 
     bool BasicInertialSensorFuserProcess::init(uint8_t imu_count) {
         bool status = BaseInertialSensorFuserProcess::init(imu_count);
@@ -44,4 +44,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         return true;
     }
 
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser

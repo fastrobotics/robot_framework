@@ -1,5 +1,5 @@
 #include <IMUProcess.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
 
     bool IMUProcess::init(IMUConfig imu_config) {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
@@ -41,4 +41,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         return status;
     }
 
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

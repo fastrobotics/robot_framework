@@ -8,37 +8,38 @@ namespace fast::rf {
     }
   }
   namespace NavigationSystem {
-    package NavigationExecutorSubsystem #LightYellow;line:blue {
-      interface IDriveExecutorProcess #LimeGreen
-      class IDriveExecutorOutput #LimeGreen
-      struct TankDriveData #LimeGreen {
-          +double left_channel
-          +double right_channel
+    namespace NavigationExecutorSubsystem {
+      package DriveExecutor #LightYellow;line:blue {
+        interface IDriveExecutorProcess #LimeGreen
+        class IDriveExecutorOutput #LimeGreen
+        struct TankDriveData #LimeGreen {
+            +double left_channel
+            +double right_channel
+        }
+        struct TankDriveChannelConfig #LimeGreen {
+            +double min_value
+            +double neutral_value
+            +double max_value
+            +bool is_ok()
+        }
+        struct TankDriveExecutorOutput #LimeGreen {
+            +double left_drive
+            +double right_drive
+        }
+        TankDriveExecutorOutput -up-|> IDriveExecutorOutput
+        class TankDriveExecutorProcess #LimeGreen {
+            +IDriveExecutorOutput new_cmd(TwistMsg cmd)
+            +IDriveExecutorOutput get_output()
+            +bool init()
+            +bool update(double current_time_sec)
+            +TankDriveData convert(GeometryMsgs::TwistMsg twist)
+            +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel)
+        }
+        TankDriveExecutorProcess -up-|> IDriveExecutorProcess
+        TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
+        TankDriveExecutorProcess --> TankDriveData: <<use>>
+        TankDriveExecutorProcess --> TankDriveChannelConfig: <<use>>
       }
-      struct TankDriveChannelConfig #LimeGreen {
-          +double min_value
-          +double neutral_value
-          +double max_value
-          +bool is_ok()
-      }
-      struct TankDriveExecutorOutput #LimeGreen {
-          +double left_drive
-          +double right_drive
-      }
-      TankDriveExecutorOutput -up-|> IDriveExecutorOutput
-      class TankDriveExecutorProcess #LimeGreen {
-          +IDriveExecutorOutput new_cmd(TwistMsg cmd)
-          +IDriveExecutorOutput get_output()
-          +bool init()
-          +bool update(double current_time_sec)
-          +TankDriveData convert(GeometryMsgs::TwistMsg twist)
-          +void set_config(TankDriveChannelConfig left_channel,TankDriveChannelConfig right_channel)
-      }
-      TankDriveExecutorProcess -up-|> IDriveExecutorProcess
-      TankDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
-      TankDriveExecutorProcess --> TankDriveData: <<use>>
-      TankDriveExecutorProcess --> TankDriveChannelConfig: <<use>>
-
       
     }
   }

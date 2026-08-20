@@ -6,7 +6,7 @@
 #include <BaseFreeSpacePlannerProcess.hpp>
 #include <IFreeSpacePlannerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner;
 class TestFreeSpacePlannerProcessInterface : public IFreeSpacePlannerProcess {
    public:
     bool init() { return true; }

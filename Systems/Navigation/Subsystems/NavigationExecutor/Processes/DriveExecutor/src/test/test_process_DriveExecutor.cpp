@@ -8,7 +8,7 @@
 #include <IDriveExecutorProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor;
 class TestDriveExecutorOutput : public IDriveExecutorOutput {
    public:
     int a{1};

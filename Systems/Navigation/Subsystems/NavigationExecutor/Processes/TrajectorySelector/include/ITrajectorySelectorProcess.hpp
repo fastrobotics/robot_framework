@@ -13,7 +13,7 @@
 #include <DiagnosticMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector {
     /**
      * @brief Interface for the TrajectorySelector Process
      *
@@ -47,4 +47,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector

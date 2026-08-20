@@ -5,7 +5,7 @@
 
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
-using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
+using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 
 TEST(MockServoHatDriver, BasicTests) {
     MockServoHatDriver SUT;

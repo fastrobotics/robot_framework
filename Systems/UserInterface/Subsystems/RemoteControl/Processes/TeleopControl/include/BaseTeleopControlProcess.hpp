@@ -15,7 +15,7 @@
 #include <JoystickScaler.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Base TeleopControl Process
       @details Concrete TeleopControl Processes should derive from this
@@ -28,12 +28,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
          *
          */
         BaseTeleopControlProcess()
-            : diagnosticManager(fast::rf::UserInterfaceSystem::SYSTEM_ID,
-                                fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
-                                fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID),
-              ready_to_arm(fast::rf::UserInterfaceSystem::SYSTEM_ID,
-                           fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
-                           fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID) {}
+            : diagnosticManager(
+                  fast::rf::UserInterfaceSystem::SYSTEM_ID,
+                  fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
+                  fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::PROCESS_TELEOPCONTROL_ID),
+              ready_to_arm(
+                  fast::rf::UserInterfaceSystem::SYSTEM_ID,
+                  fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
+                  fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::PROCESS_TELEOPCONTROL_ID) {}
         /**
          * @brief Update the base object
          *
@@ -122,4 +124,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest
             armstate_change_request;  //!< Arm State Change Request Object
     };
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

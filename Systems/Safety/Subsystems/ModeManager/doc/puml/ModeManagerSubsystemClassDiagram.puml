@@ -18,12 +18,14 @@ namespace fast::rf {
       class DummyModeManagerSubsystem {
       }
       DummyModeManagerSubsystem -up-|> BaseModeManagerSubsystem
-      interface IArmedStateManagerProcess #LimeGreen {
+      namespace ArmedStateManager {
+        interface IArmedStateManagerProcess #LimeGreen {
 
+        }
+        class ArmedStateManagerProcess #LimeGreen {
+        }
+        ArmedStateManagerProcess -up-|> IArmedStateManagerProcess
       }
-      class ArmedStateManagerProcess #LimeGreen {
-      }
-      ArmedStateManagerProcess -up-|> IArmedStateManagerProcess
     }
   }
 }

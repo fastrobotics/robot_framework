@@ -16,13 +16,15 @@ namespace fast::rf {
     class DummySafetySystem  {
     }
     BaseSafetySystem <|-- DummySafetySystem
-    namespace ModeManagerSubsystem #Yellow {
-      interface IArmedStateManagerProcess #LimeGreen {
+    namespace ModeManagerSubsystem #LimeGreen {
+      namespace ArmedStateManager {
+        interface IArmedStateManagerProcess #LimeGreen {
 
+        }
+        class ArmedStateManagerProcess #LimeGreen {
+        }
+        ArmedStateManagerProcess -up-|> IArmedStateManagerProcess
       }
-      class ArmedStateManagerProcess #LimeGreen {
-      }
-      ArmedStateManagerProcess -up-|> IArmedStateManagerProcess
     }
   }
 }

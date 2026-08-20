@@ -18,7 +18,8 @@ namespace fast::rf {
     class ReadyToArmStatusMsg <<(M,#FFFF00)>>
   }
   namespace NavigationSystem {
-    package NavigationExecutorSubsystem #LightYellow;line:blue {
+    namespace NavigationExecutorSubsystem {
+      package DriveExecutor #LightYellow;line:blue {
         interface IDriveExecutorOutput #LimeGreen {
 
         }
@@ -59,6 +60,7 @@ namespace fast::rf {
         DummyDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
         class TankDriveExecutorProcess #LimeGreen
         TankDriveExecutorProcess -up-|> IDriveExecutorProcess
+      }
     }
   }
 }

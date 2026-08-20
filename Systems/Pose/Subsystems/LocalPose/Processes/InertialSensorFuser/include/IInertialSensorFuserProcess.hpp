@@ -15,7 +15,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
     /**
      * @brief Interface for the InertialSensorFuser Process
      *
@@ -83,4 +83,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          */
         virtual bool get_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg& imu_msg) = 0;
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser

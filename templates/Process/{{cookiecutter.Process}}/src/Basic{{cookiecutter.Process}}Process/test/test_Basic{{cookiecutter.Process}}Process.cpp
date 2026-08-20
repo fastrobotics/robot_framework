@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem;
+using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}};
 #include <Infrastructure/Logger.hpp>
 
 TEST(Basic{{cookiecutter.Process}}Process, BasicTests) {

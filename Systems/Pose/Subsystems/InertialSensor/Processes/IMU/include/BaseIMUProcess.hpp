@@ -14,7 +14,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Base IMU Process
       @details Concrete IMU Processes should derive from this
@@ -29,9 +29,9 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         BaseIMUProcess()
             : diagnosticManager(fast::rf::PoseSystem::SYSTEM_ID,
                                 fast::rf::PoseSystem::InertialSensorSubsystem::SUBSYSTEM_ID,
-                                fast::rf::PoseSystem::InertialSensorSubsystem::PROCESS_IMU_ID),
+                                fast::rf::PoseSystem::InertialSensorSubsystem::IMU::PROCESS_IMU_ID),
               ready_to_arm(fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::InertialSensorSubsystem::SUBSYSTEM_ID,
-                           fast::rf::PoseSystem::InertialSensorSubsystem::PROCESS_IMU_ID) {}
+                           fast::rf::PoseSystem::InertialSensorSubsystem::IMU::PROCESS_IMU_ID) {}
 
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
@@ -81,4 +81,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
         IIMUDriver* driver{nullptr};                                               //!< IMU Driver
         IMUConfig imu_config_;                                                     //!< IMU Configuration
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

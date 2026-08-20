@@ -12,7 +12,7 @@
 #include <IFreeSpacePlannerProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner {
     /**
      * @brief Base FreeSpacePlanner Process
       @details Concrete FreeSpacePlanner Processes should derive from this
@@ -25,9 +25,10 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
          *
          */
         BaseFreeSpacePlannerProcess()
-            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
-                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
-                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::PROCESS_FREESPACE_PLANNER_ID) {}
+            : diagnosticManager(
+                  fast::rf::NavigationSystem::SYSTEM_ID,
+                  fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
+                  fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner::PROCESS_FREESPACE_PLANNER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -51,4 +52,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner

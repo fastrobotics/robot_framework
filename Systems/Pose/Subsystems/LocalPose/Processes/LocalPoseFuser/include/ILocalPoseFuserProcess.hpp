@@ -17,7 +17,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     /**
      * @brief Interface for the LocalPoseFuser Process
      *
@@ -91,4 +91,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         virtual bool get_local_pose(fast::rf::messages::GeometryMsgs::OdomMsg& local_pose,
                                     fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg& angular_acc) = 0;
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

@@ -28,97 +28,98 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace UserInterfaceSystem {
-    package RemoteControlSubsystem #LightYellow;line:blue {
-      struct JoystickCalibrationData #LimeGreen {
-        double x_min
-        double x_max
-        double x_deadband
-        double y_min
-        double y_max
-        double y_deadband
-        double throttle_min
-        double throttle_max
-        double throttle_deadband
-        +{static} pretty()
-      }
-      enum OperationMode #LimeGreen {
-        UNKNOWN = 0,
-        JOY_TEST = 1,
-        RUN = 2,
-        END_OF_LIST = 3
-      }
-      enum ControlDevice #LimeGreen {
-        UNKNOWN = 0,
-        THRUSTMASTER_JOYSTICK = 1,
-        END_OF_LIST = 2
-      }
-      interface ITeleopControlProcess #LimeGreen {
-        +{abstract} bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
-        +{abstract} DiagnosticMsg[] get_diagnostics()
-        +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
-        +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
-        +{abstract} bool update(double current_time_sec)
-        +{abstract} string pretty()
-        +{abstract} bool new_joy(JoyMsg joy)
-        +{abstract} TwistMsg get_twist_output()
-        +{abstract} ArmStateChangeSrvRequest get_armstate_change_request()
-        +{abstract} bool set_operation_mode(OperationMode mode)
-      }
-      ITeleopControlProcess +-- JoystickCalibrationData
-      ITeleopControlProcess --> OperationMode: <<use>>
-      ITeleopControlProcess --> ControlDevice: <<use>>
-      class JoystickMapper #Pink {
-        +bool set_mapping()
-        +bool init(ControlDevice device)
-        +JoyMsg new_joy(JoyMsg joy)
-        -bool is_initialized
-        -ControlDevice control_device
-      }
-      JoystickMapper --> ControlDevice: <<use>>
-      note bottom of JoystickMapper
-        Pass-Thru
-      end note
-      class JoystickScaler #LimeGreen {
-        +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
-        +JoyMsg new_joy(JoyMsg joy)
-        -bool is_initialized
-        -ControlDevice control_device
-        -JoystickCalibrationData joy_cal_data
-      }
-      JoystickScaler --> JoystickCalibrationData: <<use>>
-      JoystickScaler --> ControlDevice: <<use>>
-      abstract BaseTeleopControlProcess #LimeGreen {
-        +DiagnosticMsg[] get_diagnostics()
-        +bool update(double current_time_sec)
-        +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
-        +bool set_operation_mode(OperationMode mode)
-        +string pretty()
-        +ReadyToArmStatusMsg get_ready_to_arm()
-        +ArmStateChangeSrvRequest get_armstate_change_request()
-        #DiagnosticManager diagnosticManager
-        #ReadyToArmStatusMsg ready_to_arm
-        #robot_arm_command robot_arm_command
-        #ArmStateChangeSrvRequest armstate_change_request
-        #JoystickMapper joy_mapper
-        #JoystickScaler joy_scaler
-        +TwistMsg get_twist_output()
-        -TwistMsg desired_twist
-        -OperationMode operation_mode = OperationMode::RUN
+    namespace RemoteControlSubsystem {
+      package TeleopControl #LightYellow;line:blue {
+        struct JoystickCalibrationData #LimeGreen {
+          double x_min
+          double x_max
+          double x_deadband
+          double y_min
+          double y_max
+          double y_deadband
+          double throttle_min
+          double throttle_max
+          double throttle_deadband
+          +{static} pretty()
+        }
+        enum OperationMode #LimeGreen {
+          UNKNOWN = 0,
+          JOY_TEST = 1,
+          RUN = 2,
+          END_OF_LIST = 3
+        }
+        enum ControlDevice #LimeGreen {
+          UNKNOWN = 0,
+          THRUSTMASTER_JOYSTICK = 1,
+          END_OF_LIST = 2
+        }
+        interface ITeleopControlProcess #LimeGreen {
+          +{abstract} bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
+          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+          +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
+          +{abstract} bool update(double current_time_sec)
+          +{abstract} string pretty()
+          +{abstract} bool new_joy(JoyMsg joy)
+          +{abstract} TwistMsg get_twist_output()
+          +{abstract} ArmStateChangeSrvRequest get_armstate_change_request()
+          +{abstract} bool set_operation_mode(OperationMode mode)
+        }
+        ITeleopControlProcess +-- JoystickCalibrationData
+        ITeleopControlProcess --> OperationMode: <<use>>
+        ITeleopControlProcess --> ControlDevice: <<use>>
+        class JoystickMapper #Pink {
+          +bool set_mapping()
+          +bool init(ControlDevice device)
+          +JoyMsg new_joy(JoyMsg joy)
+          -bool is_initialized
+          -ControlDevice control_device
+        }
+        JoystickMapper --> ControlDevice: <<use>>
+        note bottom of JoystickMapper
+          Pass-Thru
+        end note
+        class JoystickScaler #LimeGreen {
+          +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
+          +JoyMsg new_joy(JoyMsg joy)
+          -bool is_initialized
+          -ControlDevice control_device
+          -JoystickCalibrationData joy_cal_data
+        }
+        JoystickScaler --> JoystickCalibrationData: <<use>>
+        JoystickScaler --> ControlDevice: <<use>>
+        abstract BaseTeleopControlProcess #LimeGreen {
+          +DiagnosticMsg[] get_diagnostics()
+          +bool update(double current_time_sec)
+          +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
+          +bool set_operation_mode(OperationMode mode)
+          +string pretty()
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          +ArmStateChangeSrvRequest get_armstate_change_request()
+          #DiagnosticManager diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+          #robot_arm_command robot_arm_command
+          #ArmStateChangeSrvRequest armstate_change_request
+          #JoystickMapper joy_mapper
+          #JoystickScaler joy_scaler
+          +TwistMsg get_twist_output()
+          -TwistMsg desired_twist
+          -OperationMode operation_mode = OperationMode::RUN
 
+        }
+        BaseTeleopControlProcess .up.|> ITeleopControlProcess
+        BaseTeleopControlProcess --> DiagnosticManager: <<use>>
+        BaseTeleopControlProcess --> JoystickMapper: <<use>>
+        BaseTeleopControlProcess --> JoystickScaler: <<use>>
+        
+        class BasicTeleopControlProcess #LimeGreen
+        BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
+        class DummyTeleopControlProcess {
+          +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
+          +bool update(double current_time_sec)
+        }
+        DummyTeleopControlProcess -up-|> BaseTeleopControlProcess
       }
-      BaseTeleopControlProcess .up.|> ITeleopControlProcess
-      BaseTeleopControlProcess --> DiagnosticManager: <<use>>
-      BaseTeleopControlProcess --> JoystickMapper: <<use>>
-      BaseTeleopControlProcess --> JoystickScaler: <<use>>
-      
-      class BasicTeleopControlProcess #LimeGreen
-      BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
-      class DummyTeleopControlProcess {
-        +bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
-        +bool update(double current_time_sec)
-      }
-      DummyTeleopControlProcess -up-|> BaseTeleopControlProcess
-
     }
   }
 }

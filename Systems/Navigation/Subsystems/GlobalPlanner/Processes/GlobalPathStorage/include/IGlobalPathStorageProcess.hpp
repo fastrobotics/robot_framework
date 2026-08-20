@@ -13,7 +13,7 @@
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage {
     /**
      * @brief Interface for the GlobalPathStorage Process
      *
@@ -47,4 +47,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage

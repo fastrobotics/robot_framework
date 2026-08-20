@@ -1,5 +1,5 @@
 #include <Base{{cookiecutter.Process}}Process.hpp>
-namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
+namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
   bool Base{{cookiecutter.Process}}Process::init() {
     return true;
   }
@@ -17,6 +17,13 @@ bool Base{{cookiecutter.Process}}Process::update([[maybe_unused]] double current
 std::string Base{{cookiecutter.Process}}Process::pretty() {
 
   std::string str = "\n---{{cookiecutter.Process}}---\n";
+   str += "\tSys: " + std::string(fast::rf::{{cookiecutter.System}}System::toString(fast::rf::{{cookiecutter.System}}System::Id{})) + "/" +
+               std::string(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::toString(
+                   fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::toString(
+                   fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::Id{})) +
+               "\n";
   str += "\tT: " + std::to_string(current_time_sec_) + "\n";
    str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
   str += diagnosticManager.pretty();

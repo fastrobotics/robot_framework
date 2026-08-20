@@ -6,7 +6,7 @@
 #include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
 #include <TwistMsg.hpp>
 using namespace fast::rf::messages;
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor;
 
 TEST(TankDriveExecutorProcess, SimpleTankConversionTests) {
     TankDriveExecutorProcess SUT;

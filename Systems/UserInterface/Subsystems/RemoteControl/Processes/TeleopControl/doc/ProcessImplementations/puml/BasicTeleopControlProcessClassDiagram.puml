@@ -20,7 +20,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace UserInterfaceSystem {
-    package RemoteControlSubsystem #LightYellow;line:blue {
+    namespace RemoteControlSubsystem {
+      package TeleopControl #LightYellow;line:blue {
         interface ITeleopControlProcess
         abstract BaseTeleopControlProcess
         enum ControlDevice
@@ -51,6 +52,7 @@ namespace fast::rf {
         BasicTeleopControlProcess -up-|> BaseTeleopControlProcess
         BasicTeleopControlProcess --> TwistComputer: <<use>>
         BasicTeleopControlProcess --> ControlDevice: <<use>>
+      }
     }
   }
 }

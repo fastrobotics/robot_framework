@@ -13,7 +13,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     /**
      * @brief Base LocalPoseFuser Process
       @details Concrete LocalPoseFuser Processes should derive from this
@@ -27,9 +27,9 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
          */
         BaseLocalPoseFuserProcess()
             : diagnosticManager(fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                                fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID),
+                                fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::PROCESS_LOCALPOSEFUSER_ID),
               ready_to_arm(fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                           fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID) {}
+                           fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::PROCESS_LOCALPOSEFUSER_ID) {}
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
@@ -100,4 +100,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
             angular_acc_;               //!< Computed Local Pose Angular Acceleration
         bool is_new_local_pose{false};  //!< If the local pose is new or not
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

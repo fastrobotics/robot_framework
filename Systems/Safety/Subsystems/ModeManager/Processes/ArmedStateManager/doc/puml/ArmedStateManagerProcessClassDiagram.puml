@@ -24,7 +24,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace SafetySystem {
-    package ModeManagerSubsystem #LightYellow;line:blue {
+    namespace ModeManagerSubsystem {
+      package ArmedStateManager #LightYellow;line:blue {
         class ArmStateCommander #LimeGreen {
             +bool init()
             +string pretty()
@@ -77,6 +78,7 @@ namespace fast::rf {
           +bool update(double current_time_sec)
         }
         DummyArmedStateManagerProcess -up-|> BaseArmedStateManagerProcess
+      }
     }
   }
 }

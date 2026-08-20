@@ -6,7 +6,7 @@
 #include <BaseGlobalPathRoutePlannerProcess.hpp>
 #include <IGlobalPathRoutePlannerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner;
 class TestGlobalPathRoutePlannerProcessInterface : public IGlobalPathRoutePlannerProcess {
    public:
     bool init() { return true; }

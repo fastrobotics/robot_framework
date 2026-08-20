@@ -18,13 +18,15 @@ namespace fast::rf {
       class DummyBaseMachineSubsystem {
       }
       DummyBaseMachineSubsystem -up-|> BaseBaseMachineSubsystem
-      interface IHatDriverProcess #LimeGreen
-      class ServoHatDriverProcess #LimeGreen
-      ServoHatDriverProcess -up-|> IHatDriverProcess
-      class IServoHatDriver #LimeGreen
-      class ServoDriver #LimeGreen
-      ServoDriver -up-|> IServoHatDriver
-      ServoHatDriverProcess --> IServoHatDriver: <<use>>
+      namespace HatDriver {
+        interface IHatDriverProcess #LimeGreen
+        class ServoHatDriverProcess #LimeGreen
+        ServoHatDriverProcess -up-|> IHatDriverProcess
+        class IServoHatDriver #LimeGreen
+        class ServoDriver #LimeGreen
+        ServoDriver -up-|> IServoHatDriver
+        ServoHatDriverProcess --> IServoHatDriver: <<use>>
+      }
 
     }
   }

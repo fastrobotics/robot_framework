@@ -13,7 +13,7 @@
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Base HatDriver Process
       @details Concrete HatDriver Processes should derive from this
@@ -28,10 +28,10 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         BaseHatDriverProcess()
             : diagnosticManager(fast::rf::BaseMachineSystem::SYSTEM_ID,
                                 fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
-                                fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID),
+                                fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::PROCESS_HATDRIVER_ID),
               ready_to_arm(fast::rf::BaseMachineSystem::SYSTEM_ID,
                            fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
-                           fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID) {}
+                           fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::PROCESS_HATDRIVER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -79,4 +79,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;   //!< The Robot Arm Command State
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

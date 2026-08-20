@@ -7,7 +7,7 @@
 #include <IHatDriverProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem;
+using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 class TestHatDriverProcessInterface : public IHatDriverProcess {
    public:
     bool init() { return true; }

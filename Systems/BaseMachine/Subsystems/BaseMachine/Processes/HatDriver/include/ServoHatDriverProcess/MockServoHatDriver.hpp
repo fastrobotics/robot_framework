@@ -10,7 +10,7 @@
  */
 #pragma once
 #include <ServoHatDriverProcess/IServoHatDriver.hpp>
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Mock Servo Hat Driver.  Does nothing, but can executed onx86_64.
      *
@@ -43,4 +43,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
          */
         bool setServoValue(uint16_t channel, uint16_t value) override;
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

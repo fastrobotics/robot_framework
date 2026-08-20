@@ -7,7 +7,7 @@
 #include <ITeleopControlProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
+using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl;
 class TestTeleopControlProcessInterface : public ITeleopControlProcess {
    public:
     bool init([[maybe_unused]] ControlDevice device, [[maybe_unused]] JoystickCalibrationData joy_calibration_data) {
@@ -88,19 +88,15 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
     JoystickCalibrationData joy_calibration;
     joy_calibration.optional_init();
     ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
-    for (uint8_t mode = 0;
-         mode <= (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST; ++mode) {
-        if ((mode == 0) ||
-            (mode == (uint8_t)fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::END_OF_LIST)) {
-            ASSERT_FALSE(
-                SUT.set_operation_mode((fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode)mode));
+    for (uint8_t mode = 0; mode <= (uint8_t)OperationMode::END_OF_LIST; ++mode) {
+        if ((mode == 0) || (mode == (uint8_t)OperationMode::END_OF_LIST)) {
+            ASSERT_FALSE(SUT.set_operation_mode((OperationMode)mode));
         } else {
-            ASSERT_TRUE(
-                SUT.set_operation_mode((fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode)mode));
+            ASSERT_TRUE(SUT.set_operation_mode((OperationMode)mode));
             printf("%s\n", SUT.pretty().c_str());
         }
     }
-    ASSERT_TRUE(SUT.set_operation_mode(fast::rf::UserInterfaceSystem::RemoteControlSubsystem::OperationMode::RUN));
+    ASSERT_TRUE(SUT.set_operation_mode(OperationMode::RUN));
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     printf("%s\n", SUT.pretty().c_str());

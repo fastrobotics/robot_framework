@@ -10,7 +10,7 @@
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
 #endif
 
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Servo Hat Driver Process
      *
@@ -58,4 +58,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
         IServoHatDriver* driver;  //!< Will be either a Mock ServoHatDriver if executed on x86_64 or a real
                                   //!< ServoHatDriver if executed on armv7l.
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

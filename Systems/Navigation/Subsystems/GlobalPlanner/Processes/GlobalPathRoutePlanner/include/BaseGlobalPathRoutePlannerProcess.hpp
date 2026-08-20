@@ -12,7 +12,7 @@
 #include <IGlobalPathRoutePlannerProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
-namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
+namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner {
     /**
      * @brief Base GlobalPathRoutePlanner Process
       @details Concrete GlobalPathRoutePlanner Processes should derive from this
@@ -25,10 +25,10 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
          *
          */
         BaseGlobalPathRoutePlannerProcess()
-            : diagnosticManager(
-                  fast::rf::NavigationSystem::SYSTEM_ID,
-                  fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
-                  fast::rf::NavigationSystem::GlobalPlannerSubsystem::PROCESS_GLOBALPATH_ROUTEPLANNER_ID) {}
+            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
+                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::SUBSYSTEM_ID,
+                                fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner::
+                                    PROCESS_GLOBALPATH_ROUTEPLANNER_ID) {}
         /**
          * @brief Update the base object
          *
@@ -52,4 +52,4 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem {
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
     };
-}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem
+}  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner

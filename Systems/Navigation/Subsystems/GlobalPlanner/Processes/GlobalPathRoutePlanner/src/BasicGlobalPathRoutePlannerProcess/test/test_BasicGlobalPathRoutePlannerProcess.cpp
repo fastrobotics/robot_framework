@@ -5,7 +5,7 @@
 
 #include <BasicGlobalPathRoutePlannerProcess/BasicGlobalPathRoutePlannerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathRoutePlanner;
 
 TEST(BasicGlobalPathRoutePlannerProcess, BasicTests) {
     BasicGlobalPathRoutePlannerProcess SUT;

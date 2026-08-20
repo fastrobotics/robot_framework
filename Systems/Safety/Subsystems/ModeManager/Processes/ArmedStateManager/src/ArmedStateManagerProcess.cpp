@@ -1,6 +1,6 @@
 #include <ArmedStateManagerProcess.hpp>
 #include <Infrastructure/Logger.hpp>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
 
     bool ArmedStateManagerProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
@@ -28,28 +28,28 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
          * @todo Initialize in user space during AB#1767
          *
          */
-        ready_to_arm_computer.add_monitor(fast::rf::BaseMachineSystem::SYSTEM_ID,
-                                          fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
-                                          fast::rf::BaseMachineSystem::BaseMachineSubsystem::PROCESS_HATDRIVER_ID);
+        ready_to_arm_computer.add_monitor(
+            fast::rf::BaseMachineSystem::SYSTEM_ID, fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
+            fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::PROCESS_HATDRIVER_ID);
 
         ready_to_arm_computer.add_monitor(
             fast::rf::NavigationSystem::SYSTEM_ID,
             fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-            fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID);
+            fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::PROCESS_DRIVE_EXECUTOR_ID);
 
         ready_to_arm_computer.add_monitor(
             fast::rf::UserInterfaceSystem::SYSTEM_ID,
             fast::rf::UserInterfaceSystem::RemoteControlSubsystem::SUBSYSTEM_ID,
-            fast::rf::UserInterfaceSystem::RemoteControlSubsystem::PROCESS_TELEOPCONTROL_ID);
+            fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::PROCESS_TELEOPCONTROL_ID);
+
+        ready_to_arm_computer.add_monitor(fast::rf::NavigationSystem::SYSTEM_ID,
+                                          fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
+                                          fast::rf::NavigationSystem::NavigationExecutorSubsystem::
+                                              TrajectoryController::PROCESS_TRAJECTORY_CONTROLLER_ID);
 
         ready_to_arm_computer.add_monitor(
-            fast::rf::NavigationSystem::SYSTEM_ID,
-            fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-            fast::rf::NavigationSystem::NavigationExecutorSubsystem::PROCESS_TRAJECTORY_CONTROLLER_ID);
-
-        ready_to_arm_computer.add_monitor(fast::rf::PoseSystem::SYSTEM_ID,
-                                          fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                                          fast::rf::PoseSystem::LocalPoseSubsystem::PROCESS_LOCALPOSEFUSER_ID);
+            fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
+            fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::PROCESS_LOCALPOSEFUSER_ID);
 
         // GCOV_EXCL_START
         status = ready_to_arm_computer.init();
@@ -133,4 +133,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         return true;
     }
 
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

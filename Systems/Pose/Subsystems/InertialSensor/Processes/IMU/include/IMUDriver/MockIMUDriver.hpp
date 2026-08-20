@@ -11,7 +11,7 @@
 #pragma once
 #include <IMUDriver/BaseIMUDriver.hpp>
 #include <ImuMsg.hpp>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief A Mock IMU Driver
      *
@@ -42,4 +42,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         bool update(double current_time_sec) override;
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

@@ -11,7 +11,7 @@
 #pragma once
 #include <JoyMsg.hpp>
 #include <TwistMsg.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     /**
      * @brief Converts Joystick Data to a Twist
      *
@@ -47,4 +47,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         double max_angular_z_velocity_{MAX_VALUE};
         double min_angular_z_velocity_{-1.0 * MAX_VALUE};
     };
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

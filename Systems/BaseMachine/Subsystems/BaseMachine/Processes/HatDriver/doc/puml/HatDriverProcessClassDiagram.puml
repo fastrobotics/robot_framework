@@ -16,7 +16,8 @@ namespace fast::rf {
     class DiagnosticManager
   }
   namespace BaseMachineSystem {
-    package BaseMachineSubsystem  #LightYellow;line:blue {
+    namespace BaseMachineSubsystem  {
+      package HatDriver #LightYellow;line:blue {
         interface IHatDriverProcess #LimeGreen  {
           +{abstract} bool init()
           +{abstract} DiagnosticMsg[] get_diagnostics()
@@ -48,6 +49,7 @@ namespace fast::rf {
           +string pretty()
         }
         DummyHatDriverProcess -up-|> BaseHatDriverProcess
+      }
     }
   }
 }

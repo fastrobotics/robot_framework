@@ -12,7 +12,7 @@
 
 #include <BaseHatDriverProcess.hpp>
 
-namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
+namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     /**
      * @brief Minimal Implementation for a HatDriver Process
      *
@@ -47,4 +47,4 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem {
 
        private:
     };
-}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem
+}  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

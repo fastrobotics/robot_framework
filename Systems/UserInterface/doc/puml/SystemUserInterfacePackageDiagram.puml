@@ -12,7 +12,7 @@ namespace fast::rf {
       }
     }
     namespace RemoteControlSubsystem #LimeGreen {
-      namespace TeleopControlProcess #LimeGreen {
+      namespace TeleopControl #LimeGreen {
         interface ITeleopControlProcess #LimeGreen
         class BasicTeleopControlProcess #LimeGreen
         BasicTeleopControlProcess -up-|> ITeleopControlProcess

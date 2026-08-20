@@ -17,7 +17,7 @@
 #include <vector>
 
 using namespace fast::rf::messages;
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
      * @brief Interface for the DriveExecutor Process
      *
@@ -79,4 +79,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
          */
         virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

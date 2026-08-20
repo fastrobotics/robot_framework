@@ -1,6 +1,6 @@
 #include <Infrastructure/Logger.hpp>
 #include <JoystickScaler.hpp>
-namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
+namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     bool JoystickScaler::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
         if ((device == ControlDevice::UNKNOWN) || (device == ControlDevice::END_OF_LIST)) {
             return false;
@@ -64,4 +64,4 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem {
         double out = m * (input_value - input_min) + output_min;
         return out;
     }
-}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem
+}  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl

@@ -1,5 +1,5 @@
 #include <BaseTrajectoryControllerProcess.hpp>
-namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
+namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     bool BaseTrajectoryControllerProcess::init() {
         if (controller_ == nullptr) {
             return false;
@@ -28,6 +28,13 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
     }
     std::string BaseTrajectoryControllerProcess::pretty() {
         std::string str = "---Base Trajectory Controller Proess---\n";
+        str += "\tSys: " + std::string(fast::rf::NavigationSystem::toString(fast::rf::NavigationSystem::Id{})) + "/" +
+               std::string(fast::rf::NavigationSystem::NavigationExecutorSubsystem::toString(
+                   fast::rf::NavigationSystem::NavigationExecutorSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::toString(
+                   fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::Id{})) +
+               "\n";
         str += diagnosticManager.pretty();
         str += "Command:\n";
         str += "\tIs New: " + std::to_string(is_new_command) + "\n";
@@ -47,4 +54,4 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem {
         }
         return status;
     }
-}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem
+}  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

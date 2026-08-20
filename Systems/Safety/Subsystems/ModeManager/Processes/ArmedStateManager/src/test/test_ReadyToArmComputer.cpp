@@ -5,7 +5,7 @@
 #include <Infrastructure/Logger.hpp>
 #include <ReadyToArmComputer.hpp>
 #include <ReadyToArmStatusMsg.hpp>
-using namespace fast::rf::SafetySystem::ModeManagerSubsystem;
+using namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager;
 TEST(ReadyToArmComputer, InterfaceTests) {
     ReadyToArmComputer SUT;
     ASSERT_FALSE(SUT.init());

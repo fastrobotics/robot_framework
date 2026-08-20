@@ -1,5 +1,5 @@
 #include <Basic{{cookiecutter.Process}}Process/Basic{{cookiecutter.Process}}Process.hpp>
-namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem {
+namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 
 bool Basic{{cookiecutter.Process}}Process::init() {
   bool status = Base{{cookiecutter.Process}}Process::init();

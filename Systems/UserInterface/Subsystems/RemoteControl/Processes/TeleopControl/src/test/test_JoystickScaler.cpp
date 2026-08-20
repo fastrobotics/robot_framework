@@ -5,7 +5,7 @@
 
 #include <JoystickScaler.hpp>
 
-using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
+using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl;
 TEST(JoystickScaler, InterfaceTestsThrustmasterJoystick) {
     JoystickScaler SUT;
     JoystickCalibrationData joy_calibration;

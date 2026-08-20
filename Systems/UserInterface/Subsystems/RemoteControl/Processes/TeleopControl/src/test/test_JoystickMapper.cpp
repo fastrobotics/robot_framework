@@ -5,7 +5,7 @@
 
 #include <JoystickMapper.hpp>
 
-using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem;
+using namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl;
 TEST(JoystickMapper, InterfaceTestsThrustmasterJoystick) {
     JoystickMapper SUT;
     EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK));

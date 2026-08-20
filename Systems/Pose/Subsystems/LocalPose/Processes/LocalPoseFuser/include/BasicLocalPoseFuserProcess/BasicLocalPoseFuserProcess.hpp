@@ -12,7 +12,7 @@
 
 #include <BaseLocalPoseFuserProcess.hpp>
 
-namespace fast::rf::PoseSystem::LocalPoseSubsystem {
+namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     /**
      * @brief Minimal Implementation for a LocalPoseFuser Process
      *
@@ -60,4 +60,4 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem {
         double normal_rotate_accel_timer{0.0};
         fast::rf::messages::GeometryMsgs::AccelMsg high_angular_accel;
     };
-}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem
+}  // namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser

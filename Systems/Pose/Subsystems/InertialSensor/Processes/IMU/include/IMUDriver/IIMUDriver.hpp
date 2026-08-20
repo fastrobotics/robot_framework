@@ -12,7 +12,7 @@
 #include <ImuMsg.hpp>
 #include <MagneticFieldMsg.hpp>
 #include <string>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Interface for an IMU Driver
      *
@@ -97,4 +97,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
 
         virtual double get_packet_rx_rate() = 0;
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

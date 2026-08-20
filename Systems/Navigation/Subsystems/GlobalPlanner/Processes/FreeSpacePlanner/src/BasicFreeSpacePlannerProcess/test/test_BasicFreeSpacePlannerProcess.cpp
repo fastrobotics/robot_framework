@@ -5,7 +5,7 @@
 
 #include <BasicFreeSpacePlannerProcess/BasicFreeSpacePlannerProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem;
+using namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::FreeSpacePlanner;
 
 TEST(BasicFreeSpacePlannerProcess, BasicTests) {
     BasicFreeSpacePlannerProcess SUT;

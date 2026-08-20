@@ -7,7 +7,7 @@
 #include <ILocalPoseFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 
-using namespace fast::rf::PoseSystem::LocalPoseSubsystem;
+using namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser;
 class TestLocalPoseFuserProcessInterface : public ILocalPoseFuserProcess {
    public:
     bool init() { return true; }

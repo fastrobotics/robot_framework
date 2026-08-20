@@ -6,7 +6,7 @@
 #include <BaseTrajectorySelectorProcess.hpp>
 #include <ITrajectorySelectorProcess.hpp>
 
-using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
+using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector;
 class TestTrajectorySelectorProcessInterface : public ITrajectorySelectorProcess {
    public:
     bool init() { return true; }

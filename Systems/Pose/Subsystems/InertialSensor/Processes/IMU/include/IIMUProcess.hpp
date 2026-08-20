@@ -14,7 +14,7 @@
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-namespace fast::rf::PoseSystem::InertialSensorSubsystem {
+namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     /**
      * @brief Interface for the IMU Process
      *
@@ -96,4 +96,4 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem {
          */
         virtual bool get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) = 0;
     };
-}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem
+}  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU

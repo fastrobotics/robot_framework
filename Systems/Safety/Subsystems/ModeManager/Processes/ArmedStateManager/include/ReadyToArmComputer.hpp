@@ -14,7 +14,7 @@
 #include <map>
 #include <string>
 #include <tuple>
-namespace fast::rf::SafetySystem::ModeManagerSubsystem {
+namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     /**
      * @brief Ready To Arm Computer
      * @details Creates multiple monitors, and as long as they all True and received frequently, Robot can be Armed.
@@ -149,4 +149,4 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem {
         bool all_signals_rate_ok{false};
         bool all_signals_ever_received{false};
     };
-}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem
+}  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager
