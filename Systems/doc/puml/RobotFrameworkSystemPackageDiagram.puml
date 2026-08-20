@@ -59,9 +59,6 @@ namespace fast::rf {
   namespace ImplementControlSystem {
 
   }
-  namespace ModeControlSystem {
-
-  }
   namespace NavigationSystem #Yellow {
     namespace GlobalPlannerSubsystem {
       namespace GlobalPlannerManagerProcess {

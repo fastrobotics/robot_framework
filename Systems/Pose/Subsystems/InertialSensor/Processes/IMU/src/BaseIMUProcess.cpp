@@ -92,6 +92,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     }
     std::string BaseIMUProcess::pretty() {
         std::string str = "\n---IMU---\n";
+
+        str += "\tSys: " + std::string(fast::rf::PoseSystem::toString(fast::rf::PoseSystem::Id{})) + "/" +
+               std::string(fast::rf::PoseSystem::InertialSensorSubsystem::toString(
+                   fast::rf::PoseSystem::InertialSensorSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::PoseSystem::InertialSensorSubsystem::IMU::toString(
+                   fast::rf::PoseSystem::InertialSensorSubsystem::IMU::Id{})) +
+               "\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();

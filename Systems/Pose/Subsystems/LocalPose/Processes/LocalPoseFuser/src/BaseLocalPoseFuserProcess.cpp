@@ -14,6 +14,13 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     }
     std::string BaseLocalPoseFuserProcess::pretty() {
         std::string str = "\n---LocalPoseFuser---\n";
+        str += "\tSys: " + std::string(fast::rf::PoseSystem::toString(fast::rf::PoseSystem::Id{})) + "/" +
+               std::string(
+                   fast::rf::PoseSystem::LocalPoseSubsystem::toString(fast::rf::PoseSystem::LocalPoseSubsystem::Id{})) +
+               "/" +
+               std::string(fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::toString(
+                   fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::Id{})) +
+               "\n";
         str += "\tT: " + std::to_string(current_time_sec_) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
