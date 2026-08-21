@@ -14,18 +14,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No Ouput Data Computed Yet.");
         controller_ = new Controller::PIDController;
         controller_->init();
-        status = set_parameters(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
         return status;
     }
-    bool BasicTrajectoryControllerProcess::set_parameters(double max_output, double min_output,
-                                                          double sensor_scale_factor, double K_P, double K_I,
-                                                          double K_D) {
-        Controller::PIDControllerConfig config;
-        config.set_parameters(max_output, min_output, K_P, K_I, K_D, sensor_scale_factor);
-
+    bool BasicTrajectoryControllerProcess::set_config(
+        fast::rf::NavigationSystem::Controller::PIDControllerConfig config) {
         auto* controller = dynamic_cast<Controller::PIDController*>(controller_);
         bool status = controller->set_config(config);
-        fast::rf::Logger::log_debug(pretty());
         return status;
     }
     bool BasicTrajectoryControllerProcess::update(double current_time_sec) {

@@ -29,21 +29,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          */
         bool init() override;
 
-        /**
-         * @brief Set the parameters object
-         *
-         * @param max_output
-         * @param min_output
-         * @param sensor_scale_factor
-         * @param K_P
-         * @param K_I
-         * @param K_D
-         * @return true
-         * @return false
-         */
-        bool set_parameters(double max_output, double min_output, double sensor_scale_factor, double K_P, double K_I,
-                            double K_D);
-
+        bool set_config(fast::rf::NavigationSystem::Controller::PIDControllerConfig config);
         /**
          * @brief Update with recent timing data
          *
@@ -79,5 +65,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) override;
 
        private:
+        fast::rf::NavigationSystem::Controller::PIDControllerConfig config_;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController
