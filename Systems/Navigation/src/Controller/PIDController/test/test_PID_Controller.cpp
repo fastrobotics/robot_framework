@@ -27,6 +27,13 @@ TEST(PIDController, BasicAssertions) {
     ASSERT_FALSE(output->is_new);
     fast::rf::Logger::log_debug(SUT.pretty());
 }
+TEST(PIDController, FailureTests) {
+    PIDController SUT;
+    PIDControllerConfig config;
+    config.set_parameters(-5.0, 5.0, 2.0, 0.0, 0.0, 2.0);
+    ASSERT_FALSE(config.is_ok());
+    ASSERT_FALSE(SUT.set_config(config));
+}
 TEST(PIDController, SimpleCompute) {
     PIDController SUT;
     PIDControllerConfig config;

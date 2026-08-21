@@ -32,6 +32,26 @@ namespace fast::rf::NavigationSystem::Controller {
        public:
         IControllerConfig() = default;
         virtual ~IControllerConfig() {}
+        /**
+         * @brief Validates if the config is ok
+         *
+         * @return true
+         * @return false
+         */
+        virtual bool is_ok() = 0;
+
+        /**
+         * @brief Human readable string of data
+         *
+         * @return std::string
+         */
+        virtual std::string pretty() = 0;
+
+        double get_max_output() { return max_output_; }
+
+        double get_min_output() { return min_output_; }
+
+       protected:
         double max_output_{0.0};  //!< Max Output Value
         double min_output_{0.0};  //!< Min Output Value
     };

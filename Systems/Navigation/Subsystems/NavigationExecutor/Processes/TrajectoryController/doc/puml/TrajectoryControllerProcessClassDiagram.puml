@@ -20,8 +20,13 @@ namespace fast::rf {
   }
   namespace NavigationSystem {
     interface IController
+    interface IControllerConfig
     class PIDController
     PIDController -up-|> IController
+    
+    class PIDControllerConfig
+    PIDControllerConfig -up-|> IControllerConfig
+    PIDController *--> PIDControllerConfig
     namespace NavigationExecutorSubsystem {
       package TrajectoryController #LightYellow;line:blue {
         interface ITrajectoryControllerProcess #LimeGreen  {
@@ -54,18 +59,29 @@ namespace fast::rf {
         BaseTrajectoryControllerProcess --> IController: <<use>>
         BaseTrajectoryControllerProcess --> DiagnosticManager: <<use>>
         BaseTrajectoryControllerProcess .up.|> ITrajectoryControllerProcess
+        class BasicTrajectoryControllerConfig #LimeGreen {
+          +bool set_pid_controller_config(PIDControllerConfig pid_config)
+          +PIDControllerConfig get_pid_controller_config()
+          +bool is_ok()
+          +string pretty()
+          -PIDController pid_config
+        }
+
+        BasicTrajectoryControllerConfig --> PIDControllerConfig: <<use>>
         class BasicTrajectoryControllerProcess #LimeGreen {
           +bool init()
+          +bool set_config(BasicTrajectoryControllerConfig config)
           +bool update(double current_time_sec)
           +string pretty()
           +bool new_pose(OdomMsg pose)
           +bool new_desired_command(TwistMsg cmd)
           +bool get_command(TwistMsg cmd)
-          +bool set_parameters(double max_output, double min_output, double sensor_scale_factor, double K_P, double K_I,
-                            double K_D);
+          -BasicTrajectoryControllerConfig config
+          
          
         }
         BasicTrajectoryControllerProcess -up-|> BaseTrajectoryControllerProcess
+        BasicTrajectoryControllerProcess --> BasicTrajectoryControllerConfig: <<use>>
         BasicTrajectoryControllerProcess *-> PIDController: <<use>>
         class DummyTrajectoryControllerProcess {
           +bool update(double current_time_sec)

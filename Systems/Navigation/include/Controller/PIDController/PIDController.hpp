@@ -37,7 +37,28 @@ namespace fast::rf::NavigationSystem::Controller {
             K_D = D;
             sensor_scale = sensor_scale_factor;
         }
+        bool is_ok() override {
+            if (max_output_ < min_output_) {
+                fast::rf::Logger::log_error("Max Output is less than Min Output!");
+                return false;
+            }
+            return true;
+        }
+        std::string pretty() override {
+            std::string str = "Sensor Scale: " + std::to_string(get_sensor_scale()) +
+                              " K: P: " + std::to_string(get_K_P()) + " I: " + std::to_string(get_K_I()) +
+                              " D: " + std::to_string(get_K_D()) + "\n";
+            str += "Max Command: " + std::to_string(get_max_output()) +
+                   " Min Command: " + std::to_string(get_min_output()) + "\n";
 
+            return str;
+        }
+        double get_K_P() { return K_P; }
+        double get_K_I() { return K_I; }
+        double get_K_D() { return K_D; }
+        double get_sensor_scale() { return sensor_scale; }
+
+       private:
         double K_P{0.0};           //!< Proportional Constant
         double K_I{0.0};           //!< Integration Constant
         double K_D{0.0};           //!< Derivative Contant
@@ -77,6 +98,10 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return false
          */
         bool set_config(PIDControllerConfig config) {
+            if (config.is_ok() == false) {
+                fast::rf::Logger::log_error("Error setting Config: " + config.pretty());
+                return false;
+            }
             config_ = config;
             return true;
         }
