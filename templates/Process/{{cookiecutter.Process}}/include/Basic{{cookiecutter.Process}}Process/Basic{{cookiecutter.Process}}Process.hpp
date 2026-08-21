@@ -13,12 +13,28 @@
 #include <Base{{cookiecutter.Process}}Process.hpp>
 
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
+
+class Basic{{cookiecutter.Process}}ProcessConfig {
+      public:
+      bool is_ok() {
+            // Add checks here
+            return false;
+      }
+      std::string pretty() {
+            std::string str = "";
+            // Add string generation here
+            return str;
+      }
+      private:
+            // Add attributes here
+}
 /**
  * @brief Minimal Implementation for a {{cookiecutter.Process}} Process
  *
  */
 class Basic{{cookiecutter.Process}}Process : public Base{{cookiecutter.Process}}Process {
 public:
+  
   Basic{{cookiecutter.Process}}Process() : Base{{cookiecutter.Process}}Process() {}
 
    /**
@@ -29,7 +45,14 @@ public:
          */
         bool init() override;
 
-        
+     bool set_config(Basic{{cookiecutter.Process}}ProcessConfig config) {
+            if(config.is_ok() == false) {
+                  fast::rf::Logger::log_error("Unable to set Config! " + config.pretty());
+                  return false;
+            }
+            config_ = config;
+            return true;
+     }   
   /**
    * @brief Update with recent timing data
    *
@@ -47,5 +70,6 @@ public:
    std::string pretty() override;
 
 private:
+  Basic{{cookiecutter.Process}}ProcessConfig config_;
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem
