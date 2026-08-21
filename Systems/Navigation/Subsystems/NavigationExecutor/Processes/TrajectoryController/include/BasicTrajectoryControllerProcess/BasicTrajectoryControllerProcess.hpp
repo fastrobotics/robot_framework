@@ -13,6 +13,26 @@
 #include <BaseTrajectoryControllerProcess.hpp>
 #include <Controller/PIDController/PIDController.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
+    class BasicTrajectoryControllerConfig {
+       public:
+        bool set_pid_controller_config(fast::rf::NavigationSystem::Controller::PIDControllerConfig pid_config) {
+            bool status = pid_config_.is_ok();
+            if (status == false) {
+                return false;
+            }
+            pid_config_ = pid_config;
+            return true;
+        }
+        fast::rf::NavigationSystem::Controller::PIDControllerConfig get_pid_controller_config() { return pid_config_; }
+        std::string pretty() { return pid_config_.pretty(); }
+        bool is_ok() {
+            bool status = pid_config_.is_ok();
+            return status;
+        }
+
+       private:
+        fast::rf::NavigationSystem::Controller::PIDControllerConfig pid_config_;
+    };
     /**
      * @brief Minimal implementation for a TrajectoryController Process
      *
@@ -29,7 +49,14 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          */
         bool init() override;
 
-        bool set_config(fast::rf::NavigationSystem::Controller::PIDControllerConfig config);
+        /**
+         * @brief Set the config object
+         *
+         * @param config
+         * @return true
+         * @return false
+         */
+        bool set_config(BasicTrajectoryControllerConfig config);
         /**
          * @brief Update with recent timing data
          *
@@ -65,6 +92,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         bool new_desired_command(fast::rf::messages::GeometryMsgs::TwistMsg cmd) override;
 
        private:
-        fast::rf::NavigationSystem::Controller::PIDControllerConfig config_;
+        BasicTrajectoryControllerConfig config_;
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController

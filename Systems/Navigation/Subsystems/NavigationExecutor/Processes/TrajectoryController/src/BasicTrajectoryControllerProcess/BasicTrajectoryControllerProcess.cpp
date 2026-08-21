@@ -16,10 +16,13 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         controller_->init();
         return status;
     }
-    bool BasicTrajectoryControllerProcess::set_config(
-        fast::rf::NavigationSystem::Controller::PIDControllerConfig config) {
+    bool BasicTrajectoryControllerProcess::set_config(BasicTrajectoryControllerConfig config) {
+        if (config.is_ok() == false) {
+            return false;
+        }
         auto* controller = dynamic_cast<Controller::PIDController*>(controller_);
-        bool status = controller->set_config(config);
+        bool status = controller->set_config(config.get_pid_controller_config());
+        config_ = config;
         return status;
     }
     bool BasicTrajectoryControllerProcess::update(double current_time_sec) {

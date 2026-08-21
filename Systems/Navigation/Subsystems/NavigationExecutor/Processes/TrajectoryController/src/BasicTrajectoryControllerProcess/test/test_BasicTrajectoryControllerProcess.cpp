@@ -17,8 +17,11 @@ TEST(BasicTrajectoryControllerProcess, BasicTests) {
 TEST(BasicTrajectoryControllerProcess, BasicInterfaceTests) {
     BasicTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
-    fast::rf::NavigationSystem::Controller::PIDControllerConfig config;
-    config.set_parameters(5.0, -5.0, 2.0, 2.0, 0.0, 0.0);
+
+    fast::rf::NavigationSystem::Controller::PIDControllerConfig pid_config;
+    pid_config.set_parameters(5.0, -5.0, 2.0, 2.0, 0.0, 0.0);
+    BasicTrajectoryControllerConfig config;
+    ASSERT_TRUE(config.set_pid_controller_config(pid_config));
     ASSERT_TRUE(SUT.set_config(config));
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::messages::GeometryMsgs::TwistMsg desired_command;

@@ -59,19 +59,30 @@ namespace fast::rf {
         BaseTrajectoryControllerProcess --> IController: <<use>>
         BaseTrajectoryControllerProcess --> DiagnosticManager: <<use>>
         BaseTrajectoryControllerProcess .up.|> ITrajectoryControllerProcess
+        class BasicTrajectoryControllerConfig #LimeGreen {
+          +bool set_pid_controller_config(PIDControllerConfig pid_config)
+          +PIDControllerConfig get_pid_controller_config()
+          +bool is_ok()
+          +string pretty()
+          -PIDController pid_config
+        }
+
+        BasicTrajectoryControllerConfig --> PIDControllerConfig: <<use>>
         class BasicTrajectoryControllerProcess #LimeGreen {
           +bool init()
+          +bool set_config(BasicTrajectoryControllerConfig config)
           +bool update(double current_time_sec)
           +string pretty()
           +bool new_pose(OdomMsg pose)
           +bool new_desired_command(TwistMsg cmd)
           +bool get_command(TwistMsg cmd)
-          +bool set_config(PIDControllerConfig config)
+          -BasicTrajectoryControllerConfig config
+          
          
         }
         BasicTrajectoryControllerProcess -up-|> BaseTrajectoryControllerProcess
+        BasicTrajectoryControllerProcess --> BasicTrajectoryControllerConfig: <<use>>
         BasicTrajectoryControllerProcess *-> PIDController: <<use>>
-        BasicTrajectoryControllerProcess --> PIDControllerConfig: <<use>>
         class DummyTrajectoryControllerProcess {
           +bool update(double current_time_sec)
         }
