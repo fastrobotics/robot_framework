@@ -14,7 +14,7 @@
 #include <BaseArmedStateManagerProcess.hpp>
 #include <ReadyToArmComputer.hpp>
 namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
-    struct Test {};
+    struct Test b {};
     /**
      * @brief Minimal Implementation for a ArmedStateManager Process
      *
