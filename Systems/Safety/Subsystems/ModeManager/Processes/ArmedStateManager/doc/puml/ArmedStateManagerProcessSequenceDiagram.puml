@@ -22,6 +22,16 @@ process --> owner--: status
 
 end
 
+alt Configure
+owner++
+owner ->process++: set_config()
+process -> computer++: set_config()
+computer --> process--: status
+process -> commander++: set_config()
+commander --> process--: status
+process --> owner--: status
+end
+
 alt Update
 owner -> process++: update(double current_time, double delta_time)
 process -> computer++: update(double current_time, double delta_time)()

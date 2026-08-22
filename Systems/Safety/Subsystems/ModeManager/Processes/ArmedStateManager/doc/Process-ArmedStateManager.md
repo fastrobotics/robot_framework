@@ -127,10 +127,15 @@ Add the following to your implementation:
 // Initialize:
 process.init();
 
+// Configuration
+ArmedStateManagerProcessConfig config;
+// Add appropriate config items.
+process.set_config(config);
+
 // Update the process at a periodic rate
 process.update(now) // Some current timestamp
 
-// Provide it new Ready To Arm Messages
+// Provide it new Ready To Arm Messages.  Note that if a Ready To Arm Signal is received, it will automatically be added to be monitored in the future.
 process.new_ReadyToArmStatus(msg)
 
 // Handle Arm State Change Request/Response Service

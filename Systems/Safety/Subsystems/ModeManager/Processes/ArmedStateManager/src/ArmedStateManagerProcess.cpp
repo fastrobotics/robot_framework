@@ -28,6 +28,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @todo Initialize in user space during AB#1767
          *
          */
+        /*
         ready_to_arm_computer.add_monitor(
             fast::rf::BaseMachineSystem::SYSTEM_ID, fast::rf::BaseMachineSystem::BaseMachineSubsystem::SUBSYSTEM_ID,
             fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::PROCESS_HATDRIVER_ID);
@@ -50,6 +51,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         ready_to_arm_computer.add_monitor(
             fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
             fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::PROCESS_LOCALPOSEFUSER_ID);
+        */
 
         // GCOV_EXCL_START
         status = ready_to_arm_computer.init();
