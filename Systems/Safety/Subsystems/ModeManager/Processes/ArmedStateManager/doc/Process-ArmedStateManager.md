@@ -127,6 +127,11 @@ Add the following to your implementation:
 // Initialize:
 process.init();
 
+// Configuration
+ArmedStateManagerProcessConfig config;
+// Add appropriate config items.
+process.set_config(config);
+
 // Update the process at a periodic rate
 process.update(now) // Some current timestamp
 

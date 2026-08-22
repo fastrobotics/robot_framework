@@ -3,6 +3,10 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     bool BaseArmedStateManagerProcess::update(double current_time_sec_) {
         current_time_sec = current_time_sec_;
         if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+            /**
+             * @todo Work on this during AB#1846.
+             *
+             */
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;
