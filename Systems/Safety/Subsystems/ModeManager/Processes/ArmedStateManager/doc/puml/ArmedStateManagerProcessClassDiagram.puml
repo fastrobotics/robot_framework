@@ -58,7 +58,7 @@ namespace fast::rf {
             -uint8 expected_ready_to_arm_signals_
         }
         ReadyToArmComputer +-- Monitor
-        struct ArmedStateManagerProcessConfig {
+        struct ArmedStateManagerProcessConfig #LimeGreen {
           +uint8 expected_arm_signals
           +bool is_ok()
           +string pretty()
