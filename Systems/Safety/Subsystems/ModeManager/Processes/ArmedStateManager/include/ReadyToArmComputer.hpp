@@ -79,23 +79,22 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
                 return str;
             }
         };
+
         /**
-         * @brief Add Monitor
-         *
-         * @param systemID
-         * @param subystemID
-         * @param processID
-         * @return true
-         * @return false
-         */
-        bool add_monitor(uint8_t systemID, uint8_t subystemID, uint8_t processID);
-        /**
-         * @brief Initialize the Object.  Call this AFTER adding the monitors
+         * @brief Initialize the Object.
          *
          * @return true
          * @return false
          */
         bool init();
+
+        bool set_config(uint8_t expected_ready_to_arm_signals) {
+            if (expected_ready_to_arm_signals == 0) {
+                return false;
+            }
+            expected_ready_to_arm_signals_ = expected_ready_to_arm_signals;
+            return true;
+        }
         /**
          * @brief Human readable string
          *
@@ -143,9 +142,20 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         bool is_all_signals_ever_received() { return all_signals_ever_received; }
 
        private:
+        /**
+         * @brief Add Monitor
+         *
+         * @param systemID
+         * @param subystemID
+         * @param processID
+         * @return true
+         * @return false
+         */
+        bool add_monitor(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg);
         double current_time_sec{-1.0};
         bool ready_to_arm{false};
         std::map<MonitorKey, Monitor> monitors;
+        uint8_t expected_ready_to_arm_signals_{0};
         bool all_signals_rate_ok{false};
         bool all_signals_ever_received{false};
     };

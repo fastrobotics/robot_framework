@@ -12,11 +12,28 @@
 #include <ArmCommandMsg.hpp>
 #include <ArmStateChangeSrv.hpp>
 #include <DiagnosticMsg.hpp>
+#include <Infrastructure/Logger.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 
 namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
+    struct ArmedStateManagerProcessConfig {
+        uint8_t expected_arm_signals{0};
+        bool is_ok() {
+            if (expected_arm_signals == 0) {
+                fast::rf::Logger::log_error("Config is Invalid: " + pretty());
+                return false;
+            }
+            return true;
+        }
+        std::string pretty() {
+            std::string str = "Config: \n";
+            str += "\tExpected Arm Signals: " + std::to_string(expected_arm_signals) + "\n";
+            return str;
+        }
+    };
+
     /**
      * @brief Interface for the ArmedStateManager Process
      *
@@ -33,6 +50,15 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @return false
          */
         virtual bool init() = 0;
+
+        /**
+         * @brief Set the config
+         *
+         * @param config
+         * @return true
+         * @return false
+         */
+        virtual bool set_config(ArmedStateManagerProcessConfig config) = 0;
 
         /**
          * @brief Generic Update function

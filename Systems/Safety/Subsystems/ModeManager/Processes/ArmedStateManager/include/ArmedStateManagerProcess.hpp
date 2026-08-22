@@ -14,6 +14,7 @@
 #include <BaseArmedStateManagerProcess.hpp>
 #include <ReadyToArmComputer.hpp>
 namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
+
     /**
      * @brief Minimal Implementation for a ArmedStateManager Process
      *
@@ -29,6 +30,20 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @return false
          */
         bool init() override;
+
+        bool set_config(ArmedStateManagerProcessConfig config) override {
+            if (BaseArmedStateManagerProcess::set_config(config) == false) {
+                return false;
+            }
+            // GCOV_EXCL_START
+            // Base class is already checking this, so a little redundant until more data is added.  Keep as a
+            // safe-guard.
+            if (ready_to_arm_computer.set_config(config.expected_arm_signals) == false) {
+                return false;
+            }
+            // GCOV_EXCL_STOP
+            return true;
+        }
 
         /**
          * @brief Update with recent timing data

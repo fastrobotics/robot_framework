@@ -12,6 +12,7 @@ using namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager;
 class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
    public:
     bool init() { return true; }
+    bool set_config([[maybe_unused]] ArmedStateManagerProcessConfig config) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
@@ -42,7 +43,9 @@ class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
 };
 TEST(TestArmedStateManagerProcessInterface, InterfaceTests) {
     TestArmedStateManagerProcessInterface SUT;
+    ArmedStateManagerProcessConfig config;
     ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.set_config(config));
     ASSERT_EQ(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
     fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request;
@@ -95,6 +98,9 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     ArmedStateManagerProcess SUT;
     double current_time = 0.0;
     ASSERT_TRUE(SUT.init());
+    ArmedStateManagerProcessConfig config;
+    config.expected_arm_signals = 3;
+    ASSERT_TRUE(SUT.set_config(config));
     ASSERT_TRUE(SUT.update(current_time));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
@@ -214,11 +220,17 @@ TEST(ArmedStateManagerProcess, FailureTestsUpdate) {
 
     ASSERT_FALSE(SUT.update(0.0));
 }
+TEST(ArmedStateManagerProcess, FailureConfig) {
+    ArmedStateManagerProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ArmedStateManagerProcessConfig config;
+    ASSERT_FALSE(SUT.set_config(config));
+}
 TEST(ArmedStateManagerProcess, FailureTestsBadReadyToArm) {
     ArmedStateManagerProcess SUT;
     ASSERT_TRUE(SUT.init());
 
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_FALSE(SUT.update(0.0));
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process1;
     process1.systemID = 0;
