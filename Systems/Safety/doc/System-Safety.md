@@ -29,6 +29,7 @@ The Safety System's role in the Robot Framework is to ensure the robot is always
 ## General Requirements
 
 # System Architecture
+![](mermaid/SafetySystemArchitecture.mmd)
 
 # Inputs
 
