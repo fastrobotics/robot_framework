@@ -5,7 +5,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -35,10 +34,6 @@
 This process's objective is to ???.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/IMUProcessArchitecture.png)
 
 # Inputs
 

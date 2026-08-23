@@ -27,8 +27,5 @@
     },
     "files.associations": {
         "*.mmd": "markdown"
-    },
-    "markdown.styles": [
-        "mermaid-style.css"
-    ]
+    }
 }
