@@ -10,3 +10,4 @@ sudo mv plantuml-*.jar /usr/bin/plantuml.jar
 popd
 sudo apt install clang-format lychee
 python3 -m pip install --user cookiecutter
+sudo npm install -g @mermaid-js/mermaid-cli

@@ -24,5 +24,11 @@
     "[cmake]": {
         "editor.defaultFormatter": "cheshirekow.cmake-format",
         "editor.formatOnSave": true
-    }
+    },
+    "files.associations": {
+        "*.mmd": "markdown"
+    },
+    "markdown.styles": [
+        "mermaid-style.css"
+    ]
 }
