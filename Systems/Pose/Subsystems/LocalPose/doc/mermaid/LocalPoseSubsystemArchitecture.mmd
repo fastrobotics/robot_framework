@@ -1,0 +1,49 @@
+---
+config:
+  layout: elk
+  theme: base
+  themeCSS: |
+    .node rect { fill: rgba(30, 30, 46, 0.16) !important; stroke: #000000 !important; }
+    .label { fill: #000000 !important; }
+
+    .cssBoundary rect { fill: #ffffff !important; stroke: #000000 !important; }
+    .cssBoundary .label { fill: #000000 !important; }
+
+    .cssInvestigating rect { fill: #ffff00 !important; stroke: #000000 !important; }
+    .cssInvestigating .label { fill: #000000 !important; }
+
+    .cssDeveloping rect { fill: #ffab00 !important; stroke: #000000 !important; }
+    .cssDeveloping .label { fill: #000000 !important; }
+
+    .cssTrivialComplete rect { fill: #ffc0cb !important; stroke: #000000 !important; }
+    .cssTrivialComplete .label { fill: #000000 !important; }
+
+    .cssMinimalComplete rect { fill: #00ff00 !important; stroke: #000000 !important; }
+    .cssMinimalComplete .label { fill: #000000 !important; }
+
+    .cssFullyComplete rect { fill: #00ffff !important; stroke: #000000 !important; }
+    .cssFullyComplete .label { fill: #000000 !important; }
+
+    .cssSkipped rect { fill: #ff0000 !important; stroke: #000000 !important; }
+    .cssSkipped .label { fill: #000000 !important; }
+
+title: Local Pose Subsystem Architecture
+---
+graph LR
+    Inputs
+    InertialSensorFuser[Inertial Sensor Fuser]
+    WheelOdometryFuser[Wheel Odometry Fuser]
+    VisualOdometryFuser[Visual Odometry Fuser]
+    LocalPoseFuser[Local Pose Fuser]
+    Outputs
+
+    Inputs --> |IMU Data 1-N| InertialSensorFuser
+    Inputs --> |Wheel Odometry Data 1-N| WheelOdometryFuser
+    Inputs --> |Visual Odometry Data 1-N| VisualOdometryFuser
+
+    InertialSensorFuser --> | Machine Inertial | LocalPoseFuser
+    WheelOdometryFuser --> |Machine Wheel Odometry| LocalPoseFuser
+    VisualOdometryFuser --> |Machine Visual Odometry| LocalPoseFuser
+
+    LocalPoseFuser --> |Local Pose| Outputs
+    class Inputs,Outputs cssBoundary

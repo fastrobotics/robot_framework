@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -23,10 +22,6 @@
 This process's objective is to combine multiple IMU Sensor's into one singular IMU reading for an entire machine.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/InertialSensorFuserProcessArchitecture.png)
 
 # Inputs
 
