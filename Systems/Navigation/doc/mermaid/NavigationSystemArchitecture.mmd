@@ -1,0 +1,56 @@
+---
+config:
+  layout: elk
+  theme: base
+  themeCSS: |
+    .node rect { fill: rgba(30, 30, 46, 0.16) !important; stroke: #000000 !important; }
+    .label { fill: #000000 !important; }
+
+    .cssBoundary rect { fill: #ffffff !important; stroke: #000000 !important; }
+    .cssBoundary .label { fill: #000000 !important; }
+
+    .cssInvestigating rect { fill: #ffff00 !important; stroke: #000000 !important; }
+    .cssInvestigating .label { fill: #000000 !important; }
+
+    .cssDeveloping rect { fill: #ffab00 !important; stroke: #000000 !important; }
+    .cssDeveloping .label { fill: #000000 !important; }
+
+    .cssTrivialComplete rect { fill: #ffc0cb !important; stroke: #000000 !important; }
+    .cssTrivialComplete .label { fill: #000000 !important; }
+
+    .cssMinimalComplete rect { fill: #00ff00 !important; stroke: #000000 !important; }
+    .cssMinimalComplete .label { fill: #000000 !important; }
+
+    .cssFullyComplete rect { fill: #00ffff !important; stroke: #000000 !important; }
+    .cssFullyComplete .label { fill: #000000 !important; }
+
+    .cssSkipped rect { fill: #ff0000 !important; stroke: #000000 !important; }
+    .cssSkipped .label { fill: #000000 !important; }
+
+title: Navigation System Architecture
+---
+graph LR
+    Inputs
+    GlobalPlanner[Global Planner]
+    LocalPlanner[Local Planner]
+    NavigationExecutor[Navigation Executor]
+
+    Inputs --> |Global Path Request| GlobalPlanner
+    Inputs --> |Terrain Model| GlobalPlanner
+    Inputs --> |Global Path Command| LocalPlanner
+    Inputs --> |Object Awareness| LocalPlanner
+    Inputs --> |Pose| LocalPlanner
+    Inputs --> |Pose | NavigationExecutor
+    Inputs --> |Trajectory Command | NavigationExecutor
+
+    GlobalPlanner --> |Global Path Response| Outputs
+    GlobalPlanner --> |Global Path Planning State| Outputs
+
+    LocalPlanner --> |Global Path Execution Status| Outputs
+    LocalPlanner --> |Trajectory Command| NavigationExecutor
+
+    NavigationExecutor --> |Drive Command| Outputs
+
+    Outputs
+
+    class Inputs,Outputs cssBoundary
