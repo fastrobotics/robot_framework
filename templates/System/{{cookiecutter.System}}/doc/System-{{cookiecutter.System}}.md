@@ -28,6 +28,7 @@ The {{cookiecutter.System}} System's role in the Robot Framework is to ???.
 ## General Requirements
 
 # System Architecture
+![](mermaid/{{cookiecutter.System}}SystemArchitecture.png)
 
 # Inputs
 

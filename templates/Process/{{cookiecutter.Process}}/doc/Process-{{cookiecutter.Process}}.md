@@ -25,8 +25,9 @@ This process's objective is to ???.
 ## General Requirements
 
 # Process Architecture
+![](../../../../../../Legend.png)
 
-![](dia/{{cookiecutter.Process}}ProcessArchitecture.png)
+![](mermaid/{{cookiecutter.Process}}ProcessArchitecture.png)
 
 # Inputs
 
