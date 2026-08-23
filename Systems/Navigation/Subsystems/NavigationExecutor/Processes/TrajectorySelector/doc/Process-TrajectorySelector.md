@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -23,10 +22,6 @@
 This process's objective is to take a list of Twist Commands and select which specific one to operate on.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/TrajectorySelectorProcessArchitecture.png)
 
 # Inputs
 

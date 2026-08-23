@@ -27,10 +27,22 @@ config:
     .cssSkipped rect { fill: #ff0000 !important; stroke: #000000 !important; }
     .cssSkipped .label { fill: #000000 !important; }
 
-title: {{cookiecutter.Process}} Process Architecture
+title: Navigation Executor Subsystem Architecture
 ---
 graph LR
     Inputs
+    TrajectorySelector[Trajectory Selector]
+    TrajectoryController[Trajectory Controller]
+    DriveExecutor[Drive Executor]
     Outputs
+
+    Inputs --> |Trajectory Command| TrajectorySelector
+    Inputs --> |Pose | TrajectoryController
+
+    TrajectorySelector --> |Set Point Trajectory | TrajectoryController
+
+    TrajectoryController --> |Trajectory To Execute | DriveExecutor
+
+    DriveExecutor --> |Drive Command | Outputs
 
     class Inputs,Outputs cssBoundary

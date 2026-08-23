@@ -34,7 +34,7 @@ The GlobalPlanner Subsystem's role in the Robot Framework is to plan navigable p
 
 ![](../../../../../Legend.png)
 
-![](dia/GlobalPlannerSubsystemArchitecture.png)
+![](mermaid/GlobalPlannerSubsystemArchitecture.png)
 
 ## Class Diagram
 
