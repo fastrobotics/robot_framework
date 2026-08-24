@@ -65,7 +65,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
         }
         if (joy.buttons[1] == 1) {
             fast::rf::Logger::log_debug("xxx1: " + std::to_string(arm_debounce_timer));
-            bool allow_change = false;
+            bool allow_change = true;
             if ((arm_debounce_timer < 0.0) ||
                 ((current_time_sec_ - arm_debounce_timer) > ITeleopControlProcess::ARM_DEBOUNCETIME_SEC)) {
                 fast::rf::Logger::log_debug("xxx2");
