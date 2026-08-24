@@ -30,7 +30,7 @@ The RemoteControl Subsystem's role in the Robot Framework is to provide a Remote
 
 ![](../../../../../Legend.png)
 
-![](dia/RemoteControlSubsystemArchitecture.png)
+![](mermaid/RemoteControlSubsystemArchitecture.png)
 
 ## Class Diagram
 
