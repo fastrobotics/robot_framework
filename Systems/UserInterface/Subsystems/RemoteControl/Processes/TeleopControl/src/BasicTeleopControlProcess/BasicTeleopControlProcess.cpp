@@ -59,7 +59,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             fast::rf::Logger::log_error("Unable to set Diagnostic.");
             return false;
         }
-        if (joy.buttons.size() < 2) {
+        if (joy.buttons.size() < 4) {
             fast::rf::Logger::log_error("Joystick doesn't have enough buttons!");
             return false;
         }

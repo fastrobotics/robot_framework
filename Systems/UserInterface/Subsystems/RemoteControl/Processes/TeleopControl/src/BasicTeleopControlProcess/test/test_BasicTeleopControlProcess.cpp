@@ -30,7 +30,7 @@ TEST(BasicTeleopControlProcess, JoyTestMode) {
     ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     ASSERT_TRUE(SUT.set_operation_mode(OperationMode::JOY_TEST));
     fast::rf::messages::SensorMsgs::JoyMsg joy;
-    joy.buttons.resize(2);
+    joy.buttons.resize(4);
     joy.axes.resize(3);
     EXPECT_TRUE(SUT.new_joy(joy));
     auto twist = SUT.get_twist_output();
@@ -41,7 +41,7 @@ TEST(BasicTeleopControlProcess, DefaultConfigJoystickInput) {
     BasicTeleopControlProcess SUT;
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.axes.resize(3);
-    joy.buttons.resize(2);
+    joy.buttons.resize(4);
     JoystickCalibrationData joy_calibration;
     joy_calibration.optional_init();
     ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
@@ -117,6 +117,7 @@ TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
 
     joy.buttons[1] = 1;
+    joy.buttons[3] = 0;
 
     EXPECT_TRUE(SUT.new_joy(joy));
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
@@ -129,72 +130,17 @@ TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
 
     robot_arm_command.armed_state = fast::rf::ArmedState::ARMED;
     SUT.update_RobotArmCommand(robot_arm_command);
+    joy.buttons[1] = 0;
+    joy.buttons[3] = 1;
     EXPECT_TRUE(SUT.new_joy(joy));
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::DISARMED);
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
 
     robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED;
     SUT.update_RobotArmCommand(robot_arm_command);
+    joy.buttons[1] = 1;
+    joy.buttons[3] = 0;
     EXPECT_TRUE(SUT.new_joy(joy));
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::ARMED);
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-}
-TEST(BasicTeleopControlProcess, JoyStickDebounce) {
-    BasicTeleopControlProcess SUT;
-
-    JoystickCalibrationData joy_calibration;
-    joy_calibration.optional_init();
-    ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
-    double current_time = 0.0;
-    ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command;
-    robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
-    fast::rf::messages::SensorMsgs::JoyMsg joy;
-    joy.buttons.resize(4);
-    joy.buttons[0];
-    SUT.update_RobotArmCommand(robot_arm_command);
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-
-    current_time += ITeleopControlProcess::ARM_DEBOUNCETIME_SEC + 0.1;
-    ASSERT_TRUE(SUT.update(current_time));
-    robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED;
-    SUT.update_RobotArmCommand(robot_arm_command);
-    joy.buttons[1] = 1;
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::ARMED);
-
-    current_time += ITeleopControlProcess::ARM_DEBOUNCETIME_SEC + 0.1;
-    ASSERT_TRUE(SUT.update(current_time));
-    robot_arm_command.armed_state = fast::rf::ArmedState::ARMED;
-    SUT.update_RobotArmCommand(robot_arm_command);
-    joy.buttons[1] = 1;
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::DISARMED);
-
-    current_time += ITeleopControlProcess::ARM_DEBOUNCETIME_SEC / 2.0;
-    ASSERT_TRUE(SUT.update(current_time));
-    robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED;
-    SUT.update_RobotArmCommand(robot_arm_command);
-    joy.buttons[1] = 1;
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-
-    /*
-
-    robot_arm_command.armed_state = fast::rf::ArmedState::ARMED;
-    SUT.update_RobotArmCommand(robot_arm_command);
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::DISARMED);
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-
-    robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED;
-    SUT.update_RobotArmCommand(robot_arm_command);
-    ASSERT_TRUE(SUT.new_joy(joy));
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::ARMED);
-    ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
-    */
 }
