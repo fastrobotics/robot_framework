@@ -39,7 +39,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
         diagnosticManager.update_diagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
-        return output;
+        return output.get();
     }
     TankDriveData TankDriveExecutorProcess::convert(GeometryMsgs::TwistMsg twist) {
         TankDriveData data;
