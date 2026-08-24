@@ -64,19 +64,23 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             return false;
         }
         if (joy.buttons[1] == 1) {
+            fast::rf::Logger::log_debug("xxx1: " + std::to_string(arm_debounce_timer));
             bool allow_change = false;
             if ((arm_debounce_timer < 0.0) ||
                 ((current_time_sec_ - arm_debounce_timer) > ITeleopControlProcess::ARM_DEBOUNCETIME_SEC)) {
+                fast::rf::Logger::log_debug("xxx2");
                 allow_change = true;
                 arm_debounce_timer = current_time_sec_;
             }
             if (allow_change == true) {
+                fast::rf::Logger::log_debug("xxx3");
                 if (robot_arm_command.armed_state == fast::rf::ArmedState::DISARMED) {
                     armstate_change_request.requested_armed_state = fast::rf::ArmedState::ARMED;
                 } else if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
                     armstate_change_request.requested_armed_state = fast::rf::ArmedState::DISARMED;
                 }
             } else {
+                fast::rf::Logger::log_debug("xxx9");
                 armstate_change_request.requested_armed_state = fast::rf::ArmedState::UNKNOWN;
             }
         }
