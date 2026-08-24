@@ -106,7 +106,6 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
        public:
         static constexpr double INPUT_TIMEOUT_SEC =
             5.0;  //!< R/C Input not provided for this duration will trip diagnostics/disable ready to arm
-
         ITeleopControlProcess() = default;
         virtual ~ITeleopControlProcess() = default;
 

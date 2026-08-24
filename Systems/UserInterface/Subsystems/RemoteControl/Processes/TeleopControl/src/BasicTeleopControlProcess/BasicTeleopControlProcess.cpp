@@ -59,18 +59,16 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             fast::rf::Logger::log_error("Unable to set Diagnostic.");
             return false;
         }
-        /**
-         * @todo Handle this better during AB#1782
-         *
-         */
-        if (joy.buttons.size() < 2) {
+        if (joy.buttons.size() < 4) {
             fast::rf::Logger::log_error("Joystick doesn't have enough buttons!");
             return false;
         }
         if (joy.buttons[1] == 1) {
             if (robot_arm_command.armed_state == fast::rf::ArmedState::DISARMED) {
                 armstate_change_request.requested_armed_state = fast::rf::ArmedState::ARMED;
-            } else if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
+            }
+        } else if (joy.buttons[3] == 1) {
+            if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
                 armstate_change_request.requested_armed_state = fast::rf::ArmedState::DISARMED;
             }
         }
