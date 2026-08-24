@@ -76,6 +76,5 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
 
        private:
         TwistComputer twist_computer;
-        double arm_debounce_timer{-1.0};
     };
 }  // namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl
