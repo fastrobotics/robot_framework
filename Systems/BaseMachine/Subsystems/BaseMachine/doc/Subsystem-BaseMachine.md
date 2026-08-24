@@ -30,7 +30,7 @@ The BaseMachine Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/BaseMachineSubsystemArchitecture.png)
+![](mermaid/BaseMachineSubsystemArchitecture.png)
 
 ## Class Diagram
 

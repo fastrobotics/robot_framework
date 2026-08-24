@@ -28,6 +28,7 @@ The BaseMachine System's role in the Robot Framework is to ???.
 ## General Requirements
 
 # System Architecture
+![](mermaid/BaseMachineSystemArchitecture.png)
 
 # Inputs
 
