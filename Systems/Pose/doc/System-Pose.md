@@ -29,7 +29,7 @@ The Awareness System's role in the Robot Framework is to compute the Pose of a r
 
 # System Architecture
 
-![](dia/PoseSystemArchitecture.png)
+![](mermaid/PoseSystemArchitecture.png)
 
 # Inputs
 

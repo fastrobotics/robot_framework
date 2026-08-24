@@ -30,6 +30,7 @@ In general, the UserInterface System is different in context than other Systems 
 ## General Requirements
 
 # System Architecture
+![](mermaid/UserInterfaceSystemArchitecture.png)
 
 # Inputs
 

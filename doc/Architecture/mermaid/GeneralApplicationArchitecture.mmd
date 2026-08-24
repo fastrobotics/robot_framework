@@ -1,0 +1,73 @@
+---
+config:
+  layout: elk
+  theme: base
+  themeCSS: |
+    .node rect { fill: rgba(30, 30, 46, 0.16) !important; stroke: #000000 !important; }
+    .label { fill: #000000 !important; }
+
+    .cssInvestigating rect { fill: #ffff00 !important; stroke: #000000 !important; }
+    .cssInvestigating .label { fill: #000000 !important; }
+
+    .cssDeveloping rect { fill: #ffab00 !important; stroke: #000000 !important; }
+    .cssDeveloping .label { fill: #000000 !important; }
+
+    .cssTrivialComplete rect { fill: #ffc0cb !important; stroke: #000000 !important; }
+    .cssTrivialComplete .label { fill: #000000 !important; }
+
+    .cssMinimalComplete rect { fill: #00ff00 !important; stroke: #000000 !important; }
+    .cssMinimalComplete .label { fill: #000000 !important; }
+
+    .cssFullyComplete rect { fill: #00ffff !important; stroke: #000000 !important; }
+    .cssFullyComplete .label { fill: #000000 !important; }
+
+    .cssSkipped rect { fill: #ff0000 !important; stroke: #000000 !important; }
+    .cssSkipped .label { fill: #000000 !important; }
+title: General Application Architecture
+---
+graph LR
+    Awareness
+    BaseMachine[Base Machine]
+    Comms
+    DataStorage[Data Storage]
+    GoalPlanning[Goal Planning]
+    ImplementControl[Implement Control]
+    Navigation
+    Perception
+    Pose
+    Safety
+    Terrain
+    UserInterface[User Interface]
+
+
+
+    Perception --->|Perception Tracks| Awareness
+    Perception ---> Pose
+
+    Pose --> |Global Pose| Navigation
+    Pose --> |Local Pose| Navigation
+
+    Comms --> Awareness
+    Comms -->|Mission Assignment| GoalPlanning
+
+    Awareness --> |Global Objects| GoalPlanning
+    Awareness --> |Local Objects| Navigation
+    Awareness --> |Local Objects| Safety
+    Awareness --> |Local Objects| ImplementControl
+
+    Terrain --> | Terrain Model| GoalPlanning
+
+    GoalPlanning --> |Joint Goal| ImplementControl
+    GoalPlanning --> |Navigation Goal| Navigation
+
+    UserInterface --> |Drive Command| Navigation
+
+    Safety --> |Arm Command| Navigation
+    Safety --> |Armed State| ImplementControl
+
+    Navigation --> |Drive Commands| BaseMachine
+    
+
+    ImplementControl --> |Implement Controls| BaseMachine
+
+    class Awareness cssDefault

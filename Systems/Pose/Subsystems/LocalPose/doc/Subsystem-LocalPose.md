@@ -30,7 +30,7 @@ The LocalPose Subsystem's role in the Robot Framework is to compute a Local Pose
 
 ![](../../../../../Legend.png)
 
-![](dia/LocalPoseSubsystemArchitecture.png)
+![](mermaid/LocalPoseSubsystemArchitecture.png)
 
 ## Class Diagram
 

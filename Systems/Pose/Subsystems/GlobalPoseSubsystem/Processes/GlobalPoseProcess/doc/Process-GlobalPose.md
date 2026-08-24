@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -23,10 +22,6 @@
 This process's objective is to take, given multiple streams of GPS data, a combined GlobalPose.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/GlobalPoseProcessArchitecture.png)
 
 # Inputs
 

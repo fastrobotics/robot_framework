@@ -30,7 +30,7 @@ The ModeManager Subsystem's role in the Robot Framework is to safely manage the 
 
 ![](../../../../../Legend.png)
 
-![](dia/ModeManagerSubsystemArchitecture.png)
+![](mermaid/ModeManagerSubsystemArchitecture.png)
 
 ## Class Diagram
 

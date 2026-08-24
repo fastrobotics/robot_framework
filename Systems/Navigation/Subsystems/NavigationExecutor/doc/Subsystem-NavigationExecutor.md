@@ -30,7 +30,7 @@ The NavigationExecutor Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/NavigationExecutorSubsystemArchitecture.png)
+![](mermaid/NavigationExecutorSubsystemArchitecture.png)
 
 ## Class Diagram
 

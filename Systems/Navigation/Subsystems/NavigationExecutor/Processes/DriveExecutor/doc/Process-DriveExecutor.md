@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Diagnostics](#diagnostics)
@@ -24,10 +23,6 @@
 This process's objective is to take a Twist Command and convert to the specific machine platform drive commands.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/DriveExecutorProcessArchitecture.png)
 
 # Inputs
 

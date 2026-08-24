@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
@@ -23,10 +22,6 @@
 This process's objective is to take a specifc Twist Command and the current robot Pose, and form a control loop to output a corrected Twist Command.
 
 ## General Requirements
-
-# Process Architecture
-
-![](dia/TrajectoryControllerProcessArchitecture.png)
 
 # Inputs
 

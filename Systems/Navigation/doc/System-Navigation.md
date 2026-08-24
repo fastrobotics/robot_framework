@@ -31,6 +31,7 @@ The Navigation System's role in the Robot Framework is to ???.
 ## General Requirements
 
 # System Architecture
+![](mermaid/NavigationSystemArchitecture.png)
 
 # Inputs
 
