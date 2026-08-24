@@ -59,19 +59,25 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             fast::rf::Logger::log_error("Unable to set Diagnostic.");
             return false;
         }
-        /**
-         * @todo Handle this better during AB#1782
-         *
-         */
         if (joy.buttons.size() < 2) {
             fast::rf::Logger::log_error("Joystick doesn't have enough buttons!");
             return false;
         }
         if (joy.buttons[1] == 1) {
-            if (robot_arm_command.armed_state == fast::rf::ArmedState::DISARMED) {
-                armstate_change_request.requested_armed_state = fast::rf::ArmedState::ARMED;
-            } else if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
-                armstate_change_request.requested_armed_state = fast::rf::ArmedState::DISARMED;
+            bool allow_change = false;
+            if ((arm_debounce_timer < 0.0) ||
+                ((current_time_sec_ - arm_debounce_timer) > ITeleopControlProcess::ARM_DEBOUNCETIME_SEC)) {
+                allow_change = true;
+                arm_debounce_timer = current_time_sec_;
+            }
+            if (allow_change == true) {
+                if (robot_arm_command.armed_state == fast::rf::ArmedState::DISARMED) {
+                    armstate_change_request.requested_armed_state = fast::rf::ArmedState::ARMED;
+                } else if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
+                    armstate_change_request.requested_armed_state = fast::rf::ArmedState::DISARMED;
+                }
+            } else {
+                armstate_change_request.requested_armed_state = fast::rf::ArmedState::UNKNOWN;
             }
         }
         auto mapped_joy = mapper.new_joy(joy);
