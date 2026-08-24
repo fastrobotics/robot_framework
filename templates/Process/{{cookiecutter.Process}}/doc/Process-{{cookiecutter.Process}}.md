@@ -6,6 +6,7 @@
   - [General Requirements](#general-requirements)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
+- [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
@@ -36,6 +37,16 @@ The following outputs are provided by this system.
 
 | Output | DataType | Description | Usage |
 | ------ | -------- | ----------- | ----- |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: `{{cookiecutter.System}}System::SYSTEM_ID`
+- Subsystem: `{{cookiecutter.System}}System::{{cookiecutter.Subystem}}Subsystem::SUBSYSTEM_ID`
+- Process: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process_IDName}}`
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

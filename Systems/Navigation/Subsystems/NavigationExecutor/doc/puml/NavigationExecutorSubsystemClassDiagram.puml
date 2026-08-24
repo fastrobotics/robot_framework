@@ -5,26 +5,15 @@ namespace fast::rf {
   }
   namespace NavigationSystem {
     package NavigationExecutorSubsystem #LightYellow;line:blue {
-      interface INavigationExecutorSubsystem {
-
-      }
-      abstract BaseNavigationExecutorSubsystem {
-
-      }
-      BaseNavigationExecutorSubsystem .up.|> INavigationExecutorSubsystem
-      class BasicNavigationExecutorSubsystem {
-      }
-      BasicNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
-      class DummyNavigationExecutorSubsystem {
-      }
-      DummyNavigationExecutorSubsystem -up-|> BaseNavigationExecutorSubsystem
-      namespace DriveExecutor {
+      namespace DriveExecutor #LimeGreen {
         interface IDriveExecutorProcess #LimeGreen
         class TankDriveExecutorProcess #LimeGreen
         TankDriveExecutorProcess -up-|> IDriveExecutorProcess
       }
-      namespace TrajectoryController {
-        interface ITrajectoryControllerProcess
+      namespace TrajectoryController #LimeGreen {
+        interface ITrajectoryControllerProcess #LimeGreen
+        class BasicTrajectoryControllerProcess #LimeGreen
+        BasicTrajectoryControllerProcess -up-|> ITrajectoryControllerProcess
       }
       namespace TrajectorySelector {
         interface ITrajectorySelectorProcess
