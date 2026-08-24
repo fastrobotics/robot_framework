@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Diagnostics](#diagnostics)
@@ -25,10 +24,6 @@ This process's objective is to take a Twist Command and convert to the specific 
 
 ## General Requirements
 
-# Process Architecture
-
-![](dia/DriveExecutorProcessArchitecture.png)
-
 # Inputs
 
 The following inputs are required in order for this system to properly function.
@@ -41,14 +36,22 @@ The following inputs are required in order for this system to properly function.
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output       | DataType                                | Description                                                                                                | Usage |
+| ------------ | --------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----- |
+| Drive Output | Generic based on `IDriveExecutorOutput` | A generic interface that describes the drive outputs.  This will be different based on the robot platform. |       |
 
 # Diagnostics
 Processes in this Subsystem are defined by:
 - System: `NavigationSystem::SYSTEM_ID`
 - Subsystem: `NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID`
 - Process: `NavigationSystem::NavigationExecutorSubsystem::PROCESS_DRIVE_EXECUTOR_ID`
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type  | Description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `SOFTWARE`       | General Diagnostics related to software processing issues. |
+| `REMOTE_CONTROL` | Triggered until Remote Control commands are received.      |
+
   
 # How It Works
 
@@ -69,5 +72,7 @@ Processes in this Subsystem are defined by:
 | DRAFT  | [Tank Drive Executor Process](ProcessImplementations/Process-TankDriveExecutor.md) | Drive Executor applicable to Tank Drive robots. |
 
 # Usage Instructions
+- See specific Process Implementations for Usage Instructions.
 
 # Validation
+- See specific Process Implementations for Validation information.

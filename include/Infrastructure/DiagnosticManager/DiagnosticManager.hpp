@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2026
  *
  */
+#pragma once
+
 #include <DiagnosticMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <cstdint>

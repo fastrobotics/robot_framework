@@ -31,7 +31,7 @@ The LocalPlanner Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/LocalPlannerSubsystemArchitecture.png)
+![](mermaid/LocalPlannerSubsystemArchitecture.png)
 
 ## Class Diagram
 

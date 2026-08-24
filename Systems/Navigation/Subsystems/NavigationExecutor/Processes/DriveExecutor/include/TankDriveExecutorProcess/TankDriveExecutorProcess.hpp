@@ -13,6 +13,7 @@
 #include <BaseDriveExecutorProcess.hpp>
 #include <IDriveExecutorOutput.hpp>
 #include <TankDriveExecutorProcess/TankDriveExecutorOutput.hpp>
+#include <memory>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     /**
@@ -64,7 +65,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
     class TankDriveExecutorProcess : public BaseDriveExecutorProcess {
        public:
         TankDriveExecutorProcess() : BaseDriveExecutorProcess(), left_channel_config(), right_channel_config() {
-            output = new TankDriveExecutorOutput();
+            std::unique_ptr<TankDriveExecutorOutput> output = std::make_unique<TankDriveExecutorOutput>();
         }
         /**
          * @brief Initialize the Object
@@ -102,7 +103,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
          *
          * @return IDriveExecutorOutput*
          */
-        IDriveExecutorOutput* get_output() { return output; }
+        IDriveExecutorOutput* get_output() { return output.get(); }
         /**
          * @brief Convert a Twist to a Tank Drive Output
          * @param twist The twist data
@@ -140,6 +141,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
        private:
         TankDriveChannelConfig left_channel_config;
         TankDriveChannelConfig right_channel_config;
-        TankDriveExecutorOutput* output;
+        std::unique_ptr<TankDriveExecutorOutput> output = std::make_unique<TankDriveExecutorOutput>();
     };
 }  // namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor

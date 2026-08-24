@@ -30,7 +30,7 @@ The {{cookiecutter.Subsystem}} Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/{{cookiecutter.Subsystem}}SubsystemArchitecture.png)
+![](mermaid/{{cookiecutter.Subsystem}}SubsystemArchitecture.png)
 
 ## Class Diagram
 

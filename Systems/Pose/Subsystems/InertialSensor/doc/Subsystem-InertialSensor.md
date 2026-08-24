@@ -1,6 +1,6 @@
 [Pose System](../../../doc/System-Pose.md)
 
-- [Subsystem: InertialSensor](#subsystem-cookiecuttersubsystem)
+- [Subsystem: InertialSensor](#subsystem-inertialsensor)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -30,7 +30,7 @@ The InertialSensor Subsystem's role in the Robot Framework is to ???
 
 ![](../../../../../Legend.png)
 
-![](dia/InertialSensorSubsystemArchitecture.png)
+![](mermaid/InertialSensorSubsystemArchitecture.png)
 
 ## Class Diagram
 

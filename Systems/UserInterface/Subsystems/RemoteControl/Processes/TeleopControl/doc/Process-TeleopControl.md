@@ -4,7 +4,6 @@
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
-- [Process Architecture](#process-architecture)
 - [Devices Supported](#devices-supported)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
@@ -29,9 +28,6 @@ This process's objective is to take in Joystick Commands and convert to a standa
 
 ## General Requirements
 
-# Process Architecture
-
-![](dia/TeleopControlProcessArchitecture.png)
 # Devices Supported
 The following Devices are supported:
 | Device                | ControlDevice Definition               |

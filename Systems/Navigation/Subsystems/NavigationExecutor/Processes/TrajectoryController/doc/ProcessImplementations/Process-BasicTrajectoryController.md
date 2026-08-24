@@ -5,12 +5,9 @@
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
   - [Limitations](#limitations)
-- [Process Architecture](#process-architecture)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
-  - [Detailed Documentation](#detailed-documentation)
-  - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -20,7 +17,7 @@
 
 ## Purpose
 
-This specific Process Implementation provides ???
+This specific Process Implementation provides a minimal functionality to take in a desired trajectory and form a PID control loop around the Rotate Z axis using the current Robot Local Pose.
 
 ## General Requirements
 
@@ -28,29 +25,14 @@ This specific Process Implementation provides ???
 
 The following are a listing of all limitations in this module:
 
-# Process Architecture
-
 # Inputs
-
-The following inputs are required in order for this system to properly function.
-
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+See parent Process Info for Input information.
 
 # Outputs
-
-The following outputs are provided by this system.
-
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+See parent Process Info for Output information.
 
 # How It Works
 
-## Detailed Documentation
-
-![](../../../../../../../../Legend.png)
-
-## Class Diagram
 
 # Usage Instructions
 

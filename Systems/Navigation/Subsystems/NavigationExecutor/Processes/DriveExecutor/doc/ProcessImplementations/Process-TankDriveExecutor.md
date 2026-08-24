@@ -75,7 +75,7 @@ Additional Diagnostic Types are implemented specifically for this Process Implem
 ![](../../../../../../../../Legend.png)
 
 ## Class Diagram
-![](puml/TankDriveExecutorClassDiagram.png)s
+![](puml/TankDriveExecutorClassDiagram.png)
 
 ## Diagnostics
 The following Diagnostics are reported by this Process:

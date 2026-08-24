@@ -14,7 +14,7 @@ The Robot Framework creates a comprehensive Architecture suitable for robotics t
 
 Note that at the System level, only some number of interfaces are called out. There may be more interfaces between systems implemented.
 
-![](dia/GeneralApplicationArchitecture.png)
+![](mermaid/GeneralApplicationArchitecture.png)
 
 # Infrastructure
 [Infrastructure](../../include/Infrastructure/doc/Infrastructure.md)
