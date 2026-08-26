@@ -17,17 +17,17 @@ namespace fast::rf::NavigationSystem::Controller {
         double prev_error = output_->setpoint_sensor_error;
         output_->setpoint_sensor_error = latest_set_point - (config_.get_sensor_scale() * latest_sensor_input);
         I_acc += output_->setpoint_sensor_error * get_sensor_delta_time_sec();
-        double max_i_acc = 50.0;
-        double min_i_acc = -50.0;
+        double max_i_contribution = 50.0;
+        double min_i_contribution = -50.0;
 
         output_->P_term = config_.get_K_P() * output_->setpoint_sensor_error;
         output_->I_term = config_.get_K_I() * I_acc;
-        if (output_->I_term > max_i_acc) {
-            output_->I_term = max_i_acc;
-            I_acc = max_i_acc / config_.get_K_I();  // Unwind protection
-        } else if (output_->I_term < min_i_acc) {
-            output_->I_term = min_i_acc;
-            I_acc = min_i_acc / config_.get_K_I();  // Unwind protection
+        if (output_->I_term > max_i_contribution) {
+            output_->I_term = max_i_contribution;
+            I_acc = max_i_contribution / config_.get_K_I();  // Unwind protection
+        } else if (output_->I_term < min_i_contribution) {
+            output_->I_term = min_i_contribution;
+            I_acc = min_i_contribution / config_.get_K_I();  // Unwind protection
         }
         if (get_sensor_delta_time_sec() > 0.0) {
             double delta_error = (output_->setpoint_sensor_error - prev_error);
