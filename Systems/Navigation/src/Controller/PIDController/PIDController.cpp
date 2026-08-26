@@ -17,8 +17,8 @@ namespace fast::rf::NavigationSystem::Controller {
         double prev_error = output_->setpoint_sensor_error;
         output_->setpoint_sensor_error = latest_set_point - (config_.get_sensor_scale() * latest_sensor_input);
         I_acc += output_->setpoint_sensor_error * get_sensor_delta_time_sec();
-        double max_i_acc = 50.0;
-        double min_i_acc = -50.0;
+        double max_i_acc = 5000.0;
+        double min_i_acc = -5000.0;
         if (I_acc > max_i_acc) {
             I_acc = max_i_acc;
         }
