@@ -44,6 +44,7 @@ namespace fast::rf::NavigationSystem::Controller {
         str +=
             "\t\tIs New: " + std::to_string(output_->is_new) + " Cmd: " + std::to_string(output_->command_value) + "\n";
         str += "\t\tError: " + std::to_string(output_->setpoint_sensor_error) + "\n";
+        str += "\t\tI Acc: " + std::to_string(I_acc) + "\n";
         return str;
     }
 }  // namespace fast::rf::NavigationSystem::Controller
