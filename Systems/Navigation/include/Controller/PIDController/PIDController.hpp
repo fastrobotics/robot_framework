@@ -149,7 +149,10 @@ namespace fast::rf::NavigationSystem::Controller {
          */
         std::string pretty() override;
 
-        bool clear() override { I_acc = 0.0; }
+        bool clear() override {
+            I_acc = 0.0;
+            return true;
+        }
 
        private:
         PIDControllerConfig config_;
