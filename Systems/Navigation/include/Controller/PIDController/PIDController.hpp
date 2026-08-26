@@ -44,6 +44,7 @@ namespace fast::rf::NavigationSystem::Controller {
             }
             return true;
         }
+
         std::string pretty() override {
             std::string str = "Sensor Scale: " + std::to_string(get_sensor_scale()) +
                               " K: P: " + std::to_string(get_K_P()) + " I: " + std::to_string(get_K_I()) +
@@ -147,6 +148,8 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return std::string
          */
         std::string pretty() override;
+
+        bool clear() override { I_acc = 0.0; }
 
        private:
         PIDControllerConfig config_;

@@ -51,7 +51,7 @@ namespace fast::rf::NavigationSystem::Controller {
 
         double get_min_output() { return min_output_; }
 
-       protected:
+              protected:
         double max_output_{0.0};  //!< Max Output Value
         double min_output_{0.0};  //!< Min Output Value
     };
@@ -133,5 +133,7 @@ namespace fast::rf::NavigationSystem::Controller {
          * @return std::string
          */
         virtual std::string pretty() = 0;
+
+        virtual bool clear() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::Controller
