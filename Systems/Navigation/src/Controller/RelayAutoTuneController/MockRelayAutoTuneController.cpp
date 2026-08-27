@@ -144,6 +144,7 @@ namespace fast::rf::NavigationSystem::Controller {
         }
         output_->state = state_;
         output_->set_point = mock_set_point_;
+        output_->command_value = mock_set_point_;
         output_->K_P = mock_K_P_;
         output_->K_I = mock_K_I_;
         output_->K_D = mock_K_D_;
