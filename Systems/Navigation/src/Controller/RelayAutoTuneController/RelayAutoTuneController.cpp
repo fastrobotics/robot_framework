@@ -1,10 +1,12 @@
 #include <Controller/RelayAutoTuneController/RelayAutoTuneController.hpp>
+#include <algorithm>
 #include <cmath>
 #include <numeric>
 
 namespace fast::rf::NavigationSystem::Controller {
     bool RelayAutoTuneControllerConfig::is_ok() {
         if (max_output_ < min_output_ || relay_amplitude_ <= 0.0 || required_cycles_ < 2 ||
+            minimum_period_sec_ <= 0.0 || minimum_response_amplitude_ <= 0.0 ||
             bias_ + relay_amplitude_ > max_output_ || bias_ - relay_amplitude_ < min_output_) {
             fast::rf::Logger::log_error("Invalid relay auto-tune configuration!");
             return false;
@@ -133,7 +135,10 @@ namespace fast::rf::NavigationSystem::Controller {
     bool RelayAutoTuneController::finish_tuning() {
         double average_period = std::accumulate(periods_.begin(), periods_.end(), 0.0) / periods_.size();
         double response_amplitude = 0.5 * (response_max_ - response_min_);
-        if (average_period <= 0.0 || response_amplitude <= 0.0) {
+        bool periods_are_valid = std::all_of(periods_.begin(), periods_.end(), [this](double period) {
+            return period >= config_.get_minimum_period_sec();
+        });
+        if (!periods_are_valid || response_amplitude < config_.get_minimum_response_amplitude()) {
             fail_tuning();
             return false;
         }

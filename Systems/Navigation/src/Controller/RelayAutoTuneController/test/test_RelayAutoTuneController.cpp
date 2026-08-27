@@ -40,3 +40,57 @@ TEST(RelayAutoTuneController, RejectsInvalidConfiguration) {
     config.set_parameters(1.0, -1.0, 2.0, 0.0, 1.0, 1);
     ASSERT_FALSE(config.is_ok());
 }
+
+TEST(RelayAutoTuneController, EntersFailedStateWhenStartedWithoutConfiguration) {
+    RelayAutoTuneController controller;
+    ASSERT_TRUE(controller.init());
+    ASSERT_FALSE(controller.start_tuning());
+    ASSERT_EQ(controller.get_state(), RelayAutoTuneState::FAILED);
+
+    RelayAutoTuneControllerOutput* output = controller.get_output();
+    ASSERT_EQ(output->state, RelayAutoTuneState::FAILED);
+    ASSERT_TRUE(output->is_new);
+}
+
+TEST(RelayAutoTuneController, FailsWhenSystemProducesNoMeasurablePeriod) {
+    RelayAutoTuneController controller;
+    RelayAutoTuneControllerConfig config;
+    config.set_parameters(5.0, -5.0, 2.0, 0.0, 1.0, 2);
+
+    ASSERT_TRUE(controller.set_config(config));
+    ASSERT_TRUE(controller.init());
+    ASSERT_TRUE(controller.new_set_point(0.0, 0.0));
+    ASSERT_TRUE(controller.start_tuning());
+
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
+    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.0));
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
+    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.0));
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
+    ASSERT_FALSE(controller.new_sensor_input(-1.0, 0.0));
+    ASSERT_EQ(controller.get_state(), RelayAutoTuneState::FAILED);
+
+    RelayAutoTuneControllerOutput* output = controller.get_output();
+    ASSERT_EQ(output->state, RelayAutoTuneState::FAILED);
+    ASSERT_TRUE(output->is_new);
+    ASSERT_DOUBLE_EQ(output->ultimate_period_sec, 0.0);
+}
+
+TEST(RelayAutoTuneController, FailsWhenCrossingsAreTooFast) {
+    RelayAutoTuneController controller;
+    RelayAutoTuneControllerConfig config;
+    config.set_parameters(5.0, -5.0, 2.0, 0.0, 1.0, 2, 0.1);
+
+    ASSERT_TRUE(controller.set_config(config));
+    ASSERT_TRUE(controller.init());
+    ASSERT_TRUE(controller.new_set_point(0.0, 0.0));
+    ASSERT_TRUE(controller.start_tuning());
+
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
+    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.01));
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.02));
+    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.03));
+    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.04));
+    ASSERT_FALSE(controller.new_sensor_input(-1.0, 0.05));
+    ASSERT_EQ(controller.get_state(), RelayAutoTuneState::FAILED);
+}

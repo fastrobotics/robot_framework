@@ -12,13 +12,16 @@ namespace fast::rf::NavigationSystem::Controller {
         ~RelayAutoTuneControllerConfig() override {}
 
         void set_parameters(double max_output, double min_output, double relay_amplitude, double bias,
-                            double sensor_scale_factor, std::size_t required_cycles) {
+                            double sensor_scale_factor, std::size_t required_cycles, double minimum_period_sec = 0.1,
+                            double minimum_response_amplitude = 1.0e-3) {
             max_output_ = max_output;
             min_output_ = min_output;
             relay_amplitude_ = relay_amplitude;
             bias_ = bias;
             sensor_scale_ = sensor_scale_factor;
             required_cycles_ = required_cycles;
+            minimum_period_sec_ = minimum_period_sec;
+            minimum_response_amplitude_ = minimum_response_amplitude;
         }
 
         bool is_ok() override;
@@ -27,12 +30,16 @@ namespace fast::rf::NavigationSystem::Controller {
         double get_bias() const { return bias_; }
         double get_sensor_scale() const { return sensor_scale_; }
         std::size_t get_required_cycles() const { return required_cycles_; }
+        double get_minimum_period_sec() const { return minimum_period_sec_; }
+        double get_minimum_response_amplitude() const { return minimum_response_amplitude_; }
 
        private:
         double relay_amplitude_{1.0};
         double bias_{0.0};
         double sensor_scale_{1.0};
         std::size_t required_cycles_{4};
+        double minimum_period_sec_{0.1};
+        double minimum_response_amplitude_{1.0e-3};
     };
 
     class RelayAutoTuneControllerOutput : public IControllerOutput {
