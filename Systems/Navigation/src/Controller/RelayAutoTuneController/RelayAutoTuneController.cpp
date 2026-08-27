@@ -7,6 +7,7 @@ namespace fast::rf::NavigationSystem::Controller {
     bool RelayAutoTuneControllerConfig::is_ok() {
         if (max_output_ < min_output_ || relay_amplitude_ <= 0.0 || required_cycles_ < 2 ||
             minimum_period_sec_ <= 0.0 || minimum_response_amplitude_ <= 0.0 ||
+            minimum_switch_time_sec_ <= 0.0 ||
             bias_ + relay_amplitude_ > max_output_ || bias_ - relay_amplitude_ < min_output_) {
             fast::rf::Logger::log_error("Invalid relay auto-tune configuration!");
             return false;
@@ -60,9 +61,8 @@ namespace fast::rf::NavigationSystem::Controller {
             bool falling_crossing = previous_error_ >= 0.0 && error < 0.0;
             if (rising_crossing || falling_crossing) {
                 if (have_previous_crossing_ &&
-                    time_stamp_sec - previous_crossing_sec_ < 0.5 * config_.get_minimum_period_sec()) {
-                    fail_tuning();
-                    return false;
+                    time_stamp_sec - previous_crossing_sec_ < config_.get_minimum_switch_time_sec()) {
+                    return true;
                 }
                 previous_crossing_sec_ = time_stamp_sec;
                 have_previous_crossing_ = true;

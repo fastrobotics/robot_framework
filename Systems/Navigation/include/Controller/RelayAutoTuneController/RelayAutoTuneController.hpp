@@ -45,10 +45,12 @@ namespace fast::rf::NavigationSystem::Controller {
                  * seconds; shorter periods are treated as noise or invalid feedback.
                  * @param minimum_response_amplitude Smallest accepted response
                  * amplitude after sensor scaling; smaller responses cannot be tuned.
+                 * @param minimum_switch_time_sec Minimum time in seconds that a
+                 * relay command is held before another relay switch is accepted.
                  */
         void set_parameters(double max_output, double min_output, double relay_amplitude, double bias,
                             double sensor_scale_factor, std::size_t required_cycles, double minimum_period_sec = 0.1,
-                            double minimum_response_amplitude = 1.0e-3) {
+                            double minimum_response_amplitude = 1.0e-3, double minimum_switch_time_sec = 0.25) {
             max_output_ = max_output;
             min_output_ = min_output;
             relay_amplitude_ = relay_amplitude;
@@ -57,6 +59,7 @@ namespace fast::rf::NavigationSystem::Controller {
             required_cycles_ = required_cycles;
             minimum_period_sec_ = minimum_period_sec;
             minimum_response_amplitude_ = minimum_response_amplitude;
+            minimum_switch_time_sec_ = minimum_switch_time_sec;
         }
 
         bool is_ok() override;
@@ -67,6 +70,7 @@ namespace fast::rf::NavigationSystem::Controller {
         std::size_t get_required_cycles() const { return required_cycles_; }
         double get_minimum_period_sec() const { return minimum_period_sec_; }
         double get_minimum_response_amplitude() const { return minimum_response_amplitude_; }
+        double get_minimum_switch_time_sec() const { return minimum_switch_time_sec_; }
 
        private:
         double relay_amplitude_{1.0};
@@ -75,6 +79,7 @@ namespace fast::rf::NavigationSystem::Controller {
         std::size_t required_cycles_{4};
         double minimum_period_sec_{0.1};
         double minimum_response_amplitude_{1.0e-3};
+        double minimum_switch_time_sec_{0.25};
     };
 
     class RelayAutoTuneControllerOutput : public IControllerOutput {
