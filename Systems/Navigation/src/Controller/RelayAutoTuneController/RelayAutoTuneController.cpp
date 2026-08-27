@@ -6,8 +6,7 @@
 namespace fast::rf::NavigationSystem::Controller {
     bool RelayAutoTuneControllerConfig::is_ok() {
         if (max_output_ < min_output_ || relay_amplitude_ <= 0.0 || required_cycles_ < 2 ||
-            minimum_period_sec_ <= 0.0 || minimum_response_amplitude_ <= 0.0 ||
-            minimum_switch_time_sec_ <= 0.0 ||
+            minimum_period_sec_ <= 0.0 || minimum_response_amplitude_ <= 0.0 || minimum_switch_time_sec_ <= 0.0 ||
             bias_ + relay_amplitude_ > max_output_ || bias_ - relay_amplitude_ < min_output_) {
             fast::rf::Logger::log_error("Invalid relay auto-tune configuration!");
             return false;
