@@ -135,11 +135,12 @@ namespace fast::rf::NavigationSystem::Controller {
         reset_measurements();
         state_ = RelayAutoTuneState::TUNING;
         output_->state = state_;
+        output_->set_point = latest_set_point;
         double error = latest_set_point - config_.get_sensor_scale() * latest_sensor_input;
-        output_->command_value = BaseController::process_command_value(
-            error >= 0.0 ? config_.get_bias() + config_.get_relay_amplitude()
-                         : config_.get_bias() - config_.get_relay_amplitude(),
-            config_.get_max_output(), config_.get_min_output());
+        output_->command_value =
+            BaseController::process_command_value(error >= 0.0 ? config_.get_bias() + config_.get_relay_amplitude()
+                                                               : config_.get_bias() - config_.get_relay_amplitude(),
+                                                  config_.get_max_output(), config_.get_min_output());
         output_->is_new = true;
         return true;
     }
