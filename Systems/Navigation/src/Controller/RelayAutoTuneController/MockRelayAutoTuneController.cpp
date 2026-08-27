@@ -50,7 +50,6 @@ namespace fast::rf::NavigationSystem::Controller {
 
     bool MockRelayAutoTuneController::update(double current_time_sec) {
         bool status = BaseController::update(current_time_sec);
-        printf("%d %d\n", status, (uint8_t)state_);
         if (status && state_ == RelayAutoTuneState::TUNING) {
             advance_value(mock_K_P_, mock_K_P_step_, mock_K_P_min_, mock_K_P_max_);
             advance_value(mock_K_I_, mock_K_I_step_, mock_K_I_min_, mock_K_I_max_);
