@@ -20,9 +20,10 @@ namespace fast::rf::NavigationSystem::Controller {
      *
      */
     enum class ControllerType {
-        UNKNOWN = 0,         //!< Unknown Type
-        PID_CONTROLLER = 1,  //!< PID Controller
-        END_OF_LIST = 2      //!< End of List, used for Range Checks
+        UNKNOWN = 0,                     //!< Unknown Type
+        PID_CONTROLLER = 1,              //!< PID Controller
+        RELAY_AUTO_TUNE_CONTROLLER = 2,  //!< Relay Auto-Tune Controller
+        END_OF_LIST = 3                  //!< End of List, used for Range Checks
     };
     /**
      * @brief Generic Controller Config interface
@@ -51,7 +52,7 @@ namespace fast::rf::NavigationSystem::Controller {
 
         double get_min_output() { return min_output_; }
 
-              protected:
+       protected:
         double max_output_{0.0};  //!< Max Output Value
         double min_output_{0.0};  //!< Min Output Value
     };
