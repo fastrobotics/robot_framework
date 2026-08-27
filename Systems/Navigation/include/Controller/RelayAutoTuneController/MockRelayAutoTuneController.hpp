@@ -33,6 +33,8 @@ namespace fast::rf::NavigationSystem::Controller {
         RelayAutoTuneControllerOutput* output_{nullptr};
         PIDControllerConfig tuned_config_;
         RelayAutoTuneState state_{RelayAutoTuneState::IDLE};
+        double start_time{0.0};
+        double run_time{-1.0};
         double mock_K_P_{0.0};
         double mock_K_I_{0.0};
         double mock_K_D_{0.0};

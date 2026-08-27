@@ -23,6 +23,7 @@ namespace fast::rf::NavigationSystem::Controller {
         delete output_;
         output_ = new RelayAutoTuneControllerOutput();
         clear();
+        state_ = RelayAutoTuneState::IDLE;
         return status;
     }
 
@@ -50,7 +51,21 @@ namespace fast::rf::NavigationSystem::Controller {
 
     bool MockRelayAutoTuneController::update(double current_time_sec) {
         bool status = BaseController::update(current_time_sec);
-        if (status && state_ == RelayAutoTuneState::TUNING) {
+        if (status == false) {
+            return false;
+        }
+
+        if (state_ == RelayAutoTuneState::TUNING) {
+            if (run_time < 0) {
+                start_time = current_time_sec;
+                run_time = 0.0;
+            } else {
+                run_time = (current_time_sec - start_time);
+            }
+            if (run_time > 5.0) {
+                state_ = RelayAutoTuneState::COMPLETE;
+            }
+
             advance_value(mock_K_P_, mock_K_P_step_, mock_K_P_min_, mock_K_P_max_);
             advance_value(mock_K_I_, mock_K_I_step_, mock_K_I_min_, mock_K_I_max_);
             advance_value(mock_K_D_, mock_K_D_step_, mock_K_D_min_, mock_K_D_max_);
