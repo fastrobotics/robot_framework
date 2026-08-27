@@ -4,6 +4,7 @@
 namespace fast::rf::NavigationSystem::Controller {
     namespace {
         void advance_value(double& value, double& step, double minimum, double maximum) {
+            printf("%f\n", step);
             if (step == 0.0) {
                 return;
             }
@@ -15,6 +16,7 @@ namespace fast::rf::NavigationSystem::Controller {
                 value = minimum;
                 step = std::abs(step);
             }
+            printf("%f %f %f %f\n", value, step, minimum, maximum);
         }
     }  // namespace
 
