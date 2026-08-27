@@ -26,6 +26,7 @@ class TestBaseController : public BaseController {
         output_->is_new = true;
         return BaseController::update(current_time_sec);
     }
+    bool clear() override { return true; }
     TestControllerOutput* get_output() {
         TestControllerOutput* output = new TestControllerOutput(*output_);
         output_->is_new = false;
