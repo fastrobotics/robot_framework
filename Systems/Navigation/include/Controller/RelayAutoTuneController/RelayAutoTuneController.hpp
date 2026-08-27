@@ -11,6 +11,41 @@ namespace fast::rf::NavigationSystem::Controller {
        public:
         ~RelayAutoTuneControllerConfig() override {}
 
+                /**
+                 * @brief Configure the relay auto-tuning controller.
+                 *
+                 * The controller applies two command levels while measuring the plant
+                 * response. The command alternates between:
+                 *
+                 * @code
+                 * high_command = bias + relay_amplitude
+                 * low_command  = bias - relay_amplitude
+                 * @endcode
+                 *
+                 * Both command levels must be within the configured output range. In
+                 * other words, @p bias is the center of the relay band, while
+                 * @p relay_amplitude is the distance from that center to either relay
+                 * level. Tuning fails when the measured oscillation period or response
+                 * amplitude is below the configured minimum thresholds.
+                 *
+                 * @param max_output Upper bound for any controller command. The high
+                 * relay level, @p bias + @p relay_amplitude, must not exceed it.
+                 * @param min_output Lower bound for any controller command. The low
+                 * relay level, @p bias - @p relay_amplitude, must not be below it.
+                 * @param relay_amplitude Positive half-width of the relay band. The
+                 * relay changes the command by 2 * @p relay_amplitude peak-to-peak.
+                 * @param bias Center command around which the relay switches. A zero
+                 * bias produces symmetric positive and negative commands when the
+                 * output limits allow it.
+                 * @param sensor_scale_factor Multiplier applied to sensor measurements
+                 * before calculating the response.
+                 * @param required_cycles Number of rising-to-rising oscillation cycles
+                 * required before calculating PID gains.
+                 * @param minimum_period_sec Smallest accepted oscillation period in
+                 * seconds; shorter periods are treated as noise or invalid feedback.
+                 * @param minimum_response_amplitude Smallest accepted response
+                 * amplitude after sensor scaling; smaller responses cannot be tuned.
+                 */
         void set_parameters(double max_output, double min_output, double relay_amplitude, double bias,
                             double sensor_scale_factor, std::size_t required_cycles, double minimum_period_sec = 0.1,
                             double minimum_response_amplitude = 1.0e-3) {
@@ -84,8 +119,10 @@ namespace fast::rf::NavigationSystem::Controller {
         RelayAutoTuneState state_{RelayAutoTuneState::IDLE};
         bool have_previous_error_{false};
         bool have_previous_rising_crossing_{false};
+        bool have_previous_crossing_{false};
         double previous_error_{0.0};
         double previous_rising_crossing_sec_{0.0};
+        double previous_crossing_sec_{0.0};
         double response_min_{0.0};
         double response_max_{0.0};
         std::vector<double> periods_;

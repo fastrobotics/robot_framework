@@ -64,10 +64,7 @@ TEST(RelayAutoTuneController, FailsWhenSystemProducesNoMeasurablePeriod) {
 
     ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
     ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.0));
-    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
-    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.0));
-    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
-    ASSERT_FALSE(controller.new_sensor_input(-1.0, 0.0));
+    ASSERT_FALSE(controller.new_sensor_input(1.0, 0.0));
     ASSERT_EQ(controller.get_state(), RelayAutoTuneState::FAILED);
 
     RelayAutoTuneControllerOutput* output = controller.get_output();
@@ -88,9 +85,6 @@ TEST(RelayAutoTuneController, FailsWhenCrossingsAreTooFast) {
 
     ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
     ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.01));
-    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.02));
-    ASSERT_TRUE(controller.new_sensor_input(-1.0, 0.03));
-    ASSERT_TRUE(controller.new_sensor_input(1.0, 0.04));
-    ASSERT_FALSE(controller.new_sensor_input(-1.0, 0.05));
+    ASSERT_FALSE(controller.new_sensor_input(1.0, 0.02));
     ASSERT_EQ(controller.get_state(), RelayAutoTuneState::FAILED);
 }

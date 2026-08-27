@@ -59,6 +59,13 @@ namespace fast::rf::NavigationSystem::Controller {
             bool rising_crossing = previous_error_ <= 0.0 && error > 0.0;
             bool falling_crossing = previous_error_ >= 0.0 && error < 0.0;
             if (rising_crossing || falling_crossing) {
+                if (have_previous_crossing_ &&
+                    time_stamp_sec - previous_crossing_sec_ < 0.5 * config_.get_minimum_period_sec()) {
+                    fail_tuning();
+                    return false;
+                }
+                previous_crossing_sec_ = time_stamp_sec;
+                have_previous_crossing_ = true;
                 if (rising_crossing) {
                     if (have_previous_rising_crossing_) {
                         periods_.push_back(time_stamp_sec - previous_rising_crossing_sec_);
@@ -173,8 +180,10 @@ namespace fast::rf::NavigationSystem::Controller {
     void RelayAutoTuneController::reset_measurements() {
         have_previous_error_ = false;
         have_previous_rising_crossing_ = false;
+        have_previous_crossing_ = false;
         previous_error_ = 0.0;
         previous_rising_crossing_sec_ = 0.0;
+        previous_crossing_sec_ = 0.0;
         response_min_ = 0.0;
         response_max_ = 0.0;
         periods_.clear();
