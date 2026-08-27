@@ -73,6 +73,7 @@ namespace fast::rf::NavigationSystem::Controller {
      */
     class IController {
        public:
+        virtual ~IController() = default;
         /**
          * @brief Get the controller type
          *
