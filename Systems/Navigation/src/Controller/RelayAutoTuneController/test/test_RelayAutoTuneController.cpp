@@ -14,6 +14,9 @@ TEST(RelayAutoTuneController, CalculatesZieglerNicholsGains) {
     ASSERT_TRUE(controller.init());
     ASSERT_TRUE(controller.new_set_point(0.0, 0.0));
     ASSERT_TRUE(controller.start_tuning());
+    RelayAutoTuneControllerOutput* output = controller.get_output();
+    ASSERT_DOUBLE_EQ(output->command_value, 2.0);
+    ASSERT_TRUE(output->is_new);
 
     ASSERT_TRUE(controller.new_sensor_input(1.0, 0.0));
     ASSERT_TRUE(controller.new_sensor_input(-1.0, 1.0));
@@ -23,7 +26,7 @@ TEST(RelayAutoTuneController, CalculatesZieglerNicholsGains) {
     ASSERT_TRUE(controller.new_sensor_input(-1.0, 5.0));
 
     ASSERT_TRUE(controller.tuning_succeeded());
-    RelayAutoTuneControllerOutput* output = controller.get_output();
+    output = controller.get_output();
     ASSERT_EQ(output->state, RelayAutoTuneState::COMPLETE);
     ASSERT_DOUBLE_EQ(output->response_amplitude, 1.0);
     ASSERT_DOUBLE_EQ(output->ultimate_period_sec, 2.0);
