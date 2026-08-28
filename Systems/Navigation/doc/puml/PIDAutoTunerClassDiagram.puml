@@ -1,0 +1,146 @@
+@startuml
+title PID Auto Tuner Class Diagram
+namespace fast::rf {
+  namespace NavigationSystem  {
+    namespace Controller {
+        enum ControllerType #LimeGreen {
+            UNKNOWN=0,
+            PID_CONTROLLER=1,
+        }
+       
+        interface IControllerOutput #LimeGreen {
+            +bool is_new
+            +double command_value
+        }
+        interface IControllerConfig #LimeGreen {
+            +{abstract} bool is_ok()
+            +{abstract} string pretty()
+            +double get_max_output()
+            +double get_min_output()
+            #double max_output
+            #double min_output
+           
+
+
+        }
+        interface IController #LimeGreen {
+            +{abstract} ~IController()
+            +{abstract} ControllerType get_controller_type()
+            +{abstract} bool init()
+            +{abstract} bool new_set_point(double set_point,double time_stamp_sec)
+            +{abstract} bool new_sensor_input(double sensor_input,double time_stamp_sec)
+            +{abstract} bool update(double current_time_sec)
+            +{abstract} double get_sensor_delta_time_sec()
+            +{abstract} IControllerOutput* get_output()
+            +{abstract} string pretty()
+            +{abstract} bool clear()
+        }
+        IController +-- ControllerType
+        IController --> IControllerOutput: <<use>>
+        abstract BaseController #LimeGreen {
+            +ControllerType get_controller_type()
+            +double get_sensor_delta_time_sec()
+            #bool init()
+            #bool new_set_point(double set_point,double time_stamp_sec)
+            #bool new_sensor_input(double sensor_input,double time_stamp_sec)
+            #bool update(double current_time_sec)
+            #string pretty()
+            -ControllerType controller_type
+        }
+        BaseController .up.|> IController
+        class PIDControllerOutput #LimeGreen {
+            +double setpoint_sensor_error
+            +double P_term
+            +double I_term
+            +double D_term
+        }
+        PIDControllerOutput -up-|> IControllerOutput
+        class PIDControllerConfig #LimeGreen {
+            +void set_parameters(double max_value, double min_value, double P, double I, double D, double sensor_scale_factor)
+            +bool is_ok()
+            +string pretty()
+            +double get_K_P()
+            +double get_K_I()
+            +double get_K_D()
+            +double get_sensor_scale()
+            -double K_P
+            -double K_I
+            -double K_D
+            -double sensor_scale
+            
+            
+
+        }
+        PIDControllerConfig -up-|> IControllerConfig
+        class PIDController #LimeGreen {
+            +bool init()
+            +bool set_config(PIDControllerConfig config)
+            +bool new_set_point(double set_point,double time_stamp_sec)
+            +bool new_sensor_input(double sensor_input,double time_stamp_sec)
+            +bool update(double current_time_sec)
+            +PIDControllerOutput* get_output()
+            +string pretty()
+            +bool clear()
+            -PIDControllerConfig config
+        }
+        PIDController -up-|> BaseController
+        PIDController --> PIDControllerOutput: <<use>>
+        PIDController --> PIDControllerConfig: <<use>>
+
+    }
+    package ControllerTuner #LightYellow;line:blue {
+        enum AutoTunerState #Yellow {
+            IDLE,
+            TUNING,
+            COMPLETE,
+            FAILED
+        }
+
+        class PIDAutoTunerConfig #Yellow {
+            +void set_parameters(double max_value, double min_value, double P, double I, double D, double sensor_scale_factor)
+            +void set_tuning_parameters() // Add tuning parameters as required
+            +bool is_ok() // heck all config (parameters and tuning_parameters are ok) including bool parameters_set and tuning_parameters_set
+            +string pretty()
+            +double get_K_P()
+            +double get_K_I()
+            +double get_K_D()
+            +double get_sensor_scale()
+            -bool parameters_set // True when set_parameters is called and values are ok
+            -bool tuning_parameters_set // True when set_tuning_parameters is called and values are ok
+            -double K_P
+            -double K_I
+            -double K_D
+            -double sensor_scale
+        }
+        PIDAutoTunerConfig -up-|> IControllerConfig
+        class PIDAutoTunerOutput #Yellow {
+            +AutoTunerState state
+            +double K_P
+            +double K_I
+            +double K_D
+        }
+        PIDAutoTunerOutput -up-|> IControllerOutput
+        PIDAutoTunerOutput *-> AutoTunerState
+        class PIDAutoTuner #Yellow {
+            +bool init()
+            +bool start_tuning() // No parameters.  Should have all config required at this point.
+            +bool set_config(PIDAutoTunerConfig config)
+            +bool new_set_point(double set_point,double time_stamp_sec)
+            +bool new_sensor_input(double sensor_input,double time_stamp_sec)
+            +bool update(double current_time_sec)
+            +PIDAutoTunerOutput* get_output()
+            +string pretty()
+            +bool clear()
+            -bool run_tuning_step(current_time_sec)
+            -PIDAutoTunerConfig config
+        }
+        PIDAutoTuner +-- AutoTunerState
+        PIDAutoTuner -up-|> BaseController
+        PIDAutoTuner *-down-> PIDAutoTunerConfig
+        PIDAutoTuner *-down-> PIDAutoTunerOutput
+
+    }
+    
+  }
+}
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+title PID Auto-Tuner Sequence Diagram
+actor User as user
+participant IController as interface
+participant PIDAutoTuner as auto_tuner
+participant BaseController as base
+
+alt Initialize
+activate interface
+activate auto_tuner
+activate base
+user -> interface++: init()
+interface -> auto_tuner++: init()
+auto_tuner -> base++: init()
+base --> auto_tuner--: status
+auto_tuner --> interface--: status
+interface --> user--: status
+
+user -> auto_tuner++: set_config()
+auto_tuner --> user--: status
+
+end
+
+alt Tuning
+user -> auto_tuner++: start_tuning()
+auto_tuner --> user--: status
+    loop while output.state == TUNING:
+        user -> interface++: new_sensor_input()
+        interface -> auto_tuner++: new_sensor_input()
+        auto_tuner -> base++: new_sensor_input()
+        base --> auto_tuner--: status
+        auto_tuner --> interface--: status
+        interface --> user--: status
+
+        user -> interface++: update()
+        interface -> auto_tuner++: update()
+        auto_tuner -> base++: update()
+        base --> auto_tuner--: status
+        auto_tuner -> auto_tuner++: run_tuning_step()
+        hnote across: Step thru Tuning Algorithm.  Includes computing each next Set Point
+        auto_tuner --> auto_tuner--: status
+
+        auto_tuner --> interface--: status
+        interface --> user--: status
+
+        user -> interface++: get_output()
+        interface -> auto_tuner++: get_output()
+        auto_tuner --> interface--: output
+        interface --> user--: output
+    end
+end
+
+@enduml

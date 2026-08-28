@@ -6,7 +6,14 @@ namespace fast::rf {
         enum ControllerType #LimeGreen {
             UNKNOWN=0,
             PID_CONTROLLER=1,
-            END_OF_LIST=2
+            RELAY_AUTO_TUNE_CONTROLLER=2,
+            END_OF_LIST=3
+        }
+        enum RelayAutoTuneState #LimeGreen {
+            IDLE,
+            TUNING,
+            COMPLETE,
+            FAILED
         }
         interface IControllerOutput #LimeGreen {
             +bool is_new
@@ -24,14 +31,16 @@ namespace fast::rf {
 
         }
         interface IController #LimeGreen {
+            +{abstract} ~IController()
+            +{abstract} ControllerType get_controller_type()
             +{abstract} bool init()
             +{abstract} bool new_set_point(double set_point,double time_stamp_sec)
             +{abstract} bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +{abstract} bool update(double current_time_sec)
             +{abstract} double get_sensor_delta_time_sec()
-            +{abstract} bool get_output(IControllerOutput output)
+            +{abstract} IControllerOutput* get_output()
             +{abstract} string pretty()
-
+            +{abstract} bool clear()
         }
         IController +-- ControllerType
         IController --> IControllerOutput: <<use>>
@@ -76,13 +85,98 @@ namespace fast::rf {
             +bool new_set_point(double set_point,double time_stamp_sec)
             +bool new_sensor_input(double sensor_input,double time_stamp_sec)
             +bool update(double current_time_sec)
-            +bool get_output(PIDControllerOutput output)
+            +PIDControllerOutput* get_output()
             +string pretty()
+            +bool clear()
             -PIDControllerConfig config
         }
         PIDController -up-|> BaseController
         PIDController --> PIDControllerOutput: <<use>>
         PIDController --> PIDControllerConfig: <<use>>
+
+        class RelayAutoTuneControllerConfig #LimeGreen {
+            +void set_parameters(double max_output, double min_output, double relay_amplitude, double bias, double sensor_scale_factor, size_t required_cycles, double minimum_period_sec, double minimum_response_amplitude, double minimum_switch_time_sec)
+            +bool is_ok()
+            +string pretty()
+            +double get_relay_amplitude()
+            +double get_bias()
+            +double get_sensor_scale()
+            +size_t get_required_cycles()
+            +double get_minimum_period_sec()
+            +double get_minimum_response_amplitude()
+            +double get_minimum_switch_time_sec()
+            -double relay_amplitude
+            -double bias
+            -double sensor_scale
+            -size_t required_cycles
+            -double minimum_period_sec
+            -double minimum_response_amplitude
+            -double minimum_switch_time_sec
+        }
+        RelayAutoTuneControllerConfig -up-|> IControllerConfig
+
+        class RelayAutoTuneControllerOutput #LimeGreen {
+            +RelayAutoTuneState state
+            +double set_point
+            +double K_P
+            +double K_I
+            +double K_D
+            +double ultimate_gain
+            +double ultimate_period_sec
+            +double response_amplitude
+        }
+        RelayAutoTuneControllerOutput -up-|> IControllerOutput
+
+        class RelayAutoTuneController #LimeGreen {
+            +ControllerType get_controller_type()
+            +bool init()
+            +bool set_config(RelayAutoTuneControllerConfig config)
+            +bool new_set_point(double set_point, double time_stamp_sec)
+            +bool new_sensor_input(double sensor_input, double time_stamp_sec)
+            +bool update(double current_time_sec)
+            +RelayAutoTuneControllerOutput* get_output()
+            +string pretty()
+            +bool clear()
+            +bool start_tuning()
+            +bool is_tuning_complete()
+            +bool tuning_succeeded()
+            +PIDControllerConfig get_tuned_config()
+            +RelayAutoTuneState get_state()
+            -RelayAutoTuneControllerConfig config
+            -PIDControllerConfig tuned_config
+            -RelayAutoTuneState state
+        }
+        RelayAutoTuneController -up-|> BaseController
+        RelayAutoTuneController --> RelayAutoTuneControllerConfig: <<use>>
+        RelayAutoTuneController --> RelayAutoTuneControllerOutput: <<use>>
+        RelayAutoTuneController --> PIDControllerConfig: <<use>>
+        RelayAutoTuneController --> RelayAutoTuneState: <<use>>
+
+        class MockRelayAutoTuneController #LightGreen {
+            +ControllerType get_controller_type()
+            +bool init()
+            +bool set_config(RelayAutoTuneControllerConfig config)
+            +bool new_set_point(double set_point, double time_stamp_sec)
+            +bool new_sensor_input(double sensor_input, double time_stamp_sec)
+            +bool update(double current_time_sec)
+            +RelayAutoTuneControllerOutput* get_output()
+            +string pretty()
+            +bool clear()
+            +bool start_tuning()
+            +bool is_tuning_complete()
+            +bool tuning_succeeded()
+            +PIDControllerConfig get_tuned_config()
+            +RelayAutoTuneState get_state()
+            +void set_mock_gains(double K_P, double K_I, double K_D)
+            +void set_mock_gain_step(double K_P_step, double K_I_step, double K_D_step)
+            +void set_mock_set_point(double set_point, double set_point_step)
+            +void set_mock_limits(double set_point_min, double set_point_max, double K_P_min, double K_P_max, double K_I_min, double K_I_max, double K_D_min, double K_D_max)
+        }
+        MockRelayAutoTuneController -up-|> BaseController
+        MockRelayAutoTuneController --> RelayAutoTuneControllerConfig: <<use>>
+        MockRelayAutoTuneController --> RelayAutoTuneControllerOutput: <<use>>
+        MockRelayAutoTuneController --> PIDControllerConfig: <<use>>
+        MockRelayAutoTuneController --> RelayAutoTuneState: <<use>>
     }
   }
 }
