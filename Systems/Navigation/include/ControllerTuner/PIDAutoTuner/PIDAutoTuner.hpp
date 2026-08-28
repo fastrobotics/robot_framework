@@ -6,6 +6,15 @@
 
 namespace fast::rf::NavigationSystem::ControllerTuner {
     enum class AutoTunerState { IDLE, TUNING, COMPLETE, FAILED };
+    enum class PIDAutoTunerFailureReason {
+        NONE,
+        INVALID_CONFIGURATION,
+        RESPONSE_TIMEOUT,
+        INSUFFICIENT_RESPONSE,
+        TRACKING_ERROR_EXCEEDED,
+        TUNING_ITERATION_LIMIT,
+        UNSUPPORTED_ALGORITHM
+    };
     enum class PIDAutoTuningAlgorithm {
         STEP_RESPONSE,
         IMC_LAMBDA,
@@ -102,6 +111,10 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
        public:
         ~PIDAutoTunerOutput() override {}
         AutoTunerState state{AutoTunerState::IDLE};
+        PIDAutoTunerFailureReason failure_reason{PIDAutoTunerFailureReason::NONE};
+        std::string failure_reason_string;
+        std::string failure_attribute;
+        std::string failure_remediation;
         PIDAutoTuningAlgorithm algorithm{PIDAutoTuningAlgorithm::STEP_RESPONSE};
         PIDAutoTunerAlgorithmState algorithm_state{PIDAutoTunerAlgorithmState::IDLE};
         double set_point{0.0};
@@ -137,7 +150,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
        private:
         bool run_tuning_step(double current_time_sec);
         bool run_step_response_tuning_step(double current_time_sec);
-        void fail_tuning();
+        void fail_tuning(PIDAutoTunerFailureReason reason, const std::string& attribute,
+                         const std::string& remediation);
         void synchronize_output();
 
         PIDAutoTunerConfig config_;

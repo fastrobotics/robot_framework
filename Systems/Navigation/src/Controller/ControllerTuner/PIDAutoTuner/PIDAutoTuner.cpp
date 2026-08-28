@@ -2,6 +2,28 @@
 #include <cmath>
 
 namespace fast::rf::NavigationSystem::ControllerTuner {
+    namespace {
+        std::string failure_reason_to_string(PIDAutoTunerFailureReason reason) {
+            switch (reason) {
+                case PIDAutoTunerFailureReason::INVALID_CONFIGURATION:
+                    return "INVALID_CONFIGURATION";
+                case PIDAutoTunerFailureReason::RESPONSE_TIMEOUT:
+                    return "RESPONSE_TIMEOUT";
+                case PIDAutoTunerFailureReason::INSUFFICIENT_RESPONSE:
+                    return "INSUFFICIENT_RESPONSE";
+                case PIDAutoTunerFailureReason::TRACKING_ERROR_EXCEEDED:
+                    return "TRACKING_ERROR_EXCEEDED";
+                case PIDAutoTunerFailureReason::TUNING_ITERATION_LIMIT:
+                    return "TUNING_ITERATION_LIMIT";
+                case PIDAutoTunerFailureReason::UNSUPPORTED_ALGORITHM:
+                    return "UNSUPPORTED_ALGORITHM";
+                case PIDAutoTunerFailureReason::NONE:
+                default:
+                    return "NONE";
+            }
+        }
+    }  // namespace
+
     bool PIDAutoTunerConfig::is_ok() {
         if (!parameters_set_ || !tuning_parameters_set_ || max_output_ <= min_output_ || output_step_ == 0.0 ||
             set_point_step_ == 0.0 || settle_time_sec_ <= 0.0 || response_timeout_sec_ < settle_time_sec_ ||
@@ -92,7 +114,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                " Algorithm State: " + std::to_string(static_cast<int>(algorithm_state_)) +
                " Set Point: " + std::to_string(output_->set_point) +
                " Sensor: " + std::to_string(output_->sensor_input) + " K_P: " + std::to_string(output_->K_P) +
-               " K_I: " + std::to_string(output_->K_I) + " K_D: " + std::to_string(output_->K_D) + "\n";
+               " K_I: " + std::to_string(output_->K_I) + " K_D: " + std::to_string(output_->K_D) +
+               "\nFailure Reason: " + output_->failure_reason_string + " Attribute: " + output_->failure_attribute +
+               " Remediation: " + output_->failure_remediation + "\n";
     }
 
     bool PIDAutoTuner::clear() {
@@ -110,6 +134,10 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         evaluation_started_ = false;
         if (output_ != nullptr) {
             output_->state = state_;
+            output_->failure_reason = PIDAutoTunerFailureReason::NONE;
+            output_->failure_reason_string = "NONE";
+            output_->failure_attribute.clear();
+            output_->failure_remediation.clear();
             output_->algorithm_state = algorithm_state_;
             output_->is_new = false;
             output_->command_value = 0.0;
@@ -128,7 +156,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
 
     bool PIDAutoTuner::start_tuning() {
         if (output_ == nullptr || !config_.is_ok()) {
-            fail_tuning();
+            fail_tuning(PIDAutoTunerFailureReason::INVALID_CONFIGURATION, "PIDAutoTunerConfig",
+                        "Set both parameter groups with valid limits and tuning values before start_tuning().");
             return false;
         }
         state_ = AutoTunerState::TUNING;
@@ -143,6 +172,10 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         have_sensor_input_ = false;
         evaluation_started_ = false;
         output_->state = state_;
+        output_->failure_reason = PIDAutoTunerFailureReason::NONE;
+        output_->failure_reason_string = "NONE";
+        output_->failure_attribute.clear();
+        output_->failure_remediation.clear();
         output_->algorithm = config_.get_algorithm();
         output_->algorithm_state = algorithm_state_;
         output_->is_new = true;
@@ -156,7 +189,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             case PIDAutoTuningAlgorithm::IMC_LAMBDA:
                 return run_step_response_tuning_step(current_time_sec);
             default:
-                fail_tuning();
+                fail_tuning(PIDAutoTunerFailureReason::UNSUPPORTED_ALGORITHM, "algorithm",
+                            "Select an implemented PIDAutoTuningAlgorithm before starting the tuner.");
                 return false;
         }
     }
@@ -217,7 +251,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                 } else {
                     ++tuning_iteration_;
                     if (tuning_iteration_ >= config_.get_max_tuning_iterations()) {
-                        fail_tuning();
+                        fail_tuning(
+                            PIDAutoTunerFailureReason::TUNING_ITERATION_LIMIT, "maximum_tracking_error",
+                            "Increase max_tuning_iterations or revise the output step and PID search strategy.");
                         return false;
                     }
                     output_->K_P *= 1.5;
@@ -273,17 +309,24 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             }
         }
         if (elapsed_time >= config_.get_response_timeout_sec()) {
-            fail_tuning();
+            fail_tuning(
+                PIDAutoTunerFailureReason::RESPONSE_TIMEOUT, "elapsed_time_sec",
+                "Verify sensor timestamps and actuator feedback, then increase response_timeout_sec if needed.");
             return false;
         }
         return true;
     }
 
-    void PIDAutoTuner::fail_tuning() {
+    void PIDAutoTuner::fail_tuning(PIDAutoTunerFailureReason reason, const std::string& attribute,
+                                   const std::string& remediation) {
         state_ = AutoTunerState::FAILED;
         algorithm_state_ = PIDAutoTunerAlgorithmState::FAILED;
         if (output_ != nullptr) {
             output_->state = state_;
+            output_->failure_reason = reason;
+            output_->failure_reason_string = failure_reason_to_string(reason);
+            output_->failure_attribute = attribute;
+            output_->failure_remediation = remediation;
             output_->algorithm_state = algorithm_state_;
             output_->command_value = 0.0;
             output_->is_new = true;

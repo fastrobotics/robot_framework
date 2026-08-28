@@ -111,6 +111,16 @@ namespace fast::rf {
             FAILED
         }
 
+        enum PIDAutoTunerFailureReason #Yellow {
+            NONE
+            INVALID_CONFIGURATION
+            RESPONSE_TIMEOUT
+            INSUFFICIENT_RESPONSE
+            TRACKING_ERROR_EXCEEDED
+            TUNING_ITERATION_LIMIT
+            UNSUPPORTED_ALGORITHM
+        }
+
         enum PIDAutoTuningAlgorithm #Yellow {
             STEP_RESPONSE
             ' RELAY_FEEDBACK
@@ -153,6 +163,10 @@ namespace fast::rf {
         class PIDAutoTunerOutput #Yellow {
             +AutoTunerState state
             +PIDAutoTuningAlgorithm algorithm
+            +PIDAutoTunerFailureReason failure_reason
+            +string failure_reason_string
+            +string failure_attribute
+            +string failure_remediation
             +PIDAutoTunerAlgorithmState algorithm_state
             +double set_point
             +double sensor_input

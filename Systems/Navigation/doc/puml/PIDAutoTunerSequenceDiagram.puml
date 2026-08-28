@@ -16,13 +16,12 @@ base --> auto_tuner--: status
 auto_tuner --> interface--: status
 interface --> user--: status
 
-user -> auto_tuner++: set_config(config)
-auto_tuner --> user--: status
-
 user -> auto_tuner++: config.set_algorithm(IMC_LAMBDA)
 auto_tuner --> user--: selected algorithm
 user -> auto_tuner++: config.set_imc_parameters(dead_time, lambda)
 auto_tuner --> user--: IMC parameters
+user -> auto_tuner++: set_config(config)
+auto_tuner --> user--: status
 
 end
 

@@ -44,7 +44,7 @@ system before reporting successful tuning.
 
 The current implementation supports bounded step-response and IMC/Lambda
 tuning, selected by `PIDAutoTuningAlgorithm`. The selector is part of the
-public configuration API, but unsupported algorithms are rejected until their
+public configuration API. Unsupported algorithms are rejected until their
 implementations are added. IMC/Lambda additionally requires process dead time
 and the desired closed-loop time constant:
 
@@ -144,7 +144,7 @@ The Auto-Tuner should be capable of easy inspection of the state of the module.
 sensor value, and calculated gains.
 
 ## Requirement: Support multiple Tuning Algorithms
-*Met?* Not implemented yet.
+*Met?* Partially met.
 
 *Description*
 
@@ -152,8 +152,9 @@ The Auto-Tuner should be capable of potentially multiple different tuning algori
 
 *Evidence*
 
-The first implementation has one step-response algorithm. The configuration
-and algorithm-state boundaries are intended to support additional algorithms.
+The implementation currently supports bounded step-response and IMC/Lambda
+algorithms. The configuration selector and dispatch boundary allow additional
+algorithms to be added later.
 
 ## Requirement: Tuning Algorithm State Machine
 *Met?* Met for the first implementation.
@@ -166,9 +167,10 @@ If a tuning algorithm has a series of steps it must go thru, it should follow a 
 
 `PIDAutoTunerAlgorithmState` tracks baseline capture, step application,
 response measurement, candidate PID evaluation, completion, and failure while
-the main state is `TUNING`. When evaluation error exceeds the configured
-threshold, the tuner adjusts the candidate gains and retries until the
-iteration limit is reached.
+the main state is `TUNING`. Both supported algorithms use this same lifecycle;
+IMC/Lambda changes the gain calculation after the response is measured. When
+evaluation error exceeds the configured threshold, the tuner adjusts the
+candidate gains and retries until the iteration limit is reached.
 
 # Architecture
 ![](../../../Legend.png)
@@ -298,3 +300,19 @@ window. It reaches `COMPLETE` only when that value is less than or equal to
 `acceptable_error_threshold`. If the error is larger, the tuner adjusts the
 candidate gains and retries while the main state remains `TUNING`; after
 `max_tuning_iterations` unsuccessful evaluations it reaches `FAILED`.
+
+### Failure Diagnostics
+
+When tuning fails, `PIDAutoTunerOutput` contains a structured explanation:
+
+| Field                   | Description                                                            |
+| ----------------------- | ---------------------------------------------------------------------- |
+| `failure_reason`        | Machine-readable `PIDAutoTunerFailureReason` enum value.               |
+| `failure_reason_string` | Printable name of the enum value.                                      |
+| `failure_attribute`     | The measured value or configuration attribute that caused the failure. |
+| `failure_remediation`   | Suggested corrective action for the application or operator.           |
+
+The current failure reasons are `INVALID_CONFIGURATION`, `RESPONSE_TIMEOUT`,
+`INSUFFICIENT_RESPONSE`, `TRACKING_ERROR_EXCEEDED`,
+`TUNING_ITERATION_LIMIT`, and `UNSUPPORTED_ALGORITHM`. A successful or reset
+controller reports `NONE` and clears the related diagnostic strings.

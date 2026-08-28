@@ -29,6 +29,14 @@
      EVALUATE_PID --> FAILED : max error > threshold\nand iteration limit reached
  }
 
+ note right of FAILED
+   failure_reason
+   failure_reason_string
+   failure_attribute
+   failure_remediation
+   are published for diagnostics.
+ end note
+
  IDLE --> TUNING : start_tuning()\nvalid configuration
  IDLE --> FAILED : start_tuning()\ninvalid configuration
  TUNING --> IDLE : clear()
@@ -36,6 +44,9 @@
  FAILED --> IDLE : clear()
 
  note right of TUNING
+   Selected algorithm:
+   STEP_RESPONSE or IMC_LAMBDA
+
    The application calls:
    new_sensor_input(sensor, time)
    update(time)

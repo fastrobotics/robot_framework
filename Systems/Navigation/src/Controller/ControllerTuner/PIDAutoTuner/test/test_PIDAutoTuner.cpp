@@ -56,6 +56,18 @@ TEST(PIDAutoTuner, RequiresBothParameterGroups) {
     ASSERT_EQ(tuner.get_state(), AutoTunerState::FAILED);
 }
 
+TEST(PIDAutoTuner, ReportsInvalidConfigurationFailureDetails) {
+    PIDAutoTuner tuner;
+    ASSERT_TRUE(tuner.init());
+    ASSERT_FALSE(tuner.start_tuning());
+
+    PIDAutoTunerOutput* output = tuner.get_output();
+    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::INVALID_CONFIGURATION);
+    ASSERT_EQ(output->failure_reason_string, "INVALID_CONFIGURATION");
+    ASSERT_EQ(output->failure_attribute, "PIDAutoTunerConfig");
+    ASSERT_FALSE(output->failure_remediation.empty());
+}
+
 TEST(PIDAutoTuner, SelectsSupportedStepResponseAlgorithm) {
     PIDAutoTunerConfig config;
     config.set_parameters(10.0, -10.0, 0.0, 0.0, 0.0, 1.0);
@@ -103,6 +115,11 @@ TEST(PIDAutoTuner, FailsWhenResponseTimesOut) {
     ASSERT_FALSE(tuner.update(2.0));
     ASSERT_EQ(tuner.get_state(), AutoTunerState::FAILED);
     ASSERT_EQ(tuner.get_algorithm_state(), PIDAutoTunerAlgorithmState::FAILED);
+    PIDAutoTunerOutput* output = tuner.get_output();
+    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::RESPONSE_TIMEOUT);
+    ASSERT_EQ(output->failure_reason_string, "RESPONSE_TIMEOUT");
+    ASSERT_EQ(output->failure_attribute, "elapsed_time_sec");
+    ASSERT_FALSE(output->failure_remediation.empty());
 }
 
 TEST(PIDAutoTuner, IteratesGainsWhenTrackingErrorIsTooLarge) {
@@ -137,4 +154,8 @@ TEST(PIDAutoTuner, IteratesGainsWhenTrackingErrorIsTooLarge) {
     ASSERT_TRUE(tuner.new_sensor_input(10.0, 5.0));
     ASSERT_FALSE(tuner.update(5.0));
     ASSERT_EQ(tuner.get_state(), AutoTunerState::FAILED);
+    output = tuner.get_output();
+    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::TUNING_ITERATION_LIMIT);
+    ASSERT_EQ(output->failure_attribute, "maximum_tracking_error");
+    ASSERT_FALSE(output->failure_remediation.empty());
 }
