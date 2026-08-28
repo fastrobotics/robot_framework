@@ -25,11 +25,11 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     class ILocalPoseFuserProcess {
        public:
         static constexpr double HIGH_ANGULARRATE_DISARM_LIMIT =
-            75.0;  //!< Angular Acceleration Limit to automatically disarm the robot, in rad/s^2 Make this user config
-                   //!< during AB#1844
+            300.0;  //!< Angular Acceleration Limit to automatically disarm the robot, in rad/s^2 Make this user config
+                    //!< during AB#1844
         static constexpr double HIGH_ANGULARRATE_DISARM_TIMER =
-            5.0;  // How long to wait for normal angular accel before allowing to arm again.  Make this user config
-                  // during AB#1844.
+            300.0;  // How long to wait for normal angular accel before allowing to arm again.  Make this user config
+                    // during AB#1844.
         ILocalPoseFuserProcess() = default;
         virtual ~ILocalPoseFuserProcess() = default;
 
