@@ -122,6 +122,26 @@ TEST(PIDAutoTuner, FailsWhenResponseTimesOut) {
     ASSERT_FALSE(output->failure_remediation.empty());
 }
 
+TEST(PIDAutoTuner, ReportsInsufficientResponse) {
+    PIDAutoTuner tuner;
+    PIDAutoTunerConfig config;
+    config.set_parameters(10.0, -10.0, 0.0, 0.0, 0.0, 1.0);
+    config.set_tuning_parameters(2.0, 1.0, 1.0, 2.0, 0.5);
+
+    ASSERT_TRUE(tuner.set_config(config));
+    ASSERT_TRUE(tuner.init());
+    ASSERT_TRUE(tuner.start_tuning());
+    ASSERT_TRUE(tuner.new_sensor_input(10.0, 0.0));
+    ASSERT_TRUE(tuner.update(0.0));
+    ASSERT_TRUE(tuner.update(2.0));
+
+    PIDAutoTunerOutput* output = tuner.get_output();
+    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::INSUFFICIENT_RESPONSE);
+    ASSERT_EQ(output->failure_reason_string, "INSUFFICIENT_RESPONSE");
+    ASSERT_EQ(output->failure_attribute, "response");
+    ASSERT_FALSE(output->failure_remediation.empty());
+}
+
 TEST(PIDAutoTuner, IteratesGainsWhenTrackingErrorIsTooLarge) {
     PIDAutoTuner tuner;
     PIDAutoTunerConfig config;

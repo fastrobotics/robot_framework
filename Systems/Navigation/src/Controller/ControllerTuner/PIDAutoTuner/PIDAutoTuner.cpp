@@ -225,7 +225,6 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                 if (sample_time_sec > 0.0) {
                     integral_error_ += tracking_error * sample_time_sec;
                 }
-                previous_evaluation_error_ = tracking_error;
                 maximum_tracking_error_ = std::max(maximum_tracking_error_, std::abs(tracking_error));
             }
             double derivative_error = tracking_error - previous_evaluation_error_;
@@ -234,6 +233,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             } else {
                 derivative_error = 0.0;
             }
+            previous_evaluation_error_ = tracking_error;
             output_->tracking_error = tracking_error;
             output_->maximum_tracking_error = maximum_tracking_error_;
             output_->elapsed_time_sec = current_time_sec - evaluation_start_time_sec_;
@@ -309,9 +309,14 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             }
         }
         if (elapsed_time >= config_.get_response_timeout_sec()) {
-            fail_tuning(
-                PIDAutoTunerFailureReason::RESPONSE_TIMEOUT, "elapsed_time_sec",
-                "Verify sensor timestamps and actuator feedback, then increase response_timeout_sec if needed.");
+            if (std::abs(output_->response) < config_.get_minimum_response()) {
+                fail_tuning(PIDAutoTunerFailureReason::INSUFFICIENT_RESPONSE, "response",
+                            "Increase output_step, verify actuator authority, or reduce minimum_response.");
+            } else {
+                fail_tuning(
+                    PIDAutoTunerFailureReason::RESPONSE_TIMEOUT, "elapsed_time_sec",
+                    "Verify sensor timestamps and actuator feedback, then increase response_timeout_sec if needed.");
+            }
             return false;
         }
         return true;
