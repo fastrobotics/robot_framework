@@ -1,0 +1,49 @@
+@startuml
+ title PID Auto-Tuner State Machine
+
+ skinparam state {
+     BackgroundColor #FFF9E6
+     BorderColor #5B5B5B
+     ArrowColor #333333
+ }
+
+ [*] --> IDLE
+
+ state IDLE #E8F5E9
+ state TUNING #FFF3CD {
+     [*] --> CAPTURE_BASELINE
+
+     state CAPTURE_BASELINE as "CAPTURE_BASELINE\nWait for first sensor sample"
+     state APPLY_STEP as "APPLY_STEP\nGenerate setpoint and apply output step"
+     state MEASURE_RESPONSE as "MEASURE_RESPONSE\nMeasure plant response"
+     state EVALUATE_PID as "EVALUATE_PID\nApply candidate PID gains"
+     state COMPLETE as "COMPLETE\nTracking error accepted"
+     state FAILED as "FAILED\nAlgorithm could not tune"
+
+     CAPTURE_BASELINE --> APPLY_STEP : first sensor sample
+     APPLY_STEP --> MEASURE_RESPONSE : update()
+    MEASURE_RESPONSE --> EVALUATE_PID : response >= minimum_response
+     MEASURE_RESPONSE --> FAILED : timeout or insufficient response
+     EVALUATE_PID --> COMPLETE : max error <= acceptable threshold\nfor evaluation duration
+    EVALUATE_PID --> EVALUATE_PID : max error > threshold\nand iterations remain / adjust gains
+     EVALUATE_PID --> FAILED : max error > threshold\nand iteration limit reached
+ }
+
+ IDLE --> TUNING : start_tuning()\nvalid configuration
+ IDLE --> FAILED : start_tuning()\ninvalid configuration
+ TUNING --> IDLE : clear()
+ COMPLETE --> IDLE : clear()
+ FAILED --> IDLE : clear()
+
+ note right of TUNING
+   The application calls:
+   new_sensor_input(sensor, time)
+   update(time)
+   get_output()
+
+   The application sends:
+   output.command_value
+   to the system under test.
+ end note
+
+@enduml

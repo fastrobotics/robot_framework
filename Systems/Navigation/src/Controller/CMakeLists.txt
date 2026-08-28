@@ -3,6 +3,7 @@ target_link_libraries(base_Controller logger)
 target_include_directories(base_Controller
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
 add_subdirectory(PIDController)
+add_subdirectory(ControllerTuner)
 add_subdirectory(RelayAutoTuneController)
 if(BUILD_TESTING)
   add_subdirectory(test)

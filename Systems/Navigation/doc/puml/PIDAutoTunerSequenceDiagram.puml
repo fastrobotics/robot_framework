@@ -16,8 +16,13 @@ base --> auto_tuner--: status
 auto_tuner --> interface--: status
 interface --> user--: status
 
-user -> auto_tuner++: set_config()
+user -> auto_tuner++: set_config(config)
 auto_tuner --> user--: status
+
+user -> auto_tuner++: config.set_algorithm(IMC_LAMBDA)
+auto_tuner --> user--: selected algorithm
+user -> auto_tuner++: config.set_imc_parameters(dead_time, lambda)
+auto_tuner --> user--: IMC parameters
 
 end
 
@@ -29,6 +34,8 @@ auto_tuner --> user--: status
         interface -> auto_tuner++: new_sensor_input()
         auto_tuner -> base++: new_sensor_input()
         base --> auto_tuner--: status
+        auto_tuner -> auto_tuner++: capture baseline or measure response
+        auto_tuner --> auto_tuner--: status
         auto_tuner --> interface--: status
         interface --> user--: status
 
@@ -37,7 +44,7 @@ auto_tuner --> user--: status
         auto_tuner -> base++: update()
         base --> auto_tuner--: status
         auto_tuner -> auto_tuner++: run_tuning_step()
-        hnote across: Step thru Tuning Algorithm.  Includes computing each next Set Point
+        hnote across: Apply step, compute candidate gains,\nevaluate PID command, and iterate if error is too large
         auto_tuner --> auto_tuner--: status
 
         auto_tuner --> interface--: status

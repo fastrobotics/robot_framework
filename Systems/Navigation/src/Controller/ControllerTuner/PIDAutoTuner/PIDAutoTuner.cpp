@@ -1,0 +1,292 @@
+#include <ControllerTuner/PIDAutoTuner/PIDAutoTuner.hpp>
+#include <cmath>
+
+namespace fast::rf::NavigationSystem::ControllerTuner {
+    bool PIDAutoTunerConfig::is_ok() {
+        if (!parameters_set_ || !tuning_parameters_set_ || max_output_ <= min_output_ || output_step_ == 0.0 ||
+            set_point_step_ == 0.0 || settle_time_sec_ <= 0.0 || response_timeout_sec_ < settle_time_sec_ ||
+            minimum_response_ <= 0.0 || acceptable_error_threshold_ <= 0.0 || evaluation_time_sec_ <= 0.0 ||
+            max_tuning_iterations_ == 0 || sensor_scale_ == 0.0 ||
+            (algorithm_ == PIDAutoTuningAlgorithm::IMC_LAMBDA && (dead_time_sec_ < 0.0 || lambda_sec_ <= 0.0))) {
+            fast::rf::Logger::log_error("Invalid PID auto-tuner configuration!");
+            return false;
+        }
+        if (output_step_ > max_output_ || output_step_ < min_output_) {
+            fast::rf::Logger::log_error("PID auto-tuner output step is outside the output limits!");
+            return false;
+        }
+        return true;
+    }
+
+    std::string PIDAutoTunerConfig::pretty() {
+        return "Output Step: " + std::to_string(output_step_) + " Set Point Step: " + std::to_string(set_point_step_) +
+               " Settle Time: " + std::to_string(settle_time_sec_) +
+               " Response Timeout: " + std::to_string(response_timeout_sec_) +
+               " Minimum Response: " + std::to_string(minimum_response_) +
+               " Acceptable Error: " + std::to_string(acceptable_error_threshold_) +
+               " Evaluation Time: " + std::to_string(evaluation_time_sec_) +
+               " Max Iterations: " + std::to_string(max_tuning_iterations_) +
+               " Algorithm: " + std::to_string(static_cast<int>(algorithm_)) + "\n";
+    }
+
+    bool PIDAutoTuner::init() {
+        bool status = Controller::BaseController::init();
+        delete output_;
+        output_ = new PIDAutoTunerOutput();
+        clear();
+        return status;
+    }
+
+    bool PIDAutoTuner::set_config(PIDAutoTunerConfig config) {
+        if (!config.is_ok()) {
+            return false;
+        }
+        config_ = config;
+        return true;
+    }
+
+    bool PIDAutoTuner::new_set_point(double set_point, double time_stamp_sec) {
+        bool status = Controller::BaseController::new_set_point(set_point, time_stamp_sec);
+        if (status && output_ != nullptr) {
+            output_->set_point = set_point;
+        }
+        return status;
+    }
+
+    bool PIDAutoTuner::new_sensor_input(double sensor_input, double time_stamp_sec) {
+        bool status = Controller::BaseController::new_sensor_input(sensor_input, time_stamp_sec);
+        if (!status || output_ == nullptr) {
+            return status;
+        }
+        output_->sensor_input = config_.get_sensor_scale() * sensor_input;
+        have_sensor_input_ = true;
+        if (state_ == AutoTunerState::TUNING && algorithm_state_ == PIDAutoTunerAlgorithmState::CAPTURE_BASELINE) {
+            baseline_sensor_ = output_->sensor_input;
+            output_->set_point = baseline_sensor_ + config_.get_set_point_step();
+            algorithm_state_ = PIDAutoTunerAlgorithmState::APPLY_STEP;
+            output_->algorithm_state = algorithm_state_;
+        }
+        output_->is_new = true;
+        return true;
+    }
+
+    bool PIDAutoTuner::update(double current_time_sec) {
+        bool status = Controller::BaseController::update(current_time_sec);
+        if (!status || output_ == nullptr) {
+            return status;
+        }
+        if (state_ == AutoTunerState::TUNING) {
+            status = run_tuning_step(current_time_sec);
+        }
+        return status;
+    }
+
+    PIDAutoTunerOutput* PIDAutoTuner::get_output() {
+        PIDAutoTunerOutput* output = new PIDAutoTunerOutput(*output_);
+        output_->is_new = false;
+        return output;
+    }
+
+    std::string PIDAutoTuner::pretty() {
+        return "\n---PID Auto-Tuner---\n" + config_.pretty() + "State: " + std::to_string(static_cast<int>(state_)) +
+               " Algorithm State: " + std::to_string(static_cast<int>(algorithm_state_)) +
+               " Set Point: " + std::to_string(output_->set_point) +
+               " Sensor: " + std::to_string(output_->sensor_input) + " K_P: " + std::to_string(output_->K_P) +
+               " K_I: " + std::to_string(output_->K_I) + " K_D: " + std::to_string(output_->K_D) + "\n";
+    }
+
+    bool PIDAutoTuner::clear() {
+        state_ = AutoTunerState::IDLE;
+        algorithm_state_ = PIDAutoTunerAlgorithmState::IDLE;
+        baseline_sensor_ = 0.0;
+        tuning_start_time_sec_ = 0.0;
+        step_start_time_sec_ = 0.0;
+        evaluation_start_time_sec_ = 0.0;
+        integral_error_ = 0.0;
+        previous_evaluation_error_ = 0.0;
+        maximum_tracking_error_ = 0.0;
+        tuning_iteration_ = 0;
+        have_sensor_input_ = false;
+        evaluation_started_ = false;
+        if (output_ != nullptr) {
+            output_->state = state_;
+            output_->algorithm_state = algorithm_state_;
+            output_->is_new = false;
+            output_->command_value = 0.0;
+            output_->set_point = 0.0;
+            output_->sensor_input = 0.0;
+            output_->K_P = 0.0;
+            output_->K_I = 0.0;
+            output_->K_D = 0.0;
+            output_->response = 0.0;
+            output_->tracking_error = 0.0;
+            output_->maximum_tracking_error = 0.0;
+            output_->elapsed_time_sec = 0.0;
+        }
+        return true;
+    }
+
+    bool PIDAutoTuner::start_tuning() {
+        if (output_ == nullptr || !config_.is_ok()) {
+            fail_tuning();
+            return false;
+        }
+        state_ = AutoTunerState::TUNING;
+        algorithm_state_ = PIDAutoTunerAlgorithmState::CAPTURE_BASELINE;
+        tuning_start_time_sec_ = 0.0;
+        step_start_time_sec_ = 0.0;
+        evaluation_start_time_sec_ = 0.0;
+        integral_error_ = 0.0;
+        previous_evaluation_error_ = 0.0;
+        maximum_tracking_error_ = 0.0;
+        tuning_iteration_ = 0;
+        have_sensor_input_ = false;
+        evaluation_started_ = false;
+        output_->state = state_;
+        output_->algorithm = config_.get_algorithm();
+        output_->algorithm_state = algorithm_state_;
+        output_->is_new = true;
+        return true;
+    }
+
+    bool PIDAutoTuner::run_tuning_step(double current_time_sec) {
+        switch (config_.get_algorithm()) {
+            case PIDAutoTuningAlgorithm::STEP_RESPONSE:
+                return run_step_response_tuning_step(current_time_sec);
+            case PIDAutoTuningAlgorithm::IMC_LAMBDA:
+                return run_step_response_tuning_step(current_time_sec);
+            default:
+                fail_tuning();
+                return false;
+        }
+    }
+
+    bool PIDAutoTuner::run_step_response_tuning_step(double current_time_sec) {
+        if (algorithm_state_ == PIDAutoTunerAlgorithmState::CAPTURE_BASELINE) {
+            if (!have_sensor_input_) {
+                return true;
+            }
+            algorithm_state_ = PIDAutoTunerAlgorithmState::APPLY_STEP;
+            output_->algorithm_state = algorithm_state_;
+        }
+        if (algorithm_state_ == PIDAutoTunerAlgorithmState::APPLY_STEP) {
+            tuning_start_time_sec_ = current_time_sec;
+            step_start_time_sec_ = current_time_sec;
+            output_->command_value = Controller::BaseController::process_command_value(
+                config_.get_output_step(), config_.get_max_output(), config_.get_min_output());
+            algorithm_state_ = PIDAutoTunerAlgorithmState::MEASURE_RESPONSE;
+            output_->algorithm_state = algorithm_state_;
+            output_->is_new = true;
+            return true;
+        }
+        if (algorithm_state_ == PIDAutoTunerAlgorithmState::EVALUATE_PID) {
+            double tracking_error = output_->set_point - output_->sensor_input;
+            if (!evaluation_started_) {
+                evaluation_started_ = true;
+                evaluation_start_time_sec_ = current_time_sec;
+                previous_evaluation_error_ = tracking_error;
+                maximum_tracking_error_ = std::abs(tracking_error);
+            } else {
+                double sample_time_sec = get_sensor_delta_time_sec();
+                if (sample_time_sec > 0.0) {
+                    integral_error_ += tracking_error * sample_time_sec;
+                }
+                previous_evaluation_error_ = tracking_error;
+                maximum_tracking_error_ = std::max(maximum_tracking_error_, std::abs(tracking_error));
+            }
+            double derivative_error = tracking_error - previous_evaluation_error_;
+            if (get_sensor_delta_time_sec() > 0.0) {
+                derivative_error /= get_sensor_delta_time_sec();
+            } else {
+                derivative_error = 0.0;
+            }
+            output_->tracking_error = tracking_error;
+            output_->maximum_tracking_error = maximum_tracking_error_;
+            output_->elapsed_time_sec = current_time_sec - evaluation_start_time_sec_;
+            double evaluation_command =
+                output_->K_P * tracking_error + output_->K_I * integral_error_ + output_->K_D * derivative_error;
+            output_->command_value = Controller::BaseController::process_command_value(
+                evaluation_command, config_.get_max_output(), config_.get_min_output());
+            if (output_->elapsed_time_sec >= config_.get_evaluation_time_sec()) {
+                if (maximum_tracking_error_ <= config_.get_acceptable_error_threshold()) {
+                    state_ = AutoTunerState::COMPLETE;
+                    algorithm_state_ = PIDAutoTunerAlgorithmState::COMPLETE;
+                    output_->state = state_;
+                    output_->algorithm_state = algorithm_state_;
+                    output_->command_value = 0.0;
+                } else {
+                    ++tuning_iteration_;
+                    if (tuning_iteration_ >= config_.get_max_tuning_iterations()) {
+                        fail_tuning();
+                        return false;
+                    }
+                    output_->K_P *= 1.5;
+                    output_->K_I *= 1.5;
+                    output_->K_D *= 1.5;
+                    tuned_config_.set_parameters(config_.get_max_output(), config_.get_min_output(), output_->K_P,
+                                                 output_->K_I, output_->K_D, config_.get_sensor_scale());
+                    evaluation_started_ = false;
+                    integral_error_ = 0.0;
+                    previous_evaluation_error_ = 0.0;
+                    maximum_tracking_error_ = 0.0;
+                    output_->is_new = true;
+                    return true;
+                }
+            }
+            output_->is_new = true;
+            return true;
+        }
+        double elapsed_time = current_time_sec - step_start_time_sec_;
+        output_->elapsed_time_sec = elapsed_time;
+        output_->response = output_->sensor_input - baseline_sensor_;
+        if (elapsed_time >= config_.get_settle_time_sec()) {
+            double process_gain = output_->response / config_.get_output_step();
+            if (std::abs(output_->response) >= config_.get_minimum_response() && std::abs(process_gain) > 0.0) {
+                double proportional_gain = 1.0 / process_gain;
+                double integral_gain = proportional_gain / config_.get_settle_time_sec();
+                double derivative_gain = proportional_gain * config_.get_settle_time_sec() * 0.1;
+                if (config_.get_algorithm() == PIDAutoTuningAlgorithm::IMC_LAMBDA) {
+                    double time_constant_sec = config_.get_settle_time_sec();
+                    double lambda_sec = config_.get_lambda_sec();
+                    double dead_time_sec = config_.get_dead_time_sec();
+                    proportional_gain =
+                        (time_constant_sec + 0.5 * dead_time_sec) / (process_gain * (lambda_sec + 0.5 * dead_time_sec));
+                    double integral_time_sec = time_constant_sec + 0.5 * dead_time_sec;
+                    double derivative_time_sec =
+                        (time_constant_sec * dead_time_sec) / (2.0 * time_constant_sec + dead_time_sec);
+                    integral_gain = proportional_gain / integral_time_sec;
+                    derivative_gain = proportional_gain * derivative_time_sec;
+                }
+                tuned_config_.set_parameters(config_.get_max_output(), config_.get_min_output(), proportional_gain,
+                                             integral_gain, derivative_gain, config_.get_sensor_scale());
+                output_->K_P = proportional_gain;
+                output_->K_I = integral_gain;
+                output_->K_D = derivative_gain;
+                algorithm_state_ = PIDAutoTunerAlgorithmState::EVALUATE_PID;
+                output_->algorithm_state = algorithm_state_;
+                evaluation_started_ = false;
+                integral_error_ = 0.0;
+                previous_evaluation_error_ = 0.0;
+                maximum_tracking_error_ = 0.0;
+                output_->is_new = true;
+                return true;
+            }
+        }
+        if (elapsed_time >= config_.get_response_timeout_sec()) {
+            fail_tuning();
+            return false;
+        }
+        return true;
+    }
+
+    void PIDAutoTuner::fail_tuning() {
+        state_ = AutoTunerState::FAILED;
+        algorithm_state_ = PIDAutoTunerAlgorithmState::FAILED;
+        if (output_ != nullptr) {
+            output_->state = state_;
+            output_->algorithm_state = algorithm_state_;
+            output_->command_value = 0.0;
+            output_->is_new = true;
+        }
+    }
+}  // namespace fast::rf::NavigationSystem::ControllerTuner

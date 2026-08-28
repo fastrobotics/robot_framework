@@ -6,6 +6,9 @@ namespace fast::rf {
         enum ControllerType #LimeGreen {
             UNKNOWN=0,
             PID_CONTROLLER=1,
+            RELAY_AUTO_TUNE_CONTROLLER=2,
+            PID_AUTO_TUNER=3,
+            END_OF_LIST=4
         }
        
         interface IControllerOutput #LimeGreen {
@@ -67,6 +70,8 @@ namespace fast::rf {
             -double K_I
             -double K_D
             -double sensor_scale
+            -double dead_time_sec
+            -double lambda_sec
             
             
 
@@ -96,17 +101,49 @@ namespace fast::rf {
             FAILED
         }
 
+        enum PIDAutoTunerAlgorithmState #Yellow {
+            IDLE,
+            CAPTURE_BASELINE,
+            APPLY_STEP,
+            MEASURE_RESPONSE,
+            EVALUATE_PID,
+            COMPLETE,
+            FAILED
+        }
+
+        enum PIDAutoTuningAlgorithm #Yellow {
+            STEP_RESPONSE
+            ' RELAY_FEEDBACK
+            IMC_LAMBDA
+            ' ZIEGLER_NICHOLS_STEP_RESPONSE
+            ' ZIEGLER_NICHOLS_ULTIMATE_GAIN
+            ' COHEN_COON
+        }
+
         class PIDAutoTunerConfig #Yellow {
-            +void set_parameters(double max_value, double min_value, double P, double I, double D, double sensor_scale_factor)
-            +void set_tuning_parameters() // Add tuning parameters as required
-            +bool is_ok() // heck all config (parameters and tuning_parameters are ok) including bool parameters_set and tuning_parameters_set
+            +void set_parameters(double max_output, double min_output, double P, double I, double D, double sensor_scale_factor)
+            +void set_tuning_parameters(double output_step, double set_point_step, double settle_time_sec, double response_timeout_sec, double minimum_response, double acceptable_error_threshold, double evaluation_time_sec, size_t max_tuning_iterations)
+            +void set_algorithm(PIDAutoTuningAlgorithm algorithm)
+            +void set_imc_parameters(double dead_time_sec, double lambda_sec)
+            +bool is_ok()
             +string pretty()
             +double get_K_P()
             +double get_K_I()
             +double get_K_D()
             +double get_sensor_scale()
-            -bool parameters_set // True when set_parameters is called and values are ok
-            -bool tuning_parameters_set // True when set_tuning_parameters is called and values are ok
+            +double get_output_step()
+            +double get_set_point_step()
+            +double get_settle_time_sec()
+            +double get_response_timeout_sec()
+            +double get_minimum_response()
+            +double get_acceptable_error_threshold()
+            +double get_evaluation_time_sec()
+            +size_t get_max_tuning_iterations()
+            +PIDAutoTuningAlgorithm get_algorithm()
+            +double get_dead_time_sec()
+            +double get_lambda_sec()
+            -bool parameters_set
+            -bool tuning_parameters_set
             -double K_P
             -double K_I
             -double K_D
@@ -115,15 +152,26 @@ namespace fast::rf {
         PIDAutoTunerConfig -up-|> IControllerConfig
         class PIDAutoTunerOutput #Yellow {
             +AutoTunerState state
+            +PIDAutoTuningAlgorithm algorithm
+            +PIDAutoTunerAlgorithmState algorithm_state
+            +double set_point
+            +double sensor_input
             +double K_P
             +double K_I
             +double K_D
+            +double response
+            +double tracking_error
+            +double maximum_tracking_error
+            +double elapsed_time_sec
         }
         PIDAutoTunerOutput -up-|> IControllerOutput
         PIDAutoTunerOutput *-> AutoTunerState
+        PIDAutoTunerOutput *-> PIDAutoTunerAlgorithmState
+        PIDAutoTunerOutput *-> PIDAutoTuningAlgorithm
         class PIDAutoTuner #Yellow {
             +bool init()
-            +bool start_tuning() // No parameters.  Should have all config required at this point.
+            +ControllerType get_controller_type()
+            +bool start_tuning()
             +bool set_config(PIDAutoTunerConfig config)
             +bool new_set_point(double set_point,double time_stamp_sec)
             +bool new_sensor_input(double sensor_input,double time_stamp_sec)
@@ -131,13 +179,19 @@ namespace fast::rf {
             +PIDAutoTunerOutput* get_output()
             +string pretty()
             +bool clear()
-            -bool run_tuning_step(current_time_sec)
+            +bool is_tuning_complete()
+            +bool tuning_succeeded()
+            +PIDControllerConfig get_tuned_config()
+            +AutoTunerState get_state()
+            +PIDAutoTunerAlgorithmState get_algorithm_state()
+            -bool run_tuning_step(double current_time_sec)
             -PIDAutoTunerConfig config
         }
         PIDAutoTuner +-- AutoTunerState
         PIDAutoTuner -up-|> BaseController
         PIDAutoTuner *-down-> PIDAutoTunerConfig
         PIDAutoTuner *-down-> PIDAutoTunerOutput
+        PIDAutoTuner --> PIDAutoTunerAlgorithmState: <<use>>
 
     }
     

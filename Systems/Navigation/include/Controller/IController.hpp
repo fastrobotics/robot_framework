@@ -23,7 +23,8 @@ namespace fast::rf::NavigationSystem::Controller {
         UNKNOWN = 0,                     //!< Unknown Type
         PID_CONTROLLER = 1,              //!< PID Controller
         RELAY_AUTO_TUNE_CONTROLLER = 2,  //!< Relay Auto-Tune Controller
-        END_OF_LIST = 3                  //!< End of List, used for Range Checks
+        PID_AUTO_TUNER = 3,              //!< PID Auto-Tuner
+        END_OF_LIST = 4                  //!< End of List, used for Range Checks
     };
     /**
      * @brief Generic Controller Config interface
