@@ -35,11 +35,11 @@ public:
   /**
    * @brief Generic Update function
    *
-   * @param current_time_sec Current time stamp
+   * @param currentTimeSec Current time stamp
    * @return true If the process updated ok
    * @return false If the process did not update ok
    */
-  virtual bool update(double current_time_sec) = 0;
+  virtual bool update(double currentTimeSec) = 0;
 
   /**
    * @brief Pretty print the Process
@@ -53,14 +53,14 @@ public:
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
 
         /**
          * @brief Get the ready to arm object
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-  virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
+  virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() = 0;
         
   
 };

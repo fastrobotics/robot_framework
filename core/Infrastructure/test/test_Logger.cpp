@@ -24,15 +24,15 @@ TEST(Logger, BasicAssertions) {
     ASSERT_TRUE(Logger::init(Level::INFO, "Test-Logger"));
     ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_SUPPRESSED);
     ASSERT_EQ(Logger::log_info("I'm Ok"), Logger::LoggerStatus::LOG_WRITTEN);
-    UserClass SUT;
-    ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut;
+    ASSERT_TRUE(sut.are_you_ok());
 }
 TEST(Logger, ExceptionalCases) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "/Test-Logger2"));
     ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_WRITTEN);
     Logger::log_warn("What's up?");
-    UserClass SUT;
-    ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut;
+    ASSERT_TRUE(sut.are_you_ok());
     ASSERT_FALSE(Logger::init(Level::DEBUG, "/Test-Logger2"));  // Already Initialized
 }
 TEST(Logger, NegativeAssertions) {
@@ -50,11 +50,11 @@ TEST(Logger, LoggerLevelChecks) {
 }
 TEST(Logger, LongFile) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger-LongFile"));
-    UserClass SUT;
-    uint16_t line_counter = 0;
-    while (line_counter < (Logger::MAXLINE_COUNT * 2)) {
-        line_counter++;
-        ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut;
+    uint16_t lineCounter = 0;
+    while (lineCounter < (Logger::MAXLINE_COUNT * 2)) {
+        lineCounter++;
+        ASSERT_TRUE(sut.are_you_ok());
     }
 }
 using namespace fast::rf::messages::InfrastructureMsgs;

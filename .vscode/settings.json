@@ -27,5 +27,8 @@
     },
     "files.associations": {
         "*.mmd": "markdown"
+    },
+    "files.exclude": {
+        "**/templates/**": false 
     }
 }

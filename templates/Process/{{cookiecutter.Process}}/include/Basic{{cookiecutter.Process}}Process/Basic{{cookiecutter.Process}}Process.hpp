@@ -16,7 +16,7 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
 
 class Basic{{cookiecutter.Process}}ProcessConfig {
       public:
-      bool is_ok() {
+      bool isOk() {
             // Add checks here
             return false;
       }
@@ -45,22 +45,22 @@ public:
          */
         bool init() override;
 
-     bool set_config(Basic{{cookiecutter.Process}}ProcessConfig config) {
-            if(config.is_ok() == false) {
+     bool setConfig(Basic{{cookiecutter.Process}}ProcessConfig config) {
+            if(config.isOk() == false) {
                   fast::rf::Logger::log_error("Unable to set Config! " + config.pretty());
                   return false;
             }
-            config_ = config;
+            m_config = config;
             return true;
      }   
   /**
    * @brief Update with recent timing data
    *
-   * @param current_time_sec
+   * @param currentTimeSec
    * @return true If update executed ok
    * @return false If update executed with some error
    */
-  bool update(double current_time_sec) override;
+  bool update(double currentTimeSec) override;
 
   /**
    * @brief Human readable status of object
@@ -70,6 +70,6 @@ public:
    std::string pretty() override;
 
 private:
-  Basic{{cookiecutter.Process}}ProcessConfig config_;
+  Basic{{cookiecutter.Process}}ProcessConfig m_config;
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem
