@@ -191,8 +191,6 @@ namespace fast::rf {
         char file_path[120];
         LoggerStatus print_log(std::string filename, uint64_t linenumber, Level level, std::string tempstr);
         bool console_print{true};
-
-        // 1. Declare the static raw pointer (C++14 compatible syntax)
         static Logger* instance;
     };
 
