@@ -22,7 +22,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             ready_to_arm.ready_to_arm = true;
         } else {
             for (auto diagnostic : diagnostics) {
-                fast::rf::Logger::log_diagnostic(diagnostic);
+                fast::rf::Logger::logDiagnostic(diagnostic);
             }
             ready_to_arm.ready_to_arm = false;
         }

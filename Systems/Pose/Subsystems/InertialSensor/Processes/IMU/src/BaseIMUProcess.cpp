@@ -41,12 +41,12 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     }
     bool BaseIMUProcess::update(double current_time_sec) {
         if (current_time_sec <= 0.0) {  // Invalid Timestamp
-            fast::rf::Logger::log_warn("Invalid Timestamp!");
+            fast::rf::Logger::logWarn("Invalid Timestamp!");
             return false;
         }
         current_time_sec_ = current_time_sec;
         if (driver == nullptr) {
-            fast::rf::Logger::log_warn("Driver Not Initialized!");
+            fast::rf::Logger::logWarn("Driver Not Initialized!");
             diagnosticManager.update_diagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::FATAL,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No IMU Initialized!");
@@ -56,7 +56,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         } else {
             bool status = driver->update(current_time_sec_);
             if (status == false) {
-                fast::rf::Logger::log_warn("Driver Not Updated!");
+                fast::rf::Logger::logWarn("Driver Not Updated!");
 
                 diagnosticManager.update_diagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,

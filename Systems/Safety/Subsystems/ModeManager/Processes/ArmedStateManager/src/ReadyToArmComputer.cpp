@@ -16,7 +16,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // GCOV_EXCL_START
         // Key should already be guaranteed to be unique, so this shouldn't be possible.  But keep as a safe-guard.
         else {
-            fast::rf::Logger::log_error("Not able to add Monitor!");
+            fast::rf::Logger::logError("Not able to add Monitor!");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -39,16 +39,16 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         current_time_sec = current_time_sec_;
         if (expected_ready_to_arm_signals_ == 0) {
             ready_to_arm = false;
-            fast::rf::Logger::log_error("Expected Ready To Arm Signals == 0!  Need to configure!");
+            fast::rf::Logger::logError("Expected Ready To Arm Signals == 0!  Need to configure!");
             return false;
         }
         if (expected_ready_to_arm_signals_ > monitors.size()) {
             ready_to_arm = false;
-            fast::rf::Logger::log_warn("Not all Ready to Arm Signals Received Yet.");
+            fast::rf::Logger::logWarn("Not all Ready to Arm Signals Received Yet.");
             return true;
         }
         if (monitors.size() > expected_ready_to_arm_signals_) {
-            fast::rf::Logger::log_notice("Receiving more Ready To Arm Signals than Expected.");
+            fast::rf::Logger::logNotice("Receiving more Ready To Arm Signals than Expected.");
         }
         bool all_ready_to_arm = true;
         bool all_signals_rate_ok_ = true;
@@ -58,19 +58,19 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             // Shouldn't be possible since add_monitor() is only ran when it's already received, but this is a
             // safe-guard
             if (monitor.second.rx_count == 0) {
-                fast::rf::Logger::log_warn(monitor.second.pretty() + " NEVER RECEIVED!");
+                fast::rf::Logger::logWarn(monitor.second.pretty() + " NEVER RECEIVED!");
                 all_signals_ever_received_ = false;
                 all_ready_to_arm = false;
             }
             // GCOV_EXCL_STOP
             else if (monitor.second.ready_to_arm == false) {
-                fast::rf::Logger::log_warn(monitor.second.pretty() + " NOT READY!");
+                fast::rf::Logger::logWarn(monitor.second.pretty() + " NOT READY!");
                 all_ready_to_arm = false;
             } else {
                 double time_since_last = current_time_sec - monitor.second.time_last_updated;
                 if (time_since_last >= ReadyToArmComputer::PROCESS_TIMEOUT_SEC) {
                     monitor.second.ready_to_arm = false;
-                    fast::rf::Logger::log_warn(monitor.second.pretty() + " TIMEOUT!");
+                    fast::rf::Logger::logWarn(monitor.second.pretty() + " TIMEOUT!");
                     all_ready_to_arm = false;
                     all_signals_rate_ok_ = false;
                 }
@@ -87,7 +87,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
     }
     bool ReadyToArmComputer::new_ArmedStatus(fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) {
         if ((msg.systemID == 0) || (msg.subsystemID == 0) || (msg.processID == 0)) {
-            fast::rf::Logger::log_warn("Armed Status Message has undefined data: " + msg.pretty());
+            fast::rf::Logger::logWarn("Armed Status Message has undefined data: " + msg.pretty());
             return false;
         }
         auto key = generate_key(msg.systemID, msg.subsystemID, msg.processID);
@@ -97,7 +97,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             // Shouldn't be possible, since this is checking for a unique key, but it has to be unique because we
             // couldn't find it.  But this is a safe-guard.
             if (add_monitor(msg) == false) {
-                fast::rf::Logger::log_error("Unable to add Monitor for: " + msg.pretty());
+                fast::rf::Logger::logError("Unable to add Monitor for: " + msg.pretty());
                 return false;
             }
             // GCOV_EXCL_STOP

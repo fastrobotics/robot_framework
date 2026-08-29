@@ -54,7 +54,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
        protected:
         bool set_config(ArmedStateManagerProcessConfig config) override {
             if (config.is_ok() == false) {
-                fast::rf::Logger::log_error("Config is not Valid: " + config.pretty());
+                fast::rf::Logger::logError("Config is not Valid: " + config.pretty());
                 return false;
             }
             config_ = config;

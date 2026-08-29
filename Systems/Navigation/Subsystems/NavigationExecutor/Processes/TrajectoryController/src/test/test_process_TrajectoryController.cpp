@@ -70,7 +70,7 @@ TEST(BaseTrajectoryControllerProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.get_diagnostics().size(), 0);
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::messages::GeometryMsgs::OdomMsg pose;

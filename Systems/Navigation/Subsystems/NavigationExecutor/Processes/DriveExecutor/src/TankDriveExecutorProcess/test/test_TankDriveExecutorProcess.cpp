@@ -42,7 +42,7 @@ TEST(TankDriveExecutorProcess, UserInterfaceTests) {
         ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
     }
     ASSERT_TRUE(SUT.update(0.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_NE(general_output, nullptr);

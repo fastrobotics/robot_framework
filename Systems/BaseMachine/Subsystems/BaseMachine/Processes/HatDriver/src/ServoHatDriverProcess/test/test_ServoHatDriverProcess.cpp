@@ -27,7 +27,7 @@ TEST(ServoHatDriverProcess, BasicTests) {
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
     ASSERT_TRUE(SUT.update(0.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
 TEST(ServoHatDriverProcess, BasicConversionTests) {

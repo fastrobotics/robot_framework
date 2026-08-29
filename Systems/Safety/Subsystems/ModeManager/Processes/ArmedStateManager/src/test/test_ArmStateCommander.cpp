@@ -12,7 +12,7 @@ TEST(ArmStateCommander, InterfaceTests) {
     ASSERT_TRUE(SUT.init());
     auto str = SUT.pretty();
     ASSERT_GT(str.size(), 0);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.update_ready_to_arm(false));
 
@@ -47,7 +47,7 @@ TEST(ArmStateCommander, HappyFlowDisarmArm) {
 
     current_time += ArmStateCommander::ARMING_HOLD_TIME;
     ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::ARMED);
 
     current_time += 0.1;
@@ -59,7 +59,7 @@ TEST(ArmStateCommander, HappyFlowDisarmArm) {
     ASSERT_TRUE(response.request_approved);
     ASSERT_EQ(response.current_armed_state, fast::rf::ArmedState::DISARMED);
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
 
     ASSERT_TRUE(SUT.update_ready_to_arm(false));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED_CANNOTARM);
@@ -75,7 +75,7 @@ TEST(ArmStateCommander, HappyFlowDisarmArm) {
     ASSERT_FALSE(response.request_approved);
     ASSERT_EQ(response.current_armed_state, fast::rf::ArmedState::DISARMED_CANNOTARM);
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED_CANNOTARM);
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
 
     ASSERT_TRUE(SUT.update_ready_to_arm(true));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
@@ -88,7 +88,7 @@ TEST(ArmStateCommander, HappyFlowDisarmArm) {
     ASSERT_TRUE(response.request_approved);
     ASSERT_EQ(response.current_armed_state, fast::rf::ArmedState::ARMING);
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::ARMING);
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     current_time += 0.1;
 
     request.requested_armed_state = fast::rf::ArmedState::DISARMED;
@@ -96,5 +96,5 @@ TEST(ArmStateCommander, HappyFlowDisarmArm) {
     ASSERT_TRUE(response.request_approved);
     ASSERT_EQ(response.current_armed_state, fast::rf::ArmedState::DISARMED);
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
 }

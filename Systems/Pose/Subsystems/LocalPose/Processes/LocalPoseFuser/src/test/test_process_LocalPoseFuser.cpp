@@ -81,14 +81,14 @@ TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
     fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg local_pose_angular_acc;
     ASSERT_TRUE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_FALSE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 }

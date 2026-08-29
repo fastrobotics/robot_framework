@@ -10,7 +10,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // GCOV_EXCL_START
         // No reason to check this, diagnostics should likely always initialize ok
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Diagnostics.");
+            fast::rf::Logger::logError("Unable to initialize Diagnostics.");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -19,7 +19,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // No reason to check this, always should be ok
         status = arm_state_commander.init();
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Arm State Commander.");
+            fast::rf::Logger::logError("Unable to initialize Arm State Commander.");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -56,7 +56,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // GCOV_EXCL_START
         status = ready_to_arm_computer.init();
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Ready To Arm Computer");
+            fast::rf::Logger::logError("Unable to initialize Ready To Arm Computer");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -67,21 +67,21 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // GCOV_EXCL_START
         // Should always be ok
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to update Base Armed State Manager Process.");
+            fast::rf::Logger::logWarn("Unable to update Base Armed State Manager Process.");
             return false;
         }
         // GCOV_EXCL_STOP
 
         status = ready_to_arm_computer.update(current_time_sec);
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to update Ready To Arm Computer.");
+            fast::rf::Logger::logWarn("Unable to update Ready To Arm Computer.");
             return false;
         }
         // GCOV_EXCL_START
         // Should always be ok
         status = arm_state_commander.update_ready_to_arm(ready_to_arm_computer.get_ready_to_arm());
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to Update Arm State Commander with latest Ready To Arm.");
+            fast::rf::Logger::logWarn("Unable to Update Arm State Commander with latest Ready To Arm.");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -89,7 +89,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         // Should always be ok
         status = arm_state_commander.update(current_time_sec);
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to update Arm State Commander.");
+            fast::rf::Logger::logWarn("Unable to update Arm State Commander.");
             return false;
         }
         // GCOV_EXCL_STOP
@@ -129,7 +129,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg msg) {
         bool status = ready_to_arm_computer.new_ArmedStatus(msg);
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to process: " + msg.pretty());
+            fast::rf::Logger::logWarn("Unable to process: " + msg.pretty());
             return false;
         }
         return true;

@@ -20,12 +20,12 @@ TEST(ReadyToArmComputer, InterfaceTests) {
     ASSERT_TRUE(SUT.update(1.0));
     auto str = SUT.pretty();
     ASSERT_GT(str.size(), 0);
-    fast::rf::Logger::log_debug("\n" + SUT.pretty());
+    fast::rf::Logger::logDebug("\n" + SUT.pretty());
     ASSERT_TRUE(SUT.update(2.0));
 
     ASSERT_TRUE(SUT.new_ArmedStatus(process1));
     ASSERT_FALSE(SUT.get_ready_to_arm());
-    fast::rf::Logger::log_debug("\n" + SUT.pretty());
+    fast::rf::Logger::logDebug("\n" + SUT.pretty());
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process1));
     ASSERT_TRUE(SUT.update(2.1));
@@ -45,7 +45,7 @@ TEST(ReadyToArmComputer, InterfaceTests) {
                                                  // module, we should go ahead and use it.
     ASSERT_TRUE(SUT.update(2.3));
     ASSERT_TRUE(SUT.get_ready_to_arm());
-    fast::rf::Logger::log_debug("\n" + SUT.pretty());
+    fast::rf::Logger::logDebug("\n" + SUT.pretty());
 }
 TEST(ReadyToArmComputer, FailureTests) {
     ReadyToArmComputer SUT;
@@ -88,7 +88,7 @@ TEST(ReadyToArmComputer, FullTests) {
 
     current_time += 1.0 + ReadyToArmComputer::PROCESS_TIMEOUT_SEC / 2.0;
     ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_FALSE(SUT.get_ready_to_arm());
     ASSERT_FALSE(SUT.is_all_signals_rate_ok());
 
@@ -103,7 +103,7 @@ TEST(ReadyToArmComputer, FullTests) {
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_TRUE(SUT.get_ready_to_arm());
     ASSERT_TRUE(SUT.is_all_signals_rate_ok());
 
@@ -111,13 +111,13 @@ TEST(ReadyToArmComputer, FullTests) {
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_FALSE(SUT.get_ready_to_arm());
 
     process2.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ArmedStatus(process2));
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_TRUE(SUT.get_ready_to_arm());
 }

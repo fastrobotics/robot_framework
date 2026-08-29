@@ -64,7 +64,7 @@ class TestDriveExecutor : public DriveExecutor::IDriveExecutorProcess {
 };
 
 TEST(NavigationExecutorSubsystem, InterfaceTests) {
-    fast::rf::Logger::log_notice("Testing Navigation Executor Interfaces (Function Signatures).");
+    fast::rf::Logger::logNotice("Testing Navigation Executor Interfaces (Function Signatures).");
     TestTrajectorySelector selector;
     TestTrajectoryController controller;
     TestDriveExecutor executor;

@@ -112,7 +112,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     process1.ready_to_arm = true;
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
 
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     bool comms_diagnostic_check = false;
@@ -160,7 +160,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     current_time += 0.1 + ReadyToArmComputer::PROCESS_TIMEOUT_SEC;
     ASSERT_TRUE(SUT.update(current_time));
 
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     comms_diagnostic_check = false;
@@ -173,7 +173,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     }
     ASSERT_TRUE(comms_diagnostic_check);
 
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process2));
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process3));
@@ -210,7 +210,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
         ASSERT_TRUE(SUT.update(current_time));
     }
 
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
 
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::ARMED);
 }

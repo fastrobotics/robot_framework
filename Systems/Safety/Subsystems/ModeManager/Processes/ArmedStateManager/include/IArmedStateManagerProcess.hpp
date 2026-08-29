@@ -22,7 +22,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         uint8_t expected_arm_signals{0};
         bool is_ok() {
             if (expected_arm_signals == 0) {
-                fast::rf::Logger::log_error("Config is Invalid: " + pretty());
+                fast::rf::Logger::logError("Config is Invalid: " + pretty());
                 return false;
             }
             return true;

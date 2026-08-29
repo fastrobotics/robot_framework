@@ -18,7 +18,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         // GCOV_EXCL_START
         // MockServoHatDriver will always be ok
         if (driver->init() == false) {
-            fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting!");
+            fast::rf::Logger::logError("Unable to Initialize Driver.  Exiting!");
             return 1;
         }
         // GCOV_EXCL_STOP

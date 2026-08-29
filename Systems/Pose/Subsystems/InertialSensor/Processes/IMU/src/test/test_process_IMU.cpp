@@ -116,7 +116,7 @@ TEST(IMUProcess, BasicTests) {
     ASSERT_TRUE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
-    fast::rf::Logger::log_notice(SUT.pretty());
+    fast::rf::Logger::logNotice(SUT.pretty());
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
@@ -136,7 +136,7 @@ TEST(IMUProcess, BadDriverConfiguration) {
     ASSERT_FALSE(SUT.update(0.1));
     auto diagnostics = SUT.get_diagnostics();
     ASSERT_GT(diagnostics.size(), 0);
-    fast::rf::Logger::log_notice(SUT.pretty());
+    fast::rf::Logger::logNotice(SUT.pretty());
 
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
 }

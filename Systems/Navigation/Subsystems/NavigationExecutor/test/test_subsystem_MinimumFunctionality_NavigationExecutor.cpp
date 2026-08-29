@@ -9,7 +9,7 @@
 
 using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 TEST(NavigationExecutorSubsystem, MinimumFunctionalityTests) {
-    fast::rf::Logger::log_notice("Testing Navigation Executor Minimum Functionality.");
+    fast::rf::Logger::logNotice("Testing Navigation Executor Minimum Functionality.");
 
     TrajectorySelector::BasicTrajectorySelectorProcess selector;
     TrajectoryController::BasicTrajectoryControllerProcess controller;

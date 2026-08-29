@@ -4,17 +4,17 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
 
     bool BasicTeleopControlProcess::init(ControlDevice device, JoystickCalibrationData joy_calibration_data) {
         if ((device == ControlDevice::UNKNOWN) && (device == ControlDevice::END_OF_LIST)) {
-            fast::rf::Logger::log_error("Unable to initialize an Unknown Control Device.");
+            fast::rf::Logger::logError("Unable to initialize an Unknown Control Device.");
             return false;
         }
         bool status = mapper.init(device);
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Joystick Mapper");
+            fast::rf::Logger::logError("Unable to initialize Joystick Mapper");
             return false;
         }
         status = scaler.init(device, joy_calibration_data);
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Joystick Scaler.");
+            fast::rf::Logger::logError("Unable to initialize Joystick Scaler.");
             return false;
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
@@ -22,7 +22,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         status = diagnosticManager.initialize_diagnostics(diagnostic_types);
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to initialize Diagnostics.");
+            fast::rf::Logger::logError("Unable to initialize Diagnostics.");
         }
 
         status = diagnosticManager.update_diagnostic(
@@ -33,14 +33,14 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     bool BasicTeleopControlProcess::update(double current_time_sec) {
         bool status = BaseTeleopControlProcess::update(current_time_sec);
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to update!");
+            fast::rf::Logger::logWarn("Unable to update!");
             return false;
         }
         status = diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
                                                      fast::rf::Level::NOERROR,
                                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Ok");
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to set Diagnostic.");
+            fast::rf::Logger::logError("Unable to set Diagnostic.");
             return false;
         }
         return true;
@@ -56,11 +56,11 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Joystick Data");
         if (status == false) {
-            fast::rf::Logger::log_error("Unable to set Diagnostic.");
+            fast::rf::Logger::logError("Unable to set Diagnostic.");
             return false;
         }
         if (joy.buttons.size() < 4) {
-            fast::rf::Logger::log_error("Joystick doesn't have enough buttons!");
+            fast::rf::Logger::logError("Joystick doesn't have enough buttons!");
             return false;
         }
         if (joy.buttons[1] == 1) {
@@ -86,12 +86,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             str += "\nTwist:\n\n";
             str += new_twist.pretty();
 
-            fast::rf::Logger::log_debug(str);
+            fast::rf::Logger::logDebug(str);
         } else if (operation_mode == OperationMode::RUN) {
             desired_twist = new_twist;
         } else {
-            fast::rf::Logger::log_error("Operation Mode: " + std::to_string((uint8_t)operation_mode) +
-                                        " Not Supported.");
+            fast::rf::Logger::logError("Operation Mode: " + std::to_string((uint8_t)operation_mode) +
+                                       " Not Supported.");
             return false;
         }
 
