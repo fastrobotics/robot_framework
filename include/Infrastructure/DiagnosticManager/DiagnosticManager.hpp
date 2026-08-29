@@ -25,12 +25,12 @@ namespace fast::rf::core::infrastructure {
         /**
          * @brief Construct a new Diagnostic Manager object
          *
-         * @param system_id
-         * @param subsystem_id
-         * @param process_id
+         * @param systemId
+         * @param subsystemId
+         * @param processId
          */
-        DiagnosticManager(uint8_t system_id, uint8_t subsystem_id, uint8_t process_id)
-            : system_id(system_id), subsystem_id(subsystem_id), process_id(process_id) {}
+        DiagnosticManager(uint8_t systemId, uint8_t subsystemId, uint8_t processId)
+            : m_systemId(systemId), m_subsystemId(subsystemId), m_processId(processId) {}
 
         /**
          * @brief Destroy the Diagnostic Manager object
@@ -43,17 +43,17 @@ namespace fast::rf::core::infrastructure {
          * @return true
          * @return false
          */
-        bool is_initialized() { return initialized; }
+        bool isInitialized() { return m_initialized; }
 
         /**
          * @brief Initialize a Diagnostic
          * @details All diagnostics will be initialized to an "INITIALIZING" state.
          *
-         * @param diagnostic_types
+         * @param diagnosticTypes
          * @return true
          * @return false
          */
-        bool initialize_diagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
+        bool initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes);
 
         /**
          * @brief Update a diagnostic
@@ -65,15 +65,15 @@ namespace fast::rf::core::infrastructure {
          * @return true
          * @return false
          */
-        bool update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
-                               fast::rf::DiagnosticDefinition::DiagnosticMessage message, std::string description);
+        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                              fast::rf::DiagnosticDefinition::DiagnosticMessage message, std::string description);
 
         /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics();
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics();
 
         /**
          * @brief Get the text of the Diagnostic Manager in a human readable string
@@ -88,14 +88,14 @@ namespace fast::rf::core::infrastructure {
          * @param level
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics(fast::rf::Level level);
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics(fast::rf::Level level);
 
        private:
-        uint8_t system_id;
-        uint8_t subsystem_id;
-        uint8_t process_id;
-        bool initialized{false};
+        uint8_t m_systemId;
+        uint8_t m_subsystemId;
+        uint8_t m_processId;
+        bool m_initialized{false};
         std::map<fast::rf::DiagnosticDefinition::DiagnosticType, fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
-            diagnostic_map;
+            m_diagnosticMap;
     };
 }  // namespace fast::rf::core::infrastructure

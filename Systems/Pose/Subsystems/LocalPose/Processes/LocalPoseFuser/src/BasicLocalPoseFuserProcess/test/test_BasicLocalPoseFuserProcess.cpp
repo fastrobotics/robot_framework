@@ -18,7 +18,7 @@ TEST(BasicLocalPoseFuserProcess, BasicTests) {
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
     ASSERT_TRUE(SUT.update(1.0));
     fast::rf::Logger::logDebug(SUT.pretty());
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);

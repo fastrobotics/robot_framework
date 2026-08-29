@@ -13,7 +13,7 @@ class TestIMUProcessInterface : public IIMUProcess {
    public:
     bool init([[maybe_unused]] IMUConfig imu_config) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -40,7 +40,7 @@ TEST(TestIMUProcessInterface, InterfaceTests) {
     imu_config.imu_type = IIMUDriver::convert_name("UNKNOWN");
     imu_config.imu_device_name = "";
     ASSERT_TRUE(SUT.init(imu_config));
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.1));
     fast::rf::messages::SensorMsgs::ImuMsg imu_data;
     ASSERT_TRUE(SUT.get_imu_data(imu_data));
@@ -57,7 +57,7 @@ class TestBaseIMUProcess : public BaseIMUProcess {
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseIMUProcess::update(current_time_sec); }
@@ -67,12 +67,12 @@ class TestBaseIMUProcess : public BaseIMUProcess {
         return str;
     }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
@@ -93,7 +93,7 @@ TEST(BaseIMUProcess, BasicAssertions) {
     imu_config.imu_type = IIMUDriver::convert_name("MOCK");
     imu_config.imu_device_name = "";
     ASSERT_TRUE(SUT.init(imu_config));
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.1));
     ASSERT_TRUE(SUT.inject_error());
     ASSERT_TRUE(SUT.update(1.0));
@@ -114,7 +114,7 @@ TEST(IMUProcess, BasicTests) {
     imu_config.imu_device_name = "";
     ASSERT_TRUE(SUT.init(imu_config));
     ASSERT_TRUE(SUT.update(0.1));
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     fast::rf::Logger::logNotice(SUT.pretty());
     for (auto diagnostic : diagnostics) {
@@ -134,7 +134,7 @@ TEST(IMUProcess, BadDriverConfiguration) {
     imu_config.imu_device_name = "";
     ASSERT_FALSE(SUT.init(imu_config));
     ASSERT_FALSE(SUT.update(0.1));
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     fast::rf::Logger::logNotice(SUT.pretty());
 

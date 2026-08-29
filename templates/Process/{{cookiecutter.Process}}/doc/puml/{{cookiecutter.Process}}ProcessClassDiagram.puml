@@ -20,13 +20,13 @@ namespace fast::rf {
 
         interface I{{cookiecutter.Process}}Process  {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
         }
         abstract Base{{cookiecutter.Process}}Process {
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
           #string pretty()

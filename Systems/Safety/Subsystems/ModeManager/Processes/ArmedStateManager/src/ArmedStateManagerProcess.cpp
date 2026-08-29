@@ -6,7 +6,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         // GCOV_EXCL_START
         // No reason to check this, diagnostics should likely always initialize ok
         if (status == false) {
@@ -93,21 +93,21 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             return false;
         }
         // GCOV_EXCL_STOP
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "SW Updating OK");
         if (ready_to_arm_computer.is_all_signals_ever_received() == false) {
-            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS,
-                                                fast::rf::Level::WARN,
-                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA,
-                                                "Some Ready to Arm Signals not ever received.");
+            diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS,
+                                               fast::rf::Level::WARN,
+                                               fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA,
+                                               "Some Ready to Arm Signals not ever received.");
         } else if (ready_to_arm_computer.is_all_signals_rate_ok() == false) {
-            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS,
-                                                fast::rf::Level::WARN,
-                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
-                                                "Some Ready to Arm Signals being Dropped.");
+            diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS,
+                                               fast::rf::Level::WARN,
+                                               fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
+                                               "Some Ready to Arm Signals being Dropped.");
         } else {
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "All Ready to Arm Signals being Received.");
         }

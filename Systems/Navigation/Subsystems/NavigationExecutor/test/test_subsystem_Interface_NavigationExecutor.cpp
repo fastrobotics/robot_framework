@@ -12,7 +12,7 @@ class TestTrajectorySelector : public TrajectorySelector::ITrajectorySelectorPro
    public:
     bool init() override { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
         return diagnostics;
     }
@@ -22,7 +22,7 @@ class TestTrajectoryController : public TrajectoryController::ITrajectoryControl
    public:
     bool init() override { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
         return diagnostics;
     }
@@ -44,7 +44,7 @@ class TestDriveExecutor : public DriveExecutor::IDriveExecutorProcess {
    public:
     bool init() override { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
         return diagnostics;
     }

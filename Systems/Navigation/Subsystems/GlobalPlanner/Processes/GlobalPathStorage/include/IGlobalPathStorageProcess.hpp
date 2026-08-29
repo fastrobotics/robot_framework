@@ -45,6 +45,6 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage 
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
     };
 }  // namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage

@@ -4,7 +4,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySel
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         // Add others as needed
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool BasicTrajectorySelectorProcess::update(double current_time_sec) {

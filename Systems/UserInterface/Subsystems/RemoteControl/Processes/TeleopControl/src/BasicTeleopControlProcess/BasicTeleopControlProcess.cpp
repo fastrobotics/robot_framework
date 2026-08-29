@@ -20,12 +20,12 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         if (status == false) {
             fast::rf::Logger::logError("Unable to initialize Diagnostics.");
         }
 
-        status = diagnosticManager.update_diagnostic(
+        status = diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "No Joystick Data Yet.");
         return status;
@@ -36,9 +36,9 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
             fast::rf::Logger::logWarn("Unable to update!");
             return false;
         }
-        status = diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
-                                                     fast::rf::Level::NOERROR,
-                                                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Ok");
+        status = diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                                    fast::rf::Level::NOERROR,
+                                                    fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Ok");
         if (status == false) {
             fast::rf::Logger::logError("Unable to set Diagnostic.");
             return false;
@@ -52,7 +52,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
     }
     bool BasicTeleopControlProcess::new_joy(fast::rf::messages::SensorMsgs::JoyMsg joy) {
         last_input_time_sec = current_time_sec_;
-        bool status = diagnosticManager.update_diagnostic(
+        bool status = diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Joystick Data");
         if (status == false) {

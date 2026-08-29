@@ -11,7 +11,7 @@ class TestGlobalPathRoutePlannerProcessInterface : public IGlobalPathRoutePlanne
    public:
     bool init() { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -20,7 +20,7 @@ class TestGlobalPathRoutePlannerProcessInterface : public IGlobalPathRoutePlanne
 TEST(TestGlobalPathRoutePlannerProcessInterface, InterfaceTests) {
     TestGlobalPathRoutePlannerProcessInterface SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBaseGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerProcess {
@@ -29,7 +29,7 @@ class TestBaseGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerP
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return base_update(current_time_sec); }
@@ -37,6 +37,6 @@ class TestBaseGlobalPathRoutePlannerProcess : public BaseGlobalPathRoutePlannerP
 TEST(BaseGlobalPathRoutePlannerProcess, BasicAssertions) {
     TestBaseGlobalPathRoutePlannerProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
 }

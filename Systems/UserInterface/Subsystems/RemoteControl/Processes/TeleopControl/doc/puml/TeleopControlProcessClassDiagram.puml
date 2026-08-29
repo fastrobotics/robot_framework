@@ -55,7 +55,7 @@ namespace fast::rf {
         }
         interface ITeleopControlProcess #LimeGreen {
           +{abstract} bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
           +{abstract} bool update(double current_time_sec)
@@ -89,7 +89,7 @@ namespace fast::rf {
         JoystickScaler --> JoystickCalibrationData: <<use>>
         JoystickScaler --> ControlDevice: <<use>>
         abstract BaseTeleopControlProcess #LimeGreen {
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
           +bool set_operation_mode(OperationMode mode)

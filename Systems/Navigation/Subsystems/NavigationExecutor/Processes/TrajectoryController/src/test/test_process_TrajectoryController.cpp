@@ -12,7 +12,7 @@ class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerPro
    public:
     bool init() override { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -42,7 +42,7 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseTrajectoryControllerProcess::update(current_time_sec); }
@@ -55,12 +55,12 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
     }
     std::string pretty() { return BaseTrajectoryControllerProcess::pretty(); }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
@@ -68,7 +68,7 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
 TEST(BaseTrajectoryControllerProcess, BasicAssertions) {
     TestBaseTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_TRUE(SUT.update(0.0));

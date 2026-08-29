@@ -13,15 +13,15 @@ namespace fast::rf {
     }
     namespace core::Infrastructure {
         class DiagnosticManager #LimeGreen {
-            +bool initialize_diagnostics(DiagnosticType[] diagnostic_types)
-            +bool update_diagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
-            +bool is_initialized()
-            +DiagnosticMsg[] get_diagnostics()
-            +DiagnosticMsg[] get_diagnostics(Level)
+            +bool initializeDiagnostics(DiagnosticType[] diagnosticTypes)
+            +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+            +bool isInitialized()
+            +DiagnosticMsg[] getDiagnostics()
+            +DiagnosticMsg[] getDiagnostics(Level)
             -DiagnosticMsg[] diagnostics
-            -uint8_t system_id
-            -uint8_t subsystem_id
-            -uint8_t process_id
+            -uint8_t m_systemId
+            -uint8_t m_subsystemId
+            -uint8_t m_processId
         }
         DiagnosticManager --> DiagnosticMsg: <<use>>
         DiagnosticManager --> DiagnosticType: <<use>>

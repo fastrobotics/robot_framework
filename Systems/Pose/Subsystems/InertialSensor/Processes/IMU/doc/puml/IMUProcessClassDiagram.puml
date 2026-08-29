@@ -25,7 +25,7 @@ namespace fast::rf {
     package InertialSensorSubsystem #LightYellow;line:blue {
         interface IIMUProcess #LimeGreen {
           +{abstract} bool init(IMUDevice imu_type,string imu_device_name)
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
@@ -37,7 +37,7 @@ namespace fast::rf {
         IIMUProcess --> IMUDevice: <<use>>
         
         abstract BaseIMUProcess #LimeGreen {
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
           #string pretty()

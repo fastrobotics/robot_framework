@@ -14,7 +14,7 @@ TEST(BasicInertialSensorFuserProcess, BasicTests) {
     ASSERT_TRUE(SUT.update(0.0));
     fast::rf::messages::SensorMsgs::ImuMsg sensor_imu_data;
     ASSERT_TRUE(SUT.new_imu_data(0, sensor_imu_data));
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);

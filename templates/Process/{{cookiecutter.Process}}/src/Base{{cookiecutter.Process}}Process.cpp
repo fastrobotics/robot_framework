@@ -4,12 +4,12 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
     return true;
   }
   std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> Base{{cookiecutter.Process}}Process::getDiagnostics() {
-            return diagnosticManager.get_diagnostics();
+            return diagnosticManager.getDiagnostics();
         }
 bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
 
   mCurrentTimeSec = currentTimeSec;
-  if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+  if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
       readyToArm.ready_to_arm = true;
   } else {
     readyToArm.ready_to_arm = false;
@@ -18,7 +18,7 @@ bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
   return true;
 }
 bool Base{{cookiecutter.Process}}Process::initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes) {
-   bool status = diagnosticManager.initialize_diagnostics(diagnosticTypes);
+   bool status = diagnosticManager.initializeDiagnostics(diagnosticTypes);
    return status;
 }
 std::string Base{{cookiecutter.Process}}Process::pretty() {

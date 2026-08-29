@@ -44,8 +44,8 @@ namespace fast::rf::NavigationSystem::GlobalPlannerSubsystem::GlobalPathStorage 
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
-            return diagnosticManager.get_diagnostics();
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
+            return diagnosticManager.getDiagnostics();
         }
 
        protected:

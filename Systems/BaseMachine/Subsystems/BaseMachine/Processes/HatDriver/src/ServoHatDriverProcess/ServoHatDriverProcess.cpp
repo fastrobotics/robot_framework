@@ -8,7 +8,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
 
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
 
 #ifdef ARCHITECTURE_ARMV7L
         driver = new ServoHatDriver();
@@ -22,13 +22,13 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
             return 1;
         }
         // GCOV_EXCL_STOP
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Servo Hat SW Ready.");
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Servo Hat Actuators Ready.");
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING, "Waiting for R/C Commands.");
         return status;
@@ -49,7 +49,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         return true;
     }
     bool ServoHatDriverProcess::setServoValue(uint16_t channel, uint16_t value) {
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving R/C Commands.");
         if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {

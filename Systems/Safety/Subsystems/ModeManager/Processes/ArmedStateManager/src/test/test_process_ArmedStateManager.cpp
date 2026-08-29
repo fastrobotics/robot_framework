@@ -14,7 +14,7 @@ class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
     bool init() { return true; }
     bool set_config([[maybe_unused]] ArmedStateManagerProcessConfig config) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -46,7 +46,7 @@ TEST(TestArmedStateManagerProcessInterface, InterfaceTests) {
     ArmedStateManagerProcessConfig config;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.set_config(config));
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
     fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request;
     auto response = SUT.request_armstate_change(request);
@@ -61,7 +61,7 @@ class TestBaseArmedStateManagerProcess : public BaseArmedStateManagerProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseArmedStateManagerProcess::update(current_time_sec); }
@@ -85,7 +85,7 @@ class TestBaseArmedStateManagerProcess : public BaseArmedStateManagerProcess {
 TEST(BaseArmedStateManagerProcess, BasicAssertions) {
     TestBaseArmedStateManagerProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest request;
     auto response = SUT.request_armstate_change(request);
@@ -102,7 +102,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     config.expected_arm_signals = 3;
     ASSERT_TRUE(SUT.set_config(config));
     ASSERT_TRUE(SUT.update(current_time));
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
 
     fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg process1;
@@ -113,7 +113,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     ASSERT_TRUE(SUT.new_ReadyToArmStatus(process1));
 
     fast::rf::Logger::logInfo(SUT.pretty());
-    diagnostics = SUT.get_diagnostics();
+    diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     bool comms_diagnostic_check = false;
     for (auto diagnostic : diagnostics) {
@@ -161,7 +161,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     ASSERT_TRUE(SUT.update(current_time));
 
     fast::rf::Logger::logInfo(SUT.pretty());
-    diagnostics = SUT.get_diagnostics();
+    diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     comms_diagnostic_check = false;
     for (auto diagnostic : diagnostics) {
@@ -182,7 +182,7 @@ TEST(ArmedStateManagerProcess, BasicTests) {
     current_time += 0.1;
     ASSERT_TRUE(SUT.update(current_time));
     ASSERT_EQ(SUT.get_ArmCommandMsg().armed_state, fast::rf::ArmedState::DISARMED);
-    diagnostics = SUT.get_diagnostics();
+    diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);

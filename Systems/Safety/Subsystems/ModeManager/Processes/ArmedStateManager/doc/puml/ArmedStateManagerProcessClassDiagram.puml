@@ -66,7 +66,7 @@ namespace fast::rf {
         interface IArmedStateManagerProcess #LimeGreen {
           +{abstract} bool init()
           +{abstract} bool set_config(ArmedStateManagerProcessConfig config)
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
           +{abstract} ArmStateChangeSrvResponse request_armstate_change(ArmStateChangeSrvRequest request)
@@ -76,7 +76,7 @@ namespace fast::rf {
         IArmedStateManagerProcess --> ArmedStateManagerProcessConfig: <<use>>
         abstract BaseArmedStateManagerProcess #LimeGreen {
           
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool get_ready_to_arm()
           #bool set_config(ArmedStateManagerProcessConfig config)
           #bool update(double current_time_sec)
