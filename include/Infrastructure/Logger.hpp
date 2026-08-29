@@ -192,6 +192,7 @@ namespace fast::rf {
         LoggerStatus print_log(std::string filename, uint64_t linenumber, Level level, std::string tempstr);
         bool console_print{true};
         static Logger* instance;
+        static Logger* trial_instance;
     };
 
 }  // namespace fast::rf
