@@ -2,10 +2,17 @@
 
 - [ADR: Naming Conventions](#adr-naming-conventions)
 - [Description](#description)
+- [Casing Conventions](#casing-conventions)
   - [Name components for what they DO, not what data they manipulate](#name-components-for-what-they-do-not-what-data-they-manipulate)
   - [Namespace hierarchy](#namespace-hierarchy)
-  - [Namcespace vs Package usage](#namcespace-vs-package-usage)
+  - [Namespace vs Package usage](#namespace-vs-package-usage)
+  - [File Naming](#file-naming)
+  - [Class/Struct Names](#classstruct-names)
   - [Function Naming](#function-naming)
+  - [Variable Naming](#variable-naming)
+    - [Prefix/Suffix Conventions](#prefixsuffix-conventions)
+  - [Constants](#constants)
+- [Further Reading](#further-reading)
 - [Alternatives Investigated](#alternatives-investigated)
 - [Implications](#implications)
   - [Middlware Context](#middlware-context)
@@ -15,6 +22,14 @@
 # ADR: Naming Conventions
 
 # Description
+
+# Casing Conventions
+The following case styles are typically used:
+| Style        | Description                                    | Usage Requirements                                    |
+| ------------ | ---------------------------------------------- | ----------------------------------------------------- |
+| `snake_case` | All lowercase, words separated by underscores  | Used for external libraries, standard libraries, etc. |
+| `camelCase`  | Starts lowercase, subsequent words capitalized | Typical content created in this and dependent content |
+| `PascalCase` | Every word is capitalized                      | See Below.                                            |
 
 ## Name components for what they DO, not what data they manipulate
 
@@ -31,7 +46,7 @@ Modules should be named according to the following convention. As an example:
 
 This practice prevents namespace collisions, and inforces proper dependency management.
 
-## Namcespace vs Package usage
+## Namespace vs Package usage
 
 Packages are used in the following use cases:
 
@@ -39,17 +54,47 @@ Packages are used in the following use cases:
 
 Here packages should following the same definition as a namespace.
 
+## File Naming
+Files should be named based on the following types:
+| Type of File                                                                                 | Convention                                |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| A file about a class (Class Header, Implementation, Markdown document, SW Architecture, etc) | `PascalCase<ExtraInformation>.<Extenion>` |
+| A file that implements a test for a Class                                                    | `test_PascalCase`                         |
+
+## Class/Struct Names
+Class Names and Structs should follow `PascalCase`.
+
 ## Function Naming
 
 While there can be a variety of valid function names, the following are some preferred recommendations:
 
-| Function     | Purpose                                                                                                                                                                  |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `new_<blah>` | Pass data to a function. Implies some level of processing (though can be trivial or zero).                                                                               |
-| `set_<blah>` | Assign data to a function. Implies practically NO processing, data is set blindly. Some minor data enforcing is allowed, such as array boundaries                        |
-| `get_<blah>` | Retreive data. Can be processing implied, such as getting a value from an array and popping that element from the array. Strongly consider however the impact on a user. |
+| Function        | Purpose                                                                                                                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `new_camelCase` | Pass data to a function. Implies some level of processing (though can be trivial or zero).                                                                               |
+| `set_camelCase` | Assign data to a function. Implies practically NO processing, data is set blindly. Some minor data enforcing is allowed, such as array boundaries                        |
+| `get_camelCase` | Retreive data. Can be processing implied, such as getting a value from an array and popping that element from the array. Strongly consider however the impact on a user. |
+
+## Variable Naming
+Variable Naming conventions are important to make it easy to quickly understand the software.
+
+
+### Prefix/Suffix Conventions
+| Variable                    | Prefix/Suffix | Comments                                                                                                                      |
+| --------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Member variables in a class | `m_camelCase` | Objective is to quickly distinguish in reading order the encapsulation of an attribute (instead of having an `_`) at the end) |
+| Global variables            | `g_camelCase` |                                                                                                                               |
+| Static variables            | `s_camelCase` |
+|                             |
+
+
+## Constants
+Constants should always be named in the form `UPPER_CASE_WITH_UNDERSCORES`.
+
+# Further Reading
+The more extensive style guide that is enforced can be found in the [clang-tidy file](../../../.clang-tidy].
 
 # Alternatives Investigated
+Style is highly subjective.  Important part is to be consistent, such that it becomes a non-issue.
 
 # Implications
 

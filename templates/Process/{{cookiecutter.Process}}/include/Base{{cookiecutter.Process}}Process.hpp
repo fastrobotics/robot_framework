@@ -34,51 +34,56 @@ public:
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID,
                                 fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID)
                                  {}
-  /**
-         * @brief Initialize the base object.  Called by Concrete Function.
-         *
-         * @return true
-         * @return false
-         */
-        virtual bool init();
-  
-                                 /**
-   * @brief Update the base object.  Called by Concrete Function.
-   *
-   * @param current_time_sec
-   * @return true If ok
-   * @return false If not ok
-   */
-  virtual bool update(double current_time_sec); //!< Base function to update
                   
   /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
-            return diagnosticManager.get_diagnostics();
-        }
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override = 0;
 
          /**
          * @brief Get the ready to arm object
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() override = 0; { return m_readyToArm; }
 
-      
-
-protected:
+      protected:
+       /**
+         * @brief Initialize the base object.  Called by Concrete Function.
+         *
+         * @return true
+         * @return false
+         */
+        bool init() override = 0;
+  
+                                 /**
+   * @brief Update the base object.  Called by Concrete Function.
+   *
+   * @param currentTimeSec
+   * @return true If ok
+   * @return false If not ok
+   */
+  bool update(double currentTimeSec) override = 0; //!< Base function to update
+ 
   /**
-         * @brief Pretty print the Process
+         * @brief Pretty print the Process.  Called by concrete object.
          * 
          * @return std::string 
          */
-    virtual std::string pretty();
-  double current_time_sec_{-1.0};    //!< Current system time
+    std::string pretty() override = 0;
+        double getCurrentTimeSec() { return m_currentTimeSec;}
+
+    fast::rf::core::infrastructure::DiagnosticManager getDiagnosticManager() { return m_diagnosticManager;}  
+  
+    bool initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
+
+private:
+  
+  double m_currentTimeSec{-1.0};    //!< Current system time
   fast::rf::core::infrastructure::DiagnosticManager
-            diagnosticManager;  //!< Entity responsible for managing diagnostics.
-   fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
+            m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
+   fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

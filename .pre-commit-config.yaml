@@ -1,6 +1,11 @@
 repos:
   - repo: local
     hooks:
+      - id: pre-commit-clang-tidy
+        name: Run Clang Tidy for Changed Files
+        entry: ./scripts/pre_commit/run_clangtidy.sh
+        language: script
+
       - id: pre-commit-code-format
         name: Code Formatting for Changed Files
         entry: ./scripts/pre_commit/format_code.sh
