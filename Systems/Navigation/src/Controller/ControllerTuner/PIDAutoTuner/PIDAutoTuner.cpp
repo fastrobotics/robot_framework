@@ -23,13 +23,16 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             }
         }
     }  // namespace
-
+    /**
+     * @todo Restructure this to make it easier to read.  Print out what check is failing.  Don't do float compare
+     * equality tests like this.
+     */
     bool PIDAutoTunerConfig::is_ok() {
-        if (!parameters_set_ || !tuning_parameters_set_ || max_output_ <= min_output_ || output_step_ == 0.0 ||
-            set_point_step_ == 0.0 || settle_time_sec_ <= 0.0 || response_timeout_sec_ < settle_time_sec_ ||
-            minimum_response_ <= 0.0 || acceptable_error_threshold_ <= 0.0 || evaluation_time_sec_ <= 0.0 ||
-            max_tuning_iterations_ == 0 || sensor_scale_ == 0.0 ||
-            (algorithm_ == PIDAutoTuningAlgorithm::IMC_LAMBDA && (dead_time_sec_ < 0.0 || lambda_sec_ <= 0.0))) {
+        if ((!parameters_set_) || (!tuning_parameters_set_) || (max_output_ <= min_output_) || (output_step_ == 0.0) ||
+            (set_point_step_ == 0.0) || (settle_time_sec_ <= 0.0) || (response_timeout_sec_ < settle_time_sec_) ||
+            (minimum_response_ <= 0.0) || (acceptable_error_threshold_ <= 0.0) || (evaluation_time_sec_ <= 0.0) ||
+            (max_tuning_iterations_ == 0) || (sensor_scale_ == 0.0) ||
+            (algorithm_ == PIDAutoTuningAlgorithm::UNKNOWN) || (dead_time_sec_ < 0.0) || (lambda_sec_ <= 0.0)) {
             fast::rf::Logger::log_error("Invalid PID auto-tuner configuration!");
             return false;
         }

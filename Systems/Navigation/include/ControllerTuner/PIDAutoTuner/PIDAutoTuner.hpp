@@ -16,8 +16,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         UNSUPPORTED_ALGORITHM
     };
     enum class PIDAutoTuningAlgorithm {
-        STEP_RESPONSE,
-        IMC_LAMBDA,
+        UNKNOWN = 0,
+        STEP_RESPONSE = 1,
+        IMC_LAMBDA = 2,
         // RELAY_FEEDBACK,
         // ZIEGLER_NICHOLS_STEP_RESPONSE,
         // ZIEGLER_NICHOLS_ULTIMATE_GAIN,
@@ -100,7 +101,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         double acceptable_error_threshold_{0.05};
         double evaluation_time_sec_{1.0};
         std::size_t max_tuning_iterations_{3};
-        PIDAutoTuningAlgorithm algorithm_{PIDAutoTuningAlgorithm::STEP_RESPONSE};
+        PIDAutoTuningAlgorithm algorithm_{PIDAutoTuningAlgorithm::UNKNOWN};
         double dead_time_sec_{0.0};
         double lambda_sec_{0.0};
         bool parameters_set_{false};
@@ -115,7 +116,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         std::string failure_reason_string;
         std::string failure_attribute;
         std::string failure_remediation;
-        PIDAutoTuningAlgorithm algorithm{PIDAutoTuningAlgorithm::STEP_RESPONSE};
+        PIDAutoTuningAlgorithm algorithm{PIDAutoTuningAlgorithm::UNKNOWN};
         PIDAutoTunerAlgorithmState algorithm_state{PIDAutoTunerAlgorithmState::IDLE};
         double set_point{0.0};
         double sensor_input{0.0};
