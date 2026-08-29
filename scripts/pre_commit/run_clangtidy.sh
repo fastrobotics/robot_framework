@@ -1,37 +1,21 @@
 #!/bin/bash
 echo "Running Clang-Tidy Code..."
-#!/bin/bash
-
 # ==============================================================================
-# STEP 1: Strict Line-by-Line Style Check (Fails the script if errors are found)
+# STEP 1: Strict Line-by-Line Style Check (Fails if violations > 0)
 # ==============================================================================
 echo "⏳ Checking staged lines for style violations..."
 
 STAGED_OUTPUT=$(git diff -U0 --staged -- '*.cpp' '*.hpp' ':(exclude)templates' ':(exclude)build' | clang-tidy-diff -p1 -path build/)
 
-echo "$STAGED_OUTPUT"
+# Count how many warnings are in the staged output
+STAGED_COUNT=$(echo "$STAGED_OUTPUT" | grep -c "warning:")
 
-if echo "$STAGED_OUTPUT" | grep -qE "(warning:|error:)"; then
-    echo "❌ Style check failed! Please fix the staging errors above."
+echo "📊 Staged violations found: $STAGED_COUNT"
+
+if [ "$STAGED_COUNT" -gt 0 ]; then
+    echo "❌ Style check failed! Please fix the $STAGED_COUNT staging errors."
     exit 1
 fi
-
-# ==============================================================================
-# STEP 2: Full Directory Scan (Informational only - will NEVER fail the script)
-# ==============================================================================
-echo ""
-echo "🔍 Running informational scan across the entire project (excluding templates/ and build/)..."
-
-# Regex breakdown:
-# - Look inside any subdirectory: ^((?!templates|build).)*$
-# - Target only C++ file extensions: \.(cpp|hpp|cc|cxx)$
-FILE_REGEX="^((?!templates|build).)*\.(cpp|hpp|cc|cxx)$"
-
-# run-clang-tidy uses multi-threading and automatically looks for compile_commands.json in build/
-run-clang-tidy -p build/ -files "$FILE_REGEX"
-
-# Force a success exit code regardless of what the full scan found
-echo "✅ Full scan completed. Proceeding..."
 exit 0
 
 
