@@ -50,11 +50,11 @@ TEST(Logger, LoggerLevelChecks) {
 }
 TEST(Logger, LongFile) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger-LongFile"));
-    UserClass SUT;
-    uint16_t line_counter = 0;
-    while (line_counter < (Logger::MAXLINE_COUNT * 2)) {
-        line_counter++;
-        ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut;
+    uint16_t lineCounter = 0;
+    while (lineCounter < (Logger::MAXLINE_COUNT * 2)) {
+        lineCounter++;
+        ASSERT_TRUE(sut.are_you_ok());
     }
 }
 using namespace fast::rf::messages::InfrastructureMsgs;
