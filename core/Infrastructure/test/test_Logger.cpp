@@ -24,14 +24,14 @@ TEST(Logger, BasicAssertions) {
     ASSERT_TRUE(Logger::init(Level::INFO, "Test-Logger"));
     ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_SUPPRESSED);
     ASSERT_EQ(Logger::log_info("I'm Ok"), Logger::LoggerStatus::LOG_WRITTEN);
-    UserClass SUT;
-    ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut;
+    ASSERT_TRUE(sut.are_you_ok());
 }
 TEST(Logger, ExceptionalCases) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "/Test-Logger2"));
     ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_WRITTEN);
     Logger::log_warn("What's up?");
-    UserClass SUT;
+    UserClass sut;
     ASSERT_TRUE(SUT.are_you_ok());
     ASSERT_FALSE(Logger::init(Level::DEBUG, "/Test-Logger2"));  // Already Initialized
 }
