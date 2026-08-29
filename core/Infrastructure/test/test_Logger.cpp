@@ -31,8 +31,8 @@ TEST(Logger, ExceptionalCases) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "/Test-Logger2"));
     ASSERT_EQ(Logger::log_debug("Help"), Logger::LoggerStatus::LOG_WRITTEN);
     Logger::log_warn("What's up?");
-    UserClass sut;
-    ASSERT_TRUE(SUT.are_you_ok());
+    UserClass sut_b;
+    ASSERT_TRUE(sut_b.are_you_ok());
     ASSERT_FALSE(Logger::init(Level::DEBUG, "/Test-Logger2"));  // Already Initialized
 }
 TEST(Logger, NegativeAssertions) {
