@@ -1,21 +1,18 @@
 #!/bin/bash
 echo "Running Clang-Tidy Code..."
-# ==============================================================================
-# STEP 1: Strict Line-by-Line Style Check (Fails if violations > 0)
-# ==============================================================================
-echo "⏳ Checking staged lines for style violations..."
+# 1. Capture the stdout of the tool while still printing it to the terminal screen
+# We capture it into a variable to evaluate if any errors occurred.
+OUTPUT=$(git diff -U0 --staged -- '*.cpp' '*.hpp' ':(exclude)templates' ':(exclude)build' | clang-tidy-diff -p1 -path build/)
 
-STAGED_OUTPUT=$(git diff -U0 --staged -- '*.cpp' '*.hpp' ':(exclude)templates' ':(exclude)build' | clang-tidy-diff -p1 -path build/)
+# 2. Print the actual results out to the console so you can see the mistakes
+echo "$OUTPUT"
 
-# Count how many warnings are in the staged output
-STAGED_COUNT=$(echo "$STAGED_OUTPUT" | grep -c "warning:")
-
-echo "📊 Staged violations found: $STAGED_COUNT"
-
-if [ "$STAGED_COUNT" -gt 0 ]; then
-    echo "❌ Style check failed! Please fix the $STAGED_COUNT staging errors."
+# 3. Force the script to fail if any warnings or errors are found in the output text
+if echo "$OUTPUT" | grep -qE "(warning:|error:)"; then
+    echo "❌ Style check failed! Please fix the errors listed above before committing."
     exit 1
+else
+    echo "✅ Style check passed!"
+    exit 0
 fi
-exit 0
-
 
