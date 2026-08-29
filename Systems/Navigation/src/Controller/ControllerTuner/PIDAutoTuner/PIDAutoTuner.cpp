@@ -28,16 +28,81 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
      * equality tests like this.
      */
     bool PIDAutoTunerConfig::is_ok() {
-        if ((!parameters_set_) || (!tuning_parameters_set_) || (max_output_ <= min_output_) || (output_step_ == 0.0) ||
-            (set_point_step_ == 0.0) || (settle_time_sec_ <= 0.0) || (response_timeout_sec_ < settle_time_sec_) ||
-            (minimum_response_ <= 0.0) || (acceptable_error_threshold_ <= 0.0) || (evaluation_time_sec_ <= 0.0) ||
-            (max_tuning_iterations_ == 0) || (sensor_scale_ == 0.0) ||
-            (algorithm_ == PIDAutoTuningAlgorithm::UNKNOWN) || (dead_time_sec_ < 0.0) || (lambda_sec_ <= 0.0)) {
-            fast::rf::Logger::log_error("Invalid PID auto-tuner configuration!");
-            return false;
+        bool any_error = false;
+        if (!parameters_set_) {
+            fast::rf::Logger::log_error("Parameters not set!");
+            any_error = true;
         }
-        if (output_step_ > max_output_ || output_step_ < min_output_) {
-            fast::rf::Logger::log_error("PID auto-tuner output step is outside the output limits!");
+        if (!tuning_parameters_set_) {
+            fast::rf::Logger::log_error("Tuning parameters not set!");
+            any_error = true;
+        }
+        if (max_output_ <= min_output_) {
+            fast::rf::Logger::log_error("Max Output < Min Output!");
+            any_error = true;
+        }
+        if (output_step_ == 0.0) {
+            fast::rf::Logger::log_error("Output Step is 0!");
+            any_error = true;
+        }
+        if (set_point_step_ == 0.0) {
+            fast::rf::Logger::log_error("Set point step is 0!");
+            any_error = true;
+        }
+        if (settle_time_sec_ == 0.0) {
+            fast::rf::Logger::log_error("Settle time is 0!");
+            any_error = true;
+        }
+        if (response_timeout_sec_ == 0.0) {
+            fast::rf::Logger::log_error("Response time is 0!");
+            any_error = true;
+        }
+        if (response_timeout_sec_ < settle_time_sec_) {
+            fast::rf::Logger::log_error("Response Time < Settle Time!");
+            any_error = true;
+        }
+        if (minimum_response_ == 0.0) {
+            fast::rf::Logger::log_error("Minimum Response is 0!");
+            any_error = true;
+        }
+        if (acceptable_error_threshold_ <= 0.0) {
+            fast::rf::Logger::log_error("Acceptable Error Threshold <= 0!");
+            any_error = true;
+        }
+        if (evaluation_time_sec_ <= 0.0) {
+            fast::rf::Logger::log_error("Evalutation Time <= 0!");
+            any_error = true;
+        }
+        if (max_tuning_iterations_ == 0) {
+            fast::rf::Logger::log_error("Max Tuning Iterations == 0!");
+            any_error = true;
+        }
+        if (sensor_scale_ == 0.0) {
+            fast::rf::Logger::log_error("Sensor Scale == 0!");
+            any_error = true;
+        }
+        if (algorithm_ == PIDAutoTuningAlgorithm::UNKNOWN) {
+            fast::rf::Logger::log_error("Unknown Tuning Algorithm!");
+            any_error = true;
+        }
+        if (dead_time_sec_ < 0.0) {
+            fast::rf::Logger::log_error("Dead Time < 0!");
+            any_error = true;
+        }
+        if (lambda_sec_ <= 0.0) {
+            fast::rf::Logger::log_error("Lambda < 0!");
+            any_error = true;
+        }
+        if (output_step_ > max_output_) {
+            fast::rf::Logger::log_error("Output Step > Max Output!");
+            any_error = true;
+        }
+        if (output_step_ < min_output_) {
+            fast::rf::Logger::log_error("Output Step < Min Output!");
+            any_error = true;
+        }
+        if (any_error) {
+            fast::rf::Logger::log_error("Invalid Configuration!");
             return false;
         }
         return true;
