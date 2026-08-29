@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Running Clang-Tidy Code..."
-git diff --staged --name-only --diff-filter=ACMR -- '*.cpp' '*.hpp' | grep -vE '^(templates/|build/)' | xargs -I {} clang-tidy {} -- -std=c++14
+git diff -U0 --staged -- '*.cpp' '*.hpp' | grep -vE '^(b/)?(templates/|build/)' | clang-tidy-diff -p1 -- -std=c++14
