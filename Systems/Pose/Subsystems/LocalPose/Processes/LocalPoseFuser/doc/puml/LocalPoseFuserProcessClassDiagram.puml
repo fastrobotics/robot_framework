@@ -26,7 +26,7 @@ namespace fast::rf {
       package LocalPoseFuser #LightYellow;line:blue {
         interface ILocalPoseFuserProcess #LimeGreen  {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool new_machine_inertial_data(ImuMsg machine_inertial_data)
           +{abstract} bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)
@@ -35,7 +35,7 @@ namespace fast::rf {
         }
         abstract BaseLocalPoseFuserProcess #LimeGreen {
           +bool init()
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
           +bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)

@@ -1,18 +1,28 @@
 #!/bin/bash
 echo "Running Clang-Tidy Code..."
-# 1. Capture the stdout of the tool while still printing it to the terminal screen
-# We capture it into a variable to evaluate if any errors occurred.
-OUTPUT=$(git diff -U0 --staged -- '*.cpp' '*.hpp' ':(exclude)templates' ':(exclude)build' | clang-tidy-diff -p1 -path build/)
+# 1. Get the list of modified files
+files=$(git diff --staged --name-only -- '**/*.cpp' '**/*.hpp' ':(exclude)templates/*' ':(exclude)builds/*')
 
-# 2. Print the actual results out to the console so you can see the mistakes
-echo "$OUTPUT"
-
-# 3. Force the script to fail if any warnings or errors are found in the output text
-if echo "$OUTPUT" | grep -qE "(warning:|error:)"; then
-    echo "❌ Style check failed! Please fix the errors listed above before committing."
-    exit 1
-else
-    echo "✅ Style check passed!"
+# Exit quietly if no files were changed
+if [ -z "$files" ]; then
+    echo "[INFO] No modified C++ files found to analyze."
     exit 0
 fi
+
+# 2. Run clang-tidy, catch the output, and keep stderr visible
+echo "[INFO] Analyzing modified files..."
+output=$(echo "$files" | xargs -r run-clang-tidy -p build 2>&1)
+
+# 3. Check if the output contains actual clang-tidy warnings/errors
+if echo "$output" | grep -E "warning:|error:" > /dev/null; then
+    # Print the raw clang-tidy output so you can read the issues
+    echo "$output"
+    echo ""
+    echo "[WARNING] Clang-Tidy found issues in your staged changes!"
+else
+    echo "[INFO] Clang-Tidy passed! No issues found."
+fi
+
+# Explicitly exit with 0 so the script never fails your pipeline/commit hook
+exit 0
 

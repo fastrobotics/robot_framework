@@ -28,7 +28,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             }
             if (hold_timer >= ArmStateCommander::ARMING_HOLD_TIME) {
                 arm_command.armed_state = fast::rf::ArmedState::ARMED;
-                fast::rf::Logger::log_notice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+                fast::rf::Logger::logNotice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
             }
             last_time_sec = current_time_sec;
             run_time += delta_time;
@@ -40,12 +40,12 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             auto prev_state = arm_command.armed_state;
             arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
             if (prev_state != arm_command.armed_state) {
-                fast::rf::Logger::log_warn("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+                fast::rf::Logger::logWarn("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
             }
         } else {
             if (arm_command.armed_state == fast::rf::ArmedState::DISARMED_CANNOTARM) {
                 arm_command.armed_state = fast::rf::ArmedState::DISARMED;
-                fast::rf::Logger::log_notice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+                fast::rf::Logger::logNotice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
             }
         }
         return true;
@@ -59,7 +59,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         if (request.requested_armed_state == fast::rf::ArmedState::ARMED) {
             if (arm_command.armed_state == fast::rf::ArmedState::DISARMED) {
                 arm_command.armed_state = fast::rf::ArmedState::ARMING;
-                fast::rf::Logger::log_notice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+                fast::rf::Logger::logNotice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
                 response.current_armed_state = arm_command.armed_state;
 
                 response.request_approved = true;
@@ -69,14 +69,14 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
             if ((arm_command.armed_state == fast::rf::ArmedState::ARMED) ||
                 (arm_command.armed_state == fast::rf::ArmedState::ARMING)) {
                 arm_command.armed_state = fast::rf::ArmedState::DISARMED;
-                fast::rf::Logger::log_notice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
+                fast::rf::Logger::logNotice("Changing Armed State to: " + fast::rf::pretty(arm_command.armed_state));
                 response.current_armed_state = arm_command.armed_state;
                 response.request_approved = true;
                 return response;
             }
         }
-        fast::rf::Logger::log_warn("Unable to Approve Arm Request");
-        fast::rf::Logger::log_warn(pretty());
+        fast::rf::Logger::logWarn("Unable to Approve Arm Request");
+        fast::rf::Logger::logWarn(pretty());
         response.request_approved = false;
         return response;
     }

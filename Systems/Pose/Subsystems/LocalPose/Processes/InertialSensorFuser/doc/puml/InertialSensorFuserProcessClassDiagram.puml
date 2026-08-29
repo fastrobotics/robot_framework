@@ -22,7 +22,7 @@ namespace fast::rf {
       package InertialSensorFuser #LightYellow;line:blue {
         interface IInertialSensorFuserProcess #LimeGreen {
           +{abstract} bool init(uint8 imu_count)
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update(double current_time_sec)
           +{abstract} string pretty()
@@ -31,7 +31,7 @@ namespace fast::rf {
         }
         abstract BaseInertialSensorFuserProcess #LimeGreen {
           +bool init(uint8 imu_count)
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +ReadyToArmStatusMsg get_ready_to_arm()
           +bool get_machine_inertial_data(ImuMsg imu_msg)

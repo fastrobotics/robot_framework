@@ -10,7 +10,7 @@ TEST(PIDController, BasicAssertions) {
     PIDController SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(0.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.0, current_time_sec));
@@ -25,7 +25,7 @@ TEST(PIDController, BasicAssertions) {
     ASSERT_TRUE(output->is_new);
     output = SUT.get_output();
     ASSERT_FALSE(output->is_new);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 }
 TEST(PIDController, FailureTests) {
     PIDController SUT;
@@ -43,7 +43,7 @@ TEST(PIDController, SimpleCompute) {
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(1.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.2, current_time_sec));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     auto output = SUT.get_output();
     ASSERT_TRUE(output->is_new);
     ASSERT_FLOAT_EQ(output->P_term, 1.2);

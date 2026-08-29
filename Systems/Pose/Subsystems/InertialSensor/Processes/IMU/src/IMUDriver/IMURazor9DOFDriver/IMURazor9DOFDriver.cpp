@@ -30,7 +30,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         // No practical way to unit test
         serial_fd = open(imu_device_name.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
         if (serial_fd < 0) {
-            fast::rf::Logger::log_error("Unable to open Serial Port!  Using: " + imu_device_name);
+            fast::rf::Logger::logError("Unable to open Serial Port!  Using: " + imu_device_name);
             return false;
         }
         struct termios tty;
@@ -49,11 +49,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool IMURazor9DOFDriver::update(double current_time_sec_) {
         bool status = BaseIMUDriver::update(current_time_sec_);
         if (status == false) {
-            fast::rf::Logger::log_warn("Unable to update Driver!");
+            fast::rf::Logger::logWarn("Unable to update Driver!");
             return false;
         }
         if (serial_fd < 0) {
-            fast::rf::Logger::log_error("Serial Port not Accessible!");
+            fast::rf::Logger::logError("Serial Port not Accessible!");
             return false;
         }
         // GCOV_EXCL_START
@@ -64,7 +64,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         int numBytesRead = read(serial_fd, &readBuffer, sizeof(readBuffer) - 1);
 
         if (numBytesRead < 0) {
-            // fast::rf::Logger::log_warn("Error Reading: " + std::string(strerror(errno)));
+            // fast::rf::Logger::logWarn("Error Reading: " + std::string(strerror(errno)));
         } else if (numBytesRead == 0) {
             increment_packet_rx_dropped_counter();
         } else {

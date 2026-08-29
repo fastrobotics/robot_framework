@@ -47,7 +47,7 @@ public:
 
      bool setConfig(Basic{{cookiecutter.Process}}ProcessConfig config) {
             if(config.isOk() == false) {
-                  fast::rf::Logger::log_error("Unable to set Config! " + config.pretty());
+                  fast::rf::Logger::logError("Unable to set Config! " + config.pretty());
                   return false;
             }
             m_config = config;

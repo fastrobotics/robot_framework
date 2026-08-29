@@ -25,7 +25,7 @@ namespace fast::rf {
         }
         interface IDriveExecutorProcess #LimeGreen {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] get_diagnostics()
+          +{abstract} DiagnosticMsg[] getDiagnostics()
           +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} IDriveExecutorOutput new_cmd(TwistMsg cmd)
           +{abstract} IDriveExecutorOutput get_output()
@@ -34,7 +34,7 @@ namespace fast::rf {
         }
         IDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
         abstract BaseDriveExecutorProcess #LimeGreen {
-          +DiagnosticMsg[] get_diagnostics()
+          +DiagnosticMsg[] getDiagnostics()
           +bool update(double current_time_sec)
           +string pretty()
           +ReadyToArmStatusMsg get_ready_to_arm()

@@ -20,14 +20,14 @@ TEST(ServoHatDriverProcess, BasicTests) {
     robot_arm_command.armed_state = fast::rf::ArmedState::ARMED;
     SUT.update_RobotArmCommand(robot_arm_command);
     ASSERT_TRUE(SUT.setServoValue(0, 0));
-    auto diagnostics = SUT.get_diagnostics();
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
     ASSERT_TRUE(SUT.update(0.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
 TEST(ServoHatDriverProcess, BasicConversionTests) {

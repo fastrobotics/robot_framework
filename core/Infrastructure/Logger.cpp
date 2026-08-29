@@ -3,30 +3,30 @@
 
 namespace fast::rf {
 
-    Logger* Logger::instance = nullptr;
-    Logger::Logger(Level level, std::string name, bool write_to_file) : write_to_file(write_to_file) {
+    Logger* Logger::s_instance = nullptr;
+    Logger::Logger(Level level, std::string name, bool writeToFile) : m_writeToFile(writeToFile) {
         if ((level == Level::UNKNOWN) || (level == Level::END_OF_LIST)) {
-            logger_ok = false;
+            m_loggerOk = false;
             return;
         }
-        verbosity = level;
-        line_counter = 0;
+        m_verbosity = level;
+        m_lineCounter = 0;
 
         if (!name.empty() && name.at(0) == '/') {
             name.erase(name.begin());
         }
         std::replace(name.begin(), name.end(), '/', '_');
-        log_name = name.empty() ? "default_logger" : name;
-        if (write_to_file) {
+        m_logName = name.empty() ? "default_logger" : name;
+        if (writeToFile) {
             char buffer[100];
-            sprintf(buffer, "%s.out", log_name.c_str());
+            sprintf(buffer, "%s.out", m_logName.c_str());
             std::string home_dir = std::string(getenv("HOME"));
-            sprintf(file_path, "%s/var/log/output/%s", home_dir.c_str(), buffer);
+            sprintf(m_filePath, "%s/var/log/output/%s", home_dir.c_str(), buffer);
             std::ofstream log_file;
-            log_file.open(file_path);  // Overwrite file.
+            log_file.open(m_filePath);  // Overwrite file.
             log_file.close();
         }
-        logger_ok = true;
+        m_loggerOk = true;
     }
     Logger::LoggerStatus Logger::LOG_DIAGNOSTIC(std::string filename, uint64_t linenumber,
                                                 fast::rf::messages::InfrastructureMsgs::DiagnosticMsg msg) {
@@ -53,25 +53,24 @@ namespace fast::rf {
         return LoggerStatus::FAILED_TO_OPEN;
     }
     Logger::LoggerStatus Logger::LOG_DEBUG(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::DEBUG, tempstr);
+        return printLog(filename, linenumber, Level::DEBUG, tempstr);
     }
     Logger::LoggerStatus Logger::LOG_INFO(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::INFO, tempstr);
+        return printLog(filename, linenumber, Level::INFO, tempstr);
     }
     Logger::LoggerStatus Logger::LOG_NOTICE(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::NOTICE, tempstr);
+        return printLog(filename, linenumber, Level::NOTICE, tempstr);
     }
     Logger::LoggerStatus Logger::LOG_WARN(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::WARN, tempstr);
+        return printLog(filename, linenumber, Level::WARN, tempstr);
     }
     Logger::LoggerStatus Logger::LOG_ERROR(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::ERROR, tempstr);
+        return printLog(filename, linenumber, Level::ERROR, tempstr);
     }
     Logger::LoggerStatus Logger::LOG_FATAL(std::string filename, uint64_t linenumber, std::string tempstr) {
-        return print_log(filename, linenumber, Level::FATAL, tempstr);
+        return printLog(filename, linenumber, Level::FATAL, tempstr);
     }
-    Logger::LoggerStatus Logger::print_log(std::string filename, uint64_t linenumber, Level level,
-                                           std::string tempstr) {
+    Logger::LoggerStatus Logger::printLog(std::string filename, uint64_t linenumber, Level level, std::string tempstr) {
         time_t rawtime;
         struct tm* timeinfo;
         char datebuffer[80];
@@ -82,31 +81,31 @@ namespace fast::rf {
         strftime(datebuffer, 80, "%d/%m/%Y %I:%M:%S", timeinfo);
 
         std::string str(datebuffer);
-        if (write_to_file) {
-            log_file.open(file_path, std::ios::out | std::ios::app | std::ios::binary | std::ios::ate);
+        if (m_writeToFile) {
+            m_logFile.open(m_filePath, std::ios::out | std::ios::app | std::ios::binary | std::ios::ate);
         }
 
-        std::string swcode_info = "";
+        std::string swCodeInfo = "";
         if (linenumber > 0) {
-            swcode_info = filename + "(" + std::to_string(linenumber) + ")";
+            swCodeInfo = filename + "(" + std::to_string(linenumber) + ")";
         }
-        if (logger_ok == false) {
-            printf("%s[%s %s]: ERROR: LOGGER HAS FAILED: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, log_name.c_str(),
+        if (m_loggerOk == false) {
+            printf("%s[%s %s]: ERROR: LOGGER HAS FAILED: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, m_logName.c_str(),
                    tempstr.c_str(), END_COLOR.c_str());
             return LoggerStatus::FAILED_TO_OPEN;
         }
 
-        bool file_is_open = write_to_file && log_file.is_open();
-        if (file_is_open || (!write_to_file && console_print)) {
-            if (level >= verbosity) {
-                line_counter++;
+        bool fileIsOpen = m_writeToFile && m_logFile.is_open();
+        if (fileIsOpen || (!m_writeToFile && m_consolePrint)) {
+            if (level >= m_verbosity) {
+                m_lineCounter++;
                 switch (level) {
                     case Level::DEBUG:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: DEBUG: " << swcode_info << " " << tempstr << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: DEBUG: " << swCodeInfo << " " << tempstr << std::endl;
                         }
-                        if (console_print) {
-                            printf("[%s %s]: DEBUG: %s\n", datebuffer, log_name.c_str(), tempstr.c_str());
+                        if (m_logFile) {
+                            printf("[%s %s]: DEBUG: %s\n", datebuffer, m_logName.c_str(), tempstr.c_str());
                         }
 #ifdef ROS_INSTALLED
                         if (use_ROS_logger == true) {
@@ -115,11 +114,11 @@ namespace fast::rf {
 #endif
                         break;
                     case Level::INFO:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: INFO: " << swcode_info << " " << tempstr << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: INFO: " << swCodeInfo << " " << tempstr << std::endl;
                         }
-                        if (console_print) {
-                            printf("[%s %s]: INFO: %s\n", datebuffer, log_name.c_str(), tempstr.c_str());
+                        if (m_consolePrint) {
+                            printf("[%s %s]: INFO: %s\n", datebuffer, m_logName.c_str(), tempstr.c_str());
                         }
 #ifdef ROS_INSTALLED
                         if (use_ROS_logger == true) {
@@ -128,12 +127,12 @@ namespace fast::rf {
 #endif
                         break;
                     case Level::NOTICE:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: NOTICE: " << swcode_info << " " << tempstr
-                                     << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: NOTICE: " << swCodeInfo << " " << tempstr
+                                      << std::endl;
                         }
-                        if (console_print) {
-                            printf("%s[%s %s]: NOTICE: %s%s\n", GREEN_FOREGROUND.c_str(), datebuffer, log_name.c_str(),
+                        if (m_consolePrint) {
+                            printf("%s[%s %s]: NOTICE: %s%s\n", GREEN_FOREGROUND.c_str(), datebuffer, m_logName.c_str(),
                                    tempstr.c_str(), END_COLOR.c_str());
                         }
 #ifdef ROS_INSTALLED
@@ -143,11 +142,11 @@ namespace fast::rf {
 #endif
                         break;
                     case Level::WARN:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: WARN: " << swcode_info << " " << tempstr << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: WARN: " << swCodeInfo << " " << tempstr << std::endl;
                         }
-                        if (console_print) {
-                            printf("%s[%s %s]: WARN: %s%s\n", YELLOW_FOREGROUND.c_str(), datebuffer, log_name.c_str(),
+                        if (m_consolePrint) {
+                            printf("%s[%s %s]: WARN: %s%s\n", YELLOW_FOREGROUND.c_str(), datebuffer, m_logName.c_str(),
                                    tempstr.c_str(), END_COLOR.c_str());
                         }
 #ifdef ROS_INSTALLED
@@ -157,11 +156,11 @@ namespace fast::rf {
 #endif
                         break;
                     case Level::ERROR:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: ERROR: " << swcode_info << " " << tempstr << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: ERROR: " << swCodeInfo << " " << tempstr << std::endl;
                         }
-                        if (console_print) {
-                            printf("%s[%s %s]: ERROR: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, log_name.c_str(),
+                        if (m_consolePrint) {
+                            printf("%s[%s %s]: ERROR: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, m_logName.c_str(),
                                    tempstr.c_str(), END_COLOR.c_str());
                         }
 #ifdef ROS_INSTALLED
@@ -171,11 +170,11 @@ namespace fast::rf {
 #endif
                         break;
                     case Level::FATAL:
-                        if (file_is_open) {
-                            log_file << "[" << datebuffer << "]: FATAL: " << swcode_info << " " << tempstr << std::endl;
+                        if (fileIsOpen) {
+                            m_logFile << "[" << datebuffer << "]: FATAL: " << swCodeInfo << " " << tempstr << std::endl;
                         }
-                        if (console_print) {
-                            printf("%s[%s %s]: FATAL: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, log_name.c_str(),
+                        if (m_consolePrint) {
+                            printf("%s[%s %s]: FATAL: %s%s\n", RED_FOREGROUND.c_str(), datebuffer, m_logName.c_str(),
                                    tempstr.c_str(), END_COLOR.c_str());
                         }
 #ifdef ROS_INSTALLED
@@ -186,23 +185,23 @@ namespace fast::rf {
                         break;
                         /*default:
                             break;   Not possible to enter here, since this is a private function
-                           and verbosity has already been validated. Keeping code here so it's
+                           and m_verbosity has already been validated. Keeping code here so it's
                            obvious.*/
                 }
             } else {
-                if (file_is_open) {
-                    log_file.close();
+                if (fileIsOpen) {
+                    m_logFile.close();
                 }
                 return LoggerStatus::LOG_SUPPRESSED;
             }
         }
-        if (file_is_open) {
-            log_file.close();
+        if (fileIsOpen) {
+            m_logFile.close();
         }
-        if (write_to_file && line_counter > MAXLINE_COUNT) {
-            log_file.open(file_path);  // Overwrite file.
-            log_file.close();
-            line_counter = 0;
+        if (m_writeToFile && m_lineCounter > MAXLINE_COUNT) {
+            m_logFile.open(m_filePath);  // Overwrite file.
+            m_logFile.close();
+            m_lineCounter = 0;
         }
         return LoggerStatus::LOG_WRITTEN;
     }

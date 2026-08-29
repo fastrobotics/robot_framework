@@ -39,7 +39,7 @@ namespace fast::rf::NavigationSystem::Controller {
         }
         bool is_ok() override {
             if (max_output_ < min_output_) {
-                fast::rf::Logger::log_error("Max Output is less than Min Output!");
+                fast::rf::Logger::logError("Max Output is less than Min Output!");
                 return false;
             }
             return true;
@@ -99,7 +99,7 @@ namespace fast::rf::NavigationSystem::Controller {
          */
         bool set_config(PIDControllerConfig config) {
             if (config.is_ok() == false) {
-                fast::rf::Logger::log_error("Error setting Config: " + config.pretty());
+                fast::rf::Logger::logError("Error setting Config: " + config.pretty());
                 return false;
             }
             config_ = config;

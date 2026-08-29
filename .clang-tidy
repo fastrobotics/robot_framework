@@ -12,6 +12,7 @@ CheckOptions:
   - { key: readability-identifier-naming.GlobalVariableCase,   value: camelBack }
   - { key: readability-identifier-naming.GlobalVariablePrefix, value: 'g_' }
   - { key: readability-identifier-naming.LocalVariableCase,   value: camelBack }
+  - { key: readability-identifier-naming.ClassMemberIgnoredRegexp, value: "^(s_|m_)" }
   - { key: readability-identifier-naming.LocalVariablePrefix, value: '' }
   - { key: readability-identifier-naming.LocalVariableSuffix, value: '' }
 ...

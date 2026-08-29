@@ -39,8 +39,8 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
-            return diagnosticManager.get_diagnostics();
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
+            return diagnosticManager.getDiagnostics();
         }
 
         /**
@@ -54,7 +54,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
        protected:
         bool set_config(ArmedStateManagerProcessConfig config) override {
             if (config.is_ok() == false) {
-                fast::rf::Logger::log_error("Config is not Valid: " + config.pretty());
+                fast::rf::Logger::logError("Config is not Valid: " + config.pretty());
                 return false;
             }
             config_ = config;

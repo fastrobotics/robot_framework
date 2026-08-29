@@ -17,8 +17,8 @@ TEST(BasicLocalPoseFuserProcess, BasicTests) {
     fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
     ASSERT_TRUE(SUT.update(1.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
-    auto diagnostics = SUT.get_diagnostics();
+    fast::rf::Logger::logDebug(SUT.pretty());
+    auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
@@ -36,7 +36,7 @@ TEST(BasicLocalPoseFuserProcess, BasicInterfaceTests) {
     machine_inertial_data.angular_velocity.z = 1.0;
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
     ASSERT_TRUE(SUT.update(1.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
     fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg angular_acc;
     ASSERT_TRUE(SUT.get_local_pose(local_pose, angular_acc));

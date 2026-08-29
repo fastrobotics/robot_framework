@@ -50,8 +50,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
-            return diagnosticManager.get_diagnostics();
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
+            return diagnosticManager.getDiagnostics();
         }
         /**
          * @brief Pretty print object

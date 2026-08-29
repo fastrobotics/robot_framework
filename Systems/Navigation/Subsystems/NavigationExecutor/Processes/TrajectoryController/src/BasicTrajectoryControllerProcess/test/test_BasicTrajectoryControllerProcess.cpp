@@ -12,7 +12,7 @@ TEST(BasicTrajectoryControllerProcess, BasicTests) {
     BasicTrajectoryControllerProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 }
 TEST(BasicTrajectoryControllerProcess, BasicInterfaceTests) {
     BasicTrajectoryControllerProcess SUT;
@@ -34,7 +34,7 @@ TEST(BasicTrajectoryControllerProcess, BasicInterfaceTests) {
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::TwistMsg command;
     ASSERT_TRUE(SUT.get_command(command));
     ASSERT_FLOAT_EQ(command.linear.x, desired_command.linear.x);

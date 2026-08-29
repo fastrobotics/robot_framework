@@ -63,7 +63,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
          *
          * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
          */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
+        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
 
         /**
          * @brief Get the ready to arm object

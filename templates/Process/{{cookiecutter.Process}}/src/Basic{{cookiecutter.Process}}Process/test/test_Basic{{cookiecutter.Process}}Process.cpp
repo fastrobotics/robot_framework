@@ -19,7 +19,7 @@ TEST(Basic{{cookiecutter.Process}}Process, BasicTests) {
     ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
   }
    ASSERT_TRUE(sut.getReadyToArm().ready_to_arm);
-   fast::rf::Logger::log_debug(sut.pretty());
+   fast::rf::Logger::logDebug(sut.pretty());
 }
 TEST(Basic{{cookiecutter.Process}}Process, BasicConversionTests) {
   Basic{{cookiecutter.Process}}Process sut;
