@@ -1,6 +1,7 @@
 [Navigation System](System-Navigation.md)
 
 - [PID Auto Tuner](#pid-auto-tuner)
+  - [ToDo List](#todo-list)
   - [Overview](#overview)
   - [Tuning Algorithms](#tuning-algorithms)
 - [Requirements](#requirements)
@@ -12,6 +13,7 @@
   - [Requirement: Debuggable](#requirement-debuggable)
   - [Requirement: Support multiple Tuning Algorithms](#requirement-support-multiple-tuning-algorithms)
   - [Requirement: Tuning Algorithm State Machine](#requirement-tuning-algorithm-state-machine)
+  - [Requirement: Tuner has defined stopping point](#requirement-tuner-has-defined-stopping-point)
 - [Architecture](#architecture)
   - [Class Diagram](#class-diagram)
   - [State Machine](#state-machine)
@@ -21,9 +23,12 @@
     - [2. Configure And Start](#2-configure-and-start)
     - [3. Run The Control Loop](#3-run-the-control-loop)
     - [4. Read The Result](#4-read-the-result)
+    - [Failure Diagnostics](#failure-diagnostics)
 
 # PID Auto Tuner
-
+## ToDo List
+- Delete the current RelayAutoTuneController content.
+- 
 ## Overview
 The PID Auto-Tuner module is designed to tune a system such that the values calibrated can be directly used in a PID Controller.
 
@@ -171,6 +176,16 @@ the main state is `TUNING`. Both supported algorithms use this same lifecycle;
 IMC/Lambda changes the gain calculation after the response is measured. When
 evaluation error exceeds the configured threshold, the tuner adjusts the
 candidate gains and retries until the iteration limit is reached.
+
+## Requirement: Tuner has defined stopping point
+*Met?* As implemented currently, this requirement is not yet.
+
+*Description*
+
+The module should have various configuration options and automated checks that ensure that it is progressing towards a goal.  The module should quickly inform the user that if the tuning process isn't making progress, it should fail and indicate the reason why.
+
+*Evidence*
+
 
 # Architecture
 ![](../../../Legend.png)
