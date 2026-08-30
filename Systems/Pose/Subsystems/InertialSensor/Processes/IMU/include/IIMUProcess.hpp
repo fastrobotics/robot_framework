@@ -48,6 +48,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          */
         virtual bool init(IMUConfig imu_config) = 0;
 
+        virtual uint8_t getSystemId() = 0;
+        virtual uint8_t getSubSystemId() = 0;
+        virtual uint8_t getProcessId() = 0;
+
         /**
          * @brief Generic Update function
          *
