@@ -75,6 +75,10 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          */
         virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
 
+        virtual bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                                      fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                                      std::string description) = 0;
+
         /**
          * @brief Get the ready to arm object
          *

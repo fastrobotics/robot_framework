@@ -63,6 +63,11 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             return diagnosticManager.getDiagnostics();
         }
 
+        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                              fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                              std::string description) override {
+            return diagnosticManager.updateDiagnostic(type, level, message, description);
+        }
         /**
          * @brief Get the ready to arm object
          *
