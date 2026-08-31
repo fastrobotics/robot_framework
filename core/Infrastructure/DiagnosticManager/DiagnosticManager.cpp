@@ -34,9 +34,13 @@ namespace fast::rf::core::infrastructure {
             it->second.description = description;
             return true;
         }
-        fast::rf::Logger::logWarn("Diagnostic Manager isn't initialized with Type: " +
-                                  fast::rf::DiagnosticDefinition::pretty(type));
-        return false;
+        fast::rf::messages::InfrastructureMsgs::DiagnosticMsg diagnostic(m_systemId, m_subsystemId, m_processId, type);
+        diagnostic.level = level;
+        diagnostic.message = message;
+        diagnostic.description = description;
+        m_diagnosticMap.emplace(std::pair<fast::rf::DiagnosticDefinition::DiagnosticType,
+                                          fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>(type, diagnostic));
+        return true;
     }
     std::string DiagnosticManager::pretty() {
         std::string str;
