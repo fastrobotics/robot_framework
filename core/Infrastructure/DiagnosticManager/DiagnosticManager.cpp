@@ -36,7 +36,7 @@ namespace fast::rf::core::infrastructure {
         }
         fast::rf::messages::InfrastructureMsgs::DiagnosticMsg diagnostic(m_systemId, m_subsystemId, m_processId, type);
         diagnostic.level = level;
-        diagnostic.message = message;
+        diagnostic.diagnosticMessage = message;
         diagnostic.description = description;
         m_diagnosticMap.emplace(std::pair<fast::rf::DiagnosticDefinition::DiagnosticType,
                                           fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>(type, diagnostic));
