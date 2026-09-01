@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource
+ * 
+ */
 #include <Basic{{cookiecutter.Process}}Process/Basic{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 

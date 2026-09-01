@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource
+ *
+ */
 #include <BasicHatDriverProcess/BasicHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 

@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BaseSource
+ * 
+ */
 #include <Base{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
   bool Base{{cookiecutter.Process}}Process::init() {

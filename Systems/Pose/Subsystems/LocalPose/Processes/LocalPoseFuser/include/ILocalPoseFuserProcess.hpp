@@ -6,7 +6,7 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface
  */
 #pragma once
 #include <AccelWithCovarianceMsg.hpp>

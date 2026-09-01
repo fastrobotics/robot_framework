@@ -6,7 +6,7 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface
  */
 #pragma once
 
@@ -47,29 +47,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          * @return false
          */
         virtual bool init(IMUConfig imu_config) = 0;
-
-        /**
-         * @brief Generic Update function
-         *
-         * @param current_time_sec Current time stamp
-         * @return true If the process updated ok
-         * @return false If the process did not update ok
-         */
-        virtual bool update(double current_time_sec) = 0;
-
-        /**
-         * @brief Pretty print the Process
-         *
-         * @return std::string
-         */
-        virtual std::string pretty() = 0;
-
-        /**
-         * @brief Get the ready to arm object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
-         */
-        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
 
         /**
          * @brief Get the imu data object

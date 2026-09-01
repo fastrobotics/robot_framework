@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource
+ *
+ */
 #include <Infrastructure/Logger.hpp>
 #include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {

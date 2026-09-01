@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BasicSourceTest
+ * 
+ */
 
 #include <Basic{{cookiecutter.Process}}Process/Basic{{cookiecutter.Process}}Process.hpp>
 

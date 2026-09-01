@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BaseSource
+ *
+ */
 #include <BaseHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     bool BaseHatDriverProcess::update(double current_time_sec) {
