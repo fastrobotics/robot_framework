@@ -1,2 +1,2 @@
 add_subdirectory(InertialSensorFuser)
-add_subdirectory(LocalPoseFuser)
+# add_subdirectory(LocalPoseFuser)

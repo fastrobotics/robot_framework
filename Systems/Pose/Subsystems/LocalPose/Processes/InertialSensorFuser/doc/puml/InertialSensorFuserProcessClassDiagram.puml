@@ -2,6 +2,7 @@
 title InertialSensorFuser Process Class Diagram
 
 namespace fast::rf {
+  interface IProcess
   namespace DiagnosticDefinition {
     enum DiagnosticType
   }
@@ -22,13 +23,10 @@ namespace fast::rf {
       package InertialSensorFuser #LightYellow;line:blue {
         interface IInertialSensorFuserProcess #LimeGreen {
           +{abstract} bool init(uint8 imu_count)
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
           +{abstract} bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
           +{abstract} bool get_machine_inertial_data(ImuMsg imu_msg)
         }
+        IInertialSensorFuserProcess -up-|> IProcess
         abstract BaseInertialSensorFuserProcess #LimeGreen {
           +bool init(uint8 imu_count)
           +DiagnosticMsg[] getDiagnostics()

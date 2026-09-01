@@ -42,8 +42,23 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          */
         virtual bool init(IMUConfig imu_config);
 
+        /**
+         * @brief Get the System Id object
+         *
+         * @return uint8_t
+         */
         uint8_t getSystemId() override { return m_systemId; }
+        /**
+         * @brief Get the Sub System Id object
+         *
+         * @return uint8_t
+         */
         uint8_t getSubSystemId() override { return m_subSystemId; }
+        /**
+         * @brief Get the Process Id object
+         *
+         * @return uint8_t
+         */
         uint8_t getProcessId() override { return m_processId; }
         /**
          * @brief Update the base object.  Called by Concrete Function.

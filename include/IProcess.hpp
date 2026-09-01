@@ -11,6 +11,7 @@
 #pragma once
 #include <DiagnosticMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
+#include <vector>
 namespace fast::rf {
     class IProcess {
        public:

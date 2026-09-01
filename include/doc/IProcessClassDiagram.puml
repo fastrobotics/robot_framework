@@ -17,7 +17,7 @@ package fast::rf #LightYellow;line:blue {
         class DiagnosticManager
     }
 
-    interface IProcess #Yellow {
+    interface IProcess #LimeGreen {
         +{abstract} uint8 getSystemId()
         +{abstract} uint8 getSubSystemId()
         +{abstract} uint8 getProcessId() 

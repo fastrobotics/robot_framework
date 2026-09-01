@@ -26,12 +26,12 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
          *
          */
         BaseInertialSensorFuserProcess()
-            : diagnosticManager(
-                  fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
+            : m_systemId(fast::rf::PoseSystem::SYSTEM_ID),
+              m_subSystemId(fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID),
+              m_processId(
                   fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::PROCESS_INERTIALSENSORFUSER_ID),
-              ready_to_arm(
-                  fast::rf::PoseSystem::SYSTEM_ID, fast::rf::PoseSystem::LocalPoseSubsystem::SUBSYSTEM_ID,
-                  fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::PROCESS_INERTIALSENSORFUSER_ID) {}
+              diagnosticManager(m_systemId, m_subSystemId, m_processId),
+              ready_to_arm(m_systemId, m_subSystemId, m_processId) {}
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
          *
@@ -40,6 +40,25 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
          * @return false
          */
         virtual bool init(uint8_t imu_count);
+
+        /**
+         * @brief Get the System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSystemId() override { return m_systemId; }
+        /**
+         * @brief Get the Sub System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSubSystemId() override { return m_subSystemId; }
+        /**
+         * @brief Get the Process Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getProcessId() override { return m_processId; }
 
         /**
          * @brief Update the base object.  Called by Concrete Function.
@@ -58,7 +77,11 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
             return diagnosticManager.getDiagnostics();
         }
-
+        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                              fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                              std::string description) override {
+            return diagnosticManager.updateDiagnostic(type, level, message, description);
+        }
         /**
          * @brief Get the ready to arm object
          *
@@ -90,6 +113,9 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
          * @param imu_msg
          */
         void new_machine_inertial_data(fast::rf::messages::SensorMsgs::ImuMsg imu_msg);
+        uint8_t m_systemId{0};
+        uint8_t m_subSystemId{0};
+        uint8_t m_processId{0};
         double current_time_sec_{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
