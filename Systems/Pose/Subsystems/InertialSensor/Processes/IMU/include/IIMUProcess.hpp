@@ -9,9 +9,9 @@
  *
  */
 #pragma once
-#include <DiagnosticMsg.hpp>
+
 #include <IMUDriver/IIMUDriver.hpp>
-#include <ReadyToArmStatusMsg.hpp>
+#include <IProcess.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
@@ -19,7 +19,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
      * @brief Interface for the IMU Process
      *
      */
-    class IIMUProcess {
+    class IIMUProcess : public fast::rf::IProcess {
        public:
         static constexpr double HIGH_PACKET_DROPPED_RATE_THRESHOLD = 10.0;
         static constexpr double LOW_PACKET_RX_RATE_THRESHOLD = 50.0;
@@ -48,10 +48,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          */
         virtual bool init(IMUConfig imu_config) = 0;
 
-        virtual uint8_t getSystemId() = 0;
-        virtual uint8_t getSubSystemId() = 0;
-        virtual uint8_t getProcessId() = 0;
-
         /**
          * @brief Generic Update function
          *
@@ -67,17 +63,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
          * @return std::string
          */
         virtual std::string pretty() = 0;
-
-        /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
-
-        virtual bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
-                                      fast::rf::DiagnosticDefinition::DiagnosticMessage message,
-                                      std::string description) = 0;
 
         /**
          * @brief Get the ready to arm object
