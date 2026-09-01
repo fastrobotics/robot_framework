@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     bool TankDriveExecutorProcess::init() {
@@ -16,8 +20,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
 
         return status;
     }
-    bool TankDriveExecutorProcess::update(double current_time_sec) {
-        bool status = BaseDriveExecutorProcess::update(current_time_sec);
+    bool TankDriveExecutorProcess::update(double currentTimeSec) {
+        bool status = BaseDriveExecutorProcess::update(currentTimeSec);
         // GCOV_EXCL_START
         // This will always be ok
         if (status == false) {

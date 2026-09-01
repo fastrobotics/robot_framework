@@ -21,7 +21,7 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
  * @brief Interface for the {{cookiecutter.Process}} fast::rf::Process
  *
  */
-class I{{cookiecutter.Process}}Process: public IProcess {
+class I{{cookiecutter.Process}}Process: public fast::rf::IProcess {
 public:
   I{{cookiecutter.Process}}Process() = default;
   virtual ~I{{cookiecutter.Process}}Process() = default;

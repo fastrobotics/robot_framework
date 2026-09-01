@@ -1,5 +1,5 @@
 /**
- * @compare_tag Process-BasicSource
+ * @compare_tag Process-BasicSource v0.1
  *
  */
 #include <BasicHatDriverProcess/BasicHatDriverProcess.hpp>

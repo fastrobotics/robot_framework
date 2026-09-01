@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title {{cookiecutter.Process}} Process Class Diagram
 
@@ -25,10 +26,11 @@ namespace fast::rf {
         I{{cookiecutter.Process}}Process -up-|> IProcess
         abstract Base{{cookiecutter.Process}}Process {
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
           #string pretty()
-          #DiagnosticManager diagnosticManager
+          #DiagnosticManager m_diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
 
         }
@@ -42,6 +44,7 @@ namespace fast::rf {
           +bool init()
           +bool set_config(Basic{{cookiecutter.Process}}ProcessConfig config)
           +bool update(double current_time_sec)
+	  +string pretty()
           -Basic{{cookiecutter.Process}}ProcessConfig config_
         }
         Basic{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process

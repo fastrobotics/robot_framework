@@ -12,6 +12,7 @@
 #include <IIMUProcess.hpp>
 #include <IMUDriver/IIMUDriver.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <Infrastructure/Logger.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {

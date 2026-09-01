@@ -1,7 +1,5 @@
-
-
 /**
- * @compare_tag Process-BaseSourceTest
+ * @compare_tag Process-BaseSourceTest v0.1
  *
  */
 #include <gtest/gtest.h>
@@ -15,6 +13,15 @@ using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 class TestHatDriverProcessInterface : public IHatDriverProcess {
    public:
     bool init() { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     std::string pretty() { return ""; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {

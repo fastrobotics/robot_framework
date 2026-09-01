@@ -6,13 +6,13 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- * @compare_tag Process-BaseHeader
+ * @compare_tag Process-BaseHeader v0.1
  */
 #pragma once
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
-
+#include
 #include <I{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 /**
@@ -31,13 +31,13 @@ public:
               m_systemId(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID),
               m_subSystemId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID),
               m_processId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID),
-              diagnosticManager(m_systemId, m_subSystemId, m_processId),
-              ready_to_arm(m_systemId, m_subSystemId, m_processId) {}
+              m_diagnosticManager(m_systemId, m_subSystemId, m_processId),
+              m_readyToArm(m_systemId, m_subSystemId, m_processId) {}
                   
   /**
          * @brief Get the diagnostics object
          *
-         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>o
          */
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override = 0;
 
@@ -46,7 +46,7 @@ public:
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() override = 0; { return m_readyToArm; }
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
 
       protected:
        /**
@@ -87,7 +87,7 @@ public:
   bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
                               fast::rf::DiagnosticDefinition::DiagnosticMessage message,
                               std::string description) override {
-            return diagnosticManager.updateDiagnostic(type, level, message, description);
+            return m_diagnosticManager.updateDiagnostic(type, level, message, description);
         }
   /**
          * @brief Pretty print the Process.  Called by concrete object.
@@ -100,8 +100,7 @@ public:
     fast::rf::core::infrastructure::DiagnosticManager getDiagnosticManager() { return m_diagnosticManager;}  
   
     bool initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
-    
-private:
+  
    uint8_t m_systemId{0};
         uint8_t m_subSystemId{0};
         uint8_t m_processId{0};

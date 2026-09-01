@@ -6,7 +6,7 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- * @compare_tag Process-BaseHeader
+ * @compare_tag Process-BaseHeader v0.1
  */
 #pragma once
 #include <Controller/IController.hpp>
@@ -26,14 +26,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          *
          */
         BaseTrajectoryControllerProcess()
-            : diagnosticManager(fast::rf::NavigationSystem::SYSTEM_ID,
-                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                                fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::
-                                    PROCESS_TRAJECTORY_CONTROLLER_ID),
-              ready_to_arm(fast::rf::NavigationSystem::SYSTEM_ID,
-                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID,
-                           fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::
-                               PROCESS_TRAJECTORY_CONTROLLER_ID) {}
+            : m_systemId(fast::rf::NavigationSystem::SYSTEM_ID),
+              m_subSystemId(fast::rf::NavigationSystem::NavigationExecutorSubsystem::SUBSYSTEM_ID),
+              m_processId(fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::
+                              PROCESS_TRAJECTORY_CONTROLLER_ID),
+              m_diagnosticManager(m_systemId, m_subSystemId, m_processId),
+              ready_to_arm(m_systemId, m_subSystemId, m_processId) {}
 
         /**
          * @brief Get the diagnostics object
@@ -41,7 +39,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
-            return diagnosticManager.getDiagnostics();
+            return m_diagnosticManager.getDiagnostics();
         }
 
         /**
@@ -67,7 +65,24 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @return false
          */
         bool init() override = 0;
-
+        /**
+         * @brief Get the System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSystemId() override { return m_systemId; }
+        /**
+         * @brief Get the Sub System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSubSystemId() override { return m_subSystemId; }
+        /**
+         * @brief Get the Process Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getProcessId() override { return m_processId; }
         /**
          * @brief Human readable string
          *
@@ -78,11 +93,17 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         /**
          * @brief Update the base object
          *
-         * @param current_time_sec
+         * @param currentTimeSec
          * @return true If ok
          * @return false If not ok
          */
-        bool update(double current_time_sec) override = 0;
+        bool update(double currentTimeSec) override = 0;
+
+        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                              fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                              std::string description) override {
+            return m_diagnosticManager.updateDiagnostic(type, level, message, description);
+        }
 
         /**
          * @brief Process a pose
@@ -108,10 +129,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @param command
          */
         void set_command(fast::rf::messages::GeometryMsgs::TwistMsg command);
-
-        double current_time_sec_{-1.0};  //!< Current system time
+        uint8_t m_systemId{0};
+        uint8_t m_subSystemId{0};
+        uint8_t m_processId{0};
+        double m_currentTimeSec{-1.0};  //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
-            diagnosticManager;  //!< Entity responsible for managing diagnostics.
+            m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         Controller::IController* controller_{nullptr};                             //!< Interface to controller
 

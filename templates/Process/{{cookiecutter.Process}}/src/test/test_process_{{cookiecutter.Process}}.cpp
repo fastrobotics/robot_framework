@@ -1,7 +1,5 @@
-
-
 /**
- * @compare_tag Process-BaseSourceTest
+ * @compare_tag Process-BaseSourceTest v0.1
  * 
  */
 #include <I{{cookiecutter.Process}}Process.hpp>
@@ -52,7 +50,7 @@ public:
   bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
+        bool status = m_diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
   }
   bool update(double current_time_sec) override {
@@ -64,12 +62,12 @@ public:
         return str;
     }
   bool inject_error() {
-        return diagnosticManager.updateDiagnostic(
+        return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
   }
   bool clear_error() {
-        return diagnosticManager.updateDiagnostic(
+        return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
   }

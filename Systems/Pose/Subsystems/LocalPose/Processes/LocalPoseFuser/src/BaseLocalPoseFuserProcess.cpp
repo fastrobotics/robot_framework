@@ -1,9 +1,13 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseLocalPoseFuserProcess.hpp>
 #include <mutex>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     bool BaseLocalPoseFuserProcess::init() { return true; }
-    bool BaseLocalPoseFuserProcess::update([[maybe_unused]] double current_time_sec) {
-        current_time_sec_ = current_time_sec;
+    bool BaseLocalPoseFuserProcess::update(double currentTimeSec) {
+        m_currentTimeSec = currentTimeSec;
         if (diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
@@ -21,7 +25,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
                std::string(fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::toString(
                    fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::Id{})) +
                "\n";
-        str += "\tT: " + std::to_string(current_time_sec_) + "\n";
+        str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
         str += "\tNew Data: " + std::to_string(is_new_local_pose) + "\n";

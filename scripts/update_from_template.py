@@ -103,12 +103,17 @@ def find_and_meld_by_tags(template_dir, impl_dir, force_all=False, dry_run=False
 
     if dry_run:
         print(f"\n[DRY RUN] Found {len(comparisons_to_run)} files that need updating. Skipping Meld launch:")
+        item_count=0
         for tag, template_file, t_ver, impl_file, i_ver in comparisons_to_run:
             print(f"  * Would compare [{tag}] (Template: {t_ver} vs Impl: {i_ver})")
             print(f"    └─ Template path: {template_file}")
             print(f"    └─ Impl path:     {impl_file}")
+            item_count = item_count + 1
         print("\nDry run completed safely.")
-        return
+        if item_count > 0:
+            return 1
+        else:
+            return 0
 
     print(f"\nLaunching Meld for {len(comparisons_to_run)} target files...\n")
 
@@ -168,4 +173,5 @@ if __name__ == "__main__":
     abs_template_path = os.path.abspath(args.templates)
     abs_impl_path = os.path.abspath(args.impl)
 
-    find_and_meld_by_tags(abs_template_path, abs_impl_path, force_all=args.force, dry_run=args.dry_run)
+    status = find_and_meld_by_tags(abs_template_path, abs_impl_path, force_all=args.force, dry_run=args.dry_run)
+    sys.exit(status)

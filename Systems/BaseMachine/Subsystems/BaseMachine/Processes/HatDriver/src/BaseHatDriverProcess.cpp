@@ -1,11 +1,10 @@
 /**
- * @compare_tag Process-BaseSource
+ * @compare_tag Process-BaseSource v0.1
  *
  */
 #include <BaseHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
-    bool BaseHatDriverProcess::update(double current_time_sec) {
-        current_time_sec_ = current_time_sec;
+    bool BaseHatDriverProcess::update([[maybe_unused]] double currentTimeSec) {
         if (diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {

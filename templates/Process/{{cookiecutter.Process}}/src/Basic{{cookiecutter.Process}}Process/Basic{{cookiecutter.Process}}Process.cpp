@@ -1,5 +1,5 @@
 /**
- * @compare_tag Process-BasicSource
+ * @compare_tag Process-BasicSource v0.1
  * 
  */
 #include <Basic{{cookiecutter.Process}}Process/Basic{{cookiecutter.Process}}Process.hpp>
@@ -13,7 +13,7 @@ bool Basic{{cookiecutter.Process}}Process::init() {
       std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes;
       diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
       // Add more as needed
-     status = initializeDiagnostics(diagnosticTypes);
+     status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
       return status;
     }
 bool Basic{{cookiecutter.Process}}Process::update(double currentTimeSec) {

@@ -11,16 +11,39 @@ using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem;
 class TestTrajectorySelector : public TrajectorySelector::ITrajectorySelectorProcess {
    public:
     bool init() override { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
         return diagnostics;
     }
+    fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override {
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
+        return ready_to_arm;
+    }
+    std::string pretty() override { return ""; }
 };
 
 class TestTrajectoryController : public TrajectoryController::ITrajectoryControllerProcess {
    public:
     bool init() override { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
@@ -43,6 +66,15 @@ class TestTrajectoryController : public TrajectoryController::ITrajectoryControl
 class TestDriveExecutor : public DriveExecutor::IDriveExecutorProcess {
    public:
     bool init() override { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return true; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> diagnostics;
