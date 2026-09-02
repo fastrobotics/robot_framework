@@ -105,12 +105,12 @@ namespace fast::rf::NavigationSystem::Controller {
 
     bool MockRelayAutoTuneController::start_tuning() {
         if (output_ == nullptr) {
-            fast::rf::Logger::log_error("Output is Null!");
+            fast::rf::Logger::logError("Output is Null!");
             state_ = RelayAutoTuneState::FAILED;
             return false;
         }
         if (!config_.is_ok()) {
-            fast::rf::Logger::log_error("onfig is invalid!");
+            fast::rf::Logger::logError("onfig is invalid!");
             state_ = RelayAutoTuneState::FAILED;
             return false;
         }

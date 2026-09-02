@@ -30,79 +30,79 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
     bool PIDAutoTunerConfig::is_ok() {
         bool any_error = false;
         if (!parameters_set_) {
-            fast::rf::Logger::log_error("Parameters not set!");
+            fast::rf::Logger::logError("Parameters not set!");
             any_error = true;
         }
         if (!tuning_parameters_set_) {
-            fast::rf::Logger::log_error("Tuning parameters not set!");
+            fast::rf::Logger::logError("Tuning parameters not set!");
             any_error = true;
         }
         if (max_output_ <= min_output_) {
-            fast::rf::Logger::log_error("Max Output < Min Output!");
+            fast::rf::Logger::logError("Max Output < Min Output!");
             any_error = true;
         }
         if (output_step_ == 0.0) {
-            fast::rf::Logger::log_error("Output Step is 0!");
+            fast::rf::Logger::logError("Output Step is 0!");
             any_error = true;
         }
         if (set_point_step_ == 0.0) {
-            fast::rf::Logger::log_error("Set point step is 0!");
+            fast::rf::Logger::logError("Set point step is 0!");
             any_error = true;
         }
         if (settle_time_sec_ == 0.0) {
-            fast::rf::Logger::log_error("Settle time is 0!");
+            fast::rf::Logger::logError("Settle time is 0!");
             any_error = true;
         }
         if (response_timeout_sec_ == 0.0) {
-            fast::rf::Logger::log_error("Response time is 0!");
+            fast::rf::Logger::logError("Response time is 0!");
             any_error = true;
         }
         if (response_timeout_sec_ < settle_time_sec_) {
-            fast::rf::Logger::log_error("Response Time < Settle Time!");
+            fast::rf::Logger::logError("Response Time < Settle Time!");
             any_error = true;
         }
         if (minimum_response_ == 0.0) {
-            fast::rf::Logger::log_error("Minimum Response is 0!");
+            fast::rf::Logger::logError("Minimum Response is 0!");
             any_error = true;
         }
         if (acceptable_error_threshold_ <= 0.0) {
-            fast::rf::Logger::log_error("Acceptable Error Threshold <= 0!");
+            fast::rf::Logger::logError("Acceptable Error Threshold <= 0!");
             any_error = true;
         }
         if (evaluation_time_sec_ <= 0.0) {
-            fast::rf::Logger::log_error("Evalutation Time <= 0!");
+            fast::rf::Logger::logError("Evalutation Time <= 0!");
             any_error = true;
         }
         if (max_tuning_iterations_ == 0) {
-            fast::rf::Logger::log_error("Max Tuning Iterations == 0!");
+            fast::rf::Logger::logError("Max Tuning Iterations == 0!");
             any_error = true;
         }
         if (sensor_scale_ == 0.0) {
-            fast::rf::Logger::log_error("Sensor Scale == 0!");
+            fast::rf::Logger::logError("Sensor Scale == 0!");
             any_error = true;
         }
         if (algorithm_ == PIDAutoTuningAlgorithm::UNKNOWN) {
-            fast::rf::Logger::log_error("Unknown Tuning Algorithm!");
+            fast::rf::Logger::logError("Unknown Tuning Algorithm!");
             any_error = true;
         }
         if (dead_time_sec_ < 0.0) {
-            fast::rf::Logger::log_error("Dead Time < 0!");
+            fast::rf::Logger::logError("Dead Time < 0!");
             any_error = true;
         }
         if (lambda_sec_ <= 0.0) {
-            fast::rf::Logger::log_error("Lambda < 0!");
+            fast::rf::Logger::logError("Lambda < 0!");
             any_error = true;
         }
         if (output_step_ > max_output_) {
-            fast::rf::Logger::log_error("Output Step > Max Output!");
+            fast::rf::Logger::logError("Output Step > Max Output!");
             any_error = true;
         }
         if (output_step_ < min_output_) {
-            fast::rf::Logger::log_error("Output Step < Min Output!");
+            fast::rf::Logger::logError("Output Step < Min Output!");
             any_error = true;
         }
         if (any_error) {
-            fast::rf::Logger::log_error("Invalid Configuration!");
+            fast::rf::Logger::logError("Invalid Configuration!");
             return false;
         }
         return true;
