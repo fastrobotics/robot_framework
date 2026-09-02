@@ -34,6 +34,24 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
               ready_to_arm(m_systemId, m_subSystemId, m_processId) {}
 
         /**
+         * @brief Get the System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSystemId() override { return m_systemId; }
+        /**
+         * @brief Get the Sub System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSubSystemId() override { return m_subSystemId; }
+        /**
+         * @brief Get the Process Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getProcessId() override { return m_processId; }
+        /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
@@ -65,24 +83,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @return false
          */
         bool init() override = 0;
-        /**
-         * @brief Get the System Id object
-         *
-         * @return uint8_t
-         */
-        uint8_t getSystemId() override { return m_systemId; }
-        /**
-         * @brief Get the Sub System Id object
-         *
-         * @return uint8_t
-         */
-        uint8_t getSubSystemId() override { return m_subSystemId; }
-        /**
-         * @brief Get the Process Id object
-         *
-         * @return uint8_t
-         */
-        uint8_t getProcessId() override { return m_processId; }
+
         /**
          * @brief Human readable string
          *
