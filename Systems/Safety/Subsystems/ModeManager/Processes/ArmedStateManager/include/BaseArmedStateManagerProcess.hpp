@@ -51,16 +51,6 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
 
-       protected:
-        bool set_config(ArmedStateManagerProcessConfig config) override {
-            if (config.is_ok() == false) {
-                fast::rf::Logger::logError("Config is not Valid: " + config.pretty());
-                return false;
-            }
-            config_ = config;
-            return true;
-        }
-
         /**
          * @brief Get the System Id object
          *
@@ -79,6 +69,16 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @return uint8_t
          */
         uint8_t getProcessId() override { return m_processId; }
+
+       protected:
+        bool set_config(ArmedStateManagerProcessConfig config) override {
+            if (config.is_ok() == false) {
+                fast::rf::Logger::logError("Config is not Valid: " + config.pretty());
+                return false;
+            }
+            config_ = config;
+            return true;
+        }
 
         /**
          * @brief Update the base object
