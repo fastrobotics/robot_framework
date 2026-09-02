@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title InertialSensorFuser Process Class Diagram
 
@@ -17,24 +18,23 @@ namespace fast::rf {
   namespace core::Infrastructure {
     class DiagnosticManager
   }
+  interface IProcess
   namespace PoseSystem {
     namespace LocalPoseSubsystem {
       package InertialSensorFuser #LightYellow;line:blue {
         interface IInertialSensorFuserProcess #LimeGreen {
           +{abstract} bool init(uint8 imu_count)
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
           +{abstract} bool new_imu_data(uint8 imu_index,ImuMsg imu_data)
           +{abstract} bool get_machine_inertial_data(ImuMsg imu_msg)
         }
+        IInertialSensorFuserProcess -up-|> IProcess
         abstract BaseInertialSensorFuserProcess #LimeGreen {
-          +bool init(uint8 imu_count)
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
           +bool get_machine_inertial_data(ImuMsg imu_msg)
+	  #bool init(uint8 imu_count)
+	  #bool update(double current_time_sec)
           #void new_machine_inertial_data(ImuMsg imu_msg)
           #string pretty()
           #DiagnosticManager diagnosticManager

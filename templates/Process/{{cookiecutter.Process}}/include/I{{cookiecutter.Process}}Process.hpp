@@ -6,9 +6,11 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface v0.1
  */
+ 
 #pragma once
+#include <IProcess.hpp>
 #include <DiagnosticMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
@@ -16,10 +18,10 @@
 
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 /**
- * @brief Interface for the {{cookiecutter.Process}} Process
+ * @brief Interface for the {{cookiecutter.Process}} fast::rf::Process
  *
  */
-class I{{cookiecutter.Process}}Process {
+class I{{cookiecutter.Process}}Process: public fast::rf::IProcess {
 public:
   I{{cookiecutter.Process}}Process() = default;
   virtual ~I{{cookiecutter.Process}}Process() = default;
@@ -30,38 +32,7 @@ public:
    * @return true
    * @return false
    */
-  virtual bool init() = 0;
-
-  /**
-   * @brief Generic Update function
-   *
-   * @param currentTimeSec Current time stamp
-   * @return true If the process updated ok
-   * @return false If the process did not update ok
-   */
-  virtual bool update(double currentTimeSec) = 0;
-
-  /**
-   * @brief Pretty print the Process
-   * 
-   * @return std::string 
-   */
-  virtual std::string pretty() = 0;
-
-  /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() = 0;
-
-        /**
-         * @brief Get the ready to arm object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
-         */
-  virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() = 0;
-        
+  virtual bool init() = 0;        
   
 };
 } // namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem

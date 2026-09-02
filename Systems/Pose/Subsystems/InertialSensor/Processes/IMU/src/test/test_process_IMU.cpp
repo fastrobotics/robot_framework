@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BaseSourceTest v0.1
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <stdio.h>
@@ -12,6 +15,15 @@ using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 class TestIMUProcessInterface : public IIMUProcess {
    public:
     bool init([[maybe_unused]] IMUConfig imu_config) { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;

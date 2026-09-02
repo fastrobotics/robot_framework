@@ -1,5 +1,7 @@
-
-
+/**
+ * @compare_tag Process-BaseSourceTest v0.1
+ *
+ */
 #include <gtest/gtest.h>
 #include <stdio.h>
 
@@ -11,6 +13,15 @@ using namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::Traject
 class TestTrajectoryControllerProcessInterface : public ITrajectoryControllerProcess {
    public:
     bool init() override { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
@@ -42,7 +53,7 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
+        status = m_diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseTrajectoryControllerProcess::update(current_time_sec); }
@@ -55,12 +66,12 @@ class TestBaseTrajectoryControllerProcess : public BaseTrajectoryControllerProce
     }
     std::string pretty() { return BaseTrajectoryControllerProcess::pretty(); }
     bool inject_error() {
-        return diagnosticManager.updateDiagnostic(
+        return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.updateDiagnostic(
+        return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }

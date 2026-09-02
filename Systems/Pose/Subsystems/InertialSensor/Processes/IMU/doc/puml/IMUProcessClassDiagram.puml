@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title IMU Process Class Diagram
 
@@ -21,25 +22,24 @@ namespace fast::rf {
   namespace core::Infrastructure {
     class DiagnosticManager
   }
+  interface IProcess
   namespace PoseSystem {
     package InertialSensorSubsystem #LightYellow;line:blue {
         interface IIMUProcess #LimeGreen {
           +{abstract} bool init(IMUDevice imu_type,string imu_device_name)
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
           +{abstract} bool get_imu_data(ImuMsg& data)
           +{abstract} bool get_magnetic_data(MagneticFieldMsg& data)
           +{abstract} double get_packet_dropped_rate()
           +{abstract} double get_packet_rx_rate()
         }
+        IIMUProcess -up-|> IProcess
         IIMUProcess --> IMUDevice: <<use>>
         
         abstract BaseIMUProcess #LimeGreen {
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm

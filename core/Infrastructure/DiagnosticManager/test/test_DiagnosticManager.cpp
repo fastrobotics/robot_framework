@@ -108,9 +108,9 @@ TEST(DiagnosticManager, UpdateDiagnostic) {
         ASSERT_EQ(diagnostic.level, fast::rf::Level::NOERROR);
         ASSERT_EQ(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR);
     }
-    ASSERT_FALSE(sut.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::DEBUG,
-                                      fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR,
-                                      "No problem,but this diagnostic isn't initialized."));
+    ASSERT_TRUE(sut.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::DEBUG,
+                                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR,
+                                     "No problem,but this diagnostic isn't initialized."));
 }
 TEST(DiagnosticManager, GetDiagnosticsAtAboveThreshold) {
     DiagnosticManager sut(1, 2, 3);

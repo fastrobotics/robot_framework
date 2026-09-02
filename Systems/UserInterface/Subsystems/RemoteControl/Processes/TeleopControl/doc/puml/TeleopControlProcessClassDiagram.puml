@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title TeleopControl Process Class Diagram
 
@@ -27,6 +28,7 @@ namespace fast::rf {
   namespace core::Infrastructure {
     class DiagnosticManager
   }
+  interface IProcess
   namespace UserInterfaceSystem {
     namespace RemoteControlSubsystem {
       package TeleopControl #LightYellow;line:blue {
@@ -55,16 +57,13 @@ namespace fast::rf {
         }
         interface ITeleopControlProcess #LimeGreen {
           +{abstract} bool init(ControlDevice device,JoystickCalibrationData joy_calibration_data)
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
           +{abstract} bool new_joy(JoyMsg joy)
           +{abstract} TwistMsg get_twist_output()
           +{abstract} ArmStateChangeSrvRequest get_armstate_change_request()
           +{abstract} bool set_operation_mode(OperationMode mode)
         }
+ 	ITeleopControlProcess -up-|> IProcess
         ITeleopControlProcess +-- JoystickCalibrationData
         ITeleopControlProcess --> OperationMode: <<use>>
         ITeleopControlProcess --> ControlDevice: <<use>>
@@ -90,13 +89,14 @@ namespace fast::rf {
         JoystickScaler --> ControlDevice: <<use>>
         abstract BaseTeleopControlProcess #LimeGreen {
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +bool update_RobotArmCommand(ArmCommandMsg robot_arm_command)
           +bool set_operation_mode(OperationMode mode)
-          +string pretty()
           +ReadyToArmStatusMsg get_ready_to_arm()
           +ArmStateChangeSrvRequest get_armstate_change_request()
-          #DiagnosticManager diagnosticManager
+          #bool update(double currentTimeSec)
+          #string pretty()
+          #DiagnosticManager m_diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm
           #robot_arm_command robot_arm_command
           #ArmStateChangeSrvRequest armstate_change_request

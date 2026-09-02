@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title HatDriver Process Class Diagram
 
@@ -15,20 +16,19 @@ namespace fast::rf {
   namespace core::Infrastructure {
     class DiagnosticManager
   }
+  interface IProcess
   namespace BaseMachineSystem {
     namespace BaseMachineSubsystem  {
       package HatDriver #LightYellow;line:blue {
         interface IHatDriverProcess #LimeGreen  {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
         }
+	IHatDriverProcess -up-|> IProcess
         abstract BaseHatDriverProcess #LimeGreen {
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm

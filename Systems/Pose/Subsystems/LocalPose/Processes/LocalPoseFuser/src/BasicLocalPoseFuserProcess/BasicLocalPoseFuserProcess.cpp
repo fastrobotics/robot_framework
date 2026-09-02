@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
 #include <PoseUtility.hpp>
 #include <cmath>
@@ -22,7 +26,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
         return status;
     }
     bool BasicLocalPoseFuserProcess::update(double current_time_sec) {
-        double prev_time = current_time_sec_;
+        double prev_time = m_currentTimeSec;
 
         bool status = BaseLocalPoseFuserProcess::update(current_time_sec);
         if (prev_time > 0.0) {

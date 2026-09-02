@@ -1,8 +1,11 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseIMUProcess.hpp>
 #include <IMUDriver/IMURazor9DOFDriver/IMURazor9DOFDriver.hpp>
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <IMUDriver/MockIMUDriver.hpp>
-#include <Infrastructure/Logger.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUProcess::init(IMUConfig imu_config) {
         imu_config_ = imu_config;

@@ -1,5 +1,4 @@
 
-
 #include <gtest/gtest.h>
 #include <stdio.h>
 
@@ -14,6 +13,15 @@ class TestArmedStateManagerProcessInterface : public IArmedStateManagerProcess {
     bool init() { return true; }
     bool set_config([[maybe_unused]] ArmedStateManagerProcessConfig config) { return true; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -61,8 +69,14 @@ class TestBaseArmedStateManagerProcess : public BaseArmedStateManagerProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
+        bool status = m_diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
+    }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
     }
     bool update(double current_time_sec) override { return BaseArmedStateManagerProcess::update(current_time_sec); }
     fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse request_armstate_change([

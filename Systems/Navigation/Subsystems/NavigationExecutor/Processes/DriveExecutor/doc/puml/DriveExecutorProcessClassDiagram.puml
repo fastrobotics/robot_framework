@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title DriveExecutor Process Class Diagram
 
@@ -17,6 +18,7 @@ namespace fast::rf {
     class DiagnosticManager
     class ReadyToArmStatusMsg <<(M,#FFFF00)>>
   }
+  interface IProcess
   namespace NavigationSystem {
     namespace NavigationExecutorSubsystem {
       package DriveExecutor #LightYellow;line:blue {
@@ -25,22 +27,19 @@ namespace fast::rf {
         }
         interface IDriveExecutorProcess #LimeGreen {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] getDiagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} IDriveExecutorOutput new_cmd(TwistMsg cmd)
           +{abstract} IDriveExecutorOutput get_output()
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
         }
+	IDriveExecutorProcess -up-|> IProcess
         IDriveExecutorProcess --> IDriveExecutorOutput: <<use>>
         abstract BaseDriveExecutorProcess #LimeGreen {
           +DiagnosticMsg[] getDiagnostics()
-          +bool update(double current_time_sec)
-          +string pretty()
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
+          #string pretty()
           #DiagnosticManager diagnosticManager
-          #ReadyToArmStatusMsg ready_to_arm
-          
+          #ReadyToArmStatusMsg ready_to_arm 
 
         }
         BaseDriveExecutorProcess .up.|> IDriveExecutorProcess
