@@ -102,5 +102,5 @@ cookiecutter <Template Folder containing cookiecutter.json> -o <Output Directory
 
 To Check if the templates are up to date with the implementation files, run:
 ```bash
-python scripts/update_from_template.py --templates templates/Process/ --impl Systems/
+python dev_tools/scripts/update_from_template.py --templates templates/Process/ --impl Systems/
 ```

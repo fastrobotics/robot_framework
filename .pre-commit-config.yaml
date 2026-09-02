@@ -9,10 +9,10 @@ repos:
 
       - id: pre-commit-check-template
         name: Check if code is up to date with templates
-        entry: python scripts/update_from_template.py --templates templates/Process --impl Systems/ --dry-run
+        entry: python dev_tools/scripts/update_from_template.py --templates templates/Process --impl Systems/ --dry-run
         pass_filenames: false
         language: system
-        
+
       - id: pre-commit-code-format
         name: Code Formatting for Changed Files
         entry: ./scripts/pre_commit/format_code.sh
