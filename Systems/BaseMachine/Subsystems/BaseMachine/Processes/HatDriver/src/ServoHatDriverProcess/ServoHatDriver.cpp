@@ -15,12 +15,12 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
         int mode1 = wiringPiI2CReadReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1);
         if (mode1 < 0) {
-            fast::rf::Logger::log_error("Unable to initialize Servo Hat at address: " + std::to_string(address));
+            fast::rf::Logger::logError("Unable to initialize Servo Hat at address: " + std::to_string(address));
             return false;
         }
         mode1 = mode1 & ~(int)Adafruit16ChServoHatConstant::SLEEP;
         if (mode1 < 0) {
-            fast::rf::Logger::log_error("Unable to initialize Servo Hat at address: " + std::to_string(address));
+            fast::rf::Logger::logError("Unable to initialize Servo Hat at address: " + std::to_string(address));
             return false;
         }
         wiringPiI2CWriteReg8(servoHatFd, (int)Adafruit16ChServoHatConstant::MODE1, mode1);
@@ -34,7 +34,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         return str;
     }
     bool ServoHatDriver::setServoValue(uint16_t channel, uint16_t value) {
-        fast::rf::Logger::log_debug("C: " + std::to_string(channel) + " V: " + std::to_string(value));
+        fast::rf::Logger::logDebug("C: " + std::to_string(channel) + " V: " + std::to_string(value));
         int on = 0;
         int off = (int)((double)value / 3.90);
         setPWM(channel, on, off);

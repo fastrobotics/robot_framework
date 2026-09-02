@@ -1,5 +1,7 @@
 add_library(base_global_pose_process STATIC BaseGlobalPoseProcess.cpp)
 target_link_libraries(base_global_pose_process geometry_msgs sensor_msgs)
+target_link_libraries(base_global_pose_process diagnosticManager
+                      infrastructure_msgs)
 add_subdirectory(BasicGlobalPoseProcess)
 
 if(BUILD_TESTING)

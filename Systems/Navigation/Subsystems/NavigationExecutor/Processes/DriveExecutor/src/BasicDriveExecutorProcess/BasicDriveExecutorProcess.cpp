@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicDriveExecutorProcess/BasicDriveExecutorProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     bool BasicDriveExecutorProcess::init() {
@@ -5,7 +9,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::ACTUATORS);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
 

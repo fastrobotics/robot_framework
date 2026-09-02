@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicInertialSensorFuserProcess/BasicInertialSensorFuserProcess.hpp>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
 
@@ -12,7 +16,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool BasicInertialSensorFuserProcess::update(double current_time_sec) {
@@ -36,7 +40,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
             return false;
         }
         imu_rx_count++;
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving IMU Data");
         // This is a pass-thru

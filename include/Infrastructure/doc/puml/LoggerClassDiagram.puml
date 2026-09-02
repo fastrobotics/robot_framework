@@ -13,13 +13,13 @@ package fast::rf #LightYellow;line:blue {
     }
     class Logger #LimeGreen {
         +Logger(Level level, std::string name)
-        +log_diagnostic(DiagnosticMsg msg)
-        +log_debug(string msg)
-        +log_info(string msg)
-        +log_notice(string msg)
-        +log_warn(string msg)
-        +log_error(string msg)
-        +log_fatal(string msg)
+        +logDiagnostic(DiagnosticMsg msg)
+        +logDebug(string msg)
+        +logInfo(string msg)
+        +logNotice(string msg)
+        +logWarn(string msg)
+        +logError(string msg)
+        +logFatal(string msg)
     }
     Logger +-- LoggerStatus
 }

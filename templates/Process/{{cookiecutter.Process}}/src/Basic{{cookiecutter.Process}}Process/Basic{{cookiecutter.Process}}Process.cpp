@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ * 
+ */
 #include <Basic{{cookiecutter.Process}}Process/Basic{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
 
@@ -6,14 +10,14 @@ bool Basic{{cookiecutter.Process}}Process::init() {
   if(status == false) {
     return false;
   }
-      std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
-      diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+      std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes;
+      diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
       // Add more as needed
-      status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+     status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
       return status;
     }
-bool Basic{{cookiecutter.Process}}Process::update(double current_time_sec) {
-  bool status = Base{{cookiecutter.Process}}Process::update(current_time_sec);
+bool Basic{{cookiecutter.Process}}Process::update(double currentTimeSec) {
+  bool status = Base{{cookiecutter.Process}}Process::update(currentTimeSec);
   if (status == false) {
     return false;
   }

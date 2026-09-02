@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BasicSourceTest v0.1
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <stdio.h>
@@ -19,9 +22,17 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
 
     IDriveExecutorOutput* get_output() { return output; }
     bool init() { return true; }
-
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -38,7 +49,7 @@ class TestDriveExecutorProcessInterface : public IDriveExecutorProcess {
 TEST(TestDriveExecutorProcessInterface, InterfaceTests) {
     TestDriveExecutorProcessInterface SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
     GeometryMsgs::TwistMsg cmd;
     auto general_output = SUT.new_cmd(cmd);
@@ -61,7 +72,7 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     IDriveExecutorOutput* new_cmd([[maybe_unused]] GeometryMsgs::TwistMsg cmd) override { return nullptr; }
@@ -73,12 +84,12 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
         return str;
     }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
@@ -86,7 +97,7 @@ class TestBaseDriveExecutorProcess : public BaseDriveExecutorProcess {
 TEST(BaseDriveExecutorProcess, BasicAssertions) {
     TestBaseDriveExecutorProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());
     ASSERT_TRUE(SUT.update(1.0));

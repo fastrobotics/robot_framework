@@ -6,12 +6,13 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface v0.1
  */
 #pragma once
 #include <ArmCommandMsg.hpp>
 #include <ArmStateChangeSrv.hpp>
 #include <DiagnosticMsg.hpp>
+#include <IProcess.hpp>
 #include <JoyMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
@@ -102,7 +103,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
      * @brief Interface for the TeleopControl Process
      *
      */
-    class ITeleopControlProcess {
+    class ITeleopControlProcess : public fast::rf::IProcess {
        public:
         static constexpr double INPUT_TIMEOUT_SEC =
             5.0;  //!< R/C Input not provided for this duration will trip diagnostics/disable ready to arm
@@ -120,15 +121,6 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
         virtual bool init(ControlDevice device, JoystickCalibrationData joy_calibration_data) = 0;
 
         /**
-         * @brief Generic Update function
-         *
-         * @param current_time_sec Current time stamp
-         * @return true If the process updated ok
-         * @return false If the process did not update ok
-         */
-        virtual bool update(double current_time_sec) = 0;
-
-        /**
          * @brief Update Robot Command Armed State
          *
          * @param robot_arm_command
@@ -136,26 +128,6 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
          */
         virtual void update_RobotArmCommand(
             fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) = 0;
-        /**
-         * @brief Pretty print the Process
-         *
-         * @return std::string
-         */
-        virtual std::string pretty() = 0;
-
-        /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
-
-        /**
-         * @brief Get the ready to arm object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
-         */
-        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
 
         /**
          * @brief Process a Joystick Message

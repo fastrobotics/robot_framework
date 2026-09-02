@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BasicSourceTest v0.1
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <stdio.h>
@@ -86,7 +89,7 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
     EXPECT_TRUE(SUT.new_joy(joy));
     current_time += 0.1;
     EXPECT_TRUE(SUT.update(current_time));
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
     EXPECT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 
     current_time += 0.1 + ITeleopControlProcess::INPUT_TIMEOUT_SEC;

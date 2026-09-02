@@ -65,10 +65,10 @@ int main(int argc, char* argv[]) {
     driver = new MockServoHatDriver();
 #endif
     if (driver->init() == false) {
-        fast::rf::Logger::log_error("Unable to Initialize Driver.  Exiting!");
+        fast::rf::Logger::logError("Unable to Initialize Driver.  Exiting!");
         return 1;
     }
-    fast::rf::Logger::log_info(driver->pretty());
+    fast::rf::Logger::logInfo(driver->pretty());
     if (reset == true) {
         for (uint8_t ch = 0; ch < 16; ++ch) {
             driver->setServoValue(ch, IServoHatDriver::MED_SERVO_VALUE);
@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     } else if (mode == "ramp") {
         value = IServoHatDriver::MED_SERVO_VALUE;
     } else {
-        fast::rf::Logger::log_error("Mode: " + mode + " Not Supported.  Exiting!");
+        fast::rf::Logger::logError("Mode: " + mode + " Not Supported.  Exiting!");
         delete driver;
         return 1;
     }
@@ -103,10 +103,10 @@ int main(int argc, char* argv[]) {
         }
         driver->setServoValue(channel, value);
         if (mode == "direct") {
-            fast::rf::Logger::log_notice("Holding for 3 Seconds");
+            fast::rf::Logger::logNotice("Holding for 3 Seconds");
             usleep(3.0 * 1000000.0);  // Holdfor 3 seconds
             driver->setServoValue(channel, IServoHatDriver::MED_SERVO_VALUE);
-            fast::rf::Logger::log_notice("Done, Exiting.");
+            fast::rf::Logger::logNotice("Done, Exiting.");
             delete driver;
             return 0;
         }

@@ -6,7 +6,7 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-BasicHeader v0.1
  */
 #pragma once
 
@@ -32,11 +32,18 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySel
         /**
          * @brief Update with recent timing data
          *
-         * @param current_time_sec
+         * @param currentTimeSec
          * @return true If update executed ok
          * @return false If update executed with some error
          */
-        bool update(double current_time_sec) override;
+        bool update(double currentTimeSec) override;
+
+        /**
+         * @brief Human readable string for the process.  Called by concrete object.
+         *
+         * @return std::string
+         */
+        std::string pretty() override;
 
        private:
     };

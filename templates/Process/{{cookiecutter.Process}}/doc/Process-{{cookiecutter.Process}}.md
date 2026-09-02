@@ -41,7 +41,7 @@ The following outputs are provided by this system.
 # Diagnostics
 Processes in this Subsystem are defined by:
 - System: `{{cookiecutter.System}}System::SYSTEM_ID`
-- Subsystem: `{{cookiecutter.System}}System::{{cookiecutter.Subystem}}Subsystem::SUBSYSTEM_ID`
+- Subsystem: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID`
 - Process: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process_IDName}}`
 
 The following Diagnostics are reported by this Process:

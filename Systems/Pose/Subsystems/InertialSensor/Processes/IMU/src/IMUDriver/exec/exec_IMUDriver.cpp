@@ -81,12 +81,12 @@ int main(int argc, char* argv[]) {
             }
             break;
         default:
-            fast::rf::Logger::log_error("Unsupported Driver Version!");
+            fast::rf::Logger::logError("Unsupported Driver Version!");
             return 1;
     }
 
     if (status == false) {
-        fast::rf::Logger::log_error("Unable to initialize IMU Driver!");
+        fast::rf::Logger::logError("Unable to initialize IMU Driver!");
         return 1;
     }
     double current_time = 0.0;
@@ -94,12 +94,12 @@ int main(int argc, char* argv[]) {
     double time_loop = 1.0;
     while (true) {
         if (driver->update(current_time) == false) {
-            fast::rf::Logger::log_warn("Unable to Update Driver!");
+            fast::rf::Logger::logWarn("Unable to Update Driver!");
         }
         timer += delta_time_sec;
         if (timer >= time_loop) {
             timer = 0.0;
-            fast::rf::Logger::log_info(driver->pretty());
+            fast::rf::Logger::logInfo(driver->pretty());
         }
 
         usleep(delta_time_sec * 1000000.0);

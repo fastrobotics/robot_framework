@@ -1,23 +1,27 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <TankDriveExecutorProcess/TankDriveExecutorProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
     bool TankDriveExecutorProcess::init() {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
 
-        diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
-                                            fast::rf::Level::NOERROR,
-                                            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "SW Running.");
+        diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                           fast::rf::Level::NOERROR,
+                                           fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "SW Running.");
 
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::WARN,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Waiting for R/C Command.");
 
         return status;
     }
-    bool TankDriveExecutorProcess::update(double current_time_sec) {
-        bool status = BaseDriveExecutorProcess::update(current_time_sec);
+    bool TankDriveExecutorProcess::update(double currentTimeSec) {
+        bool status = BaseDriveExecutorProcess::update(currentTimeSec);
         // GCOV_EXCL_START
         // This will always be ok
         if (status == false) {
@@ -36,7 +40,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
         TankDriveData data = convert(cmd);
         output->left_drive = data.left_channel;
         output->right_drive = data.right_channel;
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "R/C Command Updated.");
         return output.get();

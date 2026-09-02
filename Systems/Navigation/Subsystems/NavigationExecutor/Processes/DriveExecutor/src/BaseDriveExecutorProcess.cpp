@@ -1,8 +1,12 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseDriveExecutorProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor {
-    bool BaseDriveExecutorProcess::update(double current_time_sec) {
-        current_time_sec_ = current_time_sec;
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
+    bool BaseDriveExecutorProcess::update(double currentTimeSec) {
+        m_currentTimeSec = currentTimeSec;
+        if (diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;
@@ -18,7 +22,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor
                std::string(fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::toString(
                    fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::Id{})) +
                "\n";
-        str += "\tT: " + std::to_string(current_time_sec_) + "\n";
+        str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
         str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
         str += diagnosticManager.pretty();
         return str;

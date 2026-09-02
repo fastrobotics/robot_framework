@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title LocalPoseFuser Process Class Diagram
 
@@ -21,25 +22,24 @@ namespace fast::rf {
   namespace core::Infrastructure {
     class DiagnosticManager
   }
+  interface IProcess
   namespace PoseSystem {
     namespace LocalPoseSubsystem {
       package LocalPoseFuser #LightYellow;line:blue {
         interface ILocalPoseFuserProcess #LimeGreen  {
           +{abstract} bool init()
-          +{abstract} DiagnosticMsg[] get_diagnostics()
-          +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
           +{abstract} bool new_machine_inertial_data(ImuMsg machine_inertial_data)
           +{abstract} bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)
-          +{abstract} bool update(double current_time_sec)
-          +{abstract} string pretty()
         }
+        ILocalPoseFuserProcess -up-|> IProcess
         abstract BaseLocalPoseFuserProcess #LimeGreen {
           +bool init()
-          +DiagnosticMsg[] get_diagnostics()
-          +bool update(double current_time_sec)
+          +DiagnosticMsg[] getDiagnostics()
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
           +bool get_local_pose(OdomMsg local_pose, AccelWithCovarianceMsg angular_acc)
           #void new_local_pose(OdomMsg local_pose,AccelWithCovarianceMsg angular_acc)
+	  #bool update(double current_time_sec)
           #string pretty()
           #DiagnosticManager diagnosticManager
           #ReadyToArmStatusMsg ready_to_arm

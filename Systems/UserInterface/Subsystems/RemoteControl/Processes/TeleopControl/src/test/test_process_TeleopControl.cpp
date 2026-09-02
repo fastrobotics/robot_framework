@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BaseSourceTest v0.1
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <stdio.h>
@@ -13,10 +16,19 @@ class TestTeleopControlProcessInterface : public ITeleopControlProcess {
     bool init([[maybe_unused]] ControlDevice device, [[maybe_unused]] JoystickCalibrationData joy_calibration_data) {
         return true;
     }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
     void update_RobotArmCommand([
         [maybe_unused]] fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) {}
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -42,7 +54,7 @@ TEST(TestTeleopControlProcessInterface, InterfaceTests) {
     JoystickCalibrationData joy_calibration;
     joy_calibration.optional_init();
     ASSERT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
     ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
     auto twist = SUT.get_twist_output();
@@ -60,7 +72,7 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
               [[maybe_unused]] JoystickCalibrationData joy_calibration_data) override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = m_diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update([[maybe_unused]] double current_time_sec) override {
@@ -71,16 +83,23 @@ class TestBaseTeleopControlProcess : public BaseTeleopControlProcess {
         str += BaseTeleopControlProcess::pretty();
         return str;
     }
-    bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) { return false; }
+    bool new_joy([[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) {
+        last_input_time_sec = m_currentTimeSec;
+        bool status = m_diagnosticManager.updateDiagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Joystick Data");
+        return status;
+    }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+        return true;
     }
 };
 TEST(BaseTeleopControlProcess, BasicAssertions) {
@@ -97,15 +116,18 @@ TEST(BaseTeleopControlProcess, BasicAssertions) {
         }
     }
     ASSERT_TRUE(SUT.set_operation_mode(OperationMode::RUN));
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     printf("%s\n", SUT.pretty().c_str());
-    ASSERT_FALSE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
+    ASSERT_TRUE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
     ASSERT_TRUE(SUT.inject_error());
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_TRUE(SUT.clear_error());
+    ASSERT_TRUE(SUT.update(0.5));
+    ASSERT_TRUE(SUT.new_joy(fast::rf::messages::SensorMsgs::JoyMsg{}));
     ASSERT_TRUE(SUT.update(1.0));
+    printf("%s\n", SUT.pretty().c_str());
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
 }

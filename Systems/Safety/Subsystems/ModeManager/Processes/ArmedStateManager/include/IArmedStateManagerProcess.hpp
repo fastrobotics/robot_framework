@@ -6,12 +6,13 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface v0.1
  */
 #pragma once
 #include <ArmCommandMsg.hpp>
 #include <ArmStateChangeSrv.hpp>
 #include <DiagnosticMsg.hpp>
+#include <IProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
@@ -22,7 +23,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         uint8_t expected_arm_signals{0};
         bool is_ok() {
             if (expected_arm_signals == 0) {
-                fast::rf::Logger::log_error("Config is Invalid: " + pretty());
+                fast::rf::Logger::logError("Config is Invalid: " + pretty());
                 return false;
             }
             return true;
@@ -38,7 +39,7 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
      * @brief Interface for the ArmedStateManager Process
      *
      */
-    class IArmedStateManagerProcess {
+    class IArmedStateManagerProcess : public fast::rf::IProcess {
        public:
         IArmedStateManagerProcess() = default;
         virtual ~IArmedStateManagerProcess() = default;
@@ -59,29 +60,6 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @return false
          */
         virtual bool set_config(ArmedStateManagerProcessConfig config) = 0;
-
-        /**
-         * @brief Generic Update function
-         *
-         * @param current_time_sec Current time stamp
-         * @return true If the process updated ok
-         * @return false If the process did not update ok
-         */
-        virtual bool update(double current_time_sec) = 0;
-
-        /**
-         * @brief Pretty print the Process
-         *
-         * @return std::string
-         */
-        virtual std::string pretty() = 0;
-
-        /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
 
         /**
          * @brief Request an Arm State Change
@@ -108,7 +86,5 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          * @return fast::rf::messages::InfrastructureMsgs::ArmCommandMsg
          */
         virtual fast::rf::messages::InfrastructureMsgs::ArmCommandMsg get_ArmCommandMsg() = 0;
-
-        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

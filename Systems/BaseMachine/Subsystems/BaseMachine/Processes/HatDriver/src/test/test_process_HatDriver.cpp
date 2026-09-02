@@ -1,5 +1,7 @@
-
-
+/**
+ * @compare_tag Process-BaseSourceTest v0.1
+ *
+ */
 #include <gtest/gtest.h>
 #include <stdio.h>
 
@@ -11,9 +13,18 @@ using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 class TestHatDriverProcessInterface : public IHatDriverProcess {
    public:
     bool init() { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     std::string pretty() { return ""; }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -28,7 +39,7 @@ class TestHatDriverProcessInterface : public IHatDriverProcess {
 TEST(TestHatDriverProcessInterface, InterfaceTests) {
     TestHatDriverProcessInterface SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBaseHatDriverProcess : public BaseHatDriverProcess {
@@ -37,7 +48,7 @@ class TestBaseHatDriverProcess : public BaseHatDriverProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseHatDriverProcess::update(current_time_sec); }
@@ -47,12 +58,12 @@ class TestBaseHatDriverProcess : public BaseHatDriverProcess {
         return str;
     }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
@@ -60,7 +71,7 @@ class TestBaseHatDriverProcess : public BaseHatDriverProcess {
 TEST(BaseHatDriverProcess, BasicAssertions) {
     TestBaseHatDriverProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_GT(SUT.pretty().size(), 0);
     ASSERT_TRUE(SUT.inject_error());

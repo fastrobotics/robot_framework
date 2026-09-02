@@ -11,11 +11,11 @@
     },
     "C_Cpp.clang_format_style": "file",
     "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.formatOnSave": true
     },
     "[c]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.formatOnSave": true
     },
     "[plantuml]": {
@@ -27,5 +27,8 @@
     },
     "files.associations": {
         "*.mmd": "markdown"
+    },
+    "files.exclude": {
+        "**/templates/**": false 
     }
 }

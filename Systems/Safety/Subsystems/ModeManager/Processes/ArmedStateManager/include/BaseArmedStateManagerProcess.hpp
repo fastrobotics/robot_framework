@@ -6,7 +6,7 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-BaseHeader v0.1
  */
 #pragma once
 #include <IArmedStateManagerProcess.hpp>
@@ -27,20 +27,20 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          *
          */
         BaseArmedStateManagerProcess()
-            : diagnosticManager(
-                  fast::rf::SafetySystem::SYSTEM_ID, fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
+            : m_systemId(fast::rf::SafetySystem::SYSTEM_ID),
+              m_subSystemId(fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID),
+              m_processId(
                   fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::PROCESS_ARMEDSTATEMANAGER_ID),
-              ready_to_arm(
-                  fast::rf::SafetySystem::SYSTEM_ID, fast::rf::SafetySystem::ModeManagerSubsystem::SUBSYSTEM_ID,
-                  fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::PROCESS_ARMEDSTATEMANAGER_ID) {}
+              m_diagnosticManager(m_systemId, m_subSystemId, m_processId),
+              ready_to_arm(m_systemId, m_subSystemId, m_processId) {}
 
         /**
          * @brief Get the diagnostics object
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
-            return diagnosticManager.get_diagnostics();
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
+            return m_diagnosticManager.getDiagnostics();
         }
 
         /**
@@ -51,10 +51,29 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return ready_to_arm; }
 
+        /**
+         * @brief Get the System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSystemId() override { return m_systemId; }
+        /**
+         * @brief Get the Sub System Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getSubSystemId() override { return m_subSystemId; }
+        /**
+         * @brief Get the Process Id object
+         *
+         * @return uint8_t
+         */
+        uint8_t getProcessId() override { return m_processId; }
+
        protected:
         bool set_config(ArmedStateManagerProcessConfig config) override {
             if (config.is_ok() == false) {
-                fast::rf::Logger::log_error("Config is not Valid: " + config.pretty());
+                fast::rf::Logger::logError("Config is not Valid: " + config.pretty());
                 return false;
             }
             config_ = config;
@@ -64,21 +83,25 @@ namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager {
         /**
          * @brief Update the base object
          *
-         * @param current_time_sec
+         * @param currentTimeSec
          * @return true If ok
          * @return false If not ok
          */
-        virtual bool update(double current_time_sec);
+        virtual bool update(double currentTimeSec);
         /**
          * @brief Pretty print the Process
          *
          * @return std::string
          */
         virtual std::string pretty();
+        uint8_t m_systemId{0};
+        uint8_t m_subSystemId{0};
+        uint8_t m_processId{0};
         ArmedStateManagerProcessConfig config_;  //!< Process Config
-        double current_time_sec{-1.0};           //!< Current system time
+        double m_currentTimeSec{-1.0};           //!< Current system time
         fast::rf::core::infrastructure::DiagnosticManager
-            diagnosticManager;  //!< Entity responsible for managing diagnostics.
+            m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
+       private:
     };
 }  // namespace fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager

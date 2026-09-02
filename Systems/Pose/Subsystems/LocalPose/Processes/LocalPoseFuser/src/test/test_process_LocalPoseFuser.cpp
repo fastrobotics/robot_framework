@@ -1,5 +1,7 @@
-
-
+/**
+ * @compare_tag Process-BaseSourceTest v0.1
+ *
+ */
 #include <gtest/gtest.h>
 #include <stdio.h>
 
@@ -11,8 +13,17 @@ using namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser;
 class TestLocalPoseFuserProcessInterface : public ILocalPoseFuserProcess {
    public:
     bool init() { return true; }
+    uint8_t getSystemId() override { return 0; }
+    uint8_t getSubSystemId() override { return 0; }
+    uint8_t getProcessId() override { return 0; }
+    bool updateDiagnostic([[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticType type,
+                          [[maybe_unused]] fast::rf::Level level,
+                          [[maybe_unused]] fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                          [[maybe_unused]] std::string description) override {
+        return false;
+    }
     bool update([[maybe_unused]] double current_time_sec) override { return false; }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() {
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
         return empty;
@@ -34,7 +45,7 @@ class TestLocalPoseFuserProcessInterface : public ILocalPoseFuserProcess {
 TEST(TestLocalPoseFuserProcessInterface, InterfaceTests) {
     TestLocalPoseFuserProcessInterface SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_EQ(SUT.get_diagnostics().size(), 0);
+    ASSERT_EQ(SUT.getDiagnostics().size(), 0);
     ASSERT_FALSE(SUT.update(0.0));
 }
 class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
@@ -43,7 +54,7 @@ class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
     bool init() override {
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        bool status = diagnosticManager.initialize_diagnostics(diagnostic_types);
+        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
         return status;
     }
     bool update(double current_time_sec) override { return BaseLocalPoseFuserProcess::update(current_time_sec); }
@@ -53,12 +64,12 @@ class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
         return str;
     }
     bool inject_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::ERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Testing Error Injection");
     }
     bool clear_error() {
-        return diagnosticManager.update_diagnostic(
+        return diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
@@ -72,7 +83,7 @@ class TestBaseLocalPoseFuserProcess : public BaseLocalPoseFuserProcess {
 TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     TestBaseLocalPoseFuserProcess SUT;
     ASSERT_TRUE(SUT.init());
-    ASSERT_GT(SUT.get_diagnostics().size(), 0);
+    ASSERT_GT(SUT.getDiagnostics().size(), 0);
     ASSERT_TRUE(SUT.update(0.0));
     ASSERT_TRUE(SUT.inject_error());
     ASSERT_TRUE(SUT.update(1.0));
@@ -81,14 +92,14 @@ TEST(BaseLocalPoseFuserProcess, BasicAssertions) {
     ASSERT_TRUE(SUT.update(1.0));
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     fast::rf::messages::GeometryMsgs::OdomMsg local_pose;
     fast::rf::messages::GeometryMsgs::AccelWithCovarianceMsg local_pose_angular_acc;
     ASSERT_TRUE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     ASSERT_FALSE(SUT.get_local_pose(local_pose, local_pose_angular_acc));
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 }

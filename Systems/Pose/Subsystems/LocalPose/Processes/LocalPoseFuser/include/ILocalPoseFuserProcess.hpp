@@ -6,11 +6,12 @@
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- *
+ * @compare_tag Process-Interface v0.1
  */
 #pragma once
 #include <AccelWithCovarianceMsg.hpp>
 #include <DiagnosticMsg.hpp>
+#include <IProcess.hpp>
 #include <ImuMsg.hpp>
 #include <OdomMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
@@ -22,7 +23,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
      * @brief Interface for the LocalPoseFuser Process
      *
      */
-    class ILocalPoseFuserProcess {
+    class ILocalPoseFuserProcess : public IProcess {
        public:
         static constexpr double HIGH_ANGULARRATE_DISARM_LIMIT =
             300.0;  //!< Angular Acceleration Limit to automatically disarm the robot, in rad/s^2 Make this user config
@@ -40,36 +41,6 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
          * @return false
          */
         virtual bool init() = 0;
-
-        /**
-         * @brief Generic Update function
-         *
-         * @param current_time_sec Current time stamp
-         * @return true If the process updated ok
-         * @return false If the process did not update ok
-         */
-        virtual bool update(double current_time_sec) = 0;
-
-        /**
-         * @brief Pretty print the Process
-         *
-         * @return std::string
-         */
-        virtual std::string pretty() = 0;
-
-        /**
-         * @brief Get the diagnostic object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::DiagnosticMsg
-         */
-        virtual std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> get_diagnostics() = 0;
-
-        /**
-         * @brief Get the ready to arm object
-         *
-         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
-         */
-        virtual fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() = 0;
 
         /**
          * @brief Process a new Machine Inertial Datum

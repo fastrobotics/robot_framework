@@ -54,12 +54,12 @@ NOTE: If you don't do this, that's perfectly fine, you just won't get an output 
 ## Typical Usage
 Wherever you need to log a console/file output(see the note above), simply call:
 ```cpp
-fast::rf::Logger::log_warn("Message") // Or whatever verbosity level is appropriate.
+fast::rf::Logger::logWarn("Message") // Or whatever verbosity level is appropriate.
 ```
 
 You can also call this with a `DiagnosticMsg` object:
 ```cpp
-fast::rf::Logger::log_diagnostic(DiagnosticMsg diagnostic)
+fast::rf::Logger::logDiagnostic(DiagnosticMsg diagnostic)
 ```
 
 # Validation

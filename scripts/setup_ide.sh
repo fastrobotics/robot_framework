@@ -1,6 +1,6 @@
 echo "Setting up IDE"
 sudo apt update
-sudo apt install -y default-jre graphviz
+sudo apt install -y default-jre graphviz clang-tidy
 pip install --upgrade pip
 pip install pre-commit cmakelang
 pipx install cmake-format

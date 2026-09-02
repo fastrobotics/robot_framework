@@ -1,8 +1,11 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseIMUProcess.hpp>
 #include <IMUDriver/IMURazor9DOFDriver/IMURazor9DOFDriver.hpp>
 #include <IMUDriver/IMUSYDTM151Driver/IMUSYDTM151Driver.hpp>
 #include <IMUDriver/MockIMUDriver.hpp>
-#include <Infrastructure/Logger.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUProcess::init(IMUConfig imu_config) {
         imu_config_ = imu_config;
@@ -27,13 +30,13 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
                 break;
         }
         if (initialized_ok == true) {
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "IMU Initialized");
         }
@@ -41,13 +44,13 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     }
     bool BaseIMUProcess::update(double current_time_sec) {
         if (current_time_sec <= 0.0) {  // Invalid Timestamp
-            fast::rf::Logger::log_warn("Invalid Timestamp!");
+            fast::rf::Logger::logWarn("Invalid Timestamp!");
             return false;
         }
         current_time_sec_ = current_time_sec;
         if (driver == nullptr) {
-            fast::rf::Logger::log_warn("Driver Not Initialized!");
-            diagnosticManager.update_diagnostic(
+            fast::rf::Logger::logWarn("Driver Not Initialized!");
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::FATAL,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No IMU Initialized!");
             ready_to_arm.ready_to_arm = false;
@@ -56,16 +59,16 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         } else {
             bool status = driver->update(current_time_sec_);
             if (status == false) {
-                fast::rf::Logger::log_warn("Driver Not Updated!");
+                fast::rf::Logger::logWarn("Driver Not Updated!");
 
-                diagnosticManager.update_diagnostic(
+                diagnosticManager.updateDiagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED, "Not able to Update IMU!");
             }
             double packet_dropped_rate = driver->get_packet_dropped_rate();
             if (packet_dropped_rate >= 0.0) {
                 if (packet_dropped_rate > HIGH_PACKET_DROPPED_RATE_THRESHOLD) {
-                    diagnosticManager.update_diagnostic(
+                    diagnosticManager.updateDiagnostic(
                         fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                         fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
                         "High Packet Drop Rate: " + std::to_string(packet_dropped_rate) + " > " +
@@ -75,14 +78,14 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             double packet_rx_rate = driver->get_packet_rx_rate();
             if (packet_rx_rate >= 0.0) {
                 if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
-                    diagnosticManager.update_diagnostic(
+                    diagnosticManager.updateDiagnostic(
                         fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::ERROR,
                         fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                         "Low Packet Rate: " + std::to_string(packet_rx_rate) + " < " +
                             std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
                 }
             }
-            if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+            if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
                 ready_to_arm.ready_to_arm = true;
             } else {
                 ready_to_arm.ready_to_arm = false;

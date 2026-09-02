@@ -1,18 +1,29 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ * 
+ */
 #include <Base{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
   bool Base{{cookiecutter.Process}}Process::init() {
     return true;
   }
-bool Base{{cookiecutter.Process}}Process::update([[maybe_unused]] double current_time_sec) {
+  std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> Base{{cookiecutter.Process}}Process::getDiagnostics() {
+            return diagnosticManager.getDiagnostics();
+        }
+bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
 
-  current_time_sec_ = current_time_sec;
-  if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
-      ready_to_arm.ready_to_arm = true;
+  m_currentTimeSec = currentTimeSec;
+  if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
+      m_readyToArm.ready_to_arm = true;
   } else {
-    ready_to_arm.ready_to_arm = false;
+    m_readyToArm.ready_to_arm = false;
   }
 
   return true;
+}
+bool Base{{cookiecutter.Process}}Process::initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes) {
+   bool status = diagnosticManager.initializeDiagnostics(diagnosticTypes);
+   return status;
 }
 std::string Base{{cookiecutter.Process}}Process::pretty() {
 
@@ -24,9 +35,9 @@ std::string Base{{cookiecutter.Process}}Process::pretty() {
                std::string(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::toString(
                    fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::Id{})) +
                "\n";
-  str += "\tT: " + std::to_string(current_time_sec_) + "\n";
-   str += "\tReady To Arm: " + std::to_string(ready_to_arm.ready_to_arm) + "\n";
-  str += diagnosticManager.pretty();
+  str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
+   str += "\tReady To Arm: " + std::to_string(m_readyToArm.ready_to_arm) + "\n";
+  str += m_diagnosticManager.pretty();
 
   return str;
 }

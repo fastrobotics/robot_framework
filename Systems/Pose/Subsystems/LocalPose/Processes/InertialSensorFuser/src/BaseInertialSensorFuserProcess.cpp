@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseInertialSensorFuserProcess.hpp>
 #include <mutex>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
@@ -10,7 +14,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
     }
     bool BaseInertialSensorFuserProcess::update([[maybe_unused]] double current_time_sec) {
         current_time_sec_ = current_time_sec;
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::ERROR).size() == 0) {
+        if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;

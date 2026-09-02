@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicLocalPoseFuserProcess/BasicLocalPoseFuserProcess.hpp>
 #include <PoseUtility.hpp>
 #include <cmath>
@@ -15,14 +19,14 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::POSE);
 
-        status = diagnosticManager.initialize_diagnostics(diagnostic_types);
-        diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::WARN,
-                                            fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
-                                            "No Valid Pose Yet.");
+        status = diagnosticManager.initializeDiagnostics(diagnostic_types);
+        diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::WARN,
+                                           fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                           "No Valid Pose Yet.");
         return status;
     }
     bool BasicLocalPoseFuserProcess::update(double current_time_sec) {
-        double prev_time = current_time_sec_;
+        double prev_time = m_currentTimeSec;
 
         bool status = BaseLocalPoseFuserProcess::update(current_time_sec);
         if (prev_time > 0.0) {
@@ -48,7 +52,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
     bool BasicLocalPoseFuserProcess::new_machine_inertial_data(
         fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data) {
         bool any_error = false;
-        diagnosticManager.update_diagnostic(
+        diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving Machine Inertial Data");
         auto prev_local_pose = local_pose;
@@ -65,10 +69,10 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
         bool status = PoseUtility::differentiate(prev_local_pose, local_pose, angular_acc);
         if (status == false) {
             any_error = true;
-            diagnosticManager.update_diagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
-                                                fast::rf::Level::WARN,
-                                                fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
-                                                "Not able to differentiate Local Pose!");
+            diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE,
+                                               fast::rf::Level::WARN,
+                                               fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                               "Not able to differentiate Local Pose!");
         }
         angular_acc_covariance.accel = angular_acc;
         // Do something better here during AB#1847
@@ -81,7 +85,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
         }
         if (excessive_rotate_accel == true) {
             any_error = true;
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::ERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                 "High Angular Acceleration: " + high_angular_accel.angular.pretty() + " > " +
@@ -92,7 +96,7 @@ namespace fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser {
         // Fill in Angular Acc Covariance during AB#1813
 
         if (any_error == false) {
-            diagnosticManager.update_diagnostic(
+            diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Local Pose Updated");
         }

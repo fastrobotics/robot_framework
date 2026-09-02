@@ -10,7 +10,7 @@ using namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver;
 TEST(MockServoHatDriver, BasicTests) {
     MockServoHatDriver SUT;
     ASSERT_TRUE(SUT.init());
-    fast::rf::Logger::log_info(SUT.pretty());
+    fast::rf::Logger::logInfo(SUT.pretty());
 
     ASSERT_TRUE(SUT.setServoValue(0, 0));
 }

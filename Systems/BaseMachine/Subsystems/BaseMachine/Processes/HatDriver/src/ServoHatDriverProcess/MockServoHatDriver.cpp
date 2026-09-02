@@ -2,7 +2,7 @@
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     bool MockServoHatDriver::init([[maybe_unused]] uint16_t address) {
-        fast::rf::Logger::log_info("Initializing Mock Servo Hat Driver at address: " + std::to_string(address));
+        fast::rf::Logger::logInfo("Initializing Mock Servo Hat Driver at address: " + std::to_string(address));
         return true;
     }
     std::string MockServoHatDriver::pretty() {
@@ -11,8 +11,8 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         return str;
     }
     bool MockServoHatDriver::setServoValue(uint16_t channel, uint16_t value) {
-        fast::rf::Logger::log_debug("I'm a Mock, setting Channel: " + std::to_string(channel) +
-                                    " to: " + std::to_string(value));
+        fast::rf::Logger::logDebug("I'm a Mock, setting Channel: " + std::to_string(channel) +
+                                   " to: " + std::to_string(value));
         return true;
     }
 }  // namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver

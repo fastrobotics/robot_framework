@@ -47,7 +47,7 @@ TEST(BaseController, BasicAssertions) {
 
     ASSERT_TRUE(SUT.init());
     ASSERT_FLOAT_EQ(SUT.get_sensor_delta_time_sec(), 0.0);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
     double current_time_sec = 0.0;
     ASSERT_TRUE(SUT.new_set_point(0.0, current_time_sec));
     ASSERT_TRUE(SUT.new_sensor_input(0.0, current_time_sec));
@@ -64,5 +64,5 @@ TEST(BaseController, BasicAssertions) {
     ASSERT_FLOAT_EQ(output->command_value, 1.0);
     output = SUT.get_output();
     ASSERT_FALSE(output->is_new);
-    fast::rf::Logger::log_debug(SUT.pretty());
+    fast::rf::Logger::logDebug(SUT.pretty());
 }

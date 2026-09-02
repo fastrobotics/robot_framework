@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ *
+ */
 #include <BaseTrajectoryControllerProcess.hpp>
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
     bool BaseTrajectoryControllerProcess::init() {
@@ -13,7 +17,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         return new_command;
     }
     void BaseTrajectoryControllerProcess::set_command(fast::rf::messages::GeometryMsgs::TwistMsg command) {
-        diagnosticManager.update_diagnostic(
+        m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Command Output Computed.");
         command_ = command;
@@ -35,19 +39,20 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
                std::string(fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::toString(
                    fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::Id{})) +
                "\n";
-        str += diagnosticManager.pretty();
+        str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
+        str += m_diagnosticManager.pretty();
         str += "Command:\n";
         str += "\tIs New: " + std::to_string(is_new_command) + "\n";
         str += "\t" + command_.pretty();
         return str;
     }
-    bool BaseTrajectoryControllerProcess::update(double current_time_sec) {
-        current_time_sec_ = current_time_sec;
+    bool BaseTrajectoryControllerProcess::update(double currentTimeSec) {
+        m_currentTimeSec = currentTimeSec;
         if (controller_ == nullptr) {
             return false;
         }
-        bool status = controller_->update(current_time_sec);
-        if (diagnosticManager.get_diagnostics(fast::rf::Level::WARN).size() == 0) {
+        bool status = controller_->update(m_currentTimeSec);
+        if (m_diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;
