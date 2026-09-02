@@ -51,6 +51,12 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @return uint8_t
          */
         uint8_t getProcessId() override { return m_processId; }
+
+        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
+                              fast::rf::DiagnosticDefinition::DiagnosticMessage message,
+                              std::string description) override {
+            return m_diagnosticManager.updateDiagnostic(type, level, message, description);
+        }
         /**
          * @brief Get the diagnostics object
          *
@@ -99,12 +105,6 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
          * @return false If not ok
          */
         bool update(double currentTimeSec) override = 0;
-
-        bool updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType type, fast::rf::Level level,
-                              fast::rf::DiagnosticDefinition::DiagnosticMessage message,
-                              std::string description) override {
-            return m_diagnosticManager.updateDiagnostic(type, level, message, description);
-        }
 
         /**
          * @brief Process a pose
