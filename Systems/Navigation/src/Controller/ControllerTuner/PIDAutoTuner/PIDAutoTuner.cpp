@@ -318,10 +318,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             double minimum_evaluation_command = std::abs(config_.get_output_step());
             if (std::abs(tracking_error) <= config_.get_acceptable_error_threshold()) {
                 evaluation_command = 0.0;
-            } else if (evaluation_command > 0.0 && evaluation_command < minimum_evaluation_command) {
-                evaluation_command = minimum_evaluation_command;
-            } else if (evaluation_command < 0.0 && evaluation_command > -minimum_evaluation_command) {
-                evaluation_command = -minimum_evaluation_command;
+            } else {
+                double set_point_direction = output_->set_point >= baseline_sensor_ ? 1.0 : -1.0;
+                evaluation_command = set_point_direction * minimum_evaluation_command;
             }
             output_->command_value = Controller::BaseController::process_command_value(
                 evaluation_command, config_.get_max_output(), config_.get_min_output());
