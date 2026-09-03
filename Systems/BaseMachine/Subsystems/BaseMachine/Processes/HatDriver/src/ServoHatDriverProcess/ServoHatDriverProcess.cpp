@@ -1,4 +1,7 @@
-#include <Infrastructure/Logger.hpp>
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <ServoHatDriverProcess/ServoHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
@@ -41,7 +44,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
             return false;
         }
         // GCOV_EXCL_STOP
-        if (robot_arm_command.armed_state != fast::rf::ArmedState::ARMED) {
+        if (m_robotArmCommand.armed_state != fast::rf::ArmedState::ARMED) {
             for (uint8_t i = 0; i < ServoHatDriverProcess::MAX_CHANNEL_COUNT; ++i) {
                 driver->setServoValue(i, 0);
             }
@@ -52,7 +55,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::REMOTE_CONTROL, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Receiving R/C Commands.");
-        if (robot_arm_command.armed_state == fast::rf::ArmedState::ARMED) {
+        if (m_robotArmCommand.armed_state == fast::rf::ArmedState::ARMED) {
             return driver->setServoValue(channel, value);
         } else {
             return driver->setServoValue(channel, 0);

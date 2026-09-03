@@ -1,0 +1,31 @@
+@startuml
+title IProcess Class Diagram
+
+package fast::rf #LightYellow;line:blue {
+    enum Level
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
+        enum DiagnosticMessage
+    }
+    namespace messages {
+        namespace InfrastructureMsgs {
+        class DiagnosticMsg <<(M,#FFFF00)>>
+        class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        }
+    }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+
+    interface IProcess #LimeGreen {
+        +{abstract} uint8 getSystemId()
+        +{abstract} uint8 getSubSystemId()
+        +{abstract} uint8 getProcessId() 
+        +{abstract} DiagnosticMsg[] getDiagnostics()
+        +{abstract} bool updateDiagnostic(DiagnosticType type,Level level,DiagnosticMessage message, string description)
+        +{abstract} ReadyToArmStatusMsg get_ready_to_arm()
+        +{abstract} bool update(double current_time_sec)
+        +{abstract} string pretty()
+    }
+}
+@enduml

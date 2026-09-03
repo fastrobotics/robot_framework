@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <IMUProcess.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
 

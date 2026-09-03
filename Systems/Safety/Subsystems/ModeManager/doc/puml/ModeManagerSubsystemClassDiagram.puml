@@ -1,3 +1,4 @@
+' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title ModeManager Subsystem Class Diagram
 namespace fast::rf {

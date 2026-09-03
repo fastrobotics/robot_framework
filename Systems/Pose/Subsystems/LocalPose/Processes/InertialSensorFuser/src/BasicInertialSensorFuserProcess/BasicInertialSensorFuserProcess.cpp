@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicInertialSensorFuserProcess/BasicInertialSensorFuserProcess.hpp>
 namespace fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser {
 

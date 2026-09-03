@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BaseSource v0.1
+ * 
+ */
 #include <Base{{cookiecutter.Process}}Process.hpp>
 namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}} {
   bool Base{{cookiecutter.Process}}Process::init() {
@@ -8,11 +12,11 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
         }
 bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
 
-  mCurrentTimeSec = currentTimeSec;
-  if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
-      readyToArm.ready_to_arm = true;
+  m_currentTimeSec = currentTimeSec;
+  if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
+      m_readyToArm.ready_to_arm = true;
   } else {
-    readyToArm.ready_to_arm = false;
+    m_readyToArm.ready_to_arm = false;
   }
 
   return true;

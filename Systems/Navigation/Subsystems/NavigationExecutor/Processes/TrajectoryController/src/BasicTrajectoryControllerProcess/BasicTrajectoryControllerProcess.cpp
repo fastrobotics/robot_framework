@@ -1,3 +1,7 @@
+/**
+ * @compare_tag Process-BasicSource v0.1
+ *
+ */
 #include <BasicTrajectoryControllerProcess/BasicTrajectoryControllerProcess.hpp>
 
 namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController {
@@ -5,11 +9,11 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types;
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
         diagnostic_types.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::POSE);
-        bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
-        diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::WARN,
-                                           fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE,
-                                           "No Pose Update Yet");
-        diagnosticManager.updateDiagnostic(
+        bool status = m_diagnosticManager.initializeDiagnostics(diagnostic_types);
+        m_diagnosticManager.updateDiagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::WARN,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No Pose Update Yet");
+        m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::WARN,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::DEVICE_NOT_AVAILABLE, "No Ouput Data Computed Yet.");
         controller_ = new Controller::PIDController;
@@ -25,8 +29,8 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         config_ = config;
         return status;
     }
-    bool BasicTrajectoryControllerProcess::update(double current_time_sec) {
-        bool status = BaseTrajectoryControllerProcess::update(current_time_sec);
+    bool BasicTrajectoryControllerProcess::update(double currentTimeSec) {
+        bool status = BaseTrajectoryControllerProcess::update(currentTimeSec);
         if (status == false) {
             return false;
         }
@@ -49,10 +53,10 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         if (status == false) {
             return false;
         }
-        diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::POSE,
-                                           fast::rf::Level::NOERROR,
-                                           fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Pose Received");
-        status = controller_->new_sensor_input(pose.twist.twist.angular.z, current_time_sec_);
+        m_diagnosticManager.updateDiagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::POSE, fast::rf::Level::NOERROR,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Pose Received");
+        status = controller_->new_sensor_input(pose.twist.twist.angular.z, m_currentTimeSec);
         auto cmd = latest_desired_command;
         auto controller_output_ = controller_->get_output();
         cmd.angular.z = controller_output_->command_value;
@@ -65,7 +69,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
         if (status == false) {
             return false;
         }
-        status = controller_->new_set_point(cmd.angular.z, current_time_sec_);
+        status = controller_->new_set_point(cmd.angular.z, m_currentTimeSec);
         return status;
     }
 

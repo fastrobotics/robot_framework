@@ -1,3 +1,3 @@
-add_subdirectory(TrajectorySelector)
-add_subdirectory(TrajectoryController)
 add_subdirectory(DriveExecutor)
+add_subdirectory(TrajectoryController)
+add_subdirectory(TrajectorySelector)

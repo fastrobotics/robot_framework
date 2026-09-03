@@ -1,4 +1,7 @@
-
+/**
+ * @compare_tag Process-BasicSourceTest v0.1
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <stdio.h>
