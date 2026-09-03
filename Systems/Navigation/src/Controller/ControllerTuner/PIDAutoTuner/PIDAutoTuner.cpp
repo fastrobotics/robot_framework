@@ -297,12 +297,15 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                 evaluation_started_ = true;
                 evaluation_start_time_sec_ = current_time_sec;
                 previous_evaluation_error_ = tracking_error;
-                maximum_tracking_error_ = std::abs(tracking_error);
+                maximum_tracking_error_ = 0.0;
             } else {
                 double sample_time_sec = get_sensor_delta_time_sec();
                 if (sample_time_sec > 0.0) {
                     integral_error_ += tracking_error * sample_time_sec;
                 }
+            }
+            double evaluation_elapsed_time = current_time_sec - evaluation_start_time_sec_;
+            if (evaluation_elapsed_time >= config_.get_settle_time_sec()) {
                 maximum_tracking_error_ = std::max(maximum_tracking_error_, std::abs(tracking_error));
             }
             double derivative_error = tracking_error - previous_evaluation_error_;
@@ -314,7 +317,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             previous_evaluation_error_ = tracking_error;
             output_->tracking_error = tracking_error;
             output_->maximum_tracking_error = maximum_tracking_error_;
-            output_->elapsed_time_sec = current_time_sec - evaluation_start_time_sec_;
+            output_->elapsed_time_sec = evaluation_elapsed_time;
             double evaluation_command =
                 output_->K_P * tracking_error + output_->K_I * integral_error_ + output_->K_D * derivative_error;
             double minimum_evaluation_command = std::abs(config_.get_output_step());
