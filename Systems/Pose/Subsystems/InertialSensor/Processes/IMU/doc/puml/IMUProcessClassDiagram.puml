@@ -152,7 +152,7 @@ namespace fast::rf {
           +string pretty()
           +bool get_imu_data(ImuMsg& data)
           +bool get_magnetic_data(MagneticFieldMsg& data)
-          #IMUConfig imu_config_
+          #IMUConfig m_config
         }
         DummyIMUProcess -up-|> BaseIMUProcess
         DummyIMUProcess --> IIMUDriver

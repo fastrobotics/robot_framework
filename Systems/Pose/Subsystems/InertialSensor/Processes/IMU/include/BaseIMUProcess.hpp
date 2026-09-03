@@ -107,6 +107,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;  //!< Ready to Arm object
         IIMUDriver* driver{nullptr};                                               //!< IMU Driver
-        IMUConfig imu_config_;                                                     //!< IMU Configuration
+        IMUConfig m_config;                                                        //!< IMU Configuration
     };
 }  // namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU
