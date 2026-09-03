@@ -315,11 +315,11 @@ populated after both directional step responses produce a candidate. The
 candidate gains are then applied to the live system during the `EVALUATE_PID`
 algorithm state.
 The tuner records the maximum absolute tracking error for diagnostics and
-uses the average absolute tracking error after the evaluation settle period
-for acceptance. It reaches `COMPLETE` only when that average is less than or
-equal to `acceptable_error_threshold`. If the average is larger, the tuner
-adjusts the candidate gains and retries while the main state remains `TUNING`;
-after `max_tuning_iterations` unsuccessful evaluations it reaches `FAILED`.
+checks the final absolute tracking error for acceptance. It reaches `COMPLETE`
+only when that final error is less than or equal to
+`acceptable_error_threshold`. If the final error is larger, the tuner adjusts
+the candidate gains and retries while the main state remains `TUNING`; after
+`max_tuning_iterations` unsuccessful evaluations it reaches `FAILED`.
 
 ### Failure Diagnostics
 

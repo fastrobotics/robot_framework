@@ -167,8 +167,6 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         double integral_error_{0.0};
         double previous_evaluation_error_{0.0};
         double maximum_tracking_error_{0.0};
-        double settled_error_sum_{0.0};
-        std::size_t settled_error_samples_{0};
         double positive_response_{0.0};
         bool positive_step_complete_{false};
         bool evaluation_motion_detected_{false};
