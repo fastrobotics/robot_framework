@@ -21,13 +21,13 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
      */
     class IIMUProcess : public fast::rf::IProcess {
        public:
-        static constexpr double HIGH_PACKET_DROPPED_RATE_THRESHOLD = 10.0;
-        static constexpr double LOW_PACKET_RX_RATE_THRESHOLD = 50.0;
         /**
          * @brief Data structure for IMU Configuration
          *
          */
         struct IMUConfig {
+            double highPacketDroppedRateThreshold{10.0};
+            double lowPacketRxRateThreshold{50.0};
             IIMUDriver::IMUDevice imu_type;  //!< The type of IMU
             std::string imu_device_name;     //!< Device File Path
             fast::rf::messages::StandardMsgs::Covariance3DMsg
