@@ -16,6 +16,8 @@
   - [Package Diagram](#package-diagram)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
+- [References](#references)
+  - [Videos](#videos)
 
 # System: Perception
 
@@ -52,8 +54,14 @@ Ideas:
 - Radar
 - Perception Fusion
 
+Goals of the Perception System are to:
+1. Output a list of objects in the machine's surroundings
+2. Output a map of the environment around the machine
+3. Compute a pose based off the perceived environment
 ## Detailed Documentation
+![](artifacts/sensor_comparison.png)
 
+s
 ## Software Content
 
 # Subsystems
@@ -70,3 +78,10 @@ The following Subsystems are provided in this System:
 # Usage Instructions
 
 # Validation
+
+# References
+## Videos
+- https://www.youtube.com/watch?v=L3cdMDIJqWs
+- https://www.youtube.com/watch?v=_7zTL4If-Uw
+- https://www.youtube.com/watch?v=UesfMYM4qcc
+- https://www.youtube.com/watch?v=YoO5t7Lpl74
