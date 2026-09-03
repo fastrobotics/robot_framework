@@ -1,5 +1,6 @@
 #include <ControllerTuner/PIDAutoTuner/PIDAutoTuner.hpp>
 #include <cmath>
+#include <limits>
 
 namespace fast::rf::NavigationSystem::ControllerTuner {
     namespace {
@@ -197,6 +198,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         integral_error_ = 0.0;
         previous_evaluation_error_ = 0.0;
         maximum_tracking_error_ = 0.0;
+        settled_error_sum_ = 0.0;
+        settled_error_samples_ = 0;
         positive_response_ = 0.0;
         positive_step_complete_ = false;
         evaluation_motion_detected_ = false;
@@ -239,6 +242,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         integral_error_ = 0.0;
         previous_evaluation_error_ = 0.0;
         maximum_tracking_error_ = 0.0;
+        settled_error_sum_ = 0.0;
+        settled_error_samples_ = 0;
         positive_response_ = 0.0;
         positive_step_complete_ = false;
         evaluation_motion_detected_ = false;
@@ -307,6 +312,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             double evaluation_elapsed_time = current_time_sec - evaluation_start_time_sec_;
             if (evaluation_elapsed_time >= config_.get_settle_time_sec()) {
                 maximum_tracking_error_ = std::max(maximum_tracking_error_, std::abs(tracking_error));
+                settled_error_sum_ += std::abs(tracking_error);
+                ++settled_error_samples_;
             }
             double derivative_error = tracking_error - previous_evaluation_error_;
             if (get_sensor_delta_time_sec() > 0.0) {
@@ -333,7 +340,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             output_->command_value = Controller::BaseController::process_command_value(
                 evaluation_command, config_.get_max_output(), config_.get_min_output());
             if (output_->elapsed_time_sec >= config_.get_evaluation_time_sec()) {
-                if (maximum_tracking_error_ <= config_.get_acceptable_error_threshold()) {
+                double average_settled_error = settled_error_samples_ > 0 ? settled_error_sum_ / settled_error_samples_
+                                                                          : std::numeric_limits<double>::infinity();
+                if (average_settled_error <= config_.get_acceptable_error_threshold()) {
                     state_ = AutoTunerState::COMPLETE;
                     algorithm_state_ = PIDAutoTunerAlgorithmState::COMPLETE;
                     output_->state = state_;
@@ -356,6 +365,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                     integral_error_ = 0.0;
                     previous_evaluation_error_ = 0.0;
                     maximum_tracking_error_ = 0.0;
+                    settled_error_sum_ = 0.0;
+                    settled_error_samples_ = 0;
                     evaluation_motion_detected_ = false;
                     output_->is_new = true;
                     return true;
