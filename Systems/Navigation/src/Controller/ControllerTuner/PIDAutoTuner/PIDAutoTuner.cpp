@@ -315,6 +315,12 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             output_->elapsed_time_sec = current_time_sec - evaluation_start_time_sec_;
             double evaluation_command =
                 output_->K_P * tracking_error + output_->K_I * integral_error_ + output_->K_D * derivative_error;
+            double minimum_evaluation_command = std::abs(config_.get_output_step());
+            if (evaluation_command > 0.0 && evaluation_command < minimum_evaluation_command) {
+                evaluation_command = minimum_evaluation_command;
+            } else if (evaluation_command < 0.0 && evaluation_command > -minimum_evaluation_command) {
+                evaluation_command = -minimum_evaluation_command;
+            }
             output_->command_value = Controller::BaseController::process_command_value(
                 evaluation_command, config_.get_max_output(), config_.get_min_output());
             if (output_->elapsed_time_sec >= config_.get_evaluation_time_sec()) {
