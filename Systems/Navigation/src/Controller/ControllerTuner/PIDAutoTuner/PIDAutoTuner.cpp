@@ -199,6 +199,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         maximum_tracking_error_ = 0.0;
         positive_response_ = 0.0;
         positive_step_complete_ = false;
+        evaluation_motion_detected_ = false;
         tuning_iteration_ = 0;
         have_sensor_input_ = false;
         evaluation_started_ = false;
@@ -240,6 +241,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         maximum_tracking_error_ = 0.0;
         positive_response_ = 0.0;
         positive_step_complete_ = false;
+        evaluation_motion_detected_ = false;
         tuning_iteration_ = 0;
         have_sensor_input_ = false;
         evaluation_started_ = false;
@@ -316,9 +318,12 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             double evaluation_command =
                 output_->K_P * tracking_error + output_->K_I * integral_error_ + output_->K_D * derivative_error;
             double minimum_evaluation_command = std::abs(config_.get_output_step());
+            if (std::abs(output_->sensor_input - baseline_sensor_) >= config_.get_minimum_response()) {
+                evaluation_motion_detected_ = true;
+            }
             if (std::abs(tracking_error) <= config_.get_acceptable_error_threshold()) {
                 evaluation_command = 0.0;
-            } else {
+            } else if (!evaluation_motion_detected_) {
                 double set_point_direction = output_->set_point >= baseline_sensor_ ? 1.0 : -1.0;
                 evaluation_command = set_point_direction * minimum_evaluation_command;
             }
@@ -348,6 +353,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
                     integral_error_ = 0.0;
                     previous_evaluation_error_ = 0.0;
                     maximum_tracking_error_ = 0.0;
+                    evaluation_motion_detected_ = false;
                     output_->is_new = true;
                     return true;
                 }

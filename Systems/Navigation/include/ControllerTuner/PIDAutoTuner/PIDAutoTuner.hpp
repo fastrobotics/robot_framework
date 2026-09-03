@@ -169,6 +169,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         double maximum_tracking_error_{0.0};
         double positive_response_{0.0};
         bool positive_step_complete_{false};
+        bool evaluation_motion_detected_{false};
         std::size_t tuning_iteration_{0};
         bool have_sensor_input_{false};
         bool evaluation_started_{false};
