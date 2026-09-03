@@ -33,13 +33,25 @@ TEST(PIDAutoTuner, HappyFlow) {
     output = tuner.get_output();
     ASSERT_TRUE(output->is_new);
     ASSERT_EQ(output->state, AutoTunerState::TUNING);
+    ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::APPLY_STEP);
+    ASSERT_DOUBLE_EQ(output->set_point, 9.0);
+    ASSERT_DOUBLE_EQ(output->command_value, 0.0);
+
+    ASSERT_TRUE(tuner.update(1.0));
+    output = tuner.get_output();
+    ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::MEASURE_RESPONSE);
+    ASSERT_DOUBLE_EQ(output->command_value, -2.0);
+
+    ASSERT_TRUE(tuner.new_sensor_input(9.0, 2.0));
+    ASSERT_TRUE(tuner.update(2.0));
+    output = tuner.get_output();
     ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::EVALUATE_PID);
     ASSERT_GT(output->K_P, 0.0);
     ASSERT_GT(output->K_I, 0.0);
     ASSERT_GT(output->K_D, 0.0);
 
-    ASSERT_TRUE(tuner.update(2.0));
     ASSERT_TRUE(tuner.update(3.0));
+    ASSERT_TRUE(tuner.update(4.0));
     output = tuner.get_output();
     ASSERT_EQ(output->state, AutoTunerState::COMPLETE);
     ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::COMPLETE);
@@ -93,6 +105,9 @@ TEST(PIDAutoTuner, CalculatesIMCLambdaGains) {
     ASSERT_TRUE(tuner.update(0.0));
     ASSERT_TRUE(tuner.new_sensor_input(11.0, 1.0));
     ASSERT_TRUE(tuner.update(1.0));
+    ASSERT_TRUE(tuner.update(1.0));
+    ASSERT_TRUE(tuner.new_sensor_input(9.0, 2.0));
+    ASSERT_TRUE(tuner.update(2.0));
 
     PIDAutoTunerOutput* output = tuner.get_output();
     ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::EVALUATE_PID);
@@ -116,9 +131,9 @@ TEST(PIDAutoTuner, FailsWhenResponseTimesOut) {
     ASSERT_EQ(tuner.get_state(), AutoTunerState::FAILED);
     ASSERT_EQ(tuner.get_algorithm_state(), PIDAutoTunerAlgorithmState::FAILED);
     PIDAutoTunerOutput* output = tuner.get_output();
-    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::RESPONSE_TIMEOUT);
-    ASSERT_EQ(output->failure_reason_string, "RESPONSE_TIMEOUT");
-    ASSERT_EQ(output->failure_attribute, "elapsed_time_sec");
+    ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::INSUFFICIENT_RESPONSE);
+    ASSERT_EQ(output->failure_reason_string, "INSUFFICIENT_RESPONSE");
+    ASSERT_EQ(output->failure_attribute, "response");
     ASSERT_FALSE(output->failure_remediation.empty());
 }
 
@@ -133,7 +148,7 @@ TEST(PIDAutoTuner, ReportsInsufficientResponse) {
     ASSERT_TRUE(tuner.start_tuning());
     ASSERT_TRUE(tuner.new_sensor_input(10.0, 0.0));
     ASSERT_TRUE(tuner.update(0.0));
-    ASSERT_TRUE(tuner.update(2.0));
+    ASSERT_FALSE(tuner.update(2.0));
 
     PIDAutoTunerOutput* output = tuner.get_output();
     ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::INSUFFICIENT_RESPONSE);
@@ -155,24 +170,25 @@ TEST(PIDAutoTuner, IteratesGainsWhenTrackingErrorIsTooLarge) {
     ASSERT_TRUE(tuner.update(0.0));
     ASSERT_TRUE(tuner.new_sensor_input(11.0, 1.0));
     ASSERT_TRUE(tuner.update(1.0));
+    ASSERT_TRUE(tuner.update(1.0));
+    ASSERT_TRUE(tuner.new_sensor_input(9.0, 2.0));
+    ASSERT_TRUE(tuner.update(2.0));
 
     PIDAutoTunerOutput* output = tuner.get_output();
     const double initial_K_P = output->K_P;
     ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::EVALUATE_PID);
 
-    ASSERT_TRUE(tuner.new_sensor_input(10.0, 2.0));
-    ASSERT_TRUE(tuner.update(2.0));
-    ASSERT_TRUE(tuner.new_sensor_input(10.0, 3.0));
     ASSERT_TRUE(tuner.update(3.0));
+    ASSERT_TRUE(tuner.new_sensor_input(10.0, 4.0));
+    ASSERT_TRUE(tuner.update(4.0));
     output = tuner.get_output();
     ASSERT_EQ(output->state, AutoTunerState::TUNING);
     ASSERT_EQ(output->algorithm_state, PIDAutoTunerAlgorithmState::EVALUATE_PID);
     ASSERT_DOUBLE_EQ(output->K_P, initial_K_P * 1.5);
 
-    ASSERT_TRUE(tuner.new_sensor_input(10.0, 4.0));
-    ASSERT_TRUE(tuner.update(4.0));
     ASSERT_TRUE(tuner.new_sensor_input(10.0, 5.0));
-    ASSERT_FALSE(tuner.update(5.0));
+    ASSERT_TRUE(tuner.update(5.0));
+    ASSERT_FALSE(tuner.update(6.0));
     ASSERT_EQ(tuner.get_state(), AutoTunerState::FAILED);
     output = tuner.get_output();
     ASSERT_EQ(output->failure_reason, PIDAutoTunerFailureReason::TUNING_ITERATION_LIMIT);

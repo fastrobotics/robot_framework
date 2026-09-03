@@ -89,7 +89,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             fast::rf::Logger::logError("Dead Time < 0!");
             any_error = true;
         }
-        if (lambda_sec_ <= 0.0) {
+        if (algorithm_ == PIDAutoTuningAlgorithm::IMC_LAMBDA && lambda_sec_ <= 0.0) {
             fast::rf::Logger::logError("Lambda < 0!");
             any_error = true;
         }
@@ -197,6 +197,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         integral_error_ = 0.0;
         previous_evaluation_error_ = 0.0;
         maximum_tracking_error_ = 0.0;
+        positive_response_ = 0.0;
+        positive_step_complete_ = false;
         tuning_iteration_ = 0;
         have_sensor_input_ = false;
         evaluation_started_ = false;
@@ -236,6 +238,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         integral_error_ = 0.0;
         previous_evaluation_error_ = 0.0;
         maximum_tracking_error_ = 0.0;
+        positive_response_ = 0.0;
+        positive_step_complete_ = false;
         tuning_iteration_ = 0;
         have_sensor_input_ = false;
         evaluation_started_ = false;
@@ -274,8 +278,12 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         if (algorithm_state_ == PIDAutoTunerAlgorithmState::APPLY_STEP) {
             tuning_start_time_sec_ = current_time_sec;
             step_start_time_sec_ = current_time_sec;
+            double step_magnitude = std::abs(config_.get_output_step());
+            double set_point_magnitude = std::abs(config_.get_set_point_step());
+            double step_direction = positive_step_complete_ ? -1.0 : 1.0;
+            output_->set_point = baseline_sensor_ + step_direction * set_point_magnitude;
             output_->command_value = Controller::BaseController::process_command_value(
-                config_.get_output_step(), config_.get_max_output(), config_.get_min_output());
+                step_direction * step_magnitude, config_.get_max_output(), config_.get_min_output());
             algorithm_state_ = PIDAutoTunerAlgorithmState::MEASURE_RESPONSE;
             output_->algorithm_state = algorithm_state_;
             output_->is_new = true;
@@ -344,8 +352,20 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         output_->elapsed_time_sec = elapsed_time;
         output_->response = output_->sensor_input - baseline_sensor_;
         if (elapsed_time >= config_.get_settle_time_sec()) {
-            double process_gain = output_->response / config_.get_output_step();
+            double step_magnitude = std::abs(config_.get_output_step());
+            double process_gain = output_->response / (positive_step_complete_ ? -step_magnitude : step_magnitude);
             if (std::abs(output_->response) >= config_.get_minimum_response() && std::abs(process_gain) > 0.0) {
+                if (!positive_step_complete_) {
+                    positive_response_ = output_->response;
+                    positive_step_complete_ = true;
+                    algorithm_state_ = PIDAutoTunerAlgorithmState::APPLY_STEP;
+                    output_->algorithm_state = algorithm_state_;
+                    output_->set_point = baseline_sensor_ - std::abs(config_.get_set_point_step());
+                    output_->command_value = 0.0;
+                    output_->is_new = true;
+                    return true;
+                }
+                process_gain = (positive_response_ / step_magnitude + process_gain) / 2.0;
                 double proportional_gain = 1.0 / process_gain;
                 double integral_gain = proportional_gain / config_.get_settle_time_sec();
                 double derivative_gain = proportional_gain * config_.get_settle_time_sec() * 0.1;

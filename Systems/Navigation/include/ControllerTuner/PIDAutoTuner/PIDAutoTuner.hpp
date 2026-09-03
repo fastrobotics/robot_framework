@@ -101,7 +101,7 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         double acceptable_error_threshold_{0.05};
         double evaluation_time_sec_{1.0};
         std::size_t max_tuning_iterations_{3};
-        PIDAutoTuningAlgorithm algorithm_{PIDAutoTuningAlgorithm::UNKNOWN};
+        PIDAutoTuningAlgorithm algorithm_{PIDAutoTuningAlgorithm::STEP_RESPONSE};
         double dead_time_sec_{0.0};
         double lambda_sec_{0.0};
         bool parameters_set_{false};
@@ -167,6 +167,8 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
         double integral_error_{0.0};
         double previous_evaluation_error_{0.0};
         double maximum_tracking_error_{0.0};
+        double positive_response_{0.0};
+        bool positive_step_complete_{false};
         std::size_t tuning_iteration_{0};
         bool have_sensor_input_{false};
         bool evaluation_started_{false};

@@ -49,9 +49,11 @@ system before reporting successful tuning.
 
 The current implementation supports bounded step-response and IMC/Lambda
 tuning, selected by `PIDAutoTuningAlgorithm`. The selector is part of the
-public configuration API. Unsupported algorithms are rejected until their
-implementations are added. IMC/Lambda additionally requires process dead time
-and the desired closed-loop time constant:
+public configuration API. Each tuning operation applies positive and negative
+output steps, measures both responses, and averages their process gains before
+calculating one set of PID gains. Unsupported algorithms are rejected until
+their implementations are added. IMC/Lambda additionally requires process
+dead time and the desired closed-loop time constant:
 
 ```cpp
 config.set_algorithm(PIDAutoTuningAlgorithm::IMC_LAMBDA);
@@ -267,7 +269,8 @@ if (!tuner.set_config(config) || !tuner.init() || !tuner.start_tuning()) {
 
 Provide sensor samples with timestamps and call `update()` using the same
 monotonic time base. The first sensor sample captures the baseline. The tuner
-then generates a setpoint and, on `update()`, publishes the output command.
+then generates positive and negative setpoints in sequence and, on `update()`,
+publishes each output command.
 
 ```cpp
 while (tuner.get_state() == AutoTunerState::TUNING) {
@@ -308,8 +311,9 @@ if (tuner.tuning_succeeded()) {
 ```
 
 The `TUNING` output may have zero `K_P`, `K_I`, and `K_D` values. They are
-populated after the step response produces a candidate. The candidate gains
-are then applied to the live system during the `EVALUATE_PID` algorithm state.
+populated after both directional step responses produce a candidate. The
+candidate gains are then applied to the live system during the `EVALUATE_PID`
+algorithm state.
 The tuner records the maximum absolute tracking error during the evaluation
 window. It reaches `COMPLETE` only when that value is less than or equal to
 `acceptable_error_threshold`. If the error is larger, the tuner adjusts the
