@@ -316,7 +316,9 @@ namespace fast::rf::NavigationSystem::ControllerTuner {
             double evaluation_command =
                 output_->K_P * tracking_error + output_->K_I * integral_error_ + output_->K_D * derivative_error;
             double minimum_evaluation_command = std::abs(config_.get_output_step());
-            if (evaluation_command > 0.0 && evaluation_command < minimum_evaluation_command) {
+            if (std::abs(tracking_error) <= config_.get_acceptable_error_threshold()) {
+                evaluation_command = 0.0;
+            } else if (evaluation_command > 0.0 && evaluation_command < minimum_evaluation_command) {
                 evaluation_command = minimum_evaluation_command;
             } else if (evaluation_command < 0.0 && evaluation_command > -minimum_evaluation_command) {
                 evaluation_command = -minimum_evaluation_command;
