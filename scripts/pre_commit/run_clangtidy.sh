@@ -1,16 +1,55 @@
 #!/bin/bash
 echo "Running Clang-Tidy Code..."
-# 1. Get the list of modified files
-files=$(git diff --staged --name-only -- '**/*.cpp' '**/*.hpp' ':(exclude)templates/*' ':(exclude)builds/*')
+
+show_help() {
+        cat <<EOF
+Usage: $0 [OPTION]
+
+Run clang-tidy on C++ files.
+
+With no option, analyze staged .cpp and .hpp files.
+
+Options:
+    --all       Analyze all tracked .cpp and .hpp files.
+    -h, --help  Show this help text.
+
+Files under templates/ and builds/ are excluded.
+
+Examples:
+    $0
+    $0 --all
+EOF
+}
+
+case "${1:-}" in
+    "")
+        # Analyze staged C++ files by default.
+        files=$(git diff --staged --name-only -- '**/*.cpp' '**/*.hpp' ':(exclude)templates/*' ':(exclude)builds/*')
+        file_scope="staged"
+        ;;
+    --all)
+        # Analyze all tracked C++ files in the repository.
+        files=$(git ls-files -- '*.cpp' '*.hpp' ':(exclude)templates/*' ':(exclude)builds/*')
+        file_scope="all"
+        ;;
+    -h|--help)
+        show_help
+        exit 0
+        ;;
+    *)
+        show_help
+        exit 2
+        ;;
+esac
 
 # Exit quietly if no files were changed
 if [ -z "$files" ]; then
-    echo "[INFO] No modified C++ files found to analyze."
+    echo "[INFO] No $file_scope C++ files found to analyze."
     exit 0
 fi
 
 # 2. Run clang-tidy, catch the output, and keep stderr visible
-echo "[INFO] Analyzing modified files..."
+echo "[INFO] Analyzing $file_scope files..."
 output=$(echo "$files" | xargs -r run-clang-tidy -p build 2>&1)
 
 # 3. Check if the output contains actual clang-tidy warnings/errors

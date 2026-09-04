@@ -11,10 +11,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
-    /**
-     * @todo Make this a config item during AB#1798
-     *
-     */
     bool IMUSYDTM151Driver::init(std::string device_name) {
         bool status = BaseIMUDriver::init(IMUDevice::SYDTM151_IMU, device_name);
         if (status == false) {
@@ -70,10 +66,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             DataPacket packet = parse(readBuffer, numBytesRead);
             if (packet.ok == true) {
                 auto sensor_data = convert(packet);
-                /**
-                 * @todo Assign Covariance Data during AB#1795
-                 *
-                 */
                 {
                     fast::rf::messages::SensorMsgs::ImuMsg data;
                     data = sensor_data.imu_msg;
