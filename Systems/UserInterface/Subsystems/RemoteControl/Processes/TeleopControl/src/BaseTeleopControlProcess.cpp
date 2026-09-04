@@ -21,7 +21,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
                         std::to_string(ITeleopControlProcess::INPUT_TIMEOUT_SEC) + " (sec)");
             }
         }
-        auto diagnostics = m_diagnosticManager.getDiagnostics(fast::rf::Level::WARN);
+        auto diagnostics = m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR);
         if (diagnostics.size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
