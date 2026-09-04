@@ -108,10 +108,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
                 return packet;
             }
             try {
-                /**
-                 * @todo Figure out how to consume this data (including orientation + heading) in AB#1792
-                 *
-                 */
                 packet.acc_x_g = std::stod(tokens[2]);
                 packet.acc_y_g = std::stod(tokens[3]);
                 packet.acc_z_g = std::stod(tokens[4]);
