@@ -1,3 +1,4 @@
+`@compare_tag ProcessImplementation-Document v0.1`
 [{{cookiecutter.Process}} Process](../Process-{{cookiecutter.Process}}.md)
 
 - [Process Implementation: {{cookiecutter.Process}}](#process-implementation-cookiecutterprocess)

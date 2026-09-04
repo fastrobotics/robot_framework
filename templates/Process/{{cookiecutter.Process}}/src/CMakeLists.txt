@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(base_{{cookiecutter.Process}}Process STATIC
             Base{{cookiecutter.Process}}Process.cpp)
 target_link_libraries(base_{{cookiecutter.Process}}Process diagnosticManager

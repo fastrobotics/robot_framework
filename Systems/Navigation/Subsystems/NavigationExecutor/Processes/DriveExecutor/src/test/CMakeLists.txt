@@ -1,7 +1,6 @@
+# @compare_tag Process-SourceTestCompile v0.1
+add_executable(test_process_DriveExecutor test_process_DriveExecutor.cpp)
+target_link_libraries(test_process_DriveExecutor GTest::gtest_main
+                      base_DriveExecutorProcess)
 
-  add_executable(test_process_DriveExecutor test_process_DriveExecutor.cpp)
-  target_link_libraries(
-    test_process_DriveExecutor GTest::gtest_main base_DriveExecutorProcess
-  )
-
-  gtest_discover_tests(test_process_DriveExecutor)
+gtest_discover_tests(test_process_DriveExecutor)

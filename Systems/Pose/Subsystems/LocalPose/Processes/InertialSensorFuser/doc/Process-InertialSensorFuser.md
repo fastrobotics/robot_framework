@@ -1,3 +1,4 @@
+`@compare_tag Process-Document v0.1`
 [LocalPose Subsystem](../../../doc/Subsystem-LocalPose.md)
 
 - [Process: InertialSensorFuser](#process-inertialsensorfuser)
@@ -6,6 +7,7 @@
   - [General Requirements](#general-requirements)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
+- [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
@@ -38,6 +40,16 @@ The following outputs are provided by this system.
 | Output      | DataType       | Description         | Usage |
 | ----------- | -------------- | ------------------- | ----- |
 | Machine IMU | SensorMsgs/Imu | Aggregated IMU Data |       |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(base_TrajectoryControllerProcess STATIC
             BaseTrajectoryControllerProcess.cpp)
 target_link_libraries(base_TrajectoryControllerProcess diagnosticManager

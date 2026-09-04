@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(joystickMapper STATIC JoystickMapper.cpp)
 target_link_libraries(joystickMapper sensor_msgs infrastructure_msgs
                       geometry_msgs)

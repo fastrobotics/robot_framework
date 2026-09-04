@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceTestCompile v0.1
 add_executable(test_joysticMapper test_JoystickMapper.cpp)
 target_link_libraries(test_joysticMapper GTest::gtest_main joystickMapper)
 gtest_discover_tests(test_joysticMapper)
