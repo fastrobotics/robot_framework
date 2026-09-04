@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_subdirectory(IMUDriver)
 add_library(base_IMUProcess STATIC BaseIMUProcess.cpp)
 target_link_libraries(

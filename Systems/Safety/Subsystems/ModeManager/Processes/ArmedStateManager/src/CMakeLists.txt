@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(armStateCommander STATIC ArmStateCommander.cpp)
 target_link_libraries(armStateCommander infrastructure_msgs logger)
 

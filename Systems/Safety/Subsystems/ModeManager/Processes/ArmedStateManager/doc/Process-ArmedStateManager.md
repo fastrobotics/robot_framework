@@ -1,4 +1,4 @@
-`@compare_tag Process-Document`
+`@compare_tag Process-Document v0.1`
 [ModeManager Subsystem](../../../doc/Subsystem-ModeManager.md)
 
 - [Process: ArmedStateManager](#process-armedstatemanager)
@@ -7,6 +7,7 @@
   - [General Requirements](#general-requirements)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
+- [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
@@ -51,6 +52,16 @@ The following outputs are provided by this system.
 | Output      | DataType        | Description              | Usage                                                                                         |
 | ----------- | --------------- | ------------------------ | --------------------------------------------------------------------------------------------- |
 | Arm Command | `ArmCommandMsg` | The commanded Arm state. | Typically used by things that manipulate the robot's phyiscal environment, such as actuators. |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

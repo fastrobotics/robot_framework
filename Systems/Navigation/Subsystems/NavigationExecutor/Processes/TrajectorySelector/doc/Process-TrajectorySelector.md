@@ -1,4 +1,4 @@
-`@compare_tag Process-Document`
+`@compare_tag Process-Document v0.1`
 [Navigation Executor Subsystem](../../../doc/Subsystem-NavigationExecutor.md)
 
 - [Process: Trajectory Selector](#process-trajectory-selector)
@@ -37,6 +37,16 @@ The following outputs are provided by this system.
 
 | Output | DataType | Description | Usage |
 | ------ | -------- | ----------- | ----- |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

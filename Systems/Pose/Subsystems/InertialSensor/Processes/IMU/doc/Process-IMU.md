@@ -1,4 +1,4 @@
-`@compare_tag Process-Document`
+`@compare_tag Process-Document v0.1`
 
 [InertialSensor Subsystem](../../../doc/Subsystem-InertialSensor.md)
 
@@ -47,6 +47,16 @@ The following outputs are provided by this system.
 | ------------- | ------------------ | ----------- | ----- |
 | IMU Data      | `ImuMsg`           |             |       |
 | Magnetic Data | `MagneticFieldMsg` |             |       |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

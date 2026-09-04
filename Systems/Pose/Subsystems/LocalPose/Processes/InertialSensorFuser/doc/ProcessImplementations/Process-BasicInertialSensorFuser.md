@@ -1,4 +1,4 @@
-`@compare_tag ProcessImplementation-Document`
+`@compare_tag ProcessImplementation-Document v0.1`
 [InertialSensorFuser Process](../Process-InertialSensorFuser.md)
 
 - [Process Implementation: InertialSensorFuser](#process-implementation-inertialsensorfuser)

@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(base_HatDriverProcess STATIC BaseHatDriverProcess.cpp)
 target_link_libraries(base_HatDriverProcess diagnosticManager
                       infrastructure_msgs)

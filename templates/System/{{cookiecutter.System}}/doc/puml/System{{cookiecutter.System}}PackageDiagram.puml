@@ -1,3 +1,4 @@
+' @compare_tag System-PackageDiagram v0.1
 @startuml
 title System-{{cookiecutter.System}} Package Diagram
 

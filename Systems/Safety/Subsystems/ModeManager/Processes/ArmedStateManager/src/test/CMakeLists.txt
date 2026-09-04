@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceTestCompile v0.1
 add_executable(test_ArmStateCommander test_ArmStateCommander.cpp)
 target_link_libraries(test_ArmStateCommander GTest::gtest_main
                       infrastructure_msgs armStateCommander logger)

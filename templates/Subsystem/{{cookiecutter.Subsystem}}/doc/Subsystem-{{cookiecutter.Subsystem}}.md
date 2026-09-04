@@ -1,3 +1,4 @@
+`@compare_tag Subsystem-Document v0.1`
 [{{cookiecutter.System}} System](../../../doc/System-{{cookiecutter.System}}.md)
 
 - [Subsystem: {{cookiecutter.Subsystem}}](#subsystem-cookiecuttersubsystem)

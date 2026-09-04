@@ -1,4 +1,4 @@
-`@compare_tag ProcessImplementation-Document`
+`@compare_tag ProcessImplementation-Document v0.1`
 [Trajectory Controller Process](../Process-TrajectoryController.md)
 
 - [Process Implementation: Trajectory Controller](#process-implementation-trajectory-controller)
