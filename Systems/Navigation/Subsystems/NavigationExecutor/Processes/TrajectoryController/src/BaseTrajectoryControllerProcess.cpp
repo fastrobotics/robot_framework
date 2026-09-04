@@ -52,7 +52,7 @@ namespace fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryCon
             return false;
         }
         bool status = controller_->update(m_currentTimeSec);
-        if (m_diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
+        if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;

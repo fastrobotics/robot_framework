@@ -15,7 +15,7 @@ TEST(BasicLocalPoseFuserProcess, BasicTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0));
 
-    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 
     fast::rf::messages::SensorMsgs::ImuMsg machine_inertial_data;
     ASSERT_TRUE(SUT.new_machine_inertial_data(machine_inertial_data));

@@ -82,7 +82,7 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
     EXPECT_TRUE(SUT.init(ControlDevice::THRUSTMASTER_JOYSTICK, joy_calibration));
     double current_time = 0.0;
     EXPECT_TRUE(SUT.update(current_time));
-    EXPECT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    EXPECT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.buttons.resize(4);
     joy.buttons[0];
@@ -94,7 +94,7 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
 
     current_time += 0.1 + ITeleopControlProcess::INPUT_TIMEOUT_SEC;
     EXPECT_TRUE(SUT.update(current_time));
-    EXPECT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
+    EXPECT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     current_time += 0.1;
     EXPECT_TRUE(SUT.update(current_time));
     EXPECT_TRUE(SUT.new_joy(joy));

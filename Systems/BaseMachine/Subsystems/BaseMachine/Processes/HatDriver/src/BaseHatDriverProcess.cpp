@@ -5,7 +5,7 @@
 #include <BaseHatDriverProcess.hpp>
 namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
     bool BaseHatDriverProcess::update([[maybe_unused]] double currentTimeSec) {
-        if (diagnosticManager.getDiagnostics(fast::rf::Level::WARN).size() == 0) {
+        if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
             ready_to_arm.ready_to_arm = true;
         } else {
             ready_to_arm.ready_to_arm = false;
