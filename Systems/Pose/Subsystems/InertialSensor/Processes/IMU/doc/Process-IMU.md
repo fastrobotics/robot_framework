@@ -1,7 +1,6 @@
 [InertialSensor Subsystem](../../../doc/Subsystem-InertialSensor.md)
 
 - [Process: IMU](#process-imu)
-- [Todo during AB#1732](#todo-during-ab1732)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -23,10 +22,6 @@
 
 # Process: IMU
 
-# Todo during AB#1732
-- Consider a buffer for IMU Data instead of singular data
-- How to get "new" data?  a tuple return ("new", and imu data)?
-- Create test executable for driver
 # Overview
 
 ## Purpose

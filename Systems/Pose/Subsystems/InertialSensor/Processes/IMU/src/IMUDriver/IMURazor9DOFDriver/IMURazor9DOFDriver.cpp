@@ -13,10 +13,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
-    /**
-     * @todo Make this a config item during AB#1798
-     *
-     */
     bool IMURazor9DOFDriver::init(std::string device_name) {
         bool status = BaseIMUDriver::init(IMUDevice::RAZOR9DOF_IMU, device_name);
         if (status == false) {
@@ -71,10 +67,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             DataPacket packet = parse(readBuffer);
             if (packet.ok == true) {
                 auto sensor_data = convert(packet);
-                /**
-                 * @todo Assign Covariance Data during AB#1795
-                 *
-                 */
                 {
                     fast::rf::messages::SensorMsgs::ImuMsg data;
                     data = sensor_data.imu_msg;
@@ -116,10 +108,6 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
                 return packet;
             }
             try {
-                /**
-                 * @todo Figure out how to consume this data (including orientation + heading) in AB#1792
-                 *
-                 */
                 packet.acc_x_g = std::stod(tokens[2]);
                 packet.acc_y_g = std::stod(tokens[3]);
                 packet.acc_z_g = std::stod(tokens[4]);
