@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_library(base_LocalPoseFuserProcess STATIC BaseLocalPoseFuserProcess.cpp)
 target_link_libraries(base_LocalPoseFuserProcess diagnosticManager
                       infrastructure_msgs sensor_msgs geometry_msgs)

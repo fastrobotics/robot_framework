@@ -8,22 +8,22 @@
 #include <IMUDriver/MockIMUDriver.hpp>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     bool BaseIMUProcess::init(IMUConfig imu_config) {
-        imu_config_ = imu_config;
+        m_config = imu_config;
         bool initialized_ok = false;
-        switch (imu_config_.imu_type) {
+        switch (m_config.imu_type) {
             case IIMUDriver::IMUDevice::MOCK_IMU:
                 driver = new MockIMUDriver();
-                initialized_ok = driver->init(imu_config_.imu_device_name);
+                initialized_ok = driver->init(m_config.imu_device_name);
                 break;
             // GCOV_EXCL_START
             // No Practical Way to Unit Test
             case IIMUDriver::IMUDevice::RAZOR9DOF_IMU:
                 driver = new IMURazor9DOFDriver();
-                initialized_ok = driver->init(imu_config_.imu_device_name);
+                initialized_ok = driver->init(m_config.imu_device_name);
                 break;
             case IIMUDriver::IMUDevice::SYDTM151_IMU:
                 driver = new IMUSYDTM151Driver();
-                initialized_ok = driver->init(imu_config_.imu_device_name);
+                initialized_ok = driver->init(m_config.imu_device_name);
                 break;
             // GCOV_EXCL_STOP
             default:
@@ -67,22 +67,22 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             }
             double packet_dropped_rate = driver->get_packet_dropped_rate();
             if (packet_dropped_rate >= 0.0) {
-                if (packet_dropped_rate > HIGH_PACKET_DROPPED_RATE_THRESHOLD) {
+                if (packet_dropped_rate > m_config.highPacketDroppedRateThreshold) {
                     diagnosticManager.updateDiagnostic(
                         fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::ERROR,
                         fast::rf::DiagnosticDefinition::DiagnosticMessage::DROPPING_PACKETS,
                         "High Packet Drop Rate: " + std::to_string(packet_dropped_rate) + " > " +
-                            std::to_string(HIGH_PACKET_DROPPED_RATE_THRESHOLD) + " (Hz)");
+                            std::to_string(m_config.highPacketDroppedRateThreshold) + " (Hz)");
                 }
             }
             double packet_rx_rate = driver->get_packet_rx_rate();
             if (packet_rx_rate >= 0.0) {
-                if (packet_rx_rate < LOW_PACKET_RX_RATE_THRESHOLD) {
+                if (packet_rx_rate < m_config.lowPacketRxRateThreshold) {
                     diagnosticManager.updateDiagnostic(
                         fast::rf::DiagnosticDefinition::DiagnosticType::COMMUNICATIONS, fast::rf::Level::ERROR,
                         fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
                         "Low Packet Rate: " + std::to_string(packet_rx_rate) + " < " +
-                            std::to_string(LOW_PACKET_RX_RATE_THRESHOLD) + " (Hz)");
+                            std::to_string(m_config.lowPacketRxRateThreshold) + " (Hz)");
                 }
             }
             if (diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {

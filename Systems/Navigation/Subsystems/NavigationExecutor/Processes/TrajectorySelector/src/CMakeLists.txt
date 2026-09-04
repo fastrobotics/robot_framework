@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceCompile v0.1
 add_subdirectory(BasicTrajectorySelectorProcess)
 
 add_library(base_TrajectorySelectorProcess STATIC

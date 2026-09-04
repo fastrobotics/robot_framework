@@ -1,3 +1,4 @@
+`@compare_tag Process-Document v0.1`
 [RemoteControl Subsystem](../../../doc/Subsystem-RemoteControl.md)
 
 - [Process: TeleopControl](#process-teleopcontrol)
@@ -7,6 +8,7 @@
 - [Devices Supported](#devices-supported)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
+- [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
@@ -50,6 +52,16 @@ The following outputs are provided by this system.
 | ------------- | -------- | ------------------------------------------------------------ | ----- |
 | Arm Command   | ?        | A command signal taken from the User to Arm/Disarm the Robot | ?     |
 | Desired Twist | TwistMsg | A Desired Twist taken from some User Controller              |       |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 Typically this Process will interface with some user hardware (joystick, keyboard, mouse, other hardware).

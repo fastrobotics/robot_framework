@@ -32,16 +32,16 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
     }
     bool IMUProcess::get_imu_data(fast::rf::messages::SensorMsgs::ImuMsg& data) {
         bool status = driver->get_imu_data(data);
-        data.orientation_covariance = imu_config_.orientation_covariance;
-        data.angular_velocity_covariance = imu_config_.gyro_covariance;
-        data.linear_acceleration_covariance = imu_config_.linear_accelerometer_covariance;
+        data.orientation_covariance = m_config.orientation_covariance;
+        data.angular_velocity_covariance = m_config.gyro_covariance;
+        data.linear_acceleration_covariance = m_config.linear_accelerometer_covariance;
 
         return status;
     }
 
     bool IMUProcess::get_magnetic_data(fast::rf::messages::SensorMsgs::MagneticFieldMsg& data) {
         bool status = driver->get_magnetic_data(data);
-        data.magnetic_field_covariance = imu_config_.magnetometer_covariance;
+        data.magnetic_field_covariance = m_config.magnetometer_covariance;
         return status;
     }
 

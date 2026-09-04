@@ -1,3 +1,4 @@
+' @compare_tag Subsystem-ClassDiagram v0.1
 @startuml
 title {{cookiecutter.Subsystem}} Subsystem Class Diagram
 namespace fast::rf {

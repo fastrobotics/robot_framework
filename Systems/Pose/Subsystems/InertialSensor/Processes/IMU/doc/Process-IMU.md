@@ -1,7 +1,8 @@
+`@compare_tag Process-Document v0.1`
+
 [InertialSensor Subsystem](../../../doc/Subsystem-InertialSensor.md)
 
 - [Process: IMU](#process-imu)
-- [Todo during AB#1732](#todo-during-ab1732)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -23,10 +24,6 @@
 
 # Process: IMU
 
-# Todo during AB#1732
-- Consider a buffer for IMU Data instead of singular data
-- How to get "new" data?  a tuple return ("new", and imu data)?
-- Create test executable for driver
 # Overview
 
 ## Purpose
@@ -50,6 +47,16 @@ The following outputs are provided by this system.
 | ------------- | ------------------ | ----------- | ----- |
 | IMU Data      | `ImuMsg`           |             |       |
 | Magnetic Data | `MagneticFieldMsg` |             |       |
+
+# Diagnostics
+Processes in this Subsystem are defined by:
+- System: TODO
+- Subsystem: TODO
+- Process: TODO
+
+The following Diagnostics are reported by this Process:
+| Diagnostic Type | Description |
+| --------------- | ----------- |
 
 # How It Works
 

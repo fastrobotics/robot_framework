@@ -1,3 +1,4 @@
+# @compare_tag Process-SourceTestCompile v0.1
 add_executable(test_process_{{cookiecutter.Process}}
                test_process_{{cookiecutter.Process}}.cpp)
 target_link_libraries(test_process_{{cookiecutter.Process}} GTest::gtest_main

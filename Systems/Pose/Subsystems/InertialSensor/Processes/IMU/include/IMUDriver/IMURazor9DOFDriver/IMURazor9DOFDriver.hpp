@@ -15,13 +15,6 @@
 #include <IMUDriver/BaseIMUDriver.hpp>
 
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
-    /**
-     * @brief Driver for IMU Sensor Sparkfun Razor 9DOF
-     * @todo Figure out units for mag readings in AB#1795
-
-     * Refer to
-    https://github.com/fastrobotics/component_database/blob/master/Components/Electrical/Sensors/Inertial/InertialSensors.md#sensor-sparkfun-9dof-razor-imu*
-     */
     class IMURazor9DOFDriver : public BaseIMUDriver {
        public:
         static const int baud_rate = B115200;  //!< Baud Rate for Device

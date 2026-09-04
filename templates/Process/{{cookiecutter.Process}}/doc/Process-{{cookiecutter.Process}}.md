@@ -1,3 +1,4 @@
+`@compare_tag Process-Document v0.1`
 [{{cookiecutter.Subsystem}} Subsystem](../../../doc/Subsystem-{{cookiecutter.Subsystem}}.md)
 
 - [Process: {{cookiecutter.Process}}](#process-cookiecutterprocess)
