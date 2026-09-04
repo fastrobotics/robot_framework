@@ -1,3 +1,4 @@
+`@compare_tag Process-Document`
 [LocalPose Subsystem](../../../doc/Subsystem-LocalPose.md)
 
 - [Process: InertialSensorFuser](#process-inertialsensorfuser)

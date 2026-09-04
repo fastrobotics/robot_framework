@@ -1,3 +1,4 @@
+`@compare_tag ProcessImplementation-Document`
 [Trajectory Selector Process](../Process-TrajectorySelector.md)
 
 - [Process Implementation: TrajectorySelector](#process-implementation-trajectoryselector)

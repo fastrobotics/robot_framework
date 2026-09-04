@@ -1,3 +1,4 @@
+`@compare_tag Process-Document`
 [BaseMachine Subsystem](../../../doc/Subsystem-BaseMachine.md)
 
 - [Process: HatDriver](#process-hatdriver)

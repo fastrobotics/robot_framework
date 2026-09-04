@@ -1,4 +1,5 @@
-[Global Pose Process](../Process-TrajectoryController.md)
+`@compare_tag ProcessImplementation-Document`
+[Trajectory Controller Process](../Process-TrajectoryController.md)
 
 - [Process Implementation: Trajectory Controller](#process-implementation-trajectory-controller)
 - [Overview](#overview)

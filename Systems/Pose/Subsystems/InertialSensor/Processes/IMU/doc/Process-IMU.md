@@ -1,3 +1,5 @@
+`@compare_tag Process-Document`
+
 [InertialSensor Subsystem](../../../doc/Subsystem-InertialSensor.md)
 
 - [Process: IMU](#process-imu)

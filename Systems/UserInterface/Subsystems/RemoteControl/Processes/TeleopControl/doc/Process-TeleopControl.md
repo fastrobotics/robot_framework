@@ -1,3 +1,4 @@
+`@compare_tag Process-Document`
 [RemoteControl Subsystem](../../../doc/Subsystem-RemoteControl.md)
 
 - [Process: TeleopControl](#process-teleopcontrol)

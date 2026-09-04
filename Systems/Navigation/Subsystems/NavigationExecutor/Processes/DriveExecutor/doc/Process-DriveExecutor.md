@@ -1,3 +1,4 @@
+`@compare_tag Process-Document`
 [Navigation Executor Subsystem](../../../doc/Subsystem-NavigationExecutor.md)
 
 - [Process: Drive Executor](#process-drive-executor)

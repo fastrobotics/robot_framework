@@ -1,3 +1,4 @@
+`@compare_tag ProcessImplementation-Document`
 [HatDriver Process](../Process-HatDriver.md)
 
 - [Process Implementation: HatDriver](#process-implementation-hatdriver)

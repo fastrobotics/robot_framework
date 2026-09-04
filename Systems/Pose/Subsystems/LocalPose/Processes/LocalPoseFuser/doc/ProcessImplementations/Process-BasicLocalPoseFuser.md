@@ -1,3 +1,4 @@
+`@compare_tag ProcessImplementation-Document`
 [LocalPoseFuser Process](../Process-LocalPoseFuser.md)
 
 - [Process Implementation: LocalPoseFuser](#process-implementation-localposefuser)

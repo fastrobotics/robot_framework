@@ -1,3 +1,4 @@
+`@compare_tag Process-Document`
 [ModeManager Subsystem](../../../doc/Subsystem-ModeManager.md)
 
 - [Process: ArmedStateManager](#process-armedstatemanager)
