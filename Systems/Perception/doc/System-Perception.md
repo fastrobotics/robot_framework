@@ -1,3 +1,4 @@
+`@compare_tag System-Document v0.1`
 [README](../../../README.md)
 
 [Architecture](../../../doc/Architecture/Architecture.md)
@@ -10,6 +11,11 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
+  - [Ideas](#ideas)
+    - [Region of Interest Isolator](#region-of-interest-isolator)
+    - [Object Classifier](#object-classifier)
+    - [Filters](#filters)
+    - [Feature Extraction](#feature-extraction)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Subsystems](#subsystems)
@@ -30,6 +36,7 @@ The Perception System's role in the Robot Framework is to ???.
 ## General Requirements
 
 # System Architecture
+![](mermaid/PerceptionSystemArchitecture.png)
 
 # Inputs
 
@@ -46,7 +53,6 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
-
 Ideas:
 
 - Camera
@@ -58,10 +64,21 @@ Goals of the Perception System are to:
 1. Output a list of objects in the machine's surroundings
 2. Output a map of the environment around the machine
 3. Compute a pose based off the perceived environment
-## Detailed Documentation
-![](artifacts/sensor_comparison.png)
 
-s
+## Ideas
+### Region of Interest Isolator
+- Take in a set of data and subset it.  For example, a full 3D surround Lidar Point Cloud could be fed to this, that then just gives a narrow region in front of the robot, and/or a fixed distance from the robot.  Would be useful to do this with other data sources as well.
+### Object Classifier
+- Determines what classification of objects (moving, static), categories (people, vehicles, etc)
+- AI?
+
+### Filters
+- Various filters used in Sensor Pipelines to clean up noisy data
+
+### Feature Extraction
+- Detect salient features from data sources
+## Detailed Documentation
+
 ## Software Content
 
 # Subsystems
