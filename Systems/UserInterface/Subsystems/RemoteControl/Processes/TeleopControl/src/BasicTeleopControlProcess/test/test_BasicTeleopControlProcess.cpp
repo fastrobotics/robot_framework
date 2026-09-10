@@ -102,6 +102,7 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
     EXPECT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
 TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
+    EXPECT_TRUE(false);
     BasicTeleopControlProcess SUT;
 
     JoystickCalibrationData joy_calibration;
