@@ -1,5 +1,6 @@
 var structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg =
 [
+    [ "GlobalPathCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a625d28e30d753c45da9eb9c5fd179fae", null ],
     [ "ok", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a38d2a69dff233e7adf734aa9dded985c", null ],
     [ "end", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a4d5f8700b2e1f0f1a08f9fda636177df", null ],
     [ "path_points", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a9ada12274e83db686dfc516f07c926b9", null ],

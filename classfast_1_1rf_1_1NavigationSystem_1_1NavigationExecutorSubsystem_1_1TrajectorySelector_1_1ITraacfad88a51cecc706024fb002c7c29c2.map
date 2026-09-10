@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::ITrajectorySelectorProcess" name="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::ITrajectorySelectorProcess">
+<area shape="rect" id="Node000001" title="Interface for the TrajectorySelector Process." alt="" coords="5,79,281,148"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="80,5,207,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,44,146,79,141,79,141,44"/>
+</map>

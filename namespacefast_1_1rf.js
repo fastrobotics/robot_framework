@@ -1,6 +1,9 @@
 var namespacefast_1_1rf =
 [
+    [ "AwarenessSystem", "namespacefast_1_1rf_1_1AwarenessSystem.html", "namespacefast_1_1rf_1_1AwarenessSystem" ],
+    [ "BaseMachineSystem", "namespacefast_1_1rf_1_1BaseMachineSystem.html", "namespacefast_1_1rf_1_1BaseMachineSystem" ],
     [ "CommsSystem", "namespacefast_1_1rf_1_1CommsSystem.html", "namespacefast_1_1rf_1_1CommsSystem" ],
+    [ "core", "namespacefast_1_1rf_1_1core.html", "namespacefast_1_1rf_1_1core" ],
     [ "DataStorageSystem", "namespacefast_1_1rf_1_1DataStorageSystem.html", "namespacefast_1_1rf_1_1DataStorageSystem" ],
     [ "DiagnosticDefinition", "namespacefast_1_1rf_1_1DiagnosticDefinition.html", [
       [ "DiagnosticMessage", "namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3ba", [
@@ -39,13 +42,22 @@ var namespacefast_1_1rf =
     [ "GoalPlanningSystem", "namespacefast_1_1rf_1_1GoalPlanningSystem.html", "namespacefast_1_1rf_1_1GoalPlanningSystem" ],
     [ "ImplementControlSystem", "namespacefast_1_1rf_1_1ImplementControlSystem.html", "namespacefast_1_1rf_1_1ImplementControlSystem" ],
     [ "messages", "namespacefast_1_1rf_1_1messages.html", "namespacefast_1_1rf_1_1messages" ],
-    [ "ModeControlSystem", "namespacefast_1_1rf_1_1ModeControlSystem.html", "namespacefast_1_1rf_1_1ModeControlSystem" ],
     [ "NavigationSystem", "namespacefast_1_1rf_1_1NavigationSystem.html", "namespacefast_1_1rf_1_1NavigationSystem" ],
     [ "PerceptionSystem", "namespacefast_1_1rf_1_1PerceptionSystem.html", "namespacefast_1_1rf_1_1PerceptionSystem" ],
     [ "PoseSystem", "namespacefast_1_1rf_1_1PoseSystem.html", "namespacefast_1_1rf_1_1PoseSystem" ],
     [ "SafetySystem", "namespacefast_1_1rf_1_1SafetySystem.html", "namespacefast_1_1rf_1_1SafetySystem" ],
     [ "TerrainSystem", "namespacefast_1_1rf_1_1TerrainSystem.html", "namespacefast_1_1rf_1_1TerrainSystem" ],
     [ "UserInterfaceSystem", "namespacefast_1_1rf_1_1UserInterfaceSystem.html", "namespacefast_1_1rf_1_1UserInterfaceSystem" ],
+    [ "IProcess", "classfast_1_1rf_1_1IProcess.html", "classfast_1_1rf_1_1IProcess" ],
+    [ "Logger", "classfast_1_1rf_1_1Logger.html", "classfast_1_1rf_1_1Logger" ],
+    [ "ArmedState", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7", [
+      [ "UNKNOWN", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "DISARMED", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7a468609fdfdc3c06b2548578e5415da8e", null ],
+      [ "DISARMED_CANNOTARM", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7a1f7d6da7406fb7b3efffc780a451ca8d", null ],
+      [ "ARMING", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7ae32577107fe76fbf64bed546c9bdb94b", null ],
+      [ "ARMED", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7af40e2850f4c07c01444b5f2393f6eb4c", null ],
+      [ "END_OF_LIST", "namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7ac2b0b4a580050a88a759ac7c20ce853c", null ]
+    ] ],
     [ "Level", "namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29", [
       [ "UNKNOWN", "namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "NOERROR", "namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a2b7a5d9c6a3ccad249c1bb7ecc93a6ed", null ],
@@ -57,5 +69,6 @@ var namespacefast_1_1rf =
       [ "FATAL", "namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a19da7170bea36556dde582519795f3fc", null ],
       [ "END_OF_LIST", "namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29ac2b0b4a580050a88a759ac7c20ce853c", null ]
     ] ],
+    [ "pretty", "namespacefast_1_1rf.html#a36b08de968a6d17772a5198d221a8296", null ],
     [ "pretty", "namespacefast_1_1rf.html#ab3cb41610fe0f2460c98374ab4894de2", null ]
 ];

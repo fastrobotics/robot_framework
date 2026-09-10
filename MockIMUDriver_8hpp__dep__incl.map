@@ -1,0 +1,9 @@
+<map id="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/MockIMUDriver.hpp" name="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/MockIMUDriver.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="229,5,535,60"/>
+<area shape="rect" id="Node000002" href="$BaseIMUProcess_8cpp.html" title=" " alt="" coords="5,115,220,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,68,179,118,177,113,303,63"/>
+<area shape="rect" id="Node000003" href="$MockIMUDriver_8cpp.html" title=" " alt="" coords="244,115,520,170"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="385,74,385,115,379,115,379,74"/>
+<area shape="rect" id="Node000004" href="$exec__IMUDriver_8cpp.html" title=" " alt="" coords="545,108,758,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="461,63,569,105,567,110,459,68"/>
+</map>

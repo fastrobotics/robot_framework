@@ -1,5 +1,9 @@
 <map id="Systems/Pose/include/BasePoseSystem.hpp" name="Systems/Pose/include/BasePoseSystem.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,250,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="226,5,393,45"/>
 <area shape="rect" id="Node000002" href="$DummyPoseSystem_8hpp.html" title=" " alt="" coords="5,93,328,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,59,169,93,164,93,164,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="268,55,199,96,197,91,265,50"/>
+<area shape="rect" id="Node000004" href="$BasePoseSystem_8cpp.html" title=" " alt="" coords="352,93,555,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="354,50,423,91,420,96,351,55"/>
+<area shape="rect" id="Node000003" href="$DummyPoseSystem_8cpp.html" title=" " alt="" coords="49,181,284,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,147,169,181,164,181,164,147"/>
 </map>

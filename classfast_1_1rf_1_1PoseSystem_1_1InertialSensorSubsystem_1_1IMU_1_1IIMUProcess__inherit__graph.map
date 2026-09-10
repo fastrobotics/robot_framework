@@ -1,0 +1,9 @@
+<map id="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IIMUProcess" name="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IIMUProcess">
+<area shape="rect" id="Node000001" title="Interface for the IMU Process." alt="" coords="5,79,197,133"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUProcess.html" title="Base IMU Process." alt="" coords="5,181,197,236"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="104,147,104,181,99,181,99,147"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="38,5,165,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,44,104,79,99,79,99,44"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMUProcess.html" title="Minimal Implementation for a IMU Process." alt="" coords="5,284,197,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="104,250,104,284,99,284,99,250"/>
+</map>

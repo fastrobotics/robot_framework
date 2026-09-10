@@ -1,0 +1,11 @@
+<map id="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver" name="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver">
+<area shape="rect" id="Node000001" title="Base IMU Driver." alt="" coords="245,84,437,139"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMURazor9DOFDriver.html" title=" " alt="" coords="485,5,688,60"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="439,77,500,58,502,63,441,82"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMUSYDTM151Driver.html" title="Driver for IMU Sensor SYD TM151." alt="" coords="487,84,687,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="451,109,487,109,487,114,451,114"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1MockIMUDriver.html" title="A Mock IMU Driver." alt="" coords="491,163,683,217"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="441,140,502,160,500,165,439,145"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html" title="Interface for an IMU Driver." alt="" coords="5,84,197,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,109,245,109,245,114,211,114"/>
+</map>

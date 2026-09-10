@@ -1,0 +1,15 @@
+<map id="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::ServoHatDriverProcess" name="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::ServoHatDriverProcess">
+<area shape="rect" id="Node000001" title="Servo Hat Driver Process." alt="" coords="881,113,1124,168"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1BaseHatDriverProcess.html" title="Base HatDriver Process." alt="" coords="593,113,832,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="846,138,881,138,881,143,846,143"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1IHatDriverProcess.html" title="Interface for the HatDriver Process." alt="" coords="181,5,392,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="406,55,570,94,628,111,626,116,569,99,405,60"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,20,132,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,30,181,30,181,35,146,35"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="189,85,385,125"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="399,111,593,128,593,133,398,117"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmCommandMsg.html" title="ArmCommandMsg Definition." alt="" coords="211,149,363,204"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="376,167,593,148,593,153,376,172"/>
+<area shape="rect" id="Node000007" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="197,228,377,283"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="389,229,569,183,628,166,629,171,570,189,391,235"/>
+</map>

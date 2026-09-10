@@ -1,0 +1,47 @@
+<map id="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IIMUProcess.hpp" name="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IIMUProcess.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="598,5,812,60"/>
+<area shape="rect" id="Node000002" href="$IIMUDriver_8hpp.html" title=" " alt="" coords="500,108,689,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="673,62,622,102,619,97,670,58"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="31,328,94,353"/>
+<area shape="poly" id="edge31_Node000001_Node000006" title=" " alt="" coords="598,41,483,53,347,77,275,96,205,119,136,148,72,184,42,204,19,224,9,249,9,263,13,279,24,299,40,317,36,320,20,303,8,281,3,263,3,248,15,221,38,199,69,179,134,144,203,114,274,91,345,72,482,47,597,35"/>
+<area shape="rect" id="Node000011" href="$IProcess_8hpp.html" title=" " alt="" coords="805,108,909,133"/>
+<area shape="poly" id="edge20_Node000001_Node000011" title=" " alt="" coords="753,58,826,99,824,104,750,62"/>
+<area shape="rect" id="Node000013" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="774,255,1004,280"/>
+<area shape="poly" id="edge30_Node000001_Node000013" title=" " alt="" coords="716,59,745,129,768,169,795,205,822,228,852,246,849,251,819,233,791,208,763,172,740,132,711,61"/>
+<area shape="rect" id="Node000003" href="$ImuMsg_8hpp.html" title=" " alt="" coords="234,181,336,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="545,136,349,181,348,176,544,131"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="605,328,664,353"/>
+<area shape="poly" id="edge19_Node000002_Node000008" title=" " alt="" coords="608,132,624,153,637,180,644,216,646,253,641,315,636,314,641,253,639,217,632,182,619,156,603,135"/>
+<area shape="rect" id="Node000010" href="$MagneticFieldMsg_8hpp.html" title=" " alt="" coords="454,181,622,207"/>
+<area shape="poly" id="edge15_Node000002_Node000010" title=" " alt="" coords="587,135,558,172,554,169,583,132"/>
+<area shape="rect" id="Node000004" href="$Covariance3DMsg_8hpp.html" title=" " alt="" coords="429,255,597,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="323,204,464,248,462,253,321,209"/>
+<area shape="poly" id="edge14_Node000003_Node000006" title=" " alt="" coords="234,203,177,210,117,221,64,236,45,246,33,256,27,270,29,285,45,316,40,318,23,287,22,269,28,253,42,241,62,231,115,216,176,204,233,197"/>
+<area shape="rect" id="Node000007" href="$OrientationMsg_8hpp.html" title=" " alt="" coords="43,255,194,280"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="259,209,159,252,157,247,257,204"/>
+<area shape="poly" id="edge13_Node000003_Node000008" title=" " alt="" coords="277,208,256,243,253,262,259,278,281,294,315,308,407,325,508,334,592,337,591,342,507,339,406,331,314,313,279,299,255,282,247,262,251,241,273,206"/>
+<area shape="rect" id="Node000009" href="$Vector3DMsg_8hpp.html" title=" " alt="" coords="269,255,405,280"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="296,205,323,242,318,245,292,209"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="856,328,922,353"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="574,277,843,328,842,333,573,283"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="441,283,108,335,107,330,440,277"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="111,282,82,319,78,316,107,279"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="194,276,592,331,591,336,194,282"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="406,276,417,277,842,331,841,336,417,283,405,281"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="294,283,108,330,106,325,292,277"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="385,277,592,327,591,332,384,283"/>
+<area shape="poly" id="edge16_Node000010_Node000004" title=" " alt="" coords="537,208,524,243,519,241,532,206"/>
+<area shape="poly" id="edge18_Node000010_Node000008" title=" " alt="" coords="559,205,586,225,611,253,626,284,633,314,628,315,621,285,607,256,582,229,556,209"/>
+<area shape="poly" id="edge17_Node000010_Node000009" title=" " alt="" coords="507,209,384,253,382,247,505,204"/>
+<area shape="poly" id="edge29_Node000011_Node000006" title=" " alt="" coords="805,129,481,156,316,172,221,184,158,193,107,199,84,205,63,215,42,232,22,256,17,271,20,286,42,317,37,320,16,289,12,271,17,253,38,228,60,211,82,200,106,194,158,188,221,179,316,166,481,151,805,123"/>
+<area shape="rect" id="Node000012" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="805,181,952,207"/>
+<area shape="poly" id="edge21_Node000011_Node000012" title=" " alt="" coords="863,133,874,167,868,169,858,134"/>
+<area shape="rect" id="Node000014" href="$ReadyToArmStatusMsg_8hpp.html" title=" " alt="" coords="984,181,1184,207"/>
+<area shape="poly" id="edge27_Node000011_Node000014" title=" " alt="" coords="894,131,1035,175,1033,180,893,136"/>
+<area shape="poly" id="edge25_Node000012_Node000005" title=" " alt="" coords="943,204,984,222,1003,236,1018,253,1024,267,1022,281,1015,292,1003,303,971,319,936,331,935,326,969,314,1000,298,1011,289,1017,279,1018,268,1013,256,999,240,982,227,941,209"/>
+<area shape="poly" id="edge26_Node000012_Node000008" title=" " alt="" coords="855,209,762,257,663,322,660,318,760,252,852,204"/>
+<area shape="poly" id="edge22_Node000012_Node000013" title=" " alt="" coords="883,207,888,241,883,242,878,207"/>
+<area shape="poly" id="edge23_Node000013_Node000005" title=" " alt="" coords="892,280,892,314,886,314,886,280"/>
+<area shape="poly" id="edge24_Node000013_Node000008" title=" " alt="" coords="849,283,678,330,677,325,847,277"/>
+<area shape="poly" id="edge28_Node000014_Node000005" title=" " alt="" coords="1083,208,1068,244,1056,264,1040,282,1016,300,989,314,937,332,935,327,987,309,1013,295,1037,278,1052,261,1063,241,1078,206"/>
+</map>

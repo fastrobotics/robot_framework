@@ -1,0 +1,7 @@
+<map id="fast::rf::NavigationSystem::Controller::IController" name="fast::rf::NavigationSystem::Controller::IController">
+<area shape="rect" id="Node000001" title="Generic Controller." alt="" coords="9,5,201,45"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1BaseController.html" title="Abstract class that provides some common functionality." alt="" coords="5,93,204,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,59,107,93,102,93,102,59"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1PIDController.html" title="A PID Controller." alt="" coords="9,181,201,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,147,107,181,102,181,102,147"/>
+</map>

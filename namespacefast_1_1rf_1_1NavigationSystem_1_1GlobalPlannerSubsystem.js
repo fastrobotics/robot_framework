@@ -1,20 +1,10 @@
 var namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem =
 [
-    [ "BaseFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseFreeSpacePlannerProcess" ],
-    [ "BaseGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathRoutePlannerProcess" ],
-    [ "BaseGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPathStorageProcess" ],
-    [ "BaseGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BaseGlobalPlannerManagerProcess" ],
-    [ "BasicFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicFreeSpacePlannerProcess" ],
-    [ "BasicGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathRoutePlannerProcess" ],
-    [ "BasicGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPathStorageProcess" ],
-    [ "BasicGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1BasicGlobalPlannerManagerProcess" ],
-    [ "IFreeSpacePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IFreeSpacePlannerProcess" ],
-    [ "IGlobalPathRoutePlannerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathRoutePlannerProcess" ],
-    [ "IGlobalPathStorageProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPathStorageProcess" ],
-    [ "IGlobalPlannerManagerProcess", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess.html", "classfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1IGlobalPlannerManagerProcess" ],
-    [ "PROCESS_FREESPACE_PLANNER_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#a000240ac843948d8a114af94996e87f2", null ],
-    [ "PROCESS_GLOBALPATH_ROUTEPLANNER_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#a1ee768c934b97ef379b37ec344bc8dde", null ],
-    [ "PROCESS_GLOBALPATH_STORAGE_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#a56afa48c39c275df502af52e4002dc8c", null ],
-    [ "PROCESS_GLOBALPLANNER_MANAGER_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#ac5be3fb05a268b19a5685da89f86de9b", null ],
+    [ "FreeSpacePlanner", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1FreeSpacePlanner.html", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1FreeSpacePlanner" ],
+    [ "GlobalPathRoutePlanner", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPathRoutePlanner.html", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPathRoutePlanner" ],
+    [ "GlobalPathStorage", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPathStorage.html", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPathStorage" ],
+    [ "GlobalPlannerManager", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPlannerManager.html", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1GlobalPlannerManager" ],
+    [ "Id", "structfast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem_1_1Id.html", null ],
+    [ "toString", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#a04645cd15b3c10c6af5d9b55a9abd15a", null ],
     [ "SUBSYSTEM_ID", "namespacefast_1_1rf_1_1NavigationSystem_1_1GlobalPlannerSubsystem.html#a3b2f9088b7893696fe7bf6ffa14cfc3a", null ]
 ];

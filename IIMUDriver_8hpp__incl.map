@@ -1,0 +1,29 @@
+<map id="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/IIMUDriver.hpp" name="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/IIMUDriver.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="288,5,563,60"/>
+<area shape="rect" id="Node000002" href="$ImuMsg_8hpp.html" title=" " alt="" coords="374,108,477,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="428,60,428,94,423,94,423,60"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="505,255,564,280"/>
+<area shape="poly" id="edge18_Node000001_Node000007" title=" " alt="" coords="497,58,537,78,579,105,617,139,646,180,651,193,649,206,633,227,608,243,578,256,576,251,605,239,630,223,644,204,645,194,642,183,613,143,576,110,535,83,494,62"/>
+<area shape="rect" id="Node000009" href="$MagneticFieldMsg_8hpp.html" title=" " alt="" coords="181,108,349,133"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="378,62,300,104,298,99,375,58"/>
+<area shape="rect" id="Node000003" href="$Covariance3DMsg_8hpp.html" title=" " alt="" coords="5,181,173,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,135,157,181,156,176,373,130"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="286,255,349,280"/>
+<area shape="poly" id="edge13_Node000002_Node000005" title=" " alt="" coords="419,135,336,245,332,242,414,132"/>
+<area shape="rect" id="Node000006" href="$OrientationMsg_8hpp.html" title=" " alt="" coords="459,181,610,207"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="444,131,507,171,504,176,441,136"/>
+<area shape="poly" id="edge12_Node000002_Node000007" title=" " alt="" coords="477,119,515,123,556,133,594,151,625,180,630,190,630,201,620,221,600,237,576,251,574,246,597,233,616,217,625,200,625,192,621,183,591,156,554,138,514,128,477,124"/>
+<area shape="rect" id="Node000008" href="$Vector3DMsg_8hpp.html" title=" " alt="" coords="197,181,333,207"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="401,136,305,178,303,173,399,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="152,255,219,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,205,160,244,157,248,103,209"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="127,204,274,250,272,255,125,209"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="501,209,363,254,361,249,499,204"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="537,207,537,241,532,241,532,207"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="254,209,210,248,207,244,251,205"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="276,205,303,242,299,245,272,209"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="309,204,493,252,491,257,308,209"/>
+<area shape="poly" id="edge15_Node000009_Node000003" title=" " alt="" coords="238,136,132,178,130,174,236,131"/>
+<area shape="poly" id="edge17_Node000009_Node000007" title=" " alt="" coords="288,131,503,246,500,251,286,136"/>
+<area shape="poly" id="edge16_Node000009_Node000008" title=" " alt="" coords="268,134,268,168,263,168,263,134"/>
+</map>

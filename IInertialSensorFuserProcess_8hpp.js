@@ -1,0 +1,4 @@
+var IInertialSensorFuserProcess_8hpp =
+[
+    [ "fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::IInertialSensorFuserProcess", "classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1IInertialSensorFuserProcess.html", "classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1IInertialSensorFuserProcess" ]
+];

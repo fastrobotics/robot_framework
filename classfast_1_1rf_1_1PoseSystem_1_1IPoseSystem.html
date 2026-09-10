@@ -115,8 +115,12 @@ Inheritance diagram for fast::rf::PoseSystem::IPoseSystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af556ce5137f03068a90c3c68d6b6b640" id="r_af556ce5137f03068a90c3c68d6b6b640"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html#af556ce5137f03068a90c3c68d6b6b640">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
-<tr class="separator:af556ce5137f03068a90c3c68d6b6b640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5debe1e188d90670664d9063cc0124fb" id="r_a5debe1e188d90670664d9063cc0124fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html#a5debe1e188d90670664d9063cc0124fb">IPoseSystem</a> ()=default</td></tr>
+<tr class="separator:a5debe1e188d90670664d9063cc0124fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a11f34b7b627a044483cc01d9cc838" id="r_ae0a11f34b7b627a044483cc01d9cc838"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html#ae0a11f34b7b627a044483cc01d9cc838">~IPoseSystem</a> ()=default</td></tr>
+<tr class="separator:ae0a11f34b7b627a044483cc01d9cc838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be8e7d384917c546d53ae3cc9de65b9" id="r_a4be8e7d384917c546d53ae3cc9de65b9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html#a4be8e7d384917c546d53ae3cc9de65b9">update</a> (double current_time_sec)=0</td></tr>
+<tr class="separator:a4be8e7d384917c546d53ae3cc9de65b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3819dc2d493faa9ccf63f69b2d796eeb" id="r_a3819dc2d493faa9ccf63f69b2d796eeb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html">fast::rf::messages::GeometryMsgs::OdomMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html#a3819dc2d493faa9ccf63f69b2d796eeb">get_global_pose</a> ()=0</td></tr>
 <tr class="memdesc:a3819dc2d493faa9ccf63f69b2d796eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global pose object.  <br /></td></tr>
 <tr class="separator:a3819dc2d493faa9ccf63f69b2d796eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +130,58 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the Pose System. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5debe1e188d90670664d9063cc0124fb" name="a5debe1e188d90670664d9063cc0124fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5debe1e188d90670664d9063cc0124fb">&#9670;&#160;</a></span>IPoseSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">fast::rf::PoseSystem::IPoseSystem::IPoseSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0a11f34b7b627a044483cc01d9cc838" name="ae0a11f34b7b627a044483cc01d9cc838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0a11f34b7b627a044483cc01d9cc838">&#9670;&#160;</a></span>~IPoseSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual fast::rf::PoseSystem::IPoseSystem::~IPoseSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3819dc2d493faa9ccf63f69b2d796eeb" name="a3819dc2d493faa9ccf63f69b2d796eeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3819dc2d493faa9ccf63f69b2d796eeb">&#9670;&#160;</a></span>get_global_pose()</h2>
 
@@ -187,8 +242,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af556ce5137f03068a90c3c68d6b6b640" name="af556ce5137f03068a90c3c68d6b6b640"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af556ce5137f03068a90c3c68d6b6b640">&#9670;&#160;</a></span>update()</h2>
+<a id="a4be8e7d384917c546d53ae3cc9de65b9" name="a4be8e7d384917c546d53ae3cc9de65b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be8e7d384917c546d53ae3cc9de65b9">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,18 +255,8 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual bool fast::rf::PoseSystem::IPoseSystem::update </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>current_time_sec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>current_time_sec</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>delta_time_sec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -223,7 +268,6 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">current_time_sec</td><td></td></tr>
-    <tr><td class="paramname">delta_time_sec</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -231,7 +275,7 @@ Public Member Functions</h2></td></tr>
 <dd>
 false </dd></dl>
 
-<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html#aeaeeb27a06f675519ae98ffec1f7a87c">fast::rf::PoseSystem::DummyPoseSystem</a>.</p>
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html#aba6e7a7bd644a802b687f839d9572735">fast::rf::PoseSystem::DummyPoseSystem</a>.</p>
 
 </div>
 </div>
@@ -244,7 +288,7 @@ false </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1PoseSystem.html">PoseSystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html">IPoseSystem</a></li>
-    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

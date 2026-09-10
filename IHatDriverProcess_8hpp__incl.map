@@ -1,0 +1,27 @@
+<map id="Systems/BaseMachine/Subsystems/BaseMachine/Processes/HatDriver/include/IHatDriverProcess.hpp" name="Systems/BaseMachine/Subsystems/BaseMachine/Processes/HatDriver/include/IHatDriverProcess.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="236,5,445,75"/>
+<area shape="rect" id="Node000002" href="$ArmCommandMsg_8hpp.html" title=" " alt="" coords="89,123,259,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,77,208,118,206,113,279,72"/>
+<area shape="rect" id="Node000003" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="5,269,236,295"/>
+<area shape="poly" id="edge15_Node000001_Node000003" title=" " alt="" coords="236,48,193,56,150,71,110,93,79,124,71,140,67,157,73,193,88,228,106,257,101,259,83,230,67,194,62,157,66,138,75,121,107,89,147,66,191,51,235,42"/>
+<area shape="rect" id="Node000006" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="187,196,334,221"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="327,76,275,185,270,182,322,74"/>
+<area shape="rect" id="Node000007" href="$IProcess_8hpp.html" title=" " alt="" coords="334,123,438,148"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="359,74,377,109,372,111,355,76"/>
+<area shape="rect" id="Node000008" href="$ReadyToArmStatusMsg_8hpp.html" title=" " alt="" coords="358,196,558,221"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="406,73,432,94,452,121,462,152,463,182,458,182,457,153,448,124,428,98,402,77"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="581,196,644,221"/>
+<area shape="poly" id="edge16_Node000001_Node000009" title=" " alt="" coords="397,73,475,120,584,187,581,191,473,125,394,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="172,149,132,257,127,256,167,148"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="291,343,358,368"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="154,292,280,336,278,341,153,297"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="150,343,209,368"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="132,293,163,331,159,334,128,297"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="239,224,157,265,154,261,237,219"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="270,220,295,268,319,329,314,331,290,270,265,223"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="264,222,262,256,258,277,250,296,232,319,212,337,208,333,228,315,245,293,252,275,257,255,259,222"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="367,150,294,191,292,187,365,146"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="400,146,438,184,435,188,396,150"/>
+<area shape="poly" id="edge13_Node000007_Node000009" title=" " alt="" coords="423,145,569,191,567,196,422,151"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="449,224,347,334,343,330,445,220"/>
+</map>

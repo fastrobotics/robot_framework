@@ -1,0 +1,34 @@
+<map id="core/Infrastructure/DiagnosticManager/DiagnosticManager.cpp" name="core/Infrastructure/DiagnosticManager/DiagnosticManager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="401,5,627,60"/>
+<area shape="rect" id="Node000002" href="$DiagnosticManager_8hpp.html" title=" " alt="" coords="85,108,321,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,63,280,107,278,102,426,58"/>
+<area shape="rect" id="Node000009" href="$Logger_8hpp.html" title=" " alt="" coords="421,115,607,141"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="517,60,517,101,511,101,511,60"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="631,115,717,141"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="560,58,644,106,641,111,558,62"/>
+<area shape="rect" id="Node000003" href="$DiagnosticMsg_8hpp.html" title=" " alt="" coords="271,196,418,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,146,313,187,310,191,236,150"/>
+<area shape="rect" id="Node000004" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="195,269,425,295"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="216,147,262,220,292,258,288,261,257,223,211,150"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="123,343,190,368"/>
+<area shape="poly" id="edge9_Node000002_Node000005" title=" " alt="" coords="176,150,154,171,136,197,129,232,130,267,138,301,148,329,143,331,133,303,125,268,123,231,132,195,150,167,173,146"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="146,196,197,221"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="198,149,184,184,179,182,193,147"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="5,196,68,221"/>
+<area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="165,150,75,192,72,188,162,146"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="341,223,324,258,319,256,337,220"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="273,224,225,242,203,255,184,271,168,299,161,330,156,329,163,297,180,268,200,250,223,237,271,219"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="434,343,493,368"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="374,219,409,239,440,268,456,298,463,328,458,330,451,300,436,271,406,243,372,224"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="286,297,195,339,193,334,284,292"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="336,292,427,334,425,339,334,297"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="490,143,383,193,380,188,488,138"/>
+<area shape="poly" id="edge14_Node000009_Node000004" title=" " alt="" coords="508,142,477,181,432,223,393,248,355,266,352,261,391,243,428,219,473,177,504,139"/>
+<area shape="poly" id="edge18_Node000009_Node000006" title=" " alt="" coords="514,141,472,330,466,329,509,140"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="552,196,625,221"/>
+<area shape="poly" id="edge15_Node000009_Node000010" title=" " alt="" coords="527,139,570,184,566,188,523,143"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="650,196,730,221"/>
+<area shape="poly" id="edge16_Node000009_Node000011" title=" " alt="" coords="541,138,653,188,651,193,539,143"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="755,196,841,221"/>
+<area shape="poly" id="edge17_Node000009_Node000012" title=" " alt="" coords="556,138,744,190,743,195,555,143"/>
+</map>

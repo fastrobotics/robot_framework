@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operationmode_0',['OperationMode',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#aab18fe5dfa263083da9e75dc0e20c816',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]]
+  ['imudevice_0',['IMUDevice',['../classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a22cc6a58346964672f8b24b8239e2ee0',1,'fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IIMUDriver']]]
 ];

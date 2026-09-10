@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['controldevice_0',['ControlDevice',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html#a75b280101c7713f5db71426f96c0534f',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]]
+  ['armedstate_0',['ArmedState',['../namespacefast_1_1rf.html#a76f7204750e16f0cfffc0e4099d49aa7',1,'fast::rf']]]
 ];

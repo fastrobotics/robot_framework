@@ -1,7 +1,11 @@
 <map id="Systems/Comms/include/ICommsSystem.hpp" name="Systems/Comms/include/ICommsSystem.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="55,5,238,45"/>
-<area shape="rect" id="Node000002" href="$BaseCommsSystem_8hpp.html" title=" " alt="" coords="54,93,239,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,59,149,93,144,93,144,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="198,5,381,45"/>
+<area shape="rect" id="Node000002" href="$BaseCommsSystem_8hpp.html" title=" " alt="" coords="197,93,382,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,59,292,93,287,93,287,59"/>
 <area shape="rect" id="Node000003" href="$DummyCommsSystem_8hpp.html" title=" " alt="" coords="5,181,288,236"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,147,149,181,144,181,144,147"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="250,143,188,183,185,179,247,139"/>
+<area shape="rect" id="Node000005" href="$BaseCommsSystem_8cpp.html" title=" " alt="" coords="313,189,554,229"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="332,139,406,186,403,191,329,143"/>
+<area shape="rect" id="Node000004" href="$DummyCommsSystem_8cpp.html" title=" " alt="" coords="16,284,277,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,250,149,284,144,284,144,250"/>
 </map>

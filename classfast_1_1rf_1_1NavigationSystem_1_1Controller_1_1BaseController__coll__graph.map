@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::Controller::BaseController" name="fast::rf::NavigationSystem::Controller::BaseController">
+<area shape="rect" id="Node000001" title="Abstract class that provides some common functionality." alt="" coords="5,93,204,133"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1IController.html" title="Generic Controller." alt="" coords="9,5,201,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,59,107,93,102,93,102,59"/>
+</map>

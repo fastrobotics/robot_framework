@@ -1,0 +1,5 @@
+<map id="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::MockServoHatDriver" name="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::MockServoHatDriver">
+<area shape="rect" id="Node000001" title="Mock Servo Hat Driver. Does nothing, but can executed onx86_64." alt="" coords="5,108,233,163"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1IServoHatDriver.html" title="Interface class for a generic Servo Hat." alt="" coords="15,5,223,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,74,122,108,117,108,117,74"/>
+</map>

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['tankdriveexecutoroutput_2ehpp_0',['TankDriveExecutorOutput.hpp',['../TankDriveExecutorOutput_8hpp.html',1,'']]],
-  ['tankdriveexecutorprocess_2ehpp_1',['TankDriveExecutorProcess.hpp',['../TankDriveExecutorProcess_8hpp.html',1,'']]],
-  ['trajectorycommandmsg_2ehpp_2',['TrajectoryCommandMsg.hpp',['../TrajectoryCommandMsg_8hpp.html',1,'']]],
-  ['twistcomputer_2ehpp_3',['TwistComputer.hpp',['../TwistComputer_8hpp.html',1,'']]],
-  ['twistmsg_2ehpp_4',['TwistMsg.hpp',['../TwistMsg_8hpp.html',1,'']]],
-  ['twistwithcovariancemsg_2ehpp_5',['TwistWithCovarianceMsg.hpp',['../TwistWithCovarianceMsg_8hpp.html',1,'']]]
+  ['localplannersubsystem_2edox_0',['LocalPlannerSubsystem.dox',['../LocalPlannerSubsystem_8dox.html',1,'']]],
+  ['localposesubsystem_2edox_1',['LocalPoseSubsystem.dox',['../LocalPoseSubsystem_8dox.html',1,'']]],
+  ['logger_2ecpp_2',['Logger.cpp',['../Logger_8cpp.html',1,'']]],
+  ['logger_2ehpp_3',['Logger.hpp',['../Logger_8hpp.html',1,'']]]
 ];

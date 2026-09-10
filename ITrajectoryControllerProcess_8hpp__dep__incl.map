@@ -1,7 +1,11 @@
 <map id="Systems/Navigation/Subsystems/NavigationExecutor/Processes/TrajectoryController/include/ITrajectoryControllerProcess.hpp" name="Systems/Navigation/Subsystems/NavigationExecutor/Processes/TrajectoryController/include/ITrajectoryControllerProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="19,5,306,75"/>
-<area shape="rect" id="Node000002" href="$BaseTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="5,123,320,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,89,165,122,160,122,160,89"/>
-<area shape="rect" id="Node000003" href="$BasicTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="17,240,308,324"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,205,165,240,160,240,160,205"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,450,75"/>
+<area shape="rect" id="Node000002" href="$BaseTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="149,123,464,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,89,309,122,304,122,304,89"/>
+<area shape="rect" id="Node000003" href="$BasicTrajectoryControllerProcess_8hpp.html" title=" " alt="" coords="5,240,296,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,202,204,242,201,238,252,198"/>
+<area shape="rect" id="Node000005" href="$BaseTrajectoryControllerProcess_8cpp.html" title=" " alt="" coords="321,247,607,317"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="362,198,422,245,419,249,359,202"/>
+<area shape="rect" id="Node000004" href="$BasicTrajectoryControllerProcess_8cpp.html" title=" " alt="" coords="17,372,284,456"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="153,338,153,372,148,372,148,338"/>
 </map>

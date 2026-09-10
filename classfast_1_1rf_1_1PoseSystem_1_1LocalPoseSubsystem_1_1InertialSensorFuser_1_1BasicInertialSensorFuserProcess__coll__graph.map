@@ -1,0 +1,13 @@
+<map id="fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::BasicInertialSensorFuserProcess" name="fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::BasicInertialSensorFuserProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a InertialSensorFuser Process." alt="" coords="855,84,1095,153"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1BaseInertialSensorFuserProcess.html" title="Base InertialSensorFuser Process." alt="" coords="568,84,805,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="819,116,855,116,855,121,819,121"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1IInertialSensorFuserProcess.html" title="Interface for the InertialSensorFuser Process." alt="" coords="181,5,391,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="405,61,568,93,567,98,404,66"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,181,37,181,43,146,43"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="188,99,384,139"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="398,116,568,116,568,121,398,121"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="196,163,376,218"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="389,170,567,137,568,143,390,175"/>
+</map>

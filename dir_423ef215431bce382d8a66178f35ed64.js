@@ -1,5 +1,7 @@
 var dir_423ef215431bce382d8a66178f35ed64 =
 [
+    [ "AccelMsg.hpp", "AccelMsg_8hpp.html", "AccelMsg_8hpp" ],
+    [ "AccelWithCovarianceMsg.hpp", "AccelWithCovarianceMsg_8hpp.html", "AccelWithCovarianceMsg_8hpp" ],
     [ "OdomMsg.hpp", "OdomMsg_8hpp.html", "OdomMsg_8hpp" ],
     [ "OrientationMsg.hpp", "OrientationMsg_8hpp.html", "OrientationMsg_8hpp" ],
     [ "PointMsg.hpp", "PointMsg_8hpp.html", "PointMsg_8hpp" ],

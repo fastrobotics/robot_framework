@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['globalpathcommandstatusenum_0',['GlobalPathCommandStatusEnum',['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a9971e0d9570f6420eb605238145fadc1',1,'fast::rf::messages::NavMsgs']]],
-  ['globalpathplanningstatusenum_1',['GlobalPathPlanningStatusEnum',['../namespacefast_1_1rf_1_1messages_1_1NavMsgs.html#a762f6f4c979be3efb5357e20cdd9fbf5',1,'fast::rf::messages::NavMsgs']]]
+  ['diagnosticmessage_0',['DiagnosticMessage',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3ba',1,'fast::rf::DiagnosticDefinition']]],
+  ['diagnostictype_1',['DiagnosticType',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a300301ef1c2b86299b78e0013b6c98b5',1,'fast::rf::DiagnosticDefinition']]]
 ];

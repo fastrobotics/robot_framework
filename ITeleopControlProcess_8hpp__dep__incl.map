@@ -1,13 +1,21 @@
 <map id="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/ITeleopControlProcess.hpp" name="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/ITeleopControlProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="19,5,267,75"/>
-<area shape="rect" id="Node000002" href="$BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,240,281,309"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,85,45,103,30,124,22,142,19,157,22,173,30,191,49,217,75,238,71,242,45,221,25,193,17,174,14,157,17,140,25,121,41,99,60,81"/>
-<area shape="rect" id="Node000004" href="$JoystickMapper_8hpp.html" title=" " alt="" coords="40,123,247,192"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,89,146,122,141,122,141,89"/>
-<area shape="rect" id="Node000005" href="$JoystickScaler_8hpp.html" title=" " alt="" coords="271,123,477,192"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="224,79,308,120,305,125,222,83"/>
-<area shape="rect" id="Node000003" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="18,357,269,441"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,323,146,357,141,357,141,323"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="146,206,146,240,141,240,141,206"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="296,201,212,242,210,237,293,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="250,5,498,75"/>
+<area shape="rect" id="Node000002" href="$BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="236,240,512,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="377,89,377,240,371,240,371,89"/>
+<area shape="rect" id="Node000006" href="$JoystickMapper_8hpp.html" title=" " alt="" coords="129,123,336,192"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="324,86,276,124,273,120,320,81"/>
+<area shape="rect" id="Node000008" href="$JoystickScaler_8hpp.html" title=" " alt="" coords="412,123,619,192"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="428,81,475,120,472,124,424,86"/>
+<area shape="rect" id="Node000003" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="111,357,362,441"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="328,320,284,359,281,355,325,316"/>
+<area shape="rect" id="Node000005" href="$BaseTeleopControlProcess_8cpp.html" title=" " alt="" coords="387,365,633,434"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="423,316,474,362,471,366,420,320"/>
+<area shape="rect" id="Node000004" href="$BasicTeleopControlProcess_8cpp.html" title=" " alt="" coords="123,489,350,573"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="239,455,239,489,234,489,234,455"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="286,199,334,238,331,242,283,203"/>
+<area shape="rect" id="Node000007" href="$JoystickMapper_8cpp.html" title=" " alt="" coords="5,240,212,309"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="188,204,147,242,143,238,184,200"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="465,203,417,242,414,238,462,199"/>
+<area shape="rect" id="Node000009" href="$JoystickScaler_8cpp.html" title=" " alt="" coords="536,240,743,309"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="564,200,605,238,601,242,560,204"/>
 </map>

@@ -1,0 +1,5 @@
+var structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmStateChangeSrv_1_1ArmStateChangeSrvRequest =
+[
+    [ "ArmStateChangeSrvRequest", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmStateChangeSrv_1_1ArmStateChangeSrvRequest.html#a367a4f852e4452a92f69a255de0484bb", null ],
+    [ "requested_armed_state", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmStateChangeSrv_1_1ArmStateChangeSrvRequest.html#a930bff11ecf757f46b2b9cab9b6796fe", null ]
+];

@@ -1,5 +1,6 @@
 var structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg =
 [
+    [ "DiagnosticMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html#a7ff6163b235bc2c31661ac99a1d89958", null ],
     [ "DiagnosticMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html#ad790d00d4542a2743e4fd39c0975b02b", null ],
     [ "pretty", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html#a5b65edcaba8f948b435cb314350c235d", null ],
     [ "description", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html#aad8cc0128f51166c8616698d645d9452", null ],

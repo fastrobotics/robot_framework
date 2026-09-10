@@ -1,0 +1,17 @@
+<map id="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::BaseTrajectoryControllerProcess" name="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::BaseTrajectoryControllerProcess">
+<area shape="rect" id="Node000001" title="Base TrajectoryController Process." alt="" coords="839,156,1101,225"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1ITrajectoryControllerProcess.html" title="Interface for the TrajectoryController Process." alt="" coords="323,5,621,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="635,72,725,95,816,123,894,153,892,158,814,128,724,101,634,77"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="50,27,177,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="190,37,322,37,322,43,190,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="374,99,570,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="584,132,839,169,838,174,583,137"/>
+<area shape="rect" id="Node000005" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="382,163,562,218"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="576,188,838,188,838,193,576,193"/>
+<area shape="rect" id="Node000006" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1IController.html" title="Generic Controller." alt="" coords="376,243,568,283"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="581,244,838,207,839,212,582,250"/>
+<area shape="rect" id="Node000007" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html" title="Data Structure for encoding Velocity (linear and angular)" alt="" coords="373,307,571,347"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="583,308,696,286,814,255,896,223,898,228,815,260,697,291,584,313"/>
+<area shape="rect" id="Node000008" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html" title="3D Vector" alt="" coords="5,307,221,347"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="235,324,373,324,373,329,235,329"/>
+</map>

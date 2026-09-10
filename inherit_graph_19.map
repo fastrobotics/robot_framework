@@ -1,3 +1,61 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structfast_1_1rf_1_1messages_1_1NavMsgs_1_1TrajectoryCommandMsg.html" title="Data Structure for encoding Trajectory Command." alt="" coords="5,5,261,45"/>
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,523,132,548"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1IHatDriverProcess.html" title="Interface for the HatDriver Process." alt="" coords="224,124,435,179"/>
+<area shape="poly" id="edge13_Node000000_Node000001" title=" " alt="" coords="70,509,80,453,99,379,131,299,152,261,178,227,211,198,249,176,251,181,214,202,182,230,157,264,136,301,104,380,85,454,76,510"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1IDriveExecutorProcess.html" title="Interface for the DriveExecutor Process." alt="" coords="192,241,467,296"/>
+<area shape="poly" id="edge17_Node000000_Node000005" title=" " alt="" coords="73,508,85,464,105,410,136,354,156,329,178,307,197,294,200,298,182,311,160,332,140,357,110,412,90,466,78,509"/>
+<area shape="rect" id="Node000009" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1ITrajectoryControllerProcess.html" title="Interface for the TrajectoryController Process." alt="" coords="180,321,479,390"/>
+<area shape="poly" id="edge21_Node000000_Node000009" title=" " alt="" coords="82,509,121,454,148,425,178,400,199,388,202,392,182,404,151,429,125,458,86,512"/>
+<area shape="rect" id="Node000012" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1ITrajectorySelectorProcess.html" title="Interface for the TrajectorySelector Process." alt="" coords="191,414,467,483"/>
+<area shape="poly" id="edge24_Node000000_Node000012" title=" " alt="" coords="116,515,179,493,215,481,217,486,181,498,118,520"/>
+<area shape="rect" id="Node000015" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUProcess.html" title="Interface for the IMU Process." alt="" coords="233,508,425,563"/>
+<area shape="poly" id="edge27_Node000000_Node000015" title=" " alt="" coords="146,533,233,533,233,538,146,538"/>
+<area shape="rect" id="Node000018" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1IInertialSensorFuserProcess.html" title="Interface for the InertialSensorFuser Process." alt="" coords="225,587,434,657"/>
+<area shape="poly" id="edge30_Node000000_Node000018" title=" " alt="" coords="119,550,181,571,225,586,224,591,179,577,117,555"/>
+<area shape="rect" id="Node000021" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1LocalPoseFuser_1_1ILocalPoseFuserProcess.html" title="Interface for the LocalPoseFuser Process." alt="" coords="226,681,433,750"/>
+<area shape="poly" id="edge33_Node000000_Node000021" title=" " alt="" coords="86,558,125,613,151,642,181,666,227,689,225,694,179,671,148,646,121,616,82,561"/>
+<area shape="rect" id="Node000024" href="$classfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1IArmedStateManagerProcess.html" title="Interface for the ArmedStateManager Process." alt="" coords="203,774,456,843"/>
+<area shape="poly" id="edge36_Node000000_Node000024" title=" " alt="" coords="78,561,90,604,111,658,141,713,160,738,182,760,204,775,201,780,178,764,156,741,136,716,106,660,85,606,73,562"/>
+<area shape="rect" id="Node000027" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1ITeleopControlProcess.html" title="Interface for the TeleopControl Process." alt="" coords="194,871,465,925"/>
+<area shape="poly" id="edge39_Node000000_Node000027" title=" " alt="" coords="74,562,81,622,98,700,112,742,130,783,153,820,182,853,202,868,199,873,178,857,149,823,125,785,107,744,93,702,75,623,69,562"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1BaseHatDriverProcess.html" title="Base HatDriver Process." alt="" coords="559,84,797,139"/>
+<area shape="poly" id="edge14_Node000001_Node000002" title=" " alt="" coords="448,135,558,122,559,128,449,140"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1BasicHatDriverProcess.html" title="Minimal Implementation for a HatDriver Process." alt="" coords="909,5,1151,60"/>
+<area shape="poly" id="edge15_Node000002_Node000003" title=" " alt="" coords="810,79,909,57,910,62,811,84"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1ServoHatDriverProcess.html" title="Servo Hat Driver Process." alt="" coords="909,84,1151,139"/>
+<area shape="poly" id="edge16_Node000002_Node000004" title=" " alt="" coords="811,109,908,109,908,114,811,114"/>
+<area shape="rect" id="Node000006" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1BaseDriveExecutorProcess.html" title="Base DriveExecutor Process." alt="" coords="527,241,829,296"/>
+<area shape="poly" id="edge18_Node000005_Node000006" title=" " alt="" coords="481,266,526,266,526,271,481,271"/>
+<area shape="rect" id="Node000007" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1BasicDriveExecutorProcess.html" title="Minimal implementation for a DriveExecutor Process." alt="" coords="877,163,1183,217"/>
+<area shape="poly" id="edge19_Node000006_Node000007" title=" " alt="" coords="814,236,906,215,907,220,815,241"/>
+<area shape="rect" id="Node000008" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1TankDriveExecutorProcess.html" title="Process for Tank Drive Executor." alt="" coords="880,241,1180,296"/>
+<area shape="poly" id="edge20_Node000006_Node000008" title=" " alt="" coords="843,266,880,266,880,271,843,271"/>
+<area shape="rect" id="Node000010" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1BaseTrajectoryControllerProcess.html" title="Base TrajectoryController Process." alt="" coords="547,321,809,390"/>
+<area shape="poly" id="edge22_Node000009_Node000010" title=" " alt="" coords="493,353,546,353,546,358,493,358"/>
+<area shape="rect" id="Node000011" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1BasicTrajectoryControllerProcess.html" title="Minimal implementation for a TrajectoryController Process." alt="" coords="897,321,1163,390"/>
+<area shape="poly" id="edge23_Node000010_Node000011" title=" " alt="" coords="823,353,897,353,897,358,823,358"/>
+<area shape="rect" id="Node000013" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1BaseTrajectorySelectorProcess.html" title="Base TrajectorySelector Process." alt="" coords="553,414,803,483"/>
+<area shape="poly" id="edge25_Node000012_Node000013" title=" " alt="" coords="481,446,552,446,552,451,481,451"/>
+<area shape="rect" id="Node000014" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1BasicTrajectorySelectorProcess.html" title="Minimal implementation for a TrajectorySelector Process." alt="" coords="903,414,1157,483"/>
+<area shape="poly" id="edge26_Node000013_Node000014" title=" " alt="" coords="817,446,903,446,903,451,817,451"/>
+<area shape="rect" id="Node000016" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUProcess.html" title="Base IMU Process." alt="" coords="582,508,774,563"/>
+<area shape="poly" id="edge28_Node000015_Node000016" title=" " alt="" coords="439,533,582,533,582,538,439,538"/>
+<area shape="rect" id="Node000017" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMUProcess.html" title="Minimal Implementation for a IMU Process." alt="" coords="934,508,1126,563"/>
+<area shape="poly" id="edge29_Node000016_Node000017" title=" " alt="" coords="788,533,934,533,934,538,788,538"/>
+<area shape="rect" id="Node000019" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1BaseInertialSensorFuserProcess.html" title="Base InertialSensorFuser Process." alt="" coords="559,587,797,657"/>
+<area shape="poly" id="edge31_Node000018_Node000019" title=" " alt="" coords="448,619,559,619,559,625,448,625"/>
+<area shape="rect" id="Node000020" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1BasicInertialSensorFuserProcess.html" title="Minimal Implementation for a InertialSensorFuser Process." alt="" coords="910,587,1150,657"/>
+<area shape="poly" id="edge32_Node000019_Node000020" title=" " alt="" coords="811,619,910,619,910,625,811,625"/>
+<area shape="rect" id="Node000022" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1LocalPoseFuser_1_1BaseLocalPoseFuserProcess.html" title="Base LocalPoseFuser Process." alt="" coords="561,681,795,750"/>
+<area shape="poly" id="edge34_Node000021_Node000022" title=" " alt="" coords="446,713,561,713,561,718,446,718"/>
+<area shape="rect" id="Node000023" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1LocalPoseFuser_1_1BasicLocalPoseFuserProcess.html" title="Minimal Implementation for a LocalPoseFuser Process." alt="" coords="927,681,1133,750"/>
+<area shape="poly" id="edge35_Node000022_Node000023" title=" " alt="" coords="809,713,926,713,926,718,809,718"/>
+<area shape="rect" id="Node000025" href="$classfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1BaseArmedStateManagerProcess.html" title="Base ArmedStateManager Process." alt="" coords="555,774,801,843"/>
+<area shape="poly" id="edge37_Node000024_Node000025" title=" " alt="" coords="470,806,555,806,555,811,470,811"/>
+<area shape="rect" id="Node000026" href="$classfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ArmedStateManagerProcess.html" title="Minimal Implementation for a ArmedStateManager Process." alt="" coords="905,774,1155,843"/>
+<area shape="poly" id="edge38_Node000025_Node000026" title=" " alt="" coords="815,806,905,806,905,811,815,811"/>
+<area shape="rect" id="Node000028" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1BaseTeleopControlProcess.html" title="Base TeleopControl Process." alt="" coords="554,867,802,937"/>
+<area shape="poly" id="edge40_Node000027_Node000028" title=" " alt="" coords="478,897,554,898,554,903,478,902"/>
+<area shape="rect" id="Node000029" href="$classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1BasicTeleopControlProcess.html" title="Minimal Implementation for a TeleopControl Process." alt="" coords="905,867,1155,937"/>
+<area shape="poly" id="edge41_Node000028_Node000029" title=" " alt="" coords="815,899,905,899,905,905,815,905"/>
 </map>

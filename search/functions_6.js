@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ok_0',['ok',['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html#a38d2a69dff233e7adf734aa9dded985c',1,'fast::rf::messages::NavMsgs::GlobalPathCommandMsg::ok()'],['../structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#afc84a7b74240e66adbb48fb1c5f06f3e',1,'fast::rf::messages::NavMsgs::GlobalPathRequest::ok()'],['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#af0e3677406ea6fa1b70d120903ae7984',1,'fast::rf::messages::SensorMsgs::GlobalPositionSensorMsg::ok()']]]
+  ['joymsg_0',['JoyMsg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html#a7a26a5dd7b9745e551e0dc4227ed5a2f',1,'fast::rf::messages::SensorMsgs::JoyMsg']]],
+  ['joystickcalibrationdata_1',['JoystickCalibrationData',['../structfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1JoystickCalibrationData.html#a702b924bd8b35f8e013b3de882116797',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::JoystickCalibrationData']]]
 ];

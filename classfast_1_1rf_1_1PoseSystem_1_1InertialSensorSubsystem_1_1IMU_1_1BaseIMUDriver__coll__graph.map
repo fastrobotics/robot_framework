@@ -1,0 +1,5 @@
+<map id="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver" name="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver">
+<area shape="rect" id="Node000001" title="Base IMU Driver." alt="" coords="5,108,197,163"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html" title="Interface for an IMU Driver." alt="" coords="5,5,197,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,74,104,108,99,108,99,74"/>
+</map>

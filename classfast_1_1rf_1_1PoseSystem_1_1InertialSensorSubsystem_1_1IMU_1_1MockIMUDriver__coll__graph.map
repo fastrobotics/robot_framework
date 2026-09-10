@@ -1,0 +1,7 @@
+<map id="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::MockIMUDriver" name="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::MockIMUDriver">
+<area shape="rect" id="Node000001" title="A Mock IMU Driver." alt="" coords="5,211,197,265"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUDriver.html" title="Base IMU Driver." alt="" coords="5,108,197,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,176,104,211,99,211,99,176"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html" title="Interface for an IMU Driver." alt="" coords="5,5,197,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,74,104,108,99,108,99,74"/>
+</map>

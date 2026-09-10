@@ -1,0 +1,11 @@
+<map id="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::BaseTrajectorySelectorProcess" name="fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::BaseTrajectorySelectorProcess">
+<area shape="rect" id="Node000001" title="Base TrajectorySelector Process." alt="" coords="655,84,905,153"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1ITrajectorySelectorProcess.html" title="Interface for the TrajectorySelector Process." alt="" coords="181,5,457,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="471,63,655,95,654,100,470,68"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,37,181,37,181,43,146,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="221,99,417,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="431,116,655,116,655,121,431,121"/>
+<area shape="rect" id="Node000005" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="229,163,409,218"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="422,172,654,136,655,141,423,177"/>
+</map>

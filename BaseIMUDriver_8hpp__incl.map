@@ -1,0 +1,32 @@
+<map id="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/BaseIMUDriver.hpp" name="Systems/Pose/Subsystems/InertialSensor/Processes/IMU/include/IMUDriver/BaseIMUDriver.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="231,5,533,60"/>
+<area shape="rect" id="Node000002" href="$IIMUDriver_8hpp.html" title=" " alt="" coords="361,108,550,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="406,58,438,96,434,99,402,62"/>
+<area shape="rect" id="Node000003" href="$ImuMsg_8hpp.html" title=" " alt="" coords="252,181,355,207"/>
+<area shape="poly" id="edge20_Node000001_Node000003" title=" " alt="" coords="371,61,317,170,313,168,366,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,136,341,178,339,173,430,131"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="539,328,598,353"/>
+<area shape="poly" id="edge19_Node000002_Node000008" title=" " alt="" coords="484,131,522,151,561,179,593,212,611,254,613,272,609,289,591,319,587,316,604,287,608,271,606,255,588,215,557,183,519,156,481,136"/>
+<area shape="rect" id="Node000010" href="$MagneticFieldMsg_8hpp.html" title=" " alt="" coords="379,181,547,207"/>
+<area shape="poly" id="edge15_Node000002_Node000010" title=" " alt="" coords="459,133,463,168,458,168,454,134"/>
+<area shape="rect" id="Node000004" href="$Covariance3DMsg_8hpp.html" title=" " alt="" coords="203,255,371,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="303,208,295,242,290,241,298,206"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="188,328,251,353"/>
+<area shape="poly" id="edge14_Node000003_Node000006" title=" " alt="" coords="252,201,188,207,117,218,55,234,32,244,17,256,9,274,13,289,28,301,51,312,113,326,175,334,174,339,112,331,50,317,25,306,8,292,3,274,13,253,29,240,53,229,116,213,187,202,251,196"/>
+<area shape="rect" id="Node000007" href="$OrientationMsg_8hpp.html" title=" " alt="" coords="28,255,179,280"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="272,209,150,252,148,247,270,204"/>
+<area shape="poly" id="edge13_Node000003_Node000008" title=" " alt="" coords="355,203,469,227,518,241,545,253,556,266,563,282,570,314,565,315,558,284,551,269,542,257,516,246,468,233,354,208"/>
+<area shape="rect" id="Node000009" href="$Vector3DMsg_8hpp.html" title=" " alt="" coords="395,255,531,280"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="330,204,426,247,424,251,328,209"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="322,328,389,353"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="300,278,337,316,333,320,297,282"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="278,282,242,320,238,316,274,278"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="123,278,190,318,187,323,120,282"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="178,277,526,330,526,336,178,283"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="447,282,386,323,383,318,444,278"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="425,283,265,329,263,324,423,277"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="482,278,542,318,539,323,479,282"/>
+<area shape="poly" id="edge16_Node000010_Node000004" title=" " alt="" coords="436,209,330,252,328,247,434,204"/>
+<area shape="poly" id="edge18_Node000010_Node000008" title=" " alt="" coords="518,204,557,222,575,236,590,253,595,269,595,285,585,316,580,314,590,285,590,270,585,256,571,240,555,227,516,209"/>
+<area shape="poly" id="edge17_Node000010_Node000009" title=" " alt="" coords="466,207,466,241,461,241,461,207"/>
+</map>

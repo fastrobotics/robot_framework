@@ -1,0 +1,9 @@
+<map id="fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::BasicInertialSensorFuserProcess" name="fast::rf::PoseSystem::LocalPoseSubsystem::InertialSensorFuser::BasicInertialSensorFuserProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a InertialSensorFuser Process." alt="" coords="723,5,963,75"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1BaseInertialSensorFuserProcess.html" title="Base InertialSensorFuser Process." alt="" coords="437,5,675,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="688,37,722,37,722,43,688,43"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1InertialSensorFuser_1_1IInertialSensorFuserProcess.html" title="Interface for the InertialSensorFuser Process." alt="" coords="180,5,389,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="403,37,437,37,437,43,403,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,180,37,180,43,146,43"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1IControllerConfig.html" title="Generic Controller Config interface." alt="" coords="5,5,216,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1PIDControllerConfig.html" title="Configuration for the PID Controller." alt="" coords="264,5,493,45"/>
+<area shape="poly" id="edge44_Node000000_Node000001" title=" " alt="" coords="229,23,264,23,264,28,229,28"/>
+</map>

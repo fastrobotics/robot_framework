@@ -1,0 +1,9 @@
+<map id="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::BasicHatDriverProcess" name="fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::BasicHatDriverProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a HatDriver Process." alt="" coords="725,5,967,60"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1BaseHatDriverProcess.html" title="Base HatDriver Process." alt="" coords="439,5,677,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="691,30,725,30,725,35,691,35"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1IHatDriverProcess.html" title="Interface for the HatDriver Process." alt="" coords="180,5,391,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,30,438,30,438,35,404,35"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,20,132,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,30,180,30,180,35,146,35"/>
+</map>

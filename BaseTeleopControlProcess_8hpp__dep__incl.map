@@ -1,5 +1,9 @@
 <map id="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/BaseTeleopControlProcess.hpp" name="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/BaseTeleopControlProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,281,75"/>
-<area shape="rect" id="Node000002" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="18,123,269,207"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,88,146,123,141,123,141,88"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="129,5,405,75"/>
+<area shape="rect" id="Node000002" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,123,256,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,86,178,125,174,121,218,82"/>
+<area shape="rect" id="Node000004" href="$BaseTeleopControlProcess_8cpp.html" title=" " alt="" coords="281,130,527,199"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="316,82,368,128,364,132,313,86"/>
+<area shape="rect" id="Node000003" href="$BasicTeleopControlProcess_8cpp.html" title=" " alt="" coords="17,255,244,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,220,133,254,128,254,128,220"/>
 </map>

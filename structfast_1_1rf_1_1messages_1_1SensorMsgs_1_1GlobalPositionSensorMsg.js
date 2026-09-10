@@ -1,5 +1,6 @@
 var structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg =
 [
+    [ "GlobalPositionSensorMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#ad383dbbd2da6db89174a9c2be5e40320", null ],
     [ "ok", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#af0e3677406ea6fa1b70d120903ae7984", null ],
     [ "altitude_m", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a09cddf668d7becbcd7c263c42c228dd1", null ],
     [ "covariance", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html#a96c1d4f09a018946046e1b86caccb523", null ],

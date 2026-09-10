@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1IController.html" title="Generic Controller." alt="" coords="5,5,197,45"/>
+<area shape="rect" id="Node000001" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1BaseController.html" title="Abstract class that provides some common functionality." alt="" coords="245,5,444,45"/>
+<area shape="poly" id="edge42_Node000000_Node000001" title=" " alt="" coords="211,23,245,23,245,28,211,28"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1PIDController.html" title="A PID Controller." alt="" coords="492,5,684,45"/>
+<area shape="poly" id="edge43_Node000001_Node000002" title=" " alt="" coords="458,23,492,23,492,28,458,28"/>
+</map>

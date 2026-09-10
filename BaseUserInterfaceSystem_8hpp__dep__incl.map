@@ -1,5 +1,9 @@
 <map id="Systems/UserInterface/include/BaseUserInterfaceSystem.hpp" name="Systems/UserInterface/include/BaseUserInterfaceSystem.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="14,5,289,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="161,5,435,45"/>
 <area shape="rect" id="Node000002" href="$DummyUserInterfaceSystem_8hpp.html" title=" " alt="" coords="5,93,297,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,59,154,93,149,93,149,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,55,194,95,191,91,256,50"/>
+<area shape="rect" id="Node000004" href="$BaseUserInterfaceSystem_8cpp.html" title=" " alt="" coords="322,101,567,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="340,50,416,98,414,103,338,55"/>
+<area shape="rect" id="Node000003" href="$DummyUserInterfaceSystem_8cpp.html" title=" " alt="" coords="30,196,273,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="154,162,154,196,149,196,149,162"/>
 </map>

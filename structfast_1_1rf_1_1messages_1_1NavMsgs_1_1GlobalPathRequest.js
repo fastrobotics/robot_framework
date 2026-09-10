@@ -1,5 +1,6 @@
 var structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest =
 [
+    [ "GlobalPathRequest", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#aa557f06b3c01b3c18e449383b3b423d1", null ],
     [ "ok", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#afc84a7b74240e66adbb48fb1c5f06f3e", null ],
     [ "end", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#a372c8844550bad19b2c6cb412957d8ad", null ],
     [ "pass_thru_points", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathRequest.html#a09c220c8d141de45ffc3f11fdd71895e", null ],

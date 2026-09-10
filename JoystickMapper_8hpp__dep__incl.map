@@ -1,7 +1,13 @@
 <map id="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/JoystickMapper.hpp" name="Systems/UserInterface/Subsystems/RemoteControl/Processes/TeleopControl/include/JoystickMapper.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="40,5,247,75"/>
-<area shape="rect" id="Node000002" href="$BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,123,281,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,89,146,122,141,122,141,89"/>
-<area shape="rect" id="Node000003" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="18,240,269,324"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,205,146,240,141,240,141,205"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="295,5,502,75"/>
+<area shape="rect" id="Node000002" href="$BaseTeleopControlProcess_8hpp.html" title=" " alt="" coords="129,123,405,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="352,86,307,124,304,120,348,82"/>
+<area shape="rect" id="Node000006" href="$JoystickMapper_8cpp.html" title=" " alt="" coords="429,123,635,192"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="450,82,495,120,491,124,446,86"/>
+<area shape="rect" id="Node000003" href="$BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,240,256,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,203,178,242,174,238,218,199"/>
+<area shape="rect" id="Node000005" href="$BaseTeleopControlProcess_8cpp.html" title=" " alt="" coords="281,247,527,317"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="316,199,368,245,364,249,313,203"/>
+<area shape="rect" id="Node000004" href="$BasicTeleopControlProcess_8cpp.html" title=" " alt="" coords="17,372,244,456"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="133,338,133,372,128,372,128,338"/>
 </map>

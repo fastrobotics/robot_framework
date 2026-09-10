@@ -1,0 +1,7 @@
+<map id="Systems/BaseMachine/Subsystems/BaseMachine/Processes/HatDriver/include/ServoHatDriverProcess/IServoHatDriver.hpp" name="Systems/BaseMachine/Subsystems/BaseMachine/Processes/HatDriver/include/ServoHatDriverProcess/IServoHatDriver.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,316,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="85,123,151,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,76,131,111,127,109,143,74"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="175,123,234,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,74,196,109,191,111,174,76"/>
+</map>

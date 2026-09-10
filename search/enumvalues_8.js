@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['missing_5fheartbeats_0',['MISSING_HEARTBEATS',['../namespacefast_1_1rf_1_1DiagnosticDefinition.html#a48b640cf107c329b563cf8f6961cd3baae9e37d97f0295a2769728fca8080a1f9',1,'fast::rf::DiagnosticDefinition']]]
+  ['log_5fsuppressed_0',['LOG_SUPPRESSED',['../classfast_1_1rf_1_1Logger.html#a3baf38e743f9fc328b570719cb5483d1a0d1e4ebcd817bc8d584aff6c4315614f',1,'fast::rf::Logger']]],
+  ['log_5fwritten_1',['LOG_WRITTEN',['../classfast_1_1rf_1_1Logger.html#a3baf38e743f9fc328b570719cb5483d1a79c4701ee0b3df9f9fa6e570d24ae605',1,'fast::rf::Logger']]]
 ];

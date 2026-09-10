@@ -1,7 +1,11 @@
 <map id="Systems/Pose/Subsystems/GlobalPoseSubsystem/Processes/GlobalPoseProcess/include/IGlobalPoseProcess.hpp" name="Systems/Pose/Subsystems/GlobalPoseSubsystem/Processes/GlobalPoseProcess/include/IGlobalPoseProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="33,5,273,75"/>
-<area shape="rect" id="Node000002" href="$BaseGlobalPoseProcess_8hpp.html" title=" " alt="" coords="33,123,273,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,89,156,122,151,122,151,89"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="189,5,429,75"/>
+<area shape="rect" id="Node000002" href="$BaseGlobalPoseProcess_8hpp.html" title=" " alt="" coords="189,123,429,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,89,312,122,307,122,307,89"/>
 <area shape="rect" id="Node000003" href="$BasicGlobalPoseProcess_8hpp.html" title=" " alt="" coords="5,240,301,324"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="156,205,156,240,151,240,151,205"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="258,202,207,242,204,238,255,198"/>
+<area shape="rect" id="Node000005" href="$BaseGlobalPoseProcess_8cpp.html" title=" " alt="" coords="326,247,607,317"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="365,198,425,245,422,249,361,202"/>
+<area shape="rect" id="Node000004" href="$BasicGlobalPoseProcess_8cpp.html" title=" " alt="" coords="11,372,295,441"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="156,338,156,372,151,372,151,338"/>
 </map>

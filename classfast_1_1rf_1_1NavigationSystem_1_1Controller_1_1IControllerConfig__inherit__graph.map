@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::Controller::IControllerConfig" name="fast::rf::NavigationSystem::Controller::IControllerConfig">
+<area shape="rect" id="Node000001" title="Generic Controller Config interface." alt="" coords="15,5,225,45"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1PIDControllerConfig.html" title="Configuration for the PID Controller." alt="" coords="5,93,235,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,59,123,93,117,93,117,59"/>
+</map>

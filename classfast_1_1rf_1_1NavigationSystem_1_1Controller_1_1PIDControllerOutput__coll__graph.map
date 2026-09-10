@@ -1,0 +1,5 @@
+<map id="fast::rf::NavigationSystem::Controller::PIDControllerOutput" name="fast::rf::NavigationSystem::Controller::PIDControllerOutput">
+<area shape="rect" id="Node000001" title="Output Object." alt="" coords="5,93,237,133"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1NavigationSystem_1_1Controller_1_1IControllerOutput.html" title="Generic Controller Output Interface." alt="" coords="14,5,229,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,59,124,93,119,93,119,59"/>
+</map>

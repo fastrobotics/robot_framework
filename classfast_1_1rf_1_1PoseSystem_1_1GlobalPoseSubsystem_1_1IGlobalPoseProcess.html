@@ -115,12 +115,16 @@ Inheritance diagram for fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPosePr
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:afa9350dc33c42e79ad9d3f966d85cb79" id="r_afa9350dc33c42e79ad9d3f966d85cb79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#afa9350dc33c42e79ad9d3f966d85cb79">IGlobalPoseProcess</a> ()=default</td></tr>
+<tr class="separator:afa9350dc33c42e79ad9d3f966d85cb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c675ffb0c6910e1c011d9637982369" id="r_a28c675ffb0c6910e1c011d9637982369"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#a28c675ffb0c6910e1c011d9637982369">~IGlobalPoseProcess</a> ()=default</td></tr>
+<tr class="separator:a28c675ffb0c6910e1c011d9637982369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca457c395ebc277d8a58f16daa11ef9" id="r_aeca457c395ebc277d8a58f16daa11ef9"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#aeca457c395ebc277d8a58f16daa11ef9">get_supported_gps_channel_count</a> ()=0</td></tr>
 <tr class="memdesc:aeca457c395ebc277d8a58f16daa11ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the supported gps channel count object.  <br /></td></tr>
 <tr class="separator:aeca457c395ebc277d8a58f16daa11ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a155de11cdb530a1d775575eaf5e791b9" id="r_a155de11cdb530a1d775575eaf5e791b9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#a155de11cdb530a1d775575eaf5e791b9">update</a> (double current_time_sec, double delta_time_sec)=0</td></tr>
-<tr class="memdesc:a155de11cdb530a1d775575eaf5e791b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
-<tr class="separator:a155de11cdb530a1d775575eaf5e791b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd8cf96f46bf1abe5a10c88bfb220e8b" id="r_afd8cf96f46bf1abe5a10c88bfb220e8b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#afd8cf96f46bf1abe5a10c88bfb220e8b">update</a> (double current_time_sec)=0</td></tr>
+<tr class="memdesc:afd8cf96f46bf1abe5a10c88bfb220e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Update function.  <br /></td></tr>
+<tr class="separator:afd8cf96f46bf1abe5a10c88bfb220e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6f064dc356252c9de7db996b8dc4f7f" id="r_af6f064dc356252c9de7db996b8dc4f7f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html#af6f064dc356252c9de7db996b8dc4f7f">new_GlobalPositionSensorMsg</a> (uint8_t index, <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html">SensorMsgs::GlobalPositionSensorMsg</a> data)=0</td></tr>
 <tr class="memdesc:af6f064dc356252c9de7db996b8dc4f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a GPS Position Sensor Input.  <br /></td></tr>
 <tr class="separator:af6f064dc356252c9de7db996b8dc4f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,7 +134,58 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the Global Pose Process. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afa9350dc33c42e79ad9d3f966d85cb79" name="afa9350dc33c42e79ad9d3f966d85cb79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9350dc33c42e79ad9d3f966d85cb79">&#9670;&#160;</a></span>IGlobalPoseProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPoseProcess::IGlobalPoseProcess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28c675ffb0c6910e1c011d9637982369" name="a28c675ffb0c6910e1c011d9637982369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c675ffb0c6910e1c011d9637982369">&#9670;&#160;</a></span>~IGlobalPoseProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPoseProcess::~IGlobalPoseProcess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a091c66d3fc0161fb6f71767ef2c3968b" name="a091c66d3fc0161fb6f71767ef2c3968b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a091c66d3fc0161fb6f71767ef2c3968b">&#9670;&#160;</a></span>get_GlobalPose()</h2>
 
@@ -241,8 +296,8 @@ false If the data was not processed ok </dd></dl>
 
 </div>
 </div>
-<a id="a155de11cdb530a1d775575eaf5e791b9" name="a155de11cdb530a1d775575eaf5e791b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a155de11cdb530a1d775575eaf5e791b9">&#9670;&#160;</a></span>update()</h2>
+<a id="afd8cf96f46bf1abe5a10c88bfb220e8b" name="afd8cf96f46bf1abe5a10c88bfb220e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd8cf96f46bf1abe5a10c88bfb220e8b">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,18 +309,8 @@ false If the data was not processed ok </dd></dl>
           <td class="memname">virtual bool fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPoseProcess::update </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>current_time_sec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>current_time_sec</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>delta_time_sec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -279,7 +324,6 @@ false If the data was not processed ok </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">current_time_sec</td><td>Current time stamp </td></tr>
-    <tr><td class="paramname">delta_time_sec</td><td>Difference in time between previous iterations </td></tr>
   </table>
   </dd>
 </dl>
@@ -287,7 +331,7 @@ false If the data was not processed ok </dd></dl>
 <dd>
 false If the process did not update ok </dd></dl>
 
-<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BasicGlobalPoseProcess.html#aed7e5264188d5bc058ed2f41c6980b1f">fast::rf::PoseSystem::GlobalPoseSubsystem::BasicGlobalPoseProcess</a>.</p>
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BasicGlobalPoseProcess.html#a3599abf9ab114ffdc7abd7bedab0159d">fast::rf::PoseSystem::GlobalPoseSubsystem::BasicGlobalPoseProcess</a>.</p>
 
 </div>
 </div>
@@ -300,7 +344,7 @@ false If the process did not update ok </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefast.html">fast</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf.html">rf</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1PoseSystem.html">PoseSystem</a></li><li class="navelem"><a class="el" href="namespacefast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem.html">GlobalPoseSubsystem</a></li><li class="navelem"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html">IGlobalPoseProcess</a></li>
-    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

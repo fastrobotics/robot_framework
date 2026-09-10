@@ -127,9 +127,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="TwistComputer_8hpp__dep__incl.png" border="0" usemap="#aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BasicTeleopControlProcess_2TwistComputer_8hppdep" alt=""/></div>
 <map name="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BasicTeleopControlProcess_2TwistComputer_8hppdep" id="aSystems_2UserInterface_2Subsystems_2RemoteControl_2Processes_2TeleopControl_2include_2BasicTeleopControlProcess_2TwistComputer_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,256,89"/>
+<area shape="rect" title=" " alt="" coords="136,5,387,89"/>
 <area shape="rect" href="BasicTeleopControlProcess_8hpp.html" title=" " alt="" coords="5,137,256,221"/>
-<area shape="poly" title=" " alt="" coords="133,103,133,137,128,137,128,103"/>
+<area shape="poly" title=" " alt="" coords="212,101,174,139,170,135,209,97"/>
+<area shape="rect" href="TwistComputer_8cpp.html" title=" " alt="" coords="281,137,503,221"/>
+<area shape="poly" title=" " alt="" coords="314,97,352,135,349,139,310,101"/>
+<area shape="rect" href="BasicTeleopControlProcess_8cpp.html" title=" " alt="" coords="17,269,244,353"/>
+<area shape="poly" title=" " alt="" coords="133,235,133,269,128,269,128,235"/>
 </map>
 </div>
 </div>
@@ -137,8 +141,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TwistComputer.html">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TwistComputer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Joystick Data to a Twist.  <a href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TwistComputer.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1TwistComputer.html">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::TwistComputer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Joystick Data to a Twist.  <a href="classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1TwistComputer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -155,6 +159,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem" id="r_namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html">fast::rf::UserInterfaceSystem::RemoteControlSubsystem</a></td></tr>
 <tr class="memdesc:namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">The RemoteControl Subsystem for the Robot Framework. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl" id="r_namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl.html">fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Gitz (<a href="#" onclick="location.href='mai'+'lto:'+'dav'+'id'+'git'+'z@'+'gma'+'il'+'.co'+'m'; return false;">david<span class="obfuscator">.nosp@m.</span>gitz<span class="obfuscator">.nosp@m.</span>@gmai<span class="obfuscator">.nosp@m.</span>l.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
@@ -167,7 +173,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_5ef85acd675d452a88be64b3c3117dbd.html">Systems</a></li><li class="navelem"><a class="el" href="dir_563cd8feaea76c3de18d5e547548d76e.html">UserInterface</a></li><li class="navelem"><a class="el" href="dir_b684de018d8707e02d9817f7404c63a5.html">Subsystems</a></li><li class="navelem"><a class="el" href="dir_380250eb84d1f6c6606bced224eb26de.html">RemoteControl</a></li><li class="navelem"><a class="el" href="dir_e8995442b77f0403479ce9568496e865.html">Processes</a></li><li class="navelem"><a class="el" href="dir_214953e55f593af5ef2f81017f65290f.html">TeleopControl</a></li><li class="navelem"><a class="el" href="dir_d2b951856641e63041c61e297446e276.html">include</a></li><li class="navelem"><a class="el" href="dir_2712a346492fda4823f37cc4006efe5b.html">BasicTeleopControlProcess</a></li><li class="navelem"><a class="el" href="TwistComputer_8hpp.html">TwistComputer.hpp</a></li>
-    <li class="footer">Generated on Thu Jul 9 2026 12:02:56 for robot_framework by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

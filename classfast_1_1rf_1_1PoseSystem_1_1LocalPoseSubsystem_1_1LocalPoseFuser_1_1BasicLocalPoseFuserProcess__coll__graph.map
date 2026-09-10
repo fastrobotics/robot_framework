@@ -1,0 +1,13 @@
+<map id="fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::BasicLocalPoseFuserProcess" name="fast::rf::PoseSystem::LocalPoseSubsystem::LocalPoseFuser::BasicLocalPoseFuserProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a LocalPoseFuser Process." alt="" coords="849,84,1056,153"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1LocalPoseFuser_1_1BaseLocalPoseFuserProcess.html" title="Base LocalPoseFuser Process." alt="" coords="565,84,800,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="814,116,849,116,849,121,814,121"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PoseSystem_1_1LocalPoseSubsystem_1_1LocalPoseFuser_1_1ILocalPoseFuserProcess.html" title="Interface for the LocalPoseFuser Process." alt="" coords="181,5,388,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,60,566,93,565,98,401,66"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,181,37,181,43,146,43"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="187,99,383,139"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="396,116,565,116,565,121,396,121"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="195,163,375,218"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="387,169,565,137,566,142,388,175"/>
+</map>

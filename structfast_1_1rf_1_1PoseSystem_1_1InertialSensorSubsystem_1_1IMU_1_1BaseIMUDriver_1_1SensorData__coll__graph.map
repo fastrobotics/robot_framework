@@ -1,0 +1,15 @@
+<map id="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver::SensorData" name="fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver::SensorData">
+<area shape="rect" id="Node000001" title="SensorData structure." alt="" coords="923,119,1168,174"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1ImuMsg.html" title="IMUMsg Data." alt="" coords="537,159,705,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="719,172,898,161,922,159,923,164,899,167,719,178"/>
+<area shape="rect" id="Node000003" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html" title="Data Structure for encoding Orientation." alt="" coords="11,209,248,249"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="262,236,369,236,480,225,529,213,574,196,576,201,530,218,480,231,369,242,262,242"/>
+<area shape="rect" id="Node000004" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html" title="3D Covariance" alt="" coords="5,108,253,148"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="198,150,278,169,345,177,414,181,537,181,537,186,414,186,345,183,277,175,197,155"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html" title="MagneticField Data." alt="" coords="504,89,739,129"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="267,120,504,111,504,116,267,125"/>
+<area shape="rect" id="Node000005" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html" title="3D Vector" alt="" coords="21,25,237,65"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,61,278,65,382,72,439,79,463,85,482,94,492,105,495,117,498,129,506,139,539,159,536,163,502,143,493,131,490,119,487,108,478,98,462,90,438,84,381,77,277,71,250,67"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="251,22,305,18,363,16,423,20,481,31,513,41,543,56,594,87,591,91,541,61,511,46,479,36,422,26,363,22,305,23,251,27"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="753,118,923,133,922,139,752,123"/>
+</map>
