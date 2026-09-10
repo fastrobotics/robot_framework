@@ -171,8 +171,7 @@ namespace fast::rf {
         LoggerStatus LOG_FATAL(std::string filename, uint64_t linenumber, std::string tempstr);
 
         /**
-         * @brief  Shutdown Logger.  Not typically required
-         * @return void
+         * @brief Shutdown the Logger
          *
          */
         static void shutdown() {
