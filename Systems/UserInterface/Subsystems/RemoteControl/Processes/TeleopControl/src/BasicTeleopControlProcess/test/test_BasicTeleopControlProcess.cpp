@@ -85,7 +85,6 @@ TEST(BasicTeleopControlProcess, TestInputTimeout) {
     EXPECT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.buttons.resize(4);
-    joy.buttons[0];
     EXPECT_TRUE(SUT.new_joy(joy));
     current_time += 0.1;
     EXPECT_TRUE(SUT.update(current_time));
@@ -114,7 +113,6 @@ TEST(BasicTeleopControlProcess, ArmStateChangeRequest) {
     robot_arm_command.armed_state = fast::rf::ArmedState::DISARMED_CANNOTARM;
     fast::rf::messages::SensorMsgs::JoyMsg joy;
     joy.buttons.resize(4);
-    joy.buttons[0];
     SUT.update_RobotArmCommand(robot_arm_command);
     EXPECT_TRUE(SUT.new_joy(joy));
     EXPECT_EQ(SUT.get_armstate_change_request().requested_armed_state, fast::rf::ArmedState::UNKNOWN);
