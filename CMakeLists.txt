@@ -57,6 +57,21 @@ add_library(robot_framework_definitions INTERFACE)
 target_include_directories(
   robot_framework_definitions
   INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>)
+
+macro(add_dependencies TARGET_NAME TARGET_TYPE)
+  add_library(${TARGET_NAME} ${TARGET_TYPE})
+  if("${TARGET_TYPE}" STREQUAL "INTERFACE")
+    set(_link_type INTERFACE)
+  else()
+    set(_link_type PUBLIC)
+  endif()
+
+  target_link_libraries(${TARGET_NAME} ${_link_type}
+                        robot_framework_definitions)
+  if(${ARGC} GREATER 2)
+    target_link_libraries(${TARGET_NAME} ${_link_type} ${ARGN})
+  endif()
+endmacro()
 add_subdirectory(msgs)
 add_subdirectory(core)
 add_subdirectory(Systems)
