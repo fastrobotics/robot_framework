@@ -56,9 +56,7 @@ endif()
 add_library(robot_framework_definitions INTERFACE)
 target_include_directories(
   robot_framework_definitions
-  INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/RobotFrameWorkDefinitions.hpp
-)
+  INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>)
 add_subdirectory(msgs)
 add_subdirectory(core)
 add_subdirectory(Systems)
