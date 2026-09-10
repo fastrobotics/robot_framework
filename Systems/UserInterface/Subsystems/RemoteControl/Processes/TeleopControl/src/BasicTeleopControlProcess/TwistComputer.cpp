@@ -18,7 +18,7 @@ namespace fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl {
         min_angular_z_velocity_ = min_angular_z_velocity;
         return true;
     }
-    fast::rf::messages::GeometryMsgs::TwistMsg TwistComputer::new_joy(
+    DUMB fast::rf::messages::GeometryMsgs::TwistMsg TwistComputer::new_joy(
         [[maybe_unused]] fast::rf::messages::SensorMsgs::JoyMsg joy) {
         fast::rf::messages::GeometryMsgs::TwistMsg twist;
         if (joy.axes.size() < 3) {
