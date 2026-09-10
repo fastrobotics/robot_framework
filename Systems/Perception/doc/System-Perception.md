@@ -11,11 +11,20 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
+  - [Questions](#questions)
   - [Ideas](#ideas)
     - [Region of Interest Isolator](#region-of-interest-isolator)
     - [Object Classifier](#object-classifier)
     - [Filters](#filters)
     - [Feature Extraction](#feature-extraction)
+  - [Module Description](#module-description)
+    - [Perception Sensors](#perception-sensors)
+    - [Sensor Pipelines](#sensor-pipelines)
+      - [Ultrasonic Pipeline](#ultrasonic-pipeline)
+    - [Perception Integrity Monitor](#perception-integrity-monitor)
+    - [Object Tracker](#object-tracker)
+    - [SLAM](#slam)
+    - [Pose Estimator](#pose-estimator)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Subsystems](#subsystems)
@@ -65,6 +74,9 @@ Goals of the Perception System are to:
 2. Output a map of the environment around the machine
 3. Compute a pose based off the perceived environment
 
+## Questions
+- Feature Extraction?
+
 ## Ideas
 ### Region of Interest Isolator
 - Take in a set of data and subset it.  For example, a full 3D surround Lidar Point Cloud could be fed to this, that then just gives a narrow region in front of the robot, and/or a fixed distance from the robot.  Would be useful to do this with other data sources as well.
@@ -77,6 +89,37 @@ Goals of the Perception System are to:
 
 ### Feature Extraction
 - Detect salient features from data sources
+
+## Module Description
+>> Put this detail in other documentation
+### Perception Sensors
+- Includes either custom or vendor drivers.  Minimal control to how they work
+
+### Sensor Pipelines
+- Standardize on interfaces
+- Diagnostics
+- Aggregators/Combiners
+- How do the different sensor modalities modify the pipelines?
+- Is there more to pipelines that this?  Should there be specific things that happen because of the specific sensor modalities?  For example, should there be some form of "Feature Extraction" that happens in lidar pipelines, that in principle is the same in camera pipeline, but works fundamentally different?
+
+#### Ultrasonic Pipeline
+- Feeds object tracking in near environment.  Sensor modality dictates that what it detects is more like "something is near me"
+- Should this interface with Map Building?
+- Doesn't an Ultrasonic Sensor in principle look like a curved pointcloud circular wall of with a radious of the distance to the detected object and a size fo the sensor FOV
+
+### Perception Integrity Monitor
+- Sensor Diagnostics should probably be part of Sensor Pipeline
+- Other diagnostics should probably be part of the thing that's generating it
+
+### Object Tracker
+- Initializes Tracks, Object List
+- Classification (static vs dynamic)
+- Labeling (same as classification?)
+
+### SLAM
+
+### Pose Estimator
+- Is this part of SLAM?
 ## Detailed Documentation
 
 ## Software Content

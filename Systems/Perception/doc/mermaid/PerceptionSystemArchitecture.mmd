@@ -39,7 +39,7 @@ graph LR
     DepthCameraPipeline[Depth Camera Pipeline]
     UltrasonicPipeline[Ultrasonic Pipeline]
 
-    ObjectEstimatorTracker[Object Estimator & Tracker]
+    ObjectTracker[Object Tracker]
     PoseEstimator[Pose Estimator]
     SLAM[Simultaneous Localization and Mapping]
 
@@ -64,8 +64,9 @@ graph LR
     MapBuilder --> SLAM
     SLAM --> PoseEstimator
     
-    UlrasonicPipeline --> ObjectEstimatorTracker
-    ObjectEstimatorTracker --> | Dynamic and Static Objects | Outputs
+    DepthCameraPipeline --> | Features | ObjectTracker
+    UltrasonicPipeline --> ObjectTracker
+    ObjectTracker --> | Dynamic and Static Objects | Outputs
 
     PoseEstimator --> | Visual Odometry | Outputs
     MapBuilder --> | 3D Map | Outputs
