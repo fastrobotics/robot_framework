@@ -37,7 +37,7 @@
 
 Pre-Requisites:
 
-- Ubuntu system running 26.04 LTS
+- Ubuntu system running 24.04 LTS
 
 1. Clone this repo using:
 ```bash
