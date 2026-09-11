@@ -59,17 +59,14 @@ target_include_directories(
   INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>)
 
 macro(add_dependencies TARGET_NAME TARGET_TYPE)
-  add_library(${TARGET_NAME} ${TARGET_TYPE})
-  if("${TARGET_TYPE}" STREQUAL "INTERFACE")
-    set(_link_type INTERFACE)
-  else()
-    set(_link_type PUBLIC)
-  endif()
+  # 1. Let CMake natively handle creating the library (with or without sources)
+  add_library(${TARGET_NAME} ${TARGET_TYPE} ${ARGN})
 
-  target_link_libraries(${TARGET_NAME} ${_link_type}
-                        robot_framework_definitions)
-  if(${ARGC} GREATER 2)
-    target_link_libraries(${TARGET_NAME} ${_link_type} ${ARGN})
+  # 1. Map the correct linkage type based on the library style
+  if("${TARGET_TYPE}" STREQUAL "INTERFACE")
+    target_link_libraries(${TARGET_NAME} INTERFACE robot_framework_definitions)
+  else()
+    target_link_libraries(${TARGET_NAME} PUBLIC robot_framework_definitions)
   endif()
 endmacro()
 add_subdirectory(msgs)
