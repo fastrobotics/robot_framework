@@ -5,12 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**"
             ],
-            "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c17",
-            "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64",
-            "configurationProvider": "ms-vscode.cmake-tools"
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
         }
     ],
     "version": 4

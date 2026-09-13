@@ -203,6 +203,9 @@ namespace fast::rf {
             m_logFile.close();
             m_lineCounter = 0;
         }
+        if (m_consolePrint) {
+            fflush(stdout);
+        }
         return LoggerStatus::LOG_WRITTEN;
     }
 

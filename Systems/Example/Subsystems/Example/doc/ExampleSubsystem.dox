@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::ExampleSystem::ExampleSubsystem
+ * @brief The Example Subsystem for the Robot Framework
+ */
