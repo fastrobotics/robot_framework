@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_ARMV7L")
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "aarch64")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_AARCH64")
   add_compile_options(-Wno-psabi)
 endif()
 add_definitions(-std=c++17 -Wall -Wextra -Wno-switch -Werror)
