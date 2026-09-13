@@ -17,11 +17,6 @@ add_library(imuProcess STATIC IMUProcess.cpp)
 target_link_libraries(imuProcess base_IMUProcess)
 target_include_directories(imuProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
-install(
-  DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../include/" # Direct pointer to your
-                                                      # sibling include folder
-  DESTINATION include # Centralized workspace built include folder
-)
 
 if(BUILD_TESTING)
   add_subdirectory(test)
