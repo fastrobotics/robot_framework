@@ -1,0 +1,10 @@
+' @compare_tag System-PackageDiagram v0.1
+@startuml
+title System-Example Package Diagram
+
+namespace fast::rf {
+  namespace messages  {}
+  package ExampleSystem #LightYellow;line:blue {
+  }
+}
+@enduml

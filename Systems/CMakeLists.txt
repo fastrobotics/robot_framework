@@ -1,3 +1,4 @@
+add_subdirectory(Example)
 # add_subdirectory(Awareness)
 add_subdirectory(BaseMachine)
 add_subdirectory(Comms)

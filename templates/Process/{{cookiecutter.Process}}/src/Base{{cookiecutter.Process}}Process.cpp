@@ -8,7 +8,7 @@ namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Sub
     return true;
   }
   std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> Base{{cookiecutter.Process}}Process::getDiagnostics() {
-            return diagnosticManager.getDiagnostics();
+            return m_diagnosticManager.getDiagnostics();
         }
 bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
 
@@ -22,7 +22,7 @@ bool Base{{cookiecutter.Process}}Process::update(double currentTimeSec) {
   return true;
 }
 bool Base{{cookiecutter.Process}}Process::initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes) {
-   bool status = diagnosticManager.initializeDiagnostics(diagnosticTypes);
+   bool status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
    return status;
 }
 std::string Base{{cookiecutter.Process}}Process::pretty() {
