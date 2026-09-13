@@ -39,6 +39,7 @@ var namespacefast_1_1rf =
       [ "pretty", "namespacefast_1_1rf_1_1DiagnosticDefinition.html#ac4cca2beab51988da278ed9ad728b34c", null ],
       [ "pretty", "namespacefast_1_1rf_1_1DiagnosticDefinition.html#a40e407d60fa73f29ac4fd9c39a02cdd7", null ]
     ] ],
+    [ "ExampleSystem", "namespacefast_1_1rf_1_1ExampleSystem.html", "namespacefast_1_1rf_1_1ExampleSystem" ],
     [ "GoalPlanningSystem", "namespacefast_1_1rf_1_1GoalPlanningSystem.html", "namespacefast_1_1rf_1_1GoalPlanningSystem" ],
     [ "ImplementControlSystem", "namespacefast_1_1rf_1_1ImplementControlSystem.html", "namespacefast_1_1rf_1_1ImplementControlSystem" ],
     [ "messages", "namespacefast_1_1rf_1_1messages.html", "namespacefast_1_1rf_1_1messages" ],

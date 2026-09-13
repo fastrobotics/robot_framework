@@ -3,6 +3,7 @@ var dir_5ef85acd675d452a88be64b3c3117dbd =
     [ "BaseMachine", "dir_c67572f4482cbc66d41691b6e2d4fde0.html", "dir_c67572f4482cbc66d41691b6e2d4fde0" ],
     [ "Comms", "dir_fc633f89228423ce874329a03262529f.html", "dir_fc633f89228423ce874329a03262529f" ],
     [ "DataStorage", "dir_fcbb5528aa52870dc64fbe4187b472db.html", "dir_fcbb5528aa52870dc64fbe4187b472db" ],
+    [ "Example", "dir_61998bc878674bcd7d4ff4459a7002dc.html", "dir_61998bc878674bcd7d4ff4459a7002dc" ],
     [ "GoalPlanning", "dir_40b69deaf793cf1a0ee0663e5b8b5ca8.html", "dir_40b69deaf793cf1a0ee0663e5b8b5ca8" ],
     [ "ImplementControl", "dir_a17562d584585002f29d211ed34deae9.html", "dir_a17562d584585002f29d211ed34deae9" ],
     [ "Navigation", "dir_4219b17ee63ae976d1508cd89140665e.html", "dir_4219b17ee63ae976d1508cd89140665e" ],
