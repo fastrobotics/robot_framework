@@ -1,4 +1,4 @@
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "aarch64")
   add_library(servoHatDriver STATIC ServoHatDriver.cpp)
   target_link_libraries(servoHatDriver logger wiringPi)
 else()
@@ -7,7 +7,7 @@ else()
 endif()
 
 add_library(servoHatDriverProcess STATIC ServoHatDriverProcess.cpp)
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "aarch64")
   target_link_libraries(servoHatDriverProcess base_HatDriverProcess
                         servoHatDriver logger)
 
