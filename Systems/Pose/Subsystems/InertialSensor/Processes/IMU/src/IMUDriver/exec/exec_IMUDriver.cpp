@@ -61,21 +61,21 @@ int main(int argc, char* argv[]) {
     switch (driver_version) {
         case 1:
             driver = new MockIMUDriver();
-            status = driver->init(device_name);
+            status = driver->init(IIMUDriver::IMUDevice::MOCK_IMU, device_name);
             if (status == false) {
                 return 1;
             }
             break;
         case 2:
             driver = new IMUSYDTM151Driver();
-            status = driver->init(device_name);
+            status = driver->init(IIMUDriver::IMUDevice::SYDTM151_IMU, device_name);
             if (status == false) {
                 return 1;
             }
             break;
         case 3:
             driver = new IMURazor9DOFDriver();
-            status = driver->init(device_name);
+            status = driver->init(IIMUDriver::IMUDevice::RAZOR9DOF_IMU, device_name);
             if (status == false) {
                 return 1;
             }

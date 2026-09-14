@@ -1,6 +1,6 @@
 // LCOV_EXCL_START
 // No way to unit test this, this is a sample executive driver
-#ifdef ARCHITECTURE_ARMV7L
+#ifdef ARCHITECTURE_AARCH64
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #else
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         break;
     }
     IServoHatDriver* driver;
-#ifdef ARCHITECTURE_ARMV7L
+#ifdef ARCHITECTURE_AARCH64
     driver = new ServoHatDriver();
 #else
     driver = new MockServoHatDriver();

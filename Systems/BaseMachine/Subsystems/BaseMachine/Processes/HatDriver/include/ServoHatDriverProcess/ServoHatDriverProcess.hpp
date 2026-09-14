@@ -11,7 +11,7 @@
 #pragma once
 
 #include <BaseHatDriverProcess.hpp>
-#ifdef ARCHITECTURE_ARMV7L
+#ifdef ARCHITECTURE_AARCH64
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #else
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
