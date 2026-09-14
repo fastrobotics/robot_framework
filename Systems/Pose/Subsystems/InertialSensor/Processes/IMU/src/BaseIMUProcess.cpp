@@ -13,17 +13,17 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         switch (m_config.imu_type) {
             case IIMUDriver::IMUDevice::MOCK_IMU:
                 driver = new MockIMUDriver();
-                initialized_ok = driver->init(m_config.imu_device_name);
+                initialized_ok = driver->init(IIMUDriver::IMUDevice::MOCK_IMU, m_config.imu_device_name);
                 break;
             // GCOV_EXCL_START
             // No Practical Way to Unit Test
             case IIMUDriver::IMUDevice::RAZOR9DOF_IMU:
                 driver = new IMURazor9DOFDriver();
-                initialized_ok = driver->init(m_config.imu_device_name);
+                initialized_ok = driver->init(IIMUDriver::IMUDevice::RAZOR9DOF_IMU, m_config.imu_device_name);
                 break;
             case IIMUDriver::IMUDevice::SYDTM151_IMU:
                 driver = new IMUSYDTM151Driver();
-                initialized_ok = driver->init(m_config.imu_device_name);
+                initialized_ok = driver->init(IIMUDriver::IMUDevice::SYDTM151_IMU, m_config.imu_device_name);
                 break;
             // GCOV_EXCL_STOP
             default:
