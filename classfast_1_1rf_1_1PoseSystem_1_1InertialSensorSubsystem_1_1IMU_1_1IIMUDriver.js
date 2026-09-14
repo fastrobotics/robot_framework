@@ -13,7 +13,7 @@ var classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDrive
     [ "get_magnetic_data", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a713a5bfcdfd91595bc9eefd0d5200838", null ],
     [ "get_packet_dropped_rate", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#ae9c62b74684d7a56771c05a4d8b5de6c", null ],
     [ "get_packet_rx_rate", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a7d20a711259a482e6eab8fef509fe753", null ],
-    [ "init", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a7484d87e938be6f05eeace3780ed98d7", null ],
+    [ "init", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a205f441754a0ac8126ce6b828edfee6d", null ],
     [ "pretty", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a13e89b8de92db5d26ce6ed922c338c55", null ],
     [ "update", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#ac47f676cfb08bed9d3a4016107187549", null ]
 ];

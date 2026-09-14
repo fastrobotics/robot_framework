@@ -139,9 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a803d327c5585b62b63fc9bde5fe138a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947b4ccc580899932ecf37b56bcb74c4" id="r_a947b4ccc580899932ecf37b56bcb74c4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a947b4ccc580899932ecf37b56bcb74c4">~IIMUDriver</a> ()=default</td></tr>
 <tr class="separator:a947b4ccc580899932ecf37b56bcb74c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7484d87e938be6f05eeace3780ed98d7" id="r_a7484d87e938be6f05eeace3780ed98d7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a7484d87e938be6f05eeace3780ed98d7">init</a> (std::string imu_device_name)=0</td></tr>
-<tr class="memdesc:a7484d87e938be6f05eeace3780ed98d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the driver.  <br /></td></tr>
-<tr class="separator:a7484d87e938be6f05eeace3780ed98d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205f441754a0ac8126ce6b828edfee6d" id="r_a205f441754a0ac8126ce6b828edfee6d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a205f441754a0ac8126ce6b828edfee6d">init</a> (<a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a22cc6a58346964672f8b24b8239e2ee0">IIMUDriver::IMUDevice</a> device, std::string imu_device_name)=0</td></tr>
+<tr class="memdesc:a205f441754a0ac8126ce6b828edfee6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the driver.  <br /></td></tr>
+<tr class="separator:a205f441754a0ac8126ce6b828edfee6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13e89b8de92db5d26ce6ed922c338c55" id="r_a13e89b8de92db5d26ce6ed922c338c55"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a13e89b8de92db5d26ce6ed922c338c55">pretty</a> ()=0</td></tr>
 <tr class="memdesc:a13e89b8de92db5d26ce6ed922c338c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Human readable string.  <br /></td></tr>
 <tr class="separator:a13e89b8de92db5d26ce6ed922c338c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -422,8 +422,8 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a7484d87e938be6f05eeace3780ed98d7" name="a7484d87e938be6f05eeace3780ed98d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7484d87e938be6f05eeace3780ed98d7">&#9670;&#160;</a></span>init()</h2>
+<a id="a205f441754a0ac8126ce6b828edfee6d" name="a205f441754a0ac8126ce6b828edfee6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205f441754a0ac8126ce6b828edfee6d">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,9 +434,19 @@ false </dd></dl>
         <tr>
           <td class="memname">virtual bool fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IIMUDriver::init </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>imu_device_name</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUDriver.html#a22cc6a58346964672f8b24b8239e2ee0">IIMUDriver::IMUDevice</a>&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>imu_device_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -457,7 +467,7 @@ false </dd></dl>
 <dd>
 false </dd></dl>
 
-<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMURazor9DOFDriver.html#a485132dbb75b0dc3e25681c90785b318">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IMURazor9DOFDriver</a>, <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMUSYDTM151Driver.html#abf26b891e67d3e42022a5b5b60edf55c">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IMUSYDTM151Driver</a>, and <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1MockIMUDriver.html#a30d9c46c17c88f806d25b8217df09b02">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::MockIMUDriver</a>.</p>
+<p>Implemented in <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMURazor9DOFDriver.html#afb65c247a1917f6d930024e98c5f3721">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IMURazor9DOFDriver</a>, <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IMUSYDTM151Driver.html#a7bd42cd9081bba230c1bc1f6b13f999e">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IMUSYDTM151Driver</a>, and <a class="el" href="classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUDriver.html#a985e27563e5e9db3e515e3ca83ca4791">fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver</a>.</p>
 
 </div>
 </div>
