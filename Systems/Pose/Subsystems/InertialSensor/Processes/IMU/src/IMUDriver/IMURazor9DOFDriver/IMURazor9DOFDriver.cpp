@@ -13,8 +13,8 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
-    bool IMURazor9DOFDriver::init(std::string device_name) {
-        bool status = BaseIMUDriver::init(IMUDevice::RAZOR9DOF_IMU, device_name);
+    bool IMURazor9DOFDriver::init(IIMUDriver::IMUDevice device, std::string device_name) {
+        bool status = BaseIMUDriver::init(device, device_name);
         if (status == false) {
             return false;
         }
