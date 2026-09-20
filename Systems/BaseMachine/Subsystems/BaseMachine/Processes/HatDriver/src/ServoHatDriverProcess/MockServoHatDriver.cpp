@@ -6,6 +6,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         return true;
     }
     std::string MockServoHatDriver::pretty() {
+        fast::rf::Logger::logWarn("abc");
         std::string str;
         str = "---Mock Servo Hat Driver---";
         return str;
