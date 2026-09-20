@@ -23,6 +23,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
             data.seq++;
             new_magnetic_data(data);
         }
+        increment_packet_rx_counter();
         return true;
     }
     std::string MockIMUDriver::pretty() {
