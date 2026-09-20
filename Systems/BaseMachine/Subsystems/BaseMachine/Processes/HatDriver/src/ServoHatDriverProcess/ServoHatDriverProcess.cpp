@@ -62,7 +62,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
         }
     }
     std::string ServoHatDriverProcess::pretty() {
-        std::string str = "\n---Servo Hat Driver Process---";
+        std::string str = "\n---xxx Servo Hat Driver Process---";
         str += BaseHatDriverProcess::pretty();
         str += "\n" + driver->pretty();
         return str;
