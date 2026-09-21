@@ -10,6 +10,7 @@ namespace fast::rf {
             return;
         }
         m_verbosity = level;
+        m_defaultVerbosity = level;
         m_lineCounter = 0;
 
         if (!name.empty() && name.at(0) == '/') {
@@ -27,6 +28,21 @@ namespace fast::rf {
             log_file.close();
         }
         m_loggerOk = true;
+    }
+    bool Logger::changeLoggerLevel(Level newLevel) { return getLoggerInstance().changeLoggerLevelImpl(newLevel); }
+    bool Logger::changeLoggerLevelImpl(Level newLevel) {
+        if ((newLevel == Level::UNKNOWN) || (newLevel == Level::END_OF_LIST)) {
+            return false;
+        }
+        s_instance->logWarn("Changing Logger Threshold from: " + pretty(m_verbosity) + " to: " + pretty(newLevel));
+        s_instance->m_verbosity = newLevel;
+        return true;
+    }
+    bool Logger::reset() { return getLoggerInstance().resetImpl(); }
+    bool Logger::resetImpl() {
+        s_instance->logWarn("Resetting Logger Threshold to: " + pretty(m_verbosity));
+        s_instance->m_verbosity = s_instance->m_defaultVerbosity;
+        return true;
     }
     Logger::LoggerStatus Logger::LOG_DIAGNOSTIC(std::string filename, uint64_t linenumber,
                                                 fast::rf::messages::InfrastructureMsgs::DiagnosticMsg msg) {
