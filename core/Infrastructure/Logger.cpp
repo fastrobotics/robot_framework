@@ -32,6 +32,7 @@ namespace fast::rf {
     bool Logger::changeLoggerLevel(Level newLevel) { return getLoggerInstance().changeLoggerLevelImpl(newLevel); }
     bool Logger::changeLoggerLevelImpl(Level newLevel) {
         if ((newLevel == Level::UNKNOWN) || (newLevel == Level::END_OF_LIST)) {
+            s_instance->logError("Logger Threshold Change to: " + std::to_string((uint8_t)newLevel) + " is Invalid!");
             return false;
         }
         s_instance->logWarn("Changing Logger Threshold from: " + pretty(m_verbosity) + " to: " + pretty(newLevel));
