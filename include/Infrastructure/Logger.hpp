@@ -93,6 +93,8 @@ namespace fast::rf {
          *
          * @return Logger&
          */
+
+        static void disableConsolePrint();
         static Logger& getLoggerInstance() {
             if (s_instance == nullptr) {
                 s_instance = new Logger(Level::DEBUG, "default_logger", false);
@@ -199,6 +201,7 @@ namespace fast::rf {
         LoggerStatus printLog(std::string filename, uint64_t linenumber, Level level, std::string tempstr);
         bool changeLoggerLevelImpl(Level newLevel);
         bool resetImpl();
+        void disableConsolePrintImpl();
 
         const std::string GREEN_FOREGROUND = "\033[1;32m";
         const std::string YELLOW_FOREGROUND = "\033[1;33m";

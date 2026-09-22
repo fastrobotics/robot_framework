@@ -39,6 +39,8 @@ namespace fast::rf {
         s_instance->m_verbosity = newLevel;
         return true;
     }
+    void Logger::disableConsolePrint() { getLoggerInstance().disableConsolePrintImpl(); }
+    void Logger::disableConsolePrintImpl() { s_instance->m_consolePrint = false; }
     bool Logger::reset() { return getLoggerInstance().resetImpl(); }
     bool Logger::resetImpl() {
         s_instance->logWarn("Resetting Logger Threshold to: " + pretty(m_verbosity));
