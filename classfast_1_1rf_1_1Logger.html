@@ -158,8 +158,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2cdd429e611735f25958c992b73dd196" id="r_a2cdd429e611735f25958c992b73dd196"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#a2cdd429e611735f25958c992b73dd196">init</a> (<a class="el" href="namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29">Level</a> level, std::string name)</td></tr>
 <tr class="memdesc:a2cdd429e611735f25958c992b73dd196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>.  <br /></td></tr>
 <tr class="separator:a2cdd429e611735f25958c992b73dd196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a60e20ca0d90bb68acc7fd44a169f3" id="r_ad7a60e20ca0d90bb68acc7fd44a169f3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#ad7a60e20ca0d90bb68acc7fd44a169f3">changeLoggerLevel</a> (<a class="el" href="namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29">Level</a> newLevel)</td></tr>
+<tr class="memdesc:ad7a60e20ca0d90bb68acc7fd44a169f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Level.  <br /></td></tr>
+<tr class="separator:ad7a60e20ca0d90bb68acc7fd44a169f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86091e2a47d15f68d14ba93900eaeaca" id="r_a86091e2a47d15f68d14ba93900eaeaca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#a86091e2a47d15f68d14ba93900eaeaca">reset</a> ()</td></tr>
+<tr class="memdesc:a86091e2a47d15f68d14ba93900eaeaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>.  <br /></td></tr>
+<tr class="separator:a86091e2a47d15f68d14ba93900eaeaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a7c6b00305c0e114281234059f901f" id="r_a10a7c6b00305c0e114281234059f901f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#a10a7c6b00305c0e114281234059f901f">disableConsolePrint</a> ()</td></tr>
+<tr class="memdesc:a10a7c6b00305c0e114281234059f901f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Instance object. Not typically required to be used.  <br /></td></tr>
+<tr class="separator:a10a7c6b00305c0e114281234059f901f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5387ddf2d727b3643d8cc4ea5784380" id="r_ab5387ddf2d727b3643d8cc4ea5784380"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classfast_1_1rf_1_1Logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#ab5387ddf2d727b3643d8cc4ea5784380">getLoggerInstance</a> ()</td></tr>
-<tr class="memdesc:ab5387ddf2d727b3643d8cc4ea5784380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Instance object. Not typically required to be used.  <br /></td></tr>
 <tr class="separator:ab5387ddf2d727b3643d8cc4ea5784380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a10e6694ad0d977d350f01f25b9cdb" id="r_af4a10e6694ad0d977d350f01f25b9cdb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1Logger.html#af4a10e6694ad0d977d350f01f25b9cdb">shutdown</a> ()</td></tr>
 <tr class="memdesc:af4a10e6694ad0d977d350f01f25b9cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shutdown the <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>.  <br /></td></tr>
@@ -264,6 +272,71 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad7a60e20ca0d90bb68acc7fd44a169f3" name="ad7a60e20ca0d90bb68acc7fd44a169f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a60e20ca0d90bb68acc7fd44a169f3">&#9670;&#160;</a></span>changeLoggerLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::Logger::changeLoggerLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29">Level</a>&#160;</td>
+          <td class="paramname"><em>newLevel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newLevel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a10a7c6b00305c0e114281234059f901f" name="a10a7c6b00305c0e114281234059f901f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a7c6b00305c0e114281234059f901f">&#9670;&#160;</a></span>disableConsolePrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fast::rf::Logger::disableConsolePrint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Instance object. Not typically required to be used. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>&amp; </dd></dl>
+
+</div>
+</div>
 <a id="ab5387ddf2d727b3643d8cc4ea5784380" name="ab5387ddf2d727b3643d8cc4ea5784380"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5387ddf2d727b3643d8cc4ea5784380">&#9670;&#160;</a></span>getLoggerInstance()</h2>
 
@@ -286,9 +359,6 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Get the <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a> Instance object. Not typically required to be used. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>&amp; </dd></dl>
 
 </div>
 </div>
@@ -734,6 +804,36 @@ false </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86091e2a47d15f68d14ba93900eaeaca" name="a86091e2a47d15f68d14ba93900eaeaca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86091e2a47d15f68d14ba93900eaeaca">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::Logger::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset <a class="el" href="classfast_1_1rf_1_1Logger.html" title="Logger Class.">Logger</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
 
 </div>
 </div>
