@@ -73,12 +73,28 @@ namespace fast::rf {
             }
             return true;
         }
-
+        /**
+         * @brief Change Logger Level
+         *
+         * @param newLevel
+         * @return true
+         * @return false
+         */
+        static bool changeLoggerLevel(Level newLevel);
+        /**
+         * @brief Reset Logger
+         *
+         * @return true
+         * @return false
+         */
+        static bool reset();
         /**
          * @brief Get the Logger Instance object.  Not typically required to be used.
          *
          * @return Logger&
          */
+
+        static void disableConsolePrint();
         static Logger& getLoggerInstance() {
             if (s_instance == nullptr) {
                 s_instance = new Logger(Level::DEBUG, "default_logger", false);
@@ -183,6 +199,9 @@ namespace fast::rf {
         // Private Constructor
         Logger(Level level, std::string name, bool writeToFile);
         LoggerStatus printLog(std::string filename, uint64_t linenumber, Level level, std::string tempstr);
+        bool changeLoggerLevelImpl(Level newLevel);
+        bool resetImpl();
+        void disableConsolePrintImpl();
 
         const std::string GREEN_FOREGROUND = "\033[1;32m";
         const std::string YELLOW_FOREGROUND = "\033[1;33m";
@@ -193,6 +212,7 @@ namespace fast::rf {
         bool m_writeToFile{true};
         uint64_t m_lineCounter{0};
         Level m_verbosity{Level::DEBUG};
+        Level m_defaultVerbosity{Level::DEBUG};
         std::ofstream m_logFile;
         std::string m_logName;
         char m_filePath[120];

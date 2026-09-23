@@ -13,6 +13,9 @@ package fast::rf #LightYellow;line:blue {
     }
     class Logger #LimeGreen {
         +Logger(Level level, std::string name)
+        +bool changeLoggerLevel(Level newLevel)
+        +bool reset()
+        +void disableConsolePrint()
         +logDiagnostic(DiagnosticMsg msg)
         +logDebug(string msg)
         +logInfo(string msg)

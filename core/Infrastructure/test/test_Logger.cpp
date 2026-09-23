@@ -47,6 +47,22 @@ TEST(Logger, LoggerLevelChecks) {
     ASSERT_EQ(Logger::logWarn("A Test Warn Message"), Logger::LoggerStatus::LOG_WRITTEN);
     ASSERT_EQ(Logger::logError("A Test Error Message"), Logger::LoggerStatus::LOG_WRITTEN);
     ASSERT_EQ(Logger::logFatal("A Test Fatal Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_FALSE(Logger::changeLoggerLevel(fast::rf::Level::UNKNOWN));
+    ASSERT_FALSE(Logger::changeLoggerLevel(fast::rf::Level::END_OF_LIST));
+    ASSERT_TRUE(Logger::changeLoggerLevel(fast::rf::Level::WARN));
+    ASSERT_EQ(Logger::logDebug("A Test Debug Message"), Logger::LoggerStatus::LOG_SUPPRESSED);
+    ASSERT_EQ(Logger::logInfo("A Test Info Message"), Logger::LoggerStatus::LOG_SUPPRESSED);
+    ASSERT_EQ(Logger::logNotice("A Test Notice Message"), Logger::LoggerStatus::LOG_SUPPRESSED);
+    ASSERT_EQ(Logger::logWarn("A Test Warn Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logError("A Test Error Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logFatal("A Test Fatal Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_TRUE(Logger::reset());
+    ASSERT_EQ(Logger::logDebug("A Test Debug Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logInfo("A Test Info Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logNotice("A Test Notice Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logWarn("A Test Warn Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logError("A Test Error Message"), Logger::LoggerStatus::LOG_WRITTEN);
+    ASSERT_EQ(Logger::logFatal("A Test Fatal Message"), Logger::LoggerStatus::LOG_WRITTEN);
 }
 TEST(Logger, LongFile) {
     ASSERT_TRUE(Logger::init(Level::DEBUG, "Test-Logger-LongFile"));
