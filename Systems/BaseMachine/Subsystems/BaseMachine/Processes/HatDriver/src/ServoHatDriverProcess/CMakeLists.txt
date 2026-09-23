@@ -1,16 +1,18 @@
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
+  find_library(WIRINGPI_LIBRARY NAMES wiringPi REQUIRED)
+endif()
+if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
   add_library(servoHatDriver STATIC ServoHatDriver.cpp)
-  target_link_libraries(servoHatDriver logger wiringPi)
+  target_link_libraries(servoHatDriver logger ${WIRINGPI_LIBRARY})
 else()
   add_library(mockServoHatDriver STATIC MockServoHatDriver.cpp)
   target_link_libraries(mockServoHatDriver logger)
 endif()
 
 add_library(servoHatDriverProcess STATIC ServoHatDriverProcess.cpp)
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
+if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
   target_link_libraries(servoHatDriverProcess base_HatDriverProcess
                         servoHatDriver logger)
-
 else()
   target_link_libraries(servoHatDriverProcess base_HatDriverProcess
                         mockServoHatDriver logger)

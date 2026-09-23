@@ -13,7 +13,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
         bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
 
-#ifdef ARCHITECTURE_ARMV7L
+#ifdef ARCHITECTURE_AARCH64
         driver = new ServoHatDriver();
 #else
         driver = new MockServoHatDriver();

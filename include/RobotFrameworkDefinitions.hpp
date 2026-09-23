@@ -214,9 +214,23 @@ namespace fast::rf {
             }
         }
     }  // namespace DiagnosticDefinition
-
+    namespace ExampleSystem {
+        constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Example System
+        struct Id {};
+        inline const char* toString(Id) { return "example"; }
+        namespace ExampleSubsystem {
+            constexpr uint8_t SUBSYSTEM_ID = 1;  //!< Unique ID for Example Subsystem
+            struct Id {};
+            inline const char* toString(Id) { return "example"; }
+            namespace Example {
+                constexpr uint8_t PROCESS_EXAMPLE_ID = 1;  //!< Unique ID for Example Process
+                struct Id {};
+                inline const char* toString(Id) { return "imu"; }
+            }  // namespace Example
+        }  // namespace ExampleSubsystem
+    }  // namespace ExampleSystem
     namespace AwarenessSystem {
-        constexpr uint8_t SYSTEM_ID = 1;  //!< Unique ID for the Awareness System
+        constexpr uint8_t SYSTEM_ID = 2;  //!< Unique ID for the Awareness System
         struct Id {};
         inline const char* toString(Id) { return "awareness"; }
         namespace ObjectFusionSubsystem {
@@ -239,29 +253,29 @@ namespace fast::rf {
             struct Id {};
             inline const char* toString(Id) { return "object_prediction"; }
         }  // namespace ObjectPredictionSubsystem
-    }      // namespace AwarenessSystem
+    }  // namespace AwarenessSystem
     namespace CommsSystem {
-        constexpr uint8_t SYSTEM_ID = 2;  //!< Unique ID for the Comms System
+        constexpr uint8_t SYSTEM_ID = 3;  //!< Unique ID for the Comms System
         struct Id {};
         inline const char* toString(Id) { return "comms"; }
     }  // namespace CommsSystem
     namespace DataStorageSystem {
-        constexpr uint8_t SYSTEM_ID = 3;  //!< Unique ID for the Data Storage System
+        constexpr uint8_t SYSTEM_ID = 4;  //!< Unique ID for the Data Storage System
         struct Id {};
         inline const char* toString(Id) { return "data_storage"; }
     }  // namespace DataStorageSystem
     namespace GoalPlanningSystem {
-        constexpr uint8_t SYSTEM_ID = 4;  //!< Unique ID for the Goal Planning System
+        constexpr uint8_t SYSTEM_ID = 5;  //!< Unique ID for the Goal Planning System
         struct Id {};
         inline const char* toString(Id) { return "goal_planning"; }
     }  // namespace GoalPlanningSystem
     namespace ImplementControlSystem {
-        constexpr uint8_t SYSTEM_ID = 5;  //!< Unique ID for the Implement Control System
+        constexpr uint8_t SYSTEM_ID = 6;  //!< Unique ID for the Implement Control System
         struct Id {};
         inline const char* toString(Id) { return "implement_control"; }
     }  // namespace ImplementControlSystem
     namespace PoseSystem {
-        constexpr uint8_t SYSTEM_ID = 6;  //!< Unique ID for Pose System
+        constexpr uint8_t SYSTEM_ID = 7;  //!< Unique ID for Pose System
         struct Id {};
         inline const char* toString(Id) { return "pose"; }
         namespace InertialSensorSubsystem {
@@ -311,9 +325,9 @@ namespace fast::rf {
             }  // namespace LocalPoseFuser
 
         }  // namespace LocalPoseSubsystem
-    }      // namespace PoseSystem
+    }  // namespace PoseSystem
     namespace NavigationSystem {
-        constexpr uint8_t SYSTEM_ID = 7;  //!< Unique ID for the Navigation System
+        constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Navigation System
         struct Id {};
         inline const char* toString(Id) { return "navigation"; }
         namespace GlobalPlannerSubsystem {
@@ -372,14 +386,14 @@ namespace fast::rf {
             }  // namespace TrajectoryController
 
         }  // namespace NavigationExecutorSubsystem
-    }      // namespace NavigationSystem
+    }  // namespace NavigationSystem
     namespace PerceptionSystem {
-        constexpr uint8_t SYSTEM_ID = 8;  //!< Unique ID for the Perception System
+        constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
         struct Id {};
         inline const char* toString(Id) { return "perception"; }
     }  // namespace PerceptionSystem
     namespace SafetySystem {
-        constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Safety System
+        constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Safety System
         struct Id {};
         inline const char* toString(Id) { return "safety"; }
         namespace ModeManagerSubsystem {
@@ -392,15 +406,15 @@ namespace fast::rf {
                 struct Id {};
                 inline const char* toString(Id) { return "armed_state_manager"; }
             }  // namespace ArmedStateManager
-        }      // namespace ModeManagerSubsystem
-    }          // namespace SafetySystem
+        }  // namespace ModeManagerSubsystem
+    }  // namespace SafetySystem
     namespace TerrainSystem {
-        constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Terrain System
+        constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the Terrain System
         struct Id {};
         inline const char* toString(Id) { return "terrain"; }
     }  // namespace TerrainSystem
     namespace UserInterfaceSystem {
-        constexpr uint8_t SYSTEM_ID = 11;  //!< Unique ID for the User Interface System
+        constexpr uint8_t SYSTEM_ID = 12;  //!< Unique ID for the User Interface System
         struct Id {};
         inline const char* toString(Id) { return "user_interface"; }
         namespace RemoteControlSubsystem {
@@ -414,9 +428,9 @@ namespace fast::rf {
             }  // namespace TeleopControl
 
         }  // namespace RemoteControlSubsystem
-    }      // namespace UserInterfaceSystem
+    }  // namespace UserInterfaceSystem
     namespace BaseMachineSystem {
-        const uint8_t SYSTEM_ID = 12;  //!< Unique ID for the Base Machine System
+        const uint8_t SYSTEM_ID = 13;  //!< Unique ID for the Base Machine System
         struct Id {};
         inline const char* toString(Id) { return "base_machine"; }
         namespace BaseMachineSubsystem {
@@ -430,5 +444,5 @@ namespace fast::rf {
             }  // namespace HatDriver
 
         }  // namespace BaseMachineSubsystem
-    }      // namespace BaseMachineSystem
+    }  // namespace BaseMachineSystem
 }  // namespace fast::rf

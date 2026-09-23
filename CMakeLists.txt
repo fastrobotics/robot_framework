@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL armv7l)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_ARMV7L")
+if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "aarch64")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_AARCH64")
   add_compile_options(-Wno-psabi)
 endif()
 add_definitions(-std=c++17 -Wall -Wextra -Wno-switch -Werror)
@@ -53,7 +53,22 @@ if(BUILD_TESTING)
   enable_testing()
   include(GoogleTest)
 endif()
+add_library(robot_framework_definitions INTERFACE)
+target_include_directories(
+  robot_framework_definitions
+  INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>)
 
+macro(add_dependencies TARGET_NAME TARGET_TYPE)
+  # 1. Let CMake natively handle creating the library (with or without sources)
+  add_library(${TARGET_NAME} ${TARGET_TYPE} ${ARGN})
+
+  # 1. Map the correct linkage type based on the library style
+  if("${TARGET_TYPE}" STREQUAL "INTERFACE")
+    target_link_libraries(${TARGET_NAME} INTERFACE robot_framework_definitions)
+  else()
+    target_link_libraries(${TARGET_NAME} PUBLIC robot_framework_definitions)
+  endif()
+endmacro()
 add_subdirectory(msgs)
 add_subdirectory(core)
 add_subdirectory(Systems)

@@ -23,6 +23,7 @@ Note that at the System level, only some number of interfaces are called out. Th
 
 | Status | System                                                                             |
 | ------ | ---------------------------------------------------------------------------------- |
+| DRAFT  | [Example](../../Systems/Example/doc/System-Example.md)                             |
 | DRAFT  | [Base Machine](../../Systems/BaseMachine/doc/System-BaseMachine.md)                |
 | NEW    | [Awareness](../../Systems/Awareness/doc/System-Awareness.md)                       |
 | NEW    | [Comms](../../Systems/Comms/doc/System-Comms.md)                                   |

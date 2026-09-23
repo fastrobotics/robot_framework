@@ -10,7 +10,8 @@ using namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU;
 
 TEST(IMURazor9DOFDriver, InterfaceTests) {
     IMURazor9DOFDriver SUT;
-    ASSERT_FALSE(SUT.init(""));  // Won't be able to initialize as it's dependent on a Serial Port.
+    ASSERT_FALSE(SUT.init(IIMUDriver::IMUDevice::RAZOR9DOF_IMU,
+                          ""));  // Won't be able to initialize as it's dependent on a Serial Port.
     fast::rf::Logger::logInfo(SUT.pretty());
 
     ASSERT_FALSE(SUT.update(0.1));  // Won't be able to update as it's dependent on a Serial Port
