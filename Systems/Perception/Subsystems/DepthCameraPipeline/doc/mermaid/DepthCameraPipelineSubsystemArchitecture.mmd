@@ -1,0 +1,58 @@
+---
+# @compare_tag Subsystem-MermaidArchitecture v0.1
+config:
+  layout: elk
+  theme: base
+  themeCSS: |
+    .node rect { fill: rgba(30, 30, 46, 0.16) !important; stroke: #000000 !important; }
+    .label { fill: #000000 !important; }
+
+    .cssBoundary rect { fill: #ffffff !important; stroke: #000000 !important; }
+    .cssBoundary .label { fill: #000000 !important; }
+
+    .cssInvestigating rect { fill: #ffff00 !important; stroke: #000000 !important; }
+    .cssInvestigating .label { fill: #000000 !important; }
+
+    .cssDeveloping rect { fill: #ffab00 !important; stroke: #000000 !important; }
+    .cssDeveloping .label { fill: #000000 !important; }
+
+    .cssTrivialComplete rect { fill: #ffc0cb !important; stroke: #000000 !important; }
+    .cssTrivialComplete .label { fill: #000000 !important; }
+
+    .cssMinimalComplete rect { fill: #00ff00 !important; stroke: #000000 !important; }
+    .cssMinimalComplete .label { fill: #000000 !important; }
+
+    .cssFullyComplete rect { fill: #00ffff !important; stroke: #000000 !important; }
+    .cssFullyComplete .label { fill: #000000 !important; }
+
+    .cssSkipped rect { fill: #ff0000 !important; stroke: #000000 !important; }
+    .cssSkipped .label { fill: #000000 !important; }
+
+title: DepthCameraPipeline Subsystem Architecture
+---
+flowchart TD
+    Inputs
+    Outputs
+    
+    subgraph SensorFuser [Sensor Fuser]
+        Combiner
+        OverlapRemover[Overlap Remover]
+        NoiseReducer[Noise Reducer]
+        Combiner --> OverlapRemover
+        OverlapRemover --> NoiseReducer
+        
+
+    end
+    FOVExtractor[Field of View Extractor]
+   
+    Next
+    FeatureDetector
+    Inputs --> | Depth Camera 1-N| Combiner
+
+    NoiseReducer --> | Fused Depth Camera | FOVExtractor
+    FOVExtractor --> | FOV 1-N| Next
+    FOVExtractor --> | Fused Depth Camera | Next
+
+    FeatureDetector --> | Features | Outputs
+
+    class Inputs,Outputs cssBoundary

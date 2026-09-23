@@ -22,7 +22,6 @@
     - [Sensor Pipelines](#sensor-pipelines)
       - [Ultrasonic Pipeline](#ultrasonic-pipeline)
     - [Perception Integrity Monitor](#perception-integrity-monitor)
-    - [Object Tracker](#object-tracker)
     - [SLAM](#slam)
     - [Pose Estimator](#pose-estimator)
   - [Detailed Documentation](#detailed-documentation)
@@ -111,10 +110,7 @@ Goals of the Perception System are to:
 - Sensor Diagnostics should probably be part of Sensor Pipeline
 - Other diagnostics should probably be part of the thing that's generating it
 
-### Object Tracker
-- Initializes Tracks, Object List
-- Classification (static vs dynamic)
-- Labeling (same as classification?)
+
 
 ### SLAM
 
@@ -127,8 +123,10 @@ Goals of the Perception System are to:
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| ----- | --------- | ------- |
+| State | Subsystem                                                                                       | Purpose |
+| ----- | ----------------------------------------------------------------------------------------------- | ------- |
+| NEW   | [Depth Camera Pipeline](../Subsystems/DepthCameraPipeline/doc/Subsystem-DepthCameraPipeline.md) |         |
+| NEW   | [Object Tracker](../Subsystems/ObjectTracker/doc/Subsystem-ObjectTracker.md)                    |         |
 
 ## Package Diagram
 ![](../../../Legend.png)
