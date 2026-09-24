@@ -33,26 +33,18 @@ title: DepthCameraPipeline Subsystem Architecture
 flowchart TD
     Inputs
     Outputs
-    
-    subgraph SensorFuser [Sensor Fuser]
-        Combiner
-        OverlapRemover[Overlap Remover]
-        NoiseReducer[Noise Reducer]
-        Combiner --> OverlapRemover
-        OverlapRemover --> NoiseReducer
-        
-
-    end
+    SensorFuser[Sensor Fuser]
     FOVExtractor[Field of View Extractor]
-   
     Next
-    FeatureDetector
-    Inputs --> | Depth Camera 1-N| Combiner
 
-    NoiseReducer --> | Fused Depth Camera | FOVExtractor
+    FeatureDetector[Feature Detector]
+    Inputs --> | Depth Camera 1-N| SensorFuser
+
+    SensorFuser --> | Fused Depth Camera | FOVExtractor
     FOVExtractor --> | FOV 1-N| Next
-    FOVExtractor --> | Fused Depth Camera | Next
+    SensorFuser --> | Fused Depth Camera | Next
 
     FeatureDetector --> | Features | Outputs
 
     class Inputs,Outputs cssBoundary
+    class SensorFuser,FOVExtractor,FeatureDetector cssInvestigating

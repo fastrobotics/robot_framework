@@ -23,7 +23,7 @@
 
 ## Purpose
 
-The ObjectTracker Subsystem's role in the Robot Framework is to ???
+The ObjectTracker Subsystem's role in the Robot Framework is to take in Features and create an Object List with various parameters that are physical objects as seen by the Perception System.
 
 ## General Requirements
 
@@ -41,8 +41,9 @@ The ObjectTracker Subsystem's role in the Robot Framework is to ???
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input                 | DataType | Description | Requirement |
+| --------------------- | -------- | ----------- | ----------- |
+| Depth Camera Features |          |             |             |
 
 # Outputs
 
@@ -61,8 +62,11 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process |
-| ------ | ------- |
+| Status | Process                                                                                                         |
+| ------ | --------------------------------------------------------------------------------------------------------------- |
+| NEW    | [Depth Camera Feature Handler](../Processes/DepthCameraFeatureHandler/doc/Process-DepthCameraFeatureHandler.md) |
+| NEW    | [Object Estimator](../Processes/ObjectEstimator/doc/Process-ObjectEstimator.md)                                 |
+| NEW    | [Object Manager](../Processes/ObjectManager/doc/Process-ObjectManager.md)                                       |
 
 ## Package Diagram
 

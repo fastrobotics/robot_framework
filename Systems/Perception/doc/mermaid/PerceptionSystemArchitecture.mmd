@@ -64,8 +64,12 @@ graph LR
     MapBuilder --> SLAM
     SLAM --> PoseEstimator
     
+    LidarPipeline --> | Features | ObjectTracker
+    CameraPipeline --> | Features | ObjectTracker
+    RadarPipeline --> | Features | ObjectTracker
     DepthCameraPipeline --> | Features | ObjectTracker
-    UltrasonicPipeline --> ObjectTracker
+    UltrasonicPipeline --> | Features | ObjectTracker
+    
     ObjectTracker --> | Dynamic and Static Objects | Outputs
 
     PoseEstimator --> | Visual Odometry | Outputs
@@ -74,3 +78,4 @@ graph LR
   
 
     class Inputs,Outputs cssBoundary
+    class PerceptionSensors,DepthCameraPipeline,ObjectTracker cssInvestigating

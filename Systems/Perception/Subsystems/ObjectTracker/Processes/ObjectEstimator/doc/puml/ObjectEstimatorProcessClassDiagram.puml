@@ -1,0 +1,60 @@
+' @compare_tag Process-ClassDiagram v0.1
+@startuml
+title ObjectEstimator Process Class Diagram
+
+namespace fast::rf {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  interface IProcess
+  namespace PerceptionSystem {
+    namespace ObjectTrackerSubsystem {
+      package ObjectEstimator #LightYellow;line:blue {
+
+        interface IObjectEstimatorProcess  {
+          +{abstract} bool init()
+        }
+        IObjectEstimatorProcess -up-|> IProcess
+        abstract BaseObjectEstimatorProcess {
+          +DiagnosticMsg[] getDiagnostics()
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
+          #string pretty()
+          #DiagnosticManager m_diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+
+        }
+        BaseObjectEstimatorProcess .up.|> IObjectEstimatorProcess
+        BaseObjectEstimatorProcess --> DiagnosticManager: <<use>>
+        class BasicObjectEstimatorProcessConfig {
+          +bool is_ok()
+          +string pretty()
+        }
+        class BasicObjectEstimatorProcess {
+          +bool init()
+          +bool set_config(BasicObjectEstimatorProcessConfig config)
+          +bool update(double current_time_sec)
+	  +string pretty()
+          -BasicObjectEstimatorProcessConfig config_
+        }
+        BasicObjectEstimatorProcess -up-|> BaseObjectEstimatorProcess
+        BasicObjectEstimatorProcess *-> BasicObjectEstimatorProcessConfig: <<use>>
+        class DummyObjectEstimatorProcess {
+          +bool update(double current_time_sec)
+        }
+        DummyObjectEstimatorProcess -up-|> BaseObjectEstimatorProcess
+      }
+    }
+  }
+}
+@enduml

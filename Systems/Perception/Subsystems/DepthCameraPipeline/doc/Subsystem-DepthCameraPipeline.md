@@ -10,6 +10,7 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
+  - [Questions](#questions)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Processes](#processes)
@@ -26,9 +27,10 @@
 The DepthCameraPipeline Subsystem's role in the Robot Framework is to provide a common Depth Camera processing functionality that can be leveraged in other perception subsystems.
 
 ## General Requirements
-| Requirement                                         | Description                                     |
-| --------------------------------------------------- | ----------------------------------------------- |
-| Follows Interface requirements of Perception System | Includes contracts, data integrity, rates, etc. |
+| Requirement                                                                                                                                | Description                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| Follows Interface requirements of Perception System                                                                                        | Includes contracts, data integrity, rates, etc. |
+| Minimal Latency/Memory Requirement- Intent for this subsystem is to operate in shared memory as processing/transporting data is expensive. |
 
 # Subsystem Architecture
 
@@ -44,35 +46,35 @@ The DepthCameraPipeline Subsystem's role in the Robot Framework is to provide a 
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input                        | DataType                  | Description | Requirement |
+| ---------------------------- | ------------------------- | ----------- | ----------- |
+| Depth Camera Point Cloud 1-N | `sensor_msgs/PointCloud2` |             |             |
 
 # Outputs
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output                           | DataType                  | Description | Usage |
+| -------------------------------- | ------------------------- | ----------- | ----- |
+| Fused Depth Camera Point Cloud   | `sensor_msgs/PointCloud2` |             |       |
+| FOV Depth Camera Point Cloud 1-N | `sensor_msgs/PointCloud2` |             |       |
+| Point Cloud Object Features      | TBD                       |             |       |
+
 
 # How It Works
-- Depth Camera Fuser
-  - Overlap Detector (in overlap areas, should reduce error on detections, but remove redundant information)
-- FOV Extractor
-  - Able to  slice Combined data into smaller areas
-
-- Standardize on interfaces
-- Diagnostics
-- Aggregators/Combiners
-- How do the different sensor modalities modify the pipelines?
-- Is there more to pipelines that this?  Should there be specific things that happen because of the specific sensor modalities?  For example, should there be some form of "Feature Extraction" that happens in lidar pipelines, that in principle is the same in camera pipeline, but works fundamentally different?
+## Questions
+- What is the linkage between the Field of View Extractor and the Feature Detector?
 ## Detailed Documentation
 
 ## Software Content
 
 # Processes
 
-| Status | Process |
-| ------ | ------- |
+| Status | Process                                                                         |
+| ------ | ------------------------------------------------------------------------------- |
+| NEW    | [Sensor Fuser](../Processes/SensorFuser/doc/Process-SensorFuser.md)             |
+| NEW    | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)          |
+| NEW    | [Feature Detector](../Processes/FeatureDetector/doc/Process-FeatureDetector.md) |
 
 ## Package Diagram
 

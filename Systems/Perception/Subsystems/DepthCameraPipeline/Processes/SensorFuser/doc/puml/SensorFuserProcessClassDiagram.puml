@@ -1,0 +1,60 @@
+' @compare_tag Process-ClassDiagram v0.1
+@startuml
+title SensorFuser Process Class Diagram
+
+namespace fast::rf {
+  namespace DiagnosticDefinition {
+    enum DiagnosticType
+  }
+  namespace messages {
+    namespace InfrastructureMsgs {
+      class DiagnosticMsg <<(M,#FFFF00)>>
+      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    }
+  }
+  namespace core::Infrastructure {
+    class DiagnosticManager
+  }
+  interface IProcess
+  namespace PerceptionSystem {
+    namespace DepthCameraPipelineSubsystem {
+      package SensorFuser #LightYellow;line:blue {
+
+        interface ISensorFuserProcess  {
+          +{abstract} bool init()
+        }
+        ISensorFuserProcess -up-|> IProcess
+        abstract BaseSensorFuserProcess {
+          +DiagnosticMsg[] getDiagnostics()
+          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+          +ReadyToArmStatusMsg get_ready_to_arm()
+          #bool update(double current_time_sec)
+          #string pretty()
+          #DiagnosticManager m_diagnosticManager
+          #ReadyToArmStatusMsg ready_to_arm
+
+        }
+        BaseSensorFuserProcess .up.|> ISensorFuserProcess
+        BaseSensorFuserProcess --> DiagnosticManager: <<use>>
+        class BasicSensorFuserProcessConfig {
+          +bool is_ok()
+          +string pretty()
+        }
+        class BasicSensorFuserProcess {
+          +bool init()
+          +bool set_config(BasicSensorFuserProcessConfig config)
+          +bool update(double current_time_sec)
+	  +string pretty()
+          -BasicSensorFuserProcessConfig config_
+        }
+        BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
+        BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
+        class DummySensorFuserProcess {
+          +bool update(double current_time_sec)
+        }
+        DummySensorFuserProcess -up-|> BaseSensorFuserProcess
+      }
+    }
+  }
+}
+@enduml

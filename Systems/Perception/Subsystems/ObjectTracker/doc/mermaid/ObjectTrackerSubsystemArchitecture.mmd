@@ -30,8 +30,33 @@ config:
 
 title: ObjectTracker Subsystem Architecture
 ---
-graph LR
+graph TD
     Inputs
     Outputs
+    LidarFeatureHandler[Lidar Feature Handler]
+    CameraFeatureHandler[Camera Feature Handler]
+    RadarFeatureHandler[Radar Camera Feature Handler]
+    DepthCameraFeatureHandler[Depth Camera Feature Handler]
+    UltrasonicFeatureHandler[Ultrasonic Feature Handler]
+
+    ObjectManager[Object Manager]
+    ObjectEstimator[Object Estimator]
+
+    Inputs --> | Features | LidarFeatureHandler
+    Inputs --> | Features | CameraFeatureHandler
+    Inputs --> | Features | RadarFeatureHandler
+    Inputs --> | Features | DepthCameraFeatureHandler
+    Inputs --> | Features | UltrasonicFeatureHandler
+
+    LidarFeatureHandler --> ObjectManager
+    CameraFeatureHandler --> ObjectManager
+    RadarFeatureHandler --> ObjectManager
+    DepthCameraFeatureHandler --> ObjectManager
+    UltrasonicFeatureHandler --> ObjectManager
+
+    ObjectManager --> ObjectEstimator
+    ObjectEstimator --> ObjectManager
+    ObjectManager --> | Objects | Outputs
 
     class Inputs,Outputs cssBoundary
+    class DepthCameraFeatureHandler,ObjectEstimator,ObjectManager cssInvestigating
