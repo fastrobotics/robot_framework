@@ -31,7 +31,7 @@ Note that at the System level, only some number of interfaces are called out. Th
 | NEW    | [Goal Planning](../../Systems/GoalPlanning/doc/System-GoalPlanning.md)             |
 | NEW    | [Implement Control](../../Systems/ImplementControl/doc/System-ImplementControl.md) |
 | DRAFT  | [Navigation](../../Systems/Navigation/doc/System-Navigation.md)                    |
-| NEW    | [Perception](../../Systems/Perception/doc/System-Perception.md)                    |
+| DRAFT  | [Perception](../../Systems/Perception/doc/System-Perception.md)                    |
 | DRAFT  | [Pose](../../Systems/Pose/doc/System-Pose.md)                                      |
 | DRAFT  | [Safety](../../Systems/Safety/doc/System-Safety.md)                                |
 | NEW    | [Terrain](../../Systems/Terrain/doc/System-Terrain.md)                             |

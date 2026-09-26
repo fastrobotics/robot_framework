@@ -29,7 +29,7 @@ public:
   Base{{cookiecutter.Process}}Process() :
               m_systemId(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID),
               m_subSystemId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID),
-              m_processId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID),
+              m_processId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process|upper}}_ID),
               m_diagnosticManager(m_systemId, m_subSystemId, m_processId),
               m_readyToArm(m_systemId, m_subSystemId, m_processId) {}
                   

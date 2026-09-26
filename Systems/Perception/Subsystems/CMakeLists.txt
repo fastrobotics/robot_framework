@@ -1,1 +1,2 @@
-# Add entries here
+add_subdirectory(DepthCameraPipeline)
+add_subdirectory(ObjectTracker)

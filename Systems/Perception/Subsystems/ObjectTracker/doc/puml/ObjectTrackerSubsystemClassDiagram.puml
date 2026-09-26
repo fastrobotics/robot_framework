@@ -1,0 +1,21 @@
+' @compare_tag Subsystem-ClassDiagram v0.1
+@startuml
+title ObjectTracker Subsystem Class Diagram
+namespace fast::rf {
+  namespace messages {
+  }
+  namespace PerceptionSystem {
+    package ObjectTrackerSubsystem #LightYellow;line:blue {
+        namespace DepthCameraFeatureHandler {
+
+        }
+        namespace ObjectEstimator {
+
+        }
+        namespace ObjectManager {
+            
+        }
+    }
+  }
+}
+@enduml
