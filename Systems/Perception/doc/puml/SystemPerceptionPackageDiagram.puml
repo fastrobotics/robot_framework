@@ -5,6 +5,12 @@ title System-Perception Package Diagram
 namespace fast::rf {
   namespace messages  {}
   package PerceptionSystem #LightYellow;line:blue {
+    namespace DepthCameraPipelineSubsystem {
+
+    }
+    namespace ObjectTrackerSubsystem {
+        
+    }
   }
 }
 @enduml

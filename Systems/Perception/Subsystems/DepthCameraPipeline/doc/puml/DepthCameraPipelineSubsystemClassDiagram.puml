@@ -6,6 +6,15 @@ namespace fast::rf {
   }
   namespace PerceptionSystem {
     package DepthCameraPipelineSubsystem #LightYellow;line:blue {
+        namespace FeatureDetector {
+
+        }
+        namespace FOVExtractor {
+
+        }
+        namespace SensorFuser {
+            
+        }
     }
   }
 }

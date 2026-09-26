@@ -391,6 +391,26 @@ namespace fast::rf {
         constexpr uint8_t SYSTEM_ID = 9;  //!< Unique ID for the Perception System
         struct Id {};
         inline const char* toString(Id) { return "perception"; }
+        namespace DepthCameraPipelineSubsystem {
+            const uint8_t SUBSYSTEM_ID = 1;
+            struct Id {};
+            inline const char* toString(Id) { return "depth_camera_pipeline"; }
+            namespace SensorFuser {
+                constexpr uint8_t PROCESS_SENSORFUSER_ID = 1;  //!< Unique ID for the SensorFuser Process
+                struct Id {};
+                inline const char* toString(Id) { return "sensor_fuser"; }
+            }  // namespace SensorFuser
+            namespace FOVExtractor {
+                constexpr uint8_t PROCESS_FOVEXTRACTOR_ID = 2;  //!< Unique ID for the FOVExtractor Process
+                struct Id {};
+                inline const char* toString(Id) { return "fov_extractor"; }
+            }  // namespace FOVExtractor
+            namespace FeatureDetector {
+                constexpr uint8_t PROCESS_FEATUREDETECTOR_ID = 3;  //!< Unique ID for the Feature Detector Process
+                struct Id {};
+                inline const char* toString(Id) { return "feature_detector"; }
+            }  // namespace FeatureDetector
+        }  // namespace DepthCameraPipelineSubsystem
     }  // namespace PerceptionSystem
     namespace SafetySystem {
         constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Safety System

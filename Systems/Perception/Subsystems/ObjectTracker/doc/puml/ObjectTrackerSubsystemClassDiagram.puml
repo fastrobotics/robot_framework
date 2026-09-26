@@ -6,6 +6,15 @@ namespace fast::rf {
   }
   namespace PerceptionSystem {
     package ObjectTrackerSubsystem #LightYellow;line:blue {
+        namespace DepthCameraFeatureHandler {
+
+        }
+        namespace ObjectEstimator {
+
+        }
+        namespace ObjectManager {
+            
+        }
     }
   }
 }
