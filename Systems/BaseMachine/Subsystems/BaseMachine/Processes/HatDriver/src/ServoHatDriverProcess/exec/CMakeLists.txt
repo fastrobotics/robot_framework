@@ -1,5 +1,5 @@
 add_executable(exec_servohat_driver exec_ServoHatDriver.cpp)
-if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
+if(ARCHITECTURE_RASPBERRY_PI)
   target_link_libraries(exec_servohat_driver servoHatDriver logger)
 else()
   target_link_libraries(exec_servohat_driver mockServoHatDriver logger)
