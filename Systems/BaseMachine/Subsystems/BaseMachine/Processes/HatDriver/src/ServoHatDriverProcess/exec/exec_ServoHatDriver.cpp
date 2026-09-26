@@ -1,8 +1,6 @@
 // LCOV_EXCL_START
 // No way to unit test this, this is a sample executive driver
-#ifdef ARCHITECTURE_JETSONNANO
-#include <ServoHatDriverProcess/MockServoHatDriver.hpp>
-#elifdef ARCHITECTURE_RASPBERRY_PI
+#ifdef ARCHITECTURE_RASPBERRY_PI
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #else
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
