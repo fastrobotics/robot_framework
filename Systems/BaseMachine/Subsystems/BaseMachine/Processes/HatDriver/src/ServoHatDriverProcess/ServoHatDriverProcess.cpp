@@ -13,7 +13,7 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
 
         bool status = diagnosticManager.initializeDiagnostics(diagnostic_types);
 
-#ifdef ARCHITECTURE_AARCH64
+#ifdef ARCHITECTURE_RASPBERRY_PI
         driver = new ServoHatDriver();
 #else
         driver = new MockServoHatDriver();

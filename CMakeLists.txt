@@ -1,10 +1,21 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
-if(${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "aarch64")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_AARCH64")
+
+if(EXISTS "/etc/nv_tegra_release")
+  if(EXISTS "/proc/device-tree/model")
+    file(READ "/proc/device-tree/model" DEVICE_MODEL)
+    if(DEVICE_MODEL MATCHES "Jetson Nano")
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_JETSONNANO")
+      add_compile_options(-Wno-psabi)
+    endif()
+  endif()
+elseif(EXISTS "/sys/firmware/devicetree/base/model"
+       OR EXISTS "/opt/vc/include/bcm_host.h")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_RASPBERRY_PI")
   add_compile_options(-Wno-psabi)
 endif()
+
 add_definitions(-std=c++17 -Wall -Wextra -Wno-switch -Werror)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BUILD_TESTING "Build the test suite" ON)

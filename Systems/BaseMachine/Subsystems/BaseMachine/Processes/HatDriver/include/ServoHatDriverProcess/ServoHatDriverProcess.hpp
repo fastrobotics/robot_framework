@@ -11,7 +11,7 @@
 #pragma once
 
 #include <BaseHatDriverProcess.hpp>
-#ifdef ARCHITECTURE_AARCH64
+#ifdef ARCHITECTURE_RASPBERRY_PI
 #include <ServoHatDriverProcess/ServoHatDriver.hpp>
 #else
 #include <ServoHatDriverProcess/MockServoHatDriver.hpp>
