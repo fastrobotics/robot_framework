@@ -19,6 +19,7 @@ elseif(EXISTS "/sys/firmware/devicetree/base/model"
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_RASPBERRY_PI")
   message(STATUS "ARCHITECTURE: ARCHITECTURE_RASPBERRY_PI")
   add_compile_options(-Wno-psabi)
+  add_definitions(-std=c++17 -Wall -Wextra -Wno-switch -Werror)
 else()
   set(ARCHITECTURE_X8664 TRUE)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DARCHITECTURE_X8664")
