@@ -52,8 +52,8 @@ void runBenchmark(IVectorMath* engine, const std::string& name, int N, int itera
 }
 
 int main() {
-    const int N = 10'000'000'000;
-    const int ITERATIONS = 10;
+    const int N = 1'000'000'000;
+    const int ITERATIONS = 1000;
 
     std::cout << "Initializing Benchmark Framework..." << std::endl;
     std::cout << "Vector Size: " << N << " elements (~40 MB per vector)\n" << std::endl;
