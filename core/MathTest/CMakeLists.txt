@@ -2,10 +2,15 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(cpu_math_lib STATIC cpu_math.cpp)
 if(ARCHITECTURE_JETSONNANO)
-  set(CMAKE_CUDA_ARCHITECTURES 87)
+  # Enable CUDA language processing globally within CMake
+  enable_language(CUDA)
+
+  set(CMAKE_CUDA_ARCHITECTURES 87) # Jetson Orin Nano compute architecture
   set(CMAKE_CUDA_STANDARD 17)
   set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+
   find_package(CUDAToolkit REQUIRED)
+
   add_library(gpu_math_lib STATIC gpu_math.cu)
   target_link_libraries(gpu_math_lib PRIVATE CUDA::cudart)
   set_target_properties(gpu_math_lib PROPERTIES LINKER_LANGUAGE CUDA)
