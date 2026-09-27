@@ -17,17 +17,17 @@ if(ARCHITECTURE_JETSONNANO)
   target_link_libraries(gpu_math_lib PRIVATE CUDA::cudart)
   set_target_properties(gpu_math_lib PROPERTIES LINKER_LANGUAGE CUDA)
 
-  # --- FIX: Prevent invalid host flags from bleeding into nvcc ---
-  # This tells nvcc exactly how to pass host-specific options down to GCC
-  set_target_properties(gpu_math_lib PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
+  # --- THE FIX: Wipe out parent options and conditionally add flags ---
+  set_target_properties(gpu_math_lib PROPERTIES COMPILE_OPTIONS "")
 
-  # If a global tool (like your code coverage tool) is injecting bad flags, you
-  # can strip them explicitly for this specific CUDA target:
-  get_target_property(CURRENT_COMPILE_OPTIONS gpu_math_lib COMPILE_OPTIONS)
-  if(CURRENT_COMPILE_OPTIONS)
-    # Clears any global toxic options passed down from parent scope
-    set_target_properties(gpu_math_lib PROPERTIES COMPILE_OPTIONS "")
-  endif()
+  # If you need standard compile settings later, safely apply them using
+  # language guards:
+  target_compile_options(
+    gpu_math_lib
+    PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-Werror> # Only passed to CPU files if any
+                                               # are added here
+  )
+
 endif()
 
 add_executable(math_benchmark main.cpp)
