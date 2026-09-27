@@ -2,7 +2,7 @@
 
 class CpuMath : public IVectorMath {
    public:
-    void allocate(int n) override {
+    void allocate([[maybe_unused]] int n) override {
         // No-op: CPU operates directly on host-allocated vectors
     }
 
