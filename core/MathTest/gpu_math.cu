@@ -1,9 +1,8 @@
 #include <cuda_runtime.h>
 
-#include <iostream>
-
 #include "math_interface.h"
 
+// High-speed element-wise vector addition kernel
 __global__ void vectorAddKernel(const float* a, const float* b, float* c, int n) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < n) {
@@ -12,34 +11,45 @@ __global__ void vectorAddKernel(const float* a, const float* b, float* c, int n)
 }
 
 class GpuMath : public IVectorMath {
-   public:
-    void vectorAdd(const float* a, const float* b, float* c, int n) override {
-        size_t size = n * sizeof(float);
-        float *d_a = nullptr, *d_b = nullptr, *d_c = nullptr;
+   private:
+    float* d_a = nullptr;
+    float* d_b = nullptr;
+    float* d_c = nullptr;
 
-        // Allocate Device memory
+   public:
+    void allocate(int n) override {
+        size_t size = n * sizeof(float);
         cudaMalloc(&d_a, size);
         cudaMalloc(&d_b, size);
         cudaMalloc(&d_c, size);
+    }
 
-        // Copy input data to Device
+    void vectorAdd(const float* a, const float* b, float* c, int n) override {
+        size_t size = n * sizeof(float);
+
+        // Transfer data to internal pre-allocated VRAM buffers
         cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
         cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 
-        // Launch Kernel
+        // Optimal execution grid mapping for hardware schedulers
         int threadsPerBlock = 256;
         int blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;
+
         vectorAddKernel<<<blocksPerGrid, threadsPerBlock>>>(d_a, d_b, d_c, n);
 
-        // Bring results back to Host
-        cudaMemcpy(c, d_c, size, cudaMemcpyDeviceToHost);
+        // Wait for execution pipe to clear before bringing back results
+        cudaDeviceSynchronize();
 
-        // Clean up internal GPU memory
+        // Pull processed array structure back to application space
+        cudaMemcpy(c, d_c, size, cudaMemcpyDeviceToHost);
+    }
+
+    void free() override {
         cudaFree(d_a);
         cudaFree(d_b);
         cudaFree(d_c);
+        d_a = d_b = d_c = nullptr;
     }
 };
 
-// Factory function to instantiate the GPU version
 IVectorMath* createGpuMath() { return new GpuMath(); }
