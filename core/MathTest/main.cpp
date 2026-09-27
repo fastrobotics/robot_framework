@@ -52,7 +52,7 @@ void runBenchmark(IVectorMath* engine, const std::string& name, int N, int itera
 }
 
 int main() {
-    const int N = 10'000'000;
+    const int N = 100'000'000;
     const int ITERATIONS = 10;
 
     std::cout << "Initializing Benchmark Framework..." << std::endl;
