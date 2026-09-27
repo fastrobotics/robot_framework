@@ -52,13 +52,13 @@ void runBenchmark(IVectorMath* engine, const std::string& name, int N, int itera
 }
 
 int main() {
-    const int N = 10'000'000;
+    const int N = 100'000'000;
     const int ITERATIONS = 3;
 
     std::cout << "Initializing Benchmark Framework..." << std::endl;
     std::cout << "Vector Size: " << N << " elements (~40 MB per vector)\n" << std::endl;
 
-    runBenchmark(createCpuMath(), "CPU Math Engine", N, ITERATIONS);
+    // runBenchmark(createCpuMath(), "CPU Math Engine", N, ITERATIONS);
 
 #ifdef ARCHITECTURE_JETSONNANO
     runBenchmark(createGpuMath(), "GPU Math Engine (NVIDIA CUDA)", N, ITERATIONS);
