@@ -58,7 +58,7 @@ int main() {
     std::cout << "Initializing Benchmark Framework..." << std::endl;
     std::cout << "Vector Size: " << N << " elements (~40 MB per vector)\n" << std::endl;
 
-    // runBenchmark(createCpuMath(), "CPU Math Engine", N, ITERATIONS);
+    runBenchmark(createCpuMath(), "CPU Math Engine", N, ITERATIONS);
 
 #ifdef ARCHITECTURE_JETSONNANO
     runBenchmark(createGpuMath(), "GPU Math Engine (NVIDIA CUDA)", N, ITERATIONS);
