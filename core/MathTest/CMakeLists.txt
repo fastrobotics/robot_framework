@@ -8,6 +8,7 @@ if(ARCHITECTURE_JETSONNANO)
   find_package(CUDAToolkit REQUIRED)
   add_library(gpu_math_lib STATIC gpu_math.cu)
   target_link_libraries(gpu_math_lib PRIVATE CUDA::cudart)
+  set_target_properties(gpu_math_lib PROPERTIES LINKER_LANGUAGE CUDA)
 endif()
 
 add_executable(math_benchmark main.cpp)
