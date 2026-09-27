@@ -2,12 +2,18 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(cpu_math_lib STATIC cpu_math.cpp)
 if(ARCHITECTURE_JETSONNANO)
-  # Enable CUDA language processing globally within CMake
-  enable_language(CUDA)
-
-  set(CMAKE_CUDA_ARCHITECTURES 87) # Jetson Orin Nano compute architecture
+  # CRITICAL: Define the target architecture BEFORE enabling the language
+  set(CMAKE_CUDA_ARCHITECTURES 87)
   set(CMAKE_CUDA_STANDARD 17)
   set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+
+  # Explicitly assist CMake in finding nvcc if the environment variable drops
+  if(NOT CMAKE_CUDA_COMPILER)
+    set(CMAKE_CUDA_COMPILER /usr/local/cuda/bin/nvcc)
+  endif()
+
+  # Now initialize the language testing framework safely
+  enable_language(CUDA)
 
   find_package(CUDAToolkit REQUIRED)
 
