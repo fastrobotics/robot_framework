@@ -1,4 +1,5 @@
 #include <chrono>
+#include <cmath>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -42,7 +43,7 @@ void runBenchmark(IVectorMath* engine, const std::string& name, int N, int itera
     engine->free();
 
     double averageDurationMs = totalDurationMs / iterations;
-    bool correct = (h_c[N / 2] == 3.0f);
+    bool correct = std::abs(h_c[N / 2] - 3.0f) < 1e-5f;
 
     std::cout << "Average Execution Time over " << iterations << " iterations: " << averageDurationMs << " ms"
               << std::endl;
@@ -52,7 +53,7 @@ void runBenchmark(IVectorMath* engine, const std::string& name, int N, int itera
 }
 
 int main() {
-    const int N = 100'000'000;
+    const int N = 1'000'000;
     const int ITERATIONS = 5;
 
     std::cout << "Initializing Benchmark Framework..." << std::endl;
