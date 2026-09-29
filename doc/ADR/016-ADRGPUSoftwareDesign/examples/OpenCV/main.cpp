@@ -2,4 +2,4 @@
 #include <opencv2/core/cuda.hpp>
 #include <opencv2/opencv.hpp>
 
-int main() {}
+int main() { std::cout << "Hello,world!" << std::endl; }
