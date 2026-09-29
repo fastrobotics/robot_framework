@@ -23,9 +23,9 @@ This ADR provides guidance on how to properly design software to support a Graph
 
 
 # Examples
-| Example  | Description                                                                           | Usage |
-| -------- | ------------------------------------------------------------------------------------- | ----- |
-| MathTest | A program that can run via CPU and optionally by GPU to show some basic math programs |       |
+| Example                                       | Description                                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [MathTest](examples/MathTest/doc/MathTest.md) | A program that can run via CPU and optionally by GPU to show some basic math programs |
 
 # Alternatives Investigated
 
@@ -34,6 +34,7 @@ This ADR provides guidance on how to properly design software to support a Graph
 # Follow-up
 
 This ADR should be revisited in the future based on the following:
+- When new interesting CUDA API's/examples are interesting
 
 # Deviations
 
