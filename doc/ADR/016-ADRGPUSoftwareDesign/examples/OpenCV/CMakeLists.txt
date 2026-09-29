@@ -1,7 +1,8 @@
 if(POLICY CMP0146)
   cmake_policy(SET CMP0146 OLD)
 endif()
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED COMPONENTS core imgcodecs imgproc cudafilters
+                                        cudaimgproc)
 add_executable(test_opencv main.cpp)
 target_link_libraries(test_opencv PRIVATE ${OpenCV_LIBS})
 install(TARGETS test_opencv RUNTIME DESTINATION bin)

@@ -1,35 +1,62 @@
 #include <iostream>
 #include <opencv2/core/cuda.hpp>
+#include <opencv2/cudafilters.hpp>
+#include <opencv2/cudaimgproc.hpp>
 #include <opencv2/opencv.hpp>
 
 int main() {
-    // 1. Query the Jetson for CUDA-capable hardware through OpenCV
-    int cuda_devices = cv::cuda::getCudaEnabledDeviceCount();
-    std::cout << "========================================" << std::endl;
-    std::cout << "CUDA-enabled Devices Found: " << cuda_devices << std::endl;
+    std::cout << "========================================\n";
+    std::cout << "Starting Jetson GPU OpenCV Processing...\n";
+    std::cout << "========================================\n";
 
-    if (cuda_devices > 0) {
-        // 2. Target the Orin Nano's onboard Ampere GPU
-        cv::cuda::setDevice(0);
-
-        // 3. Create a standard CPU matrix (1080p resolution)
-        cv::Mat h_mat = cv::Mat::ones(1080, 1920, CV_8UC3) * 128;
-
-        // 4. Create a GPU Matrix
-        cv::cuda::GpuMat d_mat;
-
-        std::cout << "Uploading 1080p frame to Jetson GPU memory..." << std::endl;
-
-        // 5. Uploading to GPU memory exercises the hardware pipeline
-        d_mat.upload(h_mat);
-
-        std::cout << "SUCCESS: Matrix loaded into GPU VRAM!" << std::endl;
-        std::cout << "GPU Matrix Dimensions: " << d_mat.cols << "x" << d_mat.rows << std::endl;
-        std::cout << "========================================" << std::endl;
-    } else {
-        std::cout << "ERROR: OpenCV was not built with CUDA support correctly." << std::endl;
-        std::cout << "========================================" << std::endl;
+    // 1. Check for GPU
+    if (cv::cuda::getCudaEnabledDeviceCount() == 0) {
+        std::cerr << "Error: No CUDA-enabled devices found!\n";
+        return -1;
     }
+    cv::cuda::setDevice(0);
+
+    // 2. Create a test image on the CPU (A 1080p canvas with patterns)
+    std::cout << "[CPU] Generating a 1080p test pattern image...\n";
+    cv::Mat h_input = cv::Mat::zeros(1080, 1920, CV_8UC1);
+
+    // Draw some sharp shapes so Canny has edges to find
+    cv::circle(h_input, cv::Point(960, 540), 300, cv::Scalar(255), -1);
+    cv::rectangle(h_input, cv::Rect(400, 200, 300, 300), cv::Scalar(180), 10);
+    cv::line(h_input, cv::Point(0, 0), cv::Point(1920, 1080), cv::Scalar(255), 5);
+
+    // 3. Allocate GPU Mats
+    cv::cuda::GpuMat d_input, d_blurred, d_edges;
+
+    // 4. Upload CPU image to GPU Memory
+    std::cout << "[GPU] Uploading image to VRAM...\n";
+    d_input.upload(h_input);
+
+    // 5. Create GPU Filter Objects (Reused across frames for efficiency)
+    // Applying a 5x5 Gaussian blur to smooth out noise before edge detection
+    cv::Ptr<cv::cuda::Filter> gaussian_filter =
+        cv::cuda::createGaussianBlurFilter(CV_8UC1, CV_8UC1, cv::Size(5, 5), 1.5);
+
+    // Create a GPU Canny Edge Detector
+    cv::Ptr<cv::cuda::CannyEdgeDetector> canny_detector = cv::cuda::createCannyEdgeDetector(50.0, 150.0);
+
+    // 6. Execute processing on the GPU
+    std::cout << "[GPU] Running Gaussian Blur on CUDA cores...\n";
+    gaussian_filter->apply(d_input, d_blurred);
+
+    std::cout << "[GPU] Running Canny Edge Detection on CUDA cores...\n";
+    canny_detector->detect(d_blurred, d_edges);
+
+    // 7. Download result from GPU back to Host CPU memory
+    std::cout << "[CPU] Downloading processed frames from VRAM...\n";
+    cv::Mat h_output;
+    d_edges.download(h_output);
+
+    // 8. Save the final processed image to disk
+    std::string filename = "gpu_edges_output.png";
+    cv::imwrite(filename, h_output);
+    std::cout << "SUCCESS: Processed image saved as '" << filename << "'\n";
+    std::cout << "========================================\n";
 
     return 0;
 }
