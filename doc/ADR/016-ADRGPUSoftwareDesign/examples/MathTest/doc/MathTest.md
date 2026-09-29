@@ -53,6 +53,7 @@ Vector Size | CPU (ms) | GPU (ms) | Speedup
 
 Total benchmark test time: 53.1363 seconds
 ```
+![](artifacts/benchmark_x86_cpu_time.png)
 
 ### Nvidia Jetson Orin Nano
 ```bash
@@ -78,3 +79,5 @@ Vector Size | CPU (ms) | GPU (ms) | Speedup
 
 Total benchmark test time: 118.841 seconds
 ```
+![](artifacts/benchmark_nvidiajetsonnano_cpugpu_time.png)
+![](artifacts/benchmark_nvidiajetsonnano_cpugpu_speedup.png)
