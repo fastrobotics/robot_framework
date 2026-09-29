@@ -68,6 +68,7 @@ double runBenchmark(IVectorMath* engine, const std::string& name, int N, int ite
 }
 
 int main() {
+    auto benchmarkStart = std::chrono::steady_clock::now();
     constexpr int FIRST_VECTOR_SIZE = 1'000'000;
     constexpr int SWEEP_STEP = 10'000'000;
     constexpr int MAX_VECTOR_SIZE = 100'000'000;
@@ -128,6 +129,9 @@ int main() {
     }
     std::cout << "[INFO] GPU Engine disabled via compile flags. Skipping GPU test." << std::endl;
 #endif
+
+    std::chrono::duration<double> totalBenchmarkDuration = std::chrono::steady_clock::now() - benchmarkStart;
+    std::cout << "\nTotal benchmark test time: " << totalBenchmarkDuration.count() << " seconds" << std::endl;
 
     return 0;
 }
