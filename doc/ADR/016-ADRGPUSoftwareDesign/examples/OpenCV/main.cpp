@@ -1,4 +1,3 @@
-#include
 #include <opencv2/core/cuda.hpp>
 #include <opencv2/cudafilters.hpp>
 #include <opencv2/cudaimgproc.hpp>
