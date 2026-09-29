@@ -100,7 +100,7 @@ int main() {
         std::cout << "Sweep summary for " << size << " elements: CPU " << cpuAverageDurationMs << " ms, GPU "
                   << gpuAverageDurationMs << " ms";
         if (gpuAverageDurationMs > 0.0) {
-            std::cout << ", speedup " << cpuAverageDurationMs / gpuAverageDurationMs << "x";
+            std::cout << ", speedup " << cpuAverageDurationMs / gpuAverageDurationMs;
         } else {
             std::cout << ", speedup unavailable (GPU duration was zero)";
         }
@@ -112,7 +112,7 @@ int main() {
     for (const auto& result : results) {
         std::cout << result.vectorSize << " | " << result.cpuDurationMs << " | " << result.gpuDurationMs << " | ";
         if (result.gpuDurationMs > 0.0) {
-            std::cout << result.cpuDurationMs / result.gpuDurationMs << "x";
+            std::cout << result.cpuDurationMs / result.gpuDurationMs;
         } else {
             std::cout << "unavailable";
         }

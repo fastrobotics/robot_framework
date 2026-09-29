@@ -38,25 +38,43 @@ To run this, do the following
 ## Results
 ### x86 Laptop with NO GPU
 ```bash
-Total benchmark test time: 5.64336 seconds
+Vector Size | CPU (ms) | GPU (ms) | Speedup
+1000 | 0.39369 | unavailable | unavailable
+10000 | 3.8992 | unavailable | unavailable
+20000 | 4.29659 | unavailable | unavailable
+30000 | 5.13267 | unavailable | unavailable
+40000 | 6.7718 | unavailable | unavailable
+50000 | 8.47094 | unavailable | unavailable
+...
+970000 | 176.162 | unavailable | unavailable
+980000 | 168.303 | unavailable | unavailable
+990000 | 168.65 | unavailable | unavailable
+1000000 | 179.911 | unavailable | unavailable
+
+Total benchmark test time: 53.1363 seconds
 ```
 
 ### Nvidia Jetson Orin Nano
 ```bash
-=== Final Sweep Summary ===
 Vector Size | CPU (ms) | GPU (ms) | Speedup
-1000 | 0.376789 | 0.114991 | 3.27668x
-100000 | 37.4865 | 0.945031 | 39.667x
-200000 | 75.0806 | 1.10083 | 68.2037x
-300000 | 112.432 | 0.852786 | 131.841x
-400000 | 149.884 | 1.59465 | 93.9915x
-500000 | 187.28 | 1.86695 | 100.313x
-600000 | 224.668 | 2.0847 | 107.77x
-700000 | 263.56 | 2.34514 | 112.386x
-800000 | 299.526 | 2.65993 | 112.607x
-900000 | 337.301 | 2.98134 | 113.137x
-1000000 | 377.538 | 3.32309 | 113.61x
+1000 | 0.375337 | 0.114025 | 3.29171x
+10000 | 3.77545 | 0.182174 | 20.7244x
+20000 | 7.56059 | 0.291982 | 25.8941x
+30000 | 11.3575 | 0.366019 | 31.03x
+40000 | 15.1293 | 0.672438 | 22.4991x
+50000 | 18.9118 | 0.899452 | 21.0259x
+60000 | 22.6614 | 0.892418 | 25.3932x
+...
+910000 | 341.414 | 2.88589 | 118.305x
+920000 | 345.17 | 2.90929 | 118.644x
+930000 | 348.704 | 2.93214 | 118.925x
+940000 | 352.555 | 2.96605 | 118.863x
+950000 | 356.348 | 2.98335 | 119.446x
+960000 | 360.085 | 3.02267 | 119.128x
+970000 | 363.85 | 3.04078 | 119.657x
+980000 | 367.502 | 3.04523 | 120.681x
+990000 | 371.892 | 3.05786 | 121.619x
+1000000 | 375.021 | 3.12833 | 119.879x
 
-Total benchmark test time: 12.9971 seconds
-
+Total benchmark test time: 118.841 seconds
 ```
