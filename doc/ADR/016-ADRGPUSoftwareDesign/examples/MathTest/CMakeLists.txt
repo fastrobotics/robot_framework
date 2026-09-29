@@ -8,10 +8,11 @@ if(ARCHITECTURE_JETSONNANO)
 
 endif()
 
-add_executable(math_benchmark main.cpp)
+add_executable(test_cpugpu_math_benchmark main.cpp)
 if(ARCHITECTURE_JETSONNANO)
-  target_link_libraries(math_benchmark PRIVATE cpu_math_lib gpu_math_lib)
+  target_link_libraries(test_cpugpu_math_benchmark PRIVATE cpu_math_lib
+                                                           gpu_math_lib)
 else()
-  target_link_libraries(math_benchmark PRIVATE cpu_math_lib)
+  target_link_libraries(test_cpugpu_math_benchmark PRIVATE cpu_math_lib)
 endif()
-install(TARGETS math_benchmark RUNTIME DESTINATION bin)
+install(TARGETS test_cpugpu_math_benchmark RUNTIME DESTINATION bin)

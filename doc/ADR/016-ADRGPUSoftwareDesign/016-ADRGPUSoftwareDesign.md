@@ -23,6 +23,9 @@ This ADR provides guidance on how to properly design software to support a Graph
 
 
 # Examples
+| Example  | Description                                                                           | Usage |
+| -------- | ------------------------------------------------------------------------------------- | ----- |
+| MathTest | A program that can run via CPU and optionally by GPU to show some basic math programs |       |
 
 # Alternatives Investigated
 
