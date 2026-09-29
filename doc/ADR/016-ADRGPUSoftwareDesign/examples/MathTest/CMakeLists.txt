@@ -4,8 +4,8 @@ add_library(cpu_math_lib STATIC cpu_math.cpp)
 if(ARCHITECTURE_JETSONNANO)
   add_library(gpu_math_lib STATIC gpu_math.cu)
   target_compile_options(
-    gpu_math_lib PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=-Wno-pedantic>)
-  target_link_libraries(gpu_math_lib PRIVATE CUDA::cudart)
+    gpu_math_lib
+    PRIVATE "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:-Xcompiler -Wno-pedantic>")
   set_target_properties(gpu_math_lib PROPERTIES LINKER_LANGUAGE CUDA)
 
 endif()
