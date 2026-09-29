@@ -18,8 +18,9 @@ int main() {
     cv::cuda::GpuMat d_input, d_blurred, d_edges;
     std::cout << "[GPU] Uploading image to VRAM..." << std::endl;
     d_input.upload(h_input);
-    cv::Ptrcv::cuda::Filter gaussian_filter = cv::cuda::createGaussianFilter(CV_8UC1, CV_8UC1, cv::Size(5, 5), 1.5);
-    cv::Ptrcv::cuda::CannyEdgeDetector canny_detector = cv::cuda::createCannyEdgeDetector(50.0, 150.0);
+    cv::Ptr<cv::cuda::Filter> gaussian_filter = cv::cuda::createGaussianFilter(CV_8UC1, CV_8UC1, cv::Size(5, 5), 1.5);
+    cv::Ptr<cv::cuda::CannyEdgeDetector> canny_detector = cv::cuda::createCannyEdgeDetector(50.0, 150.0);
+
     std::cout << "[GPU] Running Gaussian Blur on CUDA cores..." << std::endl;
     gaussian_filter->apply(d_input, d_blurred);
     std::cout << "[GPU] Running Canny Edge Detection on CUDA cores..." << std::endl;
