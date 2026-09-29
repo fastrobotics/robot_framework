@@ -15,3 +15,7 @@ else()
   target_link_libraries(test_cpugpu_math_benchmark PRIVATE mathTestCPULib)
 endif()
 install(TARGETS test_cpugpu_math_benchmark RUNTIME DESTINATION bin)
+
+if(BUILD_TESTING)
+  add_subdirectory(test)
+endif()

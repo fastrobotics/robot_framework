@@ -69,9 +69,9 @@ double runBenchmark(IVectorMath* engine, const std::string& name, int N, int ite
 
 int main() {
     auto benchmarkStart = std::chrono::steady_clock::now();
-    constexpr int FIRST_VECTOR_SIZE = 1'000'000;
-    constexpr int SWEEP_STEP = 10'000'000;
-    constexpr int MAX_VECTOR_SIZE = 100'000'000;
+    constexpr int FIRST_VECTOR_SIZE = 1'000;
+    constexpr int SWEEP_STEP = 100'000;
+    constexpr int MAX_VECTOR_SIZE = 1'000'000;
     const int ITERATIONS = 5;
     std::vector<int> vectorSizes{FIRST_VECTOR_SIZE};
     for (int size = SWEEP_STEP; size <= MAX_VECTOR_SIZE; size += SWEEP_STEP) {
