@@ -70,7 +70,7 @@ double runBenchmark(IVectorMath* engine, const std::string& name, int N, int ite
 int main() {
     auto benchmarkStart = std::chrono::steady_clock::now();
     constexpr int FIRST_VECTOR_SIZE = 1'000;
-    constexpr int SWEEP_STEP = 100'000;
+    constexpr int SWEEP_STEP = 10'000;
     constexpr int MAX_VECTOR_SIZE = 1'000'000;
     const int ITERATIONS = 5;
     std::vector<int> vectorSizes{FIRST_VECTOR_SIZE};
@@ -119,15 +119,28 @@ int main() {
         std::cout << std::endl;
     }
 #else
+    struct CpuSweepResult {
+        int vectorSize;
+        double cpuDurationMs;
+    };
+    std::vector<CpuSweepResult> results;
+
     for (int size : vectorSizes) {
         double memoryPerVectorMb = static_cast<double>(size) * sizeof(float) / 1'000'000.0;
         std::cout << "\n=== Vector Size: " << size << " elements (~" << memoryPerVectorMb
                   << " MB per vector) ===" << std::endl;
         double cpuAverageDurationMs = runBenchmark(createCPUMath(), "CPU Math Engine", size, ITERATIONS);
+        results.push_back({size, cpuAverageDurationMs});
         std::cout << "Sweep summary for " << size << " elements: CPU " << cpuAverageDurationMs << " ms, GPU unavailable"
                   << std::endl;
     }
     std::cout << "[INFO] GPU Engine disabled via compile flags. Skipping GPU test." << std::endl;
+
+    std::cout << "\n=== Final Sweep Summary ===" << std::endl;
+    std::cout << "Vector Size | CPU (ms) | GPU (ms) | Speedup" << std::endl;
+    for (const auto& result : results) {
+        std::cout << result.vectorSize << " | " << result.cpuDurationMs << " | unavailable | unavailable" << std::endl;
+    }
 #endif
 
     std::chrono::duration<double> totalBenchmarkDuration = std::chrono::steady_clock::now() - benchmarkStart;
