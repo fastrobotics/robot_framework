@@ -1,5 +1,4 @@
 add_subdirectory(Infrastructure)
-add_subdirectory(MathTest)
 if(BUILD_TESTING)
   add_subdirectory(test)
 endif()
