@@ -1,6 +1,6 @@
-#include "math_interface.h"
+#include "IVectorMath.hpp"
 
-class CpuMath : public IVectorMath {
+class CPUMath : public IVectorMath {
    public:
     void allocate([[maybe_unused]] int n) override {
         // No-op: CPU operates directly on host-allocated vectors
@@ -26,4 +26,4 @@ class CpuMath : public IVectorMath {
     }
 };
 
-IVectorMath* createCpuMath() { return new CpuMath(); }
+IVectorMath* createCPUMath() { return new CPUMath(); }

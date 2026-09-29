@@ -1,0 +1,19 @@
+@startuml
+title MathTest Class Diagram
+interface IVectorMath {
+    +{abstract} void allocate(int n)
+    +{abstract} void vectorAdd(float[] a, float[] b, float[] c, int n)
+    +{abstract} void free()
+}
+class GPUMath {
+
+}
+GPUMath -up-|> IVectorMath
+class CPUMath {
+    +void vectorAdd(float[] a, float[] b, float[] c, int n)
+    --- Unused ---
+    +void allocate(int n)
+    +void free()
+}
+CPUMath -up-|> IVectorMath
+@enduml

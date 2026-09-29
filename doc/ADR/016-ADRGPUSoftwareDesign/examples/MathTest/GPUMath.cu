@@ -1,6 +1,6 @@
 #include <cuda_runtime.h>
 
-#include "math_interface.h"
+#include "IVectorMath.hpp"
 
 // High-speed element-wise vector addition kernel
 __global__ void vectorAddKernel(const float* a, const float* b, float* c, int n) {
@@ -19,7 +19,7 @@ __global__ void vectorAddKernel(const float* a, const float* b, float* c, int n)
     }
 }
 
-class GpuMath : public IVectorMath {
+class GPUMath : public IVectorMath {
    private:
     float* d_a = nullptr;
     float* d_b = nullptr;
@@ -61,4 +61,4 @@ class GpuMath : public IVectorMath {
     }
 };
 
-IVectorMath* createGpuMath() { return new GpuMath(); }
+IVectorMath* createGPUMath() { return new GPUMath(); }
