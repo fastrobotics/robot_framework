@@ -1,0 +1,17 @@
+@startuml
+title OpenCVTest Class Diagram
+namespace cv {
+    class Mat
+}
+interface IImageProcessor #LimeGreen {
+    +{abstract} void processFrame(Mat input, Mat output)
+}
+class CPUImageProcessor #LimeGreen  {
+    +void processFrame(Mat input, Mat output)
+}
+CPUImageProcessor -up-|> IImageProcessor
+class GPUImageProcessor #LimeGreen  {
+    +void processFrame(Mat input, Mat output)
+}
+GPUImageProcessor -up-|> IImageProcessor
+@enduml
