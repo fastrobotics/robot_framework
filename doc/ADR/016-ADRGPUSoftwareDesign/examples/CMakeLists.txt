@@ -1,2 +1,2 @@
 add_subdirectory(MathTest)
-add_subdirectory(OpenCV)
+add_subdirectory(OpenCVTest)
