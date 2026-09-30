@@ -62,5 +62,6 @@ var searchData=
   ['fast_3a_3arf_3a_3auserinterfacesystem_3a_3aremotecontrolsubsystem_59',['RemoteControlSubsystem',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem.html',1,'fast::rf::UserInterfaceSystem']]],
   ['fast_3a_3arf_3a_3auserinterfacesystem_3a_3aremotecontrolsubsystem_3a_3ateleopcontrol_60',['TeleopControl',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl.html',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem']]],
   ['fatal_61',['FATAL',['../namespacefast_1_1rf.html#a322294ce13c76d8ac1639b6eac604d29a19da7170bea36556dde582519795f3fc',1,'fast::rf']]],
-  ['framework_62',['FAST Robotics: Robot Framework',['../md_DoxygenHome.html',1,'']]]
+  ['framework_62',['FAST Robotics: Robot Framework',['../md_DoxygenHome.html',1,'']]],
+  ['free_63',['free',['../classCPUMath.html#a70d8f33985d465135156d928dc591f63',1,'CPUMath::free()'],['../classIVectorMath.html#a579454dd8cacdd05dfe10fe379ca36eb',1,'IVectorMath::free()']]]
 ];

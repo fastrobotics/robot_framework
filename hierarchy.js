@@ -104,6 +104,10 @@ var hierarchy =
         [ "fast::rf::GoalPlanningSystem::DummyGoalPlanningSystem", "classfast_1_1rf_1_1GoalPlanningSystem_1_1DummyGoalPlanningSystem.html", null ]
       ] ]
     ] ],
+    [ "IImageProcessor", "classIImageProcessor.html", [
+      [ "CPUImageProcessor", "classCPUImageProcessor.html", null ],
+      [ "GPUImageProcessor", "classGPUImageProcessor.html", null ]
+    ] ],
     [ "fast::rf::ImplementControlSystem::IImplementControlSystem", "classfast_1_1rf_1_1ImplementControlSystem_1_1IImplementControlSystem.html", [
       [ "fast::rf::ImplementControlSystem::BaseImplementControlSystem", "classfast_1_1rf_1_1ImplementControlSystem_1_1BaseImplementControlSystem.html", [
         [ "fast::rf::ImplementControlSystem::DummyImplementControlSystem", "classfast_1_1rf_1_1ImplementControlSystem_1_1DummyImplementControlSystem.html", null ]
@@ -205,6 +209,9 @@ var hierarchy =
       [ "fast::rf::UserInterfaceSystem::BaseUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1BaseUserInterfaceSystem.html", [
         [ "fast::rf::UserInterfaceSystem::DummyUserInterfaceSystem", "classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html", null ]
       ] ]
+    ] ],
+    [ "IVectorMath", "classIVectorMath.html", [
+      [ "CPUMath", "classCPUMath.html", null ]
     ] ],
     [ "fast::rf::messages::SensorMsgs::JoyMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html", null ],
     [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::JoystickCalibrationData", "structfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1JoystickCalibrationData.html", null ],

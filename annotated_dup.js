@@ -282,5 +282,10 @@ var annotated_dup =
         [ "IProcess", "classfast_1_1rf_1_1IProcess.html", "classfast_1_1rf_1_1IProcess" ],
         [ "Logger", "classfast_1_1rf_1_1Logger.html", "classfast_1_1rf_1_1Logger" ]
       ] ]
-    ] ]
+    ] ],
+    [ "CPUImageProcessor", "classCPUImageProcessor.html", "classCPUImageProcessor" ],
+    [ "CPUMath", "classCPUMath.html", "classCPUMath" ],
+    [ "GPUImageProcessor", "classGPUImageProcessor.html", "classGPUImageProcessor" ],
+    [ "IImageProcessor", "classIImageProcessor.html", "classIImageProcessor" ],
+    [ "IVectorMath", "classIVectorMath.html", "classIVectorMath" ]
 ];
