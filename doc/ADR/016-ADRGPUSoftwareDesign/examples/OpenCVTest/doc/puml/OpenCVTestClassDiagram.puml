@@ -13,5 +13,5 @@ CPUImageProcessor -up-|> IImageProcessor
 class GPUImageProcessor #LimeGreen  {
     +void processFrame(Mat input, Mat output)
 }
-CPUImageProcessor -up-|> IImageProcessor
+GPUImageProcessor -up-|> IImageProcessor
 @enduml

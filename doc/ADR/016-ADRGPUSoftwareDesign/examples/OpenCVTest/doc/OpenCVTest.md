@@ -24,7 +24,7 @@ It essentially creates a test image and then performs a few image processing fun
 ![](../../../../../../Legend.png)
 
 ### Class Diagram
-
+![](puml/OpenCVTestClassDiagram.png)
 
 ## Usage
 To run this, do the following
