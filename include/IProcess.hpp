@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <DiagnosticMsg.hpp>
+#include <Infrastructure/Logger.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <vector>
 namespace fast::rf {

@@ -43,7 +43,7 @@ The following outputs are provided by this system.
 Processes in this Subsystem are defined by:
 - System: `{{cookiecutter.System}}System::SYSTEM_ID`
 - Subsystem: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID`
-- Process: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process_IDName}}`
+- Process: `{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::PROCESS_{{cookiecutter.Process|upper}}_ID`
 
 The following Diagnostics are reported by this Process:
 | Diagnostic Type | Description |

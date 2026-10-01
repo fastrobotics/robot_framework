@@ -4,6 +4,7 @@
         "cschlosser.doxdocgen",
         "jebbs.plantuml",
         "sonarsource.sonarlint-vscode",
-        "ms-vscode.cpptools"
+        "ms-vscode.cpptools",
+        "vstirbu.vscode-mermaid-preview"
     ]
 }

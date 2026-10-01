@@ -29,23 +29,23 @@ public:
   Base{{cookiecutter.Process}}Process() :
               m_systemId(fast::rf::{{cookiecutter.System}}System::SYSTEM_ID),
               m_subSystemId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::SUBSYSTEM_ID),
-              m_processId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process_IDName}}_ID),
+              m_processId(fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsystem}}Subsystem::{{cookiecutter.Process}}::PROCESS_{{cookiecutter.Process|upper}}_ID),
               m_diagnosticManager(m_systemId, m_subSystemId, m_processId),
               m_readyToArm(m_systemId, m_subSystemId, m_processId) {}
                   
   /**
          * @brief Get the diagnostics object
          *
-         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>o
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override = 0;
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override;
 
          /**
          * @brief Get the ready to arm object
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() { return m_readyToArm; }
 
       protected:
        /**

@@ -12,20 +12,20 @@ using namespace fast::rf::{{cookiecutter.System}}System::{{cookiecutter.Subsyste
 #include <Infrastructure/Logger.hpp>
 
 TEST(Basic{{cookiecutter.Process}}Process, BasicTests) {
-  Basic{{cookiecutter.Process}}Process sut;
-  ASSERT_TRUE(sut.init());
-  ASSERT_TRUE(sut.update(0.0));
-  auto diagnostics = sut.getDiagnostics();
+  Basic{{cookiecutter.Process}}Process SUT;
+  ASSERT_TRUE(SUT.init());
+  ASSERT_TRUE(SUT.update(0.0));
+  auto diagnostics = SUT.getDiagnostics();
   ASSERT_GT(diagnostics.size(), 0);
   for (auto diagnostic : diagnostics) {
     ASSERT_NE(diagnostic.diagnosticMessage,fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
     ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
   }
-   ASSERT_TRUE(sut.getReadyToArm().ready_to_arm);
-   fast::rf::Logger::logDebug(sut.pretty());
+   ASSERT_TRUE(SUT.getReadyToArm().ready_to_arm);
+   fast::rf::Logger::logDebug(SUT.pretty());
 }
 TEST(Basic{{cookiecutter.Process}}Process, BasicConversionTests) {
-  Basic{{cookiecutter.Process}}Process sut;
-  ASSERT_TRUE(sut.init());
-  ASSERT_GT(sut.pretty().size(), 0);
+  Basic{{cookiecutter.Process}}Process SUT;
+  ASSERT_TRUE(SUT.init());
+  ASSERT_GT(SUT.pretty().size(), 0);
 }

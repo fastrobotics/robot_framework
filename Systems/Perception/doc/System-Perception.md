@@ -1,3 +1,4 @@
+`@compare_tag System-Document v0.1`
 [README](../../../README.md)
 
 [Architecture](../../../doc/Architecture/Architecture.md)
@@ -16,6 +17,9 @@
   - [Package Diagram](#package-diagram)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
+- [References](#references)
+  - [Interfaces](#interfaces)
+  - [Videos](#videos)
 
 # System: Perception
 
@@ -28,6 +32,7 @@ The Perception System's role in the Robot Framework is to ???.
 ## General Requirements
 
 # System Architecture
+![](mermaid/PerceptionSystemArchitecture.png)
 
 # Inputs
 
@@ -40,18 +45,15 @@ The following inputs are required in order for this system to properly function.
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output                   | DataType | Description                        | Usage |
+| ------------------------ | -------- | ---------------------------------- | ----- |
+| Objects                  |          | Objects in the robot's vicinity.   |       |
+| Local Map                |          | A map built solely from Perception |       |
+| Perception computed Pose |          | Perception generated Pose          |       |
+
+Additionally various channels are published by modules that is typically internal data that is sent to the outside world for system inspection and troubleshooting.
 
 # How It Works
-
-Ideas:
-
-- Camera
-- Lidar
-- Radar
-- Perception Fusion
-
 ## Detailed Documentation
 
 ## Software Content
@@ -59,8 +61,13 @@ Ideas:
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem | Purpose |
-| ----- | --------- | ------- |
+| State | Subsystem                                                                                                            | Purpose                                                                                                                                                                      |
+| ----- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| READY | Perception Sensors                                                                                                   | These are vendor supplied content.  Translators to FAST friendly interfaces should be created as needed, but in general this content will be out of scope of this framework. |
+| NEW   | [Depth Camera Pipeline](../Subsystems/DepthCameraPipeline/doc/Subsystem-DepthCameraPipeline.md)                      | The Depth Camera Pipeline is used to process Depth Camera data.                                                                                                              |
+| NEW   | [Object Tracker](../Subsystems/ObjectTracker/doc/Subsystem-ObjectTracker.md)                                         | The Object Tracker creates and tracks objects.                                                                                                                               |
+| NEW   | [Perception Integrity Monitor](../Subsystems/PerceptionIntegrityMonitor/doc/Subsystem-PerceptionIntegrityMonitor.md) | Analyzes the state of the entire Perception System.                                                                                                                          |
+| NEW   | [Ultrasonic Pipeline](../Subsystems/UltrasonicPipeline/doc/Subsystem-UltrasonicPipeline.md)                          | The Ultrasonic Pipeline is used to process Ultrasonic Data.                                                                                                                  |
 
 ## Package Diagram
 ![](../../../Legend.png)
@@ -70,3 +77,12 @@ The following Subsystems are provided in this System:
 # Usage Instructions
 
 # Validation
+
+# References
+## Interfaces
+- sensor_msgs/msg/PointCloud2
+## Videos
+- https://www.youtube.com/watch?v=L3cdMDIJqWs
+- https://www.youtube.com/watch?v=_7zTL4If-Uw
+- https://www.youtube.com/watch?v=UesfMYM4qcc
+- https://www.youtube.com/watch?v=YoO5t7Lpl74

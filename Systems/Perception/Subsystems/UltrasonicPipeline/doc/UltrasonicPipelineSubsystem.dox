@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::PerceptionSystem::UltrasonicPipelineSubsystem
+ * @brief The UltrasonicPipeline Subsystem for the Robot Framework
+ */

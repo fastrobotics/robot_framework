@@ -13,10 +13,7 @@
         "editor.formatOnSave": false
     },
     "editor.formatOnSave": true,
-    "files.associations": {
-        "*.mmd": "markdown"
-    },
     "files.exclude": {
-        "**/templates/**": false 
+        "**/templates/**": false
     }
 }
