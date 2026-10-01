@@ -1,0 +1,9 @@
+<map id="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::BasicObjectEstimatorProcess" name="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::BasicObjectEstimatorProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a ObjectEstimator Process." alt="" coords="808,5,1091,75"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BaseObjectEstimatorProcess.html" title="Base ObjectEstimator Process." alt="" coords="480,5,760,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="774,37,808,37,808,43,774,43"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1IObjectEstimatorProcess.html" title="Interface for the ObjectEstimator fast::rf::Process." alt="" coords="180,5,432,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,37,479,37,479,43,446,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,180,37,180,43,146,43"/>
+</map>

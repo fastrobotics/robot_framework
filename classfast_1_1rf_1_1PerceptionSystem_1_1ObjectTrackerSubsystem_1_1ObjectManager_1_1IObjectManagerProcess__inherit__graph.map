@@ -1,0 +1,9 @@
+<map id="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::IObjectManagerProcess" name="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::IObjectManagerProcess">
+<area shape="rect" id="Node000001" title="Interface for the ObjectManager fast::rf::Process." alt="" coords="180,13,471,67"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BaseObjectManagerProcess.html" title="Base ObjectManager Process." alt="" coords="519,5,787,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="485,37,518,37,518,43,485,43"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,37,180,37,180,43,146,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcess.html" title="Minimal Implementation for a ObjectManager Process." alt="" coords="835,5,1105,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="800,37,835,37,835,43,800,43"/>
+</map>

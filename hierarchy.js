@@ -8,7 +8,13 @@ var hierarchy =
     [ "fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvRequest", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmStateChangeSrv_1_1ArmStateChangeSrvRequest.html", null ],
     [ "fast::rf::messages::InfrastructureMsgs::ArmStateChangeSrv::ArmStateChangeSrvResponse", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ArmStateChangeSrv_1_1ArmStateChangeSrvResponse.html", null ],
     [ "fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ArmStateCommander", "classfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ArmStateCommander.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::BasicDepthCameraFeatureHandlerProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba32a980874efea78ed79b9a63a0893c52.html", null ],
     [ "fast::rf::ExampleSystem::ExampleSubsystem::Example::BasicExampleProcessConfig", "classfast_1_1rf_1_1ExampleSystem_1_1ExampleSubsystem_1_1Example_1_1BasicExampleProcessConfig.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BasicFeatureDetectorProcessConfig.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor::BasicFOVExtractorProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1BasicFOVExtractorProcessConfig.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::BasicObjectEstimatorProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BasicObjectEstimatorProcessConfig.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::BasicObjectManagerProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcessConfig.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BasicSensorFuserProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html", null ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::BasicTrajectoryControllerConfig", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1BasicTrajectoryControllerConfig.html", null ],
     [ "fast::rf::messages::StandardMsgs::Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", null ],
     [ "fast::rf::messages::StandardMsgs::Covariance6DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg.html", null ],
@@ -68,7 +74,15 @@ var hierarchy =
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::Id", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1Id.html", null ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectoryController::Id", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectoryController_1_1Id.html", null ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::Id", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1Id.html", null ],
     [ "fast::rf::PerceptionSystem::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1Id.html", null ],
+    [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::Id", "structfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1Id.html", null ],
     [ "fast::rf::PoseSystem::GlobalPoseSubsystem::Id", "structfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1Id.html", null ],
     [ "fast::rf::PoseSystem::GlobalSensorSubsystem::Id", "structfast_1_1rf_1_1PoseSystem_1_1GlobalSensorSubsystem_1_1Id.html", null ],
     [ "fast::rf::PoseSystem::Id", "structfast_1_1rf_1_1PoseSystem_1_1Id.html", null ],
@@ -127,11 +141,6 @@ var hierarchy =
         [ "fast::rf::NavigationSystem::DummyNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html", null ]
       ] ]
     ] ],
-    [ "fast::rf::PerceptionSystem::IPerceptionSystem", "classfast_1_1rf_1_1PerceptionSystem_1_1IPerceptionSystem.html", [
-      [ "fast::rf::PerceptionSystem::BasePerceptionSystem", "classfast_1_1rf_1_1PerceptionSystem_1_1BasePerceptionSystem.html", [
-        [ "fast::rf::PerceptionSystem::DummyPerceptionSystem", "classfast_1_1rf_1_1PerceptionSystem_1_1DummyPerceptionSystem.html", null ]
-      ] ]
-    ] ],
     [ "fast::rf::PoseSystem::IPoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html", [
       [ "fast::rf::PoseSystem::BasePoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1BasePoseSystem.html", [
         [ "fast::rf::PoseSystem::DummyPoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html", null ]
@@ -163,6 +172,36 @@ var hierarchy =
       [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::ITrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1ITrajectorySelectorProcess.html", [
         [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::BaseTrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1BaseTrajectorySelectorProcess.html", [
           [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::TrajectorySelector::BasicTrajectorySelectorProcess", "classfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1TrajectorySelector_1_1BasicTrajectorySelectorProcess.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor::IFOVExtractorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1IFOVExtractorProcess.html", [
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor::BaseFOVExtractorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1BaseFOVExtractorProcess.html", [
+          [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor::BasicFOVExtractorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1BasicFOVExtractorProcess.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::IFeatureDetectorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1IFeatureDetectorProcess.html", [
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BaseFeatureDetectorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html", [
+          [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BasicFeatureDetectorProcess.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html", [
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BaseSensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html", [
+          [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BasicSensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcess.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::IDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1IDepthCameraFeatureHandlerProcess.html", [
+        [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::BaseDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba8fb6c3249527e235a5752d9015f5065b.html", [
+          [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::BasicDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::IObjectEstimatorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1IObjectEstimatorProcess.html", [
+        [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::BaseObjectEstimatorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BaseObjectEstimatorProcess.html", [
+          [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator::BasicObjectEstimatorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BasicObjectEstimatorProcess.html", null ]
+        ] ]
+      ] ],
+      [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::IObjectManagerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1IObjectManagerProcess.html", [
+        [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::BaseObjectManagerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BaseObjectManagerProcess.html", [
+          [ "fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager::BasicObjectManagerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcess.html", null ]
         ] ]
       ] ],
       [ "fast::rf::PoseSystem::InertialSensorSubsystem::IMU::IIMUProcess", "classfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1IIMUProcess.html", [

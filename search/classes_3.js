@@ -9,9 +9,8 @@ var searchData=
   ['dummygoalplanningsystem_6',['DummyGoalPlanningSystem',['../classfast_1_1rf_1_1GoalPlanningSystem_1_1DummyGoalPlanningSystem.html',1,'fast::rf::GoalPlanningSystem']]],
   ['dummyimplementcontrolsystem_7',['DummyImplementControlSystem',['../classfast_1_1rf_1_1ImplementControlSystem_1_1DummyImplementControlSystem.html',1,'fast::rf::ImplementControlSystem']]],
   ['dummynavigationsystem_8',['DummyNavigationSystem',['../classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html',1,'fast::rf::NavigationSystem']]],
-  ['dummyperceptionsystem_9',['DummyPerceptionSystem',['../classfast_1_1rf_1_1PerceptionSystem_1_1DummyPerceptionSystem.html',1,'fast::rf::PerceptionSystem']]],
-  ['dummyposesystem_10',['DummyPoseSystem',['../classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html',1,'fast::rf::PoseSystem']]],
-  ['dummysafetysystem_11',['DummySafetySystem',['../classfast_1_1rf_1_1SafetySystem_1_1DummySafetySystem.html',1,'fast::rf::SafetySystem']]],
-  ['dummyterrainsystem_12',['DummyTerrainSystem',['../classfast_1_1rf_1_1TerrainSystem_1_1DummyTerrainSystem.html',1,'fast::rf::TerrainSystem']]],
-  ['dummyuserinterfacesystem_13',['DummyUserInterfaceSystem',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html',1,'fast::rf::UserInterfaceSystem']]]
+  ['dummyposesystem_9',['DummyPoseSystem',['../classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html',1,'fast::rf::PoseSystem']]],
+  ['dummysafetysystem_10',['DummySafetySystem',['../classfast_1_1rf_1_1SafetySystem_1_1DummySafetySystem.html',1,'fast::rf::SafetySystem']]],
+  ['dummyterrainsystem_11',['DummyTerrainSystem',['../classfast_1_1rf_1_1TerrainSystem_1_1DummyTerrainSystem.html',1,'fast::rf::TerrainSystem']]],
+  ['dummyuserinterfacesystem_12',['DummyUserInterfaceSystem',['../classfast_1_1rf_1_1UserInterfaceSystem_1_1DummyUserInterfaceSystem.html',1,'fast::rf::UserInterfaceSystem']]]
 ];

@@ -1,0 +1,13 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcess" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a FeatureDetector Process." alt="" coords="1011,70,1293,139"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html" title="Base FeatureDetector Process." alt="" coords="681,70,961,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="975,102,1010,102,1010,107,975,107"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1IFeatureDetectorProcess.html" title="Interface for the FeatureDetector fast::rf::Process." alt="" coords="181,5,484,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="498,54,681,81,681,87,497,60"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,20,132,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,30,181,30,181,35,146,35"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="235,85,431,125"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="445,102,681,102,681,107,445,107"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="243,149,423,204"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="436,159,681,123,682,128,437,164"/>
+</map>

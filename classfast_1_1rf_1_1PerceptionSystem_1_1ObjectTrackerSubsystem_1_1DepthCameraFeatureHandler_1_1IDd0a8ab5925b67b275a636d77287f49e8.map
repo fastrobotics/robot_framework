@@ -1,0 +1,9 @@
+<map id="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::IDepthCameraFeatureHandlerProcess" name="fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeatureHandler::IDepthCameraFeatureHandlerProcess">
+<area shape="rect" id="Node000001" title="Interface for the DepthCameraFeatureHandler fast::rf::Process." alt="" coords="180,5,455,75"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba8fb6c3249527e235a5752d9015f5065b.html" title="Base DepthCameraFeatureHandler Process." alt="" coords="503,5,805,75"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="469,37,503,37,503,43,469,43"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,37,180,37,180,43,146,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html" title="Minimal Implementation for a DepthCameraFeatureHandler Process." alt="" coords="853,5,1159,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="819,37,853,37,853,43,819,43"/>
+</map>

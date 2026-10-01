@@ -1,0 +1,9 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess">
+<area shape="rect" id="Node000001" title="Interface for the SensorFuser fast::rf::Process." alt="" coords="180,5,431,60"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html" title="Base SensorFuser Process." alt="" coords="479,5,757,60"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="445,30,479,30,479,35,445,35"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,20,132,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,30,180,30,180,35,146,35"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcess.html" title="Minimal Implementation for a SensorFuser Process." alt="" coords="805,5,1087,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="771,30,805,30,805,35,771,35"/>
+</map>

@@ -1,0 +1,8 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848 =
+[
+    [ "BasicDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html#ac979df020500ce08f91308b5cd3c5637", null ],
+    [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html#ae10664396754419de8f2aac9c3b1da47", null ],
+    [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html#a1bd772744a3ef4d72ac33593ff233c41", null ],
+    [ "setConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html#a5175abe1e4d69865ff9fb11bb745424f", null ],
+    [ "update", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1Ba148e9228b439278c015a19ce00704848.html#ab358a616828545dc5733b94a9fbca8ec", null ]
+];

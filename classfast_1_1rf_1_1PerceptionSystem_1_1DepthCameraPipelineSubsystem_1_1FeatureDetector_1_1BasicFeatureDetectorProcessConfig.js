@@ -1,0 +1,5 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BasicFeatureDetectorProcessConfig =
+[
+    [ "isOk", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BasicFeatureDetectorProcessConfig.html#a583509da9c901e9d62c7a10d6713e664", null ],
+    [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BasicFeatureDetectorProcessConfig.html#ae92fd90dcb74b534c6d9cb48a18f3cde", null ]
+];

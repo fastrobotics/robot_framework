@@ -1,0 +1,5 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BasicObjectEstimatorProcessConfig =
+[
+    [ "isOk", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BasicObjectEstimatorProcessConfig.html#aa8fb4e5494db8de242bf9d8f88292dd4", null ],
+    [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectEstimator_1_1BasicObjectEstimatorProcessConfig.html#a178d63895b84a0d1e631f619f01ca8d5", null ]
+];

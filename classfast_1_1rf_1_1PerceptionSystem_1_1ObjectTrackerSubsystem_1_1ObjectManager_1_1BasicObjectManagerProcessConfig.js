@@ -1,0 +1,5 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcessConfig =
+[
+    [ "isOk", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcessConfig.html#ae135e5ede0cce36a2b2ff09b857ff221", null ],
+    [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1ObjectManager_1_1BasicObjectManagerProcessConfig.html#afa5aad4c4c9b2ff821e6fa1219c5c6fe", null ]
+];

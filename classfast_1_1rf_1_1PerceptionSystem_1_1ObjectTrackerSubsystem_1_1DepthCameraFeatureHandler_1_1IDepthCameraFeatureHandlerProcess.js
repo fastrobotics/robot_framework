@@ -1,0 +1,6 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1IDepthCameraFeatureHandlerProcess =
+[
+    [ "IDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1IDepthCameraFeatureHandlerProcess.html#aeb12832f2137a63f654c43a92578df6e", null ],
+    [ "~IDepthCameraFeatureHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1IDepthCameraFeatureHandlerProcess.html#aa432eb7fd76a4835afff8cbe51d7c10c", null ],
+    [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem_1_1DepthCameraFeatureHandler_1_1IDepthCameraFeatureHandlerProcess.html#a9bfac0693b50cc35a4cdc43017abd7f3", null ]
+];
