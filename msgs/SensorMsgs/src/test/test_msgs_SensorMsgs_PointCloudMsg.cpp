@@ -25,3 +25,8 @@ TEST(PointCloudMsg, PrettyFunctions) {
     }
     ASSERT_GT(SUT.pretty().size(), 0);
 }
+TEST(PointCloudMsg, HelperFunctions) {
+    PointCloudMsg pointCloud = PointCloudMsg::generateRGBCloud(4);
+    ASSERT_GT(pointCloud.fields.size(), 0);
+    ASSERT_GT(pointCloud.data.size(), 0);
+}

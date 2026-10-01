@@ -63,6 +63,7 @@ namespace fast::rf::messages {
     }
     PointFieldMsg +-- PointFieldDataType
     struct PointCloudMsg <<(M,#FFFF00)>> #LimeGreen {
+        +{static} PointCloudMsg generateRGBCloud(uint32 dimension)
         +double time_stamp
         +uint32 height
         +uint32 width
