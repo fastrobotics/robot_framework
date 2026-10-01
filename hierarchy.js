@@ -262,6 +262,8 @@ var hierarchy =
     [ "fast::rf::messages::AwarenessMsgs::ObjectMsg", "structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OdomMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OrientationMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html", null ],
+    [ "fast::rf::messages::SensorMsgs::PointCloudMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html", null ],
+    [ "fast::rf::messages::SensorMsgs::PointFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PointMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PoseMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html", null ],
     [ "fast::rf::PoseSystem::PoseUtility", "classfast_1_1rf_1_1PoseSystem_1_1PoseUtility.html", null ],

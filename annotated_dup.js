@@ -111,7 +111,9 @@ var annotated_dup =
             [ "GlobalPositionSensorMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1GlobalPositionSensorMsg" ],
             [ "ImuMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1ImuMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1ImuMsg" ],
             [ "JoyMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg" ],
-            [ "MagneticFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg" ]
+            [ "MagneticFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg" ],
+            [ "PointCloudMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg" ],
+            [ "PointFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg" ]
           ] ],
           [ "StandardMsgs", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs.html", [
             [ "Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg" ],
