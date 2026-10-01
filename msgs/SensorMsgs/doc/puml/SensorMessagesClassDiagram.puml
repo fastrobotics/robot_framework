@@ -64,7 +64,6 @@ namespace fast::rf::messages {
     PointFieldMsg +-- PointFieldDataType
     struct PointCloudMsg <<(M,#FFFF00)>> #LimeGreen {
         +double time_stamp
-        +uint64 seq
         +uint32 height
         +uint32 width
         +PointFieldMsg[] fields
