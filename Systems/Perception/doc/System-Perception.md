@@ -13,15 +13,7 @@
 - [How It Works](#how-it-works)
   - [Questions](#questions)
   - [Ideas](#ideas)
-    - [Region of Interest Isolator](#region-of-interest-isolator)
-    - [Object Classifier](#object-classifier)
-    - [Filters](#filters)
-    - [Feature Extraction](#feature-extraction)
-  - [Module Description](#module-description)
-    - [Perception Sensors](#perception-sensors)
-    - [Sensor Pipelines](#sensor-pipelines)
       - [Ultrasonic Pipeline](#ultrasonic-pipeline)
-    - [Perception Integrity Monitor](#perception-integrity-monitor)
     - [SLAM](#slam)
     - [Pose Estimator](#pose-estimator)
   - [Detailed Documentation](#detailed-documentation)
@@ -58,59 +50,27 @@ The following inputs are required in order for this system to properly function.
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output                   | DataType | Description                        | Usage |
+| ------------------------ | -------- | ---------------------------------- | ----- |
+| Objects                  |          | Objects in the robot's vicinity.   |       |
+| Local Map                |          | A map built solely from Perception |       |
+| Perception computed Pose |          | Perception generated Pose          |       |
+
+Additionally various channels are published by modules that is typically internal data that is sent to the outside world for system inspection and troubleshooting.
 
 # How It Works
-Ideas:
-
-- Camera
-- Lidar
-- Radar
-- Perception Fusion
-
-Goals of the Perception System are to:
-1. Output a list of objects in the machine's surroundings
-2. Output a map of the environment around the machine
-3. Compute a pose based off the perceived environment
 
 ## Questions
-- Feature Extraction?
 
 ## Ideas
-### Region of Interest Isolator
-- Take in a set of data and subset it.  For example, a full 3D surround Lidar Point Cloud could be fed to this, that then just gives a narrow region in front of the robot, and/or a fixed distance from the robot.  Would be useful to do this with other data sources as well.
-### Object Classifier
-- Determines what classification of objects (moving, static), categories (people, vehicles, etc)
-- AI?
 
-### Filters
-- Various filters used in Sensor Pipelines to clean up noisy data
 
-### Feature Extraction
-- Detect salient features from data sources
 
-## Module Description
->> Put this detail in other documentation
-### Perception Sensors
-- Includes either custom or vendor drivers.  Minimal control to how they work
-
-### Sensor Pipelines
-- Standardize on interfaces
-- Diagnostics
-- Aggregators/Combiners
-- How do the different sensor modalities modify the pipelines?
-- Is there more to pipelines that this?  Should there be specific things that happen because of the specific sensor modalities?  For example, should there be some form of "Feature Extraction" that happens in lidar pipelines, that in principle is the same in camera pipeline, but works fundamentally different?
 
 #### Ultrasonic Pipeline
 - Feeds object tracking in near environment.  Sensor modality dictates that what it detects is more like "something is near me"
 - Should this interface with Map Building?
 - Doesn't an Ultrasonic Sensor in principle look like a curved pointcloud circular wall of with a radious of the distance to the detected object and a size fo the sensor FOV
-
-### Perception Integrity Monitor
-- Sensor Diagnostics should probably be part of Sensor Pipeline
-- Other diagnostics should probably be part of the thing that's generating it
-
 
 
 ### SLAM
@@ -124,10 +84,13 @@ Goals of the Perception System are to:
 # Subsystems
 
 The following Subsystems are provided in this System:
-| State | Subsystem                                                                                       | Purpose |
-| ----- | ----------------------------------------------------------------------------------------------- | ------- |
-| NEW   | [Depth Camera Pipeline](../Subsystems/DepthCameraPipeline/doc/Subsystem-DepthCameraPipeline.md) |         |
-| NEW   | [Object Tracker](../Subsystems/ObjectTracker/doc/Subsystem-ObjectTracker.md)                    |         |
+| State | Subsystem                                                                                                            | Purpose                                                                                                                                                                      |
+| ----- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| READY | Perception Sensors                                                                                                   | These are vendor supplied content.  Translators to FAST friendly interfaces should be created as needed, but in general this content will be out of scope of this framework. |
+| NEW   | [Depth Camera Pipeline](../Subsystems/DepthCameraPipeline/doc/Subsystem-DepthCameraPipeline.md)                      | The Depth Camera Pipeline is used to process Depth Camera data.                                                                                                              |
+| NEW   | [Object Tracker](../Subsystems/ObjectTracker/doc/Subsystem-ObjectTracker.md)                                         | The Object Tracker creates and tracks objects.                                                                                                                               |
+| NEW   | [Perception Integrity Monitor](../Subsystems/PerceptionIntegrityMonitor/doc/Subsystem-PerceptionIntegrityMonitor.md) | Analyzes the state of the entire Perception System.                                                                                                                          |
+| NEW   | [Ultrasonic Pipeline](../Subsystems/UltrasonicPipeline/doc/Subsystem-UltrasonicPipeline.md)                          | The Ultrasonic Pipeline is used to process Ultrasonic Data.                                                                                                                  |
 
 ## Package Diagram
 ![](../../../Legend.png)

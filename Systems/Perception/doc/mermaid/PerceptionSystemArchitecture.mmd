@@ -55,13 +55,18 @@ graph LR
     PerceptionSensors --> | Radar Sensors | RadarPipeline
     PerceptionSensors --> | Depth Camera Sensors | DepthCameraPipeline
     PerceptionSensors --> | Ultrasonic Sensors | UltrasonicPipeline
-    PerceptionSensors --> PerceptionIntegrityMonitor
+    LidarPipeline --> | Diagnostics | PerceptionIntegrityMonitor
+    CameraPipeline --> | Diagnostics | PerceptionIntegrityMonitor
+    RadarPipeline --> | Diagnostics | PerceptionIntegrityMonitor
+    DepthCameraPipeline --> | Diagnostics | PerceptionIntegrityMonitor
+    UltrasonicPipeline --> | Diagnostics | PerceptionIntegrityMonitor
 
     LidarPipeline --> MapBuilder
     CameraPipeline --> MapBuilder
     RadarPipeline --> MapBuilder
     DepthCameraPipeline --> MapBuilder
-    MapBuilder --> SLAM
+    MapBuilder --> | 3D Map | SLAM
+    MapBuilder --> | Ground Surface | UltrasonicPipeline
     SLAM --> PoseEstimator
     
     LidarPipeline --> | Features | ObjectTracker
@@ -72,10 +77,11 @@ graph LR
     
     ObjectTracker --> | Dynamic and Static Objects | Outputs
 
+    PerceptionIntegrityMonitor --> | Perception Health | Outputs
     PoseEstimator --> | Visual Odometry | Outputs
     MapBuilder --> | 3D Map | Outputs
 
   
 
     class Inputs,Outputs cssBoundary
-    class PerceptionSensors,DepthCameraPipeline,ObjectTracker cssInvestigating
+    class PerceptionSensors,DepthCameraPipeline,UltrasonicPipeline,ObjectTracker,PerceptionIntegrityMonitor cssInvestigating
