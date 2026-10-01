@@ -56,6 +56,11 @@ public:
   bool update(double current_time_sec) override {
     return Base{{cookiecutter.Process}}Process::update(current_time_sec);
   }
+   std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
+
+        return empty;
+    }
   std::string pretty() {
         std::string str = "---Test-Base---\n";
         str += Base{{cookiecutter.Process}}Process::pretty();

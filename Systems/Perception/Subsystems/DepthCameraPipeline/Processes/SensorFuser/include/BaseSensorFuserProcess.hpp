@@ -38,7 +38,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          *
          * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>o
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override = 0;
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override;
 
         /**
          * @brief Get the ready to arm object

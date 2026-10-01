@@ -27,7 +27,7 @@ class Basic{{cookiecutter.Process}}ProcessConfig {
       }
       private:
             // Add attributes here
-}
+};
 /**
  * @brief Minimal Implementation for a {{cookiecutter.Process}} Process
  *

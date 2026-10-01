@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a FeatureDetector Process
      *

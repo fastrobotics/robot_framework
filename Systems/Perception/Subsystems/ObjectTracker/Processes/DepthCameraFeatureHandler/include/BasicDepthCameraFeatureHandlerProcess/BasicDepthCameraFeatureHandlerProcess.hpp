@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::ObjectTrackerSubsystem::DepthCameraFeature
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a DepthCameraFeatureHandler Process
      *

@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a SensorFuser Process
      *

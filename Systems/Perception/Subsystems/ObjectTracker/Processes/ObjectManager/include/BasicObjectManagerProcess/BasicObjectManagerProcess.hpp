@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectManager {
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a ObjectManager Process
      *

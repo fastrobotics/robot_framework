@@ -411,6 +411,26 @@ namespace fast::rf {
                 inline const char* toString(Id) { return "feature_detector"; }
             }  // namespace FeatureDetector
         }  // namespace DepthCameraPipelineSubsystem
+        namespace ObjectTrackerSubsystem {
+            const uint8_t SUBSYSTEM_ID = 2;
+            struct Id {};
+            inline const char* toString(Id) { return "object_tracker"; }
+            namespace DepthCameraFeatureHandler {
+                constexpr uint8_t PROCESS_DEPTHCAMERAFEATUREHANDLER_ID = 1;
+                struct Id {};
+                inline const char* toString(Id) { return "depth_camera_feature_handler"; }
+            }  // namespace DepthCameraFeatureHandler
+            namespace ObjectEstimator {
+                constexpr uint8_t PROCESS_OBJECTESTIMATOR_ID = 2;
+                struct Id {};
+                inline const char* toString(Id) { return "object_estimator"; }
+            }  // namespace ObjectEstimator
+            namespace ObjectManager {
+                constexpr uint8_t PROCESS_OBJECTMANAGER_ID = 3;
+                struct Id {};
+                inline const char* toString(Id) { return "object_manager"; }
+            }  // namespace ObjectManager
+        }  // namespace ObjectTrackerSubsystem
     }  // namespace PerceptionSystem
     namespace SafetySystem {
         constexpr uint8_t SYSTEM_ID = 10;  //!< Unique ID for the Safety System

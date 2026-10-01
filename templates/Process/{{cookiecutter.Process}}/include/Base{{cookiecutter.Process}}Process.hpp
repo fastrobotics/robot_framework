@@ -36,16 +36,16 @@ public:
   /**
          * @brief Get the diagnostics object
          *
-         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>o
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
          */
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override = 0;
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() override;
 
          /**
          * @brief Get the ready to arm object
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() { return m_readyToArm; }
 
       protected:
        /**

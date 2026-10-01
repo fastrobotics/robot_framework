@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::ObjectTrackerSubsystem::ObjectEstimator {
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a ObjectEstimator Process
      *

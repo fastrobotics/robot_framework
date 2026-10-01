@@ -28,7 +28,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FOVExtractor
 
        private:
         // Add attributes here
-    }
+    };
     /**
      * @brief Minimal Implementation for a FOVExtractor Process
      *
