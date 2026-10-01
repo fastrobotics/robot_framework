@@ -26,3 +26,17 @@ target_link_libraries(test_msgs_SensorMsgs_MagneticFieldMsg GTest::gtest_main
                       standard_msgs geometry_msgs infrastructure_msgs logger)
 
 gtest_discover_tests(test_msgs_SensorMsgs_MagneticFieldMsg)
+
+# Test: SensorMsgs::PointFieldMsg
+add_executable(test_msgs_SensorMsgs_PointFieldMsg
+               test_msgs_SensorMsgs_PointFieldMsg.cpp)
+target_link_libraries(test_msgs_SensorMsgs_PointFieldMsg GTest::gtest_main)
+
+gtest_discover_tests(test_msgs_SensorMsgs_PointFieldMsg)
+
+# Test: SensorMsgs::PointCloudMsg
+add_executable(test_msgs_SensorMsgs_PointCloudMsg
+               test_msgs_SensorMsgs_PointCloudMsg.cpp)
+target_link_libraries(test_msgs_SensorMsgs_PointCloudMsg GTest::gtest_main)
+
+gtest_discover_tests(test_msgs_SensorMsgs_PointCloudMsg)
