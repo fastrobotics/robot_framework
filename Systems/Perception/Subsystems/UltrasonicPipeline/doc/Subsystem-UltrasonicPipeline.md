@@ -1,7 +1,7 @@
 `@compare_tag Subsystem-Document v0.1`
 [Perception System](../../../doc/System-Perception.md)
 
-- [Subsystem: UltrasonicPipeline](#subsystem-cookiecuttersubsystem)
+- [Subsystem: UltrasonicPipeline](#subsystem-ultrasonicpipeline)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -10,6 +10,7 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
+  - [Ideas](#ideas)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Processes](#processes)
@@ -52,7 +53,10 @@ The following outputs are provided by this system.
 | ------ | -------- | ----------- | ----- |
 
 # How It Works
-
+## Ideas
+- Feeds object tracking in near environment.  Sensor modality dictates that what it detects is more like "something is near me"
+- Should this interface with Map Building?
+- Doesn't an Ultrasonic Sensor in principle look like a curved pointcloud circular wall of with a radious of the distance to the detected object and a size fo the sensor FOV
 ## Detailed Documentation
 
 ## Software Content

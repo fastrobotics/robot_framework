@@ -11,11 +11,6 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [How It Works](#how-it-works)
-  - [Questions](#questions)
-  - [Ideas](#ideas)
-      - [Ultrasonic Pipeline](#ultrasonic-pipeline)
-    - [SLAM](#slam)
-    - [Pose Estimator](#pose-estimator)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Subsystems](#subsystems)
@@ -59,24 +54,6 @@ The following outputs are provided by this system.
 Additionally various channels are published by modules that is typically internal data that is sent to the outside world for system inspection and troubleshooting.
 
 # How It Works
-
-## Questions
-
-## Ideas
-
-
-
-
-#### Ultrasonic Pipeline
-- Feeds object tracking in near environment.  Sensor modality dictates that what it detects is more like "something is near me"
-- Should this interface with Map Building?
-- Doesn't an Ultrasonic Sensor in principle look like a curved pointcloud circular wall of with a radious of the distance to the detected object and a size fo the sensor FOV
-
-
-### SLAM
-
-### Pose Estimator
-- Is this part of SLAM?
 ## Detailed Documentation
 
 ## Software Content
