@@ -45,7 +45,7 @@ namespace fast::rf {
           +bool set_config(BasicObjectManagerProcessConfig config)
           +bool update(double current_time_sec)
 	  +string pretty()
-          -BasicObjectManagerProcessConfig config_
+          -BasicObjectManagerProcessConfig m_config
         }
         BasicObjectManagerProcess -up-|> BaseObjectManagerProcess
         BasicObjectManagerProcess *-> BasicObjectManagerProcessConfig: <<use>>

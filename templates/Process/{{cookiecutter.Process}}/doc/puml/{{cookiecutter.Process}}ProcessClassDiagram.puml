@@ -3,58 +3,58 @@
 title {{cookiecutter.Process}} Process Class Diagram
 
 namespace fast::rf {
-  namespace DiagnosticDefinition {
-    enum DiagnosticType
-  }
-  namespace messages {
-    namespace InfrastructureMsgs {
-      class DiagnosticMsg <<(M,#FFFF00)>>
-      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
     }
-  }
-  namespace core::Infrastructure {
-    class DiagnosticManager
-  }
-  interface IProcess
-  namespace {{cookiecutter.System}}System {
-    namespace {{cookiecutter.Subsystem}}Subsystem {
-      package {{cookiecutter.Process}} #LightYellow;line:blue {
-
-        interface I{{cookiecutter.Process}}Process  {
-          +{abstract} bool init()
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
         }
-        I{{cookiecutter.Process}}Process -up-|> IProcess
-        abstract Base{{cookiecutter.Process}}Process {
-          +DiagnosticMsg[] getDiagnostics()
-          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
-          +ReadyToArmStatusMsg get_ready_to_arm()
-          #bool update(double current_time_sec)
-          #string pretty()
-          #DiagnosticManager m_diagnosticManager
-          #ReadyToArmStatusMsg ready_to_arm
-
-        }
-        Base{{cookiecutter.Process}}Process .up.|> I{{cookiecutter.Process}}Process
-        Base{{cookiecutter.Process}}Process --> DiagnosticManager: <<use>>
-        class Basic{{cookiecutter.Process}}ProcessConfig {
-          +bool is_ok()
-          +string pretty()
-        }
-        class Basic{{cookiecutter.Process}}Process {
-          +bool init()
-          +bool set_config(Basic{{cookiecutter.Process}}ProcessConfig config)
-          +bool update(double current_time_sec)
-	  +string pretty()
-          -Basic{{cookiecutter.Process}}ProcessConfig config_
-        }
-        Basic{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
-        Basic{{cookiecutter.Process}}Process *-> Basic{{cookiecutter.Process}}ProcessConfig: <<use>>
-        class Dummy{{cookiecutter.Process}}Process {
-          +bool update(double current_time_sec)
-        }
-        Dummy{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
-      }
     }
-  }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+    interface IProcess
+    namespace {{cookiecutter.System}}System {
+        namespace {{cookiecutter.Subsystem}}Subsystem {
+            package {{cookiecutter.Process}} #LightYellow;line:blue {
+
+                interface I{{cookiecutter.Process}}Process  {
+                    +{abstract} bool init()
+                }
+                I{{cookiecutter.Process}}Process -up-|> IProcess
+                abstract Base{{cookiecutter.Process}}Process {
+                    +DiagnosticMsg[] getDiagnostics()
+                    +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                    +ReadyToArmStatusMsg get_ready_to_arm()
+                    #bool update(double current_time_sec)
+                    #string pretty()
+                    #DiagnosticManager m_diagnosticManager
+                    #ReadyToArmStatusMsg ready_to_arm
+
+                }
+                Base{{cookiecutter.Process}}Process .up.|> I{{cookiecutter.Process}}Process
+                Base{{cookiecutter.Process}}Process --> DiagnosticManager: <<use>>
+                class Basic{{cookiecutter.Process}}ProcessConfig {
+                    +bool is_ok()
+                    +string pretty()
+                }
+                class Basic{{cookiecutter.Process}}Process {
+                    +bool init()
+                    +bool set_config(Basic{{cookiecutter.Process}}ProcessConfig config)
+                    +bool update(double current_time_sec)
+                    +string pretty()
+                    -Basic{{cookiecutter.Process}}ProcessConfig m_config
+                }
+                Basic{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
+                Basic{{cookiecutter.Process}}Process *-> Basic{{cookiecutter.Process}}ProcessConfig: <<use>>
+                class Dummy{{cookiecutter.Process}}Process {
+                    +bool update(double current_time_sec)
+                }
+                Dummy{{cookiecutter.Process}}Process -up-|> Base{{cookiecutter.Process}}Process
+            }
+        }
+    }
 }
 @enduml

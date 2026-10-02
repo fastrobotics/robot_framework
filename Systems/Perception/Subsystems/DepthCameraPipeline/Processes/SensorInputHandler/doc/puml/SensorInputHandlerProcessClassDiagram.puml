@@ -1,0 +1,60 @@
+' @compare_tag Process-ClassDiagram v0.1
+@startuml
+title SensorInputHandler Process Class Diagram
+
+namespace fast::rf {
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
+    }
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        }
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
+        }
+    }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+    interface IProcess
+    namespace PerceptionSystem {
+        namespace DepthCameraPipelineSubsystem {
+            package SensorInputHandler #LightYellow;line:blue {
+
+                interface ISensorInputHandlerProcess #Yellow {
+                    +{abstract} bool init()
+                }
+                ISensorInputHandlerProcess -up-|> IProcess
+                abstract BaseSensorInputHandlerProcess #Yellow {
+                    +DiagnosticMsg[] getDiagnostics()
+                    +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                    +ReadyToArmStatusMsg get_ready_to_arm()
+                    #bool update(double current_time_sec)
+                    #string pretty()
+                    #DiagnosticManager m_diagnosticManager
+                    #ReadyToArmStatusMsg ready_to_arm
+
+                }
+                BaseSensorInputHandlerProcess .up.|> ISensorInputHandlerProcess
+                BaseSensorInputHandlerProcess --> DiagnosticManager: <<use>>
+                class SensorInputHandlerProcessConfig #Yellow {
+                    +bool is_ok()
+                    +string pretty()
+                }
+                class SensorInputHandlerProcess #Yellow {
+                    +bool init()
+                    +bool set_config(SensorInputHandlerProcessConfig config)
+                    +bool update(double current_time_sec)
+                    +string pretty()
+                    +PointCloudMsg newPointCloud(PointCloudMsg msg)
+                    -SensorInputHandlerProcessConfig m_config
+                }
+                SensorInputHandlerProcess -up-|> BaseSensorInputHandlerProcess
+                SensorInputHandlerProcess *-> SensorInputHandlerProcessConfig: <<use>>
+            }
+        }
+    }
+}
+@enduml

@@ -69,6 +69,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          */
         std::string pretty() override;
 
+        bool newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg, uint8_t sensorIndex);
+
        private:
         BasicSensorFuserProcessConfig m_config;
     };

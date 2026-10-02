@@ -1,0 +1,38 @@
+@startuml
+title DepthCamera Sensor Fuser Sequence Diagram
+actor Sensor as sensor
+participant Process as process
+participant Combiner as combiner
+participant OverlapRemover as overlapRemover
+participant NoiseReducer as noiseReducer
+
+alt Initialize
+process++
+process -> combiner++: init()
+combiner --> process--: status
+process -> overlapRemover++: init()
+overlapRemover --> process--: status
+process -> noiseReducer++: init()
+noiseReducer --> process--: status
+end
+
+alt New Sensor Data
+sensor -> process++: newPointCloud(PointCloudMsg data, uint8 sensorIndex)
+process -> combiner++: newPointCloud(PointCloudMsg data, uint8 sensorIndex)
+combiner --> process--: status
+process--
+end
+
+alt Executive
+process -> combiner++: getCombinedPointCloud()
+combiner --> process--: combinedPointCloud
+process -> overlapRemover++: removeOverlap(combinedPointCloud)
+overlapRemover --> process--: overlapRemovedPointCloud
+process -> noiseReducer++: reduceNoise(overlapRemovedPointCloud)
+noiseReducer --> process--: cleanedCombinedPointCloud
+process -> process++: fusedPointCloud = cleanedCombinedPointCloud
+
+end
+
+process--
+@enduml

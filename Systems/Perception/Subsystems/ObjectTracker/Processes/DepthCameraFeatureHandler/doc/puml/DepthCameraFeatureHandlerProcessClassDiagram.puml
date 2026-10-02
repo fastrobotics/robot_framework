@@ -44,8 +44,8 @@ namespace fast::rf {
           +bool init()
           +bool set_config(BasicDepthCameraFeatureHandlerProcessConfig config)
           +bool update(double current_time_sec)
-	  +string pretty()
-          -BasicDepthCameraFeatureHandlerProcessConfig config_
+	        +string pretty()
+          -BasicDepthCameraFeatureHandlerProcessConfig m_config
         }
         BasicDepthCameraFeatureHandlerProcess -up-|> BaseDepthCameraFeatureHandlerProcess
         BasicDepthCameraFeatureHandlerProcess *-> BasicDepthCameraFeatureHandlerProcessConfig: <<use>>

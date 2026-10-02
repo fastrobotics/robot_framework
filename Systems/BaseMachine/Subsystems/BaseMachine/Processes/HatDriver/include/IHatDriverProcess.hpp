@@ -38,7 +38,6 @@ namespace fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver {
          * @brief Update Robot Command Armed State
          *
          * @param robot_arm_command
-         * @return void
          */
         virtual void update_RobotArmCommand(
             fast::rf::messages::InfrastructureMsgs::ArmCommandMsg robot_arm_command) = 0;

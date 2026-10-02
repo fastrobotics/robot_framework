@@ -3,58 +3,76 @@
 title SensorFuser Process Class Diagram
 
 namespace fast::rf {
-  namespace DiagnosticDefinition {
-    enum DiagnosticType
-  }
-  namespace messages {
-    namespace InfrastructureMsgs {
-      class DiagnosticMsg <<(M,#FFFF00)>>
-      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
     }
-  }
-  namespace core::Infrastructure {
-    class DiagnosticManager
-  }
-  interface IProcess
-  namespace PerceptionSystem {
-    namespace DepthCameraPipelineSubsystem {
-      package SensorFuser #LightYellow;line:blue {
-
-        interface ISensorFuserProcess  {
-          +{abstract} bool init()
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
         }
-        ISensorFuserProcess -up-|> IProcess
-        abstract BaseSensorFuserProcess {
-          +DiagnosticMsg[] getDiagnostics()
-          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
-          +ReadyToArmStatusMsg get_ready_to_arm()
-          #bool update(double current_time_sec)
-          #string pretty()
-          #DiagnosticManager m_diagnosticManager
-          #ReadyToArmStatusMsg ready_to_arm
-
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
         }
-        BaseSensorFuserProcess .up.|> ISensorFuserProcess
-        BaseSensorFuserProcess --> DiagnosticManager: <<use>>
-        class BasicSensorFuserProcessConfig {
-          +bool is_ok()
-          +string pretty()
-        }
-        class BasicSensorFuserProcess {
-          +bool init()
-          +bool set_config(BasicSensorFuserProcessConfig config)
-          +bool update(double current_time_sec)
-	  +string pretty()
-          -BasicSensorFuserProcessConfig config_
-        }
-        BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
-        BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
-        class DummySensorFuserProcess {
-          +bool update(double current_time_sec)
-        }
-        DummySensorFuserProcess -up-|> BaseSensorFuserProcess
-      }
     }
-  }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+    interface IProcess
+    namespace PerceptionSystem {
+        namespace DepthCameraPipelineSubsystem {
+            package SensorFuser #LightYellow;line:blue {
+                class Combiner #Yellow {
+                    +bool init()
+                    +bool newPointCloud(PointCloudMsg msg,uint8 sensorIndex)
+                    +PointCloudMsg getCombinedPointCloud()
+                }
+                class OverlapRemover #Yellow {
+                    +bool init()
+                    +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
+                }
+                class NoiseReducer #Yellow {
+                    +bool init()
+                    +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
+                }
+                interface ISensorFuserProcess #Yellow  {
+                    +{abstract} bool init()
+                }
+                ISensorFuserProcess -up-|> IProcess
+                abstract BaseSensorFuserProcess #Yellow {
+                    +DiagnosticMsg[] getDiagnostics()
+                    +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                    +ReadyToArmStatusMsg get_ready_to_arm()
+                    #bool update(double current_time_sec)
+                    #string pretty()
+                    #DiagnosticManager m_diagnosticManager
+                    #ReadyToArmStatusMsg ready_to_arm
+
+                }
+                BaseSensorFuserProcess .up.|> ISensorFuserProcess
+                BaseSensorFuserProcess --> DiagnosticManager: <<use>>
+                class BasicSensorFuserProcessConfig #Yellow {
+                    +bool is_ok()
+                    +string pretty()
+                }
+                class BasicSensorFuserProcess #Yellow {
+                    +bool init()
+                    +bool set_config(BasicSensorFuserProcessConfig config)
+                    +bool update(double current_time_sec)
+                    +string pretty()
+                    +bool newPointCloud(PointCloudMsg data, uint8 sensorIndex)
+                    -BasicSensorFuserProcessConfig m_config
+                    -Combiner m_combiner
+                    -OverlapRemover m_overlapRemover
+                    -NoiseReducer m_noiseReducer
+                }
+                BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
+                BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
+                BasicSensorFuserProcess *-> Combiner: <<use>>
+                BasicSensorFuserProcess *-> OverlapRemover: <<use>>
+                BasicSensorFuserProcess *-> NoiseReducer: <<use>>
+            }
+        }
+    }
 }
 @enduml

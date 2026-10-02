@@ -88,13 +88,17 @@ namespace fast::rf {
          * @return false
          */
         static bool reset();
+
+        /**
+         * @brief Disable Console Print
+         *
+         */
+        static void disableConsolePrint();
         /**
          * @brief Get the Logger Instance object.  Not typically required to be used.
          *
          * @return Logger&
          */
-
-        static void disableConsolePrint();
         static Logger& getLoggerInstance() {
             if (s_instance == nullptr) {
                 s_instance = new Logger(Level::DEBUG, "default_logger", false);

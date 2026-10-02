@@ -45,7 +45,7 @@ namespace fast::rf {
           +bool set_config(BasicObjectEstimatorProcessConfig config)
           +bool update(double current_time_sec)
 	  +string pretty()
-          -BasicObjectEstimatorProcessConfig config_
+          -BasicObjectEstimatorProcessConfig m_config
         }
         BasicObjectEstimatorProcess -up-|> BaseObjectEstimatorProcess
         BasicObjectEstimatorProcess *-> BasicObjectEstimatorProcessConfig: <<use>>
