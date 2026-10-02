@@ -1,5 +1,25 @@
 <map id="msgs/SensorMsgs/include/PointFieldMsg.hpp" name="msgs/SensorMsgs/include/PointFieldMsg.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,196,45"/>
-<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="5,93,196,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,59,103,93,98,93,98,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="517,5,708,45"/>
+<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="517,93,708,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="615,59,615,93,610,93,610,59"/>
+<area shape="rect" id="Node000003" href="$ISensorFuserProcess_8hpp.html" title=" " alt="" coords="341,181,591,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="575,143,517,183,514,179,572,139"/>
+<area shape="rect" id="Node000008" href="$ISensorInputHandlerProcess_8hpp.html" title=" " alt="" coords="619,181,905,251"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="654,139,713,179,710,183,651,143"/>
+<area shape="rect" id="Node000004" href="$BaseSensorFuserProcess_8hpp.html" title=" " alt="" coords="334,299,585,368"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="466,265,464,299,459,298,461,264"/>
+<area shape="rect" id="Node000005" href="$BasicSensorFuserProcess_8hpp.html" title=" " alt="" coords="5,416,313,500"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="366,376,260,418,258,414,364,371"/>
+<area shape="rect" id="Node000007" href="$BaseSensorFuserProcess_8cpp.html" title=" " alt="" coords="338,423,589,493"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="464,381,465,423,460,423,458,381"/>
+<area shape="rect" id="Node000006" href="$BasicSensorFuserProcess_8cpp.html" title=" " alt="" coords="23,548,296,632"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="162,514,162,548,157,548,157,514"/>
+<area shape="rect" id="Node000009" href="$BaseSensorInputHandlerProcess_8hpp.html" title=" " alt="" coords="609,299,923,368"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="766,264,767,298,762,299,761,265"/>
+<area shape="rect" id="Node000010" href="$SensorInputHandlerProcess_8hpp.html" title=" " alt="" coords="621,423,903,493"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="767,381,766,423,760,423,762,381"/>
+<area shape="rect" id="Node000012" href="$BaseSensorInputHandlerProcess_8cpp.html" title=" " alt="" coords="928,423,1215,493"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="863,371,988,421,986,426,861,376"/>
+<area shape="rect" id="Node000011" href="$SensorInputHandlerProcess_8cpp.html" title=" " alt="" coords="635,555,889,625"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="765,507,765,555,759,555,759,507"/>
 </map>

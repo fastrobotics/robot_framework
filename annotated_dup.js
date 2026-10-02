@@ -204,6 +204,20 @@ var annotated_dup =
               [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1Id.html", null ],
               [ "ISensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess" ]
             ] ],
+            [ "SensorHealthMonitor", "namespacefast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor.html", [
+              [ "BaseSensorHealthMonitorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess" ],
+              [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1Id.html", null ],
+              [ "ISensorHealthMonitorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1ISensorHealthMonitorProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1ISensorHealthMonitorProcess" ],
+              [ "SensorHealthMonitorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1SensorHealthMonitorProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1SensorHealthMonitorProcess" ],
+              [ "SensorHealthMonitorProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1SensorHealthMonitorProcessConfig.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1SensorHealthMonitorProcessConfig" ]
+            ] ],
+            [ "SensorInputHandler", "namespacefast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler.html", [
+              [ "BaseSensorInputHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1BaseSensorInputHandlerProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1BaseSensorInputHandlerProcess" ],
+              [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1Id.html", null ],
+              [ "ISensorInputHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1ISensorInputHandlerProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1ISensorInputHandlerProcess" ],
+              [ "SensorInputHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcess" ],
+              [ "SensorInputHandlerProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcessConfig.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcessConfig" ]
+            ] ],
             [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Id.html", null ]
           ] ],
           [ "ObjectTrackerSubsystem", "namespacefast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem.html", [

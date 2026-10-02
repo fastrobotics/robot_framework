@@ -1,0 +1,13 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler::SensorInputHandlerProcess" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler::SensorInputHandlerProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a SensorInputHandler Process." alt="" coords="1001,84,1296,153"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1BaseSensorInputHandlerProcess.html" title="Base SensorInputHandler Process." alt="" coords="677,84,952,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="966,116,1001,116,1001,121,966,121"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1ISensorInputHandlerProcess.html" title="Interface for the SensorInputHandler fast::rf::Process." alt="" coords="181,5,480,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="494,64,677,94,677,99,493,69"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,181,37,181,43,146,43"/>
+<area shape="rect" id="Node000005" href="$classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html" title="A Class to manage Diagnostics." alt="" coords="233,99,429,139"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="442,116,677,116,677,121,442,121"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html" title="ReadyToArmStatusMsg Definition." alt="" coords="241,163,421,218"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="434,173,677,136,678,142,435,178"/>
+</map>
