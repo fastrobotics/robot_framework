@@ -4,7 +4,10 @@
  */
 #include <SensorInputHandlerProcess.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler {
-
+    void SensorInputHandlerProcess::newSensorPointCloud(
+        [[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
+        m_pointCloudRxCount++;
+    }
     bool SensorInputHandlerProcess::init() {
         bool status = BaseSensorInputHandlerProcess::init();
         if (status == false) {
@@ -26,6 +29,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
     std::string SensorInputHandlerProcess::pretty() {
         std::string str = "--- SensorInputHandler Process---";
         str += BaseSensorInputHandlerProcess::pretty();
+        str += " Rx Count: " + std::to_string(m_pointCloudRxCount);
         return str;
     }
 

@@ -12,6 +12,7 @@
 #pragma once
 #include <DiagnosticMsg.hpp>
 #include <IProcess.hpp>
+#include <PointCloudMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
