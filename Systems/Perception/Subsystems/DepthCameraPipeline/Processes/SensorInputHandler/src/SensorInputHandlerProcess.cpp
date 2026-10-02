@@ -2,7 +2,7 @@
  * @compare_tag Process-Source v0.1
  *
  */
-#include <SensorInputHandlerProcess/SensorInputHandlerProcess.hpp>
+#include <SensorInputHandlerProcess.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler {
 
     bool SensorInputHandlerProcess::init() {

@@ -45,7 +45,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
-        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg getReadyToArm() { return m_readyToArm; }
+        fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() { return m_readyToArm; }
 
        protected:
         /**

@@ -395,27 +395,34 @@ namespace fast::rf {
             const uint8_t SUBSYSTEM_ID = 1;
             struct Id {};
             inline const char* toString(Id) { return "depth_camera_pipeline"; }
+            namespace SensorInputHandler {
+                constexpr uint8_t PROCESS_SENSORINPUTHANDLER_ID =
+                    1;  //!< Unique ID for the Sensor Input Handler Process
+                struct Id {};
+                inline const char* toString(Id) { return "sensor_input_handler"; }
+            }  // namespace SensorInputHandler
+            namespace SensorHealthMonitor {
+                constexpr uint8_t PROCESS_SENSORHEALTHMONITOR_ID =
+                    2;  //!< Unique ID for the Sensor Health Monitor Process
+                struct Id {};
+                inline const char* toString(Id) { return "sensor_health_monitor"; }
+            }  // namespace SensorHealthMonitor
             namespace SensorFuser {
-                constexpr uint8_t PROCESS_SENSORFUSER_ID = 1;  //!< Unique ID for the SensorFuser Process
+                constexpr uint8_t PROCESS_SENSORFUSER_ID = 3;  //!< Unique ID for the SensorFuser Process
                 struct Id {};
                 inline const char* toString(Id) { return "sensor_fuser"; }
             }  // namespace SensorFuser
             namespace FOVExtractor {
-                constexpr uint8_t PROCESS_FOVEXTRACTOR_ID = 2;  //!< Unique ID for the FOVExtractor Process
+                constexpr uint8_t PROCESS_FOVEXTRACTOR_ID = 4;  //!< Unique ID for the FOVExtractor Process
                 struct Id {};
                 inline const char* toString(Id) { return "fov_extractor"; }
             }  // namespace FOVExtractor
             namespace FeatureDetector {
-                constexpr uint8_t PROCESS_FEATUREDETECTOR_ID = 3;  //!< Unique ID for the Feature Detector Process
+                constexpr uint8_t PROCESS_FEATUREDETECTOR_ID = 5;  //!< Unique ID for the Feature Detector Process
                 struct Id {};
                 inline const char* toString(Id) { return "feature_detector"; }
             }  // namespace FeatureDetector
-            namespace SensorHealthMonitor {
-                constexpr uint8_t PROCESS_SENSORHEALTHMONITOR_ID =
-                    4;  //!< Unique ID for the Sensor Health Monitor Process
-                struct Id {};
-                inline const char* toString(Id) { return "sensor_health_monitor"; }
-            }  // namespace SensorHealthMonitor
+
         }  // namespace DepthCameraPipelineSubsystem
         namespace ObjectTrackerSubsystem {
             const uint8_t SUBSYSTEM_ID = 2;

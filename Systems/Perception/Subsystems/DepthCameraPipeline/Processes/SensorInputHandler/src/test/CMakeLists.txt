@@ -9,6 +9,6 @@ gtest_discover_tests(test_baseSensorInputHandler)
 add_executable(test_sensorInputHandlerProcess
                test_sensorInputHandlerProcess.cpp)
 target_link_libraries(test_sensorInputHandlerProcess GTest::gtest_main
-                      DepthCameraPipeline::basic_SensorInputHandlerProcess)
+                      DepthCameraPipeline::sensorInputHandlerProcess)
 
 gtest_discover_tests(test_sensorInputHandlerProcess)
