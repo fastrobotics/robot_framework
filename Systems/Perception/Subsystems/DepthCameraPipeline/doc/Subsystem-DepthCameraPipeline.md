@@ -76,7 +76,7 @@ The following outputs are provided by this system.
 | DRAFT  | [Sensor Input Handler](../Processes/SensorInputHandler/doc/Process-SensorInputHandler.md)    |
 | DRAFT  | [Sensor Health Monitor](../Processes/SensorHealthMonitor/doc/Process-SensorHealthMonitor.md) |
 | DRAFT  | [Sensor Fuser](../Processes/SensorFuser/doc/Process-SensorFuser.md)                          |
-| NEW    | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)                       |
+| DRAFT  | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)                       |
 | NEW    | [Feature Detector](../Processes/FeatureDetector/doc/Process-FeatureDetector.md)              |
 
 
