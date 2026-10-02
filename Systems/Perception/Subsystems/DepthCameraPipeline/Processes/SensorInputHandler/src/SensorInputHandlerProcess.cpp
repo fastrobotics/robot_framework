@@ -1,11 +1,11 @@
 /**
- * @compare_tag Process-BasicSource v0.1
+ * @compare_tag Process-Source v0.1
  *
  */
-#include <BasicSensorInputHandlerProcess/BasicSensorInputHandlerProcess.hpp>
+#include <SensorInputHandlerProcess/SensorInputHandlerProcess.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler {
 
-    bool BasicSensorInputHandlerProcess::init() {
+    bool SensorInputHandlerProcess::init() {
         bool status = BaseSensorInputHandlerProcess::init();
         if (status == false) {
             return false;
@@ -16,15 +16,15 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
         status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
         return status;
     }
-    bool BasicSensorInputHandlerProcess::update(double currentTimeSec) {
+    bool SensorInputHandlerProcess::update(double currentTimeSec) {
         bool status = BaseSensorInputHandlerProcess::update(currentTimeSec);
         if (status == false) {
             return false;
         }
         return true;
     }
-    std::string BasicSensorInputHandlerProcess::pretty() {
-        std::string str = "---Basic SensorInputHandler Process---";
+    std::string SensorInputHandlerProcess::pretty() {
+        std::string str = "--- SensorInputHandler Process---";
         str += BaseSensorInputHandlerProcess::pretty();
         return str;
     }

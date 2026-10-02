@@ -13,7 +13,18 @@ install(
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-add_subdirectory(BasicSensorInputHandlerProcess)
+add_library(sensorInputHandlerProcess STATIC SensorInputHandlerProcess.cpp)
+target_link_libraries(sensorInputHandlerProcess base_SensorInputHandlerProcess)
+target_include_directories(sensorInputHandlerProcess
+                           PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+add_library(DepthCameraPipeline::sensorInputHandlerProcess ALIAS
+            sensorInputHandlerProcess)
+install(
+  TARGETS sensorInputHandlerProcess
+  EXPORT DepthCameraPipeline
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 if(BUILD_TESTING)
   add_subdirectory(test)

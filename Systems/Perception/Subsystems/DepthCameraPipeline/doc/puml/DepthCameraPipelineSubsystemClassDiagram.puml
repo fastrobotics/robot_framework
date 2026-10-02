@@ -15,7 +15,7 @@ namespace fast::rf {
         namespace FOVExtractor {
 
         }
-        namespace SensorFuser {
+        namespace SensorFuser #Yellow {
             
         }
         namespace SensorHealthMonitor #Yellow {

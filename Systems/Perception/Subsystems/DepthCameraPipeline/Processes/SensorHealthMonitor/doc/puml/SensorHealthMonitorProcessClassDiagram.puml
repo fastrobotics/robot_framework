@@ -13,6 +13,9 @@ namespace fast::rf {
             class DiagnosticMsg <<(M,#FFFF00)>>
             class ReadyToArmStatusMsg <<(M,#FFFF00)>>
         }
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
+        }
     }
     namespace core::Infrastructure {
         class DiagnosticManager
@@ -52,6 +55,7 @@ namespace fast::rf {
                 +bool set_config(SensorHealthMonitorProcessConfig config)
                 +bool update(double current_time_sec)
                 +string pretty()
+                +bool newSensorPointCloud(PointCloudMsg msg)
                 -SensorHealthMonitorProcessConfig m_config
             }
             SensorHealthMonitorProcess -up-|> BaseSensorHealthMonitorProcess

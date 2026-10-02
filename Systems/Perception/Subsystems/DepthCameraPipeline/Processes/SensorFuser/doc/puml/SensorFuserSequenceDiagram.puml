@@ -16,6 +16,23 @@ process -> noiseReducer++: init()
 noiseReducer --> process--: status
 end
 
-alt Executive
+alt New Sensor Data
+sensor -> process++: newPointCloud(PointCloudMsg data, uint8 sensorIndex)
+process -> combiner++: newPointCloud(PointCloudMsg data, uint8 sensorIndex)
+combiner --> process--: status
+process--
 end
+
+alt Executive
+process -> combiner++: getCombinedPointCloud()
+combiner --> process--: combinedPointCloud
+process -> overlapRemover++: removeOverlap(combinedPointCloud)
+overlapRemover --> process--: overlapRemovedPointCloud
+process -> noiseReducer++: reduceNoise(overlapRemovedPointCloud)
+noiseReducer --> process--: cleanedCombinedPointCloud
+process -> process++: fusedPointCloud = cleanedCombinedPointCloud
+
+end
+
+process--
 @enduml

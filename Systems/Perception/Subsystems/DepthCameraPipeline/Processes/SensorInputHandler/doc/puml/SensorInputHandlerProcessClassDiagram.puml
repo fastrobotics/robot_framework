@@ -3,58 +3,58 @@
 title SensorInputHandler Process Class Diagram
 
 namespace fast::rf {
-  namespace DiagnosticDefinition {
-    enum DiagnosticType
-  }
-  namespace messages {
-    namespace InfrastructureMsgs {
-      class DiagnosticMsg <<(M,#FFFF00)>>
-      class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
     }
-  }
-  namespace core::Infrastructure {
-    class DiagnosticManager
-  }
-  interface IProcess
-  namespace PerceptionSystem {
-    namespace DepthCameraPipelineSubsystem {
-      package SensorInputHandler #LightYellow;line:blue {
-
-        interface ISensorInputHandlerProcess  {
-          +{abstract} bool init()
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
         }
-        ISensorInputHandlerProcess -up-|> IProcess
-        abstract BaseSensorInputHandlerProcess {
-          +DiagnosticMsg[] getDiagnostics()
-          +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
-          +ReadyToArmStatusMsg get_ready_to_arm()
-          #bool update(double current_time_sec)
-          #string pretty()
-          #DiagnosticManager m_diagnosticManager
-          #ReadyToArmStatusMsg ready_to_arm
-
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
         }
-        BaseSensorInputHandlerProcess .up.|> ISensorInputHandlerProcess
-        BaseSensorInputHandlerProcess --> DiagnosticManager: <<use>>
-        class BasicSensorInputHandlerProcessConfig {
-          +bool is_ok()
-          +string pretty()
-        }
-        class BasicSensorInputHandlerProcess {
-          +bool init()
-          +bool set_config(BasicSensorInputHandlerProcessConfig config)
-          +bool update(double current_time_sec)
-	  +string pretty()
-          -BasicSensorInputHandlerProcessConfig config_
-        }
-        BasicSensorInputHandlerProcess -up-|> BaseSensorInputHandlerProcess
-        BasicSensorInputHandlerProcess *-> BasicSensorInputHandlerProcessConfig: <<use>>
-        class DummySensorInputHandlerProcess {
-          +bool update(double current_time_sec)
-        }
-        DummySensorInputHandlerProcess -up-|> BaseSensorInputHandlerProcess
-      }
     }
-  }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+    interface IProcess
+    namespace PerceptionSystem {
+        namespace DepthCameraPipelineSubsystem {
+            package SensorInputHandler #LightYellow;line:blue {
+
+                interface ISensorInputHandlerProcess #Yellow {
+                    +{abstract} bool init()
+                }
+                ISensorInputHandlerProcess -up-|> IProcess
+                abstract BaseSensorInputHandlerProcess #Yellow {
+                    +DiagnosticMsg[] getDiagnostics()
+                    +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                    +ReadyToArmStatusMsg get_ready_to_arm()
+                    #bool update(double current_time_sec)
+                    #string pretty()
+                    #DiagnosticManager m_diagnosticManager
+                    #ReadyToArmStatusMsg ready_to_arm
+
+                }
+                BaseSensorInputHandlerProcess .up.|> ISensorInputHandlerProcess
+                BaseSensorInputHandlerProcess --> DiagnosticManager: <<use>>
+                class SensorInputHandlerProcessConfig #Yellow {
+                    +bool is_ok()
+                    +string pretty()
+                }
+                class SensorInputHandlerProcess #Yellow {
+                    +bool init()
+                    +bool set_config(SensorInputHandlerProcessConfig config)
+                    +bool update(double current_time_sec)
+                    +string pretty()
+                    +PointCloudMsg newSensorPointCloud(PointCloudMsg msg)
+                    -SensorInputHandlerProcessConfig config_
+                }
+                SensorInputHandlerProcess -up-|> BaseSensorInputHandlerProcess
+                SensorInputHandlerProcess *-> SensorInputHandlerProcessConfig: <<use>>
+            }
+        }
+    }
 }
 @enduml

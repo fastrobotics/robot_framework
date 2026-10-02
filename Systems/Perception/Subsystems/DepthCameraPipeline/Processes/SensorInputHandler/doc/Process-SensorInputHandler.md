@@ -1,4 +1,5 @@
 `@compare_tag Process-Document v0.1`
+
 [DepthCameraPipeline Subsystem](../../../doc/Subsystem-DepthCameraPipeline.md)
 
 - [Process: SensorInputHandler](#process-sensorinputhandler)
@@ -11,7 +12,6 @@
 - [How It Works](#how-it-works)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
-  - [SensorInputHandler Process Implementation](#sensorinputhandler-process-implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -40,9 +40,9 @@ The following inputs are required in order for this system to properly function.
 
 The following outputs are provided by this system.
 
-| Output                   | DataType                | Description | Usage |
-| ------------------------ | ----------------------- | ----------- | ----- |
-| Depth Camera Point Cloud | `SensorMsgs/PointCloud` |             |       |
+| Output                   | DataType                | Description                                                                                          | Usage |
+| ------------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------- | ----- |
+| Depth Camera Point Cloud | `SensorMsgs/PointCloud` | A Point Cloud that is converted properly for the rest of the consumers of the Depth Camera Pipeline. |       |
 
 # Diagnostics
 Processes in this Subsystem are defined by:
@@ -65,13 +65,6 @@ This Sensor Input Handler performs the following:
 ## Class Diagram
 
 ![](puml/SensorInputHandlerProcessClassDiagram.png)
-
-## SensorInputHandler Process Implementation
-
-| Status | Implementation                                                                              | Details                             |
-| ------ | ------------------------------------------------------------------------------------------- | ----------------------------------- |
-| NEW    | DummySensorInputHandlerProcess                                                              | Used for generating fake data       |
-| NEW    | [BasicSensorInputHandlerProcess](ProcessImplementations/Process-BasicSensorInputHandler.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

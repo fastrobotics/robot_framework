@@ -1,12 +1,12 @@
 /**
- * @file BasicSensorInputHandlerProcess.hpp
+ * @file SensorInputHandlerProcess.hpp
  * @author David Gitz (davidgitz@gmail.com)
  * @brief
  * @version 0.1
  * @date 2026-06-27
  *
  * @copyright Copyright (c) 2026
- * @compare_tag Process-BasicHeader v0.1
+ * @compare_tag Process-Header v0.1
  */
 #pragma once
 
@@ -14,7 +14,7 @@
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler {
 
-    class BasicSensorInputHandlerProcessConfig {
+    class SensorInputHandlerProcessConfig {
        public:
         bool isOk() {
             // Add checks here
@@ -33,9 +33,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
      * @brief Minimal Implementation for a SensorInputHandler Process
      *
      */
-    class BasicSensorInputHandlerProcess : public BaseSensorInputHandlerProcess {
+    class SensorInputHandlerProcess : public BaseSensorInputHandlerProcess {
        public:
-        BasicSensorInputHandlerProcess() : BaseSensorInputHandlerProcess() {}
+        SensorInputHandlerProcess() : BaseSensorInputHandlerProcess() {}
 
         /**
          * @brief Initialize the Object
@@ -45,7 +45,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
          */
         bool init() override;
 
-        bool setConfig(BasicSensorInputHandlerProcessConfig config) {
+        bool setConfig(SensorInputHandlerProcessConfig config) {
             if (config.isOk() == false) {
                 fast::rf::Logger::logError("Unable to set Config! " + config.pretty());
                 return false;
@@ -70,6 +70,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
         std::string pretty() override;
 
        private:
-        BasicSensorInputHandlerProcessConfig m_config;
+        SensorInputHandlerProcessConfig m_config;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler

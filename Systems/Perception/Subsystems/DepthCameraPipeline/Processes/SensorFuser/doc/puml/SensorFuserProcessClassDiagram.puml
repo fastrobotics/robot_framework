@@ -8,8 +8,11 @@ namespace fast::rf {
     }
     namespace messages {
         namespace InfrastructureMsgs {
-        class DiagnosticMsg <<(M,#FFFF00)>>
-        class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        }
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
         }
     }
     namespace core::Infrastructure {
@@ -19,14 +22,18 @@ namespace fast::rf {
     namespace PerceptionSystem {
         namespace DepthCameraPipelineSubsystem {
             package SensorFuser #LightYellow;line:blue {
-                class Combiner {
-                    
+                class Combiner #Yellow {
+                    +bool init()
+                    +bool newPointCloud(PointCloudMsg msg,uint8 sensorIndex)
+                    +PointCloudMsg getCombinedPointCloud()
                 }
-                class OverlapRemover {
-
+                class OverlapRemover #Yellow {
+                    +bool init()
+                    +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer {
-
+                class NoiseReducer #Yellow {
+                    +bool init()
+                    +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
                 }
                 interface ISensorFuserProcess #Yellow  {
                     +{abstract} bool init()
@@ -54,9 +61,15 @@ namespace fast::rf {
                     +bool update(double current_time_sec)
                     +string pretty()
                     -BasicSensorFuserProcessConfig m_config
+                    -Combiner m_combiner
+                    -OverlapRemover m_overlapRemover
+                    -NoiseReducer m_noiseReducer
                 }
                 BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
                 BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
+                BasicSensorFuserProcess *-> Combiner: <<use>>
+                BasicSensorFuserProcess *-> OverlapRemover: <<use>>
+                BasicSensorFuserProcess *-> NoiseReducer: <<use>>
             }
         }
     }

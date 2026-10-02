@@ -71,7 +71,7 @@ class TestBaseSensorInputHandlerProcess : public BaseSensorInputHandlerProcess {
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
 };
-TEST(BaseSensorInputHandlerProcess, BasicAssertions) {
+TEST(BaseSensorInputHandlerProcess, Assertions) {
     TestBaseSensorInputHandlerProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.getDiagnostics().size(), 0);

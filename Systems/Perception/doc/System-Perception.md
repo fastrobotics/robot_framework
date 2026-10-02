@@ -1,4 +1,5 @@
 `@compare_tag System-Document v0.1`
+
 [README](../../../README.md)
 
 [Architecture](../../../doc/Architecture/Architecture.md)
@@ -15,6 +16,8 @@
   - [Software Content](#software-content)
 - [Subsystems](#subsystems)
   - [Package Diagram](#package-diagram)
+- [Utilities](#utilities)
+  - [SignalMonitor](#signalmonitor)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 - [References](#references)
@@ -73,6 +76,11 @@ The following Subsystems are provided in this System:
 ![](../../../Legend.png)
 
 ![](puml/SystemPerceptionPackageDiagram.png)
+
+# Utilities
+## SignalMonitor
+The Signal Monitor is used to monitor the health of signals.
+TODO: Investigate how to have generic signal health monitoring capabilities but allow specific checks for specific datatypes.
 
 # Usage Instructions
 

@@ -12,6 +12,7 @@
   - [Questions](#questions)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
+  - [Sequence Diagram](#sequence-diagram)
   - [SensorFuser Process Implementation](#sensorfuser-process-implementation)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
@@ -71,6 +72,9 @@ This process workes in the following manner:
 ## Class Diagram
 
 ![](puml/SensorFuserProcessClassDiagram.png)
+
+## Sequence Diagram
+![](puml/SensorFuserSequenceDiagram.png)
 
 ## SensorFuser Process Implementation
 
