@@ -38,7 +38,6 @@ namespace fast::rf::NavigationSystem::Controller {
          *
          * @param config
          * @return true
-         * @return false
          */
         bool init() override = 0;
         /**

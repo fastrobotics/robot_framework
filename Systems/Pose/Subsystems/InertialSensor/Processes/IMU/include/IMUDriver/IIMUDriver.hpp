@@ -54,6 +54,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         /**
          * @brief Initialize the driver
          *
+         * @param device
          * @param imu_device_name
          * @return true
          * @return false

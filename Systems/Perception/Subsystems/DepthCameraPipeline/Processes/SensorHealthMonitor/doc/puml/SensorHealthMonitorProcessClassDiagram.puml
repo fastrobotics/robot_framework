@@ -1,0 +1,63 @@
+' @compare_tag Process-ClassDiagram v0.1
+@startuml
+title SensorHealthMonitor Process Class Diagram
+
+namespace fast::rf {
+    enum Level
+    interface IProcess
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
+    }
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        }
+    }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+
+    namespace PerceptionSystem {
+        class SignalMonitor
+        namespace DepthCameraPipelineSubsystem {
+           
+        package SensorHealthMonitor #LightYellow;line:blue {
+
+            interface ISensorHealthMonitorProcess #Yellow {
+                +{abstract} bool init()
+            }
+            ISensorHealthMonitorProcess -up-|> IProcess
+            abstract BaseSensorHealthMonitorProcess #Yellow {
+                +DiagnosticMsg[] getDiagnostics()
+                +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                +ReadyToArmStatusMsg get_ready_to_arm()
+                #bool addSignalToMonitor(string signalName,string datatype, double expectedRate)
+                #bool newSignalRx(string signalName,double timestamp)
+                #bool update(double current_time_sec)
+                #string pretty()
+                #DiagnosticManager m_diagnosticManager
+                #ReadyToArmStatusMsg ready_to_arm
+                -SignalMonitor[] m_signalMonitors
+            }
+            BaseSensorHealthMonitorProcess .up.|> ISensorHealthMonitorProcess
+            BaseSensorHealthMonitorProcess --> DiagnosticManager: <<use>>
+            BaseSensorHealthMonitorProcess --> SignalMonitor: <<use>>
+            class SensorHealthMonitorProcessConfig #Yellow {
+                +bool is_ok()
+                +string pretty()
+            }
+            class SensorHealthMonitorProcess #Yellow {
+                +bool init()
+                +bool set_config(SensorHealthMonitorProcessConfig config)
+                +bool update(double current_time_sec)
+                +string pretty()
+                -SensorHealthMonitorProcessConfig m_config
+            }
+            SensorHealthMonitorProcess -up-|> BaseSensorHealthMonitorProcess
+            SensorHealthMonitorProcess *-> SensorHealthMonitorProcessConfig: <<use>>
+        }
+    }
+  }
+}
+@enduml

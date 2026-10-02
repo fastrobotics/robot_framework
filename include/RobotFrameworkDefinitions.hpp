@@ -410,6 +410,12 @@ namespace fast::rf {
                 struct Id {};
                 inline const char* toString(Id) { return "feature_detector"; }
             }  // namespace FeatureDetector
+            namespace SensorHealthMonitor {
+                constexpr uint8_t PROCESS_SENSORHEALTHMONITOR_ID =
+                    4;  //!< Unique ID for the Sensor Health Monitor Process
+                struct Id {};
+                inline const char* toString(Id) { return "sensor_health_monitor"; }
+            }  // namespace SensorHealthMonitor
         }  // namespace DepthCameraPipelineSubsystem
         namespace ObjectTrackerSubsystem {
             const uint8_t SUBSYSTEM_ID = 2;

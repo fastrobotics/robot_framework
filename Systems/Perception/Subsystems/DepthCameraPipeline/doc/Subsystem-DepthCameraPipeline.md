@@ -2,6 +2,7 @@
 [Perception System](../../../doc/System-Perception.md)
 
 - [Subsystem: DepthCameraPipeline](#subsystem-depthcamerapipeline)
+- [ToDo](#todo)
 - [Overview](#overview)
   - [Purpose](#purpose)
   - [General Requirements](#general-requirements)
@@ -14,12 +15,13 @@
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
 - [Processes](#processes)
-  - [Package Diagram](#package-diagram)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
 # Subsystem: DepthCameraPipeline
-
+# ToDo
+- Design on interface for Features
+- 
 # Overview
 
 ## Purpose
@@ -31,6 +33,7 @@ The DepthCameraPipeline Subsystem's role in the Robot Framework is to provide a 
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
 | Follows Interface requirements of Perception System                                                                                        | Includes contracts, data integrity, rates, etc. |
 | Minimal Latency/Memory Requirement- Intent for this subsystem is to operate in shared memory as processing/transporting data is expensive. |
+| All Sensor Data is transformed to the same frame before it is passed intothis subsystem.                                                   |
 
 # Subsystem Architecture
 
@@ -46,19 +49,19 @@ The DepthCameraPipeline Subsystem's role in the Robot Framework is to provide a 
 
 The following inputs are required in order for this system to properly function.
 
-| Input                        | DataType                  | Description | Requirement |
-| ---------------------------- | ------------------------- | ----------- | ----------- |
-| Depth Camera Point Cloud 1-N | `sensor_msgs/PointCloud2` |             |             |
+| Input                        | DataType                | Description | Requirement |
+| ---------------------------- | ----------------------- | ----------- | ----------- |
+| Depth Camera Point Cloud 1-N | `SensorMsgs/PointCloud` |             |             |
 
 # Outputs
 
 The following outputs are provided by this system.
 
-| Output                           | DataType                  | Description | Usage |
-| -------------------------------- | ------------------------- | ----------- | ----- |
-| Fused Depth Camera Point Cloud   | `sensor_msgs/PointCloud2` |             |       |
-| FOV Depth Camera Point Cloud 1-N | `sensor_msgs/PointCloud2` |             |       |
-| Point Cloud Object Features      | TBD                       |             |       |
+| Output                           | DataType                | Description | Usage |
+| -------------------------------- | ----------------------- | ----------- | ----- |
+| Fused Depth Camera Point Cloud   | `SensorMsgs/PointCloud` |             |       |
+| FOV Depth Camera Point Cloud 1-N | `SensorMsgs/PointCloud` |             |       |
+| Point Cloud Object Features      | TBD                     |             |       |
 
 
 # How It Works
@@ -70,13 +73,15 @@ The following outputs are provided by this system.
 
 # Processes
 
-| Status | Process                                                                         |
-| ------ | ------------------------------------------------------------------------------- |
-| NEW    | [Sensor Fuser](../Processes/SensorFuser/doc/Process-SensorFuser.md)             |
-| NEW    | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)          |
-| NEW    | [Feature Detector](../Processes/FeatureDetector/doc/Process-FeatureDetector.md) |
+| Status | Process                                                                                      |
+| ------ | -------------------------------------------------------------------------------------------- |
+| DRAFT  | [Sensor Input Handler](../Processes/SensorInputHandler/doc/Process-SensorInputHandler.md)    |
+| DRAFT  | [Sensor Health Monitor](../Processes/SensorHealthMonitor/doc/Process-SensorHealthMonitor.md) |
+| NEW    | [Sensor Fuser](../Processes/SensorFuser/doc/Process-SensorFuser.md)                          |
+| NEW    | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)                       |
+| NEW    | [Feature Detector](../Processes/FeatureDetector/doc/Process-FeatureDetector.md)              |
 
-## Package Diagram
+
 
 # Usage Instructions
 

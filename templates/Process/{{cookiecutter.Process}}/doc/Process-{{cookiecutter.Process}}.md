@@ -1,4 +1,5 @@
 `@compare_tag Process-Document v0.1`
+
 [{{cookiecutter.Subsystem}} Subsystem](../../../doc/Subsystem-{{cookiecutter.Subsystem}}.md)
 
 - [Process: {{cookiecutter.Process}}](#process-cookiecutterprocess)
@@ -24,6 +25,8 @@
 This process's objective is to ???.
 
 ## General Requirements
+| Requirement | Description |
+| ----------- | ----------- |
 
 # Inputs
 
@@ -61,10 +64,10 @@ The following Diagnostics are reported by this Process:
 
 ## {{cookiecutter.Process}} Process Implementation
 
-| Status | Implementation                                                                                         | Details                             |
-| ------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| NEW    | Dummy{{cookiecutter.Process}}Process                                                                   | Used for generating fake data       |
-| NEW    | [Basic{{cookiecutter.Process}}Process](ProcessImplementation/Process-Basic{{cookiecutter.Process}}.md) | Trivial implentation, very limited. |
+| Status | Implementation                                                                                          | Details                             |
+| ------ | ------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| NEW    | Dummy{{cookiecutter.Process}}Process                                                                    | Used for generating fake data       |
+| NEW    | [Basic{{cookiecutter.Process}}Process](ProcessImplementations/Process-Basic{{cookiecutter.Process}}.md) | Trivial implentation, very limited. |
 
 # Usage Instructions
 

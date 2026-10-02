@@ -31,6 +31,7 @@ namespace fast::rf::PoseSystem::InertialSensorSubsystem::IMU {
         /**
          * @brief Initialize the device
          *
+         * @param device
          * @param device_name
          * @return true
          * @return false

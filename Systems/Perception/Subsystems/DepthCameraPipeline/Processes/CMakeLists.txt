@@ -1,3 +1,5 @@
 add_subdirectory(FOVExtractor)
 add_subdirectory(SensorFuser)
 add_subdirectory(FeatureDetector)
+add_subdirectory(SensorHealthMonitor)
+add_subdirectory(SensorInputHandler)

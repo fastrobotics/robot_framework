@@ -32,24 +32,27 @@ title: DepthCameraPipeline Subsystem Architecture
 ---
 flowchart TD
     Inputs
-    SensorIntegrityMonitor[Sensor Integrity Monitor]
+    SensorInputHandler[Sensor Input Handler]
+    SensorHealthMonitor[Sensor Health Monitor]
     Outputs
     SensorFuser[Sensor Fuser]
     FOVExtractor[Field of View Extractor]
     Next
 
     FeatureDetector[Feature Detector]
-    Inputs --> | Depth Camera 1-N| SensorFuser
-    Inputs --> | Depth Camera 1-N| SensorIntegrityMonitor
+    Inputs --> | Depth Camera 1-N | SensorInputHandler
+    SensorInputHandler --> | Depth Camera 1-N| SensorFuser
+    Inputs --> | Depth Camera 1-N| SensorHealthMonitor
 
     SensorFuser --> | Fused Depth Camera | FOVExtractor
     FOVExtractor --> | FOV 1-N| Next
     SensorFuser --> | Fused Depth Camera | Next
 
     SensorFuser --> | Diagnostics | Outputs
-    SensorIntegrityMonitor --> | Diagnostics | Outputs
+    SensorHealthMonitor --> | Diagnostics | Outputs
+    Next --> FeatureDetector
     FeatureDetector --> | Features | Outputs
     FeatureDetector --> | Diagnostics | Outputs
 
     class Inputs,Outputs cssBoundary
-    class SensorIntegrityMonitor,SensorFuser,FOVExtractor,FeatureDetector cssInvestigating
+    class SensorInputHandler,SensorHealthMonitor cssInvestigating

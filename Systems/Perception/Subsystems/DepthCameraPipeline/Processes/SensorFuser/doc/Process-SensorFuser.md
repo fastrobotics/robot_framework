@@ -22,23 +22,27 @@
 
 ## Purpose
 
-This process's objective is to ???.
+This process's objective is to take in multiple Depth Camera point clouds and fuse into 1 Fused point cloud for the entire robot.
 
 ## General Requirements
-
+| Requirement         | Description                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Sensor Point Clouds | All Sensor Inputs to this process should be assumed to be organized point clouds, which are much more easily analyzed spatially. |
 # Inputs
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input                        | DataType                | Description | Requirement |
+| ---------------------------- | ----------------------- | ----------- | ----------- |
+| Depth Camera Point Cloud 1-N | `SensorMsgs/PointCloud` |             |             |
 
 # Outputs
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output                         | DataType                | Description | Usage |
+| ------------------------------ | ----------------------- | ----------- | ----- |
+| Fused Depth Camera Point Cloud | `SensorMsgs/PointCloud` |             |       |
 
 # Diagnostics
 Processes in this Subsystem are defined by:

@@ -1,7 +1,8 @@
 # @compare_tag Process-SourceTestCompile v0.1
 add_executable(test_process_{{cookiecutter.Process}}
                test_process_{{cookiecutter.Process}}.cpp)
-target_link_libraries(test_process_{{cookiecutter.Process}} GTest::gtest_main
-                      infrastructure_msgs base_{{cookiecutter.Process}}Process)
+target_link_libraries(
+  test_process_{{cookiecutter.Process}} GTest::gtest_main infrastructure_msgs
+  {{cookiecutter.Subsystem}}::base_{{cookiecutter.Process}}Process)
 
 gtest_discover_tests(test_process_{{cookiecutter.Process}})
