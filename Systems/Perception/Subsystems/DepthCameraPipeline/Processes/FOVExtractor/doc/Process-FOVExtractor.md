@@ -29,16 +29,17 @@ This process's objective is to take in a large dapth camera point cloud and with
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input                          | DataType                | Description | Requirement |
+| ------------------------------ | ----------------------- | ----------- | ----------- |
+| Depth Camera Fused Point Cloud | `SensorMsgs/PointCloud` |             |             |
 
 # Outputs
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
-|        |
+| Output                       | DataType                | Description | Usage |
+| ---------------------------- | ----------------------- | ----------- | ----- |
+| Depth Camera FOV Point Cloud | `SensorMsgs/PointCloud` |             |       |
 
 # Diagnostics
 Processes in this Subsystem are defined by:
