@@ -69,10 +69,15 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
          */
         std::string pretty() override;
 
-        void newSensorPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg);
+        /**
+         * @brief Process a Sensor Point Cloud and convert as necessary
+         *
+         * @param msg
+         * @return fast::rf::messages::SensorMsgs::PointCloudMsg
+         */
+        fast::rf::messages::SensorMsgs::PointCloudMsg newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg);
 
        private:
         SensorInputHandlerProcessConfig m_config;
-        uint64_t m_pointCloudRxCount{0};
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler

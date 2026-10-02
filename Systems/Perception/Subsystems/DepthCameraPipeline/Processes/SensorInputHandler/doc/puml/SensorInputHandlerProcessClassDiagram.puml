@@ -48,8 +48,8 @@ namespace fast::rf {
                     +bool set_config(SensorInputHandlerProcessConfig config)
                     +bool update(double current_time_sec)
                     +string pretty()
-                    +PointCloudMsg newSensorPointCloud(PointCloudMsg msg)
-                    -SensorInputHandlerProcessConfig config_
+                    +PointCloudMsg newPointCloud(PointCloudMsg msg)
+                    -SensorInputHandlerProcessConfig m_config
                 }
                 SensorInputHandlerProcess -up-|> BaseSensorInputHandlerProcess
                 SensorInputHandlerProcess *-> SensorInputHandlerProcessConfig: <<use>>

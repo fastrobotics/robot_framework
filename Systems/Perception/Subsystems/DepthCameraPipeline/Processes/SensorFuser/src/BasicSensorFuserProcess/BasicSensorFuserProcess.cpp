@@ -5,6 +5,10 @@
 #include <BasicSensorFuserProcess/BasicSensorFuserProcess.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
 
+    bool BasicSensorFuserProcess::newPointCloud([[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg msg,
+                                                [[maybe_unused]] uint8_t sensorIndex) {
+        return false;
+    }
     bool BasicSensorFuserProcess::init() {
         bool status = BaseSensorFuserProcess::init();
         if (status == false) {

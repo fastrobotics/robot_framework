@@ -60,6 +60,7 @@ namespace fast::rf {
                     +bool set_config(BasicSensorFuserProcessConfig config)
                     +bool update(double current_time_sec)
                     +string pretty()
+                    +bool newPointCloud(PointCloudMsg data, uint8 sensorIndex)
                     -BasicSensorFuserProcessConfig m_config
                     -Combiner m_combiner
                     -OverlapRemover m_overlapRemover

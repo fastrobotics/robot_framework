@@ -44,8 +44,8 @@ namespace fast::rf {
           +bool init()
           +bool set_config(BasicFeatureDetectorProcessConfig config)
           +bool update(double current_time_sec)
-	  +string pretty()
-          -BasicFeatureDetectorProcessConfig config_
+	        +string pretty()
+          -BasicFeatureDetectorProcessConfig m_config
         }
         BasicFeatureDetectorProcess -up-|> BaseFeatureDetectorProcess
         BasicFeatureDetectorProcess *-> BasicFeatureDetectorProcessConfig: <<use>>
