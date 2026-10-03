@@ -24,6 +24,7 @@ Infrastructure Content for this framework is useful by any other module freely. 
 | ------------------------------------------------------------------- |
 | [Logger](Logger.md)                                                 |
 | [Diagnostic Manager](../DiagnosticManager/doc/DiagnosticManager.md) |
+| [Signal Monitor](../SignalMonitor/doc/SignalMonitor.md)             |
 
 
 # Validation
