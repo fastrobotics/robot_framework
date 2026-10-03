@@ -1,0 +1,37 @@
+@startuml
+title Signal Monitor Class Diagram
+namespace fast::rf {
+    enum Level
+    class DiagnosticDefinition {
+        enum DiagnosticType
+        enum DiagnosticMessage
+    }
+    package core::Infrastructure #LightYellow;line:blue {
+        struct SubSignalStatus #Orange {
+            Level level
+            DiagnosticType diagnosticType
+            DiagnosticMessage diagnosticMessage
+        }
+        struct SignalStatus #Orange {
+            Level level
+            SubSignalStatus[] subSignalStatus
+        }
+        SignalStatus +-- SubSignalStatus
+        SignalStatus *-> SubSignalStatus
+        class SignalMonitor #Orange {
+            +bool newData(double timestamp)
+            +bool update(double timestamp)
+            +SignalStatus getStatus()
+            +string pretty()
+            -string signalName
+            -string datatype
+            -double expectedRateHz
+            -uint64 rxCount
+            -SignalStatus status
+        }
+        SignalMonitor +-- SignalStatus
+        SignalMonitor *-> SignalStatus
+
+    }
+}
+@enduml
