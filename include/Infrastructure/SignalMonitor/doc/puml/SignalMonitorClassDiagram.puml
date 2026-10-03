@@ -7,27 +7,35 @@ namespace fast::rf {
         enum DiagnosticMessage
     }
     package core::Infrastructure #LightYellow;line:blue {
-        struct SubSignalStatus #Orange {
-            Level level
-            DiagnosticType diagnosticType
-            DiagnosticMessage diagnosticMessage
+        struct SubSignalStatus #LimeGreen {
+            +Level level
+            +DiagnosticType diagnosticType
+            +DiagnosticMessage diagnosticMessage
+            +string pretty()
         }
-        struct SignalStatus #Orange {
-            Level level
-            SubSignalStatus[] subSignalStatus
+        struct SignalStatus #LimeGreen {
+            +Level level
+            +SubSignalStatus[] subSignalStatus
+            +string pretty()
         }
         SignalStatus +-- SubSignalStatus
         SignalStatus *-> SubSignalStatus
-        class SignalMonitor #Orange {
+        class SignalMonitor #LimeGreen {
+            +SignalMonitor(string signalName,string datatype,double expectedRateHz,double rateRolerancePerc)
             +bool newData(double timestamp)
             +bool update(double timestamp)
             +SignalStatus getStatus()
             +string pretty()
-            -string signalName
-            -string datatype
-            -double expectedRateHz
-            -uint64 rxCount
-            -SignalStatus status
+            --- Config Variables ---
+            -string m_signalName
+            -string m_datatype
+            -double m_expectedRateHz
+            -double m_rateTolerancePerc
+            --- Runtime Variables ---
+            -uint64 m_rxCount
+            -SignalStatus m_status
+            -double m_startTime
+            -double m_actualRateHz
         }
         SignalMonitor +-- SignalStatus
         SignalMonitor *-> SignalStatus
