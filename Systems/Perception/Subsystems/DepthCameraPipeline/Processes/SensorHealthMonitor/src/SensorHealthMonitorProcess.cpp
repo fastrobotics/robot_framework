@@ -4,8 +4,8 @@
  */
 #include <SensorHealthMonitorProcess.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor {
-    bool SensorHealthMonitorProcess::newPointCloudMsg(std::string name,
-                                                      fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
+    bool SensorHealthMonitorProcess::newPointCloud(std::string name,
+                                                   fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
         bool status = newSignalRx(name, msg.time_stamp);
         return status;
     }

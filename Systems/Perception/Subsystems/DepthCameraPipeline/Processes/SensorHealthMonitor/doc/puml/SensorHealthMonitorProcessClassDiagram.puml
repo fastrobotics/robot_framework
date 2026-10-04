@@ -55,7 +55,7 @@ namespace fast::rf {
                 +bool set_config(SensorHealthMonitorProcessConfig config)
                 +bool update(double current_time_sec)
                 +string pretty()
-                +bool newPointCloudMsg(std::string name, PointCloudMsg msg)
+                +bool newPointCloud(std::string name, PointCloudMsg msg)
                 -SensorHealthMonitorProcessConfig m_config
             }
             SensorHealthMonitorProcess -up-|> BaseSensorHealthMonitorProcess

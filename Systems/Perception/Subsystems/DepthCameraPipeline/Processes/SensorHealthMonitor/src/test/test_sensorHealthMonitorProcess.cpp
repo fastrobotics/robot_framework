@@ -42,7 +42,7 @@ TEST(SensorHealthMonitorProcess, SignalHealth) {
     while (currentTime < runTime) {
         fast::rf::messages::SensorMsgs::PointCloudMsg msg;
         msg.time_stamp = currentTime;
-        ASSERT_TRUE(SUT.newPointCloudMsg(signalName, msg));
+        ASSERT_TRUE(SUT.newPointCloud(signalName, msg));
         ASSERT_TRUE(SUT.update(currentTime));
         currentTime += dt;
     }

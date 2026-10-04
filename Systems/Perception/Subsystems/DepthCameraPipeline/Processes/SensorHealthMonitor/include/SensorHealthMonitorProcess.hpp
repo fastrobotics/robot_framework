@@ -70,7 +70,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
          */
         std::string pretty() override;
 
-        bool newPointCloudMsg(std::string name, fast::rf::messages::SensorMsgs::PointCloudMsg msg);
+        bool newPointCloud(std::string name, fast::rf::messages::SensorMsgs::PointCloudMsg msg);
 
        private:
         SensorHealthMonitorProcessConfig m_config;
