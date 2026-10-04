@@ -9,7 +9,6 @@
 - [Outputs](#outputs)
 - [Diagnostics](#diagnostics)
 - [How It Works](#how-it-works)
-  - [ToDo](#todo)
   - [Detailed Documentation](#detailed-documentation)
   - [Class Diagram](#class-diagram)
 - [Usage Instructions](#usage-instructions)
@@ -32,10 +31,11 @@ This process's objective is to ???.
 
 The following inputs are required in order for this system to properly function.
 
-| Input                        | DataType                | Description | Requirement |
-| ---------------------------- | ----------------------- | ----------- | ----------- |
-| Depth Camera Point Cloud 1-N | `SensorMsgs/PointCloud` |             |             |
+| Input                      | DataType                | Description | Requirement |
+| -------------------------- | ----------------------- | ----------- | ----------- |
+| Depth Camera Point Cloud 1 | `SensorMsgs/PointCloud` |             |             |
 
+NOTE: More Depth Camera's will be supported during AB#5755.
 # Outputs
 
 The following outputs are provided by this system.
@@ -51,16 +51,17 @@ Processes in this Subsystem are defined by:
 - Process: `PerceptionSystem::DepthCameraPipelineSubsystem::PROCESS_SENSORHEALTHMONITOR_ID`
 
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type            | Description                                                          |
+| -------------------------- | -------------------------------------------------------------------- |
+| `DiagnosticType::SOFTWARE` | General purpose Software Diagnostic                                  |
+| `DiagnosticType::SENSORS`  | Checks for quality of sensor inputs.  Implemented during AB#5752.    |
+| `DiagnosticType::TIMING`   | Checks for discrepencies in sensor timing (rates, out of order, etc) |
 
 # How It Works
 The Sensor Health Monitor sets up a list of signal health monitors that actively monitor the input signals and check for various health indicators (such as new data, missing data, etc).
 
 Additionally the Sensor Health Monitor can look holistically at all the sensor data coming in, and trigger diagnostics that are more general/wholistic.
 
-## ToDo
-- SignalHealthMonitor should be an abstract interface, and the data coming in should be able to be analyzed closely with whatever "plugins" are required for specific datatypes.
 ## Detailed Documentation
 
 ![](../../../../../../../Legend.png)
