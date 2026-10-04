@@ -10,5 +10,7 @@ var searchData=
   ['servohatdriver_2ehpp_7',['ServoHatDriver.hpp',['../ServoHatDriver_8hpp.html',1,'']]],
   ['servohatdriverprocess_2ecpp_8',['ServoHatDriverProcess.cpp',['../ServoHatDriverProcess_8cpp.html',1,'']]],
   ['servohatdriverprocess_2ehpp_9',['ServoHatDriverProcess.hpp',['../ServoHatDriverProcess_8hpp.html',1,'']]],
-  ['standardmsgs_2edox_10',['StandardMsgs.dox',['../StandardMsgs_8dox.html',1,'']]]
+  ['signalmonitor_2ecpp_10',['SignalMonitor.cpp',['../SignalMonitor_8cpp.html',1,'']]],
+  ['signalmonitor_2ehpp_11',['SignalMonitor.hpp',['../SignalMonitor_8hpp.html',1,'']]],
+  ['standardmsgs_2edox_12',['StandardMsgs.dox',['../StandardMsgs_8dox.html',1,'']]]
 ];

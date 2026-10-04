@@ -1,6 +1,7 @@
 var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess =
 [
     [ "BaseSensorHealthMonitorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a54d11ecdb363e0b342eda161ff187468", null ],
+    [ "addSignalToMonitor", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#ac1c93bec1714a05aa3de89c67839f0a5", null ],
     [ "get_ready_to_arm", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a8af05572997b3603aa78c7a2ca9013d4", null ],
     [ "getCurrentTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a760b534d720b5d24fb7be26a3ab264f1", null ],
     [ "getDiagnosticManager", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a86a7004a699afe9c0833caf7d83317db", null ],
@@ -10,6 +11,7 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Senso
     [ "getSystemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a6b9f482c8cd927a13d1b8486e88eb0ae", null ],
     [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#ad9afbce6c460dcd4fac8e6efe08e90e4", null ],
     [ "initializeDiagnostics", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a52d3f2596a19b9244e7d520d90f198b1", null ],
+    [ "newSignalRx", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a20d580967b8b2f3850d715d085a8975d", null ],
     [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a90c8e798033df8e61b95dc2a203750ca", null ],
     [ "update", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a848d29dfa1d06b9e2d10304c6f7f6bfb", null ],
     [ "updateDiagnostic", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1BaseSensorHealthMonitorProcess.html#a765f965e31ef806d5aa769ff78617a44", null ],

@@ -1,0 +1,13 @@
+<map id="include/Infrastructure/SignalMonitor/SignalMonitor.hpp" name="include/Infrastructure/SignalMonitor/SignalMonitor.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,5,334,45"/>
+<area shape="rect" id="Node000002" href="$RobotFrameworkDefinitions_8hpp.html" title="Common Definitions for Robot Framework." alt="" coords="24,93,254,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,47,162,85,158,81,195,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="46,167,112,192"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="97,42,50,62,30,77,13,95,9,111,15,127,30,143,48,157,45,161,26,147,11,130,3,111,9,92,26,73,47,57,95,37"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="170,167,228,192"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="240,44,254,59,266,78,273,99,269,120,253,143,233,161,229,157,249,139,265,118,267,99,262,80,250,63,236,47"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="330,93,380,119"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="250,43,324,84,321,89,247,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,121,100,158,95,154,127,117"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="151,117,183,154,178,158,147,121"/>
+</map>
