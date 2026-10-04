@@ -2,7 +2,7 @@
 add_library(base_SensorHealthMonitorProcess STATIC
             BaseSensorHealthMonitorProcess.cpp)
 target_link_libraries(base_SensorHealthMonitorProcess diagnosticManager
-                      infrastructure_msgs)
+                      infrastructure_msgs signalMonitor)
 target_include_directories(base_SensorHealthMonitorProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::base_SensorHealthMonitorProcess ALIAS
@@ -16,7 +16,7 @@ install(
 
 add_library(sensorHealthMonitorProcess STATIC SensorHealthMonitorProcess.cpp)
 target_link_libraries(sensorHealthMonitorProcess
-                      base_SensorHealthMonitorProcess)
+                      base_SensorHealthMonitorProcess sensor_msgs)
 target_include_directories(sensorHealthMonitorProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::sensorHealthMonitorProcess ALIAS

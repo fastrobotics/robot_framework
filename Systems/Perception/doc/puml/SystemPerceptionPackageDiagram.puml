@@ -4,17 +4,8 @@ title System-Perception Package Diagram
 
 namespace fast::rf {
     package PerceptionSystem #LightYellow;line:blue {
-        class SignalMonitor #Yellow {
-                -string signalName
-                -string datatype
-                -double expectedRate
-                -uint64 rxCount
-                +bool newData(double timestamp)
-                +bool update(double timestamp)
-                +Level getStatus()
-                +string pretty()
-        }
-        namespace DepthCameraPipelineSubsystem {
+
+        namespace DepthCameraPipelineSubsystem #Orange {
 
         }
         namespace ObjectTrackerSubsystem {

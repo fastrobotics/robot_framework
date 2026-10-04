@@ -3,6 +3,7 @@ title Infrastructure Package Diagram
 namespace fast::rf {
     namespace core::infrastructure {
         class DiagnosticManager #LimeGreen
+        class SignalMonitor #Orange
     }
     class Logger #LimeGreen
     enum Level #LimeGreen

@@ -16,13 +16,35 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
         } else {
             m_readyToArm.ready_to_arm = false;
         }
-
+        for (auto& signalMonitor : m_signalMonitors) {
+            signalMonitor.second.update(currentTimeSec);
+            auto status = signalMonitor.second.getStatus();
+            for (auto subSignal : status.subSignalStatus) {
+                m_diagnosticManager.updateDiagnostic(subSignal.second.diagnosticType, subSignal.second.level,
+                                                     subSignal.second.diagnosticMessage, "Signal Health");
+            }
+        }
         return true;
     }
     bool BaseSensorHealthMonitorProcess::initializeDiagnostics(
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes) {
         bool status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
         return status;
+    }
+    bool BaseSensorHealthMonitorProcess::addSignalToMonitor(std::string signalName, std::string datatype,
+                                                            double expectedRateHz, double rateTolerancePerc) {
+        fast::rf::core::infrastructure::SignalMonitor signal(signalName, datatype, expectedRateHz, rateTolerancePerc);
+        std::size_t before = m_signalMonitors.size();
+        m_signalMonitors[signalName] = signal;
+        std::size_t after = m_signalMonitors.size();
+        if (after > before) {
+            return true;
+        }
+        return false;
+    }
+
+    bool BaseSensorHealthMonitorProcess::newSignalRx(std::string signalName, double timestamp) {
+        return m_signalMonitors[signalName].newData(timestamp);
     }
     std::string BaseSensorHealthMonitorProcess::pretty() {
         std::string str = "\n---SensorHealthMonitor---\n";
@@ -35,7 +57,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
                "\n";
         str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
         str += "\tReady To Arm: " + std::to_string(m_readyToArm.ready_to_arm) + "\n";
-        str += m_diagnosticManager.pretty();
+        str += m_diagnosticManager.pretty() + "\n";
+        str += "Monitored Signals: " + std::to_string(m_signalMonitors.size()) + "\n";
+        uint16_t counter = 0;
+        for (auto signalMonitor : m_signalMonitors) {
+            str += "[" + std::to_string(counter) + "/" + std::to_string(m_signalMonitors.size()) + "] " +
+                   signalMonitor.second.pretty() + "\n";
+        }
 
         return str;
     }

@@ -11,7 +11,9 @@
 #pragma once
 #include <ISensorHealthMonitorProcess.hpp>
 #include <Infrastructure/DiagnosticManager/DiagnosticManager.hpp>
+#include <Infrastructure/SignalMonitor/SignalMonitor.hpp>
 #include <RobotFrameworkDefinitions.hpp>
+#include <map>
 #include <vector>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor {
     /**
@@ -46,6 +48,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() { return m_readyToArm; }
+
+        bool addSignalToMonitor(std::string signalName, std::string datatype, double expectedRateHz,
+                                double rateTolerancePerc);
 
        protected:
         /**
@@ -100,6 +105,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
 
         bool initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
 
+        bool newSignalRx(std::string signalName, double timestamp);
+
         uint8_t m_systemId{0};
         uint8_t m_subSystemId{0};
         uint8_t m_processId{0};
@@ -107,5 +114,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
         fast::rf::core::infrastructure::DiagnosticManager
             m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object
+
+       private:
+        std::map<std::string, fast::rf::core::infrastructure::SignalMonitor> m_signalMonitors;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor

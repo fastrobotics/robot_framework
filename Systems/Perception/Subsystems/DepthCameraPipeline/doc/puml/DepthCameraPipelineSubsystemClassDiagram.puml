@@ -18,7 +18,7 @@ namespace fast::rf {
         namespace SensorFuser #Yellow {
             
         }
-        namespace SensorHealthMonitor #Yellow {
+        namespace SensorHealthMonitor #LimeGreen {
 
         }
     }
