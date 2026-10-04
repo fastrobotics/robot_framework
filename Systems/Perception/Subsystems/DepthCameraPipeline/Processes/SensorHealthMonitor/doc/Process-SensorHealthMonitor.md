@@ -71,8 +71,14 @@ Additionally the Sensor Health Monitor can look holistically at all the sensor d
 
 # Usage Instructions
 ```cmake
+target_link_libraries(<binary or library> DepthCameraPipelineSubsystem::sensorHealthMonitorProcess)
 ```
 
 ```cpp
+#include <SensorHealthMonitorProcess.hpp> // Include the Header
+SensorHealthMonitorProcess process;  // Initialize the process
+process.addSignalToMonitor("signal name", "signal datatype", <expected signal rate>, <rate tolerance>); // Add Signals to Monitor.
+process.newPointCloud("signal name", <PointCloudMsg>); // Feed the Process data
+process.update(<timestamp>); // Update the Process regularly.
 ```
 # Validation

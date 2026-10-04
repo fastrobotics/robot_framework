@@ -27,11 +27,11 @@ namespace fast::rf {
            
         package SensorHealthMonitor #LightYellow;line:blue {
 
-            interface ISensorHealthMonitorProcess #Orange {
+            interface ISensorHealthMonitorProcess #LimeGreen {
                 +{abstract} bool init()
             }
             ISensorHealthMonitorProcess -up-|> IProcess
-            abstract BaseSensorHealthMonitorProcess #Orange {
+            abstract BaseSensorHealthMonitorProcess #LimeGreen {
                 +DiagnosticMsg[] getDiagnostics()
                 +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                 +ReadyToArmStatusMsg get_ready_to_arm()
@@ -46,11 +46,11 @@ namespace fast::rf {
             BaseSensorHealthMonitorProcess .up.|> ISensorHealthMonitorProcess
             BaseSensorHealthMonitorProcess --> DiagnosticManager: <<use>>
             BaseSensorHealthMonitorProcess --> SignalMonitor: <<use>>
-            class SensorHealthMonitorProcessConfig #Orange {
+            class SensorHealthMonitorProcessConfig #LimeGreen {
                 +bool is_ok()
                 +string pretty()
             }
-            class SensorHealthMonitorProcess #Orange {
+            class SensorHealthMonitorProcess #LimeGreen {
                 +bool init()
                 +bool set_config(SensorHealthMonitorProcessConfig config)
                 +bool update(double current_time_sec)
