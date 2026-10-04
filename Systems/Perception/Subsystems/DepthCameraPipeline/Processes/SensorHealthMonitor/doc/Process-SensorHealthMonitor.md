@@ -70,5 +70,9 @@ Additionally the Sensor Health Monitor can look holistically at all the sensor d
 ![](puml/SensorHealthMonitorProcessClassDiagram.png)
 
 # Usage Instructions
+```cmake
+```
 
+```cpp
+```
 # Validation

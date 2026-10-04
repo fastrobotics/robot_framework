@@ -19,23 +19,23 @@ namespace fast::rf {
     }
     namespace core::Infrastructure {
         class DiagnosticManager
+        class SignalMonitor
     }
 
     namespace PerceptionSystem {
-        class SignalMonitor
         namespace DepthCameraPipelineSubsystem {
            
         package SensorHealthMonitor #LightYellow;line:blue {
 
-            interface ISensorHealthMonitorProcess #Yellow {
+            interface ISensorHealthMonitorProcess #Orange {
                 +{abstract} bool init()
             }
             ISensorHealthMonitorProcess -up-|> IProcess
-            abstract BaseSensorHealthMonitorProcess #Yellow {
+            abstract BaseSensorHealthMonitorProcess #Orange {
                 +DiagnosticMsg[] getDiagnostics()
                 +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                 +ReadyToArmStatusMsg get_ready_to_arm()
-                #bool addSignalToMonitor(string signalName,string datatype, double expectedRate)
+                +bool addSignalToMonitor(string signalName,string datatype, double expectedRateHz,double rateTolerancePerc)
                 #bool newSignalRx(string signalName,double timestamp)
                 #bool update(double current_time_sec)
                 #string pretty()
@@ -46,16 +46,16 @@ namespace fast::rf {
             BaseSensorHealthMonitorProcess .up.|> ISensorHealthMonitorProcess
             BaseSensorHealthMonitorProcess --> DiagnosticManager: <<use>>
             BaseSensorHealthMonitorProcess --> SignalMonitor: <<use>>
-            class SensorHealthMonitorProcessConfig #Yellow {
+            class SensorHealthMonitorProcessConfig #Orange {
                 +bool is_ok()
                 +string pretty()
             }
-            class SensorHealthMonitorProcess #Yellow {
+            class SensorHealthMonitorProcess #Orange {
                 +bool init()
                 +bool set_config(SensorHealthMonitorProcessConfig config)
                 +bool update(double current_time_sec)
                 +string pretty()
-                +bool newSensorPointCloud(PointCloudMsg msg)
+                +bool newPointCloudMsg(std::string name, PointCloudMsg msg)
                 -SensorHealthMonitorProcessConfig m_config
             }
             SensorHealthMonitorProcess -up-|> BaseSensorHealthMonitorProcess

@@ -11,6 +11,7 @@
 #pragma once
 
 #include <BaseSensorHealthMonitorProcess.hpp>
+#include <PointCloudMsg.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor {
 
@@ -68,6 +69,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
          * @return std::string
          */
         std::string pretty() override;
+
+        bool newPointCloudMsg(std::string name, fast::rf::messages::SensorMsgs::PointCloudMsg msg);
 
        private:
         SensorHealthMonitorProcessConfig m_config;

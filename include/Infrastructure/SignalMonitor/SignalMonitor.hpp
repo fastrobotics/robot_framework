@@ -42,6 +42,7 @@ namespace fast::rf::core::infrastructure {
          *
          */
         struct SignalStatus {
+            SignalStatus() = default;
             fast::rf::Level level{fast::rf::Level::UNKNOWN};
             std::map<fast::rf::DiagnosticDefinition::DiagnosticType, SubSignalStatus> subSignalStatus;
             std::string pretty() {
@@ -54,7 +55,7 @@ namespace fast::rf::core::infrastructure {
         };
         static constexpr uint16_t INITIAL_SAMPLES_TO_ACCUMULATE =
             10;  //!< How many samples to collect before making a determination if the signal is ok or not.
-
+        SignalMonitor() = default;
         /**
          * @brief Construct a new Signal Monitor object
          *

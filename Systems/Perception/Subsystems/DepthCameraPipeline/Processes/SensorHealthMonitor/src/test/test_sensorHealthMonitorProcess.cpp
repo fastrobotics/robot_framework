@@ -18,7 +18,6 @@ TEST(SensorHealthMonitorProcess, Tests) {
     auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
     for (auto diagnostic : diagnostics) {
-        // ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
@@ -28,4 +27,29 @@ TEST(SensorHealthMonitorProcess, ConversionTests) {
     SensorHealthMonitorProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
+}
+
+TEST(SensorHealthMonitorProcess, SignalHealth) {
+    SensorHealthMonitorProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_GT(SUT.pretty().size(), 0);
+    double expectedSignalRate = 10.0;
+    std::string signalName = "test_signal";
+    ASSERT_TRUE(SUT.addSignalToMonitor(signalName, "test_datatype", expectedSignalRate, 90.0));
+    double runTime = 10.0;
+    double dt = 1.0 / expectedSignalRate;
+    double currentTime = 0.0;
+    while (currentTime < runTime) {
+        fast::rf::messages::SensorMsgs::PointCloudMsg msg;
+        msg.time_stamp = currentTime;
+        ASSERT_TRUE(SUT.newPointCloudMsg(signalName, msg));
+        ASSERT_TRUE(SUT.update(currentTime));
+        currentTime += dt;
+    }
+    auto diagnostics = SUT.getDiagnostics();
+    ASSERT_GT(diagnostics.size(), 0);
+    for (auto diagnostic : diagnostics) {
+        ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+        ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
+    }
 }
