@@ -1,5 +1,9 @@
 <map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorHealthMonitor/include/SensorHealthMonitorProcess.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorHealthMonitor/include/SensorHealthMonitorProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,297,75"/>
-<area shape="rect" id="Node000002" href="$SensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="20,123,283,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,89,154,122,149,122,149,89"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="148,5,440,75"/>
+<area shape="rect" id="Node000002" href="$SensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="5,123,268,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,85,184,124,181,120,236,81"/>
+<area shape="rect" id="Node000003" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="292,130,611,185"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,81,417,128,414,132,349,85"/>
+<area shape="rect" id="Node000004" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="306,240,597,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="454,199,454,240,449,240,449,199"/>
 </map>

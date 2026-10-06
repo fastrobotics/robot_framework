@@ -1,13 +1,17 @@
 <map id="include/Infrastructure/SignalMonitor/SignalMonitor.hpp" name="include/Infrastructure/SignalMonitor/SignalMonitor.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="343,5,581,45"/>
-<area shape="rect" id="Node000002" href="$BaseSensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="148,93,472,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,55,363,95,360,91,420,51"/>
-<area shape="rect" id="Node000006" href="$SignalMonitor_8cpp.html" title=" " alt="" coords="496,108,732,148"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="504,51,587,106,584,110,501,55"/>
-<area shape="rect" id="Node000003" href="$SensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="5,211,297,280"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,173,200,212,196,208,251,169"/>
-<area shape="rect" id="Node000005" href="$BaseSensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="321,211,616,280"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="369,169,424,208,420,212,366,173"/>
-<area shape="rect" id="Node000004" href="$SensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="20,328,283,397"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="154,294,154,328,149,328,149,294"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="486,5,723,45"/>
+<area shape="rect" id="Node000002" href="$BaseSensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="291,93,615,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="566,55,505,95,502,91,563,51"/>
+<area shape="rect" id="Node000008" href="$SignalMonitor_8cpp.html" title=" " alt="" coords="639,108,875,148"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="646,51,730,106,727,110,643,55"/>
+<area shape="rect" id="Node000003" href="$SensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="148,211,440,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,173,342,212,339,208,394,169"/>
+<area shape="rect" id="Node000007" href="$BaseSensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="464,211,759,280"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="511,169,566,208,563,212,508,173"/>
+<area shape="rect" id="Node000004" href="$SensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="5,328,268,397"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="239,290,184,330,181,325,236,286"/>
+<area shape="rect" id="Node000005" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="292,335,611,390"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="353,286,417,333,414,337,349,290"/>
+<area shape="rect" id="Node000006" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="306,445,597,500"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="454,404,454,445,449,445,449,404"/>
 </map>

@@ -219,6 +219,7 @@ var annotated_dup =
               [ "SensorInputHandlerProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcess" ],
               [ "SensorInputHandlerProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcessConfig.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcessConfig" ]
             ] ],
+            [ "DepthCameraPipelineSubsystem", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem" ],
             [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Id.html", null ]
           ] ],
           [ "ObjectTrackerSubsystem", "namespacefast_1_1rf_1_1PerceptionSystem_1_1ObjectTrackerSubsystem.html", [
