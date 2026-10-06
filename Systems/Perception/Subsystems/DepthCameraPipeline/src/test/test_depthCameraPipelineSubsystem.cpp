@@ -10,7 +10,10 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     DepthCameraPipelineSubsystem SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
+    fast::rf::Logger::logInfo(SUT.pretty());
     fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud;
-    ASSERT_TRUE(SUT.newPointCloud(pointCloud, "sensor1"));
+    std::string signalName = "sensor1";
+    ASSERT_TRUE(SUT.addSignalToMonitor(signalName, "sensor_msgs/msg/PointCloud2", 20.0, 50.0));
+    ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
     ASSERT_TRUE(SUT.update(0.0));
 }

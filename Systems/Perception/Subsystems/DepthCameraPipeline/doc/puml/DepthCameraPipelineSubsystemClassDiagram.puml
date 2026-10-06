@@ -38,6 +38,7 @@ namespace fast::rf {
         }
         class DepthCameraPipelineSubsystem #Orange {
             +bool init()
+            +bool addSignalToMonitor(string signalName, string datatype,double expectedRateHz, double rateTolerancePerc)
             +bool newPointCloud(PointCloudMsg msg, string sensorName)
             +bool update(double currentTimeSec)
             +string pretty()
