@@ -27,5 +27,26 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         auto convertedCloud = m_sensorInputHandlerProcess.get()->newPointCloud(msg);
         return true;
     }
-    bool DepthCameraPipelineSubsystem::update([[maybe_unused]] double currentTimeSec) { return false; }
+    bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
+        bool readyToArmFlag = true;
+        for (auto& process : m_pipeline) {
+            bool status = process.second->update(currentTimeSec);
+            if (status == false) {
+                fast::rf::Logger::logWarn("Unable to update process: " + process.first);
+                return false;
+            }
+            readyToArmFlag = process.second->get_ready_to_arm().ready_to_arm;
+        }
+        m_readyToArm.ready_to_arm = readyToArmFlag;
+        return true;
+    }
+    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> DepthCameraPipelineSubsystem::getDiagnostics() {
+        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> allDiagnostics;
+        for (auto& process : m_pipeline) {
+            auto diagnostics = process.second->getDiagnostics();
+            allDiagnostics.insert(allDiagnostics.end(), diagnostics.begin(), diagnostics.end());
+        }
+        return allDiagnostics;
+    }
+
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem
