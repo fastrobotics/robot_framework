@@ -14,7 +14,7 @@
   - [Questions](#questions)
   - [Detailed Documentation](#detailed-documentation)
   - [Software Content](#software-content)
-- [Processes](#processes)
+- [Processes in the Pipeline](#processes-in-the-pipeline)
 - [Usage Instructions](#usage-instructions)
 - [Validation](#validation)
 
@@ -68,8 +68,9 @@ The following outputs are provided by this system.
 ## Detailed Documentation
 
 ## Software Content
+The `DepthCameraPipelineSubsystem` class can be used to directly run all the child processes.
 
-# Processes
+# Processes in the Pipeline
 
 | Status | Process                                                                                      |
 | ------ | -------------------------------------------------------------------------------------------- |
@@ -82,5 +83,21 @@ The following outputs are provided by this system.
 
 
 # Usage Instructions
+```cmake
+target_link_libraries(<your library/binary> depthCameraPipelineSubsystem)
+```
 
+```cpp
+#include <DepthCameraPipelineSubsystem.hpp> // Include the subsystem
+using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem;
+DepthCameraPipelineSubsystem subsystem;  // Declare the subsystem
+subsystem.init(); // Initialize it
+subsystem.addSignalToMonitor("sensor name", "data type", <expected rate (Hz)>, <rate rolerance (Perc)>); // Add signals to monitor
+fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud;
+subsystem.newPointCloud(pointCloud, "sensor name"); // Feed it a Point Cloud
+subsystem.update(currentTime); // Periodically update it
+fast::rf::Logger::logInfo(subsystem.pretty()); // Output to console/log output file the status of the system
+auto readyToArm = subsystem.get_ready_to_arm(); // Get Ready to Arm Object
+auto diagnostics = subsystem.getDiagnostics(); // Get all Diagnostics
+```
 # Validation

@@ -10,6 +10,7 @@
  */
 #pragma once
 #include <cstring>
+#include <vector>
 
 #include "PointFieldMsg.hpp"
 namespace fast::rf::messages::SensorMsgs {
