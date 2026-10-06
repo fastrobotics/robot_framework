@@ -18,6 +18,10 @@
 #include <string>
 #include <unordered_map>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
+    /**
+     * @brief This runs the entire DepthCamera Pipeline Subsystem
+     *
+     */
     class DepthCameraPipelineSubsystem {
        public:
         DepthCameraPipelineSubsystem()
@@ -31,16 +35,62 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             m_readyToArm.subsystemID = fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SUBSYSTEM_ID;
             m_readyToArm.processID = 0;  // Entire Subsystem
         }
+        /**
+         * @brief Initialize the Subsystem
+         *
+         * @return true
+         * @return false
+         */
         bool init();
+        /**
+         * @brief Add Signals to Monitor
+         *
+         * @param signalName
+         * @param datatype
+         * @param expectedRateHz
+         * @param rateTolerancePerc
+         * @return true
+         * @return false
+         */
         bool addSignalToMonitor(std::string signalName, std::string datatype, double expectedRateHz,
                                 double rateTolerancePerc) {
             return m_sensorHealthMonitorProcess->addSignalToMonitor(signalName, datatype, expectedRateHz,
                                                                     rateTolerancePerc);
         }
+        /**
+         * @brief Process a new Point Cloud
+         *
+         * @param msg
+         * @param sensorName
+         * @return true
+         * @return false
+         */
         bool newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg, std::string sensorName);
+        /**
+         * @brief Human readable output of the subsystem
+         *
+         * @return std::string
+         */
         std::string pretty();
+        /**
+         * @brief Update the subsystem at a regular rate
+         *
+         * @param currentTimeSec
+         * @return true
+         * @return false
+         */
         bool update(double currentTimeSec);
+        /**
+         * @brief Get the ready to arm object
+         *
+         * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
+         */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() { return m_readyToArm; }
+        /**
+         * @brief Get the Diagnostics object
+         *
+         * @return std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg>
+         */
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics();
 
        private:

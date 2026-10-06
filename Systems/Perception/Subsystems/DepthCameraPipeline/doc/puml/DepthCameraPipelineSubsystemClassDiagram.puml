@@ -3,6 +3,10 @@
 title DepthCameraPipeline Subsystem Class Diagram
 namespace fast::rf {
   namespace messages {
+    namespace InfrastructureMsgs {
+        class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        class DiagnosticMsg <<(M,#FFFF00)>>
+    }
     namespace SensorMsgs {
         class PointCloudMsg <<(M,#FFFF00)>>
     }
@@ -36,12 +40,14 @@ namespace fast::rf {
             SensorHealthMonitorProcess -up-|> ISensorHealthMonitorProcess
 
         }
-        class DepthCameraPipelineSubsystem #Orange {
+        class DepthCameraPipelineSubsystem #LimeGreen {
             +bool init()
             +bool addSignalToMonitor(string signalName, string datatype,double expectedRateHz, double rateTolerancePerc)
             +bool newPointCloud(PointCloudMsg msg, string sensorName)
             +bool update(double currentTimeSec)
             +string pretty()
+            +ReadyToArmStatusMsg get_ready_to_arm()
+            +DiagnosticMsg[] getDiagnostics
             -SensorInputHandlerProcess m_sensorInputHandlerProcess
             -SensorHealthMonitorProcess m_sensorHealthMonitorProcess
             -SensorFuserProcess m_sensorFuserProcess
