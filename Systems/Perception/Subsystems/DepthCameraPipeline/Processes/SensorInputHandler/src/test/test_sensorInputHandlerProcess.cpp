@@ -24,85 +24,39 @@ TEST(SensorInputHandlerProcess, BasicTests) {
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::Logger::logDebug(SUT.pretty());
 }
-TEST(SensorInputHandlerProcess, ConvertSimpleUnorganizedPointCloud) {
+TEST(SensorInputHandlerProcess, TestFailConvertUnorganizedPointCloud) {
     SensorInputHandlerProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
-    uint16_t cloudDimension = 10;  // 10 x 10
-    uint16_t pointStep = 16;       // 16 bytes, x;y;z;rgbd
-    uint32_t numPoints = cloudDimension * cloudDimension;
+
     fast::rf::messages::SensorMsgs::PointCloudMsg unorganizedPointCloud;
-    unorganizedPointCloud.height = 1;  // This is an unorganized point cloud
-    unorganizedPointCloud.width = numPoints;
-    unorganizedPointCloud.is_bigendian = false;
-    unorganizedPointCloud.is_dense = true;  // Since there are no NaN Values
-    fast::rf::messages::SensorMsgs::PointFieldMsg fieldX;
-    fieldX.name = "x";
-    fieldX.offset = 0;
-    fieldX.datatype = fast::rf::messages::SensorMsgs::PointFieldMsg::PointFieldDataType::FLOAT32;
-    fieldX.count = 1;
-
-    fast::rf::messages::SensorMsgs::PointFieldMsg fieldY;
-    fieldY.name = "y";
-    fieldY.offset = 4;
-    fieldY.datatype = fast::rf::messages::SensorMsgs::PointFieldMsg::PointFieldDataType::FLOAT32;
-    fieldY.count = 1;
-
-    fast::rf::messages::SensorMsgs::PointFieldMsg fieldZ;
-    fieldZ.name = "z";
-    fieldZ.offset = 8;
-    fieldZ.datatype = fast::rf::messages::SensorMsgs::PointFieldMsg::PointFieldDataType::FLOAT32;
-    fieldZ.count = 1;
-
-    // RGB field uses FLOAT32 datatype for ROS packing conventions
-    fast::rf::messages::SensorMsgs::PointFieldMsg fieldRGB;
-    fieldRGB.name = "rgb";
-    fieldRGB.offset = 12;
-    fieldRGB.datatype = fast::rf::messages::SensorMsgs::PointFieldMsg::PointFieldDataType::FLOAT32;
-    fieldRGB.count = 1;
-
-    unorganizedPointCloud.fields = {fieldX, fieldZ, fieldZ, fieldRGB};
-
-    // 4. Calculate Step Sizes (Now 16 bytes per point due to RGB)
-    unorganizedPointCloud.point_step = pointStep;
-    unorganizedPointCloud.row_step = unorganizedPointCloud.point_step * unorganizedPointCloud.width;
-
-    // 5. Generate Data Buffer
-    unorganizedPointCloud.data.resize(unorganizedPointCloud.row_step);
-
-    // Populate byte buffer point by point
-    for (uint32_t i = 0; i < numPoints; ++i) {
-        uint32_t offset = i * unorganizedPointCloud.point_step;
-
-        // Generate spatial coordinates
-        float x = (i + 1) * 1.0;
-        float y = (i + 1) * 2.0;
-        float z = (i + 1) * 3.0;
-        ;
-
-        // Generate colors
-        uint8_t r = 1;
-        uint8_t g = 2;
-        uint8_t b = 3;
-
-        // Pack RGB into a single 32-bit integer (leaving 1 byte padding)
-        uint32_t rgb_packed =
-            (static_cast<uint32_t>(r) << 16) | (static_cast<uint32_t>(g) << 8) | (static_cast<uint32_t>(b));
-
-        // Copy spatial data directly into memory slice
-        std::memcpy(&unorganizedPointCloud.data[offset + 0], &x, sizeof(float));
-        std::memcpy(&unorganizedPointCloud.data[offset + 4], &y, sizeof(float));
-        std::memcpy(&unorganizedPointCloud.data[offset + 8], &z, sizeof(float));
-
-        // Copy packed color data into the last 4 bytes of this point
-        std::memcpy(&unorganizedPointCloud.data[offset + 12], &rgb_packed, sizeof(uint32_t));
-    }
+    unorganizedPointCloud.height = 1;
     auto convertedCloud = SUT.newPointCloud(unorganizedPointCloud);
-    ASSERT_FLOAT_EQ(convertedCloud.time_stamp, unorganizedPointCloud.time_stamp);
-    ASSERT_EQ(convertedCloud.height, cloudDimension);
-    ASSERT_EQ(convertedCloud.width, cloudDimension);
-
-    ASSERT_EQ(convertedCloud.point_step, pointStep);
-    ASSERT_EQ(convertedCloud.row_step, (cloudDimension * pointStep));
+    ASSERT_EQ(convertedCloud.height, 0);  // Don't know how to process this, so return an empty cloud
+    auto diagnostics = SUT.getDiagnostics();
+    bool checkFailedDiagnostic = false;
+    for (auto diagnostic : diagnostics) {
+        if (diagnostic.diagnosticType == fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS) {
+            ASSERT_GT(diagnostic.level, fast::rf::Level::NOTICE);
+            checkFailedDiagnostic = true;
+        }
+    }
+    ASSERT_TRUE(checkFailedDiagnostic);
 }
-TEST(SensorInputHandlerProcess, ConvertWithNaNs) { ASSERT_TRUE(true); }
+TEST(SensorInputHandlerProcess, ConvertOrganizedPointCloudPassThru) {
+    SensorInputHandlerProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_GT(SUT.pretty().size(), 0);
+
+    fast::rf::messages::SensorMsgs::PointCloudMsg organizedPointCloud;
+    organizedPointCloud.height = 2;
+    auto convertedCloud = SUT.newPointCloud(organizedPointCloud);
+    ASSERT_EQ(convertedCloud.height, organizedPointCloud.height);
+    ASSERT_TRUE(SUT.update(1.0));
+    fast::rf::Logger::logDebug(SUT.pretty());
+    auto diagnostics = SUT.getDiagnostics();
+    for (auto diagnostic : diagnostics) {
+        ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
+        ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+    }
+}

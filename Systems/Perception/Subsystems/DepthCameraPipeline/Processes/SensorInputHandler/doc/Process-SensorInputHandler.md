@@ -57,7 +57,8 @@ The following Diagnostics are reported by this Process:
 # How It Works
 This Sensor Input Handler performs the following:
 - Converts (if not already) input Point Clouds to Organized Point Clouds (useful for spatial analysis)
-  
+
+Note: Currently the Process is a pass-thru for organized point clouds, and will trip a diagnostic if an unorganized point cloud is received.
 ## Detailed Documentation
 
 ![](../../../../../../../Legend.png)
