@@ -7,7 +7,17 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
     fast::rf::messages::SensorMsgs::PointCloudMsg SensorInputHandlerProcess::newPointCloud(
         fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
         fast::rf::messages::SensorMsgs::PointCloudMsg convertedCloud;
-        convertedCloud = msg;
+        if (msg.height > 1) {  // It's already an organized point cloud, nothing to do
+            convertedCloud = msg;
+            m_diagnosticManager.updateDiagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::INFO,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Pass-Thru Organized Point Cloud");
+        } else {
+            m_diagnosticManager.updateDiagnostic(fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS,
+                                                 fast::rf::Level::ERROR,
+                                                 fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                                                 "Unorganized Point Clouds are not supported!");
+        }
         return convertedCloud;
     }
     bool SensorInputHandlerProcess::init() {
@@ -17,8 +27,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes;
         diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        // Add more as needed
+        diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS);
         status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
+        m_diagnosticManager.updateDiagnostic(
+            fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::INFO,
+            fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Sensor Input Handler Running");
         return status;
     }
     bool SensorInputHandlerProcess::update(double currentTimeSec) {

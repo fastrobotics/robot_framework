@@ -51,13 +51,16 @@ Processes in this Subsystem are defined by:
 - Process: `PerceptionSystem::DepthCameraPipelineSubsystem::PROCESS_SENSORINPUTHANDLER_ID`
 
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description |
-| --------------- | ----------- |
+| Diagnostic Type            | Description                                                              |
+| -------------------------- | ------------------------------------------------------------------------ |
+| `DiagnosticType::SOFTWARE` | General purpose Software Diagnostic                                      |
+| `DiagnosticType::SENSORS`  | Checks if an unorganized point cloud is received, and triggers if it is. |
 
 # How It Works
 This Sensor Input Handler performs the following:
 - Converts (if not already) input Point Clouds to Organized Point Clouds (useful for spatial analysis)
-  
+
+Note: Currently the Process is a pass-thru for organized point clouds, and will trip a diagnostic if an unorganized point cloud is received.
 ## Detailed Documentation
 
 ![](../../../../../../../Legend.png)
@@ -67,5 +70,14 @@ This Sensor Input Handler performs the following:
 ![](puml/SensorInputHandlerProcessClassDiagram.png)
 
 # Usage Instructions
+```cmake
+target_link_libraries(<binary or library> DepthCameraPipelineSubsystem::sensorInputHandlerProcess)
+```
 
+```cpp
+#include <SensorInputHandlerProcess.hpp> // Include the Header
+SensorInputHandlerProcess process;  // Initialize the process
+auto convertedPointCloud = process.newPointCloud(<PointCloudMsg>); // Give it a Point Cloud and get the result
+process.update(<timestamp>); // Update the Process regularly.
+```
 # Validation

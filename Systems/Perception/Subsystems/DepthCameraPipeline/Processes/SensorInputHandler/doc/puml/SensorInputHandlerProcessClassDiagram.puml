@@ -23,11 +23,11 @@ namespace fast::rf {
         namespace DepthCameraPipelineSubsystem {
             package SensorInputHandler #LightYellow;line:blue {
 
-                interface ISensorInputHandlerProcess #Yellow {
+                interface ISensorInputHandlerProcess #LimeGreen {
                     +{abstract} bool init()
                 }
                 ISensorInputHandlerProcess -up-|> IProcess
-                abstract BaseSensorInputHandlerProcess #Yellow {
+                abstract BaseSensorInputHandlerProcess #LimeGreen {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
@@ -39,11 +39,11 @@ namespace fast::rf {
                 }
                 BaseSensorInputHandlerProcess .up.|> ISensorInputHandlerProcess
                 BaseSensorInputHandlerProcess --> DiagnosticManager: <<use>>
-                class SensorInputHandlerProcessConfig #Yellow {
+                class SensorInputHandlerProcessConfig #LimeGreen {
                     +bool is_ok()
                     +string pretty()
                 }
-                class SensorInputHandlerProcess #Yellow {
+                class SensorInputHandlerProcess #Pink {
                     +bool init()
                     +bool set_config(SensorInputHandlerProcessConfig config)
                     +bool update(double current_time_sec)

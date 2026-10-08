@@ -14,9 +14,9 @@ namespace fast::rf {
   namespace PerceptionSystem {
     package DepthCameraPipelineSubsystem #LightYellow;line:blue {
         
-        namespace SensorInputHandler #Yellow {
-            interface ISensorInputHandlerProcess #Yellow
-            class SensorInputHandlerProcess #Yellow
+        namespace SensorInputHandler #Pink {
+            interface ISensorInputHandlerProcess #LimeGreen
+            class SensorInputHandlerProcess #Pink
             SensorInputHandlerProcess -up-|> ISensorInputHandlerProcess
         }
         namespace FeatureDetector {
