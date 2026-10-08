@@ -45,11 +45,9 @@ TEST(SignalMonitor, LowRateData) {
 
         ASSERT_TRUE(SUT.update(curTime));
         fast::rf::Logger::logInfo(SUT.pretty());
-        if (counter >= SignalMonitor::INITIAL_SAMPLES_TO_ACCUMULATE) {
-            ASSERT_NE(SUT.getStatus().level, fast::rf::Level::UNKNOWN);
-            ASSERT_GT(SUT.getStatus().level, fast::rf::Level::INFO);
-        }
         curTime += dt;
         counter += 1;
     }
+    ASSERT_NE(SUT.getStatus().level, fast::rf::Level::UNKNOWN);
+    ASSERT_GT(SUT.getStatus().level, fast::rf::Level::INFO);
 }

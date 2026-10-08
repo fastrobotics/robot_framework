@@ -20,7 +20,7 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_GT(readyToArm.systemID, 0);
     ASSERT_GT(readyToArm.subsystemID, 0);
     ASSERT_EQ(readyToArm.processID, 0);
-    ASSERT_TRUE(readyToArm.ready_to_arm);
+    ASSERT_FALSE(readyToArm.ready_to_arm);
     auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
 }

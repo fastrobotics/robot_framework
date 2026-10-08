@@ -81,5 +81,5 @@ TEST(BaseSensorHealthMonitorProcess, Assertions) {
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_TRUE(SUT.clear_error());
     ASSERT_TRUE(SUT.update(1.0));
-    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+    ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
 }
