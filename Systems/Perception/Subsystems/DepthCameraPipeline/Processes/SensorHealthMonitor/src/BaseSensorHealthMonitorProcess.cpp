@@ -11,10 +11,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
     }
     bool BaseSensorHealthMonitorProcess::update(double currentTimeSec) {
         m_currentTimeSec = currentTimeSec;
-        if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
-            m_readyToArm.ready_to_arm = true;
-        } else {
-            m_readyToArm.ready_to_arm = false;
+
+        bool signalsMonitoredOk = true;
+        if (m_signalMonitors.size() == 0) {
+            signalsMonitoredOk = false;
         }
         for (auto& signalMonitor : m_signalMonitors) {
             signalMonitor.second.update(currentTimeSec);
@@ -23,6 +23,16 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
                 m_diagnosticManager.updateDiagnostic(subSignal.second.diagnosticType, subSignal.second.level,
                                                      subSignal.second.diagnosticMessage, "Signal Health");
             }
+            if ((status.level >= fast::rf::Level::WARN) || (status.level == fast::rf::Level::UNKNOWN)) {
+                signalsMonitoredOk = false;
+            }
+        }
+        if (signalsMonitoredOk == false) {
+            m_readyToArm.ready_to_arm = false;
+        } else if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
+            m_readyToArm.ready_to_arm = true;
+        } else {
+            m_readyToArm.ready_to_arm = false;
         }
         return true;
     }

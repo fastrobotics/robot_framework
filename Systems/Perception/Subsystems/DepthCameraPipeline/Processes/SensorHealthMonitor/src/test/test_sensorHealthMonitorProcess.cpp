@@ -20,7 +20,7 @@ TEST(SensorHealthMonitorProcess, Tests) {
     for (auto diagnostic : diagnostics) {
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
-    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+
     fast::rf::Logger::logDebug(SUT.pretty());
 }
 TEST(SensorHealthMonitorProcess, ConversionTests) {
@@ -52,4 +52,5 @@ TEST(SensorHealthMonitorProcess, SignalHealth) {
         ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
         ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
     }
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }

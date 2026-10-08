@@ -13,6 +13,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
     }
     std::string DepthCameraPipelineSubsystem::pretty() {
         std::string str = "\n--- Depth Camera Pipeline Subsystem---\n";
+        str += "\tReady To Arm: " + std::to_string(m_readyToArm.ready_to_arm) + "\n";
         for (auto process : m_pipeline) {
             str += process.second->pretty();
         }
@@ -35,7 +36,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                 fast::rf::Logger::logWarn("Unable to update process: " + process.first);
                 return false;
             }
-            readyToArmFlag = process.second->get_ready_to_arm().ready_to_arm;
+            if (process.second->get_ready_to_arm().ready_to_arm == false) {
+                readyToArmFlag = false;
+            }
         }
         m_readyToArm.ready_to_arm = readyToArmFlag;
         return true;

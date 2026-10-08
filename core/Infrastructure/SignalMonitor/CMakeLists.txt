@@ -1,5 +1,5 @@
 add_library(signalMonitor STATIC SignalMonitor.cpp)
-
+target_link_libraries(signalMonitor logger)
 if(BUILD_TESTING)
   add_subdirectory(test)
 endif()

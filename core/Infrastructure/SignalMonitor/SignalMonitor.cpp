@@ -1,3 +1,4 @@
+#include <Infrastructure/Logger.hpp>
 #include <Infrastructure/SignalMonitor/SignalMonitor.hpp>
 #include <cmath>
 namespace fast::rf::core::infrastructure {
@@ -6,17 +7,21 @@ namespace fast::rf::core::infrastructure {
             m_startTime = timestamp;
         }
         m_rxCount++;
-
         return true;
     }
     bool SignalMonitor::update(double timestamp) {
+        printf("xxx1\n");
         if (m_startTime < 0.0) {
-            m_startTime = timestamp;
+            return true;
         }
+        printf("xxx2\n");
         if (m_rxCount >= INITIAL_SAMPLES_TO_ACCUMULATE) {
             double elapTime = timestamp - m_startTime;
             m_actualRateHz = (double)m_rxCount / elapTime;
+        } else {
+            return true;
         }
+        printf("xxx3\n");
         // Compute Timing Diagnostic
         double percentError = 100.0 + (m_actualRateHz - m_expectedRateHz) / (m_expectedRateHz) * 100.0;
         if (percentError > m_rateTolerancePerc) {
@@ -30,6 +35,7 @@ namespace fast::rf::core::infrastructure {
             m_status.subSignalStatus[fast::rf::DiagnosticDefinition::DiagnosticType::TIMING].level =
                 fast::rf::Level::WARN;
         }
+        printf("xxx4\n");
         // Compute Overall Health
         fast::rf::Level level = fast::rf::Level::NOERROR;
         for (auto subSignal : m_status.subSignalStatus) {
@@ -40,6 +46,7 @@ namespace fast::rf::core::infrastructure {
                 level = subSignal.second.level;
             }
         }
+        printf("xxx5\n");
         m_status.level = level;
         return true;
     }
