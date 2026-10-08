@@ -11,14 +11,17 @@ namespace fast::rf::core::infrastructure {
         return true;
     }
     bool SignalMonitor::update(double timestamp) {
-        fast::rf::Logger::logWarn("xxx1");
         if (m_startTime < 0.0) {
-            m_startTime = timestamp;
+            return true;
         }
+        fast::rf::Logger::logWarn("xxx2");
         if (m_rxCount >= INITIAL_SAMPLES_TO_ACCUMULATE) {
             double elapTime = timestamp - m_startTime;
             m_actualRateHz = (double)m_rxCount / elapTime;
+        } else {
+            return true;
         }
+        fast::rf::Logger::logWarn("xxx3");
         // Compute Timing Diagnostic
         double percentError = 100.0 + (m_actualRateHz - m_expectedRateHz) / (m_expectedRateHz) * 100.0;
         if (percentError > m_rateTolerancePerc) {
