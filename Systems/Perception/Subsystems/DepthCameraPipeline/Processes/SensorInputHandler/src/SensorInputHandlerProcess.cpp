@@ -7,7 +7,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
     fast::rf::messages::SensorMsgs::PointCloudMsg SensorInputHandlerProcess::newPointCloud(
         fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
         fast::rf::messages::SensorMsgs::PointCloudMsg convertedCloud;
-        convertedCloud = msg;
+        convertedCloud.time_stamp = msg.time_stamp;
+        // uint32_t totalPoints = msg.width * msg.height;
         return convertedCloud;
     }
     bool SensorInputHandlerProcess::init() {

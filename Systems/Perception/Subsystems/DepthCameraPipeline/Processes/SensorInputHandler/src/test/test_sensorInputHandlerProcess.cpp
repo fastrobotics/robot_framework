@@ -98,6 +98,7 @@ TEST(SensorInputHandlerProcess, ConvertSimpleUnorganizedPointCloud) {
         std::memcpy(&unorganizedPointCloud.data[offset + 12], &rgb_packed, sizeof(uint32_t));
     }
     auto convertedCloud = SUT.newPointCloud(unorganizedPointCloud);
+    ASSERT_FLOAT_EQ(convertedCloud.time_stamp, unorganizedPointCloud.time_stamp);
     ASSERT_EQ(convertedCloud.height, cloudDimension);
     ASSERT_EQ(convertedCloud.width, cloudDimension);
 
