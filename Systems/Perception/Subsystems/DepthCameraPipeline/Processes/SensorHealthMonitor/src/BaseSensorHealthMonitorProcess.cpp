@@ -27,6 +27,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
                 signalsMonitoredOk = false;
             }
         }
+        fast::rf::Logger::logWarn("xxx2: %d\n", std::to_string(signalsMonitoredOk));
         if (signalsMonitoredOk == false) {
             m_readyToArm.ready_to_arm = false;
         } else if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
