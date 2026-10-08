@@ -1,3 +1,4 @@
+#include <Infrastructure/Logger.hpp>
 #include <Infrastructure/SignalMonitor/SignalMonitor.hpp>
 #include <cmath>
 namespace fast::rf::core::infrastructure {
