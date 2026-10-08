@@ -10,6 +10,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
         return m_diagnosticManager.getDiagnostics();
     }
     bool BaseSensorHealthMonitorProcess::update(double currentTimeSec) {
+        fast::rf::Logger::logWarn("xxx1");
         m_currentTimeSec = currentTimeSec;
         if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
             m_readyToArm.ready_to_arm = true;

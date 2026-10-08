@@ -7,7 +7,7 @@ namespace fast::rf::core::infrastructure {
             m_startTime = timestamp;
         }
         m_rxCount++;
-        fast::rf::Logger::logInfo("Signal: " + m_signalName + " Rx: " + std::to_string(m_rxCount));
+        // fast::rf::Logger::logInfo("Signal: " + m_signalName + " Rx: " + std::to_string(m_rxCount));
         return true;
     }
     bool SignalMonitor::update(double timestamp) {
