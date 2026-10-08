@@ -11,6 +11,7 @@ namespace fast::rf::core::infrastructure {
         return true;
     }
     bool SignalMonitor::update(double timestamp) {
+        fast::rf::Logger::logWarn("xxx1");
         if (m_startTime < 0.0) {
             m_startTime = timestamp;
         }
