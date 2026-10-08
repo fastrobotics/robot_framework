@@ -23,13 +23,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
                 m_diagnosticManager.updateDiagnostic(subSignal.second.diagnosticType, subSignal.second.level,
                                                      subSignal.second.diagnosticMessage, "Signal Health");
             }
-            fast::rf::Logger::logWarn("xxx1: " + std::to_string((uint8_t)status.level));
             if ((status.level >= fast::rf::Level::WARN) || (status.level == fast::rf::Level::UNKNOWN)) {
-                fast::rf::Logger::logWarn("xxx2");
                 signalsMonitoredOk = false;
             }
         }
-        fast::rf::Logger::logWarn("xxx3: " + std::to_string(signalsMonitoredOk));
         if (signalsMonitoredOk == false) {
             m_readyToArm.ready_to_arm = false;
         } else if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
