@@ -26,7 +26,7 @@ namespace fast::rf::core::infrastructure {
                 : diagnosticType(diagnosticType) {}
             fast::rf::DiagnosticDefinition::DiagnosticType diagnosticType{
                 fast::rf::DiagnosticDefinition::DiagnosticType::UNKNOWN_TYPE};
-            fast::rf::Level level{fast::rf::Level::UNKNOWN};
+            fast::rf::Level level{fast::rf::Level::DEBUG};
 
             fast::rf::DiagnosticDefinition::DiagnosticMessage diagnosticMessage{
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::UNKNOWN};
