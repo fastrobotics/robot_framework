@@ -23,6 +23,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealth
                 m_diagnosticManager.updateDiagnostic(subSignal.second.diagnosticType, subSignal.second.level,
                                                      subSignal.second.diagnosticMessage, "Signal Health");
             }
+            fast::rf::Logger::logWarn("xxx1: " + std::to_string((uint8_t)status.level));
             if (status.level >= fast::rf::Level::WARN) {
                 signalsMonitoredOk = false;
             }
