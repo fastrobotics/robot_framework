@@ -11,6 +11,7 @@
 #pragma once
 
 #include <BaseSensorFuserProcess.hpp>
+#include <Combiner.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
 
@@ -73,5 +74,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
 
        private:
         BasicSensorFuserProcessConfig m_config;
+        Combiner m_combiner;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

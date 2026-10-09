@@ -22,24 +22,25 @@ namespace fast::rf {
     namespace PerceptionSystem {
         namespace DepthCameraPipelineSubsystem {
             package SensorFuser #LightYellow;line:blue {
-                class Combiner #Yellow {
+                class Combiner #Pink {
                     +bool init()
                     +bool newPointCloud(PointCloudMsg msg,uint8 sensorIndex)
                     +PointCloudMsg getCombinedPointCloud()
+                    +bool isCombinedPointCloudAvailable()
                 }
-                class OverlapRemover #Yellow {
+                class OverlapRemover #Orange {
                     +bool init()
                     +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer #Yellow {
+                class NoiseReducer #Orange {
                     +bool init()
                     +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
                 }
-                interface ISensorFuserProcess #Yellow  {
+                interface ISensorFuserProcess #Orange  {
                     +{abstract} bool init()
                 }
                 ISensorFuserProcess -up-|> IProcess
-                abstract BaseSensorFuserProcess #Yellow {
+                abstract BaseSensorFuserProcess #Orange {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
@@ -51,11 +52,11 @@ namespace fast::rf {
                 }
                 BaseSensorFuserProcess .up.|> ISensorFuserProcess
                 BaseSensorFuserProcess --> DiagnosticManager: <<use>>
-                class BasicSensorFuserProcessConfig #Yellow {
+                class BasicSensorFuserProcessConfig #Orange {
                     +bool is_ok()
                     +string pretty()
                 }
-                class BasicSensorFuserProcess #Yellow {
+                class BasicSensorFuserProcess #Orange {
                     +bool init()
                     +bool set_config(BasicSensorFuserProcessConfig config)
                     +bool update(double current_time_sec)

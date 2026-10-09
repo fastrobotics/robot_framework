@@ -29,3 +29,10 @@ TEST(BasicSensorFuserProcess, BasicConversionTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
 }
+TEST(BasicSensorFuserProcess, BasicOperations) {
+    BasicSensorFuserProcess SUT;
+    ASSERT_TRUE(SUT.init());
+    fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud;
+    sensorCloud.time_stamp = 1.234;
+    ASSERT_TRUE(SUT.newPointCloud(sensorCloud, 0));
+}
