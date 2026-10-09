@@ -94,6 +94,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          * @return std::string
          */
         std::string pretty() override = 0;
+        /**
+         * @brief Get the Current Time Sec object
+         *
+         * @return double
+         */
         double getCurrentTimeSec() { return m_currentTimeSec; }
 
         fast::rf::core::infrastructure::DiagnosticManager getDiagnosticManager() { return m_diagnosticManager; }
@@ -104,6 +109,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         uint8_t m_subSystemId{0};
         uint8_t m_processId{0};
         double m_currentTimeSec{-1.0};  //!< Current system time
+        double m_runTimeSec{-1.0};      //!< Current runtime
         fast::rf::core::infrastructure::DiagnosticManager
             m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object

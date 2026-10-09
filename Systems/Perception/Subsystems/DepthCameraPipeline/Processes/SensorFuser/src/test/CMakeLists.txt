@@ -6,6 +6,13 @@ target_link_libraries(test_depthCameraSensorCombiner GTest::gtest_main
 
 gtest_discover_tests(test_depthCameraSensorCombiner)
 
+add_executable(test_depthCameraSensorOverlapRemover
+               test_depthCameraSensorOverlapRemover.cpp)
+target_link_libraries(test_depthCameraSensorOverlapRemover GTest::gtest_main
+                      DepthCameraPipelineSubsystem::overlapRemover)
+
+gtest_discover_tests(test_depthCameraSensorOverlapRemover)
+
 add_executable(test_process_SensorFuser test_process_SensorFuser.cpp)
 target_link_libraries(
   test_process_SensorFuser GTest::gtest_main infrastructure_msgs

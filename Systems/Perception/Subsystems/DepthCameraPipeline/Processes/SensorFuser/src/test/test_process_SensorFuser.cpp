@@ -50,6 +50,7 @@ class TestBaseSensorFuserProcess : public BaseSensorFuserProcess {
         return status;
     }
     bool update(double current_time_sec) override { return BaseSensorFuserProcess::update(current_time_sec); }
+    double getRunTimeSec() { return m_runTimeSec; }
     std::string pretty() {
         std::string str = "---Test-Base---\n";
         str += BaseSensorFuserProcess::pretty();
@@ -70,11 +71,15 @@ TEST(BaseSensorFuserProcess, BasicAssertions) {
     TestBaseSensorFuserProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.getDiagnostics().size(), 0);
-    ASSERT_TRUE(SUT.update(0.0));
+    ASSERT_LT(SUT.getRunTimeSec(), 0.0);
+    ASSERT_TRUE(SUT.update(17.0));
+    ASSERT_FLOAT_EQ(SUT.getRunTimeSec(), 0.0);
     ASSERT_TRUE(SUT.inject_error());
-    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.update(18.0));
+    ASSERT_FLOAT_EQ(SUT.getRunTimeSec(), 1.0);
     ASSERT_FALSE(SUT.get_ready_to_arm().ready_to_arm);
     ASSERT_TRUE(SUT.clear_error());
-    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.update(19.0));
+    ASSERT_FLOAT_EQ(SUT.getRunTimeSec(), 2.0);
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
 }
