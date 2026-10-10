@@ -22,27 +22,30 @@ namespace fast::rf {
     namespace PerceptionSystem {
         namespace DepthCameraPipelineSubsystem {
             package SensorFuser #LightYellow;line:blue {
-                class Combiner #Yellow {
+                class Combiner #Pink {
                     +bool init()
                     +bool newPointCloud(PointCloudMsg msg,uint8 sensorIndex)
                     +PointCloudMsg getCombinedPointCloud()
+                    +bool isCombinedPointCloudAvailable()
                 }
-                class OverlapRemover #Yellow {
+                class OverlapRemover #Pink {
                     +bool init()
                     +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer #Yellow {
+                class NoiseReducer #LimeGreen {
                     +bool init()
                     +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
                 }
-                interface ISensorFuserProcess #Yellow  {
+                interface ISensorFuserProcess #Orange  {
                     +{abstract} bool init()
+                    +{abstract} PointCloudMsg getFusedPointCloud()
                 }
                 ISensorFuserProcess -up-|> IProcess
-                abstract BaseSensorFuserProcess #Yellow {
+                abstract BaseSensorFuserProcess #Orange {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
+                    +PointCloudMsg getFusedPointCloud()
                     #bool update(double current_time_sec)
                     #string pretty()
                     #DiagnosticManager m_diagnosticManager
@@ -51,13 +54,15 @@ namespace fast::rf {
                 }
                 BaseSensorFuserProcess .up.|> ISensorFuserProcess
                 BaseSensorFuserProcess --> DiagnosticManager: <<use>>
-                class BasicSensorFuserProcessConfig #Yellow {
+                class BasicSensorFuserProcessConfig #Orange {
                     +bool is_ok()
                     +string pretty()
+                    +double m_settleTimeSec
                 }
-                class BasicSensorFuserProcess #Yellow {
+                class BasicSensorFuserProcess #Orange {
                     +bool init()
-                    +bool set_config(BasicSensorFuserProcessConfig config)
+                    +bool setConfig(BasicSensorFuserProcessConfig config)
+                    +BasicSensorFuserProcessConfig getConfig()
                     +bool update(double current_time_sec)
                     +string pretty()
                     +bool newPointCloud(PointCloudMsg data, uint8 sensorIndex)
@@ -65,6 +70,7 @@ namespace fast::rf {
                     -Combiner m_combiner
                     -OverlapRemover m_overlapRemover
                     -NoiseReducer m_noiseReducer
+                    -uint64 sensorFusionCyclesCount
                 }
                 BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
                 BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>

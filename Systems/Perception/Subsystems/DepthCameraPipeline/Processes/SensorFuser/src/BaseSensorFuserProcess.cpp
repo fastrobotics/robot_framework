@@ -9,6 +9,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         return m_diagnosticManager.getDiagnostics();
     }
     bool BaseSensorFuserProcess::update(double currentTimeSec) {
+        if (m_runTimeSec < 0.0) {
+            m_runTimeSec = 0.0;
+        } else {
+            double prevTime = m_currentTimeSec;
+            m_runTimeSec += (currentTimeSec - prevTime);
+        }
         m_currentTimeSec = currentTimeSec;
         if (m_diagnosticManager.getDiagnostics(fast::rf::Level::ERROR).size() == 0) {
             m_readyToArm.ready_to_arm = true;
@@ -34,6 +40,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                "\n";
         str += "\tT: " + std::to_string(m_currentTimeSec) + "\n";
         str += "\tReady To Arm: " + std::to_string(m_readyToArm.ready_to_arm) + "\n";
+        str += "\tRun Time: " + std::to_string(m_runTimeSec) + "\n";
         str += m_diagnosticManager.pretty();
 
         return str;

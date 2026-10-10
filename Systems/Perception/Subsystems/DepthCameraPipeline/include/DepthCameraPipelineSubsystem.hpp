@@ -9,6 +9,7 @@
  *
  */
 #pragma once
+#include <BasicSensorFuserProcess/BasicSensorFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
 #include <PointCloudMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
@@ -28,9 +29,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
                                                                SensorInputHandler::SensorInputHandlerProcess>()),
               m_sensorHealthMonitorProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
-                                                                SensorHealthMonitor::SensorHealthMonitorProcess>()) {
+                                                                SensorHealthMonitor::SensorHealthMonitorProcess>()),
+              m_sensorFuserProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
+                                                        SensorFuser::BasicSensorFuserProcess>()) {
             m_pipeline["input_handler"] = m_sensorInputHandlerProcess;
             m_pipeline["health_monitor"] = m_sensorHealthMonitorProcess;
+            m_pipeline["sensor_fuser"] = m_sensorFuserProcess;
             m_readyToArm.systemID = fast::rf::PerceptionSystem::SYSTEM_ID;
             m_readyToArm.subsystemID = fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SUBSYSTEM_ID;
             m_readyToArm.processID = 0;  // Entire Subsystem
@@ -66,6 +70,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
          * @return false
          */
         bool newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg, std::string sensorName);
+
+        fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud();
         /**
          * @brief Human readable output of the subsystem
          *
@@ -100,7 +106,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         std::shared_ptr<
             fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor::SensorHealthMonitorProcess>
             m_sensorHealthMonitorProcess;
-
+        std::shared_ptr<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BasicSensorFuserProcess>
+            m_sensorFuserProcess;
         std::unordered_map<std::string, std::shared_ptr<fast::rf::IProcess>> m_pipeline;
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;
     };

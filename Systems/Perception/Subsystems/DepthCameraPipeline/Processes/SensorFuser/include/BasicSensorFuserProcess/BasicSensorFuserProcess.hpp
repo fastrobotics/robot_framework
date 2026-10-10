@@ -11,23 +11,40 @@
 #pragma once
 
 #include <BaseSensorFuserProcess.hpp>
+#include <Combiner.hpp>
+#include <NoiseReducer.hpp>
+#include <OverlapRemover.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
 
+    /**
+     * @brief Configuration for the Basic Sensor Fuser
+     *
+     */
     class BasicSensorFuserProcessConfig {
        public:
+        /**
+         * @brief Check if the config is ok
+         *
+         * @return true
+         * @return false
+         */
         bool isOk() {
-            // Add checks here
-            return false;
+            if (m_settleTimeSec <= 0.0) {
+                return false;
+            }
+            return true;
         }
+        /**
+         * @brief Human readable string
+         *
+         * @return std::string
+         */
         std::string pretty() {
-            std::string str = "";
-            // Add string generation here
+            std::string str = "Settle Time: " + std::to_string(m_settleTimeSec) + "\n";
             return str;
         }
-
-       private:
-        // Add attributes here
+        double m_settleTimeSec{5.0};  // How long to let the Process settle for before trusting any outputs
     };
     /**
      * @brief Minimal Implementation for a SensorFuser Process
@@ -53,6 +70,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             m_config = config;
             return true;
         }
+        BasicSensorFuserProcessConfig getConfig() { return m_config; }
         /**
          * @brief Update with recent timing data
          *
@@ -68,10 +86,21 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          * @return std::string
          */
         std::string pretty() override;
-
+        /**
+         * @brief Process a new Point Cloud
+         *
+         * @param msg
+         * @param sensorIndex
+         * @return true
+         * @return false
+         */
         bool newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg, uint8_t sensorIndex);
 
        private:
         BasicSensorFuserProcessConfig m_config;
+        Combiner m_combiner;
+        OverlapRemover m_overlapRemover;
+        NoiseReducer m_noiseReducer;
+        uint64_t sensorFusionCyclesCount{0};
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

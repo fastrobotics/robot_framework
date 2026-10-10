@@ -1,9 +1,12 @@
 add_library(depthCameraPipelineSubsystem STATIC
             DepthCameraPipelineSubsystem.cpp)
 target_link_libraries(
-  depthCameraPipelineSubsystem infrastructure_msgs sensor_msgs
+  depthCameraPipelineSubsystem
+  infrastructure_msgs
+  sensor_msgs
   DepthCameraPipelineSubsystem::sensorHealthMonitorProcess
-  DepthCameraPipeline::sensorInputHandlerProcess)
+  DepthCameraPipeline::sensorInputHandlerProcess
+  DepthCameraPipelineSubsystem::basic_SensorFuserProcess)
 target_include_directories(depthCameraPipelineSubsystem
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 

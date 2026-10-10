@@ -29,3 +29,25 @@ TEST(BasicSensorFuserProcess, BasicConversionTests) {
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
 }
+TEST(BasicSensorFuserProcess, BasicOperations) {
+    BasicSensorFuserProcess SUT;
+    ASSERT_TRUE(SUT.init());
+
+    double runTime = SUT.getConfig().m_settleTimeSec * 2.0;
+    double currentTime = 0.0;
+    double dt = 0.1;
+    while (currentTime <= runTime) {
+        fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud;
+        sensorCloud.time_stamp = 1.234;
+        ASSERT_TRUE(SUT.newPointCloud(sensorCloud, 0));
+        ASSERT_TRUE(SUT.update(currentTime));
+        fast::rf::Logger::logDebug(SUT.pretty());
+        currentTime += dt;
+    }
+    auto diagnostics = SUT.getDiagnostics();
+    for (auto diagnostic : diagnostics) {
+        ASSERT_NE(diagnostic.diagnosticMessage, fast::rf::DiagnosticDefinition::DiagnosticMessage::INITIALIZING);
+        ASSERT_LT(diagnostic.level, fast::rf::Level::WARN);
+    }
+    ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
+}
