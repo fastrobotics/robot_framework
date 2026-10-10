@@ -90,7 +90,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
 
                 std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
                 double percentRemoved = 100.0 * (double)filteredOutCount / ((double)pclCloud->size());
-                fast::rf::Logger::logWarn("Filtered Out: " + std::to_string(filteredOutCount) +
+                fast::rf::Logger::logWarn("Start Size: " + std::to_string(pclCloud->size()) +
+                                          " Filtered Out: " + std::to_string(filteredOutCount) +
                                           " Perc: " + std::to_string(percentRemoved));
             } catch (const std::exception& e) {
                 fast::rf::Logger::logError("PCL Filter threw an exception: " + std::string(e.what()));
