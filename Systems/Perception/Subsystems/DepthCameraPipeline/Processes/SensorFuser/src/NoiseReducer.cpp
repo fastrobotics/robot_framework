@@ -16,7 +16,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         auto t_start = std::chrono::high_resolution_clock::now();
 
         fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
-        bool noiseFilterEnable = true;
+        bool noiseFilterEnable = false;
 
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
 
