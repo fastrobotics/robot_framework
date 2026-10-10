@@ -1,4 +1,5 @@
 find_package(PCL 1.14 REQUIRED COMPONENTS common filters io visualization)
+find_package(OpenMP REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 

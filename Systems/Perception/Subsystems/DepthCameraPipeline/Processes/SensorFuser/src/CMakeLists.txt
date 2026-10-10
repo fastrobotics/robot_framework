@@ -13,7 +13,7 @@ add_library(DepthCameraPipelineSubsystem::overlapRemover ALIAS overlapRemover)
 
 add_library(noiseReducer STATIC NoiseReducer.cpp)
 target_link_libraries(noiseReducer logger infrastructure_msgs sensor_msgs
-                      pointCloudTools)
+                      pointCloudTools OpenMP::OpenMP_CXX)
 target_include_directories(noiseReducer
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::noiseReducer ALIAS noiseReducer)

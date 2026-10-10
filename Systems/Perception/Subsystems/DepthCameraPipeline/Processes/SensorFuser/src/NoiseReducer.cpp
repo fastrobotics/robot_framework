@@ -1,12 +1,13 @@
 #include <pcl/filters/radius_outlier_removal.h>
 #include <pcl/filters/voxel_grid.h>
+#include <pcl/search/kdtree.h>
 
 #include <Infrastructure/Logger.hpp>
 #include <NoiseReducer.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     bool NoiseReducer::init() { return true; }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
-        fast::rf::messages::SensorMsgs::PointCloudMsg overlapRemovedPointCloud) {
+        const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
         fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
         bool noiseFilterEnable = true;
 
@@ -49,12 +50,18 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             try {
                 pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
-                ror.setInputCloud(downsampledCloud);  // Pass the DOWNSAMPLED cloud!
+                ror.setInputCloud(downsampledCloud);
 
-                // TIGHTEN THE BOUNDS: A 5cm radius (0.05) with fewer neighbors
-                // means smaller local spatial trees for the CPU to compute.
-                ror.setRadiusSearch(0.05);
-                ror.setMinNeighborsInRadius(6);  // Tuned for 2cm voxels
+                // 1. Create a fast, explicitly defined spatial lookup tree
+                pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>);
+
+                // 2. Tell the filter to use this specific search method
+                ror.setSearchMethod(tree);
+
+                // 3. Keep the search window small so the tree resolves queries fast
+                ror.setRadiusSearch(0.04);       // 4cm radius
+                ror.setMinNeighborsInRadius(4);  // Lowered to match the smaller radius
+
                 ror.filter(*pclCloudFiltered);
 
                 std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();

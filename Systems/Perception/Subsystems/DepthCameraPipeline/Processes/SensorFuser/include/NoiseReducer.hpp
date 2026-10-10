@@ -26,7 +26,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          */
         bool init();
         fast::rf::messages::SensorMsgs::PointCloudMsg reduceNoise(
-            fast::rf::messages::SensorMsgs::PointCloudMsg overlapRemovedPointCloud);
+            const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud);
 
        private:
     };
