@@ -5,6 +5,7 @@
 #include <Infrastructure/Logger.hpp>
 #include <NoiseReducer.hpp>
 #include <chrono>
+#include <pcl/search/impl/kdtree.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     bool NoiseReducer::init() { return true; }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
@@ -73,11 +74,14 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
                 ror.setInputCloud(downsampledCloud);
 
-                pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>);
+                // FIX 1: Change to KdTreeFLANN for proper multi-threaded backend routing
+                typename pcl::search::KdTreeFLANN<pcl::PointXYZRGB>::Ptr tree(
+                    new pcl::search::KdTreeFLANN<pcl::PointXYZRGB>);
                 ror.setSearchMethod(tree);
 
-                ror.setRadiusSearch(0.04);       // 4cm radius
-                ror.setMinNeighborsInRadius(4);  // Lowered to match the smaller radius
+                // FIX 2: Tighten geometric limits relative to your 2cm (0.02f) voxels
+                ror.setRadiusSearch(0.025);      // 2.5cm search radius window
+                ror.setMinNeighborsInRadius(2);  // Require at least 2 adjacent neighbors
 
                 ror.filter(*pclCloudFiltered);
 
