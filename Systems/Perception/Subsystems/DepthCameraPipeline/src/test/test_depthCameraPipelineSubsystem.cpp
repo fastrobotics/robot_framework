@@ -11,8 +11,8 @@ using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem;
 fast::rf::messages::SensorMsgs::PointCloudMsg createTestRgbdMessage(uint32_t num_points) {
     fast::rf::messages::SensorMsgs::PointCloudMsg msg;
     msg.time_stamp = 123456789.012;
-    msg.height = 1;
-    msg.width = num_points;
+    msg.height = 2;
+    msg.width = num_points / msg.height;
     msg.is_bigendian = false;
     msg.point_step = sizeof(pcl::PointXYZRGB);  // 32 bytes due to Eigen alignments
     msg.row_step = msg.point_step * msg.width;
@@ -52,6 +52,8 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_TRUE(SUT.addSignalToMonitor(signalName, "sensor_msgs/msg/PointCloud2", 20.0, 50.0));
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
     ASSERT_TRUE(SUT.update(0.0));
+    const auto fusedPointCloud = SUT.getFusedPointCloud();
+    ASSERT_DOUBLE_EQ(fusedPointCloud.time_stamp, pointCloud.time_stamp);
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);
     ASSERT_GT(readyToArm.subsystemID, 0);
