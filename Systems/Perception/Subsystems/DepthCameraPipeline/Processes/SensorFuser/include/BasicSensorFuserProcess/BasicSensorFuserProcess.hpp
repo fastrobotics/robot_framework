@@ -12,6 +12,7 @@
 
 #include <BaseSensorFuserProcess.hpp>
 #include <Combiner.hpp>
+#include <NoiseReducer.hpp>
 #include <OverlapRemover.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
@@ -99,6 +100,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         BasicSensorFuserProcessConfig m_config;
         Combiner m_combiner;
         OverlapRemover m_overlapRemover;
+        NoiseReducer m_noiseReducer;
         uint64_t sensorFusionCyclesCount{0};
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

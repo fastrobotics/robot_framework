@@ -1,7 +1,19 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 project(robot_framework)
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  message(
+    STATUS
+      "No build type specified. Defaulting to RelWithDebInfo (Optimized with Debug Symbols)"
+  )
+  set(CMAKE_BUILD_TYPE
+      "RelWithDebInfo"
+      CACHE STRING "Choose the type of build." FORCE)
 
+  # Optional: Provide dropdown options for IDEs like VS Code / CLion
+  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release"
+                                               "MinSizeRel" "RelWithDebInfo")
+endif()
 if(EXISTS "/etc/nv_tegra_release")
   if(EXISTS "/proc/device-tree/model")
     file(READ "/proc/device-tree/model" DEVICE_MODEL)

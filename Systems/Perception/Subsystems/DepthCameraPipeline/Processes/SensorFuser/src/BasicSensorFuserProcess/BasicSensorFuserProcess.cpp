@@ -34,6 +34,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             fast::rf::Logger::logError("Unable to initialize Overlap Remover.");
             return false;
         }
+        if (m_noiseReducer.init() == false) {
+            fast::rf::Logger::logError("Unable to initialize Noise Reducer.");
+            return false;
+        }
         return true;
     }
     bool BasicSensorFuserProcess::update(double currentTimeSec) {
@@ -44,6 +48,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         if (m_combiner.isCombinedPointCloudAvailable() == true) {
             auto combinedPointCloud = m_combiner.getCombinedPointCloud();
             auto overlapRemovedPointCloud = m_overlapRemover.removeOverlap(combinedPointCloud);
+            m_fusedPointCloud = m_noiseReducer.reduceNoise(overlapRemovedPointCloud);
             sensorFusionCyclesCount++;
         }
         if (m_runTimeSec > m_config.m_settleTimeSec) {

@@ -29,7 +29,7 @@ namespace fast::rf {
             class BasicFOVExtractorProcess
             BasicFOVExtractorProcess -up-|> IFOVExtractorProcess
         }
-        namespace SensorFuser #Yellow {
+        namespace SensorFuser #Orange {
             interface ISensorFuserProcess
             class SensorFuserProcess
             SensorFuserProcess -up-|> ISensorFuserProcess

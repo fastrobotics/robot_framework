@@ -23,6 +23,10 @@ class TestSensorFuserProcessInterface : public ISensorFuserProcess {
                           [[maybe_unused]] std::string description) override {
         return false;
     }
+    fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override {
+        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
+        return cloud;
+    }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -50,6 +54,10 @@ class TestBaseSensorFuserProcess : public BaseSensorFuserProcess {
         return status;
     }
     bool update(double current_time_sec) override { return BaseSensorFuserProcess::update(current_time_sec); }
+    fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override {
+        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
+        return cloud;
+    }
     double getRunTimeSec() { return m_runTimeSec; }
     std::string pretty() {
         std::string str = "---Test-Base---\n";

@@ -47,6 +47,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
 
+        fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override { return m_fusedPointCloud; }
+
        protected:
         /**
          * @brief Initialize the base object.  Called by Concrete Function.
@@ -113,5 +115,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         fast::rf::core::infrastructure::DiagnosticManager
             m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object
+        fast::rf::messages::SensorMsgs::PointCloudMsg m_fusedPointCloud;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

@@ -32,18 +32,20 @@ namespace fast::rf {
                     +bool init()
                     +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer #Orange {
+                class NoiseReducer #LimeGreen {
                     +bool init()
                     +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
                 }
                 interface ISensorFuserProcess #Orange  {
                     +{abstract} bool init()
+                    +{abstract} PointCloudMsg getFusedPointCloud()
                 }
                 ISensorFuserProcess -up-|> IProcess
                 abstract BaseSensorFuserProcess #Orange {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
+                    +PointCloudMsg getFusedPointCloud()
                     #bool update(double current_time_sec)
                     #string pretty()
                     #DiagnosticManager m_diagnosticManager
