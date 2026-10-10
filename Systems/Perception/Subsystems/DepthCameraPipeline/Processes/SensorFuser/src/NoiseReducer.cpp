@@ -30,7 +30,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloudFiltered(new pcl::PointCloud<pcl::PointXYZRGB>);
             sor.filter(*pclCloudFiltered);
             std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
-            fast::rf::Logger::logWarn("Filtered Out: %ld\n", (uint64_t)filteredOutCount);
+            double percentRemoved = 100.0 * (double)filteredOutCount / ((double)pclCloud->size());
+            fast::rf::Logger::logWarn("Filtered Out: " + std::to_string(filteredOutCount) +
+                                      " Perc: " + std::to_string(percentRemoved));
 
             convertFromPCL<pcl::PointXYZRGB>(pclCloudFiltered, noiseRemovedPointCloud);
         } else {
