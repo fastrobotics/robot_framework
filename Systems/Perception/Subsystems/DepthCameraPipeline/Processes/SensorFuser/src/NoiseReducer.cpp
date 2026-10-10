@@ -59,7 +59,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr downsampledCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
             pcl::VoxelGrid<pcl::PointXYZRGB> vg;
             vg.setInputCloud(cleanCloud);
-            double voxelSize = 0.02f;
+
+            // INCREASE LEAF SIZE: Moving from 2cm to 3.5cm cuts the point count
+            // quadratically, which drops filtering time exponentially.
+            double voxelSize = 0.035f;
             vg.setLeafSize(voxelSize, voxelSize, voxelSize);
             vg.filter(*downsampledCloud);
             auto t_voxel_end = std::chrono::high_resolution_clock::now();
@@ -76,13 +79,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
                 ror.setInputCloud(downsampledCloud);
 
-                // 1. Correct Search Object that implements the proper PCL interface
-                pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>);
-                ror.setSearchMethod(tree);
+                // REMOVED: ror.setSearchMethod(tree) has been deleted.
+                // This lets PCL manage its internal internal index layout automatically.
 
-                // 2. CRITICAL PERFORMANCE FIX: Tighten geometric bounds relative to 2cm voxels
-                ror.setRadiusSearch(0.025);      // Shrunk from 0.04 to 0.025
-                ror.setMinNeighborsInRadius(2);  // Require at least 2 neighbors
+                // Geometric alignment parameters for 3.5cm voxels
+                ror.setRadiusSearch(0.05);       // 5cm search window
+                ror.setMinNeighborsInRadius(2);  // Clear floating artifacts safely
 
                 ror.filter(*pclCloudFiltered);
 
