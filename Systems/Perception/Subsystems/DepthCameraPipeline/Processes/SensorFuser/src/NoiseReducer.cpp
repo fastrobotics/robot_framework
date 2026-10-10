@@ -39,7 +39,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             vg.setInputCloud(cleanCloud);
             // Leaf size = voxel size in meters.
             // 0.02f = 2cm cubes. Increase to 0.03f or 0.04f if your laptop still struggles.
-            double voxelSize = 0.035f;
+            double voxelSize = 0.02f;
             vg.setLeafSize(voxelSize, voxelSize, voxelSize);
             vg.filter(*downsampledCloud);
 
