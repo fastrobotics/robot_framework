@@ -17,15 +17,34 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 return overlapRemovedPointCloud;
             }
 
-            pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
-            ror.setInputCloud(pclCloud);
-            ror.setRadiusSearch(0.03);        // 3cm search radius
-            ror.setMinNeighborsInRadius(15);  // Reject points with fewer than 15 neighbors
-            ror.filter(*pclCloudFiltered);
-            std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
-            double percentRemoved = 100.0 * (double)filteredOutCount / ((double)pclCloud->size());
-            fast::rf::Logger::logWarn("Filtered Out: " + std::to_string(filteredOutCount) +
-                                      " Perc: " + std::to_string(percentRemoved));
+            // ==========================================================
+            pcl::PointCloud<pcl::PointXYZRGB>::Ptr cleanCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
+            std::vector<int> nan_indices;
+            pcl::removeNaNFromPointCloud(*pclCloud, *cleanCloud, nan_indices);
+
+            if (cleanCloud->empty()) {
+                fast::rf::Logger::logWarn("Cloud only contained NaNs. Skipping filter.");
+                return overlapRemovedPointCloud;
+            }
+
+            // ==========================================================
+            // FIX 2: Wrap the filter in a try-catch to isolate PCL exceptions
+            // ==========================================================
+            try {
+                pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
+                ror.setInputCloud(cleanCloud);  // Use the NaN-free cloud
+                ror.setRadiusSearch(0.03);
+                ror.setMinNeighborsInRadius(15);
+                ror.filter(*pclCloudFiltered);
+
+                std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
+                double percentRemoved = 100.0 * (double)filteredOutCount / ((double)pclCloud->size());
+                fast::rf::Logger::logWarn("Filtered Out: " + std::to_string(filteredOutCount) +
+                                          " Perc: " + std::to_string(percentRemoved));
+            } catch (const std::exception& e) {
+                fast::rf::Logger::logError("PCL Filter threw an exception: " + std::string(e.what()));
+                pclCloudFiltered = pclCloud;  // Fallback to raw cloud on failure instead of crashing
+            }
         } else {
             pclCloudFiltered = pclCloud;
         }
