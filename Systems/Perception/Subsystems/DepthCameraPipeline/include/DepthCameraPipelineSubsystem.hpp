@@ -29,7 +29,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
                                                                SensorInputHandler::SensorInputHandlerProcess>()),
               m_sensorHealthMonitorProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
-                                                                SensorHealthMonitor::SensorHealthMonitorProcess>()) {
+                                                                SensorHealthMonitor::SensorHealthMonitorProcess>()),
+              m_sensorFuserProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
+                                                        SensorFuser::BasicSensorFuserProcess>()) {
             m_pipeline["input_handler"] = m_sensorInputHandlerProcess;
             m_pipeline["health_monitor"] = m_sensorHealthMonitorProcess;
             m_pipeline["sensor_fuser"] = m_sensorFuserProcess;

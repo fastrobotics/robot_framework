@@ -9,6 +9,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             fast::rf::Logger::logError("Unable to initialize Sensor Input Handler!");
             return false;
         }
+        if (m_sensorFuserProcess->init() == false) {
+            fast::rf::Logger::logError("Unable to initialize Sensor Fuser!");
+            return false;
+        }
         return true;
     }
     std::string DepthCameraPipelineSubsystem::pretty() {
