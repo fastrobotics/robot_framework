@@ -7,7 +7,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         fast::rf::messages::SensorMsgs::PointCloudMsg overlapRemovedPointCloud) {
         fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
-        bool noiseFilterEnable = true;
+        bool noiseFilterEnable = false;
 
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloud;
         convertToPCL<pcl::PointXYZRGB>(overlapRemovedPointCloud, pclCloud);
