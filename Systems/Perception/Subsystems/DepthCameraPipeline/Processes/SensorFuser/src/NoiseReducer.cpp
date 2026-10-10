@@ -7,6 +7,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         fast::rf::messages::SensorMsgs::PointCloudMsg overlapRemovedPointCloud) {
         fast::rf::messages::SensorMsgs::PointCloudMsg cloudMsg = overlapRemovedPointCloud;
+        fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
         bool noiseFilterEnable = false;
         if (noiseFilterEnable == true) {
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloud;
@@ -28,7 +29,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // 4. Apply the filter
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloudFiltered(new pcl::PointCloud<pcl::PointXYZRGB>);
             sor.filter(*pclCloudFiltered);
-            fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
+
             convertFromPCL<pcl::PointXYZRGB>(pclCloudFiltered, noiseRemovedPointCloud);
         } else {
             noiseRemovedPointCloud = cloudMsg;

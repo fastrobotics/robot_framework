@@ -28,6 +28,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         auto convertedCloud = m_sensorInputHandlerProcess.get()->newPointCloud(msg);
         return true;
     }
+    fast::rf::messages::SensorMsgs::PointCloudMsg DepthCameraPipelineSubsystem::getFusedPointCloud() {
+        return m_sensorFuserProcess->getFusedPointCloud();
+    }
+
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
         bool readyToArmFlag = true;
         for (auto& process : m_pipeline) {
