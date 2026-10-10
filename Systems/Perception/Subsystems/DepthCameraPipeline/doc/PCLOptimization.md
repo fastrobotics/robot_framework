@@ -14,18 +14,23 @@
    * `PointCloudMsg` now owns a `pcl::PointCloud<pcl::PointXYZRGB>::Ptr` alongside its timestamp. PCL `width`, `height`, and density remain on the cloud itself.
    * The noise reducer now filters that cloud directly; the intermediate byte-blob-to-PCL and PCL-to-byte-blob conversions have been removed. Message copies share the cloud pointer rather than copying the point buffer.
 
-2. **RGB Color Loss Resolution:**
+2. **Parallel Radius Filtering:**
+   * Radius-neighbor checks now run across OpenMP workers, searching only the nearest `MinNeighbors + 1` points needed to decide the existing radius/minimum-neighbor condition.
+   * The benchmark now generates a deterministic organized 640x480 depth-camera-like cloud with invalid samples, rather than a uniformly random sparse volume.
+   * `BenchmarkFilterPerformance` enforces a 500ms average frame-time ceiling and reports 100ms as the ideal target. On the current build/host, a sample run averaged 61ms over 20 measured frames.
+
+3. **RGB Color Loss Resolution:**
    * Ensured the filter pipeline explicitly templates across `<pcl::PointXYZRGB>` throughout the entire stack, successfully keeping valid color fields.
 
-3. **Stability Fixes (Crash Prevention):**
+4. **Stability Fixes (Crash Prevention):**
    * The `PointCloudMsg` constructor allocates its PCL cloud, and the noise reducer checks for a null cloud before filtering.
    * Added `pcl::removeNaNFromPointCloud` to prevent spatial `KdTree` abort crashes (`exit code -6 / SIGABRT`) caused by invalid camera depth points.
    * Wrapped the execution blocks inside standard `try {} catch(...)` patterns to insulate the node against internal library faults.
 
-4. **Memory Optimization:**
+5. **Memory Optimization:**
    * Shifted the main processing entry point signature to pass variables by constant reference (`const &`) to stop expensive heap-copy-by-value behaviors on incoming sensor messages.
 
-5. **Algorithmic Tuning (The 1500ms ➡️ 110ms Drop):**
+6. **Algorithmic Tuning (The 1500ms ➡️ 110ms Drop):**
    * Added an upfront `pcl::VoxelGrid` step to drastically shrink core calculations.
    * **Crucial Fix:** Removed the manual `ror.setSearchMethod(tree);` override. Passing an explicit `pcl::search::KdTree` was forcing a costly \(O(N^2)\) structural rebuild every query step. Removing it allowed PCL to fall back to its internal, optimized caching mechanisms.
 

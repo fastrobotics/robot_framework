@@ -1,10 +1,51 @@
-#include <pcl/filters/radius_outlier_removal.h>
+#include <pcl/common/io.h>
+#include <pcl/filters/filter.h>
 #include <pcl/filters/voxel_grid.h>
+#include <pcl/search/kdtree.h>
 
 #include <Infrastructure/Logger.hpp>
 #include <NoiseReducer.hpp>
 #include <chrono>
+#include <cstddef>
+#include <cstdint>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
+    namespace {
+        void radiusOutlierRemovalParallel(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr& input,
+                                          pcl::PointCloud<pcl::PointXYZRGB>& output, double radius, int min_neighbors) {
+            pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>(false));
+            tree->setInputCloud(input);
+
+            const int required_neighbors = min_neighbors + 1;
+            const double radius_squared = radius * radius;
+            std::vector<uint8_t> is_inlier(input->size(), 0);
+            const auto point_count = static_cast<std::ptrdiff_t>(input->size());
+
+#pragma omp parallel
+            {
+                pcl::Indices neighbor_indices;
+                std::vector<float> neighbor_distances;
+
+#pragma omp for schedule(static)
+                for (std::ptrdiff_t index = 0; index < point_count; ++index) {
+                    const int neighbor_count = tree->nearestKSearch(static_cast<int>(index), required_neighbors,
+                                                                    neighbor_indices, neighbor_distances);
+                    if (neighbor_count == required_neighbors &&
+                        neighbor_distances[neighbor_count - 1] <= radius_squared) {
+                        is_inlier[static_cast<std::size_t>(index)] = 1;
+                    }
+                }
+            }
+
+            pcl::Indices inlier_indices;
+            inlier_indices.reserve(input->size());
+            for (std::size_t index = 0; index < is_inlier.size(); ++index) {
+                if (is_inlier[index] != 0)
+                    inlier_indices.push_back(static_cast<int>(index));
+            }
+            pcl::copyPointCloud(*input, inlier_indices, output);
+        }
+    }  // namespace
+
     bool NoiseReducer::init() { return true; }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
@@ -40,6 +81,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr cleanCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
             std::vector<int> nan_indices;
             pcl::removeNaNFromPointCloud(*pclCloud, *cleanCloud, nan_indices);
+            cleanCloud->is_dense = true;
             auto t_nan_end = std::chrono::high_resolution_clock::now();
             ms_nan = std::chrono::duration_cast<std::chrono::milliseconds>(t_nan_end - t_nan_start).count();
 
@@ -70,23 +112,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             auto t_filter_start = std::chrono::high_resolution_clock::now();
             try {
-                pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
-                ror.setInputCloud(downsampledCloud);
-
-                // REMOVED: ror.setSearchMethod(tree) has been deleted.
-                // This lets PCL manage its internal internal index layout automatically.
-
-                // Geometric alignment parameters for 3.5cm voxels
-                ror.setRadiusSearch(0.05);       // 5cm search window
-                ror.setMinNeighborsInRadius(2);  // Clear floating artifacts safely
-
-                ror.filter(*pclCloudFiltered);
+                radiusOutlierRemovalParallel(downsampledCloud, *pclCloudFiltered, 0.05, 2);
 
                 std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
-                double percentRemoved = 100.0 * (double)filteredOutCount / ((double)pclCloud->size());
-                fast::rf::Logger::logWarn("Start Size: " + std::to_string(pclCloud->size()) +
-                                          " Filtered Out: " + std::to_string(filteredOutCount) +
-                                          " Perc: " + std::to_string(percentRemoved));
+                double percentRemoved = 100.0 * static_cast<double>(filteredOutCount) / pclCloud->size();
+                fast::rf::Logger::logDebug("Start Size: " + std::to_string(pclCloud->size()) +
+                                           " Filtered Out: " + std::to_string(filteredOutCount) +
+                                           " Perc: " + std::to_string(percentRemoved));
             } catch (const std::exception& e) {
                 fast::rf::Logger::logError("PCL Filter threw an exception: " + std::string(e.what()));
                 pclCloudFiltered = pclCloud;
@@ -103,7 +135,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto ms_total = std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count();
 
-        fast::rf::Logger::logWarn(
+        fast::rf::Logger::logDebug(
             "PERF BREAKDOWN -> "
             "NaN_Rem: " +
             std::to_string(ms_nan) +

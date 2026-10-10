@@ -22,7 +22,7 @@ namespace fast::rf::messages::SensorMsgs {
      *
      */
     struct PointCloudMsg {
-        double time_stamp;  //!< Timestamp of data
+        double time_stamp;                                   //!< Timestamp of data
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud;  //!< RGB point data and PCL metadata
 
         PointCloudMsg() : time_stamp(-1.0), point_cloud(new pcl::PointCloud<pcl::PointXYZRGB>) {}
