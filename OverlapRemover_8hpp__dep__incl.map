@@ -1,0 +1,13 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/OverlapRemover.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/OverlapRemover.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="329,5,579,75"/>
+<area shape="rect" id="Node000002" href="$BasicSensorFuserProcess_8hpp.html" title=" " alt="" coords="148,123,456,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="403,85,354,125,351,121,400,81"/>
+<area shape="rect" id="Node000006" href="$OverlapRemover_8cpp.html" title=" " alt="" coords="481,130,731,199"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="508,81,566,128,562,132,505,85"/>
+<area shape="rect" id="Node000003" href="$BasicSensorFuserProcess_8cpp.html" title=" " alt="" coords="5,255,279,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,218,195,256,191,252,239,214"/>
+<area shape="rect" id="Node000004" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="303,269,621,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="365,214,431,267,428,271,362,218"/>
+<area shape="rect" id="Node000005" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="317,387,607,441"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="465,338,465,386,459,386,459,338"/>
+</map>

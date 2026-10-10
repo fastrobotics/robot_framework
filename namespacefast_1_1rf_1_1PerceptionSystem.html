@@ -125,6 +125,21 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ab444d2f8b2fbd3fd9dbb0b2890eb1d7b" id="r_ab444d2f8b2fbd3fd9dbb0b2890eb1d7b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#ab444d2f8b2fbd3fd9dbb0b2890eb1d7b">toString</a> (<a class="el" href="structfast_1_1rf_1_1PerceptionSystem_1_1Id.html">Id</a>)</td></tr>
 <tr class="separator:ab444d2f8b2fbd3fd9dbb0b2890eb1d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af41e6ba1651facea06d6a3a2e3ccf3ff" id="r_af41e6ba1651facea06d6a3a2e3ccf3ff"><td class="memTemplParams" colspan="2">template&lt;typename PointT &gt; </td></tr>
+<tr class="memitem:af41e6ba1651facea06d6a3a2e3ccf3ff"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#af41e6ba1651facea06d6a3a2e3ccf3ff">convertToPCL</a> (const <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;msg, typename pcl::PointCloud&lt; PointT &gt;::Ptr &amp;out_cloud)</td></tr>
+<tr class="separator:af41e6ba1651facea06d6a3a2e3ccf3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766b4c9995e579b2602b1ec2ddb0b627" id="r_a766b4c9995e579b2602b1ec2ddb0b627"><td class="memTemplParams" colspan="2">template&lt;typename PointT &gt; </td></tr>
+<tr class="memitem:a766b4c9995e579b2602b1ec2ddb0b627"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#a766b4c9995e579b2602b1ec2ddb0b627">convertFromPCL</a> (const typename pcl::PointCloud&lt; PointT &gt;::Ptr &amp;in_cloud, <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;out_msg)</td></tr>
+<tr class="memdesc:a766b4c9995e579b2602b1ec2ddb0b627"><td class="mdescLeft">&#160;</td><td class="mdescRight">High-speed optimized conversion from PCL PointCloud back to PointCloudMsg.  <br /></td></tr>
+<tr class="separator:a766b4c9995e579b2602b1ec2ddb0b627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac43dfec8b9bfd75797d3d6e800934597" id="r_ac43dfec8b9bfd75797d3d6e800934597"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#ac43dfec8b9bfd75797d3d6e800934597">populateDefaultRgbdFields</a> (<a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;out_msg)</td></tr>
+<tr class="separator:ac43dfec8b9bfd75797d3d6e800934597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada929932dec1a131143bc8622de218b0" id="r_ada929932dec1a131143bc8622de218b0"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ada929932dec1a131143bc8622de218b0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#ada929932dec1a131143bc8622de218b0">convertToPCL&lt; pcl::PointXYZRGB &gt;</a> (const <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;msg, pcl::PointCloud&lt; pcl::PointXYZRGB &gt;::Ptr &amp;out_cloud)</td></tr>
+<tr class="separator:ada929932dec1a131143bc8622de218b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b34cfd167fbbdd86473092349b527a" id="r_a78b34cfd167fbbdd86473092349b527a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a78b34cfd167fbbdd86473092349b527a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#a78b34cfd167fbbdd86473092349b527a">convertFromPCL&lt; pcl::PointXYZRGB &gt;</a> (const pcl::PointCloud&lt; pcl::PointXYZRGB &gt;::Ptr &amp;in_cloud, <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;out_msg)</td></tr>
+<tr class="separator:a78b34cfd167fbbdd86473092349b527a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -135,6 +150,146 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Perception System for the Robot Framework. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a766b4c9995e579b2602b1ec2ddb0b627" name="a766b4c9995e579b2602b1ec2ddb0b627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766b4c9995e579b2602b1ec2ddb0b627">&#9670;&#160;</a></span>convertFromPCL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PointT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::PerceptionSystem::convertFromPCL </td>
+          <td>(</td>
+          <td class="paramtype">const typename pcl::PointCloud&lt; PointT &gt;::Ptr &amp;&#160;</td>
+          <td class="paramname"><em>in_cloud</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;&#160;</td>
+          <td class="paramname"><em>out_msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>High-speed optimized conversion from PCL PointCloud back to PointCloudMsg. </p>
+
+</div>
+</div>
+<a id="a78b34cfd167fbbdd86473092349b527a" name="a78b34cfd167fbbdd86473092349b527a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b34cfd167fbbdd86473092349b527a">&#9670;&#160;</a></span>convertFromPCL&lt; pcl::PointXYZRGB &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">template bool <a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#a766b4c9995e579b2602b1ec2ddb0b627">fast::rf::PerceptionSystem::convertFromPCL</a>&lt; pcl::PointXYZRGB &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const pcl::PointCloud&lt; pcl::PointXYZRGB &gt;::Ptr &amp;&#160;</td>
+          <td class="paramname"><em>in_cloud</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;&#160;</td>
+          <td class="paramname"><em>out_msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af41e6ba1651facea06d6a3a2e3ccf3ff" name="af41e6ba1651facea06d6a3a2e3ccf3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af41e6ba1651facea06d6a3a2e3ccf3ff">&#9670;&#160;</a></span>convertToPCL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PointT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::PerceptionSystem::convertToPCL </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename pcl::PointCloud&lt; PointT &gt;::Ptr &amp;&#160;</td>
+          <td class="paramname"><em>out_cloud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada929932dec1a131143bc8622de218b0" name="ada929932dec1a131143bc8622de218b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada929932dec1a131143bc8622de218b0">&#9670;&#160;</a></span>convertToPCL&lt; pcl::PointXYZRGB &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">template bool <a class="el" href="namespacefast_1_1rf_1_1PerceptionSystem.html#af41e6ba1651facea06d6a3a2e3ccf3ff">fast::rf::PerceptionSystem::convertToPCL</a>&lt; pcl::PointXYZRGB &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pcl::PointCloud&lt; pcl::PointXYZRGB &gt;::Ptr &amp;&#160;</td>
+          <td class="paramname"><em>out_cloud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac43dfec8b9bfd75797d3d6e800934597" name="ac43dfec8b9bfd75797d3d6e800934597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac43dfec8b9bfd75797d3d6e800934597">&#9670;&#160;</a></span>populateDefaultRgbdFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fast::rf::PerceptionSystem::populateDefaultRgbdFields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html">fast::rf::messages::SensorMsgs::PointCloudMsg</a> &amp;&#160;</td>
+          <td class="paramname"><em>out_msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab444d2f8b2fbd3fd9dbb0b2890eb1d7b" name="ab444d2f8b2fbd3fd9dbb0b2890eb1d7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab444d2f8b2fbd3fd9dbb0b2890eb1d7b">&#9670;&#160;</a></span>toString()</h2>
 

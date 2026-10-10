@@ -1,0 +1,28 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="216,5,467,75"/>
+<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="128,196,275,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,77,222,187,218,184,311,73"/>
+<area shape="rect" id="Node000008" href="$PointCloudTools_8hpp.html" title=" " alt="" coords="345,123,498,148"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="372,73,404,110,400,114,368,77"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,269,72,295"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,224,79,266,77,261,174,219"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="262,269,325,295"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="218,219,269,259,266,263,214,223"/>
+<area shape="rect" id="Node000005" href="$PointFieldMsg_8hpp.html" title=" " alt="" coords="96,269,237,295"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="198,223,181,258,176,256,193,220"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="275,343,341,368"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="191,292,274,334,272,339,188,297"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="137,343,196,368"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="169,295,169,329,164,329,164,295"/>
+<area shape="poly" id="edge12_Node000008_Node000002" title=" " alt="" coords="387,151,250,194,249,189,385,145"/>
+<area shape="poly" id="edge14_Node000008_Node000004" title=" " alt="" coords="404,150,375,171,346,198,324,228,307,258,302,255,319,225,342,194,372,167,401,146"/>
+<area shape="poly" id="edge13_Node000008_Node000006" title=" " alt="" coords="417,149,392,197,322,332,318,329,387,195,413,147"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="401,196,559,221"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="433,147,464,184,460,187,429,150"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="583,196,718,221"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="459,145,601,189,599,194,457,151"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="742,196,874,221"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="484,145,733,191,732,196,483,151"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="899,196,1032,221"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="499,143,885,193,885,198,498,149"/>
+</map>

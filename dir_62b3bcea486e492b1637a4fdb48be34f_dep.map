@@ -1,18 +1,21 @@
 <map id="Systems/Perception/Subsystems" name="Systems/Perception/Subsystems">
-<area shape="rect" id="node2" href="dir_c656274488d4c1b4cb8756b98ed94c34.html" title="DepthCameraPipeline" alt="" coords="557,63,721,88"/>
-<area shape="rect" id="node6" href="dir_190e9e64fb890467c89befc1abca1701.html" title="msgs" alt="" coords="485,136,542,161"/>
-<area shape="poly" id="edge2" href="dir_000042_000169.html" alt="" coords="620,90,547,131,544,127,617,86"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000042_000169.html" title="15" alt="" coords="545,127,562,142"/>
-<area shape="rect" id="node7" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="585,136,655,161"/>
-<area shape="poly" id="edge1" href="dir_000042_000122.html" alt="" coords="638,89,629,124,624,122,633,88"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000042_000122.html" title="22" alt="" coords="627,113,644,128"/>
-<area shape="rect" id="node3" href="dir_77799046f97f2bcc155ac234cbb39cca.html" title="ObjectTracker" alt="" coords="422,63,533,88"/>
-<area shape="poly" id="edge3" href="dir_000175_000169.html" alt="" coords="486,87,504,122,499,125,481,90"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000175_000169.html" title="6" alt="" coords="502,109,511,123"/>
-<area shape="poly" id="edge4" href="dir_000175_000122.html" alt="" coords="501,86,586,127,583,132,499,90"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000175_000122.html" title="12" alt="" coords="576,113,593,127"/>
-<area shape="rect" id="node4" href="dir_28c490f65a1c848270e14a1c24a9cc40.html" title="PerceptionIntegrityMonitor" alt="" coords="202,63,398,88"/>
-<area shape="rect" id="node5" href="dir_b942be120552a2a033579dceff4af4dc.html" title="UltrasonicPipeline" alt="" coords="38,63,178,88"/>
+<area shape="rect" id="node1" href="dir_822ad4c12064dbe468f9db60c90c8c9a.html" title="include" alt="" coords="469,136,539,161"/>
+<area shape="rect" id="node3" href="dir_c656274488d4c1b4cb8756b98ed94c34.html" title="DepthCameraPipeline" alt="" coords="422,63,586,88"/>
+<area shape="poly" id="edge3" href="dir_000042_000140.html" alt="" coords="507,88,507,122,501,122,501,88"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000042_000140.html" title="1" alt="" coords="508,110,517,125"/>
+<area shape="rect" id="node7" href="dir_190e9e64fb890467c89befc1abca1701.html" title="msgs" alt="" coords="879,136,937,161"/>
+<area shape="poly" id="edge2" href="dir_000042_000170.html" alt="" coords="549,85,598,96,673,107,732,113,792,119,866,132,865,137,791,124,732,118,672,113,597,101,548,91"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000042_000170.html" title="18" alt="" coords="854,118,872,133"/>
+<area shape="rect" id="node8" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="961,136,1031,161"/>
+<area shape="poly" id="edge1" href="dir_000042_000122.html" alt="" coords="548,85,598,96,694,109,771,115,849,120,948,133,947,139,848,125,770,120,694,114,597,101,547,91"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000042_000122.html" title="25" alt="" coords="936,120,953,134"/>
+<area shape="rect" id="node4" href="dir_77799046f97f2bcc155ac234cbb39cca.html" title="ObjectTracker" alt="" coords="610,63,721,88"/>
+<area shape="poly" id="edge4" href="dir_000176_000170.html" alt="" coords="700,86,734,96,867,131,866,137,733,101,699,91"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000176_000170.html" title="6" alt="" coords="860,117,869,132"/>
+<area shape="poly" id="edge5" href="dir_000176_000122.html" alt="" coords="698,85,734,96,839,116,948,133,947,138,838,121,733,101,696,91"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000176_000122.html" title="12" alt="" coords="936,119,953,134"/>
+<area shape="rect" id="node5" href="dir_28c490f65a1c848270e14a1c24a9cc40.html" title="PerceptionIntegrityMonitor" alt="" coords="202,63,398,88"/>
+<area shape="rect" id="node6" href="dir_b942be120552a2a033579dceff4af4dc.html" title="UltrasonicPipeline" alt="" coords="38,63,178,88"/>
 <area shape="rect" id="clust2" href="dir_62b3bcea486e492b1637a4fdb48be34f.html" alt="" coords="27,52,857,99"/>
-<area shape="rect" id="clust1" href="dir_a17e71d3d182de1acae36ea0ec6c928d.html" title="Perception" alt="" coords="16,16,868,109"/>
+<area shape="rect" id="clust1" href="dir_a17e71d3d182de1acae36ea0ec6c928d.html" title="Perception" alt="" coords="16,16,868,172"/>
 </map>

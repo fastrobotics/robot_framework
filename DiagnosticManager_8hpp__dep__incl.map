@@ -16,8 +16,8 @@
 <area shape="poly" id="edge21_Node000001_Node000030" title=" " alt="" coords="5992,45,5040,111,4710,134,4710,128,5039,105,5991,40"/>
 <area shape="rect" id="Node000034" href="$BaseSensorFuserProcess_8hpp.html" title=" " alt="" coords="5051,108,5302,177"/>
 <area shape="poly" id="edge24_Node000001_Node000034" title=" " alt="" coords="5992,51,5303,130,5302,124,5991,46"/>
-<area shape="rect" id="Node000038" href="$BaseSensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="5612,108,5936,177"/>
-<area shape="poly" id="edge27_Node000001_Node000038" title=" " alt="" coords="6022,67,5882,110,5880,105,6020,62"/>
+<area shape="rect" id="Node000040" href="$BaseSensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="5612,108,5936,177"/>
+<area shape="poly" id="edge27_Node000001_Node000040" title=" " alt="" coords="6022,67,5882,110,5880,105,6020,62"/>
 <area shape="rect" id="Node000044" href="$BaseSensorInputHandlerProcess_8hpp.html" title=" " alt="" coords="5961,108,6275,177"/>
 <area shape="poly" id="edge30_Node000001_Node000044" title=" " alt="" coords="6121,74,6121,108,6115,108,6115,74"/>
 <area shape="rect" id="Node000048" href="$BaseDepthCameraFeatureHandlerProcess_8hpp.html" title=" " alt="" coords="6300,108,6677,177"/>
@@ -72,12 +72,12 @@
 <area shape="poly" id="edge23_Node000030_Node000033" title=" " alt="" coords="4566,191,4566,232,4561,232,4561,191"/>
 <area shape="rect" id="Node000035" href="$BasicSensorFuserProcess_8hpp.html" title=" " alt="" coords="4719,225,5027,309"/>
 <area shape="poly" id="edge25_Node000034_Node000035" title=" " alt="" coords="5082,185,4975,228,4973,223,5080,180"/>
-<area shape="rect" id="Node000037" href="$BaseSensorFuserProcess_8cpp.html" title=" " alt="" coords="5051,233,5302,302"/>
-<area shape="poly" id="edge26_Node000034_Node000037" title=" " alt="" coords="5179,191,5179,232,5174,232,5174,191"/>
-<area shape="rect" id="Node000039" href="$SensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="5327,233,5619,302"/>
-<area shape="poly" id="edge28_Node000038_Node000039" title=" " alt="" coords="5680,185,5556,235,5554,230,5678,180"/>
+<area shape="rect" id="Node000039" href="$BaseSensorFuserProcess_8cpp.html" title=" " alt="" coords="5051,233,5302,302"/>
+<area shape="poly" id="edge26_Node000034_Node000039" title=" " alt="" coords="5179,191,5179,232,5174,232,5174,191"/>
+<area shape="rect" id="Node000041" href="$SensorHealthMonitorProcess_8hpp.html" title=" " alt="" coords="5327,233,5619,302"/>
+<area shape="poly" id="edge28_Node000040_Node000041" title=" " alt="" coords="5680,185,5556,235,5554,230,5678,180"/>
 <area shape="rect" id="Node000043" href="$BaseSensorHealthMonitorProcess_8cpp.html" title=" " alt="" coords="5643,233,5937,302"/>
-<area shape="poly" id="edge29_Node000038_Node000043" title=" " alt="" coords="5783,190,5788,232,5783,233,5777,191"/>
+<area shape="poly" id="edge29_Node000040_Node000043" title=" " alt="" coords="5783,190,5788,232,5783,233,5777,191"/>
 <area shape="rect" id="Node000045" href="$SensorInputHandlerProcess_8hpp.html" title=" " alt="" coords="5962,233,6245,302"/>
 <area shape="poly" id="edge31_Node000044_Node000045" title=" " alt="" coords="6115,191,6110,233,6105,232,6110,190"/>
 <area shape="rect" id="Node000047" href="$BaseSensorInputHandlerProcess_8cpp.html" title=" " alt="" coords="6269,233,6556,302"/>

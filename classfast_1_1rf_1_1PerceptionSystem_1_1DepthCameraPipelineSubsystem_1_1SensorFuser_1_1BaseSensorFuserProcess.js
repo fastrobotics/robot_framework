@@ -5,6 +5,7 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Senso
     [ "getCurrentTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a619ba53ed29c8c92efccf37fc696de91", null ],
     [ "getDiagnosticManager", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a1b6b97671b46092480752ca61d2a9991", null ],
     [ "getDiagnostics", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a8623f2cf3c29dd909ad95916fac1109d", null ],
+    [ "getFusedPointCloud", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a692581e4482a96e262fa75486e447948", null ],
     [ "getProcessId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a3b628dfcdaf372aee7ca134b8facae81", null ],
     [ "getSubSystemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#ae4cbe9a288d19beed947c568d9e555ea", null ],
     [ "getSystemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a4d09bde5ee9ec9c7fb7eaa59e3202505", null ],
@@ -15,8 +16,10 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Senso
     [ "updateDiagnostic", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#adb64fed3e2c0fea04e5ff4064bbe6d80", null ],
     [ "m_currentTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#aa04e44c7deae0b6976c63d1efc01a4ea", null ],
     [ "m_diagnosticManager", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a646e35ba12a9819fdf4525ab988cbcac", null ],
+    [ "m_fusedPointCloud", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a309a77592d7e8ee7d3ed378bedb48d16", null ],
     [ "m_processId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#af0c21b1c29c56a30e01ffa6c019b6b69", null ],
     [ "m_readyToArm", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#ae842ff59cb9f3cd0f78b9ea6dd557c7f", null ],
+    [ "m_runTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a1d562b7a116baff6b07161e9e8ce0a11", null ],
     [ "m_subSystemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#a4ee3ea15e5eea2c8d95f33f81f4e5d43", null ],
     [ "m_systemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html#aa42bbdf41ff3fb956146f4ce96bb7e6a", null ]
 ];
