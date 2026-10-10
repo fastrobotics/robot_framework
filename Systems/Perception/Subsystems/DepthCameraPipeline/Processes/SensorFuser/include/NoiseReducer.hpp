@@ -10,7 +10,6 @@
  */
 #pragma once
 #include <PointCloudMsg.hpp>
-#include <PointCloudTools.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     /**
      * @brief Removes noise from a Point Cloud

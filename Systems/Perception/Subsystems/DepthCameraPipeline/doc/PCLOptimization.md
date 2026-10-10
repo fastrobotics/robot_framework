@@ -10,28 +10,32 @@
 
 ## 🛠️ Completed Implementations & Fixes
 
-1. **RGB Color Loss Resolution:**
+1. **PCL-Native Message Payload:**
+   * `PointCloudMsg` now owns a `pcl::PointCloud<pcl::PointXYZRGB>::Ptr` alongside its timestamp. PCL `width`, `height`, and density remain on the cloud itself.
+   * The noise reducer now filters that cloud directly; the intermediate byte-blob-to-PCL and PCL-to-byte-blob conversions have been removed. Message copies share the cloud pointer rather than copying the point buffer.
+
+2. **RGB Color Loss Resolution:**
    * Ensured the filter pipeline explicitly templates across `<pcl::PointXYZRGB>` throughout the entire stack, successfully keeping valid color fields.
 
-2. **Stability Fixes (Crash Prevention):**
-   * Pre-allocated heap instances using `new pcl::PointCloud<pcl::PointXYZRGB>` before running conversions to avoid null pointer dereferences.
+3. **Stability Fixes (Crash Prevention):**
+   * The `PointCloudMsg` constructor allocates its PCL cloud, and the noise reducer checks for a null cloud before filtering.
    * Added `pcl::removeNaNFromPointCloud` to prevent spatial `KdTree` abort crashes (`exit code -6 / SIGABRT`) caused by invalid camera depth points.
    * Wrapped the execution blocks inside standard `try {} catch(...)` patterns to insulate the node against internal library faults.
 
-3. **Memory Optimization:**
+4. **Memory Optimization:**
    * Shifted the main processing entry point signature to pass variables by constant reference (`const &`) to stop expensive heap-copy-by-value behaviors on incoming sensor messages.
 
-4. **Algorithmic Tuning (The 1500ms ➡️ 110ms Drop):**
+5. **Algorithmic Tuning (The 1500ms ➡️ 110ms Drop):**
    * Added an upfront `pcl::VoxelGrid` step to drastically shrink core calculations.
    * **Crucial Fix:** Removed the manual `ror.setSearchMethod(tree);` override. Passing an explicit `pcl::search::KdTree` was forcing a costly \(O(N^2)\) structural rebuild every query step. Removing it allowed PCL to fall back to its internal, optimized caching mechanisms.
 
 ---
 
-## 📊 Latest Performance Profiles (Telemetry Logs)
+## 📊 Previous Performance Profile (Before PCL-Native Message)
 ```log
 InConv: 3ms | NaN_Rem: 3ms | Voxel: 22ms | RadFilter: 106ms | OutConv: 0ms || Total: 153ms
 ```
-* **Analysis:** Conversions and downsampling are highly optimized. The bottleneck is entirely trapped inside the spatial distance evaluations of `RadFilter` (106ms-117ms), which currently pins exactly one CPU core at 100% while leaving remaining threads idle.
+* **Analysis:** This is the baseline from before replacing the byte-blob message payload. Re-measure with the updated pipeline; the remaining measured bottleneck was the radius filter (106ms-117ms).
 
 ---
 

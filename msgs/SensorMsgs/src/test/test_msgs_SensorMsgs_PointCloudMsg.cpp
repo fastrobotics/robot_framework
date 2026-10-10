@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 #include <PointCloudMsg.hpp>
-#include <PointFieldMsg.hpp>
 using namespace fast::rf::messages::SensorMsgs;
 TEST(PointCloudMsg, DefaultZeroConstructor) {
     PointCloudMsg SUT;
@@ -11,22 +10,18 @@ TEST(PointCloudMsg, DefaultZeroConstructor) {
 }
 TEST(PointCloudMsg, PrettyFunctions) {
     PointCloudMsg SUT;
-    {
-        PointFieldMsg field;
-        field.name = "a";
-        field.datatype = PointFieldMsg::PointFieldDataType::INT8;
-        SUT.fields.push_back(field);
-    }
-    {
-        PointFieldMsg field;
-        field.name = "b";
-        field.datatype = PointFieldMsg::PointFieldDataType::FLOAT32;
-        SUT.fields.push_back(field);
-    }
+    SUT.point_cloud->points.resize(2);
+    EXPECT_EQ(SUT.size(), 2);
+    EXPECT_FALSE(SUT.empty());
     ASSERT_GT(SUT.pretty().size(), 0);
 }
 TEST(PointCloudMsg, HelperFunctions) {
     PointCloudMsg pointCloud = PointCloudMsg::generateRGBCloud(4);
-    ASSERT_GT(pointCloud.fields.size(), 0);
-    ASSERT_GT(pointCloud.data.size(), 0);
+    EXPECT_FALSE(pointCloud.empty());
+    EXPECT_EQ(pointCloud.size(), 64);
+    ASSERT_EQ(pointCloud.point_cloud->width, 4);
+    ASSERT_EQ(pointCloud.point_cloud->height, 16);
+    ASSERT_EQ(pointCloud.point_cloud->size(), 64);
+    ASSERT_EQ(pointCloud.point_cloud->points[0].r, 0);
+    ASSERT_EQ(pointCloud.point_cloud->points.back().b, 255);
 }

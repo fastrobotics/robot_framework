@@ -7,7 +7,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputH
     fast::rf::messages::SensorMsgs::PointCloudMsg SensorInputHandlerProcess::newPointCloud(
         fast::rf::messages::SensorMsgs::PointCloudMsg msg) {
         fast::rf::messages::SensorMsgs::PointCloudMsg convertedCloud;
-        if (msg.height > 1) {  // It's already an organized point cloud, nothing to do
+        if (msg.point_cloud && msg.point_cloud->height > 1) {  // It's already an organized point cloud, nothing to do
             convertedCloud = msg;
             m_diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SENSORS, fast::rf::Level::INFO,

@@ -20,8 +20,8 @@ TEST(DepthCameraSensorCombiner, BasicTests) {
     ASSERT_FALSE(SUT.isCombinedPointCloudAvailable());
     auto badCloud = SUT.getCombinedPointCloud();
     ASSERT_LT(badCloud.time_stamp, 0.0);
-    ASSERT_EQ(badCloud.height, 0);
-    ASSERT_EQ(badCloud.width, 0);
+    ASSERT_EQ(badCloud.point_cloud->height, 0);
+    ASSERT_EQ(badCloud.point_cloud->width, 0);
 }
 TEST(DepthCameraSensorCombiner, FailureTests) {
     Combiner SUT;

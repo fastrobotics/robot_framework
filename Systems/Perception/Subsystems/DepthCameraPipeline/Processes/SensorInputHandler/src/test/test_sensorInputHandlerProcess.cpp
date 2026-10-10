@@ -30,9 +30,9 @@ TEST(SensorInputHandlerProcess, TestFailConvertUnorganizedPointCloud) {
     ASSERT_GT(SUT.pretty().size(), 0);
 
     fast::rf::messages::SensorMsgs::PointCloudMsg unorganizedPointCloud;
-    unorganizedPointCloud.height = 1;
+    unorganizedPointCloud.point_cloud->height = 1;
     auto convertedCloud = SUT.newPointCloud(unorganizedPointCloud);
-    ASSERT_EQ(convertedCloud.height, 0);  // Don't know how to process this, so return an empty cloud
+    ASSERT_EQ(convertedCloud.point_cloud->height, 0);  // Don't know how to process this, so return an empty cloud
     auto diagnostics = SUT.getDiagnostics();
     bool checkFailedDiagnostic = false;
     for (auto diagnostic : diagnostics) {
@@ -49,9 +49,11 @@ TEST(SensorInputHandlerProcess, ConvertOrganizedPointCloudPassThru) {
     ASSERT_GT(SUT.pretty().size(), 0);
 
     fast::rf::messages::SensorMsgs::PointCloudMsg organizedPointCloud;
-    organizedPointCloud.height = 2;
+    organizedPointCloud.point_cloud->height = 2;
+    organizedPointCloud.point_cloud->width = 1;
+    organizedPointCloud.point_cloud->points.resize(2);
     auto convertedCloud = SUT.newPointCloud(organizedPointCloud);
-    ASSERT_EQ(convertedCloud.height, organizedPointCloud.height);
+    ASSERT_EQ(convertedCloud.point_cloud->height, organizedPointCloud.point_cloud->height);
     ASSERT_TRUE(SUT.update(1.0));
     fast::rf::Logger::logDebug(SUT.pretty());
     auto diagnostics = SUT.getDiagnostics();
