@@ -1,5 +1,7 @@
 #include <pcl/filters/radius_outlier_removal.h>
 #include <pcl/filters/voxel_grid.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/search/flann_search.h>
 #include <pcl/search/kdtree.h>
 
 #include <Infrastructure/Logger.hpp>
@@ -74,14 +76,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> ror;
                 ror.setInputCloud(downsampledCloud);
 
-                // FIX 1: Change to KdTreeFLANN for proper multi-threaded backend routing
-                typename pcl::search::KdTreeFLANN<pcl::PointXYZRGB>::Ptr tree(
-                    new pcl::search::KdTreeFLANN<pcl::PointXYZRGB>);
+                // 1. Correct Search Object that implements the proper PCL interface
+                pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>);
                 ror.setSearchMethod(tree);
 
-                // FIX 2: Tighten geometric limits relative to your 2cm (0.02f) voxels
-                ror.setRadiusSearch(0.025);      // 2.5cm search radius window
-                ror.setMinNeighborsInRadius(2);  // Require at least 2 adjacent neighbors
+                // 2. CRITICAL PERFORMANCE FIX: Tighten geometric bounds relative to 2cm voxels
+                ror.setRadiusSearch(0.025);      // Shrunk from 0.04 to 0.025
+                ror.setMinNeighborsInRadius(2);  // Require at least 2 neighbors
 
                 ror.filter(*pclCloudFiltered);
 
