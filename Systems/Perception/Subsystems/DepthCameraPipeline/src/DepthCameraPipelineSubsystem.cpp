@@ -30,6 +30,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             return false;
         }
         auto convertedCloud = m_sensorInputHandlerProcess.get()->newPointCloud(msg);
+        if (!m_sensorFuserProcess->newPointCloud(convertedCloud, 0)) {
+            fast::rf::Logger::logWarn("Unable to send Point Cloud to Sensor Fuser: " + sensorName);
+            return false;
+        }
         return true;
     }
     fast::rf::messages::SensorMsgs::PointCloudMsg DepthCameraPipelineSubsystem::getFusedPointCloud() {
