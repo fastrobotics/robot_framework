@@ -97,10 +97,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         return true;
     }
     std::string BasicSensorFuserProcess::pretty() {
-        std::string str = "---Basic SensorFuser Process---";
-        // str += BaseSensorFuserProcess::pretty();
-        // str += m_config.pretty();
-        // str += "Sensor Fusion Cycle Count: " + std::to_string(sensorFusionCyclesCount) + "\n";
+        std::string str = "---Basic SensorFuser Process---\n";
+        str += BaseSensorFuserProcess::pretty();
+        str += m_config.pretty();
+        str += "Sensor Fusion Cycle Count: " + std::to_string(sensorFusionCyclesCount) + "\n";
         return str;
     }
 
