@@ -11,9 +11,9 @@
 #pragma once
 
 #include <BaseSensorFuserProcess.hpp>
-#include <Combiner.hpp>
-#include <INoiseReducer.hpp>
-#include <OverlapRemover.hpp>
+#include <Combiner/Combiner.hpp>
+#include <NoiseReducer/INoiseReducer.hpp>
+#include <OverlapRemover/OverlapRemover.hpp>
 #include <memory>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {

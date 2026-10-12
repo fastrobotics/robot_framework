@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include <Infrastructure/Logger.hpp>
-#include <OverlapRemover.hpp>
+#include <OverlapRemover/OverlapRemover.hpp>
 
 using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser;
 

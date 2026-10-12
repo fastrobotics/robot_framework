@@ -1,6 +1,6 @@
 #pragma once
 
-#include <INoiseReducer.hpp>
+#include <NoiseReducer/INoiseReducer.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     bool isValidNoiseReducerConfig(const NoiseReducerConfig& config);

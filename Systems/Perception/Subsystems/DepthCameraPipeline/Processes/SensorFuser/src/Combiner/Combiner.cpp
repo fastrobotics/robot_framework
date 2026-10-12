@@ -1,4 +1,4 @@
-#include <Combiner.hpp>
+#include <Combiner/Combiner.hpp>
 #include <Infrastructure/Logger.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     bool Combiner::init() { return true; }

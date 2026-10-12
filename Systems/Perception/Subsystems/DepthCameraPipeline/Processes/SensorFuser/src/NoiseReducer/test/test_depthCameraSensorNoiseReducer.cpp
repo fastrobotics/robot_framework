@@ -5,7 +5,7 @@
 #include <pcl/filters/voxel_grid.h>
 #include <stdio.h>
 
-#include <CPUNoiseReducer.hpp>
+#include <NoiseReducer/CPUNoiseReducer.hpp>
 #ifdef ARCHITECTURE_JETSONNANO
 #include <GPUNoiseReducer.hpp>
 #endif

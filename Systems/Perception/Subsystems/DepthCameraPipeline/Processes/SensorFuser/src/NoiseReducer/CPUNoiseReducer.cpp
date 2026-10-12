@@ -1,7 +1,7 @@
 #include <pcl/common/io.h>
 #include <pcl/search/kdtree.h>
 
-#include <CPUNoiseReducer.hpp>
+#include <NoiseReducer/CPUNoiseReducer.hpp>
 #include <cstddef>
 #include <cstdint>
 #include <utility>

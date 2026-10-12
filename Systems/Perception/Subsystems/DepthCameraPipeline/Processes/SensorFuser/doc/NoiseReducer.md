@@ -27,21 +27,32 @@ downsampling, and rejects points that do not have enough nearby neighbors.
 
 | Method | Description |
 | --- | --- |
-| `bool init()` | Selects and initializes the GPU backend when CUDA is built and a usable device is present; otherwise initializes the CPU backend. |
-| `bool setConfig(double voxelSize_m, double radius_m, uint64_t minNeighborCount)` | Sets finite, positive sizes and the minimum count used by both backends. |
-| `PointCloudMsg reduceNoise(const PointCloudMsg& cloud)` | Returns the reduced cloud while preserving the input timestamp. |
+| `bool setConfig(const NoiseReducerConfig& config)` | Sets finite, positive sizes and the minimum count used by both backends. |
+| `bool init()` | Initializes the already selected backend. The GPU backend reports failure if CUDA cannot initialize; it does not fall back to CPU. |
+| `PointCloudMsg reduceNoise(const PointCloudMsg& input)` | Returns the reduced cloud while preserving the input timestamp. |
 
 The message contains a PCL `PointCloud<pcl::PointXYZRGB>` in its `point_cloud`
 field. RGB values are carried through the PCL filtering operations along with
 the point coordinates.
 
-`BasicSensorFuserProcess` owns a `std::unique_ptr<INoiseReducer>` and constructs
-the backend selected by CMake for the target system. `CPUNoiseReducer` and
-`GPUNoiseReducer` both derive from `BaseNoiseReducer`, which implements common
-configuration, input handling, and preprocessing. CMake builds the CPU and GPU
-backend libraries independently; each links only to `baseNoiseReducer`, never
-to the other backend. Jetson builds link the process to the GPU backend;
-non-Jetson builds link it to the CPU backend. GPU initialization fails
+`INoiseReducer` is a pure interface. `BaseNoiseReducer` implements shared
+configuration, input handling, and preprocessing. `CPUNoiseReducer` and
+`GPUNoiseReducer` derive from the base and provide their radius-filter
+implementation. `BasicSensorFuserProcess` owns a `std::unique_ptr<INoiseReducer>`
+and instantiates the backend selected for the build.
+
+### Backend build and selection
+
+| Build target | Contents and dependencies | Process selection |
+| --- | --- | --- |
+| `baseNoiseReducer` | Common implementation; shared by either backend. | Linked transitively through the selected backend. |
+| `noiseReducerCPU` | CPU radius filtering using PCL and OpenMP; depends on `baseNoiseReducer`. | Selected on non-Jetson builds. |
+| `noiseReducerGPU` | CUDA radius filtering; depends on `baseNoiseReducer` and CUDA runtime, not on `noiseReducerCPU`. Built for Jetson Orin Nano. | Selected on Jetson Orin Nano builds. |
+
+The CPU and GPU libraries are separate alternatives: neither backend library
+depends on the other. The Jetson CUDA compilation enables
+`--expt-relaxed-constexpr` for `noiseReducerGPU` to permit CUDA device code to
+call the relevant host/device constexpr functions. GPU initialization fails
 explicitly if no CUDA device is available. Processing errors are logged and
 re-thrown, not silently retried on CPU.
 
@@ -53,11 +64,12 @@ For a non-empty input cloud, `reduceNoise` applies these stages in order:
    resulting cloud is marked dense.
 2. **Voxel-grid downsampling.** PCL groups points into 3.5 cm cubic voxels and
    produces a representative point for each occupied voxel.
-3. **Radius outlier filtering.** A spatial k-d tree searches each downsampled
-   point for neighbors within 5 cm. A point is kept only when at least two
-   *other* neighbors are found within that radius. The CPU backend runs these
-   searches in parallel with OpenMP; the CUDA backend builds a uniform spatial
-   cell index and classifies neighbors in parallel on the GPU.
+3. **Radius outlier filtering.** Each backend searches for neighbors within
+   5 cm of every downsampled point. A point is kept only when at least two
+   *other* neighbors are found within that radius. The CPU backend uses a
+   spatial k-d tree and runs searches in parallel with OpenMP; the CUDA backend
+   builds a uniform spatial cell index and classifies neighbors in parallel on
+   the GPU.
 
 NaN removal and voxel downsampling currently remain PCL CPU stages for both
 backends. In the CUDA backend, the downsampled positions are transferred to the
@@ -93,6 +105,8 @@ parallelized by this helper.
 The CPU `#pragma omp` directives enable the parallel region when the build
 enables OpenMP; otherwise execution may be serial. The number of workers is
 controlled by the OpenMP runtime/build configuration, not by the reducer.
+The GPU backend parallelizes point classification in CUDA kernels after
+transferring the downsampled cloud to device memory.
 
 ## Filter Parameters
 
@@ -121,8 +135,10 @@ The defaults are set by `NoiseReducerConfig` and can be overridden through
 ## Usage in SensorFuser
 
 The `BasicSensorFuserProcess` passes the overlap-removed cloud through its
-`INoiseReducer` pointer and uses the returned message as the fused cloud.
-See [Process: SensorFuser](Process-SensorFuser.md) for the surrounding
+`INoiseReducer` pointer and uses the returned message as the fused cloud. The
+concrete implementation is chosen at build time: Jetson Orin Nano uses
+`GPUNoiseReducer`, and other supported builds use `CPUNoiseReducer`. See
+[Process: SensorFuser](Process-SensorFuser.md) for the surrounding
 combination and overlap-removal flow.
 
 ## Validation

@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
 
-#include <Combiner.hpp>
+#include <Combiner/Combiner.hpp>
 #include <Infrastructure/Logger.hpp>
 
 using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser;

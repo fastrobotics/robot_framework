@@ -3,9 +3,9 @@
  *
  */
 #include <BasicSensorFuserProcess/BasicSensorFuserProcess.hpp>
-#include <CPUNoiseReducer.hpp>
+#include <NoiseReducer/CPUNoiseReducer.hpp>
 #ifdef ARCHITECTURE_JETSONNANO
-#include <GPUNoiseReducer.hpp>
+#include <NoiseReducer/GPUNoiseReducer.hpp>
 #endif
 #include <chrono>
 #include <memory>

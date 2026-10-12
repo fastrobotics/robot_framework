@@ -49,6 +49,12 @@ namespace fast::rf {
                 class GPUNoiseReducer #LimeGreen {
                     #Cloud filterCloud(Cloud input)
                 }
+                note right of BaseNoiseReducer
+                    Shared configuration, validation, and cloud preprocessing.
+                    Backend libraries are independent alternatives and both
+                    depend on baseNoiseReducer.
+                    CMake selects GPU on Jetson Orin Nano and CPU otherwise.
+                end note
                 BaseNoiseReducer .up.|> INoiseReducer
                 CPUNoiseReducer -up-|> BaseNoiseReducer
                 GPUNoiseReducer -up-|> BaseNoiseReducer

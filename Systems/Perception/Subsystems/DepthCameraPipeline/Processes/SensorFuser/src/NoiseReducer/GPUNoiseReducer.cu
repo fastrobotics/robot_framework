@@ -1,10 +1,9 @@
 #include <cuda_runtime.h>
-
-#include <GPUNoiseReducer.hpp>
-#include <Infrastructure/Logger.hpp>
 #include <thrust/device_vector.h>
 #include <thrust/sort.h>
 
+#include <Infrastructure/Logger.hpp>
+#include <NoiseReducer/GPUNoiseReducer.hpp>
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
@@ -29,16 +28,15 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 throw std::runtime_error(std::string(operation) + ": " + cudaGetErrorString(status));
         }
 
-        __device__ unsigned long long linearCellKey(unsigned long long x, unsigned long long y,
-                                                    unsigned long long z, unsigned long long cells_x,
-                                                    unsigned long long cells_y) {
+        __device__ unsigned long long linearCellKey(unsigned long long x, unsigned long long y, unsigned long long z,
+                                                    unsigned long long cells_x, unsigned long long cells_y) {
             return x + cells_x * (y + cells_y * z);
         }
 
         __global__ void buildCellKeys(const GpuPoint* points, unsigned long long* keys,
                                       unsigned long long* point_indices, std::size_t point_count, float min_x,
-                                      float min_y, float min_z, float inverse_cell_size,
-                                      unsigned long long cells_x, unsigned long long cells_y) {
+                                      float min_y, float min_z, float inverse_cell_size, unsigned long long cells_x,
+                                      unsigned long long cells_y) {
             const std::size_t index = static_cast<std::size_t>(blockIdx.x) * blockDim.x + threadIdx.x;
             if (index >= point_count)
                 return;
@@ -75,12 +73,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 return;
 
             const GpuPoint point = points[point_index];
-            const auto center_x =
-                static_cast<long long>(floorf((point.x - min_x) * inverse_cell_size));
-            const auto center_y =
-                static_cast<long long>(floorf((point.y - min_y) * inverse_cell_size));
-            const auto center_z =
-                static_cast<long long>(floorf((point.z - min_z) * inverse_cell_size));
+            const auto center_x = static_cast<long long>(floorf((point.x - min_x) * inverse_cell_size));
+            const auto center_y = static_cast<long long>(floorf((point.y - min_y) * inverse_cell_size));
+            const auto center_z = static_cast<long long>(floorf((point.z - min_z) * inverse_cell_size));
             unsigned long long neighbor_count = 0;
 
             for (int dz = -1; dz <= 1 && neighbor_count < required_neighbors; ++dz) {
@@ -95,9 +90,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                         const long long x = center_x + dx;
                         if (x < 0 || static_cast<unsigned long long>(x) >= cells_x)
                             continue;
-                        const auto key = linearCellKey(static_cast<unsigned long long>(x),
-                                                       static_cast<unsigned long long>(y),
-                                                       static_cast<unsigned long long>(z), cells_x, cells_y);
+                        const auto key =
+                            linearCellKey(static_cast<unsigned long long>(x), static_cast<unsigned long long>(y),
+                                          static_cast<unsigned long long>(z), cells_x, cells_y);
                         std::size_t candidate = findCellStart(sorted_keys, point_count, key);
                         while (candidate < point_count && sorted_keys[candidate] == key &&
                                neighbor_count < required_neighbors) {
@@ -105,8 +100,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                             const float delta_x = point.x - other.x;
                             const float delta_y = point.y - other.y;
                             const float delta_z = point.z - other.z;
-                            const float distance_squared =
-                                delta_x * delta_x + delta_y * delta_y + delta_z * delta_z;
+                            const float distance_squared = delta_x * delta_x + delta_y * delta_y + delta_z * delta_z;
                             if (static_cast<double>(distance_squared) <= radius_squared)
                                 ++neighbor_count;
                             ++candidate;
@@ -172,8 +166,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             thrust::device_vector<std::uint8_t> device_inliers(point_count);
 
             constexpr int threads_per_block = 256;
-            const std::size_t blocks_per_grid_size =
-                (point_count + threads_per_block - 1) / threads_per_block;
+            const std::size_t blocks_per_grid_size = (point_count + threads_per_block - 1) / threads_per_block;
             if (blocks_per_grid_size > static_cast<std::size_t>(std::numeric_limits<int>::max()))
                 throw std::runtime_error("GPU radius filter input exceeds the supported launch grid.");
             const int blocks_per_grid = static_cast<int>(blocks_per_grid_size);
@@ -188,8 +181,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             classifyRadiusNeighbors<<<blocks_per_grid, threads_per_block>>>(
                 thrust::raw_pointer_cast(device_points.data()), thrust::raw_pointer_cast(sorted_keys.data()),
                 thrust::raw_pointer_cast(sorted_indices.data()), thrust::raw_pointer_cast(device_inliers.data()),
-                point_count, min_x, min_y, min_z, inverse_cell_size_float,
-                config.radius_m * config.radius_m, cells_x, cells_y, cells_z, required_neighbors);
+                point_count, min_x, min_y, min_z, inverse_cell_size_float, config.radius_m * config.radius_m, cells_x,
+                cells_y, cells_z, required_neighbors);
             checkCuda(cudaGetLastError(), "Launching GPU radius-neighbor classification kernel");
 
             std::vector<std::uint8_t> host_inliers(point_count);

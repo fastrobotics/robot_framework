@@ -1,6 +1,6 @@
 #pragma once
 
-#include <BaseNoiseReducer.hpp>
+#include <NoiseReducer/BaseNoiseReducer.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     class CPUNoiseReducer final : public BaseNoiseReducer {

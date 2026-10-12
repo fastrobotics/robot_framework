@@ -1,8 +1,8 @@
 #include <pcl/filters/filter.h>
 #include <pcl/filters/voxel_grid.h>
 
-#include <BaseNoiseReducer.hpp>
 #include <Infrastructure/Logger.hpp>
+#include <NoiseReducer/BaseNoiseReducer.hpp>
 #include <exception>
 #include <stdexcept>
 #include <string>
