@@ -33,6 +33,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             if (m_settleTimeSec <= 0.0) {
                 return false;
             }
+            if (m_longFusionTimeSec < 0.0) {
+                return false;
+            }
             return true;
         }
         /**
@@ -41,10 +44,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          * @return std::string
          */
         std::string pretty() {
-            std::string str = "Settle Time: " + std::to_string(m_settleTimeSec) + "\n";
+            std::string str = "Settle Time: " + std::to_string(m_settleTimeSec) +
+                              " Long Fusion Time: " + std::to_string(m_longFusionTimeSec) + "\n";
             return str;
         }
         double m_settleTimeSec{5.0};  // How long to let the Process settle for before trusting any outputs
+        double m_longFusionTimeSec{
+            0.25};  // How long before should trigger a diagnostic if sensor fusion is taking too long
     };
     /**
      * @brief Minimal Implementation for a SensorFuser Process

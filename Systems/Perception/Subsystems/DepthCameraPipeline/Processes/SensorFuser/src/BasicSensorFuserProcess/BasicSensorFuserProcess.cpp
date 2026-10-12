@@ -19,6 +19,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes;
         diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
+        diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::TIMING);
         if (m_diagnosticManager.initializeDiagnostics(diagnosticTypes) == false) {
             fast::rf::Logger::logError("Unable to initialize Diagnostic Manager.");
             return false;
@@ -56,13 +57,23 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
         auto endTime = std::chrono::high_resolution_clock::now();
         double computeTime = std::chrono::duration<double>(endTime - startTime).count();
-        fast::rf::Logger::logWarn("Compute Time: " + std::to_string(computeTime));
+
         if (m_runTimeSec > m_config.m_settleTimeSec) {
             if (sensorFusionCyclesCount == 0) {
                 m_diagnosticManager.updateDiagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::WARN,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Have not performed Fusion Yet.");
             } else {
+                if (computeTime > m_config.m_longFusionTimeSec) {
+                    m_diagnosticManager.updateDiagnostic(
+                        fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::WARN,
+                        fast::rf::DiagnosticDefinition::DiagnosticMessage::DIAGNOSTIC_FAILED,
+                        "Fusion Timing taking too long");
+                } else {
+                    m_diagnosticManager.updateDiagnostic(
+                        fast::rf::DiagnosticDefinition::DiagnosticType::TIMING, fast::rf::Level::INFO,
+                        fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Fusion Timing Ok");
+                }
                 m_diagnosticManager.updateDiagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::INFO,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Running Fusion");
