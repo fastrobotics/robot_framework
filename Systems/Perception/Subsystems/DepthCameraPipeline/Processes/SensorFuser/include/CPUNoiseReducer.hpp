@@ -1,16 +1,11 @@
 #pragma once
 
-#include <INoiseReducer.hpp>
+#include <BaseNoiseReducer.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
-    class CPUNoiseReducer final : public INoiseReducer {
+    class CPUNoiseReducer final : public BaseNoiseReducer {
        public:
-        bool init() override;
-        bool setConfig(const NoiseReducerConfig& config) override;
-        fast::rf::messages::SensorMsgs::PointCloudMsg reduceNoise(
-            const fast::rf::messages::SensorMsgs::PointCloudMsg& input) override;
-
-       private:
-        NoiseReducerConfig m_config;
+       protected:
+        Cloud::Ptr filterCloud(const Cloud::ConstPtr& input) override;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

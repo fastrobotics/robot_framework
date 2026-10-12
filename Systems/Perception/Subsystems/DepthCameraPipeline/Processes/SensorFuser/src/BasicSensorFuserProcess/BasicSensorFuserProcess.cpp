@@ -3,7 +3,12 @@
  *
  */
 #include <BasicSensorFuserProcess/BasicSensorFuserProcess.hpp>
+#include <CPUNoiseReducer.hpp>
+#ifdef ARCHITECTURE_JETSONNANO
+#include <GPUNoiseReducer.hpp>
+#endif
 #include <chrono>
+#include <memory>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
 
     bool BasicSensorFuserProcess::newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg,
@@ -36,7 +41,16 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             fast::rf::Logger::logError("Unable to initialize Overlap Remover.");
             return false;
         }
-        if (m_noiseReducer.init() == false) {
+#ifdef ARCHITECTURE_JETSONNANO
+        m_noiseReducer = std::make_unique<GPUNoiseReducer>();
+#else
+        m_noiseReducer = std::make_unique<CPUNoiseReducer>();
+#endif
+        if (!m_noiseReducer->setConfig(NoiseReducerConfig{})) {
+            fast::rf::Logger::logError("Unable to configure Noise Reducer.");
+            return false;
+        }
+        if (m_noiseReducer->init() == false) {
             fast::rf::Logger::logError("Unable to initialize Noise Reducer.");
             return false;
         }
@@ -51,7 +65,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         if (m_combiner.isCombinedPointCloudAvailable() == true) {
             auto combinedPointCloud = m_combiner.getCombinedPointCloud();
             auto overlapRemovedPointCloud = m_overlapRemover.removeOverlap(combinedPointCloud);
-            m_fusedPointCloud = m_noiseReducer.reduceNoise(overlapRemovedPointCloud);
+            m_fusedPointCloud = m_noiseReducer->reduceNoise(overlapRemovedPointCloud);
             m_fusedCloudAvailable = true;
             sensorFusionCyclesCount++;
         }

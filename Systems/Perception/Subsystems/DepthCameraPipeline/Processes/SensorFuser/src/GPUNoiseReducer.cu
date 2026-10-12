@@ -1,7 +1,7 @@
 #include <cuda_runtime.h>
 
 #include <GPUNoiseReducer.hpp>
-#include "NoiseReducerPipeline.hpp"
+#include <Infrastructure/Logger.hpp>
 #include <thrust/device_vector.h>
 #include <thrust/sort.h>
 
@@ -16,6 +16,8 @@
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     namespace {
+        using Cloud = pcl::PointCloud<pcl::PointXYZRGB>;
+
         struct GpuPoint {
             float x;
             float y;
@@ -115,11 +117,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             inliers[point_index] = neighbor_count >= required_neighbors ? 1 : 0;
         }
 
-        detail::Cloud::Ptr radiusFilterOnGpu(const detail::Cloud::ConstPtr& input,
-                                             const NoiseReducerConfig& config) {
+        Cloud::Ptr radiusFilterOnGpu(const Cloud::ConstPtr& input, const NoiseReducerConfig& config) {
             const std::size_t point_count = input->size();
             const auto required_neighbors = config.minNeighborCount + 1;
-            detail::Cloud::Ptr output(new detail::Cloud(*input));
+            Cloud::Ptr output(new Cloud(*input));
             output->clear();
             output->width = 0;
             output->height = 1;
@@ -214,41 +215,25 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
     }
 
     bool GPUNoiseReducer::init() {
-        m_initialized = false;
+        if (!BaseNoiseReducer::setConfig(m_config))
+            return false;
         int device_count = 0;
         const cudaError_t count_status = cudaGetDeviceCount(&device_count);
-        if (count_status != cudaSuccess || device_count == 0)
+        if (count_status != cudaSuccess) {
+            fast::rf::Logger::logError(std::string("Unable to query CUDA devices: ") +
+                                       cudaGetErrorString(count_status));
             return false;
+        }
+        if (device_count == 0) {
+            fast::rf::Logger::logError("GPU NoiseReducer selected but no CUDA device is available.");
+            return false;
+        }
         checkCuda(cudaSetDevice(0), "Selecting CUDA device 0");
-        m_initialized = true;
-        return true;
+        return BaseNoiseReducer::init();
     }
 
-    bool GPUNoiseReducer::setConfig(const NoiseReducerConfig& config) {
-        if (!isValidNoiseReducerConfig(config))
-            return false;
-        m_config = config;
-        return true;
-    }
-
-    fast::rf::messages::SensorMsgs::PointCloudMsg GPUNoiseReducer::reduceNoise(
-        const fast::rf::messages::SensorMsgs::PointCloudMsg& input) {
-        if (!m_initialized)
-            throw std::logic_error("GPU NoiseReducer has not been initialized.");
-        if (!input.point_cloud)
-            return detail::emptyResult(input.time_stamp);
-        if (input.point_cloud->empty())
-            return detail::passthroughResult(input);
-
-        auto downsampled_cloud = detail::prepareCloud(input.point_cloud, m_config);
-        if (downsampled_cloud->empty())
-            return detail::emptyResult(input.time_stamp, input.point_cloud);
-
+    BaseNoiseReducer::Cloud::Ptr GPUNoiseReducer::filterCloud(const Cloud::ConstPtr& input) {
         checkCuda(cudaSetDevice(0), "Selecting CUDA device 0 for NoiseReducer processing");
-        auto filtered_cloud = radiusFilterOnGpu(downsampled_cloud, m_config);
-        fast::rf::messages::SensorMsgs::PointCloudMsg result;
-        result.time_stamp = input.time_stamp;
-        result.point_cloud = std::move(filtered_cloud);
-        return result;
+        return radiusFilterOnGpu(input, m_config);
     }
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

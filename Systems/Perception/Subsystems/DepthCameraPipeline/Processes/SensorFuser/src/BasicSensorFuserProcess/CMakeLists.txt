@@ -6,7 +6,7 @@ target_link_libraries(
   DepthCameraPipelineSubsystem::combiner
   sensor_msgs
   DepthCameraPipelineSubsystem::overlapRemover
-  DepthCameraPipelineSubsystem::noiseReducer)
+  ${NOISE_REDUCER_SELECTED_TARGET})
 target_include_directories(basic_SensorFuserProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::basic_SensorFuserProcess ALIAS

@@ -35,12 +35,15 @@ The message contains a PCL `PointCloud<pcl::PointXYZRGB>` in its `point_cloud`
 field. RGB values are carried through the PCL filtering operations along with
 the point coordinates.
 
-The public `NoiseReducer` delegates to an `INoiseReducer` implementation:
-`CPUNoiseReducer` or `GPUNoiseReducer`. The automatic selector checks CUDA
-device availability at initialization. CPU-only builds and systems without a
-usable CUDA device use the CPU implementation. If a selected GPU backend fails
-during initialization or processing, the error is reported; processing errors
-are rethrown and are not silently retried on CPU.
+`BasicSensorFuserProcess` owns a `std::unique_ptr<INoiseReducer>` and constructs
+the backend selected by CMake for the target system. `CPUNoiseReducer` and
+`GPUNoiseReducer` both derive from `BaseNoiseReducer`, which implements common
+configuration, input handling, and preprocessing. CMake builds the CPU and GPU
+backend libraries independently; each links only to `baseNoiseReducer`, never
+to the other backend. Jetson builds link the process to the GPU backend;
+non-Jetson builds link it to the CPU backend. GPU initialization fails
+explicitly if no CUDA device is available. Processing errors are logged and
+re-thrown, not silently retried on CPU.
 
 ## How It Works
 
@@ -89,12 +92,12 @@ parallelized by this helper.
 
 The CPU `#pragma omp` directives enable the parallel region when the build
 enables OpenMP; otherwise execution may be serial. The number of workers is
-controlled by the OpenMP runtime/build configuration, not by `NoiseReducer`.
+controlled by the OpenMP runtime/build configuration, not by the reducer.
 
 ## Filter Parameters
 
-The defaults are set by `NoiseReducer` and can be overridden with
-`setConfig(voxelSize_m, radius_m, minNeighborCount)`:
+The defaults are set by `NoiseReducerConfig` and can be overridden through
+`INoiseReducer::setConfig`:
 
 | Parameter | Value | Effect |
 | --- | --- | --- |
@@ -117,8 +120,8 @@ The defaults are set by `NoiseReducer` and can be overridden with
 
 ## Usage in SensorFuser
 
-The `BasicSensorFuserProcess` passes the overlap-removed cloud to
-`NoiseReducer::reduceNoise` and uses the returned message as the fused cloud.
+The `BasicSensorFuserProcess` passes the overlap-removed cloud through its
+`INoiseReducer` pointer and uses the returned message as the fused cloud.
 See [Process: SensorFuser](Process-SensorFuser.md) for the surrounding
 combination and overlap-removal flow.
 
@@ -129,7 +132,7 @@ The reducer tests are in
 preservation, compare reducer output with PCL's reference filter, validate
 configuration and invalid/empty input behavior, and benchmark processing of a
 640 × 480 cloud containing synthetic NaNs and isolated depth spikes. The
-benchmark compares the explicit CPU backend with automatic selection and
-reports average, median, 95th-percentile, and maximum latency. On a Jetson build
-with a usable CUDA device, automatic selection measures the GPU backend and a
-separate test compares GPU output with the CPU result.
+benchmark compares the explicit CPU backend with the process-selected backend
+and reports average, median, 95th-percentile, and maximum latency. On Jetson,
+the selected backend is GPU; a separate test compares GPU output with the CPU
+result.

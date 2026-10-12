@@ -6,13 +6,13 @@
 #include <cstdint>
 #include <utility>
 
-#include "NoiseReducerPipeline.hpp"
-
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     namespace {
-        void radiusOutlierRemovalParallel(const detail::Cloud::ConstPtr& input, detail::Cloud& output, double radius,
+        using Cloud = pcl::PointCloud<pcl::PointXYZRGB>;
+
+        void radiusOutlierRemovalParallel(const Cloud::ConstPtr& input, Cloud& output, double radius,
                                           int min_neighbors) {
-            pcl::search::KdTree<detail::Point>::Ptr tree(new pcl::search::KdTree<detail::Point>(false));
+            pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>(false));
             tree->setInputCloud(input);
 
             const int required_neighbors = min_neighbors + 1;
@@ -46,34 +46,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
     }  // namespace
 
-    bool CPUNoiseReducer::init() { return isValidNoiseReducerConfig(m_config); }
-
-    bool CPUNoiseReducer::setConfig(const NoiseReducerConfig& config) {
-        if (!isValidNoiseReducerConfig(config))
-            return false;
-        m_config = config;
-        return true;
-    }
-
-    fast::rf::messages::SensorMsgs::PointCloudMsg CPUNoiseReducer::reduceNoise(
-        const fast::rf::messages::SensorMsgs::PointCloudMsg& input) {
-        if (!input.point_cloud)
-            return detail::emptyResult(input.time_stamp);
-        if (input.point_cloud->empty())
-            return detail::passthroughResult(input);
-
-        auto downsampled_cloud = detail::prepareCloud(input.point_cloud, m_config);
-        if (downsampled_cloud->empty())
-            return detail::emptyResult(input.time_stamp, input.point_cloud);
-
-        detail::Cloud::Ptr filtered_cloud(new detail::Cloud());
-        radiusOutlierRemovalParallel(downsampled_cloud, *filtered_cloud, m_config.radius_m,
+    BaseNoiseReducer::Cloud::Ptr CPUNoiseReducer::filterCloud(const Cloud::ConstPtr& input) {
+        Cloud::Ptr filtered_cloud(new Cloud());
+        radiusOutlierRemovalParallel(input, *filtered_cloud, m_config.radius_m,
                                      static_cast<int>(m_config.minNeighborCount));
         filtered_cloud->is_dense = true;
-
-        fast::rf::messages::SensorMsgs::PointCloudMsg result;
-        result.time_stamp = input.time_stamp;
-        result.point_cloud = std::move(filtered_cloud);
-        return result;
+        return filtered_cloud;
     }
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

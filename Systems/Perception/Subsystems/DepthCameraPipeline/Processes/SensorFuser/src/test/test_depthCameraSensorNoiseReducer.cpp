@@ -6,7 +6,6 @@
 #include <stdio.h>
 
 #include <CPUNoiseReducer.hpp>
-#include <NoiseReducer.hpp>
 #ifdef ARCHITECTURE_JETSONNANO
 #include <GPUNoiseReducer.hpp>
 #endif
@@ -52,7 +51,7 @@ fast::rf::messages::SensorMsgs::PointCloudMsg createTestRgbdMessage(uint32_t num
     return msg;
 }
 TEST(DepthCameraNoiseReducer, BasicTests) {
-    NoiseReducer SUT;
+    CPUNoiseReducer SUT;
     ASSERT_TRUE(SUT.init());
     fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud = createTestRgbdMessage(307200);
     sensorCloud.time_stamp = 1.234;
@@ -60,15 +59,16 @@ TEST(DepthCameraNoiseReducer, BasicTests) {
     ASSERT_FLOAT_EQ(cloud.time_stamp, sensorCloud.time_stamp);
 }
 TEST(DepthCameraNoiseReducer, RejectsInvalidConfiguration) {
-    NoiseReducer SUT;
-    EXPECT_FALSE(SUT.setConfig(0.0, 0.05, 2));
-    EXPECT_FALSE(SUT.setConfig(0.035, std::numeric_limits<double>::infinity(), 2));
-    EXPECT_FALSE(SUT.setConfig(std::numeric_limits<double>::max(), 0.05, 2));
-    EXPECT_FALSE(SUT.setConfig(0.035, 0.05, std::numeric_limits<uint64_t>::max()));
-    EXPECT_TRUE(SUT.setConfig(0.035, 0.05, 2));
+    CPUNoiseReducer SUT;
+    EXPECT_FALSE(SUT.setConfig({0.0, 0.05, 2}));
+    EXPECT_FALSE(SUT.setConfig({0.035, std::numeric_limits<double>::infinity(), 2}));
+    EXPECT_FALSE(SUT.setConfig({std::numeric_limits<double>::max(), 0.05, 2}));
+    EXPECT_FALSE(SUT.setConfig({0.035, 0.05, std::numeric_limits<uint64_t>::max()}));
+    EXPECT_TRUE(SUT.setConfig({0.035, 0.05, 2}));
+    EXPECT_TRUE(SUT.init());
 }
 TEST(DepthCameraNoiseReducer, EmptyAndNullInputsPreserveTimestamp) {
-    NoiseReducer SUT;
+    CPUNoiseReducer SUT;
     ASSERT_TRUE(SUT.init());
 
     fast::rf::messages::SensorMsgs::PointCloudMsg empty_input;
@@ -211,9 +211,15 @@ TEST(DepthCameraNoiseReducer, GpuBackendMatchesCpuBackend) {
 #endif
 TEST(DepthCameraNoiseReducerTests, BenchmarkFilterPerformance) {
     CPUNoiseReducer cpu_backend;
-    NoiseReducer automatic_backend;
     ASSERT_TRUE(cpu_backend.init());
-    ASSERT_TRUE(automatic_backend.init());
+#ifdef ARCHITECTURE_JETSONNANO
+    if (!GPUNoiseReducer::isAvailable())
+        GTEST_SKIP() << "No usable CUDA device is available.";
+    std::unique_ptr<INoiseReducer> selected_backend = std::make_unique<GPUNoiseReducer>();
+#else
+    std::unique_ptr<INoiseReducer> selected_backend = std::make_unique<CPUNoiseReducer>();
+#endif
+    ASSERT_TRUE(selected_backend->init());
 
     constexpr uint32_t benchmark_point_count = 307200;
     constexpr uint32_t benchmark_width = 640;
@@ -238,11 +244,11 @@ TEST(DepthCameraNoiseReducerTests, BenchmarkFilterPerformance) {
     constexpr double max_average_duration_ms = 500.0;
     constexpr double ideal_average_duration_ms = 100.0;
     std::vector<double> cpu_durations_ms;
-    std::vector<double> automatic_durations_ms;
+    std::vector<double> selected_durations_ms;
     cpu_durations_ms.reserve(measured_iterations);
-    automatic_durations_ms.reserve(measured_iterations);
+    selected_durations_ms.reserve(measured_iterations);
     std::size_t cpu_output_point_count = 0;
-    std::size_t automatic_output_point_count = 0;
+    std::size_t selected_output_point_count = 0;
 
     std::cout << "\n======================================================\n";
     std::cout << "STARTING NOISE REDUCER BENCHMARK (" << measured_iterations << " MEASURED ITERATIONS)\n";
@@ -254,32 +260,32 @@ TEST(DepthCameraNoiseReducerTests, BenchmarkFilterPerformance) {
         auto cpu_end = std::chrono::high_resolution_clock::now();
         const double cpu_duration_ms = std::chrono::duration<double, std::milli>(cpu_end - cpu_start).count();
 
-        auto automatic_start = std::chrono::high_resolution_clock::now();
-        auto automatic_cloud = automatic_backend.reduceNoise(sensorCloud);
-        auto automatic_end = std::chrono::high_resolution_clock::now();
-        const double automatic_duration_ms =
-            std::chrono::duration<double, std::milli>(automatic_end - automatic_start).count();
+        auto selected_start = std::chrono::high_resolution_clock::now();
+        auto selected_cloud = selected_backend->reduceNoise(sensorCloud);
+        auto selected_end = std::chrono::high_resolution_clock::now();
+        const double selected_duration_ms =
+            std::chrono::duration<double, std::milli>(selected_end - selected_start).count();
 
         if (i == 0) {
             ASSERT_NE(cpu_cloud.point_cloud, nullptr);
-            ASSERT_NE(automatic_cloud.point_cloud, nullptr);
+            ASSERT_NE(selected_cloud.point_cloud, nullptr);
             ASSERT_FLOAT_EQ(cpu_cloud.time_stamp, sensorCloud.time_stamp);
-            ASSERT_FLOAT_EQ(automatic_cloud.time_stamp, sensorCloud.time_stamp);
+            ASSERT_FLOAT_EQ(selected_cloud.time_stamp, sensorCloud.time_stamp);
             ASSERT_FALSE(cpu_cloud.point_cloud->empty());
-            ASSERT_FALSE(automatic_cloud.point_cloud->empty());
+            ASSERT_FALSE(selected_cloud.point_cloud->empty());
             EXPECT_TRUE(cpu_cloud.point_cloud->is_dense);
-            EXPECT_TRUE(automatic_cloud.point_cloud->is_dense);
+            EXPECT_TRUE(selected_cloud.point_cloud->is_dense);
             cpu_output_point_count = cpu_cloud.point_cloud->size();
-            automatic_output_point_count = automatic_cloud.point_cloud->size();
+            selected_output_point_count = selected_cloud.point_cloud->size();
             EXPECT_LT(cpu_output_point_count, voxelized_cloud->size())
                 << "CPU radius filtering must reject isolated synthetic depth spikes.";
-            EXPECT_LT(automatic_output_point_count, voxelized_cloud->size())
+            EXPECT_LT(selected_output_point_count, voxelized_cloud->size())
                 << "Radius filtering must reject isolated synthetic depth spikes.";
-            ASSERT_EQ(cpu_output_point_count, automatic_output_point_count);
+            ASSERT_EQ(cpu_output_point_count, selected_output_point_count);
         }
         if (i >= warmup_iterations) {
             cpu_durations_ms.push_back(cpu_duration_ms);
-            automatic_durations_ms.push_back(automatic_duration_ms);
+            selected_durations_ms.push_back(selected_duration_ms);
         }
     }
     ASSERT_EQ(sensorCloud.point_cloud->size(), benchmark_point_count);
@@ -299,26 +305,26 @@ TEST(DepthCameraNoiseReducerTests, BenchmarkFilterPerformance) {
         return LatencySummary{average, median, samples[p95_index], samples.back()};
     };
     const auto cpu_latency = summarize(cpu_durations_ms);
-    const auto automatic_latency = summarize(automatic_durations_ms);
+    const auto selected_latency = summarize(selected_durations_ms);
 
     std::cout << "BENCHMARK RESULTS:\n";
     std::cout << " -> Input Points: " << sensorCloud.point_cloud->size() << " (" << benchmark_width << "x"
               << benchmark_height << ")\n";
     std::cout << " -> CPU Avg / Median / P95 / Max Latency: " << cpu_latency.average << " / " << cpu_latency.median
               << " / " << cpu_latency.p95 << " / " << cpu_latency.maximum << " ms\n";
-    std::cout << " -> Automatic Avg / Median / P95 / Max Latency: " << automatic_latency.average << " / "
-              << automatic_latency.median << " / " << automatic_latency.p95 << " / " << automatic_latency.maximum
+    std::cout << " -> Selected Avg / Median / P95 / Max Latency: " << selected_latency.average << " / "
+              << selected_latency.median << " / " << selected_latency.p95 << " / " << selected_latency.maximum
               << " ms\n";
-    std::cout << " -> Automatic Estimated Throughput: " << 1000.0 / automatic_latency.average << " Hz\n";
+    std::cout << " -> Selected Estimated Throughput: " << 1000.0 / selected_latency.average << " Hz\n";
     std::cout << " -> Points after voxelization: " << voxelized_cloud->size() << "\n";
     std::cout << " -> CPU Output Points: " << cpu_output_point_count << "\n";
-    std::cout << " -> Automatic Output Points: " << automatic_output_point_count << "\n";
+    std::cout << " -> Selected Output Points: " << selected_output_point_count << "\n";
     std::cout << " -> Average latency requirement: <= " << max_average_duration_ms << " ms\n";
     std::cout << " -> Ideal average latency: <= " << ideal_average_duration_ms << " ms\n";
     std::cout << "======================================================\n\n";
 
     EXPECT_LE(cpu_latency.average, max_average_duration_ms)
         << "CPU noise reduction average exceeds the 500 ms per-frame requirement.";
-    EXPECT_LE(automatic_latency.average, max_average_duration_ms)
-        << "Automatically selected noise reduction average exceeds the 500 ms per-frame requirement.";
+    EXPECT_LE(selected_latency.average, max_average_duration_ms)
+        << "Selected noise reduction average exceeds the 500 ms per-frame requirement.";
 }

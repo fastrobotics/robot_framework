@@ -32,10 +32,26 @@ namespace fast::rf {
                     +bool init()
                     +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer #LimeGreen {
+                interface INoiseReducer #LimeGreen {
+                    +{abstract} bool setConfig(NoiseReducerConfig config)
+                    +{abstract} bool init()
+                    +{abstract} PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
+                }
+                abstract BaseNoiseReducer #LimeGreen {
+                    +bool setConfig(NoiseReducerConfig config)
                     +bool init()
                     +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
+                    #Cloud filterCloud(Cloud input)
                 }
+                class CPUNoiseReducer #LimeGreen {
+                    #Cloud filterCloud(Cloud input)
+                }
+                class GPUNoiseReducer #LimeGreen {
+                    #Cloud filterCloud(Cloud input)
+                }
+                BaseNoiseReducer .up.|> INoiseReducer
+                CPUNoiseReducer -up-|> BaseNoiseReducer
+                GPUNoiseReducer -up-|> BaseNoiseReducer
                 interface ISensorFuserProcess #Orange  {
                     +{abstract} bool init()
                     +{abstract} PointCloudMsg getFusedPointCloud()
@@ -69,14 +85,14 @@ namespace fast::rf {
                     -BasicSensorFuserProcessConfig m_config
                     -Combiner m_combiner
                     -OverlapRemover m_overlapRemover
-                    -NoiseReducer m_noiseReducer
+                    -std::unique_ptr<INoiseReducer> m_noiseReducer
                     -uint64 sensorFusionCyclesCount
                 }
                 BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
                 BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
                 BasicSensorFuserProcess *-> Combiner: <<use>>
                 BasicSensorFuserProcess *-> OverlapRemover: <<use>>
-                BasicSensorFuserProcess *-> NoiseReducer: <<use>>
+                BasicSensorFuserProcess *-> INoiseReducer: <<use>>
             }
         }
     }
