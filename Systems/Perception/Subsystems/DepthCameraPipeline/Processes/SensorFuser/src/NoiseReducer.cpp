@@ -77,13 +77,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             // TIME STAGE 1: Fast NaN Removal
             // =================================================================
-            auto t_nan_start = std::chrono::high_resolution_clock::now();
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr cleanCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
             std::vector<int> nan_indices;
             pcl::removeNaNFromPointCloud(*pclCloud, *cleanCloud, nan_indices);
             cleanCloud->is_dense = true;
-            auto t_nan_end = std::chrono::high_resolution_clock::now();
-            ms_nan = std::chrono::duration_cast<std::chrono::milliseconds>(t_nan_end - t_nan_start).count();
 
             if (cleanCloud->empty())
                 return overlapRemovedPointCloud;
@@ -106,7 +103,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             // TIME STAGE 3: Radius Outlier Removal Filter
             // =================================================================
-            auto t_filter_start = std::chrono::high_resolution_clock::now();
             try {
                 radiusOutlierRemovalParallel(downsampledCloud, *pclCloudFiltered, m_radius_m, m_minNeighborCount);
 
@@ -119,32 +115,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
                 fast::rf::Logger::logError("PCL Filter threw an exception: " + std::string(e.what()));
                 pclCloudFiltered = pclCloud;
             }
-            auto t_filter_end = std::chrono::high_resolution_clock::now();
-            ms_filter = std::chrono::duration_cast<std::chrono::milliseconds>(t_filter_end - t_filter_start).count();
         } else {
             pclCloudFiltered = pclCloud;
         }
 
         noiseRemovedPointCloud.point_cloud = pclCloudFiltered;
-
-        // Calculate remaining durations
-        auto t_end = std::chrono::high_resolution_clock::now();
-        auto ms_total = std::chrono::duration_cast<std::chrono::milliseconds>(t_end - t_start).count();
-
-        fast::rf::Logger::logDebug(
-            "PERF BREAKDOWN -> "
-            "NaN_Rem: " +
-            std::to_string(ms_nan) +
-            "ms | "
-            "Voxel: " +
-            std::to_string(ms_voxel) +
-            "ms | "
-            "RadFilter: " +
-            std::to_string(ms_filter) +
-            "ms || "
-            "Total: " +
-            std::to_string(ms_total) + "ms");
-
         return noiseRemovedPointCloud;
     }
 
