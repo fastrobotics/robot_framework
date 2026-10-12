@@ -50,7 +50,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
         fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
         noiseRemovedPointCloud.time_stamp = overlapRemovedPointCloud.time_stamp;
-        bool noiseFilterEnable = true;
+        bool noiseFilterEnable = false;
 
         if (!overlapRemovedPointCloud.point_cloud) {
             fast::rf::Logger::logError("PointCloudMsg contains a null PCL point cloud.");
