@@ -37,6 +37,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             m_voxelSize_m = voxelSize_m;
             m_radius_m = radius_m;
             m_minNeighborCount = minNeighborCount;
+            return true;
         }
         fast::rf::messages::SensorMsgs::PointCloudMsg reduceNoise(
             const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud);

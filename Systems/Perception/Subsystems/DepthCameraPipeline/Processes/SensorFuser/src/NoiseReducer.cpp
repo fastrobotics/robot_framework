@@ -46,10 +46,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
     }  // namespace
 
-    bool NoiseReducer::init() {
-        voxelSize_m = 0.035;
-        return true;
-    }
+    bool NoiseReducer::init() { return true; }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
         // Start master stopwatch

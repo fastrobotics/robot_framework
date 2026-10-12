@@ -37,6 +37,7 @@ class TestSensorFuserProcessInterface : public ISensorFuserProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    bool isFusedCloudAvailable() { return true; }
 };
 TEST(TestSensorFuserProcessInterface, InterfaceTests) {
     TestSensorFuserProcessInterface SUT;
@@ -74,6 +75,7 @@ class TestBaseSensorFuserProcess : public BaseSensorFuserProcess {
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
+    bool isFusedCloudAvailable() { return true; }
 };
 TEST(BaseSensorFuserProcess, BasicAssertions) {
     TestBaseSensorFuserProcess SUT;
