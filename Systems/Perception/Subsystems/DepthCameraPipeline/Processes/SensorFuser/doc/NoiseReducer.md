@@ -7,6 +7,8 @@
   - [Interface](#interface)
   - [How It Works](#how-it-works)
   - [Parallel Processing](#parallel-processing)
+  - [CPU Implementation](#cpu-implementation)
+  - [GPU Implementation](#gpu-implementation)
   - [Filter Parameters](#filter-parameters)
   - [Input and Error Handling](#input-and-error-handling)
   - [Usage in SensorFuser](#usage-in-sensorfuser)
@@ -105,8 +107,56 @@ parallelized by this helper.
 The CPU `#pragma omp` directives enable the parallel region when the build
 enables OpenMP; otherwise execution may be serial. The number of workers is
 controlled by the OpenMP runtime/build configuration, not by the reducer.
-The GPU backend parallelizes point classification in CUDA kernels after
-transferring the downsampled cloud to device memory.
+The GPU backend also parallelizes point classification, using CUDA kernels
+after transferring the downsampled point positions to device memory.
+
+## CPU Implementation
+
+`CPUNoiseReducer` implements the radius stage with a PCL k-d tree. It builds
+the tree once from the preprocessed cloud, then calls `nearestKSearch` for
+each point, requesting `minNeighborCount + 1` results because the query point
+itself is included. A point is retained when the requested number of results
+is found and the farthest returned neighbor is no farther than the configured
+radius. The OpenMP loop processes independent queries with a static schedule;
+each worker has its own query buffers. A final serial gather preserves input
+order.
+
+This backend requires PCL and OpenMP. If OpenMP parallelism is not enabled by
+the build/runtime, the same loop can execute serially.
+
+## GPU Implementation
+
+`GPUNoiseReducer` accelerates only the radius stage; NaN removal and voxel
+downsampling still run on the CPU through `BaseNoiseReducer`. It selects CUDA
+device 0 during initialization and fails initialization if CUDA cannot report
+a device or no device is available. A selected GPU backend does not silently
+fall back to CPU.
+
+For radius filtering, the implementation copies the downsampled XYZ positions
+to a compact host buffer and uploads them to the GPU. It then:
+
+1. Uses a CUDA kernel to map every point to a uniform spatial cell whose edge
+   length is the configured neighbor radius, producing a linear cell key and
+   the point's original index.
+2. Sorts cell keys and their associated point indices together with Thrust.
+3. Launches a CUDA thread for each point. The thread visits its own cell and
+   the surrounding 26 cells (fewer at grid boundaries), finds each cell's
+   range in the sorted keys by binary search, and counts candidates whose
+   squared Euclidean distance is within the squared radius. Since each cell is
+   one radius wide, any point within radius must be in one of these 27 cells.
+   Counting stops once `minNeighborCount + 1` points, including the query
+   point, have been found.
+4. Copies the inlier flags back to the host and gathers retained points in
+   their original order. The gather uses the original PCL points, so RGB
+   values and other point fields are preserved without transferring them to
+   the device.
+
+The CUDA implementation checks device selection, kernel launches, result
+transfers, and grid/index ranges. Failures are surfaced as exceptions (and
+logged by the shared reducer) rather than returning an unfiltered cloud.
+Compared with the CPU backend, it trades spatial-index construction and
+neighbor searches for device transfers, key sorting, and cell lookups; actual
+performance therefore depends on cloud size and the target GPU.
 
 ## Filter Parameters
 
@@ -144,11 +194,11 @@ combination and overlap-removal flow.
 ## Validation
 
 The reducer tests are in
-`../src/test/test_depthCameraSensorNoiseReducer.cpp`. They check timestamp
-preservation, compare reducer output with PCL's reference filter, validate
-configuration and invalid/empty input behavior, and benchmark processing of a
-640 × 480 cloud containing synthetic NaNs and isolated depth spikes. The
-benchmark compares the explicit CPU backend with the process-selected backend
-and reports average, median, 95th-percentile, and maximum latency. On Jetson,
-the selected backend is GPU; a separate test compares GPU output with the CPU
-result.
+`../src/NoiseReducer/test/test_depthCameraSensorNoiseReducer.cpp`. They check
+timestamp preservation, compare CPU reducer output with PCL's reference
+filter, validate configuration and invalid/empty input behavior, and benchmark
+processing of a 640 × 480 cloud containing synthetic NaNs and isolated depth
+spikes. The benchmark compares the explicit CPU backend with the
+process-selected backend and reports average, median, 95th-percentile, and
+maximum latency. On Jetson, the selected backend is GPU; a separate test
+compares GPU output with the CPU result when a CUDA device is available.
