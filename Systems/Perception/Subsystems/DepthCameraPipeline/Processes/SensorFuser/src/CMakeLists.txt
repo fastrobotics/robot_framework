@@ -38,6 +38,9 @@ if(ARCHITECTURE_JETSONNANO)
                              PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
   set_target_properties(noiseReducerGPU PROPERTIES CUDA_STANDARD 17
                                                    CUDA_STANDARD_REQUIRED ON)
+  target_compile_options(
+    noiseReducerGPU
+    PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr>)
   add_library(DepthCameraPipelineSubsystem::noiseReducerGPU ALIAS
               noiseReducerGPU)
 endif()
