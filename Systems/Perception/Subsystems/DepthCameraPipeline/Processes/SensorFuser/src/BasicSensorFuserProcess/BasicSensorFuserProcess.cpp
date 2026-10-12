@@ -49,6 +49,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             auto combinedPointCloud = m_combiner.getCombinedPointCloud();
             auto overlapRemovedPointCloud = m_overlapRemover.removeOverlap(combinedPointCloud);
             m_fusedPointCloud = m_noiseReducer.reduceNoise(overlapRemovedPointCloud);
+            m_fusedCloudAvailable = true;
             sensorFusionCyclesCount++;
         }
         if (m_runTimeSec > m_config.m_settleTimeSec) {

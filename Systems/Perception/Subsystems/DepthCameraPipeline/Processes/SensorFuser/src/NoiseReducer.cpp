@@ -46,7 +46,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
     }  // namespace
 
-    bool NoiseReducer::init() { return true; }
+    bool NoiseReducer::init() {
+        voxelSize_m = 0.035;
+        return true;
+    }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
         // Start master stopwatch
@@ -95,11 +98,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr downsampledCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
             pcl::VoxelGrid<pcl::PointXYZRGB> vg;
             vg.setInputCloud(cleanCloud);
-
-            // INCREASE LEAF SIZE: Moving from 2cm to 3.5cm cuts the point count
-            // quadratically, which drops filtering time exponentially.
-            double voxelSize = 0.035f;
-            vg.setLeafSize(voxelSize, voxelSize, voxelSize);
+            vg.setLeafSize(m_voxelSize_m, m_voxelSize_m, m_voxelSize_m);
             vg.filter(*downsampledCloud);
             auto t_voxel_end = std::chrono::high_resolution_clock::now();
             ms_voxel = std::chrono::duration_cast<std::chrono::milliseconds>(t_voxel_end - t_voxel_start).count();
@@ -112,7 +111,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             auto t_filter_start = std::chrono::high_resolution_clock::now();
             try {
-                radiusOutlierRemovalParallel(downsampledCloud, *pclCloudFiltered, 0.05, 2);
+                radiusOutlierRemovalParallel(downsampledCloud, *pclCloudFiltered, m_radius_m, m_minNeighborCount);
 
                 std::size_t filteredOutCount = pclCloud->size() - pclCloudFiltered->size();
                 double percentRemoved = 100.0 * static_cast<double>(filteredOutCount) / pclCloud->size();
