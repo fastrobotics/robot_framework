@@ -5,7 +5,6 @@
 
 #include <Infrastructure/Logger.hpp>
 #include <NoiseReducer.hpp>
-#include <chrono>
 #include <cstddef>
 #include <cstdint>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
@@ -49,9 +48,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
     bool NoiseReducer::init() { return true; }
     fast::rf::messages::SensorMsgs::PointCloudMsg NoiseReducer::reduceNoise(
         const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud) {
-        // Start master stopwatch
-        auto t_start = std::chrono::high_resolution_clock::now();
-
         fast::rf::messages::SensorMsgs::PointCloudMsg noiseRemovedPointCloud;
         noiseRemovedPointCloud.time_stamp = overlapRemovedPointCloud.time_stamp;
         bool noiseFilterEnable = true;
@@ -63,11 +59,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloud = overlapRemovedPointCloud.point_cloud;
 
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr pclCloudFiltered(new pcl::PointCloud<pcl::PointXYZRGB>);
-
-        // Track intermediate timing steps
-        long long ms_nan = 0;
-        long long ms_voxel = 0;
-        long long ms_filter = 0;
 
         if (noiseFilterEnable == true) {
             if (pclCloud->empty()) {
@@ -88,14 +79,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             // =================================================================
             // TIME STAGE 2: Voxel Grid Downsampling
             // =================================================================
-            auto t_voxel_start = std::chrono::high_resolution_clock::now();
             pcl::PointCloud<pcl::PointXYZRGB>::Ptr downsampledCloud(new pcl::PointCloud<pcl::PointXYZRGB>);
             pcl::VoxelGrid<pcl::PointXYZRGB> vg;
             vg.setInputCloud(cleanCloud);
             vg.setLeafSize(m_voxelSize_m, m_voxelSize_m, m_voxelSize_m);
             vg.filter(*downsampledCloud);
-            auto t_voxel_end = std::chrono::high_resolution_clock::now();
-            ms_voxel = std::chrono::duration_cast<std::chrono::milliseconds>(t_voxel_end - t_voxel_start).count();
 
             if (downsampledCloud->empty())
                 return overlapRemovedPointCloud;
