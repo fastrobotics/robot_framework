@@ -11,11 +11,18 @@ target_include_directories(overlapRemover
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::overlapRemover ALIAS overlapRemover)
 
-add_library(noiseReducer STATIC NoiseReducer.cpp)
+add_library(noiseReducer STATIC NoiseReducer.cpp CPUNoiseReducer.cpp)
 target_link_libraries(noiseReducer logger infrastructure_msgs sensor_msgs
                       ${PCL_LIBRARIES} OpenMP::OpenMP_CXX)
 target_include_directories(noiseReducer
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
+if(ARCHITECTURE_JETSONNANO)
+  target_sources(noiseReducer PRIVATE GPUNoiseReducer.cu)
+  target_compile_definitions(noiseReducer PRIVATE ARCHITECTURE_JETSONNANO)
+  target_link_libraries(noiseReducer PRIVATE CUDA::cudart)
+  set_target_properties(noiseReducer PROPERTIES CUDA_STANDARD 17
+                                                CUDA_STANDARD_REQUIRED ON)
+endif()
 add_library(DepthCameraPipelineSubsystem::noiseReducer ALIAS noiseReducer)
 
 add_library(base_SensorFuserProcess STATIC BaseSensorFuserProcess.cpp)

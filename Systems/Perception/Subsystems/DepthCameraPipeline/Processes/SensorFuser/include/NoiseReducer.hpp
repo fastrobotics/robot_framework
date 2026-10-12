@@ -9,7 +9,10 @@
  *
  */
 #pragma once
-#include <PointCloudMsg.hpp>
+
+#include <INoiseReducer.hpp>
+#include <memory>
+
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     /**
      * @brief Removes noise from a Point Cloud
@@ -17,6 +20,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
      */
     class NoiseReducer {
        public:
+        NoiseReducer() = default;
+        ~NoiseReducer() = default;
+        NoiseReducer(const NoiseReducer&) = delete;
+        NoiseReducer& operator=(const NoiseReducer&) = delete;
+        NoiseReducer(NoiseReducer&&) noexcept = default;
+        NoiseReducer& operator=(NoiseReducer&&) noexcept = default;
+
         /**
          * @brief Initialize the object
          *
@@ -33,18 +43,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          * @return true
          * @return false
          */
-        bool setConfig(double voxelSize_m, double radius_m, uint64_t minNeighborCount) {
-            m_voxelSize_m = voxelSize_m;
-            m_radius_m = radius_m;
-            m_minNeighborCount = minNeighborCount;
-            return true;
-        }
+        bool setConfig(double voxelSize_m, double radius_m, uint64_t minNeighborCount);
         fast::rf::messages::SensorMsgs::PointCloudMsg reduceNoise(
             const fast::rf::messages::SensorMsgs::PointCloudMsg& overlapRemovedPointCloud);
 
        private:
-        double m_voxelSize_m{0.035};
-        double m_radius_m{0.05};
-        uint64_t m_minNeighborCount{2};
+        NoiseReducerConfig m_config;
+        std::unique_ptr<INoiseReducer> m_backend;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser
