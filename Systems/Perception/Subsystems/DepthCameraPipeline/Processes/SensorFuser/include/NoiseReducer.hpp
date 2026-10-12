@@ -33,7 +33,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          * @return true
          * @return false
          */
-        bool setConfig(double voxelSizcane_m, double radius_m, uint64_t minNeighborCount) {
+        bool setConfig(double voxelSize_m, double radius_m, uint64_t minNeighborCount) {
             m_voxelSize_m = voxelSize_m;
             m_radius_m = radius_m;
             m_minNeighborCount = minNeighborCount;
