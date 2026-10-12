@@ -42,7 +42,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         return true;
     }
     bool BasicSensorFuserProcess::update(double currentTimeSec) {
-        auto t_start = std::chrono::high_resolution_clock::now();
+        auto startTime = std::chrono::high_resolution_clock::now();
         if (BaseSensorFuserProcess::update(currentTimeSec) == false) {
             fast::rf::Logger::logWarn("Unable to update Base Sensor Fuser Process.");
             return false;
@@ -54,8 +54,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             m_fusedCloudAvailable = true;
             sensorFusionCyclesCount++;
         }
-        auto t_nan_end = std::chrono::high_resolution_clock::now();
-        double computeTime = std::chrono::duration<double>(t_nan_end - t_nan_start).count();
+        auto endTime = std::chrono::high_resolution_clock::now();
+        double computeTime = std::chrono::duration<double>(endTime - startTime).count();
         fast::rf::Logger::logWarn("Compute Time: " + std::to_string(computeTime));
         if (m_runTimeSec > m_config.m_settleTimeSec) {
             if (sensorFusionCyclesCount == 0) {
