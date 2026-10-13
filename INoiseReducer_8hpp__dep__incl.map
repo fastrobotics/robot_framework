@@ -1,0 +1,22 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/INoiseReducer.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/INoiseReducer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="393,5,643,75"/>
+<area shape="rect" id="Node000002" href="$BasicSensorFuserProcess_8hpp.html" title=" " alt="" coords="208,123,516,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="466,85,416,125,412,121,463,81"/>
+<area shape="rect" id="Node000006" href="$BaseNoiseReducer_8hpp.html" title=" " alt="" coords="615,130,885,199"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="595,79,688,127,685,132,592,83"/>
+<area shape="rect" id="Node000003" href="$BasicSensorFuserProcess_8cpp.html" title=" " alt="" coords="365,372,639,456"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,220,370,272,378,298,390,323,409,348,434,370,430,374,405,352,385,325,373,300,365,273,358,221"/>
+<area shape="rect" id="Node000004" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="5,262,324,317"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="286,216,208,264,206,260,283,212"/>
+<area shape="rect" id="Node000005" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="19,387,310,441"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="167,331,167,387,162,387,162,331"/>
+<area shape="rect" id="Node000007" href="$CPUNoiseReducer_8hpp.html" title=" " alt="" coords="693,255,957,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="780,210,806,253,802,256,775,212"/>
+<area shape="rect" id="Node000009" href="$GPUNoiseReducer_8hpp.html" title=" " alt="" coords="981,255,1247,324"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="863,201,1015,252,1013,257,861,206"/>
+<area shape="rect" id="Node000010" href="$BaseNoiseReducer_8cpp.html" title=" " alt="" coords="400,255,668,324"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="681,208,595,257,592,252,678,204"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="725,331,611,374,609,369,723,326"/>
+<area shape="rect" id="Node000008" href="$CPUNoiseReducer_8cpp.html" title=" " alt="" coords="693,379,956,449"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="827,337,827,379,822,379,822,337"/>
+</map>

@@ -145,6 +145,12 @@ var hierarchy =
         [ "fast::rf::NavigationSystem::DummyNavigationSystem", "classfast_1_1rf_1_1NavigationSystem_1_1DummyNavigationSystem.html", null ]
       ] ]
     ] ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::INoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1INoiseReducer.html", [
+      [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BaseNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseNoiseReducer.html", [
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::CPUNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1CPUNoiseReducer.html", null ],
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::GPUNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1GPUNoiseReducer.html", null ]
+      ] ]
+    ] ],
     [ "fast::rf::PoseSystem::IPoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1IPoseSystem.html", [
       [ "fast::rf::PoseSystem::BasePoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1BasePoseSystem.html", [
         [ "fast::rf::PoseSystem::DummyPoseSystem", "classfast_1_1rf_1_1PoseSystem_1_1DummyPoseSystem.html", null ]
@@ -273,13 +279,12 @@ var hierarchy =
     [ "fast::rf::Logger", "classfast_1_1rf_1_1Logger.html", null ],
     [ "fast::rf::messages::SensorMsgs::MagneticFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html", null ],
     [ "fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ReadyToArmComputer::Monitor", "structfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ReadyToArmComputer_1_1Monitor.html", null ],
-    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::NoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducer.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::NoiseReducerConfig", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducerConfig.html", null ],
     [ "fast::rf::messages::AwarenessMsgs::ObjectMsg", "structfast_1_1rf_1_1messages_1_1AwarenessMsgs_1_1ObjectMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OdomMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::OrientationMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html", null ],
     [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::OverlapRemover", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1OverlapRemover.html", null ],
     [ "fast::rf::messages::SensorMsgs::PointCloudMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html", null ],
-    [ "fast::rf::messages::SensorMsgs::PointFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PointMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::PoseMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html", null ],
     [ "fast::rf::PoseSystem::PoseUtility", "classfast_1_1rf_1_1PoseSystem_1_1PoseUtility.html", null ],

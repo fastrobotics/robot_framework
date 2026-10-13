@@ -2,5 +2,6 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Senso
 [
     [ "isOk", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html#ae131203f79e5040ed74d136d3b0faaaf", null ],
     [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html#ae21333a9b3c409fc8804ec221970d1d2", null ],
+    [ "m_longFusionTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html#a0226014812bc1f6ecf37cbb333b73b4a", null ],
     [ "m_settleTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html#a3dfce795863e1fa99202bad918cf90a6", null ]
 ];

@@ -1,0 +1,16 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/INoiseReducer.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/INoiseReducer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="317,5,567,75"/>
+<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="314,123,461,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="425,76,403,112,399,109,420,73"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="498,196,565,221"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="462,74,521,183,516,185,458,76"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,137,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,151,136,196,135,190,336,145"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="162,196,295,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="363,150,268,193,266,188,361,146"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="320,196,391,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="384,149,368,185,364,183,380,147"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="412,146,497,187,494,192,409,150"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="415,196,474,221"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="399,147,429,183,425,187,395,150"/>
+</map>

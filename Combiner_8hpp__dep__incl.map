@@ -1,4 +1,4 @@
-<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner.hpp">
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner/Combiner.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner/Combiner.hpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="329,5,579,75"/>
 <area shape="rect" id="Node000002" href="$BasicSensorFuserProcess_8hpp.html" title=" " alt="" coords="148,123,456,207"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="403,85,354,125,351,121,400,81"/>

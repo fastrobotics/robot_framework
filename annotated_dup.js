@@ -113,8 +113,7 @@ var annotated_dup =
             [ "ImuMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1ImuMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1ImuMsg" ],
             [ "JoyMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1JoyMsg" ],
             [ "MagneticFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg" ],
-            [ "PointCloudMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg" ],
-            [ "PointFieldMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointFieldMsg" ]
+            [ "PointCloudMsg", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html", "structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg" ]
           ] ],
           [ "StandardMsgs", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs.html", [
             [ "Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg" ],
@@ -199,13 +198,17 @@ var annotated_dup =
               [ "IFOVExtractorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1IFOVExtractorProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FOVExtractor_1_1IFOVExtractorProcess" ]
             ] ],
             [ "SensorFuser", "namespacefast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser.html", [
+              [ "BaseNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseNoiseReducer.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseNoiseReducer" ],
               [ "BaseSensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BaseSensorFuserProcess" ],
               [ "BasicSensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcess" ],
               [ "BasicSensorFuserProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1BasicSensorFuserProcessConfig" ],
               [ "Combiner", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1Combiner.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1Combiner" ],
+              [ "CPUNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1CPUNoiseReducer.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1CPUNoiseReducer" ],
+              [ "GPUNoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1GPUNoiseReducer.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1GPUNoiseReducer" ],
               [ "Id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1Id.html", null ],
+              [ "INoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1INoiseReducer.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1INoiseReducer" ],
               [ "ISensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess" ],
-              [ "NoiseReducer", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducer.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducer" ],
+              [ "NoiseReducerConfig", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducerConfig.html", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1NoiseReducerConfig" ],
               [ "OverlapRemover", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1OverlapRemover.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1OverlapRemover" ]
             ] ],
             [ "SensorHealthMonitor", "namespacefast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor.html", [

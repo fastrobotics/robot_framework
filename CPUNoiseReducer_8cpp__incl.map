@@ -1,0 +1,30 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/src/NoiseReducer/CPUNoiseReducer.cpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/src/NoiseReducer/CPUNoiseReducer.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="297,5,559,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,123,136,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="300,77,128,122,127,117,298,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="160,123,307,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="359,77,271,119,268,114,357,72"/>
+<area shape="rect" id="Node000004" href="$CPUNoiseReducer_8hpp.html" title=" " alt="" coords="383,123,643,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="461,73,495,110,491,114,457,77"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="201,416,271,441"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="401,77,382,104,365,136,352,171,347,208,347,283,344,303,338,323,318,358,292,387,266,410,263,406,288,383,314,354,334,321,339,302,341,283,341,207,347,169,360,133,378,101,397,74"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="693,416,760,441"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="561,65,612,87,656,121,674,141,683,160,687,181,688,207,688,283,691,316,698,348,718,402,713,404,693,350,686,317,683,283,683,207,682,181,678,161,669,144,653,125,609,92,559,70"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="723,123,783,148"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="546,72,711,119,709,124,545,77"/>
+<area shape="rect" id="Node000005" href="$BaseNoiseReducer_8hpp.html" title=" " alt="" coords="382,196,647,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="516,148,517,182,512,183,511,148"/>
+<area shape="rect" id="Node000006" href="$INoiseReducer_8hpp.html" title=" " alt="" coords="396,269,633,295"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="517,222,517,256,512,256,512,222"/>
+<area shape="rect" id="Node000007" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="412,343,559,368"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="512,296,498,331,493,329,507,294"/>
+<area shape="poly" id="edge12_Node000006_Node000011" title=" " alt="" coords="533,293,700,406,697,410,530,297"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="379,416,511,441"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="481,370,461,405,456,403,476,367"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="536,416,669,441"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="506,366,573,406,570,411,503,370"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="446,371,285,416,284,411,445,365"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="525,365,680,411,679,416,523,371"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="296,416,355,441"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="461,370,365,413,363,408,459,366"/>
+</map>

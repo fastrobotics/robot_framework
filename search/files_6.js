@@ -12,5 +12,6 @@ var searchData=
   ['globalposesubsystem_2edox_9',['GlobalPoseSubsystem.dox',['../GlobalPoseSubsystem_8dox.html',1,'']]],
   ['globalpositionsensormsg_2ehpp_10',['GlobalPositionSensorMsg.hpp',['../GlobalPositionSensorMsg_8hpp.html',1,'']]],
   ['goalplanningsystem_2edox_11',['GoalPlanningSystem.dox',['../GoalPlanningSystem_8dox.html',1,'']]],
-  ['gpuimageprocessor_2ecpp_12',['GPUImageProcessor.cpp',['../GPUImageProcessor_8cpp.html',1,'']]]
+  ['gpuimageprocessor_2ecpp_12',['GPUImageProcessor.cpp',['../GPUImageProcessor_8cpp.html',1,'']]],
+  ['gpunoisereducer_2ehpp_13',['GPUNoiseReducer.hpp',['../GPUNoiseReducer_8hpp.html',1,'']]]
 ];

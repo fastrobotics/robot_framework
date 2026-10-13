@@ -1,15 +1,15 @@
-<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,256,75"/>
-<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="57,123,204,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,75,133,109,128,109,128,75"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="8,196,75,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,150,68,189,65,185,115,146"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="99,196,162,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="133,148,133,182,128,182,128,148"/>
-<area shape="rect" id="Node000005" href="$PointFieldMsg_8hpp.html" title=" " alt="" coords="187,196,328,221"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="152,146,226,187,223,191,150,150"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="180,269,247,295"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="252,223,230,259,225,256,248,220"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="271,269,329,295"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="267,220,288,256,284,259,262,223"/>
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner/Combiner.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/Combiner/Combiner.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,481,75"/>
+<area shape="rect" id="Node000002" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="282,123,429,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="358,75,358,109,353,109,353,75"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,137,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,151,131,195,130,190,309,145"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="162,196,295,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="336,150,263,191,260,187,334,146"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="320,196,391,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="358,148,358,182,353,182,353,148"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="415,196,482,221"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="372,146,424,185,421,190,369,150"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="506,196,565,221"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="385,146,494,188,492,193,383,151"/>
 </map>

@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['magneticfieldmsg_0',['MagneticFieldMsg',['../structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1MagneticFieldMsg.html#a7e64571dd64c25cfa6ce10f55678d2ff',1,'fast::rf::messages::SensorMsgs::MagneticFieldMsg']]],
-  ['main_1',['main',['../MathTest_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../OpenCVTest_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../exec__ServoHatDriver_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;exec_ServoHatDriver.cpp'],['../PointCloudExample_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;PointCloudExample.cpp'],['../exec__IMUDriver_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;exec_IMUDriver.cpp']]],
-  ['mockservohatdriver_2',['MockServoHatDriver',['../classfast_1_1rf_1_1BaseMachineSystem_1_1BaseMachineSubsystem_1_1HatDriver_1_1MockServoHatDriver.html#a3000b183e353e6682d399649e9d01657',1,'fast::rf::BaseMachineSystem::BaseMachineSubsystem::HatDriver::MockServoHatDriver']]],
-  ['monitor_3',['Monitor',['../structfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ReadyToArmComputer_1_1Monitor.html#a675556a752f44458f98afd96a6cd15fa',1,'fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ReadyToArmComputer::Monitor']]]
+  ['log_5fdebug_0',['LOG_DEBUG',['../classfast_1_1rf_1_1Logger.html#a9666c81657b323241bc9811ab229edfd',1,'fast::rf::Logger']]],
+  ['log_5fdiagnostic_1',['LOG_DIAGNOSTIC',['../classfast_1_1rf_1_1Logger.html#aa94c83486bd82bee541855f753118c4b',1,'fast::rf::Logger']]],
+  ['log_5ferror_2',['LOG_ERROR',['../classfast_1_1rf_1_1Logger.html#ad03aa47f2fcc91d472b4abb8ad872acc',1,'fast::rf::Logger']]],
+  ['log_5ffatal_3',['LOG_FATAL',['../classfast_1_1rf_1_1Logger.html#a71b8e941b73186161a0187bead172013',1,'fast::rf::Logger']]],
+  ['log_5finfo_4',['LOG_INFO',['../classfast_1_1rf_1_1Logger.html#afc74afa3ded4c1afdbfeb75c2e3d3860',1,'fast::rf::Logger']]],
+  ['log_5fnotice_5',['LOG_NOTICE',['../classfast_1_1rf_1_1Logger.html#a30c8fceac2c68881c79e9826d6a6fcc7',1,'fast::rf::Logger']]],
+  ['log_5fwarn_6',['LOG_WARN',['../classfast_1_1rf_1_1Logger.html#a7136955477e918e45602940617d11d27',1,'fast::rf::Logger']]],
+  ['logger_7',['logger',['../classfast_1_1rf_1_1Logger.html#a235ff46dbf1483ac03c8e3d2565af1ac',1,'fast::rf::Logger::Logger(const Logger &amp;)=delete'],['../classfast_1_1rf_1_1Logger.html#afb6018b8a6dc9df6330cf9cd9b49017c',1,'fast::rf::Logger::Logger(Logger &amp;&amp;)=delete']]]
 ];

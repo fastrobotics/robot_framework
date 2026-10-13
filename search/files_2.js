@@ -6,5 +6,7 @@ var searchData=
   ['covariance3dmsg_2ehpp_3',['Covariance3DMsg.hpp',['../Covariance3DMsg_8hpp.html',1,'']]],
   ['covariance6dmsg_2ehpp_4',['Covariance6DMsg.hpp',['../Covariance6DMsg_8hpp.html',1,'']]],
   ['cpuimageprocessor_2ecpp_5',['CPUImageProcessor.cpp',['../CPUImageProcessor_8cpp.html',1,'']]],
-  ['cpumath_2ecpp_6',['CPUMath.cpp',['../CPUMath_8cpp.html',1,'']]]
+  ['cpumath_2ecpp_6',['CPUMath.cpp',['../CPUMath_8cpp.html',1,'']]],
+  ['cpunoisereducer_2ecpp_7',['CPUNoiseReducer.cpp',['../CPUNoiseReducer_8cpp.html',1,'']]],
+  ['cpunoisereducer_2ehpp_8',['CPUNoiseReducer.hpp',['../CPUNoiseReducer_8hpp.html',1,'']]]
 ];

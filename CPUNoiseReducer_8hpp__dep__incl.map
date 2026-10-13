@@ -1,0 +1,7 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/CPUNoiseReducer.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/CPUNoiseReducer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="155,5,419,75"/>
+<area shape="rect" id="Node000002" href="$BasicSensorFuserProcess_8cpp.html" title=" " alt="" coords="5,123,279,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,85,192,125,189,121,236,81"/>
+<area shape="rect" id="Node000003" href="$CPUNoiseReducer_8cpp.html" title=" " alt="" coords="303,130,565,199"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,81,395,128,392,132,336,85"/>
+</map>

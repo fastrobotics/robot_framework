@@ -1,0 +1,20 @@
+<map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/GPUNoiseReducer.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/SensorFuser/include/NoiseReducer/GPUNoiseReducer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="309,5,575,75"/>
+<area shape="rect" id="Node000002" href="$BaseNoiseReducer_8hpp.html" title=" " alt="" coords="309,123,575,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="445,75,445,109,439,109,439,75"/>
+<area shape="rect" id="Node000003" href="$INoiseReducer_8hpp.html" title=" " alt="" coords="323,196,561,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="445,148,445,182,439,182,439,148"/>
+<area shape="rect" id="Node000004" href="$PointCloudMsg_8hpp.html" title=" " alt="" coords="314,269,461,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="435,223,407,260,402,257,431,220"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="498,343,565,368"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="452,220,519,330,515,332,447,223"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,343,137,368"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="337,297,136,342,135,337,336,292"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="162,343,295,368"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="363,297,268,339,266,335,361,292"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="320,343,391,368"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="384,296,368,331,364,329,380,294"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="412,292,497,334,494,339,409,297"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="415,343,474,368"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="399,293,429,330,425,334,395,297"/>
+</map>
