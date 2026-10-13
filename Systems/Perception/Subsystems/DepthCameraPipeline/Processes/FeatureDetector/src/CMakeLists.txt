@@ -1,4 +1,5 @@
 # @compare_tag Process-SourceCompile v0.1
+add_subdirectory(FeatureExtractor)
 add_library(base_FeatureDetectorProcess STATIC BaseFeatureDetectorProcess.cpp)
 target_link_libraries(base_FeatureDetectorProcess diagnosticManager
                       infrastructure_msgs sensor_msgs)

@@ -1,0 +1,13 @@
+add_executable(test_baseFeatureExtractor test_baseFeatureExtractor.cpp)
+target_link_libraries(
+  test_baseFeatureExtractor GTest::gtest_main infrastructure_msgs
+  DepthCameraPipelineSubsystem::base_FeatureExtractor)
+
+gtest_discover_tests(test_baseFeatureExtractor)
+
+add_executable(test_featureExtractorCPU test_featureExtractorCPU.cpp)
+target_link_libraries(
+  test_featureExtractorCPU GTest::gtest_main infrastructure_msgs
+  DepthCameraPipelineSubsystem::featureExtractorCPU)
+
+gtest_discover_tests(test_featureExtractorCPU)

@@ -22,7 +22,17 @@ namespace fast::rf {
   namespace PerceptionSystem {
     namespace DepthCameraPipelineSubsystem {
       package FeatureDetector #LightYellow;line:blue {
+        interface IFeatureExtractor #Orange {
 
+        }
+        abstract BaseFeatureExtractor #Orange {
+
+        }
+        BaseFeatureExtractor .up.|> IFeatureExtractor
+        class FeatureExtractorCPU #Orange {
+
+        }
+        FeatureExtractorCPU -up-|> BaseFeatureExtractor
         interface IFeatureDetectorProcess #Orange  {
           +{abstract} bool init()
           +{abstract} PointCloudMsg detectFeatures(PointCloudMsg pointcloud)
