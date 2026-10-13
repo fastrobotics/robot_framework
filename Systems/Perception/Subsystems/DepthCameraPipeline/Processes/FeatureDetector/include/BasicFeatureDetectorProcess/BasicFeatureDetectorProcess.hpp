@@ -69,6 +69,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
          */
         std::string pretty() override;
 
+        fast::rf::messages::SensorMsgs::PointCloudMsg detectFeatures(
+            fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) override;
+
        private:
         BasicFeatureDetectorProcessConfig m_config;
     };

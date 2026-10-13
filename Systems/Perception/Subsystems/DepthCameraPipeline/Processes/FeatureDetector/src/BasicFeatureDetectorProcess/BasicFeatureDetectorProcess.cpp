@@ -28,5 +28,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         str += BaseFeatureDetectorProcess::pretty();
         return str;
     }
+    fast::rf::messages::SensorMsgs::PointCloudMsg BasicFeatureDetectorProcess::detectFeatures(
+        fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) {
+        return pointcloud;  // Pass-Thru, Need to work on it.
+    }
 
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

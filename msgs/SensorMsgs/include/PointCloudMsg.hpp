@@ -22,15 +22,36 @@ namespace fast::rf::messages::SensorMsgs {
      *
      */
     struct PointCloudMsg {
-        double time_stamp;                                   //!< Timestamp of data
-        pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud;  //!< RGB point data and PCL metadata
-
-        PointCloudMsg() : time_stamp(-1.0), point_cloud(new pcl::PointCloud<pcl::PointXYZRGB>) {}
+        double time_stamp;                                         //!< Timestamp of data
+        pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud;        //!< RGB point data and PCL metadata
+        pcl::PointCloud<pcl::Normal>::Ptr normals;                 // Surface Normals
+        pcl::PointCloud<pcl::FPFHSignature33>::Ptr fpfh_features;  // Structural Descriptors
+        PointCloudMsg()
+            : time_stamp(-1.0),
+              point_cloud(new pcl::PointCloud<pcl::PointXYZRGB>),
+              normals(std::make_shared<pcl::PointCloud<pcl::Normal>>()),
+              fpfh_features(std::make_shared<pcl::PointCloud<pcl::FPFHSignature33>>()) {}
 
         std::size_t size() const { return point_cloud ? point_cloud->size() : 0; }
 
         bool empty() const { return size() == 0; }
-
+        [[nodiscard]] bool isValidFeatureCloud() const noexcept {
+            if (!point_cloud || !normals || !fpfh_features)
+                return false;
+            return (point_cloud->size() == normals->size()) && (point_cloud->size() == fpfh_features->size());
+        }
+        void clear() noexcept {
+            time_stamp = -1.0;
+            if (point_cloud) {
+                point_cloud->clear();
+            }
+            if (normals) {
+                normals->clear();
+            }
+            if (fpfh_features) {
+                fpfh_features->clear();
+            }
+        }
         std::string pretty() const {
             return "T: " + std::to_string(time_stamp) + " Point Count: " + std::to_string(size()) + "\n";
         }

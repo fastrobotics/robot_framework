@@ -19,7 +19,7 @@ namespace fast::rf {
             class SensorInputHandlerProcess #Pink
             SensorInputHandlerProcess -up-|> ISensorInputHandlerProcess
         }
-        namespace FeatureDetector {
+        namespace FeatureDetector #Orange {
             interface IFeatureDetectorProcess
             class BasicFeatureDetectorProcess
             BasicFeatureDetectorProcess -up-|> IFeatureDetectorProcess
@@ -29,9 +29,9 @@ namespace fast::rf {
             class BasicFOVExtractorProcess
             BasicFOVExtractorProcess -up-|> IFOVExtractorProcess
         }
-        namespace SensorFuser #Orange {
-            interface ISensorFuserProcess
-            class SensorFuserProcess
+        namespace SensorFuser #LimeGreen {
+            interface ISensorFuserProcess #LimeGreen
+            class SensorFuserProcess #LimeGreen
             SensorFuserProcess -up-|> ISensorFuserProcess
         }
         namespace SensorHealthMonitor #LimeGreen {

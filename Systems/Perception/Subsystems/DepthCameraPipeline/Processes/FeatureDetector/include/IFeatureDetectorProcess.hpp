@@ -12,6 +12,7 @@
 #pragma once
 #include <DiagnosticMsg.hpp>
 #include <IProcess.hpp>
+#include <PointCloudMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
@@ -33,5 +34,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
          * @return false
          */
         virtual bool init() = 0;
+
+        virtual fast::rf::messages::SensorMsgs::PointCloudMsg detectFeatures(
+            fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud);
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector
