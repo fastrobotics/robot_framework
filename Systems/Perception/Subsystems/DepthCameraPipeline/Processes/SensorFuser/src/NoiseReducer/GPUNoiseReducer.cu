@@ -24,8 +24,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         };
 
         void checkCuda(cudaError_t status, const char* operation) {
-            if (status != cudaSuccess)
-                throw std::runtime_error(std::string(operation) + ": " + cudaGetErrorString(status));
+            if (status != cudaSuccess) {
+                fast::rf::Logger::logFatal(std::string(operation) + ": " + cudaGetErrorString(status));
+            }
         }
 
         __device__ unsigned long long linearCellKey(unsigned long long x, unsigned long long y, unsigned long long z,
@@ -150,15 +151,17 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             const double cells_y_double = getCellCount(min_y, max_y);
             const double cells_z_double = getCellCount(min_z, max_z);
             if (cells_x_double >= max_cell_count || cells_y_double >= max_cell_count ||
-                cells_z_double >= max_cell_count)
-                throw std::runtime_error("GPU radius filter grid exceeds supported coordinate range.");
+                cells_z_double >= max_cell_count) {
+                fast::rf::Logger::logFatal("GPU radius filter grid exceeds supported coordinate range");
+            }
 
             const auto cells_x = static_cast<unsigned long long>(cells_x_double);
             const auto cells_y = static_cast<unsigned long long>(cells_y_double);
             const auto cells_z = static_cast<unsigned long long>(cells_z_double);
             constexpr auto max_key = std::numeric_limits<unsigned long long>::max();
-            if (cells_x > max_key / cells_y || cells_x * cells_y > max_key / cells_z)
-                throw std::runtime_error("GPU radius filter grid key range overflows.");
+            if (cells_x > max_key / cells_y || cells_x * cells_y > max_key / cells_z) {
+                fast::rf::Logger::logFatal("GPU radius filter grid key range overflows");
+            }
 
             thrust::device_vector<GpuPoint> device_points(host_points.begin(), host_points.end());
             thrust::device_vector<unsigned long long> sorted_keys(point_count);
@@ -167,8 +170,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
 
             constexpr int threads_per_block = 256;
             const std::size_t blocks_per_grid_size = (point_count + threads_per_block - 1) / threads_per_block;
-            if (blocks_per_grid_size > static_cast<std::size_t>(std::numeric_limits<int>::max()))
-                throw std::runtime_error("GPU radius filter input exceeds the supported launch grid.");
+            if (blocks_per_grid_size > static_cast<std::size_t>(std::numeric_limits<int>::max())) {
+                fast::rf::Logger::logFatal("GPU radius filter input exceeds the supported launch grid.");
+            }
             const int blocks_per_grid = static_cast<int>(blocks_per_grid_size);
             const float inverse_cell_size_float = static_cast<float>(inverse_cell_size);
             buildCellKeys<<<blocks_per_grid, threads_per_block>>>(
