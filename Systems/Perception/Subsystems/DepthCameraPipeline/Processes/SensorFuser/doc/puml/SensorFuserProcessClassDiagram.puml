@@ -58,12 +58,12 @@ namespace fast::rf {
                 BaseNoiseReducer .up.|> INoiseReducer
                 CPUNoiseReducer -up-|> BaseNoiseReducer
                 GPUNoiseReducer -up-|> BaseNoiseReducer
-                interface ISensorFuserProcess #Orange  {
+                interface ISensorFuserProcess #LimeGreen  {
                     +{abstract} bool init()
                     +{abstract} PointCloudMsg getFusedPointCloud()
                 }
                 ISensorFuserProcess -up-|> IProcess
-                abstract BaseSensorFuserProcess #Orange {
+                abstract BaseSensorFuserProcess #LimeGreen {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
@@ -76,12 +76,12 @@ namespace fast::rf {
                 }
                 BaseSensorFuserProcess .up.|> ISensorFuserProcess
                 BaseSensorFuserProcess --> DiagnosticManager: <<use>>
-                class BasicSensorFuserProcessConfig #Orange {
+                class BasicSensorFuserProcessConfig #LimeGreen {
                     +bool is_ok()
                     +string pretty()
                     +double m_settleTimeSec
                 }
-                class BasicSensorFuserProcess #Orange {
+                class BasicSensorFuserProcess #LimeGreen {
                     +bool init()
                     +bool setConfig(BasicSensorFuserProcessConfig config)
                     +BasicSensorFuserProcessConfig getConfig()
