@@ -61,7 +61,16 @@ This process workes in the following manner:
 1. Multiple Depth Point Clouds are received at various times
 2. An aggregated point cloud is computed that replaces each received point cloud by name via a `Combiner` class
 3. As these combined point clouds are potentially overlapping, a class `OverlapRemover` is used to combine the overlapping regions into a more accurate but less dense section of the point cloud.
-4. A `NoiseReducer` is ran on this fused cloud to remove extraneous measurements
+4. The fused cloud is passed through the selected `INoiseReducer` backend to
+   remove invalid measurements and isolated points. `BasicSensorFuserProcess`
+   owns the reducer through the interface; CMake selects the GPU library for
+   Jetson Orin Nano and the CPU library for other builds.
+
+The CPU and GPU implementations share common preprocessing in
+`BaseNoiseReducer`, but are built as separate backend libraries. The GPU
+backend accelerates radius-neighbor classification; NaN removal and voxel
+downsampling remain PCL CPU operations. See [NoiseReducer](NoiseReducer.md)
+for the backend architecture, build targets, filter details, and validation.
 
 ## Questions
 - How to timestamp data in the fused cloud?
@@ -73,6 +82,8 @@ This process workes in the following manner:
 ## Class Diagram
 
 ![](puml/SensorFuserProcessClassDiagram.png)
+The diagram shows the reducer interface and backend inheritance. The concrete
+CPU or GPU backend used by the process is selected by the build configuration.
 
 ## Sequence Diagram
 ![](puml/SensorFuserSequenceDiagram.png)

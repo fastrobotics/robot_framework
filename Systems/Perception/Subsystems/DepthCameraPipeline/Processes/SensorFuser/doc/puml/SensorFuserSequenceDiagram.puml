@@ -4,7 +4,12 @@ actor Sensor as sensor
 participant Process as process
 participant Combiner as combiner
 participant OverlapRemover as overlapRemover
-participant NoiseReducer as noiseReducer
+participant INoiseReducer as noiseReducer
+note over process,noiseReducer
+  BasicSensorFuserProcess owns the interface pointer.
+  CMake selects GPUNoiseReducer on Jetson Orin Nano;
+  other builds use CPUNoiseReducer.
+end note
 
 alt Initialize
 process++

@@ -36,5 +36,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         virtual bool init() = 0;
 
         virtual fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() = 0;
+        virtual bool isFusedCloudAvailable() = 0;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

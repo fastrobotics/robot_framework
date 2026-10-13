@@ -32,16 +32,38 @@ namespace fast::rf {
                     +bool init()
                     +PointCloudMsg removeOverlap(PointCloudMsg combinedPointCloud)
                 }
-                class NoiseReducer #LimeGreen {
+                interface INoiseReducer #LimeGreen {
+                    +{abstract} bool setConfig(NoiseReducerConfig config)
+                    +{abstract} bool init()
+                    +{abstract} PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
+                }
+                abstract BaseNoiseReducer #LimeGreen {
+                    +bool setConfig(NoiseReducerConfig config)
                     +bool init()
                     +PointCloudMsg reduceNoise(PointCloudMsg overlapRemovedPointCloud)
+                    #Cloud filterCloud(Cloud input)
                 }
-                interface ISensorFuserProcess #Orange  {
+                class CPUNoiseReducer #LimeGreen {
+                    #Cloud filterCloud(Cloud input)
+                }
+                class GPUNoiseReducer #LimeGreen {
+                    #Cloud filterCloud(Cloud input)
+                }
+                note right of BaseNoiseReducer
+                    Shared configuration, validation, and cloud preprocessing.
+                    Backend libraries are independent alternatives and both
+                    depend on baseNoiseReducer.
+                    CMake selects GPU on Jetson Orin Nano and CPU otherwise.
+                end note
+                BaseNoiseReducer .up.|> INoiseReducer
+                CPUNoiseReducer -up-|> BaseNoiseReducer
+                GPUNoiseReducer -up-|> BaseNoiseReducer
+                interface ISensorFuserProcess #LimeGreen  {
                     +{abstract} bool init()
                     +{abstract} PointCloudMsg getFusedPointCloud()
                 }
                 ISensorFuserProcess -up-|> IProcess
-                abstract BaseSensorFuserProcess #Orange {
+                abstract BaseSensorFuserProcess #LimeGreen {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
@@ -54,12 +76,12 @@ namespace fast::rf {
                 }
                 BaseSensorFuserProcess .up.|> ISensorFuserProcess
                 BaseSensorFuserProcess --> DiagnosticManager: <<use>>
-                class BasicSensorFuserProcessConfig #Orange {
+                class BasicSensorFuserProcessConfig #LimeGreen {
                     +bool is_ok()
                     +string pretty()
                     +double m_settleTimeSec
                 }
-                class BasicSensorFuserProcess #Orange {
+                class BasicSensorFuserProcess #LimeGreen {
                     +bool init()
                     +bool setConfig(BasicSensorFuserProcessConfig config)
                     +BasicSensorFuserProcessConfig getConfig()
@@ -69,14 +91,14 @@ namespace fast::rf {
                     -BasicSensorFuserProcessConfig m_config
                     -Combiner m_combiner
                     -OverlapRemover m_overlapRemover
-                    -NoiseReducer m_noiseReducer
+                    -std::unique_ptr<INoiseReducer> m_noiseReducer
                     -uint64 sensorFusionCyclesCount
                 }
                 BasicSensorFuserProcess -up-|> BaseSensorFuserProcess
                 BasicSensorFuserProcess *-> BasicSensorFuserProcessConfig: <<use>>
                 BasicSensorFuserProcess *-> Combiner: <<use>>
                 BasicSensorFuserProcess *-> OverlapRemover: <<use>>
-                BasicSensorFuserProcess *-> NoiseReducer: <<use>>
+                BasicSensorFuserProcess *-> INoiseReducer: <<use>>
             }
         }
     }
