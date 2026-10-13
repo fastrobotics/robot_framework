@@ -62,6 +62,11 @@ namespace fast::rf::messages::SensorMsgs {
          * @return PointCloudMsg
          */
         static PointCloudMsg generateRGBCloud(uint32_t dimension) {
+            if (dimension > 50) {
+                std::string errorText =
+                    "Dimension: " + std::to_string(dimension) + " too large for a mock 3D cube cloud allocation.";
+                throw std::invalid_argument(errorText);
+            }
             PointCloudMsg msg;
             msg.point_cloud->width = dimension;
             msg.point_cloud->height = dimension * dimension;
