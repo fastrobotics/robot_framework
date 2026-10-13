@@ -37,6 +37,11 @@ class TestFeatureDetectorProcessInterface : public IFeatureDetectorProcess {
         fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) {
         return pointcloud;
     }
+    bool isFeaturePointCloudReady() override { return false; }
+    fast::rf::messages::SensorMsgs::PointCloudMsg getFeaturePointCloud() {
+        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
+        return cloud;
+    }
 };
 TEST(TestFeatureDetectorProcessInterface, InterfaceTests) {
     TestFeatureDetectorProcessInterface SUT;

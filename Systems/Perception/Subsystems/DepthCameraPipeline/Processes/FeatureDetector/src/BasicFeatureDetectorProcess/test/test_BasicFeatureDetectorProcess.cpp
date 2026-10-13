@@ -33,4 +33,7 @@ TEST(BasicFeatureDetectorProcess, BasicOperationTests) {
     ASSERT_FALSE(pointCloud.isValidFeatureCloud());  // Shouldn't be a valid feature cloud;
     auto featureCloud = SUT.detectFeatures(pointCloud);
     ASSERT_TRUE(featureCloud.isValidFeatureCloud());
+    ASSERT_TRUE(SUT.isFeaturePointCloudReady());
+    auto repeatedCloud = SUT.getFeaturePointCloud();
+    ASSERT_FALSE(SUT.isFeaturePointCloudReady());
 }
