@@ -114,7 +114,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         std::shared_ptr<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::BasicSensorFuserProcess>
             m_sensorFuserProcess;
         std::shared_ptr<
-            fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BaseFeatureDetectorProcess>
+            fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcess>
             m_featureDetectorProcess;
         std::unordered_map<std::string, std::shared_ptr<fast::rf::IProcess>> m_pipeline;
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;

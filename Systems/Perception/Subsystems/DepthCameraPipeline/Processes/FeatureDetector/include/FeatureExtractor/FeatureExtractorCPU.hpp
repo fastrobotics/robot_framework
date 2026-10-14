@@ -15,5 +15,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
        public:
         bool init() override;
         bool update(double currentTimeSec) override;
+        std::string pretty() override;
+        FeatureExtractionContainer extractFeatures(fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) override;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

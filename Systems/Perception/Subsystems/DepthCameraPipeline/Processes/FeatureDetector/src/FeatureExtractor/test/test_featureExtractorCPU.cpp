@@ -12,3 +12,13 @@ TEST(FeatureExtractorCPU, BasicAssertions) {
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.update(0.0));
 }
+TEST(FeatureExtractorCPU, TestOperation) {
+    FeatureExtractorCPU SUT;
+    ASSERT_TRUE(SUT.init());
+    ASSERT_TRUE(SUT.update(0.0));
+    fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud =
+        fast::rf::messages::SensorMsgs::PointCloudMsg::generateRGBCloud(20);
+    auto output = SUT.extractFeatures(pointCloud);
+    ASSERT_TRUE(output.cloud.isValidFeatureCloud());
+    ASSERT_TRUE(output.wereFeaturesExtracted);
+}

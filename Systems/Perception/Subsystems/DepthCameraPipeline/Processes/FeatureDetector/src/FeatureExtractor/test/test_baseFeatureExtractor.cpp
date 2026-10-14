@@ -14,6 +14,12 @@ class TestFeatureExtractorInterface : public IFeatureExtractor {
    public:
     bool init() { return true; }
     bool update([[maybe_unused]] double currentTimeSec) { return false; }
+    std::string pretty() { return ""; }
+    FeatureExtractionContainer extractFeatures(
+        [[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) override {
+        FeatureExtractionContainer container;
+        return container;
+    }
 };
 TEST(TestFeatureExtractorInterface, InterfaceTests) {
     TestFeatureExtractorInterface SUT;
@@ -24,6 +30,12 @@ class TestBaseFeatureExtractor : public BaseFeatureExtractor {
    public:
     bool init() { return true; }
     bool update([[maybe_unused]] double currentTimeSec) { return false; }
+    std::string pretty() { return ""; }
+    FeatureExtractionContainer extractFeatures(
+        [[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) override {
+        FeatureExtractionContainer container;
+        return container;
+    }
 };
 TEST(TestBaseFeatureExtractor, BasicAssertions) {
     TestBaseFeatureExtractor SUT;

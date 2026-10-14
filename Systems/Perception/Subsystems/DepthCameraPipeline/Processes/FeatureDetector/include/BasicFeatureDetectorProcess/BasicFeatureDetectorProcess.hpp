@@ -11,6 +11,7 @@
 #pragma once
 
 #include <BaseFeatureDetectorProcess.hpp>
+#include <FeatureExtractor/IFeatureExtractor.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector {
 
@@ -74,5 +75,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
 
        private:
         BasicFeatureDetectorProcessConfig m_config;
+        std::unique_ptr<IFeatureExtractor> m_featureExtractor;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

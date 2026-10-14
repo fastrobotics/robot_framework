@@ -1,7 +1,9 @@
 ' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title FeatureDetector Process Class Diagram
+namespace pcl {
 
+}
 namespace fast::rf {
   namespace DiagnosticDefinition {
     enum DiagnosticType
@@ -22,9 +24,16 @@ namespace fast::rf {
   namespace PerceptionSystem {
     namespace DepthCameraPipelineSubsystem {
       package FeatureDetector #LightYellow;line:blue {
-        interface IFeatureExtractor #Orange {
-
+        struct FeatureExtractionContainer {
+            PointCloudMsg inputCloud
+            bool wereFeaturesExtracted
         }
+        interface IFeatureExtractor #Orange {
+            +{abstract} bool init()
+            +{abstract} bool update(double currentTimeSec)
+            +{abstract} FeatureExtractionContainer extractFeatures(PointCloudMsg pointCloud)
+        }
+        IFeatureExtractor --> FeatureExtractionContainer
         abstract BaseFeatureExtractor #Orange {
 
         }
