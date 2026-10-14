@@ -37,11 +37,14 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     fast::rf::Logger::logInfo(SUT.pretty());
     fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud = createTestRgbdMessage(1000);
     std::string signalName = "sensor1";
+
     ASSERT_TRUE(SUT.addSignalToMonitor(signalName, "sensor_msgs/msg/PointCloud2", 20.0, 50.0));
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
+
     ASSERT_TRUE(SUT.update(0.0));
     const auto fusedPointCloud = SUT.getFusedPointCloud();
     ASSERT_DOUBLE_EQ(fusedPointCloud.time_stamp, pointCloud.time_stamp);
+
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);
     ASSERT_GT(readyToArm.subsystemID, 0);

@@ -13,6 +13,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             fast::rf::Logger::logError("Unable to initialize Sensor Fuser!");
             return false;
         }
+        if (m_featureDetectorProcess->init() == false) {
+            fast::rf::Logger::logError("Unable to initialize Feature Detector!");
+            return false;
+        }
         return true;
     }
     std::string DepthCameraPipelineSubsystem::pretty() {
