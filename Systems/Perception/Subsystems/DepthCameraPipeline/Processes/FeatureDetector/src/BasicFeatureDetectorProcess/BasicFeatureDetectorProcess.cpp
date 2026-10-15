@@ -17,7 +17,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         }
         std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnosticTypes;
         diagnosticTypes.push_back(fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE);
-        // Add more as needed
         status = m_diagnosticManager.initializeDiagnostics(diagnosticTypes);
         return status;
     }
@@ -42,6 +41,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         auto featurePointCloudContainer = m_featureExtractor->extractFeatures(pointCloud);
         if (featurePointCloudContainer.wereFeaturesExtracted) {
             m_featurePointCloudReady = true;
+            m_diagnosticManager.updateDiagnostic(
+                fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::INFO,
+                fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Extracting Features Ok.");
         }
         return featurePointCloudContainer.cloud;
     }
