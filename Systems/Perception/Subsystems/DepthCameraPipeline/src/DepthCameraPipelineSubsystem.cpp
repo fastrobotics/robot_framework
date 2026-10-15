@@ -47,7 +47,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         return m_featureDetectorProcess->getFeaturePointCloud();
     }
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
+        fast::rf::Logger::logWarn("xxx0A");
         if (m_sensorFuserProcess->isFusedCloudAvailable()) {
+            fast::rf::Logger::logWarn("xxx0B");
             auto fusedCloud = m_sensorFuserProcess->getFusedPointCloud();
             auto featureCloud = m_featureDetectorProcess->detectFeatures(fusedCloud);
         }
