@@ -20,7 +20,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         return str;
     }
     FeatureExtractionContainer FeatureExtractorCPU::extractFeatures(
-        fast::rf::Logger::logWarn("xxx1"); fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) {
+        fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) {
+        fast::rf::Logger::logWarn("xxx1");
         FeatureExtractionContainer container;
         container.cloud = pointCloud;
         auto tree = std::make_shared<pcl::search::KdTree<pcl::PointXYZRGB>>();
