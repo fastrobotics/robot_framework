@@ -34,6 +34,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
     std::string BasicFeatureDetectorProcess::pretty() {
         std::string str = "---Basic FeatureDetector Process---";
         str += BaseFeatureDetectorProcess::pretty();
+        str += m_featureExtractor->pretty();
         return str;
     }
     fast::rf::messages::SensorMsgs::PointCloudMsg BasicFeatureDetectorProcess::detectFeatures(
