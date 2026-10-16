@@ -37,7 +37,5 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
 
         virtual fast::rf::messages::SensorMsgs::PointCloudMsg detectFeatures(
             fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) = 0;
-        virtual bool isFeaturePointCloudReady() = 0;
-        virtual fast::rf::messages::SensorMsgs::PointCloudMsg getFeaturePointCloud() = 0;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

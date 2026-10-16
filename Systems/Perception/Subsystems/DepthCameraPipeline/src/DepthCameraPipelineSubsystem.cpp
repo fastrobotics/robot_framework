@@ -40,19 +40,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         }
         return true;
     }
-    fast::rf::messages::SensorMsgs::PointCloudMsg DepthCameraPipelineSubsystem::getFusedPointCloud() {
-        return m_sensorFuserProcess->getFusedPointCloud();
-    }
-    fast::rf::messages::SensorMsgs::PointCloudMsg DepthCameraPipelineSubsystem::getFeaturePointCloud() {
-        return m_featureDetectorProcess->getFeaturePointCloud();
-    }
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
-        fast::rf::Logger::logWarn("xxx0A");
-        if (m_sensorFuserProcess->isFusedCloudAvailable()) {
-            fast::rf::Logger::logWarn("xxx0B");
-            auto fusedCloud = m_sensorFuserProcess->getFusedPointCloud();
-            auto featureCloud = m_featureDetectorProcess->detectFeatures(fusedCloud);
-        }
+        auto latestFusedPointCloud = m_sensorFuserProcess->getLatestFusedPointCloud();
+        auto featureCloud = m_featureDetectorProcess->detectFeatures(latestFusedPointCloud);
         bool readyToArmFlag = true;
         for (auto& process : m_pipeline) {
             bool status = process.second->update(currentTimeSec);

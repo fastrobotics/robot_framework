@@ -75,8 +75,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
          */
         bool newPointCloud(fast::rf::messages::SensorMsgs::PointCloudMsg msg, std::string sensorName);
 
-        fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud();
-        fast::rf::messages::SensorMsgs::PointCloudMsg getFeaturePointCloud();
         /**
          * @brief Human readable output of the subsystem
          *

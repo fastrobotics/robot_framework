@@ -60,14 +60,14 @@ namespace fast::rf {
                 GPUNoiseReducer -up-|> BaseNoiseReducer
                 interface ISensorFuserProcess #LimeGreen  {
                     +{abstract} bool init()
-                    +{abstract} PointCloudMsg getFusedPointCloud()
+                    +{abstract} PointCloudMsg getLatestFusedPointCloud()
                 }
                 ISensorFuserProcess -up-|> IProcess
                 abstract BaseSensorFuserProcess #LimeGreen {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
-                    +PointCloudMsg getFusedPointCloud()
+                    +PointCloudMsg getLatestFusedPointCloud()
                     #bool update(double current_time_sec)
                     #string pretty()
                     #DiagnosticManager m_diagnosticManager

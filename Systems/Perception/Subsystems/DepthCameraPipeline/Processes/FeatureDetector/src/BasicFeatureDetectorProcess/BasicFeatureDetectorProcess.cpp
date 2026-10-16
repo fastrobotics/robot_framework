@@ -40,7 +40,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) {
         auto featurePointCloudContainer = m_featureExtractor->extractFeatures(pointCloud);
         if (featurePointCloudContainer.wereFeaturesExtracted) {
-            m_featurePointCloudReady = true;
             m_diagnosticManager.updateDiagnostic(
                 fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::INFO,
                 fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Extracting Features Ok.");

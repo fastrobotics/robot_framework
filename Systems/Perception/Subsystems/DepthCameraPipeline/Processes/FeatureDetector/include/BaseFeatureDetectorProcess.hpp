@@ -46,15 +46,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
-        bool isFeaturePointCloudReady() override { return m_featurePointCloudReady; }
-        fast::rf::messages::SensorMsgs::PointCloudMsg getFeaturePointCloud() override {
-            fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
-            if (m_featurePointCloudReady == true) {
-                cloud = m_featurePointCloud;
-                m_featurePointCloudReady = false;
-            }
-            return cloud;
-        }
 
        protected:
         /**

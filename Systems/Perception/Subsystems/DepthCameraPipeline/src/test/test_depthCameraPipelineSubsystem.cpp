@@ -42,8 +42,6 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
 
     ASSERT_TRUE(SUT.update(0.0));
-    const auto fusedPointCloud = SUT.getFusedPointCloud();
-    ASSERT_DOUBLE_EQ(fusedPointCloud.time_stamp, pointCloud.time_stamp);
 
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);
