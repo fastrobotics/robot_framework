@@ -1,7 +1,8 @@
 # @compare_tag Process-SourceCompile v0.1
+add_subdirectory(FeatureExtractor)
 add_library(base_FeatureDetectorProcess STATIC BaseFeatureDetectorProcess.cpp)
 target_link_libraries(base_FeatureDetectorProcess diagnosticManager
-                      infrastructure_msgs)
+                      infrastructure_msgs sensor_msgs)
 target_include_directories(base_FeatureDetectorProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 add_library(DepthCameraPipelineSubsystem::base_FeatureDetectorProcess ALIAS

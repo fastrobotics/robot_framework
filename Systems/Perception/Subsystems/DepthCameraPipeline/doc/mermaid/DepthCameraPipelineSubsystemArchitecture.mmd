@@ -37,24 +37,25 @@ flowchart TD
     Outputs
     SensorFuser[Sensor Fuser]
     FOVExtractor[Field of View Extractor]
-    Next
-
     FeatureDetector[Feature Detector]
+    ObjectDetector[Object Detector]
+
+
     Inputs --> | Depth Camera 1-N | SensorInputHandler
     SensorInputHandler --> | Depth Camera 1-N| SensorFuser
     Inputs --> | Depth Camera 1-N| SensorHealthMonitor
 
     SensorFuser --> | Fused Depth Camera | FOVExtractor
-    FOVExtractor --> | FOV 1-N| Next
-    SensorFuser --> | Fused Depth Camera | Next
+    SensorFuser --> | Fused Depth Camera | FeatureDetector
 
     SensorFuser --> | Diagnostics | Outputs
     SensorHealthMonitor --> | Diagnostics | Outputs
-    Next --> FeatureDetector
-    FeatureDetector --> | Features | Outputs
+    FeatureDetector --> | Features | ObjectDetector
+    ObjectDetector --> | Objects | Outputs
     FeatureDetector --> | Diagnostics | Outputs
 
     class Inputs,Outputs cssBoundary
-    class SensorFuser,FOVExtractor cssInvestigating
+    class FOVExtractor,ObjectDetector cssInvestigating
+    class FeatureDetector cssDeveloping
     class SensorInputHandler cssTrivialComplete
-    class SensorHealthMonitor cssMinimalComplete
+    class SensorHealthMonitor,SensorFuser cssMinimalComplete

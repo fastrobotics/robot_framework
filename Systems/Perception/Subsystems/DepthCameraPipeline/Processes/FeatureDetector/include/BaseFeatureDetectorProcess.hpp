@@ -107,5 +107,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         fast::rf::core::infrastructure::DiagnosticManager
             m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object
+        bool m_featurePointCloudReady{false};
+        fast::rf::messages::SensorMsgs::PointCloudMsg m_featurePointCloud;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

@@ -47,13 +47,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          */
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg get_ready_to_arm() override { return m_readyToArm; }
 
-        fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override {
-            fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
-            if (m_fusedCloudAvailable == true) {
-                cloud = m_fusedPointCloud;
-                m_fusedCloudAvailable = false;
-            }
-            return cloud;
+        fast::rf::messages::SensorMsgs::PointCloudMsg getLatestFusedPointCloud() override {
+            return m_latestFusedPointCloud;
         }
 
        protected:
@@ -113,7 +108,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         fast::rf::core::infrastructure::DiagnosticManager getDiagnosticManager() { return m_diagnosticManager; }
 
         bool initializeDiagnostics(std::vector<fast::rf::DiagnosticDefinition::DiagnosticType> diagnostic_types);
-        bool isFusedCloudAvailable() { return m_fusedCloudAvailable; }
 
         uint8_t m_systemId{0};
         uint8_t m_subSystemId{0};
@@ -123,7 +117,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         fast::rf::core::infrastructure::DiagnosticManager
             m_diagnosticManager;  //!< Entity responsible for managing diagnostics.
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;  //!< Ready to Arm object
-        fast::rf::messages::SensorMsgs::PointCloudMsg m_fusedPointCloud;
-        bool m_fusedCloudAvailable{false};
+        fast::rf::messages::SensorMsgs::PointCloudMsg m_latestFusedPointCloud;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

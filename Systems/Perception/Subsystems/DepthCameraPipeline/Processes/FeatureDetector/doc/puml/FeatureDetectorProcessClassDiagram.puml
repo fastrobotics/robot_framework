@@ -1,7 +1,9 @@
 ' @compare_tag Process-ClassDiagram v0.1
 @startuml
 title FeatureDetector Process Class Diagram
+namespace pcl {
 
+}
 namespace fast::rf {
   namespace DiagnosticDefinition {
     enum DiagnosticType
@@ -11,6 +13,9 @@ namespace fast::rf {
       class DiagnosticMsg <<(M,#FFFF00)>>
       class ReadyToArmStatusMsg <<(M,#FFFF00)>>
     }
+    namespace SensorMsgs {
+        class PointCloudMsg <<(M,#FFFF00)>>
+    }
   }
   namespace core::Infrastructure {
     class DiagnosticManager
@@ -19,12 +24,30 @@ namespace fast::rf {
   namespace PerceptionSystem {
     namespace DepthCameraPipelineSubsystem {
       package FeatureDetector #LightYellow;line:blue {
+        struct FeatureExtractionContainer {
+            PointCloudMsg inputCloud
+            bool wereFeaturesExtracted
+        }
+        interface IFeatureExtractor #Orange {
+            +{abstract} bool init()
+            +{abstract} bool update(double currentTimeSec)
+            +{abstract} FeatureExtractionContainer extractFeatures(PointCloudMsg pointCloud)
+        }
+        IFeatureExtractor --> FeatureExtractionContainer
+        abstract BaseFeatureExtractor #Orange {
 
-        interface IFeatureDetectorProcess  {
+        }
+        BaseFeatureExtractor .up.|> IFeatureExtractor
+        class FeatureExtractorCPU #Orange {
+
+        }
+        FeatureExtractorCPU -up-|> BaseFeatureExtractor
+        interface IFeatureDetectorProcess #Orange  {
           +{abstract} bool init()
+          +{abstract} PointCloudMsg detectFeatures(PointCloudMsg pointcloud)
         }
         IFeatureDetectorProcess -up-|> IProcess
-        abstract BaseFeatureDetectorProcess {
+        abstract BaseFeatureDetectorProcess #Orange {
           +DiagnosticMsg[] getDiagnostics()
           +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
           +ReadyToArmStatusMsg get_ready_to_arm()
@@ -36,16 +59,17 @@ namespace fast::rf {
         }
         BaseFeatureDetectorProcess .up.|> IFeatureDetectorProcess
         BaseFeatureDetectorProcess --> DiagnosticManager: <<use>>
-        class BasicFeatureDetectorProcessConfig {
-          +bool is_ok()
-          +string pretty()
+        class BasicFeatureDetectorProcessConfig #Orange {
+            +bool is_ok()
+            +string pretty()
         }
-        class BasicFeatureDetectorProcess {
-          +bool init()
-          +bool set_config(BasicFeatureDetectorProcessConfig config)
-          +bool update(double current_time_sec)
-	        +string pretty()
-          -BasicFeatureDetectorProcessConfig m_config
+        class BasicFeatureDetectorProcess #Orange {
+            +bool init()
+            +bool set_config(BasicFeatureDetectorProcessConfig config)
+            +bool update(double current_time_sec)
+            +PointCloudMsg detectFeatures(PointCloudMsg pointcloud)
+            +string pretty()
+            -BasicFeatureDetectorProcessConfig m_config
         }
         BasicFeatureDetectorProcess -up-|> BaseFeatureDetectorProcess
         BasicFeatureDetectorProcess *-> BasicFeatureDetectorProcessConfig: <<use>>

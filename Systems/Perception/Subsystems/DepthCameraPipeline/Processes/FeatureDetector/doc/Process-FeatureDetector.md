@@ -21,7 +21,7 @@
 
 ## Purpose
 
-This process's objective is to ???.
+This process's objective is to detect critical geometric features, specifically **Surface Normals** and **Fast Point Feature Histograms** to prepare the data for downstream object clustering and recognition.
 
 ## General Requirements
 
@@ -29,15 +29,17 @@ This process's objective is to ???.
 
 The following inputs are required in order for this system to properly function.
 
-| Input | DataType | Description | Requirement |
-| ----- | -------- | ----------- | ----------- |
+| Input                     | DataType                   | Description                                                                                  | Requirement |
+| ------------------------- | -------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
+| Pre-Processed Point Cloud | `SensorMsgs/PointCloudMsg` | A Point Cloud that is downsampled and has noise reduced, to limit the processing complexity. |             |
 
 # Outputs
 
 The following outputs are provided by this system.
 
-| Output | DataType | Description | Usage |
-| ------ | -------- | ----------- | ----- |
+| Output               | DataType                   | Description                                                  | Usage |
+| -------------------- | -------------------------- | ------------------------------------------------------------ | ----- |
+| Features Point Cloud | `SensorMsgs/PointCloudMsg` | A Point Cloud that includes the original data plus features. |       |
 
 # Diagnostics
 Processes in this Subsystem are defined by:

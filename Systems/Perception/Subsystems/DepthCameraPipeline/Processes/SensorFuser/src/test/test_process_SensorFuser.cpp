@@ -23,10 +23,6 @@ class TestSensorFuserProcessInterface : public ISensorFuserProcess {
                           [[maybe_unused]] std::string description) override {
         return false;
     }
-    fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override {
-        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
-        return cloud;
-    }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
         std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
 
@@ -37,7 +33,10 @@ class TestSensorFuserProcessInterface : public ISensorFuserProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
-    bool isFusedCloudAvailable() { return true; }
+    fast::rf::messages::SensorMsgs::PointCloudMsg getLatestFusedPointCloud() override {
+        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
+        return cloud;
+    }
 };
 TEST(TestSensorFuserProcessInterface, InterfaceTests) {
     TestSensorFuserProcessInterface SUT;
@@ -55,10 +54,6 @@ class TestBaseSensorFuserProcess : public BaseSensorFuserProcess {
         return status;
     }
     bool update(double current_time_sec) override { return BaseSensorFuserProcess::update(current_time_sec); }
-    fast::rf::messages::SensorMsgs::PointCloudMsg getFusedPointCloud() override {
-        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
-        return cloud;
-    }
     double getRunTimeSec() { return m_runTimeSec; }
     std::string pretty() {
         std::string str = "---Test-Base---\n";
@@ -75,7 +70,6 @@ class TestBaseSensorFuserProcess : public BaseSensorFuserProcess {
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
     }
-    bool isFusedCloudAvailable() { return true; }
 };
 TEST(BaseSensorFuserProcess, BasicAssertions) {
     TestBaseSensorFuserProcess SUT;

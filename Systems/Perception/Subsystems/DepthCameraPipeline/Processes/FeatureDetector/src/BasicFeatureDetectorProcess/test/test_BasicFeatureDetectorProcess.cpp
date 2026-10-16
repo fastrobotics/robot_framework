@@ -24,8 +24,13 @@ TEST(BasicFeatureDetectorProcess, BasicTests) {
     ASSERT_TRUE(SUT.get_ready_to_arm().ready_to_arm);
     fast::rf::Logger::logDebug(SUT.pretty());
 }
-TEST(BasicFeatureDetectorProcess, BasicConversionTests) {
+TEST(BasicFeatureDetectorProcess, BasicOperationTests) {
     BasicFeatureDetectorProcess SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
+    fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud =
+        fast::rf::messages::SensorMsgs::PointCloudMsg::generateRGBCloud(20);
+    ASSERT_FALSE(pointCloud.isValidFeatureCloud());  // Shouldn't be a valid feature cloud;
+    auto featureCloud = SUT.detectFeatures(pointCloud);
+    ASSERT_TRUE(featureCloud.isValidFeatureCloud());
 }

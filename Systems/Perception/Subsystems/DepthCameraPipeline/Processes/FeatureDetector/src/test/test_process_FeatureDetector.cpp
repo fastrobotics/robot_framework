@@ -33,6 +33,10 @@ class TestFeatureDetectorProcessInterface : public IFeatureDetectorProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    fast::rf::messages::SensorMsgs::PointCloudMsg detectFeatures(
+        fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) {
+        return pointcloud;
+    }
 };
 TEST(TestFeatureDetectorProcessInterface, InterfaceTests) {
     TestFeatureDetectorProcessInterface SUT;
@@ -64,6 +68,10 @@ class TestBaseFeatureDetectorProcess : public BaseFeatureDetectorProcess {
         return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+    }
+    fast::rf::messages::SensorMsgs::PointCloudMsg detectFeatures(
+        fast::rf::messages::SensorMsgs::PointCloudMsg pointcloud) {
+        return pointcloud;
     }
 };
 TEST(BaseFeatureDetectorProcess, BasicAssertions) {
