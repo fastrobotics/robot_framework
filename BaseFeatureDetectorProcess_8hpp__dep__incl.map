@@ -1,9 +1,13 @@
 <map id="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/FeatureDetector/include/BaseFeatureDetectorProcess.hpp" name="Systems/Perception/Subsystems/DepthCameraPipeline/Processes/FeatureDetector/include/BaseFeatureDetectorProcess.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="137,5,429,75"/>
-<area shape="rect" id="Node000002" href="$BasicFeatureDetectorProcess_8hpp.html" title=" " alt="" coords="5,123,272,207"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,86,188,125,185,121,231,82"/>
-<area shape="rect" id="Node000004" href="$BaseFeatureDetectorProcess_8cpp.html" title=" " alt="" coords="297,130,559,199"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="334,81,390,128,386,132,331,85"/>
-<area shape="rect" id="Node000003" href="$BasicFeatureDetectorProcess_8cpp.html" title=" " alt="" coords="13,255,264,339"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,220,141,254,136,254,136,220"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="283,5,575,75"/>
+<area shape="rect" id="Node000002" href="$BasicFeatureDetectorProcess_8hpp.html" title=" " alt="" coords="152,123,419,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,86,335,125,332,121,378,82"/>
+<area shape="rect" id="Node000006" href="$BaseFeatureDetectorProcess_8cpp.html" title=" " alt="" coords="443,130,706,199"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="481,81,536,128,533,132,478,85"/>
+<area shape="rect" id="Node000003" href="$BasicFeatureDetectorProcess_8cpp.html" title=" " alt="" coords="5,255,256,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,218,182,256,178,252,224,214"/>
+<area shape="rect" id="Node000004" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="281,269,599,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="347,214,411,267,407,271,343,218"/>
+<area shape="rect" id="Node000005" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="295,387,585,441"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="443,338,443,386,437,386,437,338"/>
 </map>

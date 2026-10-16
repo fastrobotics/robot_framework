@@ -111,6 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad8e42cd03f3ccafb9c203adf6f264b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc8075662ee402164519e3c04fd30102" id="r_afc8075662ee402164519e3c04fd30102"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#afc8075662ee402164519e3c04fd30102">empty</a> () const</td></tr>
 <tr class="separator:afc8075662ee402164519e3c04fd30102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c66536541185298b49933a9634863bd" id="r_a8c66536541185298b49933a9634863bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#a8c66536541185298b49933a9634863bd">isValidFeatureCloud</a> () const noexcept</td></tr>
+<tr class="separator:a8c66536541185298b49933a9634863bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a933606e9d9fdd2967fe40e4800253a1d" id="r_a933606e9d9fdd2967fe40e4800253a1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#a933606e9d9fdd2967fe40e4800253a1d">clear</a> () noexcept</td></tr>
+<tr class="separator:a933606e9d9fdd2967fe40e4800253a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab00db20546bcce78f7b5dacf93b5f613" id="r_ab00db20546bcce78f7b5dacf93b5f613"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#ab00db20546bcce78f7b5dacf93b5f613">pretty</a> () const</td></tr>
 <tr class="separator:ab00db20546bcce78f7b5dacf93b5f613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,6 +132,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a80e83fb1fa1c72b17a8fd3ff48428444" id="r_a80e83fb1fa1c72b17a8fd3ff48428444"><td class="memItemLeft" align="right" valign="top">pcl::PointCloud&lt; pcl::PointXYZRGB &gt;::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#a80e83fb1fa1c72b17a8fd3ff48428444">point_cloud</a></td></tr>
 <tr class="memdesc:a80e83fb1fa1c72b17a8fd3ff48428444"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGB point data and PCL metadata.  <br /></td></tr>
 <tr class="separator:a80e83fb1fa1c72b17a8fd3ff48428444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60f368ff931e2b3c526644de00ed0ff" id="r_ad60f368ff931e2b3c526644de00ed0ff"><td class="memItemLeft" align="right" valign="top">pcl::PointCloud&lt; pcl::Normal &gt;::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#ad60f368ff931e2b3c526644de00ed0ff">normals</a></td></tr>
+<tr class="separator:ad60f368ff931e2b3c526644de00ed0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac36a4cf6efc774ae2060252e24bca1aa" id="r_ac36a4cf6efc774ae2060252e24bca1aa"><td class="memItemLeft" align="right" valign="top">pcl::PointCloud&lt; pcl::FPFHSignature33 &gt;::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html#ac36a4cf6efc774ae2060252e24bca1aa">fpfh_features</a></td></tr>
+<tr class="separator:ac36a4cf6efc774ae2060252e24bca1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html" title="PointCloudMsg Definition of a Point Cloud.">PointCloudMsg</a> Definition of a Point Cloud. </p>
@@ -158,6 +166,31 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a933606e9d9fdd2967fe40e4800253a1d" name="a933606e9d9fdd2967fe40e4800253a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a933606e9d9fdd2967fe40e4800253a1d">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fast::rf::messages::SensorMsgs::PointCloudMsg::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afc8075662ee402164519e3c04fd30102" name="afc8075662ee402164519e3c04fd30102"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc8075662ee402164519e3c04fd30102">&#9670;&#160;</a></span>empty()</h2>
 
@@ -218,6 +251,31 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8c66536541185298b49933a9634863bd" name="a8c66536541185298b49933a9634863bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c66536541185298b49933a9634863bd">&#9670;&#160;</a></span>isValidFeatureCloud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fast::rf::messages::SensorMsgs::PointCloudMsg::isValidFeatureCloud </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab00db20546bcce78f7b5dacf93b5f613" name="ab00db20546bcce78f7b5dacf93b5f613"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab00db20546bcce78f7b5dacf93b5f613">&#9670;&#160;</a></span>pretty()</h2>
 
@@ -269,6 +327,34 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac36a4cf6efc774ae2060252e24bca1aa" name="ac36a4cf6efc774ae2060252e24bca1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac36a4cf6efc774ae2060252e24bca1aa">&#9670;&#160;</a></span>fpfh_features</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pcl::PointCloud&lt;pcl::FPFHSignature33&gt;::Ptr fast::rf::messages::SensorMsgs::PointCloudMsg::fpfh_features</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad60f368ff931e2b3c526644de00ed0ff" name="ad60f368ff931e2b3c526644de00ed0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60f368ff931e2b3c526644de00ed0ff">&#9670;&#160;</a></span>normals</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pcl::PointCloud&lt;pcl::Normal&gt;::Ptr fast::rf::messages::SensorMsgs::PointCloudMsg::normals</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a80e83fb1fa1c72b17a8fd3ff48428444" name="a80e83fb1fa1c72b17a8fd3ff48428444"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80e83fb1fa1c72b17a8fd3ff48428444">&#9670;&#160;</a></span>point_cloud</h2>
 

@@ -23,6 +23,7 @@ var hierarchy =
     [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::DepthCameraPipelineSubsystem", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem.html", null ],
     [ "fast::rf::core::infrastructure::DiagnosticManager", "classfast_1_1rf_1_1core_1_1infrastructure_1_1DiagnosticManager.html", null ],
     [ "fast::rf::messages::InfrastructureMsgs::DiagnosticMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1DiagnosticMsg.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::FeatureExtractionContainer", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1FeatureExtractionContainer.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathCommandMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandMsg.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathCommandStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathCommandStateMsg.html", null ],
     [ "fast::rf::messages::NavMsgs::GlobalPathPlanningStateMsg", "structfast_1_1rf_1_1messages_1_1NavMsgs_1_1GlobalPathPlanningStateMsg.html", null ],
@@ -111,6 +112,11 @@ var hierarchy =
     ] ],
     [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::IDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1IDriveExecutorOutput.html", [
       [ "fast::rf::NavigationSystem::NavigationExecutorSubsystem::DriveExecutor::TankDriveExecutorOutput", "structfast_1_1rf_1_1NavigationSystem_1_1NavigationExecutorSubsystem_1_1DriveExecutor_1_1TankDriveExecutorOutput.html", null ]
+    ] ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::IFeatureExtractor", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1IFeatureExtractor.html", [
+      [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BaseFeatureExtractor", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html", [
+        [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::FeatureExtractorCPU", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1FeatureExtractorCPU.html", null ]
+      ] ]
     ] ],
     [ "fast::rf::PoseSystem::GlobalPoseSubsystem::IGlobalPoseProcess", "classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1IGlobalPoseProcess.html", [
       [ "fast::rf::PoseSystem::GlobalPoseSubsystem::BaseGlobalPoseProcess", "classfast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem_1_1BaseGlobalPoseProcess.html", [

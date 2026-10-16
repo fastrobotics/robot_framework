@@ -1,0 +1,5 @@
+var structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1FeatureExtractionContainer =
+[
+    [ "cloud", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1FeatureExtractionContainer.html#a606c11b604715f91d7d8340b88eb37a1", null ],
+    [ "wereFeaturesExtracted", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1FeatureExtractionContainer.html#af4cd2944c828b1e09f3678120b137d76", null ]
+];

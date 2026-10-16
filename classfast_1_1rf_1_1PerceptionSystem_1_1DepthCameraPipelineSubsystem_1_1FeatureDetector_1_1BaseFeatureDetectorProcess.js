@@ -15,6 +15,8 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Featu
     [ "updateDiagnostic", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a51ee2cb959e710fea3bec1a6c13a8bdf", null ],
     [ "m_currentTimeSec", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#aa52746bafb8b7cd872f0c3cc2041c25d", null ],
     [ "m_diagnosticManager", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a3bd41a13ab9a32516375bc2e77b83c86", null ],
+    [ "m_featurePointCloud", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a3b9b7db5221ce1088b7c1f7a7f5d097f", null ],
+    [ "m_featurePointCloudReady", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a936831259f630b9cf30e538778c46e5a", null ],
     [ "m_processId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a29775d7c76c9929b4f75ca943dc8fcce", null ],
     [ "m_readyToArm", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#a70c779ef7ae183d40d5121bb0cc784c0", null ],
     [ "m_subSystemId", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureDetectorProcess.html#ade22c1191554974ccf527207d03625b5", null ],
