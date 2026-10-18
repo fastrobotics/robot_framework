@@ -5,5 +5,6 @@ var namespacefast_1_1rf_1_1messages =
     [ "InfrastructureMsgs", "namespacefast_1_1rf_1_1messages_1_1InfrastructureMsgs.html", "namespacefast_1_1rf_1_1messages_1_1InfrastructureMsgs" ],
     [ "NavMsgs", "namespacefast_1_1rf_1_1messages_1_1NavMsgs.html", "namespacefast_1_1rf_1_1messages_1_1NavMsgs" ],
     [ "SensorMsgs", "namespacefast_1_1rf_1_1messages_1_1SensorMsgs.html", "namespacefast_1_1rf_1_1messages_1_1SensorMsgs" ],
-    [ "StandardMsgs", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs.html", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs" ]
+    [ "StandardMsgs", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs.html", "namespacefast_1_1rf_1_1messages_1_1StandardMsgs" ],
+    [ "VisionMsgs", "namespacefast_1_1rf_1_1messages_1_1VisionMsgs.html", "namespacefast_1_1rf_1_1messages_1_1VisionMsgs" ]
 ];

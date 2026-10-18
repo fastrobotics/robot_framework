@@ -1,6 +1,7 @@
 var structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg =
 [
     [ "PoseMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a598cf83dd2c122bb9e54e680a02642d5", null ],
+    [ "pretty", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a829ddec37e266edbb5450bc70d0288cc", null ],
     [ "orientation", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a4a2999348c2bdcfbc4c45472bee4d3c6", null ],
     [ "position", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html#a6d188fbe1eae8864ad60bda603399812", null ]
 ];

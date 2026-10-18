@@ -6,5 +6,6 @@ var dir_190e9e64fb890467c89befc1abca1701 =
     [ "InfrastructureMsgs", "dir_e57fe292b6db648ba5df9596412a7fa0.html", "dir_e57fe292b6db648ba5df9596412a7fa0" ],
     [ "NavMsgs", "dir_d5f197aa2ae9a3f109285c0212bfe357.html", "dir_d5f197aa2ae9a3f109285c0212bfe357" ],
     [ "SensorMsgs", "dir_05730e5fb697c56f2606d544997bf97c.html", "dir_05730e5fb697c56f2606d544997bf97c" ],
-    [ "StandardMsgs", "dir_e21824e500ff9ee97ea817c2fc6dd2cb.html", "dir_e21824e500ff9ee97ea817c2fc6dd2cb" ]
+    [ "StandardMsgs", "dir_e21824e500ff9ee97ea817c2fc6dd2cb.html", "dir_e21824e500ff9ee97ea817c2fc6dd2cb" ],
+    [ "VisionMsgs", "dir_bc3e758e9fcc4ecb002ed7e88ad2874b.html", "dir_bc3e758e9fcc4ecb002ed7e88ad2874b" ]
 ];

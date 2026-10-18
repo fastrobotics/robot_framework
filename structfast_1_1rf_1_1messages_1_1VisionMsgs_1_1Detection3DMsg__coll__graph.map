@@ -1,0 +1,15 @@
+<map id="fast::rf::messages::VisionMsgs::Detection3DMsg" name="fast::rf::messages::VisionMsgs::Detection3DMsg">
+<area shape="rect" id="Node000001" title="A message about a 3D Detection." alt="" coords="1081,115,1301,155"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1BoundingBox3DMsg.html" title="A Bounding Box 3D Message." alt="" coords="676,73,944,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="958,107,1081,120,1081,125,958,112"/>
+<area shape="rect" id="Node000003" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PoseMsg.html" title="Data Structure for encoding Pose (Position and Orientation)" alt="" coords="377,37,572,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="586,67,676,76,675,82,585,72"/>
+<area shape="rect" id="Node000004" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html" title="Data Structure for encoding Points." alt="" coords="25,5,223,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,33,377,46,377,51,236,38"/>
+<area shape="rect" id="Node000005" href="$structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html" title="Data Structure for encoding Orientation." alt="" coords="5,69,243,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="256,75,377,64,377,69,257,80"/>
+<area shape="rect" id="Node000006" href="$structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html" title="3D Vector" alt="" coords="367,101,583,141"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="596,112,652,108,676,106,676,111,652,113,597,117"/>
+<area shape="rect" id="Node000007" href="$structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html" title="PointCloudMsg Definition of a Point Cloud." alt="" coords="703,137,917,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="930,151,1057,144,1081,142,1081,148,1058,149,930,156"/>
+</map>

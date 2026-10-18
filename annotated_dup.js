@@ -86,6 +86,7 @@ var annotated_dup =
           [ "GeometryMsgs", "namespacefast_1_1rf_1_1messages_1_1GeometryMsgs.html", [
             [ "AccelMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1AccelMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1AccelMsg" ],
             [ "AccelWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1AccelWithCovarianceMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1AccelWithCovarianceMsg" ],
+            [ "BoundingBox3DMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1BoundingBox3DMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1BoundingBox3DMsg" ],
             [ "OdomMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OdomMsg" ],
             [ "OrientationMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg" ],
             [ "PointMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg.html", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1PointMsg" ],
@@ -119,6 +120,10 @@ var annotated_dup =
             [ "Covariance3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance3DMsg" ],
             [ "Covariance6DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Covariance6DMsg" ],
             [ "Vector3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg" ]
+          ] ],
+          [ "VisionMsgs", "namespacefast_1_1rf_1_1messages_1_1VisionMsgs.html", [
+            [ "Detection3DMsg", "structfast_1_1rf_1_1messages_1_1VisionMsgs_1_1Detection3DMsg.html", "structfast_1_1rf_1_1messages_1_1VisionMsgs_1_1Detection3DMsg" ],
+            [ "ObjectHypothesisWithPoseMsg", "structfast_1_1rf_1_1messages_1_1VisionMsgs_1_1ObjectHypothesisWithPoseMsg.html", "structfast_1_1rf_1_1messages_1_1VisionMsgs_1_1ObjectHypothesisWithPoseMsg" ]
           ] ]
         ] ],
         [ "NavigationSystem", "namespacefast_1_1rf_1_1NavigationSystem.html", [

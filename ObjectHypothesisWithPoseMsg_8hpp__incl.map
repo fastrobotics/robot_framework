@@ -1,0 +1,26 @@
+<map id="msgs/VisionMsgs/include/ObjectHypothesisWithPoseMsg.hpp" name="msgs/VisionMsgs/include/ObjectHypothesisWithPoseMsg.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,421,45"/>
+<area shape="rect" id="Node000002" href="$PoseWithCovarianceMsg_8hpp.html" title=" " alt="" coords="187,93,397,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,46,295,79,289,79,289,46"/>
+<area shape="rect" id="Node000003" href="$Covariance6DMsg_8hpp.html" title=" " alt="" coords="5,167,173,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,121,136,165,134,160,259,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="230,313,293,339"/>
+<area shape="poly" id="edge15_Node000002_Node000005" title=" " alt="" coords="292,119,272,240,266,300,261,299,267,240,287,119"/>
+<area shape="rect" id="Node000006" href="$PoseMsg_8hpp.html" title=" " alt="" coords="321,167,429,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="307,117,352,155,349,160,304,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="547,313,605,339"/>
+<area shape="poly" id="edge14_Node000002_Node000008" title=" " alt="" coords="395,116,455,131,517,155,575,190,600,212,621,239,626,256,623,274,601,305,597,302,618,272,621,256,616,241,596,216,572,194,515,159,453,136,393,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="56,240,123,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="92,192,92,226,87,226,87,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="105,190,239,302,235,306,102,194"/>
+<area shape="poly" id="edge13_Node000006_Node000005" title=" " alt="" coords="350,194,318,214,289,242,274,271,267,300,262,299,269,269,285,238,315,210,347,190"/>
+<area shape="rect" id="Node000007" href="$OrientationMsg_8hpp.html" title=" " alt="" coords="299,240,450,265"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="377,192,377,226,372,226,372,192"/>
+<area shape="poly" id="edge12_Node000006_Node000008" title=" " alt="" coords="429,185,528,204,572,219,599,238,606,254,606,271,594,303,589,301,601,270,601,255,595,242,570,224,527,210,428,190"/>
+<area shape="rect" id="Node000009" href="$PointMsg_8hpp.html" title=" " alt="" coords="474,240,585,265"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="401,190,493,232,491,237,398,194"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="358,268,293,308,290,304,355,263"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="408,263,535,307,533,312,406,268"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="487,268,307,315,306,310,486,263"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="539,264,563,300,559,303,535,267"/>
+</map>

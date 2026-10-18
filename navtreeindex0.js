@@ -164,6 +164,8 @@ var NAVTREEINDEX0 =
 "BasicTrajectorySelectorProcess_8cpp.html":[5,0,4,6,3,2,1,2,1,0,0],
 "BasicTrajectorySelectorProcess_8hpp.html":[5,0,4,6,3,2,1,2,0,0,0],
 "BasicTrajectorySelectorProcess_8hpp_source.html":[5,0,4,6,3,2,1,2,0,0,0],
+"BoundingBox3DMsg_8hpp.html":[5,0,3,2,1,2],
+"BoundingBox3DMsg_8hpp_source.html":[5,0,3,2,1,2],
 "CPUImageProcessor_8cpp.html":[5,0,1,0,0,0,1,0],
 "CPUImageProcessor_8cpp.html#a741dd83bf5e53d6989f7944c249c849c":[5,0,1,0,0,0,1,0,1],
 "CPUMath_8cpp.html":[5,0,1,0,0,0,0,0],
@@ -181,6 +183,8 @@ var NAVTREEINDEX0 =
 "DepthCameraPipelineSubsystem_8cpp.html":[5,0,4,7,2,0,3,0],
 "DepthCameraPipelineSubsystem_8hpp.html":[5,0,4,7,2,0,1,0],
 "DepthCameraPipelineSubsystem_8hpp_source.html":[5,0,4,7,2,0,1,0],
+"Detection3DMsg_8hpp.html":[5,0,3,7,1,0],
+"Detection3DMsg_8hpp_source.html":[5,0,3,7,1,0],
 "DiagnosticManager_8cpp.html":[5,0,0,0,0,0],
 "DiagnosticManager_8hpp.html":[5,0,2,0,0,0],
 "DiagnosticManager_8hpp_source.html":[5,0,2,0,0,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX0 =
 "GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5a034312d8adc8099c1c6f53aaff745e26":[5,0,3,4,1,4,0,1],
 "GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5a696b031073e74bf2cb98e5ef201d4aa3":[5,0,3,4,1,4,0,0],
 "GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5a8f7afecbc8fbc4cd0f50a57d1172482e":[5,0,3,4,1,4,0,3],
-"GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5ab9e14d9b2886bcff408b85aefa780419":[5,0,3,4,1,4,0,4],
-"GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5abf71c229d973f999f1a0db6c0ddd294e":[5,0,3,4,1,4,0,2],
-"GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5ac2b0b4a580050a88a759ac7c20ce853c":[5,0,3,4,1,4,0,5],
-"GlobalPathPlanningStatusEnum_8hpp_source.html":[5,0,3,4,1,4],
-"GlobalPathRequestMsg_8hpp.html":[5,0,3,4,1,5]
+"GlobalPathPlanningStatusEnum_8hpp.html#a762f6f4c979be3efb5357e20cdd9fbf5ab9e14d9b2886bcff408b85aefa780419":[5,0,3,4,1,4,0,4]
 };
