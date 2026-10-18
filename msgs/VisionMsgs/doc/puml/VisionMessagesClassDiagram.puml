@@ -1,0 +1,34 @@
+@startuml
+title Vision Messages Package Diagram
+
+namespace fast::rf::messages {
+    namespace GeometryMsgs {
+        class BoundingBox3DMsg <<(M,#FFFF00)>>
+        class PoseWithCovarianceMsg <<(M,#FFFF00)>>
+    }
+    namespace SensorMsgs {
+        class PointCloudMsg <<(M,#FFFF00)>>
+    }
+    package VisionMsgs #LightYellow;line:blue  {
+        class ObjectHypothesisWithPoseMsg <<(M,#FFFF00)>> #LimeGreen {
+            +int id
+            +float score
+            +PoseWithCovarianceMsg pose
+            +bool isOk()
+            +string pretty()
+
+        }
+        ObjectHypothesisWithPoseMsg --> PoseWithCovarianceMsg
+        class Detection3DMsg <<(M,#FFFF00)>> #LimeGreen {
+            +double time_stamp
+            +ObjectHypothesisWithPoseMsg[] results
+            +BoundingBox3DMsg bbox
+            +PointCloudMsg source_cloud
+            +string pretty()
+        }
+        Detection3DMsg --> ObjectHypothesisWithPoseMsg: <<use>>
+        Detection3DMsg --> BoundingBox3DMsg: <<use>>
+        Detection3DMsg --> PointCloudMsg: <<use>>
+    }
+}
+@enduml

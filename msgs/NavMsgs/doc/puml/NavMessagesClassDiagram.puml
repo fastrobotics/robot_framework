@@ -6,7 +6,7 @@ namespace fast::rf::messages {
     class OdomMsg <<(M,#FFFF00)>>
     class TwistWithCovarianceMsg <<(M,#FFFF00)>>
   }
-  namespace NavMsgs  {
+  package NavMsgs #LightYellow;line:blue   {
     class GlobalPathRequest <<(M,#FFFF00)>> #LimeGreen {
       +uint64_t path_uuid
       +OdomMsg start

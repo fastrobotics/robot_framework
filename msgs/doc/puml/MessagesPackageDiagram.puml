@@ -7,6 +7,7 @@ namespace fast::rf {
   package StandardMsgs {}
   package InfrastructureMsgs {}
   package NavMsgs {}
+  package VisionMsgs {}
 
 }
 @enduml

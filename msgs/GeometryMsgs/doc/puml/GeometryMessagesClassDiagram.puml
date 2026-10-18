@@ -24,7 +24,8 @@ namespace fast::rf::messages {
     struct PointMsg <<(M,#FFFF00) >> #LimeGreen {
       +double x
       +double y
-      +double z 
+      +double z
+      +string pretty()
     }
     struct OrientationMsg <<(M,#FFFF00) >> #LimeGreen {
       +double roll
@@ -35,6 +36,7 @@ namespace fast::rf::messages {
     struct PoseMsg <<(M,#FFFF00)>> #LimeGreen {
       +PointMsg position
       +OrientationMsg orientation
+      +string pretty()
 
     }
     PoseMsg --> PointMsg: <<use>>
@@ -68,6 +70,13 @@ namespace fast::rf::messages {
     }
     OdomMsg --> PoseWithCovarianceMsg: <<use>>
     OdomMsg --> TwistWithCovarianceMsg: <<use>>
+    class BoundingBox3DMsg <<(M,#FFFF00)>> #LimeGreen {
+        +PoseMsg center
+        +Vector3DMsg size
+        +string pretty()
+    }
+    BoundingBox3DMsg --> PoseMsg: <<use>>
+    BoundingBox3DMsg --> Vector3DMsg: <<use>>
   }
     
 }
