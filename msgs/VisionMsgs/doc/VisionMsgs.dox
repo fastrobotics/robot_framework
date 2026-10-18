@@ -1,0 +1,4 @@
+ /**
+ * @namespace fast::rf::messages::VisionMsgs
+ * @brief The Vision Messages for the Robot Framework
+ */

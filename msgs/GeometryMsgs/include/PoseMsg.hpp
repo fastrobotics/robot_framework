@@ -15,13 +15,17 @@
 #include <vector>
 namespace fast::rf::messages::GeometryMsgs {
 
-/**
- * @brief Data Structure for encoding Pose (Position and Orientation)
- *
- */
-struct PoseMsg {
-    PointMsg position;           //!< Position
-    OrientationMsg orientation;  //!< Euler Orientation
-    PoseMsg() {};
-};
+    /**
+     * @brief Data Structure for encoding Pose (Position and Orientation)
+     *
+     */
+    struct PoseMsg {
+        PointMsg position;           //!< Position
+        OrientationMsg orientation;  //!< Euler Orientation
+        PoseMsg(){};
+        std::string pretty() {
+            std::string str = "Pose: " + position.pretty();
+            return str;
+        }
+    };
 }  // namespace fast::rf::messages::GeometryMsgs

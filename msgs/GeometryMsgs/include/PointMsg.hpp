@@ -13,14 +13,18 @@
 #include <vector>
 namespace fast::rf::messages::GeometryMsgs {
 
-/**
- * @brief Data Structure for encoding Points
- *
- */
-struct PointMsg {
-    double x;  //!< X value in meters
-    double y;  //!< Y value in meters
-    double z;  //!< Z value in meters
-    PointMsg() {};
-};
+    /**
+     * @brief Data Structure for encoding Points
+     *
+     */
+    struct PointMsg {
+        double x;  //!< X value in meters
+        double y;  //!< Y value in meters
+        double z;  //!< Z value in meters
+        PointMsg(){};
+        std::string pretty() {
+            std::string str = "X: " + std::to_string(x) + " Y: " + std::to_string(y) + " Z: " + std::to_string(z);
+            return str;
+        }
+    };
 }  // namespace fast::rf::messages::GeometryMsgs

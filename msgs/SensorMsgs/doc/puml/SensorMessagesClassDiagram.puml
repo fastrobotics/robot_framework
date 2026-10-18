@@ -2,6 +2,9 @@
 title Sensor Message Package Diagram
 namespace pcl {
     class PointCloud
+    class PointXYZRGB
+    class Normal
+    class FPFHSignature33
 }
 namespace fast::rf::messages {
   namespace StandardMsgs {
@@ -58,9 +61,14 @@ namespace fast::rf::messages {
         +{static} PointCloudMsg generateRGBCloud(uint32 dimension)
         +double time_stamp
         +pcl::PointCloud<PointXYZRGB>::Ptr point_cloud
+        +pcl::PointCloud<Normal>::Ptr normals
+        +pcl::PointCloud<FPFHSignature33>::Ptr fpfh_features
         +std::size_t size() const
         +bool empty() const
     }
     PointCloudMsg --> PointCloud: <<use>>
+    PointCloudMsg --> PointXYZRGB: <<use>>
+    PointCloudMsg --> Normal: <<use>>
+    PointCloudMsg --> FPFHSignature33: <<use>>
   }
   @enduml

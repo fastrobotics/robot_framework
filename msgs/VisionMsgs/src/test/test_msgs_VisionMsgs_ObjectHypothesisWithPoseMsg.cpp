@@ -1,0 +1,31 @@
+
+#include <gtest/gtest.h>
+#include <stdio.h>
+
+#include <ObjectHypothesisWithPoseMsg.hpp>
+using namespace fast::rf::messages::VisionMsgs;
+TEST(ObjectHypothesisWithPoseMsg, DefaultZeroConstructor) {
+    ObjectHypothesisWithPoseMsg SUT;
+    ASSERT_FALSE(SUT.isOk());
+    ASSERT_GT(SUT.pretty().size(), 0);
+    printf("%s\n", SUT.pretty().c_str());
+}
+TEST(ObjectHypothesisWithPoseMsg, ValidObjectHypothesis) {
+    ObjectHypothesisWithPoseMsg SUT;
+    SUT.id = 1;
+    SUT.score = 50.0;
+    ASSERT_TRUE(SUT.isOk());
+    printf("%s\n", SUT.pretty().c_str());
+
+    // Test that ID is checked Ok
+    auto invalidIDObject = SUT;
+    invalidIDObject.id = 0;
+    ASSERT_FALSE(invalidIDObject.isOk());
+
+    // Test that Score is checked Ok
+    auto invalidScoreObject = SUT;
+    invalidScoreObject.score = -1.0;
+    ASSERT_FALSE(invalidScoreObject.isOk());
+    invalidScoreObject.score = 100.0 * 2.0;
+    ASSERT_FALSE(invalidScoreObject.isOk());
+}

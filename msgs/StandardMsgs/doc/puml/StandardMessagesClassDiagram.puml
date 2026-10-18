@@ -2,17 +2,17 @@
 title Standard Messages Package Diagram
 
 namespace fast::rf::messages {
-  namespace StandardMsgs  {
-    struct Vector3DMsg <<(M,#FFFF00) >> #Orange {
+  package StandardMsgs #LightYellow;line:blue {
+    struct Vector3DMsg <<(M,#FFFF00) >> #LimeGreen {
       +double x
       +double y
       +double z
       +string pretty()
     }
-    struct Covariance3DMsg <<(M,#FFFF00) >> #Orange {
+    struct Covariance3DMsg <<(M,#FFFF00) >> #LimeGreen {
       +double[9] covariance
     }
-    struct Covariance6DMsg <<(M,#FFFF00) >> #Orange {
+    struct Covariance6DMsg <<(M,#FFFF00) >> #LimeGreen {
       +double[36] covariance
     }
 }

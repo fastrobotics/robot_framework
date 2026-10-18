@@ -8,6 +8,7 @@
 - [Sensors](#sensors)
 - [Navigation](#navigation)
 - [Infrastructure](#infrastructure)
+- [Vision](#vision)
 
 # Messages
 
@@ -54,4 +55,9 @@ The following is a listing of all messages created for this framework.
 [Package](../InfrastructureMsgs/)
 
 ![](../InfrastructureMsgs/doc/puml/InfrastructureMessagesClassDiagram.png)
+
+# Vision
+[Package](../VisionMsgs/)
+
+![](../VisionMsgs/doc/puml/VisionMessagesClassDiagram.png)
 

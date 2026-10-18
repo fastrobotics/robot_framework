@@ -1,0 +1,68 @@
+# Test: GeometryMsgs::AccelMsg
+add_executable(test_msgs_GeometryMsgs_AccelMsg
+               test_msgs_GeometryMsgs_AccelMsg.cpp)
+target_link_libraries(test_msgs_GeometryMsgs_AccelMsg GTest::gtest_main
+                      standard_msgs)
+
+gtest_discover_tests(test_msgs_GeometryMsgs_AccelMsg)
+
+# Test: GeometryMsgs::AccelWithCovarianceMsg
+add_executable(test_msgs_GeometryMsgs_AccelWithCovarianceMsg
+               test_msgs_GeometryMsgs_AccelWithCovarianceMsg.cpp)
+target_link_libraries(test_msgs_GeometryMsgs_AccelWithCovarianceMsg
+                      GTest::gtest_main standard_msgs)
+
+gtest_discover_tests(test_msgs_GeometryMsgs_AccelWithCovarianceMsg)
+
+add_executable(test_GeometryMsgs_PointMsg test_GeometryMsgs_PointMsg.cpp)
+target_link_libraries(test_GeometryMsgs_PointMsg PRIVATE GTest::gtest_main
+                                                         geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_PointMsg)
+
+add_executable(test_GeometryMsgs_OrientationMsg
+               test_GeometryMsgs_OrientationMsg.cpp)
+target_link_libraries(test_GeometryMsgs_OrientationMsg PRIVATE GTest::gtest_main
+                                                               geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_OrientationMsg)
+
+add_executable(test_GeometryMsgs_PoseMsg test_GeometryMsgs_PoseMsg.cpp)
+target_link_libraries(test_GeometryMsgs_PoseMsg PRIVATE GTest::gtest_main
+                                                        geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_PoseMsg)
+
+add_executable(test_GeometryMsgs_PoseWithCovarianceMsg
+               test_GeometryMsgs_PoseWithCovarianceMsg.cpp)
+target_link_libraries(test_GeometryMsgs_PoseWithCovarianceMsg
+                      PRIVATE GTest::gtest_main geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_PoseWithCovarianceMsg)
+
+add_executable(test_GeometryMsgs_TwistMsg test_GeometryMsgs_TwistMsg.cpp)
+target_link_libraries(test_GeometryMsgs_TwistMsg PRIVATE GTest::gtest_main
+                                                         geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_TwistMsg)
+
+add_executable(test_GeometryMsgs_TwistWithCovarianceMsg
+               test_GeometryMsgs_TwistWithCovarianceMsg.cpp)
+target_link_libraries(test_GeometryMsgs_TwistWithCovarianceMsg
+                      PRIVATE GTest::gtest_main geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_TwistWithCovarianceMsg)
+
+add_executable(test_GeometryMsgs_OdomMsg test_GeometryMsgs_OdomMsg.cpp)
+target_link_libraries(test_GeometryMsgs_OdomMsg PRIVATE GTest::gtest_main
+                                                        geometry_msgs)
+
+gtest_discover_tests(test_GeometryMsgs_OdomMsg)
+
+# Test: GeometryMsgs::BoundingBox3DMsg
+add_executable(test_msgs_GeometryMsgs_BoundingBox3DMsg
+               test_msgs_GeometryMsgs_BoundingBox3DMsg.cpp)
+target_link_libraries(test_msgs_GeometryMsgs_BoundingBox3DMsg GTest::gtest_main
+                      standard_msgs)
+
+gtest_discover_tests(test_msgs_GeometryMsgs_BoundingBox3DMsg)
