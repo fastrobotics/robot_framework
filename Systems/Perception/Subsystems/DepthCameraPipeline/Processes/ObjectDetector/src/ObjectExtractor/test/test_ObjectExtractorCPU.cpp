@@ -34,4 +34,7 @@ TEST(ObjectExtractorCPU, SmallCloudTests) {
     auto objectList =
         SUT.extractObjects(featurePointCloud.point_cloud, featurePointCloud.normals, featurePointCloud.fpfh_features);
     ASSERT_GT(objectList.size(), 0);
+    for (auto object : objectList) {
+        fast::rf::Logger::logDebug(object.pretty());
+    }
 }

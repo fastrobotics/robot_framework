@@ -58,7 +58,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
             feature_extractor.compute();
 
             pcl::PointXYZRGB min_point_OBB, max_point_OBB;
-            Eigen::Vector3f position;
+            pcl::PointXYZRGB position;
             Eigen::Matrix3f rotational_matrix;
 
             feature_extractor.getOBB(min_point_OBB, max_point_OBB, position, rotational_matrix);
