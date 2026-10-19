@@ -10,6 +10,9 @@ namespace fast::rf {
     namespace SensorMsgs {
         class PointCloudMsg <<(M,#FFFF00)>>
     }
+    namespace VisionMsgs {
+        class Detection3DMsg <<(M,#FFFF00)>>
+    }
   }
   namespace PerceptionSystem {
     package DepthCameraPipelineSubsystem #LightYellow;line:blue {
@@ -19,7 +22,7 @@ namespace fast::rf {
             class SensorInputHandlerProcess #Pink
             SensorInputHandlerProcess -up-|> ISensorInputHandlerProcess
         }
-        namespace FeatureDetector #Orange {
+        namespace FeatureDetector #LimeGreen {
             interface IFeatureDetectorProcess
             class BasicFeatureDetectorProcess
             BasicFeatureDetectorProcess -up-|> IFeatureDetectorProcess
@@ -40,11 +43,17 @@ namespace fast::rf {
             SensorHealthMonitorProcess -up-|> ISensorHealthMonitorProcess
 
         }
-        class DepthCameraPipelineSubsystem #LimeGreen {
+        namespace ObjectDetector #Orange {
+            interface IObjectDetectorProcess #Orange
+            class ObjectDetectorProcess #Orange
+            ObjectDetectorProcess -up-|> IObjectDetectorProcess
+        }
+        class DepthCameraPipelineSubsystem #Orange {
             +bool init()
             +bool addSignalToMonitor(string signalName, string datatype,double expectedRateHz, double rateTolerancePerc)
             +bool newPointCloud(PointCloudMsg msg, string sensorName)
             +bool update(double currentTimeSec)
+            +Detection3DMsg[] getDetections()
             +string pretty()
             +ReadyToArmStatusMsg get_ready_to_arm()
             +DiagnosticMsg[] getDiagnostics
@@ -53,6 +62,7 @@ namespace fast::rf {
             -SensorFuserProcess m_sensorFuserProcess
             -IFOVExtractorProcess m_fovExtractorProcess
             -IFeatureDetectorProcess m_featureDetectorProcess
+            -IObjectDetectorProcess m_objectDetectorProcess
 
         }
         DepthCameraPipelineSubsystem *-up-> SensorInputHandlerProcess
@@ -60,6 +70,7 @@ namespace fast::rf {
         DepthCameraPipelineSubsystem *-up-> SensorFuserProcess
         DepthCameraPipelineSubsystem *-up-> BasicFOVExtractorProcess
         DepthCameraPipelineSubsystem *-up-> BasicFeatureDetectorProcess
+        DepthCameraPipelineSubsystem *-up-> ObjectDetectorProcess
     }
   }
 }
