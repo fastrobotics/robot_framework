@@ -55,7 +55,6 @@ flowchart TD
     FeatureDetector --> | Diagnostics | Outputs
 
     class Inputs,Outputs cssBoundary
-    class FOVExtractor,ObjectDetector cssInvestigating
-    class FeatureDetector cssDeveloping
+    class FOVExtractor cssInvestigating
     class SensorInputHandler cssTrivialComplete
-    class SensorHealthMonitor,SensorFuser cssMinimalComplete
+    class SensorHealthMonitor,SensorFuser,FeatureDetector,ObjectDetector cssMinimalComplete

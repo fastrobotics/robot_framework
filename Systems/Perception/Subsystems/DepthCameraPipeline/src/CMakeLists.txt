@@ -5,9 +5,10 @@ target_link_libraries(
   infrastructure_msgs
   sensor_msgs
   DepthCameraPipelineSubsystem::sensorHealthMonitorProcess
-  DepthCameraPipeline::sensorInputHandlerProcess
+  DepthCameraPipelineSubsystem::sensorInputHandlerProcess
   DepthCameraPipelineSubsystem::basic_SensorFuserProcess
-  DepthCameraPipelineSubsystem::basic_FeatureDetectorProcess)
+  DepthCameraPipelineSubsystem::basic_FeatureDetectorProcess
+  DepthCameraPipelineSubsystem::objectDetectorProcess)
 target_include_directories(depthCameraPipelineSubsystem
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 

@@ -50,4 +50,6 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_FALSE(readyToArm.ready_to_arm);
     auto diagnostics = SUT.getDiagnostics();
     ASSERT_GT(diagnostics.size(), 0);
+    auto output = SUT.getOutput();
+    ASSERT_GT(output.fullPipelineOutputCounter, 0);
 }

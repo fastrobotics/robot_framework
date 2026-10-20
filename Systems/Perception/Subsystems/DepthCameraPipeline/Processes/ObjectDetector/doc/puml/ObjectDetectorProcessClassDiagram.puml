@@ -1,0 +1,116 @@
+' @compare_tag Process-ClassDiagram v0.1
+@startuml
+title ObjectDetector Process Class Diagram
+namespace pcl {
+    class PointXYZRGB
+    class Normal
+    class FPFHSignature33
+    class PointCloud
+}
+namespace Eigen {
+    class Vector4f
+    class Vector3f
+    class Matrix3f
+    class VectorXf
+
+}
+namespace fast::rf {
+    namespace DiagnosticDefinition {
+        enum DiagnosticType
+    }
+    namespace messages {
+        namespace InfrastructureMsgs {
+            class DiagnosticMsg <<(M,#FFFF00)>>
+            class ReadyToArmStatusMsg <<(M,#FFFF00)>>
+        }
+        namespace SensorMsgs {
+            class PointCloudMsg <<(M,#FFFF00)>>
+        }
+        namespace VisionMsgs {
+            class Detection3DMsg <<(M,#FFFF00)>>
+        }
+    }
+    namespace core::Infrastructure {
+        class DiagnosticManager
+    }
+    interface IProcess
+    namespace PerceptionSystem {
+        namespace DepthCameraPipelineSubsystem {
+            package ObjectDetector #LightYellow;line:blue {
+                struct DiscoveredObject #LimeGreen {
+                    uint64_t id
+                    uint64_t pointCount
+                    Vector4f centroid
+                    Vector3f dimensions
+                    Matrix3f rotationMatrix
+                    VectorXf globalFPFH
+                    PointCloud cloudCluster
+                }
+                interface IObjectExtractor #LimeGreen {
+                    +{abstract} bool init()
+                    +{abstract} bool setConfig(double clusterToleranceDeg, uint64_t minClusterSize)
+                    +{abstract} Detection3DMsg[] extractObjects(PointCloudMsg sensorCloud)
+                    #{abstract} DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
+                }
+                IObjectExtractor +-- DiscoveredObject
+                IObjectExtractor --> PointXYZRGB
+                IObjectExtractor --> PointCloud
+                IObjectExtractor --> Normal
+                IObjectExtractor --> FPFHSignature33
+                abstract BaseObjectExtractor #LimeGreen {
+                    +bool init()
+                    +bool setConfig(double clusterToleranceDeg, uint64_t minClusterSize)
+                    #Detection3DMsg convert(DiscoveredObject object)
+                    -double m_clusterToleranceDeg
+                    -uint64_t m_minClusterSize
+                }
+                BaseObjectExtractor .up.|> IObjectExtractor
+                class ObjectExtractorCPU #LimeGreen {
+                    +Detection3DMsg[] extractObjects(PointCloudMsg sensorCloud)
+                    -DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
+                   
+                }
+                ObjectExtractorCPU -up-|> BaseObjectExtractor               
+                
+                interface IObjectDetectorProcess #LimeGreen  {
+                    +{abstract} bool init()
+                    +{abstract} Detection3DMsg[] detectObjects(PointCloudMsg sensorCloud)
+                }
+                IObjectDetectorProcess -up-|> IProcess
+                abstract BaseObjectDetectorProcess #LimeGreen {
+                    +DiagnosticMsg[] getDiagnostics()
+                    +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
+                    +ReadyToArmStatusMsg get_ready_to_arm()
+                    #bool update(double current_time_sec)
+                    #string pretty()
+                    #DiagnosticManager m_diagnosticManager
+                    #ReadyToArmStatusMsg ready_to_arm
+
+                }
+                BaseObjectDetectorProcess .up.|> IObjectDetectorProcess
+                BaseObjectDetectorProcess --> DiagnosticManager: <<use>>
+                class ObjectDetectorProcessConfig #LimeGreen {
+                    +double m_clusterToleranceDeg
+                    +uint64 m_minClusterSize
+                    +uint64 m_maxPointCloudSize
+                    +bool is_ok()
+                    +string pretty()
+                }
+                class ObjectDetectorProcess #LimeGreen {
+                    +bool init()
+                    +bool set_config(ObjectDetectorProcessConfig config)
+                    +bool update(double current_time_sec)
+                    +string pretty()
+                    +Detection3DMsg[] detectObjects(PointCloudMsg sensorCloud)
+                    -ObjectDetectorProcessConfig m_config
+                    -IObjectExtractor m_objectExtractor
+                }
+                ObjectDetectorProcess -up-|> BaseObjectDetectorProcess
+                ObjectDetectorProcess *-> ObjectDetectorProcessConfig: <<use>>
+                ObjectDetectorProcess *--> IObjectExtractor
+                ObjectDetectorProcess --> ObjectExtractorCPU: <<use>>
+            }
+        }
+    }
+}
+@enduml
