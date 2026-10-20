@@ -53,7 +53,6 @@ TEST(TestBaseObjectExtractor, ConversionTests) {
         ASSERT_GT(detection.results.size(), 0);
         ASSERT_EQ(detection.results.size(), 1);
         auto result = detection.results[0];
-        ASSERT_EQ(result.id, object.id);
 
         ASSERT_FLOAT_EQ(result.pose.pose.position.x, object.centroid.x());
         ASSERT_FLOAT_EQ(result.pose.pose.position.y, object.centroid.y());

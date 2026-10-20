@@ -20,7 +20,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
         double time_stamp, IObjectExtractor::DiscoveredObject object) {
         fast::rf::messages::VisionMsgs::Detection3DMsg detection;
         fast::rf::messages::VisionMsgs::ObjectHypothesisWithPoseMsg hypothesis;
-        hypothesis.id = object.id;
         Eigen::Vector3f euler = object.rotation_matrix.eulerAngles(0, 1, 2);  // X-Y-Z
         hypothesis.pose.pose.orientation.roll = euler[0];                     // X rotation
         hypothesis.pose.pose.orientation.pitch = euler[1];                    // Y rotation
