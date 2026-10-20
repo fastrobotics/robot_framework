@@ -12,15 +12,9 @@ TEST(ObjectHypothesisWithPoseMsg, DefaultZeroConstructor) {
 }
 TEST(ObjectHypothesisWithPoseMsg, ValidObjectHypothesis) {
     ObjectHypothesisWithPoseMsg SUT;
-    SUT.id = 1;
     SUT.score = 50.0;
     ASSERT_TRUE(SUT.isOk());
     printf("%s\n", SUT.pretty().c_str());
-
-    // Test that ID is checked Ok
-    auto invalidIDObject = SUT;
-    invalidIDObject.id = 0;
-    ASSERT_FALSE(invalidIDObject.isOk());
 
     // Test that Score is checked Ok
     auto invalidScoreObject = SUT;

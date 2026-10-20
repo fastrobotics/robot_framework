@@ -11,7 +11,7 @@ namespace fast::rf::messages {
     }
     package VisionMsgs #LightYellow;line:blue  {
         class ObjectHypothesisWithPoseMsg <<(M,#FFFF00)>> #LimeGreen {
-            +int id
+            +string classification_id
             +float score
             +PoseWithCovarianceMsg pose
             +bool isOk()

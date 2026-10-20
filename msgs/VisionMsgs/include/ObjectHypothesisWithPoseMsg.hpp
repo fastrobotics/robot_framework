@@ -16,14 +16,11 @@ namespace fast::rf::messages::VisionMsgs {
      *
      */
     struct ObjectHypothesisWithPoseMsg {
-        uint64_t id;   //!< The Object ID.  0 is Invalid
+        std::string classification_id{""};  //!< The Object Classification
         double score;  //!< A score for the object, as a percentage. <=0% is unknown/invalid, 100% is perfectly known.
                        //!< Anything above 100% is invalid
         fast::rf::messages::GeometryMsgs::PoseWithCovarianceMsg pose;  //!< Object Pose
         bool isOk() {
-            if (id == 0) {
-                return false;
-            }
             if (score <= 0.0) {
                 return false;
             }
@@ -32,9 +29,9 @@ namespace fast::rf::messages::VisionMsgs {
             }
             return true;
         }
-        ObjectHypothesisWithPoseMsg() : id(0), score(-1.0) {}
+        ObjectHypothesisWithPoseMsg() : score(-1.0) {}
         std::string pretty() {
-            std::string str = "Object Hypothesis: ID: " + std::to_string(id) + " Score: " + std::to_string(score) +
+            std::string str = "Object Hypothesis: Class: " + classification_id + " Score: " + std::to_string(score) +
                               " Valid: " + std::to_string(isOk()) + " " + pose.pose.pretty();
             return str;
         }

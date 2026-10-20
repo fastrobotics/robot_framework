@@ -12,7 +12,6 @@ TEST(Detection3DMsg, TestWithData) {
     Detection3DMsg SUT;
     for (uint8_t i = 0; i < 50; ++i) {
         ObjectHypothesisWithPoseMsg result;
-        result.id = i;
         result.score = 5.0 + (i * 10.0);
         SUT.results.push_back(result);
     }
