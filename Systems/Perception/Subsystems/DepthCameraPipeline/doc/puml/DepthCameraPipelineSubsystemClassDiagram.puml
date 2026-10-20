@@ -43,9 +43,9 @@ namespace fast::rf {
             SensorHealthMonitorProcess -up-|> ISensorHealthMonitorProcess
 
         }
-        namespace ObjectDetector #Orange {
-            interface IObjectDetectorProcess #Orange
-            class ObjectDetectorProcess #Orange
+        namespace ObjectDetector #LimeGreen {
+            interface IObjectDetectorProcess #LimeGreen
+            class ObjectDetectorProcess #LimeGreen
             ObjectDetectorProcess -up-|> IObjectDetectorProcess
         }
         class DepthCameraPipelineSubsystem #Orange {
