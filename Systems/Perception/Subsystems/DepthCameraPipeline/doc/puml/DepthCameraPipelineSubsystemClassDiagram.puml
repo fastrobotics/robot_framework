@@ -48,12 +48,16 @@ namespace fast::rf {
             class ObjectDetectorProcess #LimeGreen
             ObjectDetectorProcess -up-|> IObjectDetectorProcess
         }
-        class DepthCameraPipelineSubsystem #Orange {
+        struct DepthCameraPipelineSubsystemOutput #LimeGreen {
+            +Detection3DMsg[] latestDetections
+            +uint64 fullPipelineOutputCounter
+        }
+        class DepthCameraPipelineSubsystem #LimeGreen {
             +bool init()
             +bool addSignalToMonitor(string signalName, string datatype,double expectedRateHz, double rateTolerancePerc)
             +bool newPointCloud(PointCloudMsg msg, string sensorName)
             +bool update(double currentTimeSec)
-            +Detection3DMsg[] getDetections()
+            +DepthCameraPipelineSubsystemOutput getOutput()
             +string pretty()
             +ReadyToArmStatusMsg get_ready_to_arm()
             +DiagnosticMsg[] getDiagnostics
@@ -65,6 +69,7 @@ namespace fast::rf {
             -IObjectDetectorProcess m_objectDetectorProcess
 
         }
+        DepthCameraPipelineSubsystemOutput +-- DepthCameraPipelineSubsystem
         DepthCameraPipelineSubsystem *-up-> SensorInputHandlerProcess
         DepthCameraPipelineSubsystem *-up-> SensorHealthMonitorProcess
         DepthCameraPipelineSubsystem *-up-> SensorFuserProcess

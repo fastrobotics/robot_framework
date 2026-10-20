@@ -48,6 +48,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         auto latestFusedPointCloud = m_sensorFuserProcess->getLatestFusedPointCloud();
         auto featureCloud = m_featureDetectorProcess->detectFeatures(latestFusedPointCloud);
         auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
+        if (featureCloud.isValidFeatureCloud()) {
+            m_output.latestDetections = detections;
+            m_output.fullPipelineOutputCounter++;
+        }
         bool readyToArmFlag = true;
         for (auto& process : m_pipeline) {
             bool status = process.second->update(currentTimeSec);

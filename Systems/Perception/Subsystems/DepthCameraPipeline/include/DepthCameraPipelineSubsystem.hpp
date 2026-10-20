@@ -27,6 +27,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
      */
     class DepthCameraPipelineSubsystem {
        public:
+        struct DepthCameraPipelineSubsystemOutput {
+            std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> latestDetections;
+            uint64_t fullPipelineOutputCounter{0};
+        };
         DepthCameraPipelineSubsystem()
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
                                                                SensorInputHandler::SensorInputHandlerProcess>()),
@@ -69,6 +73,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             return m_sensorHealthMonitorProcess->addSignalToMonitor(signalName, datatype, expectedRateHz,
                                                                     rateTolerancePerc);
         }
+        DepthCameraPipelineSubsystemOutput getOutput() { return m_output; }
         /**
          * @brief Process a new Point Cloud
          *
@@ -122,5 +127,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             m_objectDetectorProcess;
         std::unordered_map<std::string, std::shared_ptr<fast::rf::IProcess>> m_pipeline;
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;
+
+        DepthCameraPipelineSubsystemOutput m_output;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem

@@ -79,7 +79,7 @@ The `DepthCameraPipelineSubsystem` class can be used to directly run all the chi
 | DRAFT  | [Sensor Fuser](../Processes/SensorFuser/doc/Process-SensorFuser.md)                          |
 | NEW    | [FOV Extractor](../Processes/FOVExtractor/doc/Process-FOVExtractor.md)                       |
 | DRAFT  | [Feature Detector](../Processes/FeatureDetector/doc/Process-FeatureDetector.md)              |
-| NEW    | [Object Detector](../Processes/ObjectDetector/doc/Process-ObjectDetector.md)                 |
+| DRAFT  | [Object Detector](../Processes/ObjectDetector/doc/Process-ObjectDetector.md)                 |
 
 
 
