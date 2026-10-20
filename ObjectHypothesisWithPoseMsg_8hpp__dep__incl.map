@@ -1,5 +1,31 @@
 <map id="msgs/VisionMsgs/include/ObjectHypothesisWithPoseMsg.hpp" name="msgs/VisionMsgs/include/ObjectHypothesisWithPoseMsg.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,263,45"/>
-<area shape="rect" id="Node000002" href="$Detection3DMsg_8hpp.html" title=" " alt="" coords="41,93,227,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,59,137,93,131,93,131,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,510,45"/>
+<area shape="rect" id="Node000002" href="$Detection3DMsg_8hpp.html" title=" " alt="" coords="288,93,475,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,59,384,93,379,93,379,59"/>
+<area shape="rect" id="Node000003" href="$IObjectDetectorProcess_8hpp.html" title=" " alt="" coords="116,181,367,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,144,290,183,287,179,342,139"/>
+<area shape="rect" id="Node000010" href="$IObjectExtractor_8hpp.html" title=" " alt="" coords="391,181,654,251"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="421,139,477,179,473,183,418,144"/>
+<area shape="rect" id="Node000004" href="$BaseObjectDetectorProcess_8hpp.html" title=" " alt="" coords="116,299,367,368"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="244,265,244,298,239,298,239,265"/>
+<area shape="rect" id="Node000005" href="$ObjectDetectorProcess_8hpp.html" title=" " alt="" coords="280,416,531,485"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="302,374,359,413,356,418,299,378"/>
+<area shape="rect" id="Node000009" href="$BaseObjectDetectorProcess_8cpp.html" title=" " alt="" coords="5,416,256,485"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="201,380,165,418,161,414,197,376"/>
+<area shape="rect" id="Node000006" href="$ObjectDetectorProcess_8cpp.html" title=" " alt="" coords="427,533,677,603"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="460,492,511,531,507,535,457,496"/>
+<area shape="rect" id="Node000007" href="$DepthCameraPipelineSubsystem_8hpp.html" title=" " alt="" coords="83,541,402,595"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="348,496,281,543,278,538,345,491"/>
+<area shape="rect" id="Node000008" href="$DepthCameraPipelineSubsystem_8cpp.html" title=" " alt="" coords="97,651,388,705"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="245,610,245,650,240,650,240,610"/>
+<area shape="poly" id="edge10_Node000010_Node000005" title=" " alt="" coords="502,264,425,417,420,415,497,262"/>
+<area shape="rect" id="Node000011" href="$BaseObjectExtractor_8hpp.html" title=" " alt="" coords="553,299,844,368"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="587,256,648,296,645,301,584,261"/>
+<area shape="rect" id="Node000012" href="$ObjectExtractorCPU_8hpp.html" title=" " alt="" coords="555,416,842,485"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="701,382,701,416,696,416,696,382"/>
+<area shape="rect" id="Node000014" href="$BaseObjectExtractor_8cpp.html" title=" " alt="" coords="867,416,1157,485"/>
+<area shape="poly" id="edge15_Node000011_Node000014" title=" " alt="" coords="804,370,921,413,919,418,802,375"/>
+<area shape="poly" id="edge13_Node000012_Node000006" title=" " alt="" coords="647,496,597,535,593,531,644,492"/>
+<area shape="rect" id="Node000013" href="$ObjectExtractorCPU_8cpp.html" title=" " alt="" coords="702,533,989,603"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="754,492,804,531,801,535,750,496"/>
 </map>

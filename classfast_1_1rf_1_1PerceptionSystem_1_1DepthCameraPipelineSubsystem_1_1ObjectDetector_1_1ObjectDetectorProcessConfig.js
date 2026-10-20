@@ -1,0 +1,8 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig =
+[
+    [ "isOk", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig.html#a2bf272400b21bd046de154403ea52174", null ],
+    [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig.html#a312749d6ee709fc72a23ea5fd85b18d2", null ],
+    [ "m_clusterToleranceDeg", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig.html#a26437a4d8708eb4fb506e5b800d14401", null ],
+    [ "m_maxPointCloudSize", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig.html#ab319cb2d712fd5db5bc69df7d2359344", null ],
+    [ "m_minClusterSize", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectDetectorProcessConfig.html#a19d3a4056183afeff852f6ab93f12a0a", null ]
+];

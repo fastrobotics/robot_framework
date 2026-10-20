@@ -1,0 +1,8 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor =
+[
+    [ "DiscoveredObject", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject" ],
+    [ "extractObjects", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor.html#a32fd3e6d35866ca15268240ffc985df3", null ],
+    [ "extractObjects", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor.html#aa90c37c6f2b69e6601b88e2c73508413", null ],
+    [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor.html#ae39d3d794e69d01976bb7dcb841d6b35", null ],
+    [ "setConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor.html#a268136b7d9c1ea5986172b21e16b3219", null ]
+];

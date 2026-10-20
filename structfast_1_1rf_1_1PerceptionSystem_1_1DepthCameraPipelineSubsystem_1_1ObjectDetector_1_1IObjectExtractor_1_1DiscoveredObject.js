@@ -1,0 +1,11 @@
+var structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject =
+[
+    [ "pretty", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a824b2c845b5385a339f130a77e951ae1", null ],
+    [ "centroid", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a07c7d96f433b15605bdaac5e7f28b250", null ],
+    [ "cloud_cluster", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#af7441e0e876b6229917a268f0f4f219b", null ],
+    [ "dimensions", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a52a792e9bc7b644a6c0830c9357f9d4f", null ],
+    [ "global_fpfh", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#af1e7c5fa89f1d7d1ddaabd5aaf0629e9", null ],
+    [ "id", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a7cb79a614ab7bdd0c682378a18622d43", null ],
+    [ "point_count", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#aed8347d176973ce8e73ee61d674ae0fb", null ],
+    [ "rotation_matrix", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a978d855effdbd8b7bcba6fc8a1245750", null ]
+];

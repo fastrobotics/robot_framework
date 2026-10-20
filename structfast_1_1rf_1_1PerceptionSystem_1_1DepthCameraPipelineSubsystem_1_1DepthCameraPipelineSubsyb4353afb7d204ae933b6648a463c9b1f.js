@@ -1,0 +1,5 @@
+var structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsyb4353afb7d204ae933b6648a463c9b1f =
+[
+    [ "fullPipelineOutputCounter", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsyb4353afb7d204ae933b6648a463c9b1f.html#a6eaa51982871b03d8a8c03405694b0aa", null ],
+    [ "latestDetections", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsyb4353afb7d204ae933b6648a463c9b1f.html#a0d4826067bab75d4e91db2a570780308", null ]
+];

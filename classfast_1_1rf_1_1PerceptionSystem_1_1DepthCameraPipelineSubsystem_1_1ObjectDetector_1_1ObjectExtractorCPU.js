@@ -1,0 +1,4 @@
+var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectExtractorCPU =
+[
+    [ "extractObjects", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectExtractorCPU.html#a4bd82be06813a45e8ba78dc0251f8a1e", null ]
+];

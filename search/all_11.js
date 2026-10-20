@@ -29,7 +29,8 @@ var searchData=
   ['robotics_3a_20robot_20framework_26',['FAST Robotics: Robot Framework',['../md_DoxygenHome.html',1,'']]],
   ['roll_27',['roll',['../structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1OrientationMsg.html#aecf6014c51561f56b115dbb128d61e9f',1,'fast::rf::messages::GeometryMsgs::OrientationMsg']]],
   ['roll_5frad_28',['roll_rad',['../structfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUDriver_1_1DataPacket.html#ae14d6c5b156ec65ba6ebe791c6cabb49',1,'fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver::DataPacket']]],
-  ['run_29',['RUN',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl.html#a2384ab668eafc462bf2fcb59aa29b177a855520d2a5b0b1a64b939e7e30889e2a',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl']]],
-  ['runbenchmark_30',['runBenchmark',['../MathTest_2main_8cpp.html#a60e288c412b82b848ebf273fceb37bb4',1,'main.cpp']]],
-  ['rx_5fcount_31',['rx_count',['../structfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ReadyToArmComputer_1_1Monitor.html#a54e5ccb10ece69b315078535c45cd1c1',1,'fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ReadyToArmComputer::Monitor']]]
+  ['rotation_5fmatrix_29',['rotation_matrix',['../structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectExtractor_1_1DiscoveredObject.html#a978d855effdbd8b7bcba6fc8a1245750',1,'fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::IObjectExtractor::DiscoveredObject']]],
+  ['run_30',['RUN',['../namespacefast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl.html#a2384ab668eafc462bf2fcb59aa29b177a855520d2a5b0b1a64b939e7e30889e2a',1,'fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl']]],
+  ['runbenchmark_31',['runBenchmark',['../MathTest_2main_8cpp.html#a60e288c412b82b848ebf273fceb37bb4',1,'main.cpp']]],
+  ['rx_5fcount_32',['rx_count',['../structfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ReadyToArmComputer_1_1Monitor.html#a54e5ccb10ece69b315078535c45cd1c1',1,'fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ReadyToArmComputer::Monitor']]]
 ];

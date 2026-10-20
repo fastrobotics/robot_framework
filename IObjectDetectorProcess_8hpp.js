@@ -1,0 +1,4 @@
+var IObjectDetectorProcess_8hpp =
+[
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::IObjectDetectorProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectDetectorProcess.html", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectDetectorProcess" ]
+];

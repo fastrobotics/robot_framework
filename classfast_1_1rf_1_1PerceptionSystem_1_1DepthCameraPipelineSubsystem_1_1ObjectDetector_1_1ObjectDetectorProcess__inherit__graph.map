@@ -1,0 +1,9 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::ObjectDetectorProcess" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::ObjectDetectorProcess">
+<area shape="rect" id="Node000001" title="Minimal Implementation for a ObjectDetector Process." alt="" coords="831,13,1115,67"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1BaseObjectDetectorProcess.html" title="Base ObjectDetector Process." alt="" coords="516,5,783,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="797,37,831,37,831,43,797,43"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1IObjectDetectorProcess.html" title="Interface for the ObjectDetector fast::rf::Process." alt="" coords="180,13,468,67"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,37,516,37,516,43,482,43"/>
+<area shape="rect" id="Node000004" href="$classfast_1_1rf_1_1IProcess.html" title=" " alt="" coords="5,27,132,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,37,180,37,180,43,146,43"/>
+</map>

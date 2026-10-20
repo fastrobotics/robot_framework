@@ -1,0 +1,7 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::IObjectExtractor" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::IObjectExtractor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,249,60"/>
+<area shape="rect" id="Node000002" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1BaseObjectExtractor.html" title=" " alt="" coords="297,5,567,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,30,297,30,297,35,263,35"/>
+<area shape="rect" id="Node000003" href="$classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1ObjectDetector_1_1ObjectExtractorCPU.html" title=" " alt="" coords="615,5,879,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="581,30,614,30,614,35,581,35"/>
+</map>
