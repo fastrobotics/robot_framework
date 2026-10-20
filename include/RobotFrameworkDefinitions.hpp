@@ -422,6 +422,11 @@ namespace fast::rf {
                 struct Id {};
                 inline const char* toString(Id) { return "feature_detector"; }
             }  // namespace FeatureDetector
+            namespace ObjectDetector {
+                constexpr uint8_t PROCESS_OBJECTDETECTOR_ID = 6;  //!< Unique ID for the Object Detector Process
+                struct Id {};
+                inline const char* toString(Id) { return "object_detector"; }
+            }  // namespace ObjectDetector
 
         }  // namespace DepthCameraPipelineSubsystem
         namespace ObjectTrackerSubsystem {

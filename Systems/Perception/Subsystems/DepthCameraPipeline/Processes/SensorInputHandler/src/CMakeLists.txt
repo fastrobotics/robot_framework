@@ -5,7 +5,7 @@ target_link_libraries(base_SensorInputHandlerProcess diagnosticManager
                       infrastructure_msgs sensor_msgs)
 target_include_directories(base_SensorInputHandlerProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
-add_library(DepthCameraPipeline::base_SensorInputHandlerProcess ALIAS
+add_library(DepthCameraPipelineSubsystem::base_SensorInputHandlerProcess ALIAS
             base_SensorInputHandlerProcess)
 install(
   TARGETS base_SensorInputHandlerProcess
@@ -17,7 +17,7 @@ add_library(sensorInputHandlerProcess STATIC SensorInputHandlerProcess.cpp)
 target_link_libraries(sensorInputHandlerProcess base_SensorInputHandlerProcess)
 target_include_directories(sensorInputHandlerProcess
                            PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../include")
-add_library(DepthCameraPipeline::sensorInputHandlerProcess ALIAS
+add_library(DepthCameraPipelineSubsystem::sensorInputHandlerProcess ALIAS
             sensorInputHandlerProcess)
 install(
   TARGETS sensorInputHandlerProcess
