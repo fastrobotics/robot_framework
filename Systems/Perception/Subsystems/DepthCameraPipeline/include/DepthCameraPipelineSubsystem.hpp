@@ -12,6 +12,7 @@
 #include <BasicFeatureDetectorProcess/BasicFeatureDetectorProcess.hpp>
 #include <BasicSensorFuserProcess/BasicSensorFuserProcess.hpp>
 #include <Infrastructure/Logger.hpp>
+#include <ObjectDetectorProcess.hpp>
 #include <PointCloudMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <SensorHealthMonitorProcess.hpp>
@@ -34,11 +35,14 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
               m_sensorFuserProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
                                                         SensorFuser::BasicSensorFuserProcess>()),
               m_featureDetectorProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
-                                                            FeatureDetector::BasicFeatureDetectorProcess>()) {
+                                                            FeatureDetector::BasicFeatureDetectorProcess>()),
+              m_objectDetectorProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
+                                                           ObjectDetector::ObjectDetectorProcess>()) {
             m_pipeline["input_handler"] = m_sensorInputHandlerProcess;
             m_pipeline["health_monitor"] = m_sensorHealthMonitorProcess;
             m_pipeline["sensor_fuser"] = m_sensorFuserProcess;
             m_pipeline["feature_detector"] = m_featureDetectorProcess;
+            m_pipeline["object_detector"] = m_objectDetectorProcess;
             m_readyToArm.systemID = fast::rf::PerceptionSystem::SYSTEM_ID;
             m_readyToArm.subsystemID = fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SUBSYSTEM_ID;
             m_readyToArm.processID = 0;  // Entire Subsystem
@@ -114,6 +118,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         std::shared_ptr<
             fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector::BasicFeatureDetectorProcess>
             m_featureDetectorProcess;
+        std::shared_ptr<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector::ObjectDetectorProcess>
+            m_objectDetectorProcess;
         std::unordered_map<std::string, std::shared_ptr<fast::rf::IProcess>> m_pipeline;
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;
     };

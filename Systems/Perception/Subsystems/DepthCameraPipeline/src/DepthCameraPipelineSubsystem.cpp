@@ -17,6 +17,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             fast::rf::Logger::logError("Unable to initialize Feature Detector!");
             return false;
         }
+        if (m_objectDetectorProcess->init() == false) {
+            fast::rf::Logger::logError("Unable to initialize Object Detector!");
+            return false;
+        }
         return true;
     }
     std::string DepthCameraPipelineSubsystem::pretty() {
@@ -43,6 +47,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
         auto latestFusedPointCloud = m_sensorFuserProcess->getLatestFusedPointCloud();
         auto featureCloud = m_featureDetectorProcess->detectFeatures(latestFusedPointCloud);
+        auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
         bool readyToArmFlag = true;
         for (auto& process : m_pipeline) {
             bool status = process.second->update(currentTimeSec);
