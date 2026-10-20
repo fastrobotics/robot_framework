@@ -15,7 +15,21 @@
 
 #include <ObjectExtractor/ObjectExtractorCPU.hpp>
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector {
-    std::vector<DiscoveredObject> ObjectExtractorCPU::extractObjects(
+    std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> ObjectExtractorCPU::extractObjects(
+        fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) {
+        std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detections;
+        if (sensorCloud.isValidFeatureCloud() == false) {
+            fast::rf::Logger::logWarn("Sensor Clouid was not extracted to Features!");
+            return detections;
+        }
+        auto objectList = extractObjects(sensorCloud.point_cloud, sensorCloud.normals, sensorCloud.fpfh_features);
+        for (auto object : objectList) {
+            auto detection = BaseObjectExtractor::convert(sensorCloud.time_stamp, object);
+            detections.push_back(detection);
+        }
+        return detections;
+    }
+    std::vector<IObjectExtractor::DiscoveredObject> ObjectExtractorCPU::extractObjects(
         const pcl::PointCloud<pcl::PointXYZRGB>::Ptr& cloud, const pcl::PointCloud<pcl::Normal>::Ptr& normals,
         const pcl::PointCloud<pcl::FPFHSignature33>::Ptr& fpfh_features) {
         std::vector<DiscoveredObject> objects;

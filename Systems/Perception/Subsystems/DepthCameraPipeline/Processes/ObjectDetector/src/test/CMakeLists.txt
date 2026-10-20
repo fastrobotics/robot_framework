@@ -8,7 +8,11 @@ target_link_libraries(
 gtest_discover_tests(test_baseObjectDetector)
 
 add_executable(test_ObjectDetectorProcess test_ObjectDetectorProcess.cpp)
-target_link_libraries(test_ObjectDetectorProcess GTest::gtest_main
-                      DepthCameraPipeline::objectDetectorProcess)
-
+target_link_libraries(
+  test_ObjectDetectorProcess GTest::gtest_main
+  DepthCameraPipeline::objectDetectorProcess
+  DepthCameraPipelineSubsystem::featureExtractorCPU)
+target_compile_definitions(
+  test_ObjectDetectorProcess
+  PRIVATE TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 gtest_discover_tests(test_ObjectDetectorProcess)

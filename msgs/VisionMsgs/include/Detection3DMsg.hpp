@@ -19,7 +19,8 @@ namespace fast::rf::messages::VisionMsgs {
      *
      */
     struct Detection3DMsg {
-        double time_stamp;                                           //!< Timestamp of message
+        double time_stamp;
+        uint64_t id;                                                 //!< Timestamp of message
         std::vector<ObjectHypothesisWithPoseMsg> results;            //!< Potential Objects in a Point Cloud
         fast::rf::messages::GeometryMsgs::BoundingBox3DMsg bbox;     //!< Boundary box of the Point Cloud
         fast::rf::messages::SensorMsgs::PointCloudMsg source_cloud;  //!< Point Cloud

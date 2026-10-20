@@ -33,6 +33,11 @@ class TestObjectDetectorProcessInterface : public IObjectDetectorProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
+    std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detectObjects(
+        [[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) override {
+        std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detections;
+        return detections;
+    }
 };
 TEST(TestObjectDetectorProcessInterface, InterfaceTests) {
     TestObjectDetectorProcessInterface SUT;
@@ -50,11 +55,6 @@ class TestBaseObjectDetectorProcess : public BaseObjectDetectorProcess {
         return status;
     }
     bool update(double current_time_sec) override { return BaseObjectDetectorProcess::update(current_time_sec); }
-    std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> getDiagnostics() {
-        std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> empty;
-
-        return empty;
-    }
     std::string pretty() {
         std::string str = "---Test-Base---\n";
         str += BaseObjectDetectorProcess::pretty();
@@ -69,6 +69,11 @@ class TestBaseObjectDetectorProcess : public BaseObjectDetectorProcess {
         return m_diagnosticManager.updateDiagnostic(
             fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::NOERROR,
             fast::rf::DiagnosticDefinition::DiagnosticMessage::NOERROR, "Clearing Error Injection");
+    }
+    std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detectObjects(
+        [[maybe_unused]] fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) override {
+        std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detections;
+        return detections;
     }
 };
 TEST(BaseObjectDetectorProcess, BasicAssertions) {

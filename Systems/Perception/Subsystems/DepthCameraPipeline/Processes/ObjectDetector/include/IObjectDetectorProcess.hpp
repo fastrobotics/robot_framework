@@ -10,8 +10,10 @@
  */
 
 #pragma once
+#include <Detection3DMsg.hpp>
 #include <DiagnosticMsg.hpp>
 #include <IProcess.hpp>
+#include <PointCloudMsg.hpp>
 #include <ReadyToArmStatusMsg.hpp>
 #include <RobotFrameworkDefinitions.hpp>
 #include <vector>
@@ -33,5 +35,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
          * @return false
          */
         virtual bool init() = 0;
+
+        virtual std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detectObjects(
+            fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) = 0;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector

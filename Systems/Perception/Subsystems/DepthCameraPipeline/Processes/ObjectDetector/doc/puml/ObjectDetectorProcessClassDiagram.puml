@@ -37,7 +37,7 @@ namespace fast::rf {
     namespace PerceptionSystem {
         namespace DepthCameraPipelineSubsystem {
             package ObjectDetector #LightYellow;line:blue {
-                struct DiscoveredObject #Orange {
+                struct DiscoveredObject #LimeGreen {
                     uint64_t id
                     uint64_t pointCount
                     Vector4f centroid
@@ -46,35 +46,38 @@ namespace fast::rf {
                     VectorXf globalFPFH
                     PointCloud cloudCluster
                 }
-                interface IObjectExtractor #Orange {
+                interface IObjectExtractor #LimeGreen {
                     +{abstract} bool init()
                     +{abstract} bool setConfig(double clusterToleranceDeg, uint64_t minClusterSize)
-                    +{abstract} DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
+                    +{abstract} Detection3DMsg[] extractObjects(PointCloudMsg sensorCloud)
+                    #{abstract} DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
                 }
                 IObjectExtractor +-- DiscoveredObject
                 IObjectExtractor --> PointXYZRGB
                 IObjectExtractor --> PointCloud
                 IObjectExtractor --> Normal
                 IObjectExtractor --> FPFHSignature33
-                abstract BaseObjectExtractor #Orange {
+                abstract BaseObjectExtractor #LimeGreen {
                     +bool init()
                     +bool setConfig(double clusterToleranceDeg, uint64_t minClusterSize)
+                    #Detection3DMsg convert(DiscoveredObject object)
                     -double m_clusterToleranceDeg
                     -uint64_t m_minClusterSize
                 }
                 BaseObjectExtractor .up.|> IObjectExtractor
-                class ObjectExtractorCPU #Orange {
-                    +DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
+                class ObjectExtractorCPU #LimeGreen {
+                    +Detection3DMsg[] extractObjects(PointCloudMsg sensorCloud)
+                    -DiscoveredObject[] extractObjects(PointCloud<PointXYZRGB> cloud, PointCloud<Normal> normals, PointCloud<FPFHSignature33> features )
                    
                 }
                 ObjectExtractorCPU -up-|> BaseObjectExtractor               
                 
-                interface IObjectDetectorProcess #Yellow  {
+                interface IObjectDetectorProcess #LimeGreen  {
                     +{abstract} bool init()
-                    +{abstract} Detection3DMsg detectObjects(PointCloudMsg sensorCloud)
+                    +{abstract} Detection3DMsg[] detectObjects(PointCloudMsg sensorCloud)
                 }
                 IObjectDetectorProcess -up-|> IProcess
-                abstract BaseObjectDetectorProcess #Yellow {
+                abstract BaseObjectDetectorProcess #LimeGreen {
                     +DiagnosticMsg[] getDiagnostics()
                     +bool updateDiagnostic(DiagnosticType type, Level level, DiagnosticMessage message, string description)
                     +ReadyToArmStatusMsg get_ready_to_arm()
@@ -86,16 +89,19 @@ namespace fast::rf {
                 }
                 BaseObjectDetectorProcess .up.|> IObjectDetectorProcess
                 BaseObjectDetectorProcess --> DiagnosticManager: <<use>>
-                class ObjectDetectorProcessConfig #Yellow {
+                class ObjectDetectorProcessConfig #LimeGreen {
+                    +double m_clusterToleranceDeg
+                    +uint64 m_minClusterSize
+                    +uint64 m_maxPointCloudSize
                     +bool is_ok()
                     +string pretty()
                 }
-                class ObjectDetectorProcess #Yellow {
+                class ObjectDetectorProcess #LimeGreen {
                     +bool init()
                     +bool set_config(ObjectDetectorProcessConfig config)
                     +bool update(double current_time_sec)
                     +string pretty()
-                    +Detection3DMsg detectObjects(PointCloudMsg sensorCloud)
+                    +Detection3DMsg[] detectObjects(PointCloudMsg sensorCloud)
                     -ObjectDetectorProcessConfig m_config
                     -IObjectExtractor m_objectExtractor
                 }

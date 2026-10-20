@@ -13,7 +13,11 @@
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector {
     class ObjectExtractorCPU : public BaseObjectExtractor {
        public:
-        std::vector<DiscoveredObject> extractObjects(
+        std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> extractObjects(
+            fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) override;
+
+       private:
+        std::vector<IObjectExtractor::DiscoveredObject> extractObjects(
             const pcl::PointCloud<pcl::PointXYZRGB>::Ptr& cloud, const pcl::PointCloud<pcl::Normal>::Ptr& normals,
             const pcl::PointCloud<pcl::FPFHSignature33>::Ptr& fpfh_features) override;
     };

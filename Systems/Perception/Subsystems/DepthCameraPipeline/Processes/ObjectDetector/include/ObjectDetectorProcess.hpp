@@ -11,18 +11,24 @@
 #pragma once
 
 #include <BaseObjectDetectorProcess.hpp>
+#include <ObjectExtractor/IObjectExtractor.hpp>
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector {
 
     class ObjectDetectorProcessConfig {
        public:
+        double m_clusterToleranceDeg{3.0f};
+        uint64_t m_minClusterSize{50};
+        uint64_t m_maxPointCloudSize{1000000};
         bool isOk() {
             // Add checks here
             return false;
         }
         std::string pretty() {
-            std::string str = "";
-            // Add string generation here
+            std::string str = "Config:\n";
+            str += "\tCluster Tolerance: " + std::to_string(m_clusterToleranceDeg) + " (deg)\n";
+            str += "\tMin Cluster Size: " + std::to_string(m_minClusterSize) + "\n";
+            str += "\tMax Point Cloud Size: " + std::to_string(m_maxPointCloudSize) + " (points) \n";
             return str;
         }
 
@@ -69,7 +75,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
          */
         std::string pretty() override;
 
+        std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> detectObjects(
+            fast::rf::messages::SensorMsgs::PointCloudMsg sensorCloud) override;
+
        private:
         ObjectDetectorProcessConfig m_config;
+        std::unique_ptr<IObjectExtractor> m_objectExtractor;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector

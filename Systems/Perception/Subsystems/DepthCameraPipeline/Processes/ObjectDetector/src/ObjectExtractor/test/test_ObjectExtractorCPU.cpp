@@ -1,10 +1,11 @@
 #include <gtest/gtest.h>
+#include <pcl/io/pcd_io.h>
 #include <stdio.h>
 
 #include <FeatureExtractor/FeatureExtractorCPU.hpp>
 #include <ObjectExtractor/ObjectExtractorCPU.hpp>
+
 using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetector;
-#include <pcl/io/pcd_io.h>
 
 #include <Infrastructure/Logger.hpp>
 TEST(ObjectExtractorCPU, BasicTests) {
@@ -31,10 +32,10 @@ TEST(ObjectExtractorCPU, SmallCloudTests) {
     ObjectExtractorCPU SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_TRUE(SUT.setConfig(3.0f, 50));
-    auto objectList =
-        SUT.extractObjects(featurePointCloud.point_cloud, featurePointCloud.normals, featurePointCloud.fpfh_features);
-    ASSERT_GT(objectList.size(), 0);
-    for (auto object : objectList) {
-        fast::rf::Logger::logDebug(object.pretty());
+    auto detections = SUT.extractObjects(featurePointCloud);
+
+    ASSERT_GT(detections.size(), 0);
+    for (auto detection : detections) {
+        fast::rf::Logger::logDebug(detection.pretty());
     }
 }

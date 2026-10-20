@@ -49,9 +49,9 @@ Processes in this Subsystem are defined by:
 - Process: `PerceptionSystem::DepthCameraPipelineSubsystem::PROCESS_OBJECTDETECTOR_ID`
 
 The following Diagnostics are reported by this Process:
-| Diagnostic Type | Description                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------- |
-|                 | Trips in the following situations: Input Cloud is too large (indicats it's not down-sampled enough). |
+| Diagnostic Type | Description                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------- |
+| `SOFTWARE`      | Trips in the following situations: Input Cloud is too large (indicates it's not down-sampled enough). |
 
 # How It Works
 
