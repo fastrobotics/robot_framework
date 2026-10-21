@@ -110,6 +110,7 @@ namespace fast::rf::core::infrastructure {
         uint64_t m_rxCount{0};
         SignalStatus m_status;
         double m_startTime{-1.0};
+        double m_elapTime{0.0};
         double m_actualRateHz{-1.0};
     };
 }  // namespace fast::rf::core::infrastructure

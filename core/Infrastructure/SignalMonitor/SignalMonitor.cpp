@@ -14,8 +14,8 @@ namespace fast::rf::core::infrastructure {
             return true;
         }
         if (m_rxCount >= INITIAL_SAMPLES_TO_ACCUMULATE) {
-            double elapTime = timestamp - m_startTime;
-            m_actualRateHz = (double)m_rxCount / elapTime;
+            m_elapTime = timestamp - m_startTime;
+            m_actualRateHz = (double)m_rxCount / m_elapTime;
         } else {
             return true;
         }
@@ -47,7 +47,8 @@ namespace fast::rf::core::infrastructure {
     }
     std::string SignalMonitor::pretty() {
         std::string str = "Signal: " + m_signalName + " Type: " + m_dataType + " RX: " + std::to_string(m_rxCount) +
-                          " Rate: " + std::to_string(m_actualRateHz) + "(Hz) " + m_status.pretty();
+                          " Elap Time: " + std::to_string(m_elapTime) + " Rate: " + std::to_string(m_actualRateHz) +
+                          "(Hz) " + m_status.pretty();
         return str;
     }
 }  // namespace fast::rf::core::infrastructure
