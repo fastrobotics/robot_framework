@@ -28,6 +28,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
     class DepthCameraPipelineSubsystem {
        public:
         struct DepthCameraPipelineSubsystemOutput {
+            fast::rf::messages::SensorMsgs::PointCloudMsg latestFeatureCloud;
             std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> latestDetections;
             uint64_t fullPipelineOutputCounter{0};
         };

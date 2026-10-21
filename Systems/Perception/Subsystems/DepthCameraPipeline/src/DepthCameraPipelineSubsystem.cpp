@@ -49,6 +49,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         auto featureCloud = m_featureDetectorProcess->detectFeatures(latestFusedPointCloud);
         auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
         if (featureCloud.isValidFeatureCloud()) {
+            m_output.latestFeatureCloud = featureCloud;
             m_output.latestDetections = detections;
             m_output.fullPipelineOutputCounter++;
         }
