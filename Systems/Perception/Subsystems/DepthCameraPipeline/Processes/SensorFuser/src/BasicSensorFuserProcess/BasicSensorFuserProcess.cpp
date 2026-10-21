@@ -73,7 +73,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         double computeTime = std::chrono::duration<double>(endTime - startTime).count();
 
         if (m_runTimeSec > m_config.m_settleTimeSec) {
-            if (sensorFusionCyclesCount == 0) {
+            if (m_output.fusedPointCloudCounter == 0) {
                 m_diagnosticManager.updateDiagnostic(
                     fast::rf::DiagnosticDefinition::DiagnosticType::SOFTWARE, fast::rf::Level::WARN,
                     fast::rf::DiagnosticDefinition::DiagnosticMessage::NODATA, "Have not performed Fusion Yet.");
@@ -100,7 +100,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         std::string str = "---Basic SensorFuser Process---\n";
         str += BaseSensorFuserProcess::pretty();
         str += m_config.pretty();
-        str += "Sensor Fusion Cycle Count: " + std::to_string(sensorFusionCyclesCount) + "\n";
+        str += "Sensor Fusion Cycle Count: " + std::to_string(m_output.fusedPointCloudCounter) + "\n";
         return str;
     }
 

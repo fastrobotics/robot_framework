@@ -53,7 +53,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                 m_output.latestFeatureCloud = featureCloud;
                 m_output.latestDetections = detections;
                 m_output.fullPipelineOutputCounter++;
+            } else {
+                fast::rf::Logger::logWarn("No Valid Feature Cloud Yet.");
             }
+        } else {
+            fast::rf::Logger::logWarn("No Fused Point Cloud Yet.");
         }
 
         bool readyToArmFlag = true;

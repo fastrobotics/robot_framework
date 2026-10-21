@@ -108,6 +108,5 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         Combiner m_combiner;
         OverlapRemover m_overlapRemover;
         std::unique_ptr<INoiseReducer> m_noiseReducer;
-        uint64_t sensorFusionCyclesCount{0};
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser
