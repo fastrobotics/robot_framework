@@ -49,6 +49,7 @@ namespace fast::rf {
             ObjectDetectorProcess -up-|> IObjectDetectorProcess
         }
         struct DepthCameraPipelineSubsystemOutput #LimeGreen {
+            +PointCloudMsg latestFeatureCloud
             +Detection3DMsg[] latestDetections
             +uint64 fullPipelineOutputCounter
         }
