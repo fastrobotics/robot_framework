@@ -48,7 +48,7 @@ namespace fast::rf::core::infrastructure {
     std::string SignalMonitor::pretty() {
         std::string str = "Signal: " + m_signalName + " Type: " + m_dataType + " RX: " + std::to_string(m_rxCount) +
                           " Elap Time: " + std::to_string(m_elapTime) + " Rate: " + std::to_string(m_actualRateHz) +
-                          "(Hz) " + m_status.pretty();
+                          "(Hz) Exp: " + std::to_string(m_expectedRateHz) = " (Hz)" + m_status.pretty();
         return str;
     }
 }  // namespace fast::rf::core::infrastructure

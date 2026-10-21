@@ -45,6 +45,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         return true;
     }
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
+        /*
         auto fusedPointCloudOutput = m_sensorFuserProcess->getOutput();
         if (fusedPointCloudOutput.fusedPointCloudCounter > 0) {
             auto featureCloud = m_featureDetectorProcess->detectFeatures(fusedPointCloudOutput.latestFusedPointCloud);
@@ -59,7 +60,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         } else {
             fast::rf::Logger::logWarn("No Fused Point Cloud Yet.");
         }
-
+        */
         bool readyToArmFlag = true;
         for (auto& process : m_pipeline) {
             bool status = process.second->update(currentTimeSec);
