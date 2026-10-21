@@ -65,8 +65,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         if (m_combiner.isCombinedPointCloudAvailable() == true) {
             auto combinedPointCloud = m_combiner.getCombinedPointCloud();
             auto overlapRemovedPointCloud = m_overlapRemover.removeOverlap(combinedPointCloud);
-            m_latestFusedPointCloud = m_noiseReducer->reduceNoise(overlapRemovedPointCloud);
-            sensorFusionCyclesCount++;
+            auto fusedPointCloud = m_noiseReducer->reduceNoise(overlapRemovedPointCloud);
+            m_output.latestFusedPointCloud = fusedPointCloud;
+            m_output.fusedPointCloudCounter++;
         }
         auto endTime = std::chrono::high_resolution_clock::now();
         double computeTime = std::chrono::duration<double>(endTime - startTime).count();

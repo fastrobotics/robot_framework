@@ -33,9 +33,9 @@ class TestSensorFuserProcessInterface : public ISensorFuserProcess {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg ready_to_arm;
         return ready_to_arm;
     }
-    fast::rf::messages::SensorMsgs::PointCloudMsg getLatestFusedPointCloud() override {
-        fast::rf::messages::SensorMsgs::PointCloudMsg cloud;
-        return cloud;
+    ISensorFuserProcess::SensorFuserProcessOutput getOutput() override {
+        ISensorFuserProcess::SensorFuserProcessOutput output;
+        return output;
     }
 };
 TEST(TestSensorFuserProcessInterface, InterfaceTests) {
