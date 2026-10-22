@@ -1,0 +1,5 @@
+var structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d =
+[
+    [ "fusedPointCloudCounter", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d.html#a893af2d1ffd2e894c8fedf9965afcd9a", null ],
+    [ "latestFusedPointCloud", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d.html#ad0712d104a7dad417865140673360295", null ]
+];

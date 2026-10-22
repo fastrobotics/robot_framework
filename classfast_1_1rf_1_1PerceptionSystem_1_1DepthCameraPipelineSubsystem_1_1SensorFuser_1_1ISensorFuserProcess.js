@@ -1,7 +1,8 @@
 var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess =
 [
+    [ "SensorFuserProcessOutput", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d.html", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d" ],
     [ "ISensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html#ad1b6abc764d70edd50b2f8935b3cd56c", null ],
     [ "~ISensorFuserProcess", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html#ab2f8f226e7a9b816eaf0083baf166b17", null ],
-    [ "getLatestFusedPointCloud", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html#a1aa4872e72d1b214630dd1b38ec664e1", null ],
+    [ "getOutput", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html#a135950d18279202a450d1215e702fc80", null ],
     [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFuserProcess.html#af4d80efdae9c5840cdb11523ed097c90", null ]
 ];

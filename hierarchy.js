@@ -315,6 +315,7 @@ var hierarchy =
     [ "fast::rf::SafetySystem::ModeManagerSubsystem::ArmedStateManager::ReadyToArmComputer", "classfast_1_1rf_1_1SafetySystem_1_1ModeManagerSubsystem_1_1ArmedStateManager_1_1ReadyToArmComputer.html", null ],
     [ "fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg", "structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html", null ],
     [ "fast::rf::PoseSystem::InertialSensorSubsystem::IMU::BaseIMUDriver::SensorData", "structfast_1_1rf_1_1PoseSystem_1_1InertialSensorSubsystem_1_1IMU_1_1BaseIMUDriver_1_1SensorData.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess::SensorFuserProcessOutput", "structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorFuser_1_1ISensorFub39cb5bb1f2acae8563e85c9b75c991d.html", null ],
     [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorHealthMonitor::SensorHealthMonitorProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorHealthMonitor_1_1SensorHealthMonitorProcessConfig.html", null ],
     [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorInputHandler::SensorInputHandlerProcessConfig", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1SensorInputHandler_1_1SensorInputHandlerProcessConfig.html", null ],
     [ "fast::rf::core::infrastructure::SignalMonitor", "classfast_1_1rf_1_1core_1_1infrastructure_1_1SignalMonitor.html", null ],

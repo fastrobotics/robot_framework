@@ -1,0 +1,5 @@
+<map id="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess::SensorFuserProcessOutput" name="fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser::ISensorFuserProcess::SensorFuserProcessOutput">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,108,256,177"/>
+<area shape="rect" id="Node000002" href="$structfast_1_1rf_1_1messages_1_1SensorMsgs_1_1PointCloudMsg.html" title="PointCloudMsg Definition of a Point Cloud." alt="" coords="24,5,237,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,59,133,108,128,108,128,59"/>
+</map>

@@ -192,10 +192,11 @@ $(document).ready(function(){initNavTree('SignalMonitor_8hpp_source.html',''); i
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        uint64_t m_rxCount{0};</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        SignalStatus m_status;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordtype">double</span> m_startTime{-1.0};</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">double</span> m_actualRateHz{-1.0};</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    };</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">double</span> m_elapTime{0.0};</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">double</span> m_actualRateHz{-1.0};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    };</div>
 </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}  <span class="comment">// namespace fast::rf::core::infrastructure</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}  <span class="comment">// namespace fast::rf::core::infrastructure</span></div>
 <div class="ttc" id="aRobotFrameworkDefinitions_8hpp_html"><div class="ttname"><a href="RobotFrameworkDefinitions_8hpp.html">RobotFrameworkDefinitions.hpp</a></div><div class="ttdoc">Common Definitions for Robot Framework.</div></div>
 <div class="ttc" id="aclassfast_1_1rf_1_1core_1_1infrastructure_1_1SignalMonitor_html"><div class="ttname"><a href="classfast_1_1rf_1_1core_1_1infrastructure_1_1SignalMonitor.html">fast::rf::core::infrastructure::SignalMonitor</a></div><div class="ttdoc">Monitors health of a signal.</div><div class="ttdef"><b>Definition</b> SignalMonitor.hpp:21</div></div>
 <div class="ttc" id="aclassfast_1_1rf_1_1core_1_1infrastructure_1_1SignalMonitor_html_a04b954789bed431e6925838e6a59c6b8"><div class="ttname"><a href="classfast_1_1rf_1_1core_1_1infrastructure_1_1SignalMonitor.html#a04b954789bed431e6925838e6a59c6b8">fast::rf::core::infrastructure::SignalMonitor::getStatus</a></div><div class="ttdeci">SignalStatus getStatus()</div><div class="ttdef"><b>Definition</b> SignalMonitor.hpp:99</div></div>
