@@ -327,5 +327,6 @@ var hierarchy =
     [ "fast::rf::UserInterfaceSystem::RemoteControlSubsystem::TeleopControl::TwistComputer", "classfast_1_1rf_1_1UserInterfaceSystem_1_1RemoteControlSubsystem_1_1TeleopControl_1_1TwistComputer.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistMsg.html", null ],
     [ "fast::rf::messages::GeometryMsgs::TwistWithCovarianceMsg", "structfast_1_1rf_1_1messages_1_1GeometryMsgs_1_1TwistWithCovarianceMsg.html", null ],
+    [ "fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::DepthCameraPipelineSubsystem::UpdateTimings", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem_1_1UpdateTimings.html", null ],
     [ "fast::rf::messages::StandardMsgs::Vector3DMsg", "structfast_1_1rf_1_1messages_1_1StandardMsgs_1_1Vector3DMsg.html", null ]
 ];

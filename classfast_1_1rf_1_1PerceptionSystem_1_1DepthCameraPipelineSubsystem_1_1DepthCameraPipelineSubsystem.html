@@ -106,6 +106,8 @@ $(document).ready(function(){initNavTree('classfast_1_1rf_1_1PerceptionSystem_1_
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsyb4353afb7d204ae933b6648a463c9b1f.html">DepthCameraPipelineSubsystemOutput</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem_1_1UpdateTimings.html">UpdateTimings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a31810fd2aba796930acd5c327364d32e" id="r_a31810fd2aba796930acd5c327364d32e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem.html#a31810fd2aba796930acd5c327364d32e">update</a> (double currentTimeSec)</td></tr>
 <tr class="memdesc:a31810fd2aba796930acd5c327364d32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the subsystem at a regular rate.  <br /></td></tr>
 <tr class="separator:a31810fd2aba796930acd5c327364d32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625ab73b9ba429a51d7ada85dafe1235" id="r_a625ab73b9ba429a51d7ada85dafe1235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem_1_1UpdateTimings.html">UpdateTimings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem.html#a625ab73b9ba429a51d7ada85dafe1235">getUpdateTimings</a> () const</td></tr>
+<tr class="memdesc:a625ab73b9ba429a51d7ada85dafe1235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get running average timings across update calls, in seconds.  <br /></td></tr>
+<tr class="separator:a625ab73b9ba429a51d7ada85dafe1235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76979fc22504863879e78754a4b37f9b" id="r_a76979fc22504863879e78754a4b37f9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfast_1_1rf_1_1messages_1_1InfrastructureMsgs_1_1ReadyToArmStatusMsg.html">fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem.html#a76979fc22504863879e78754a4b37f9b">get_ready_to_arm</a> ()</td></tr>
 <tr class="memdesc:a76979fc22504863879e78754a4b37f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ready to arm object.  <br /></td></tr>
 <tr class="separator:a76979fc22504863879e78754a4b37f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,6 +301,34 @@ false </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a625ab73b9ba429a51d7ada85dafe1235" name="a625ab73b9ba429a51d7ada85dafe1235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625ab73b9ba429a51d7ada85dafe1235">&#9670;&#160;</a></span>getUpdateTimings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1DepthCameraPipelineSubsystem_1_1UpdateTimings.html">UpdateTimings</a> fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::DepthCameraPipelineSubsystem::getUpdateTimings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get running average timings across update calls, in seconds. </p>
+<p>Pipeline-stage timings include zero samples when no fused point cloud was available. </p>
 
 </div>
 </div>
