@@ -41,7 +41,21 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
     fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_TRUE(SUT.update(1.0));
+    const auto initialTimings = SUT.getLastUpdateTimings();
+    EXPECT_FALSE(initialTimings.visionPipelineExecuted);
+    EXPECT_DOUBLE_EQ(initialTimings.featureDetectionSec, 0.0);
+    EXPECT_DOUBLE_EQ(initialTimings.objectDetectionSec, 0.0);
+    EXPECT_DOUBLE_EQ(initialTimings.outputUpdateSec, 0.0);
     ASSERT_TRUE(SUT.update(2.0));
+    const auto timings = SUT.getLastUpdateTimings();
+    ASSERT_TRUE(timings.visionPipelineExecuted);
+    EXPECT_GE(timings.fusedOutputRetrievalSec, 0.0);
+    EXPECT_GE(timings.featureDetectionSec, 0.0);
+    EXPECT_GE(timings.objectDetectionSec, 0.0);
+    EXPECT_GE(timings.outputUpdateSec, 0.0);
+    EXPECT_GE(timings.processUpdatesSec, 0.0);
+    EXPECT_GE(timings.totalSec, timings.fusedOutputRetrievalSec + timings.featureDetectionSec +
+                                    timings.objectDetectionSec + timings.outputUpdateSec + timings.processUpdatesSec);
     fast::rf::Logger::logInfo(SUT.pretty());
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);

@@ -32,6 +32,26 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> latestDetections;
             uint64_t fullPipelineOutputCounter{0};
         };
+        struct UpdateTimings {
+            double fusedOutputRetrievalSec{0.0};
+            double featureDetectionSec{0.0};
+            double objectDetectionSec{0.0};
+            double outputUpdateSec{0.0};
+            double processUpdatesSec{0.0};
+            double totalSec{0.0};
+            bool visionPipelineExecuted{false};
+
+            std::string pretty() const {
+                return "DepthCameraPipeline update timings (ms): fused_output=" +
+                       std::to_string(fusedOutputRetrievalSec * 1000.0) +
+                       ", feature_detection=" + std::to_string(featureDetectionSec * 1000.0) +
+                       ", object_detection=" + std::to_string(objectDetectionSec * 1000.0) +
+                       ", output_update=" + std::to_string(outputUpdateSec * 1000.0) +
+                       ", process_updates=" + std::to_string(processUpdatesSec * 1000.0) +
+                       ", total=" + std::to_string(totalSec * 1000.0) +
+                       ", vision_pipeline_executed=" + (visionPipelineExecuted ? "true" : "false");
+            }
+        };
         DepthCameraPipelineSubsystem()
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
                                                                SensorInputHandler::SensorInputHandlerProcess>()),
@@ -100,6 +120,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
          */
         bool update(double currentTimeSec);
         /**
+         * @brief Get timings from the most recent update call, in seconds.
+         *
+         * Vision-stage timings are zero when no fused point cloud was available.
+         */
+        UpdateTimings getLastUpdateTimings() const { return m_lastUpdateTimings; }
+        /**
          * @brief Get the ready to arm object
          *
          * @return fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg
@@ -130,5 +156,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;
 
         DepthCameraPipelineSubsystemOutput m_output;
+        UpdateTimings m_lastUpdateTimings;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem
