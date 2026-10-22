@@ -24,6 +24,10 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
      */
     class ISensorFuserProcess : public fast::rf::IProcess {
        public:
+        struct SensorFuserProcessOutput {
+            fast::rf::messages::SensorMsgs::PointCloudMsg latestFusedPointCloud;
+            uint64_t fusedPointCloudCounter{0};
+        };
         ISensorFuserProcess() = default;
         virtual ~ISensorFuserProcess() = default;
 
@@ -35,6 +39,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
          */
         virtual bool init() = 0;
 
-        virtual fast::rf::messages::SensorMsgs::PointCloudMsg getLatestFusedPointCloud() = 0;
+        virtual SensorFuserProcessOutput getOutput() = 0;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser

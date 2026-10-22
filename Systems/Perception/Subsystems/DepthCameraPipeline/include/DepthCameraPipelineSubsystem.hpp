@@ -28,6 +28,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
     class DepthCameraPipelineSubsystem {
        public:
         struct DepthCameraPipelineSubsystemOutput {
+            fast::rf::messages::SensorMsgs::PointCloudMsg latestFeatureCloud;
             std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> latestDetections;
             uint64_t fullPipelineOutputCounter{0};
         };
@@ -45,8 +46,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             m_pipeline["input_handler"] = m_sensorInputHandlerProcess;
             m_pipeline["health_monitor"] = m_sensorHealthMonitorProcess;
             m_pipeline["sensor_fuser"] = m_sensorFuserProcess;
-            m_pipeline["feature_detector"] = m_featureDetectorProcess;
-            m_pipeline["object_detector"] = m_objectDetectorProcess;
+            //  m_pipeline["feature_detector"] = m_featureDetectorProcess;
+            // m_pipeline["object_detector"] = m_objectDetectorProcess;
             m_readyToArm.systemID = fast::rf::PerceptionSystem::SYSTEM_ID;
             m_readyToArm.subsystemID = fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SUBSYSTEM_ID;
             m_readyToArm.processID = 0;  // Entire Subsystem

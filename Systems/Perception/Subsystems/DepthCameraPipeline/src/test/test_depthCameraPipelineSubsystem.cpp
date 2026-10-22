@@ -8,9 +8,9 @@
 using namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem;
 #include <Infrastructure/Logger.hpp>
 
-fast::rf::messages::SensorMsgs::PointCloudMsg createTestRgbdMessage(uint32_t num_points) {
+fast::rf::messages::SensorMsgs::PointCloudMsg createTestRgbdMessage(double time_stamp, uint32_t num_points) {
     fast::rf::messages::SensorMsgs::PointCloudMsg msg;
-    msg.time_stamp = 123456789.012;
+    msg.time_stamp = time_stamp;
     msg.point_cloud->height = num_points >= 2 && num_points % 2 == 0 ? 2 : 1;
     msg.point_cloud->width = num_points / msg.point_cloud->height;
     msg.point_cloud->points.resize(num_points);
@@ -34,15 +34,15 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     DepthCameraPipelineSubsystem SUT;
     ASSERT_TRUE(SUT.init());
     ASSERT_GT(SUT.pretty().size(), 0);
-    fast::rf::Logger::logInfo(SUT.pretty());
-    fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud = createTestRgbdMessage(1000);
+    fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud = createTestRgbdMessage(1.0, 1000);
     std::string signalName = "sensor1";
 
     ASSERT_TRUE(SUT.addSignalToMonitor(signalName, "sensor_msgs/msg/PointCloud2", 20.0, 50.0));
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
-
-    ASSERT_TRUE(SUT.update(0.0));
-
+    fast::rf::Logger::logInfo(SUT.pretty());
+    ASSERT_TRUE(SUT.update(1.0));
+    ASSERT_TRUE(SUT.update(2.0));
+    fast::rf::Logger::logInfo(SUT.pretty());
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);
     ASSERT_GT(readyToArm.subsystemID, 0);
