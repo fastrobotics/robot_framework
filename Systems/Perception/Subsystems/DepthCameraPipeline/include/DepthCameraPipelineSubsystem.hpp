@@ -40,8 +40,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             double outputUpdateSec{0.0};
             double processUpdatesSec{0.0};
             double totalSec{0.0};
-            double visionUpdateTotalSec{0.0};
-            bool visionPipelineExecuted{false};
+            bool pipelineExecuted{false};
 
             void addSample(const UpdateTimings& sample) {
                 m_sampleCount++;
@@ -49,33 +48,31 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                 fusedOutputRetrievalSec += (sample.fusedOutputRetrievalSec - fusedOutputRetrievalSec) / count;
                 processUpdatesSec += (sample.processUpdatesSec - processUpdatesSec) / count;
                 totalSec += (sample.totalSec - totalSec) / count;
-                if (sample.visionPipelineExecuted) {
-                    m_visionSampleCount++;
-                    const double visionCount = static_cast<double>(m_visionSampleCount);
-                    featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / visionCount;
-                    objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / visionCount;
-                    outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / visionCount;
-                    visionUpdateTotalSec += (sample.totalSec - visionUpdateTotalSec) / visionCount;
+                if (sample.pipelineExecuted) {
+                    m_inputSampleCount++;
+                    const double inputCount = static_cast<double>(m_inputSampleCount);
+                    featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / inputCount;
+                    objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / inputCount;
+                    outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / inputCount;
                 }
-                visionPipelineExecuted = sample.visionPipelineExecuted;
+                pipelineExecuted = sample.pipelineExecuted;
             }
 
             std::string pretty() const {
                 return "DepthCameraPipeline update timing averages (s): all_samples=" + std::to_string(m_sampleCount) +
-                       ", vision_samples=" + std::to_string(m_visionSampleCount) +
+                       ", input_samples=" + std::to_string(m_inputSampleCount) +
                        ", fused_output_all=" + std::to_string(fusedOutputRetrievalSec) +
-                       ", feature_detection_vision=" + std::to_string(featureDetectionSec) +
-                       ", object_detection_vision=" + std::to_string(objectDetectionSec) +
-                       ", output_update_vision=" + std::to_string(outputUpdateSec) +
+                       ", feature_detection=" + std::to_string(featureDetectionSec) +
+                       ", object_detection=" + std::to_string(objectDetectionSec) +
+                       ", output_update=" + std::to_string(outputUpdateSec) +
                        ", process_updates_all=" + std::to_string(processUpdatesSec) +
                        ", total_all=" + std::to_string(totalSec) +
-                       ", total_vision=" + std::to_string(visionUpdateTotalSec) +
-                       ", vision_pipeline_executed=" + (visionPipelineExecuted ? "true" : "false");
+                       ", pipeline_executed=" + (pipelineExecuted ? "true" : "false");
             }
 
            private:
             uint64_t m_sampleCount{0};
-            uint64_t m_visionSampleCount{0};
+            uint64_t m_inputSampleCount{0};
         };
         DepthCameraPipelineSubsystem()
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
@@ -147,7 +144,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         /**
          * @brief Get running average timings across update calls, in seconds.
          *
-         * Vision-stage timings include zero samples when no fused point cloud was available.
+         * Pipeline-stage timings include zero samples when no fused point cloud was available.
          */
         UpdateTimings getUpdateTimings() const { return m_updateTimings; }
         /**
