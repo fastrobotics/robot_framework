@@ -50,6 +50,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         UpdateTimings timingSample;
         auto stepStart = std::chrono::steady_clock::now();
         auto fusedPointCloudOutput = m_sensorFuserProcess->getOutput();
+        fast::rf::Logger::logWarn("Output Size: " + std::to_string(fusedPointCloudOutput.latestFusedPointCloud.size()));
         auto stepEnd = std::chrono::steady_clock::now();
         timingSample.fusedOutputRetrievalSec = std::chrono::duration<double>(stepEnd - stepStart).count();
         if (fusedPointCloudOutput.fusedPointCloudCounter > 0) {
