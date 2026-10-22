@@ -64,6 +64,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             fast::rf::messages::SensorMsgs::PointCloudMsg result;
             result.time_stamp = input.time_stamp;
             result.point_cloud = std::move(filtered_cloud);
+            if (result.size() == 0) {
+                fast::rf::Logger::logWarn("Noise Reducer removed all points from Cloud!");
+            }
             return result;
         } catch (const std::exception& error) {
             fast::rf::Logger::logError("NoiseReducer backend failed: " + std::string(error.what()));
