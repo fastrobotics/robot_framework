@@ -104,7 +104,7 @@ auto diagnostics = subsystem.getDiagnostics(); // Get all Diagnostics
 ```
 `getUpdateTimings()` reports the running average fused-output retrieval, feature detection,
 object detection, output update, process updates, and total duration. Updates without a fused point
-cloud contribute zero to the vision-stage averages. `visionPipelineExecuted` indicates whether
-vision stages ran in the most recent update. Each update writes the running averages in milliseconds
-to the debug log.
+cloud are excluded from the vision-stage averages. Fused-output retrieval, process updates, and total
+duration average across all updates. `visionPipelineExecuted` indicates whether vision stages ran in
+the most recent update. Each update writes the running averages in seconds to the debug log.
 # Validation

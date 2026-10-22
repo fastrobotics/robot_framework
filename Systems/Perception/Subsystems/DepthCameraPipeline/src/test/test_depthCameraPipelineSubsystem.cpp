@@ -54,8 +54,6 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     EXPECT_GE(timings.objectDetectionSec, 0.0);
     EXPECT_GE(timings.outputUpdateSec, 0.0);
     EXPECT_GE(timings.processUpdatesSec, 0.0);
-    EXPECT_GE(timings.totalSec, timings.fusedOutputRetrievalSec + timings.featureDetectionSec +
-                                    timings.objectDetectionSec + timings.outputUpdateSec + timings.processUpdatesSec);
     fast::rf::Logger::logInfo(SUT.pretty());
     auto readyToArm = SUT.get_ready_to_arm();
     ASSERT_GT(readyToArm.systemID, 0);
@@ -73,16 +71,24 @@ TEST(DepthCameraPipelineSubsystem, UpdateTimingsRunningAverage) {
     DepthCameraPipelineSubsystem::UpdateTimings sample;
     sample.fusedOutputRetrievalSec = 2.0;
     sample.featureDetectionSec = 4.0;
+    sample.objectDetectionSec = 6.0;
+    sample.outputUpdateSec = 8.0;
     sample.visionPipelineExecuted = true;
     timings.addSample(sample);
 
     sample.fusedOutputRetrievalSec = 4.0;
-    sample.featureDetectionSec = 8.0;
+    sample.featureDetectionSec = 0.0;
+    sample.objectDetectionSec = 0.0;
+    sample.outputUpdateSec = 0.0;
     sample.visionPipelineExecuted = false;
     timings.addSample(sample);
 
     EXPECT_DOUBLE_EQ(timings.fusedOutputRetrievalSec, 3.0);
-    EXPECT_DOUBLE_EQ(timings.featureDetectionSec, 6.0);
+    EXPECT_DOUBLE_EQ(timings.featureDetectionSec, 4.0);
+    EXPECT_DOUBLE_EQ(timings.objectDetectionSec, 6.0);
+    EXPECT_DOUBLE_EQ(timings.outputUpdateSec, 8.0);
     EXPECT_FALSE(timings.visionPipelineExecuted);
-    EXPECT_NE(timings.pretty().find("samples=2"), std::string::npos);
+    EXPECT_NE(timings.pretty().find("samples=2, vision_samples=1"), std::string::npos);
+    EXPECT_NE(timings.pretty().find("timing averages (s"), std::string::npos);
+    EXPECT_EQ(timings.pretty().find("(ms"), std::string::npos);
 }

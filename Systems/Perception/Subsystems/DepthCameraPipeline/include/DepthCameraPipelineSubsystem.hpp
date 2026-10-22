@@ -46,27 +46,33 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                 m_sampleCount++;
                 const double count = static_cast<double>(m_sampleCount);
                 fusedOutputRetrievalSec += (sample.fusedOutputRetrievalSec - fusedOutputRetrievalSec) / count;
-                featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / count;
-                objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / count;
-                outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / count;
                 processUpdatesSec += (sample.processUpdatesSec - processUpdatesSec) / count;
                 totalSec += (sample.totalSec - totalSec) / count;
+                if (sample.visionPipelineExecuted) {
+                    m_visionSampleCount++;
+                    const double visionCount = static_cast<double>(m_visionSampleCount);
+                    featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / visionCount;
+                    objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / visionCount;
+                    outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / visionCount;
+                }
                 visionPipelineExecuted = sample.visionPipelineExecuted;
             }
 
             std::string pretty() const {
-                return "DepthCameraPipeline update timing averages (ms, samples=" + std::to_string(m_sampleCount) +
-                       "): fused_output=" + std::to_string(fusedOutputRetrievalSec * 1000.0) +
-                       ", feature_detection=" + std::to_string(featureDetectionSec * 1000.0) +
-                       ", object_detection=" + std::to_string(objectDetectionSec * 1000.0) +
-                       ", output_update=" + std::to_string(outputUpdateSec * 1000.0) +
-                       ", process_updates=" + std::to_string(processUpdatesSec * 1000.0) +
-                       ", total=" + std::to_string(totalSec * 1000.0) +
+                return "DepthCameraPipeline update timing averages (s, samples=" + std::to_string(m_sampleCount) +
+                       ", vision_samples=" + std::to_string(m_visionSampleCount) +
+                       "): fused_output=" + std::to_string(fusedOutputRetrievalSec) +
+                       ", feature_detection=" + std::to_string(featureDetectionSec) +
+                       ", object_detection=" + std::to_string(objectDetectionSec) +
+                       ", output_update=" + std::to_string(outputUpdateSec) +
+                       ", process_updates=" + std::to_string(processUpdatesSec) +
+                       ", total=" + std::to_string(totalSec) +
                        ", vision_pipeline_executed=" + (visionPipelineExecuted ? "true" : "false");
             }
 
            private:
             uint64_t m_sampleCount{0};
+            uint64_t m_visionSampleCount{0};
         };
         DepthCameraPipelineSubsystem()
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
