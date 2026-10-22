@@ -73,6 +73,7 @@ TEST(DepthCameraPipelineSubsystem, UpdateTimingsRunningAverage) {
     sample.featureDetectionSec = 4.0;
     sample.objectDetectionSec = 6.0;
     sample.outputUpdateSec = 8.0;
+    sample.totalSec = 20.0;
     sample.visionPipelineExecuted = true;
     timings.addSample(sample);
 
@@ -80,6 +81,7 @@ TEST(DepthCameraPipelineSubsystem, UpdateTimingsRunningAverage) {
     sample.featureDetectionSec = 0.0;
     sample.objectDetectionSec = 0.0;
     sample.outputUpdateSec = 0.0;
+    sample.totalSec = 2.0;
     sample.visionPipelineExecuted = false;
     timings.addSample(sample);
 
@@ -87,8 +89,11 @@ TEST(DepthCameraPipelineSubsystem, UpdateTimingsRunningAverage) {
     EXPECT_DOUBLE_EQ(timings.featureDetectionSec, 4.0);
     EXPECT_DOUBLE_EQ(timings.objectDetectionSec, 6.0);
     EXPECT_DOUBLE_EQ(timings.outputUpdateSec, 8.0);
+    EXPECT_DOUBLE_EQ(timings.totalSec, 11.0);
+    EXPECT_DOUBLE_EQ(timings.visionUpdateTotalSec, 20.0);
     EXPECT_FALSE(timings.visionPipelineExecuted);
-    EXPECT_NE(timings.pretty().find("samples=2, vision_samples=1"), std::string::npos);
+    EXPECT_NE(timings.pretty().find("all_samples=2, vision_samples=1"), std::string::npos);
+    EXPECT_NE(timings.pretty().find("total_all=11.000000, total_vision=20.000000"), std::string::npos);
     EXPECT_NE(timings.pretty().find("timing averages (s"), std::string::npos);
     EXPECT_EQ(timings.pretty().find("(ms"), std::string::npos);
 }

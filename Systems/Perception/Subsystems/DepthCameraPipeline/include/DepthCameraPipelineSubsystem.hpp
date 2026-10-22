@@ -40,6 +40,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             double outputUpdateSec{0.0};
             double processUpdatesSec{0.0};
             double totalSec{0.0};
+            double visionUpdateTotalSec{0.0};
             bool visionPipelineExecuted{false};
 
             void addSample(const UpdateTimings& sample) {
@@ -54,19 +55,21 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                     featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / visionCount;
                     objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / visionCount;
                     outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / visionCount;
+                    visionUpdateTotalSec += (sample.totalSec - visionUpdateTotalSec) / visionCount;
                 }
                 visionPipelineExecuted = sample.visionPipelineExecuted;
             }
 
             std::string pretty() const {
-                return "DepthCameraPipeline update timing averages (s, samples=" + std::to_string(m_sampleCount) +
+                return "DepthCameraPipeline update timing averages (s): all_samples=" + std::to_string(m_sampleCount) +
                        ", vision_samples=" + std::to_string(m_visionSampleCount) +
-                       "): fused_output=" + std::to_string(fusedOutputRetrievalSec) +
-                       ", feature_detection=" + std::to_string(featureDetectionSec) +
-                       ", object_detection=" + std::to_string(objectDetectionSec) +
-                       ", output_update=" + std::to_string(outputUpdateSec) +
-                       ", process_updates=" + std::to_string(processUpdatesSec) +
-                       ", total=" + std::to_string(totalSec) +
+                       ", fused_output_all=" + std::to_string(fusedOutputRetrievalSec) +
+                       ", feature_detection_vision=" + std::to_string(featureDetectionSec) +
+                       ", object_detection_vision=" + std::to_string(objectDetectionSec) +
+                       ", output_update_vision=" + std::to_string(outputUpdateSec) +
+                       ", process_updates_all=" + std::to_string(processUpdatesSec) +
+                       ", total_all=" + std::to_string(totalSec) +
+                       ", total_vision=" + std::to_string(visionUpdateTotalSec) +
                        ", vision_pipeline_executed=" + (visionPipelineExecuted ? "true" : "false");
             }
 

@@ -101,6 +101,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         stepEnd = std::chrono::steady_clock::now();
         timingSample.totalSec = std::chrono::duration<double>(stepEnd - updateStart).count();
         m_updateTimings.addSample(timingSample);
+        fast::rf::Logger::logWarn("Total Time: " + std::to_string(timingSample.totalSec));
         fast::rf::Logger::logDebug(m_updateTimings.pretty());
         return updateSuccess;
     }

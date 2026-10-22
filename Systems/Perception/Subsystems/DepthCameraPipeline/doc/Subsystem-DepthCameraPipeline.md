@@ -103,8 +103,9 @@ auto readyToArm = subsystem.get_ready_to_arm(); // Get Ready to Arm Object
 auto diagnostics = subsystem.getDiagnostics(); // Get all Diagnostics
 ```
 `getUpdateTimings()` reports the running average fused-output retrieval, feature detection,
-object detection, output update, process updates, and total duration. Updates without a fused point
-cloud are excluded from the vision-stage averages. Fused-output retrieval, process updates, and total
-duration average across all updates. `visionPipelineExecuted` indicates whether vision stages ran in
-the most recent update. Each update writes the running averages in seconds to the debug log.
+object detection, output update, process updates, and total duration. Vision-stage timings and
+`total_vision` average only updates where the vision pipeline ran. Fused-output retrieval,
+process updates, and `total_all` average across every update. The debug log labels each average
+with its sample population and reports values in seconds. `visionPipelineExecuted` indicates whether
+vision stages ran in the most recent update.
 # Validation
