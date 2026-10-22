@@ -32,7 +32,8 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             std::vector<fast::rf::messages::VisionMsgs::Detection3DMsg> latestDetections;
             uint64_t fullPipelineOutputCounter{0};
         };
-        struct UpdateTimings {
+        class UpdateTimings {
+           public:
             double fusedOutputRetrievalSec{0.0};
             double featureDetectionSec{0.0};
             double objectDetectionSec{0.0};
@@ -41,9 +42,21 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             double totalSec{0.0};
             bool visionPipelineExecuted{false};
 
+            void addSample(const UpdateTimings& sample) {
+                m_sampleCount++;
+                const double count = static_cast<double>(m_sampleCount);
+                fusedOutputRetrievalSec += (sample.fusedOutputRetrievalSec - fusedOutputRetrievalSec) / count;
+                featureDetectionSec += (sample.featureDetectionSec - featureDetectionSec) / count;
+                objectDetectionSec += (sample.objectDetectionSec - objectDetectionSec) / count;
+                outputUpdateSec += (sample.outputUpdateSec - outputUpdateSec) / count;
+                processUpdatesSec += (sample.processUpdatesSec - processUpdatesSec) / count;
+                totalSec += (sample.totalSec - totalSec) / count;
+                visionPipelineExecuted = sample.visionPipelineExecuted;
+            }
+
             std::string pretty() const {
-                return "DepthCameraPipeline update timings (ms): fused_output=" +
-                       std::to_string(fusedOutputRetrievalSec * 1000.0) +
+                return "DepthCameraPipeline update timing averages (ms, samples=" + std::to_string(m_sampleCount) +
+                       "): fused_output=" + std::to_string(fusedOutputRetrievalSec * 1000.0) +
                        ", feature_detection=" + std::to_string(featureDetectionSec * 1000.0) +
                        ", object_detection=" + std::to_string(objectDetectionSec * 1000.0) +
                        ", output_update=" + std::to_string(outputUpdateSec * 1000.0) +
@@ -51,6 +64,9 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                        ", total=" + std::to_string(totalSec * 1000.0) +
                        ", vision_pipeline_executed=" + (visionPipelineExecuted ? "true" : "false");
             }
+
+           private:
+            uint64_t m_sampleCount{0};
         };
         DepthCameraPipelineSubsystem()
             : m_sensorInputHandlerProcess(std::make_shared<fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::
@@ -120,11 +136,11 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
          */
         bool update(double currentTimeSec);
         /**
-         * @brief Get timings from the most recent update call, in seconds.
+         * @brief Get running average timings across update calls, in seconds.
          *
-         * Vision-stage timings are zero when no fused point cloud was available.
+         * Vision-stage timings include zero samples when no fused point cloud was available.
          */
-        UpdateTimings getLastUpdateTimings() const { return m_lastUpdateTimings; }
+        UpdateTimings getUpdateTimings() const { return m_updateTimings; }
         /**
          * @brief Get the ready to arm object
          *
@@ -156,6 +172,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
         fast::rf::messages::InfrastructureMsgs::ReadyToArmStatusMsg m_readyToArm;
 
         DepthCameraPipelineSubsystemOutput m_output;
-        UpdateTimings m_lastUpdateTimings;
+        UpdateTimings m_updateTimings;
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem

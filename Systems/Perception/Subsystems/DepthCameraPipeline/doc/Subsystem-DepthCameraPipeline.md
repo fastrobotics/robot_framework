@@ -97,13 +97,14 @@ subsystem.addSignalToMonitor("sensor name", "data type", <expected rate (Hz)>, <
 fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud;
 subsystem.newPointCloud(pointCloud, "sensor name"); // Feed it a Point Cloud
 subsystem.update(currentTime); // Periodically update it
-auto updateTimings = subsystem.getLastUpdateTimings(); // Latest per-stage update durations, in seconds
+auto updateTimings = subsystem.getUpdateTimings(); // Running average per-stage durations, in seconds
 fast::rf::Logger::logInfo(subsystem.pretty()); // Output to console/log output file the status of the system
 auto readyToArm = subsystem.get_ready_to_arm(); // Get Ready to Arm Object
 auto diagnostics = subsystem.getDiagnostics(); // Get all Diagnostics
 ```
-`getLastUpdateTimings()` reports the most recent update's fused-output retrieval, feature detection,
-object detection, output update, process updates, and total duration. Vision-stage timings are zero
-when no fused point cloud was available; `visionPipelineExecuted` indicates whether those stages ran.
-Each update also writes these timings in milliseconds to the debug log.
+`getUpdateTimings()` reports the running average fused-output retrieval, feature detection,
+object detection, output update, process updates, and total duration. Updates without a fused point
+cloud contribute zero to the vision-stage averages. `visionPipelineExecuted` indicates whether
+vision stages ran in the most recent update. Each update writes the running averages in milliseconds
+to the debug log.
 # Validation

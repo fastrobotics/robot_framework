@@ -47,23 +47,23 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
     }
     bool DepthCameraPipelineSubsystem::update(double currentTimeSec) {
         const auto updateStart = std::chrono::steady_clock::now();
-        UpdateTimings timings;
+        UpdateTimings timingSample;
         auto stepStart = std::chrono::steady_clock::now();
         auto fusedPointCloudOutput = m_sensorFuserProcess->getOutput();
         auto stepEnd = std::chrono::steady_clock::now();
-        timings.fusedOutputRetrievalSec = std::chrono::duration<double>(stepEnd - stepStart).count();
+        timingSample.fusedOutputRetrievalSec = std::chrono::duration<double>(stepEnd - stepStart).count();
         if (fusedPointCloudOutput.fusedPointCloudCounter > 0) {
-            timings.visionPipelineExecuted = true;
+            timingSample.visionPipelineExecuted = true;
 
             stepStart = std::chrono::steady_clock::now();
             auto featureCloud = m_featureDetectorProcess->detectFeatures(fusedPointCloudOutput.latestFusedPointCloud);
             stepEnd = std::chrono::steady_clock::now();
-            timings.featureDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
+            timingSample.featureDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
 
             stepStart = std::chrono::steady_clock::now();
             auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
             stepEnd = std::chrono::steady_clock::now();
-            timings.objectDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
+            timingSample.objectDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
 
             stepStart = std::chrono::steady_clock::now();
             if (featureCloud.isValidFeatureCloud()) {
@@ -74,7 +74,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
                 fast::rf::Logger::logWarn("No Valid Feature Cloud Yet.");
             }
             stepEnd = std::chrono::steady_clock::now();
-            timings.outputUpdateSec = std::chrono::duration<double>(stepEnd - stepStart).count();
+            timingSample.outputUpdateSec = std::chrono::duration<double>(stepEnd - stepStart).count();
         } else {
             fast::rf::Logger::logWarn("No Fused Point Cloud Yet.");
         }
@@ -93,15 +93,15 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             }
         }
         stepEnd = std::chrono::steady_clock::now();
-        timings.processUpdatesSec = std::chrono::duration<double>(stepEnd - stepStart).count();
+        timingSample.processUpdatesSec = std::chrono::duration<double>(stepEnd - stepStart).count();
         if (updateSuccess) {
             m_readyToArm.ready_to_arm = readyToArmFlag;
         }
 
         stepEnd = std::chrono::steady_clock::now();
-        timings.totalSec = std::chrono::duration<double>(stepEnd - updateStart).count();
-        m_lastUpdateTimings = timings;
-        fast::rf::Logger::logDebug(timings.pretty());
+        timingSample.totalSec = std::chrono::duration<double>(stepEnd - updateStart).count();
+        m_updateTimings.addSample(timingSample);
+        fast::rf::Logger::logDebug(m_updateTimings.pretty());
         return updateSuccess;
     }
     std::vector<fast::rf::messages::InfrastructureMsgs::DiagnosticMsg> DepthCameraPipelineSubsystem::getDiagnostics() {

@@ -41,13 +41,13 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_TRUE(SUT.newPointCloud(pointCloud, signalName));
     fast::rf::Logger::logInfo(SUT.pretty());
     ASSERT_TRUE(SUT.update(1.0));
-    const auto initialTimings = SUT.getLastUpdateTimings();
+    const auto initialTimings = SUT.getUpdateTimings();
     EXPECT_FALSE(initialTimings.visionPipelineExecuted);
     EXPECT_DOUBLE_EQ(initialTimings.featureDetectionSec, 0.0);
     EXPECT_DOUBLE_EQ(initialTimings.objectDetectionSec, 0.0);
     EXPECT_DOUBLE_EQ(initialTimings.outputUpdateSec, 0.0);
     ASSERT_TRUE(SUT.update(2.0));
-    const auto timings = SUT.getLastUpdateTimings();
+    const auto timings = SUT.getUpdateTimings();
     ASSERT_TRUE(timings.visionPipelineExecuted);
     EXPECT_GE(timings.fusedOutputRetrievalSec, 0.0);
     EXPECT_GE(timings.featureDetectionSec, 0.0);
@@ -66,4 +66,23 @@ TEST(DepthCameraPipelineSubsystem, BasicTests) {
     ASSERT_GT(diagnostics.size(), 0);
     auto output = SUT.getOutput();
     ASSERT_GT(output.fullPipelineOutputCounter, 0);
+}
+
+TEST(DepthCameraPipelineSubsystem, UpdateTimingsRunningAverage) {
+    DepthCameraPipelineSubsystem::UpdateTimings timings;
+    DepthCameraPipelineSubsystem::UpdateTimings sample;
+    sample.fusedOutputRetrievalSec = 2.0;
+    sample.featureDetectionSec = 4.0;
+    sample.visionPipelineExecuted = true;
+    timings.addSample(sample);
+
+    sample.fusedOutputRetrievalSec = 4.0;
+    sample.featureDetectionSec = 8.0;
+    sample.visionPipelineExecuted = false;
+    timings.addSample(sample);
+
+    EXPECT_DOUBLE_EQ(timings.fusedOutputRetrievalSec, 3.0);
+    EXPECT_DOUBLE_EQ(timings.featureDetectionSec, 6.0);
+    EXPECT_FALSE(timings.visionPipelineExecuted);
+    EXPECT_NE(timings.pretty().find("samples=2"), std::string::npos);
 }
