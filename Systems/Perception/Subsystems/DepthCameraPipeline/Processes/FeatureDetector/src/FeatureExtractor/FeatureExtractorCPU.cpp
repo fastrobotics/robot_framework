@@ -23,7 +23,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         fast::rf::messages::SensorMsgs::PointCloudMsg pointCloud) {
         FeatureExtractionContainer container;
         container.cloud = pointCloud;
-        std::size_t inputSize = container.cloud.size();
         auto tree = std::make_shared<pcl::search::KdTree<pcl::PointXYZRGB>>();
         pcl::NormalEstimation<pcl::PointXYZRGB, pcl::Normal> ne;
         ne.setInputCloud(pointCloud.point_cloud);
@@ -47,9 +46,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         if (container.wereFeaturesExtracted) {
             m_extractedCount++;
         }
-        std::size_t outputSize = container.cloud.size();
-        double reductionRatioPerc = ((double)outputSize - (double)inputSize) / (double)inputSize * 100.0;
-        fast::rf::Logger::logInfo("Reduction Ratio Perc: " + std::to_string(reductionRatioPerc) + " (%)");
         return container;
     }
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector
