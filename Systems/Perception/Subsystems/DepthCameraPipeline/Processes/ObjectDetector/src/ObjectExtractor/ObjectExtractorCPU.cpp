@@ -47,9 +47,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
 
         std::vector<pcl::PointIndices> clusters;
         reg.extract(clusters);
-
-        std::cout << "[Info] Region growing segmented " << clusters.size() << " discrete objects.\n";
-
         // 2. Process each isolated cluster independently
         int object_counter = 0;
         for (const auto& indices : clusters) {
