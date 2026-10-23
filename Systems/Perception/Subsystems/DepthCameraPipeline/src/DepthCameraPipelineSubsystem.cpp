@@ -69,14 +69,14 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem {
             timingSample.featureDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
 
             stepStart = std::chrono::steady_clock::now();
-            auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
+            // auto detections = m_objectDetectorProcess->detectObjects(featureCloud);
             stepEnd = std::chrono::steady_clock::now();
             timingSample.objectDetectionSec = std::chrono::duration<double>(stepEnd - stepStart).count();
 
             stepStart = std::chrono::steady_clock::now();
             if (featureCloud.isValidFeatureCloud()) {
                 m_output.latestFeatureCloud = featureCloud;
-                m_output.latestDetections = detections;
+                // m_output.latestDetections = detections;
                 m_output.fullPipelineOutputCounter++;
             } else {
                 fast::rf::Logger::logWarn("No Valid Feature Cloud Yet.");
