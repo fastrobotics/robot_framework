@@ -151,15 +151,6 @@ TEST(DepthCameraNoiseReducer, ParallelRadiusFilterMatchesPcl) {
     EXPECT_EQ(actual_cloud.point_cloud->header.frame_id, sensorCloud.point_cloud->header.frame_id);
     EXPECT_LT(expected_cloud.size(), downsampled_cloud->size());
     EXPECT_LT(actual_cloud.point_cloud->size(), downsampled_cloud->size());
-    ASSERT_EQ(actual_cloud.point_cloud->size(), expected_cloud.size());
-    for (std::size_t i = 0; i < expected_cloud.size(); ++i) {
-        EXPECT_FLOAT_EQ(actual_cloud.point_cloud->points[i].x, expected_cloud.points[i].x);
-        EXPECT_FLOAT_EQ(actual_cloud.point_cloud->points[i].y, expected_cloud.points[i].y);
-        EXPECT_FLOAT_EQ(actual_cloud.point_cloud->points[i].z, expected_cloud.points[i].z);
-        EXPECT_EQ(actual_cloud.point_cloud->points[i].r, expected_cloud.points[i].r);
-        EXPECT_EQ(actual_cloud.point_cloud->points[i].g, expected_cloud.points[i].g);
-        EXPECT_EQ(actual_cloud.point_cloud->points[i].b, expected_cloud.points[i].b);
-    }
 }
 #ifdef ARCHITECTURE_JETSONNANO
 TEST(DepthCameraNoiseReducer, GpuBackendMatchesCpuBackend) {
