@@ -3,6 +3,7 @@ var classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1Featu
     [ "init", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#a3ac7db10893f7b394355ba9e05f0b7da", null ],
     [ "pretty", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#a294bd6e30988184b3bd7f0716a16b3e7", null ],
     [ "update", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#a9f8d850a8e9607780dfa87b8e39fa779", null ],
+    [ "m_enableFPHFFeatureExtraction", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#af1c5520e70f9e312aad80db91fe73376", null ],
     [ "m_extractedCount", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#aa6d18be07351aa0527b45e27ca45f2b4", null ],
     [ "m_fpfhFeatures", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#a4bf8b4f24449eadb1d3ae400f280cc1b", null ],
     [ "m_fphRadius_m", "classfast_1_1rf_1_1PerceptionSystem_1_1DepthCameraPipelineSubsystem_1_1FeatureDetector_1_1BaseFeatureExtractor.html#a0ecdfc3e50cb2bcfc9eef566ca21d792", null ],

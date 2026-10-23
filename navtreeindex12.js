@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"functions_func_e.html":[4,3,1,4],
+"functions_func_f.html":[4,3,1,5],
 "functions_func_g.html":[4,3,1,6],
 "functions_func_i.html":[4,3,1,7],
 "functions_func_j.html":[4,3,1,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "namespacefast_1_1rf_1_1PerceptionSystem_1_1PerceptionIntegrityMonitorSubsystem.html":[3,0,0,0,11,2],
 "namespacefast_1_1rf_1_1PerceptionSystem_1_1UltrasonicPipelineSubsystem.html":[3,0,0,0,11,3],
 "namespacefast_1_1rf_1_1PoseSystem.html":[3,0,0,0,12],
-"namespacefast_1_1rf_1_1PoseSystem.html#a4d160404a37fcd08bc6edd3b2d38f64c":[3,0,0,0,12,10],
-"namespacefast_1_1rf_1_1PoseSystem.html#a98b48a791fd5c1b0db45a117e6c0b51c":[3,0,0,0,12,9],
-"namespacefast_1_1rf_1_1PoseSystem_1_1GlobalPoseSubsystem.html":[3,0,0,0,12,0]
+"namespacefast_1_1rf_1_1PoseSystem.html#a4d160404a37fcd08bc6edd3b2d38f64c":[3,0,0,0,12,10]
 };
