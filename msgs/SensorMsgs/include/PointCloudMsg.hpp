@@ -36,9 +36,9 @@ namespace fast::rf::messages::SensorMsgs {
 
         bool empty() const { return size() == 0; }
         [[nodiscard]] bool isValidFeatureCloud() const noexcept {
-            if (!point_cloud || !normals || !fpfh_features)
+            if (!point_cloud || !normals)
                 return false;
-            return (point_cloud->size() == normals->size()) && (point_cloud->size() == fpfh_features->size());
+            return (point_cloud->size() == normals->size());
         }
         void clear() noexcept {
             time_stamp = -1.0;
