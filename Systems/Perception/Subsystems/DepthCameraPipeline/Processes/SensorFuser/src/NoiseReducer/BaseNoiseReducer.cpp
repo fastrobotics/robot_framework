@@ -49,7 +49,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
         }
         if (input.point_cloud->empty())
             return passthroughResult(input);
-
+        std::size_t inputSize = input.size();
         auto downsampled_cloud = prepareCloud(input.point_cloud);
         if (downsampled_cloud->empty())
             return emptyResult(input.time_stamp, input.point_cloud);
@@ -64,9 +64,12 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser 
             fast::rf::messages::SensorMsgs::PointCloudMsg result;
             result.time_stamp = input.time_stamp;
             result.point_cloud = std::move(filtered_cloud);
+            std::size_t outputSize = result.size();
             if (result.size() == 0) {
                 fast::rf::Logger::logWarn("Noise Reducer removed all points from Cloud!");
             }
+            double reductionPerc = 100.0 * ((double)outputSize - (double)inputSize) / (double)inputSize;
+            fast::rf::Logger::logInfo("Noise Reduction Size: " + std::to_string(reductionPerc) + " (%)");
             return result;
         } catch (const std::exception& error) {
             fast::rf::Logger::logError("NoiseReducer backend failed: " + std::string(error.what()));

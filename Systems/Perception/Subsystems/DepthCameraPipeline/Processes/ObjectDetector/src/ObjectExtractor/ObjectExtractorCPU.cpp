@@ -33,13 +33,13 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
         const pcl::PointCloud<pcl::PointXYZRGB>::Ptr& cloud, const pcl::PointCloud<pcl::Normal>::Ptr& normals,
         const pcl::PointCloud<pcl::FPFHSignature33>::Ptr& fpfh_features) {
         std::vector<DiscoveredObject> objects;
+
         // 1. Configure and run Region Growing Segmentation
         pcl::RegionGrowing<pcl::PointXYZRGB, pcl::Normal> reg;
         reg.setMinClusterSize(m_minClusterSize);
         reg.setMaxClusterSize(1000000);
         reg.setInputCloud(cloud);
         reg.setInputNormals(normals);
-
         // Configure normal proximity thresholds
         reg.setNumberOfNeighbours(30);
         reg.setSmoothnessThreshold(m_clusterToleranceDeg * M_PI / 180.0);  // Degrees to Radians
@@ -47,9 +47,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
 
         std::vector<pcl::PointIndices> clusters;
         reg.extract(clusters);
-
-        std::cout << "[Info] Region growing segmented " << clusters.size() << " discrete objects.\n";
-
         // 2. Process each isolated cluster independently
         int object_counter = 0;
         for (const auto& indices : clusters) {
@@ -78,32 +75,32 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
             feature_extractor.getOBB(min_point_OBB, max_point_OBB, position, rotational_matrix);
             Eigen::Vector3f dimensions(max_point_OBB.x - min_point_OBB.x, max_point_OBB.y - min_point_OBB.y,
                                        max_point_OBB.z - min_point_OBB.z);
-
-            // 3. Pool local features into a Global Object Descriptor
-            // Averaging the histogram bins across all component points inside this instance
-            Eigen::VectorXf global_descriptor = Eigen::VectorXf::Zero(33);
-            for (const auto& index : indices.indices) {
-                const pcl::FPFHSignature33& point_fpfh = (*fpfh_features)[index];
-                for (int f = 0; f < 33; ++f) {
-                    global_descriptor[f] += point_fpfh.histogram[f];
+            DiscoveredObject obj;
+            if (fpfh_features->empty() == false) {
+                // 3. Pool local features into a Global Object Descriptor
+                // Averaging the histogram bins across all component points inside this instance
+                Eigen::VectorXf global_descriptor = Eigen::VectorXf::Zero(33);
+                for (const auto& index : indices.indices) {
+                    const pcl::FPFHSignature33& point_fpfh = (*fpfh_features)[index];
+                    for (int f = 0; f < 33; ++f) {
+                        global_descriptor[f] += point_fpfh.histogram[f];
+                    }
                 }
+                global_descriptor /= static_cast<float>(indices.indices.size());
+                obj.global_fpfh = global_descriptor;
             }
-            global_descriptor /= static_cast<float>(indices.indices.size());
 
             // 4. Populate object structure entry
-            DiscoveredObject obj;
+
             obj.id = object_counter++;
             obj.point_count = indices.indices.size();
             obj.centroid = centroid;
             obj.dimensions = dimensions;
             obj.rotation_matrix = rotational_matrix;
-            obj.global_fpfh = global_descriptor;
             obj.cloud_cluster = cluster_cloud;
 
             objects.push_back(obj);
         }
-
-        return objects;
 
         return objects;
     }

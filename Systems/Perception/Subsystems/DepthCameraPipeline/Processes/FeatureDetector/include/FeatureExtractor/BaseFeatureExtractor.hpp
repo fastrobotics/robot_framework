@@ -25,6 +25,7 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
     class BaseFeatureExtractor : public IFeatureExtractor {
        public:
         bool init();
+        // bool setConfig(bool)
         bool update(double currentTimeSec);
 
        protected:
@@ -37,7 +38,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetec
         uint64_t m_extractedCount{0};
         PointCloudNormal::Ptr m_normals{std::make_shared<PointCloudNormal>()};
         PointCloudFPFH::Ptr m_fpfhFeatures{std::make_shared<PointCloudFPFH>()};
-
-       private:
+        bool m_enableFPHFFeatureExtraction{false};
     };
 }  // namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::FeatureDetector

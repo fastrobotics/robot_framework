@@ -5,9 +5,9 @@
 
 namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::SensorFuser {
     struct NoiseReducerConfig {
-        double voxelSize_m{0.035};
-        double radius_m{0.05};
-        uint64_t minNeighborCount{2};
+        double voxelSize_m{0.1};
+        double radius_m{0.5};
+        uint64_t minNeighborCount{3};
     };
 
     class INoiseReducer {
