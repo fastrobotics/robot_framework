@@ -33,7 +33,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
         const pcl::PointCloud<pcl::PointXYZRGB>::Ptr& cloud, const pcl::PointCloud<pcl::Normal>::Ptr& normals,
         const pcl::PointCloud<pcl::FPFHSignature33>::Ptr& fpfh_features) {
         std::vector<DiscoveredObject> objects;
-        printf("xxx1\n");
 
         // 1. Configure and run Region Growing Segmentation
         pcl::RegionGrowing<pcl::PointXYZRGB, pcl::Normal> reg;
@@ -41,7 +40,6 @@ namespace fast::rf::PerceptionSystem::DepthCameraPipelineSubsystem::ObjectDetect
         reg.setMaxClusterSize(1000000);
         reg.setInputCloud(cloud);
         reg.setInputNormals(normals);
-        printf("xxx2\n");
         // Configure normal proximity thresholds
         reg.setNumberOfNeighbours(30);
         reg.setSmoothnessThreshold(m_clusterToleranceDeg * M_PI / 180.0);  // Degrees to Radians
